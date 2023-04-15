@@ -37,7 +37,7 @@ async function main() {
 
   packageStruct.exports = exports
 
-  await fs.writeFile('package.json', JSON.stringify(packageStruct, null, 2))
+  await fs.writeFile('package.json', JSON.stringify(packageStruct, null, 2) + '\n')
 }
 
 main()
