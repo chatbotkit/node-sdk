@@ -1,0 +1,11 @@
+{
+  "name": "chatbotkit",
+  "version": "0.0.0",
+  "description": "The fastest way to build advanced AI chat bots",
+  "main": "index.js",
+  "scripts": {
+    "test": "true"
+  },
+  "author": "",
+  "license": "ISC"
+}
