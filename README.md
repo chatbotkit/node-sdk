@@ -1,3 +1,3 @@
-# ChatBotKit Node SDK
+> This SDK is currently under active development.
 
-This is the offiical ChatBotKit Node SDK.
+# ChatBotKit Node SDK
