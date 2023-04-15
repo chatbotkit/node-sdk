@@ -1,4 +1,4 @@
-@chatbotkit/sdk / [Exports](modules.md)
+@chatbotkit/sdk / [Modules](modules.md)
 
 > This SDK is currently under active development.
 

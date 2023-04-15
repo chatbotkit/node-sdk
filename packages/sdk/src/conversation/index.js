@@ -1,13 +1,13 @@
-const { ChatBotKitClient } = require('../client.js')
-const {
+import { ChatBotKitClient } from '../client.js'
+import {
   conversationComplete,
   conversationList,
   conversationCreate,
   conversationFetch,
   conversationDelete,
-} = require('./lib.js')
+} from './lib.js'
 
-class ConversationClient extends ChatBotKitClient {
+export class ConversationClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
    */
@@ -48,8 +48,4 @@ class ConversationClient extends ChatBotKitClient {
   delete(conversationId) {
     return conversationDelete(this, conversationId)
   }
-}
-
-module.exports = {
-  ConversationClient,
 }

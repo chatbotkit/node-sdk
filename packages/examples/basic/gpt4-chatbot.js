@@ -2,9 +2,7 @@ const readline = require('node:readline/promises')
 
 require('dotenv').config()
 
-const {
-  ConversationClient,
-} = require('@chatbotkit/sdk/lib/conversation/index.js')
+const { ConversationClient } = require('@chatbotkit/sdk/conversation/index.js')
 
 /**
  * The main() function creates a new ConversationClient object, which uses a

@@ -1,38 +1,10 @@
-export type Message = {
-    type: 'user' | 'bot' | 'context' | 'instruction' | 'backstory';
-    text: string;
-};
-export type ConversationCompleteRequest = {
-    model?: string;
-    messages: Message[];
-};
-export type ConversationCompleteResponse = {
-    text: string;
-};
-export type ConversationListResponse = {
-    id: string;
-};
-export type ConversationCreateRequest = {
-    backstory?: string;
-    model?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-    messages?: Message[];
-};
-export type ConversationCreateResponse = {
-    id: string;
-};
-export type ConversationDeleteResponse = {
-    id: string;
-};
 /**
  * @typedef {{
  * type: 'user'|'bot'|'context'|'instruction'|'backstory',
  * text: string
  * }} Message
  */
+
 /**
  * @typedef {{
  * model?: string,
@@ -47,7 +19,14 @@ export type ConversationDeleteResponse = {
  * @param {ConversationCompleteRequest} request
  * @returns {Promise<ConversationCompleteResponse>}
  */
-export function conversationComplete(client: import('../client.js').ChatBotKitClient, request: ConversationCompleteRequest): Promise<ConversationCompleteResponse>;
+export async function conversationComplete(client, request) {
+  const response = await client.clientFetch(`/api/v1/conversation/complete`, {
+    data: request,
+  })
+
+  return response
+}
+
 /**
  * @typedef {{
  * id: string
@@ -56,7 +35,12 @@ export function conversationComplete(client: import('../client.js').ChatBotKitCl
  * @param {import('../client.js').ChatBotKitClient} client
  * @returns {Promise<ConversationListResponse>}
  */
-export function conversationList(client: import('../client.js').ChatBotKitClient): Promise<ConversationListResponse>;
+export async function conversationList(client) {
+  const response = await client.clientFetch(`/api/v1/conversation/list`)
+
+  return response
+}
+
 /**
  * @typedef {{
  * backstory?: string,
@@ -76,7 +60,37 @@ export function conversationList(client: import('../client.js').ChatBotKitClient
  * @param {ConversationCreateRequest} request
  * @returns {Promise<ConversationCreateResponse>}
  */
-export function conversationCreate(client: import('../client.js').ChatBotKitClient, request: ConversationCreateRequest): Promise<ConversationCreateResponse>;
+export async function conversationCreate(client, request) {
+  const response = await client.clientFetch(`/api/v1/conversation/create`, {
+    data: request,
+  })
+
+  return response
+}
+
+/**
+ * @typedef {{
+ * id: string,
+ * backstory?: string,
+ * model?: string,
+ * datasetId?: string,
+ * skillsetId?: string,
+ * createdAt: number,
+ * updatedAt: number,
+ * }} ConversationFetchResponse
+ *
+ * @param {import('../client.js').ChatBotKitClient} client
+ * @param {string} conversationId
+ * @returns {Promise<ConversationFetchResponse>}
+ */
+export async function conversationFetch(client, conversationId) {
+  const response = await client.clientFetch(
+    `/api/v1/conversation/${conversationId}/fetch`
+  )
+
+  return response
+}
+
 /**
  * @typedef {{
  * id: string
@@ -86,4 +100,10 @@ export function conversationCreate(client: import('../client.js').ChatBotKitClie
  * @param {string} conversationId
  * @returns {Promise<ConversationDeleteResponse>}
  */
-export function conversationDelete(client: import('../client.js').ChatBotKitClient, conversationId: string): Promise<ConversationDeleteResponse>;
+export async function conversationDelete(client, conversationId) {
+  const response = await client.clientFetch(
+    `/api/v1/conversation/${conversationId}/delete`
+  )
+
+  return response
+}

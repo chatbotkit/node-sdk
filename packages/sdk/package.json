@@ -18,24 +18,83 @@
     "chat",
     "chatbot",
     "sdk",
-    "chatbotkit"
+    "chatbotkit",
+    "serverless",
+    "edge"
   ],
-  "main": "lib/index.js",
+  "type": "module",
+  "main": "./dist/esm/index.js",
+  "exports": {
+    "./client.js": {
+      "require": {
+        "types": "./dist/cjs/client.d.ts",
+        "default": "./dist/cjs/client.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/client.d.ts",
+        "default": "./dist/esm/client.js"
+      }
+    },
+    "./conversation/index.js": {
+      "require": {
+        "types": "./dist/cjs/conversation/index.d.ts",
+        "default": "./dist/cjs/conversation/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/index.d.ts",
+        "default": "./dist/esm/conversation/index.js"
+      }
+    },
+    "./conversation/lib.js": {
+      "require": {
+        "types": "./dist/cjs/conversation/lib.d.ts",
+        "default": "./dist/cjs/conversation/lib.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/lib.d.ts",
+        "default": "./dist/esm/conversation/lib.js"
+      }
+    },
+    "./fetch.js": {
+      "require": {
+        "types": "./dist/cjs/fetch.d.ts",
+        "default": "./dist/cjs/fetch.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/fetch.d.ts",
+        "default": "./dist/esm/fetch.js"
+      }
+    },
+    "./index.js": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    }
+  },
   "scripts": {
     "build": "run-s build:*",
-    "build:docs": "typedoc --plugin typedoc-plugin-markdown --out ../../docs lib/index.js",
-    "build:types": "tsc",
+    "build:a": "pwd",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs_rename": "find ./dist/cjs -name '*.js' -exec rename .js .cjs {} +",
+    "build:cjs_rewrite_cjs": "find ./dist/cjs -name '*.cjs' -exec sed -i 's/require(\"\\(.*\\)\\.js\")/require(\"\\1.cjs\")/g' {} +",
+    "build:cjs_rewrite_ts": "find ./dist/cjs -name '*.ts' -exec sed -i 's/from \"\\(.*\\)\\.js\"/from \"\\1.cjs\"/g' {} +",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:exports": "node scripts/build-exports.js",
     "test": "true"
   },
-  "types": "./types/index.d.ts",
+  "types": "./dist/esm/index.d.ts",
   "dependencies": {
     "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
+    "@tsconfig/recommended": "^1.0.2",
     "@types/isomorphic-fetch": "^0.0.36",
-    "typescript": "^5.0.4",
-    "typedoc": "^0.24.1",
-    "typedoc-plugin-markdown": "^3.15.1"
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.0.4"
   }
 }

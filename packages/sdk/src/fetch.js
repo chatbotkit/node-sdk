@@ -1,8 +1,8 @@
 /* global fetch */
 
-require('isomorphic-fetch')
+import 'isomorphic-fetch'
 
-class RequestError extends Error {
+export class RequestError extends Error {
   /**
    * @param {string} message
    * @param {number|string} code
@@ -26,7 +26,12 @@ class RequestError extends Error {
  * @param {number} [retryDelay=250]
  * @returns {Promise<Response>}
  */
-async function fetchWithBackoff(url, options, retries = 5, retryDelay = 250) {
+export async function fetchWithBackoff(
+  url,
+  options,
+  retries = 5,
+  retryDelay = 250
+) {
   let response
 
   try {
@@ -61,10 +66,4 @@ async function fetchWithBackoff(url, options, retries = 5, retryDelay = 250) {
 
     return fetchWithBackoff(url, options, retries - 1, retryDelay * 2)
   }
-}
-
-module.exports = {
-  RequestError,
-
-  fetchWithBackoff,
 }

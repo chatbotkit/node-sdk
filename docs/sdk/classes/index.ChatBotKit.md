@@ -1,6 +1,8 @@
-[@chatbotkit/sdk](../README.md) / [Exports](../modules.md) / ChatBotKit
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [index](../modules/index.md) / ChatBotKit
 
 # Class: ChatBotKit
+
+[index](../modules/index.md).ChatBotKit
 
 ## Hierarchy
 
@@ -12,17 +14,17 @@
 
 ### Constructors
 
-- [constructor](ChatBotKit.md#constructor)
+- [constructor](index.ChatBotKit.md#constructor)
 
 ### Properties
 
-- [conversation](ChatBotKit.md#conversation)
-- [secret](ChatBotKit.md#secret)
-- [url](ChatBotKit.md#url)
+- [conversation](index.ChatBotKit.md#conversation)
+- [secret](index.ChatBotKit.md#secret)
+- [url](index.ChatBotKit.md#url)
 
 ### Methods
 
-- [clientFetch](ChatBotKit.md#clientfetch)
+- [clientFetch](index.ChatBotKit.md#clientfetch)
 
 ## Constructors
 
@@ -42,17 +44,17 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:8](https://github.com/chatbotkit/node-sdk/blob/1a25a70/packages/sdk/lib/index.js#L8)
+index.js:10
 
 ## Properties
 
 ### conversation
 
-• **conversation**: [`ConversationClient`](ConversationClient.md)
+• **conversation**: [`ConversationClient`](conversation.ConversationClient.md)
 
 #### Defined in
 
-[index.js:11](https://github.com/chatbotkit/node-sdk/blob/1a25a70/packages/sdk/lib/index.js#L11)
+index.js:13
 
 ___
 
@@ -66,7 +68,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:15](https://github.com/chatbotkit/node-sdk/blob/1a25a70/packages/sdk/lib/client.js#L15)
+client.js:15
 
 ___
 
@@ -80,7 +82,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:17](https://github.com/chatbotkit/node-sdk/blob/1a25a70/packages/sdk/lib/client.js#L17)
+client.js:17
 
 ## Methods
 
@@ -112,4 +114,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:28](https://github.com/chatbotkit/node-sdk/blob/1a25a70/packages/sdk/lib/client.js#L28)
+client.js:28

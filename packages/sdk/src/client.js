@@ -1,4 +1,4 @@
-const { fetchWithBackoff, RequestError } = require('./fetch.js')
+import { fetchWithBackoff, RequestError } from './fetch.js'
 
 /**
  * @typedef {{
@@ -7,7 +7,7 @@ const { fetchWithBackoff, RequestError } = require('./fetch.js')
  * }} ChatBotKitClientOptions
  */
 
-class ChatBotKitClient {
+export class ChatBotKitClient {
   /**
    * @param {ChatBotKitClientOptions} options
    */
@@ -63,8 +63,4 @@ class ChatBotKitClient {
 
     throw new RequestError(message, code, request, response)
   }
-}
-
-module.exports = {
-  ChatBotKitClient,
 }
