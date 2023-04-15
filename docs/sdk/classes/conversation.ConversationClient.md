@@ -50,7 +50,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[conversation/index.js:16](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L16)
+[conversation/index.js:16](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/conversation/index.js#L16)
 
 ## Properties
 
@@ -64,7 +64,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:15](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/client.js#L15)
+[client.js:15](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/client.js#L15)
 
 ___
 
@@ -78,7 +78,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:17](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/client.js#L17)
+[client.js:17](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/client.js#L17)
 
 ## Methods
 
@@ -110,13 +110,15 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:30](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/client.js#L30)
+[client.js:30](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/client.js#L30)
 
 ___
 
 ### complete
 
 ▸ **complete**(`request`): `Promise`<[`ConversationCompleteResponse`](../modules/conversation_lib.md#conversationcompleteresponse)\>
+
+Completes the next bot message in a stateless conversation.
 
 #### Parameters
 
@@ -130,13 +132,15 @@ ___
 
 #### Defined in
 
-[conversation/index.js:23](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L23)
+[conversation/index.js:25](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/conversation/index.js#L25)
 
 ___
 
 ### create
 
 ▸ **create**(`request`): `Promise`<[`ConversationCreateResponse`](../modules/conversation_lib.md#conversationcreateresponse)\>
+
+Creates a new conversation.
 
 #### Parameters
 
@@ -150,13 +154,15 @@ ___
 
 #### Defined in
 
-[conversation/index.js:36](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L36)
+[conversation/index.js:41](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/conversation/index.js#L41)
 
 ___
 
 ### delete
 
 ▸ **delete**(`conversationId`): `Promise`<[`ConversationDeleteResponse`](../modules/conversation_lib.md#conversationdeleteresponse)\>
+
+Deletes the conversation.
 
 #### Parameters
 
@@ -170,13 +176,15 @@ ___
 
 #### Defined in
 
-[conversation/index.js:66](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L66)
+[conversation/index.js:79](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/conversation/index.js#L79)
 
 ___
 
 ### fetch
 
 ▸ **fetch**(`conversationId`): `Promise`<[`ConversationFetchResponse`](../modules/conversation_lib.md#conversationfetchresponse)\>
+
+Fetches a conversation.
 
 #### Parameters
 
@@ -190,7 +198,7 @@ ___
 
 #### Defined in
 
-[conversation/index.js:43](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L43)
+[conversation/index.js:50](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/conversation/index.js#L50)
 
 ___
 
@@ -198,19 +206,23 @@ ___
 
 ▸ **list**(): `Promise`<[`ConversationListResponse`](../modules/conversation_lib.md#conversationlistresponse)\>
 
+Retrieves a list of all existing conversations associated with this client.
+
 #### Returns
 
 `Promise`<[`ConversationListResponse`](../modules/conversation_lib.md#conversationlistresponse)\>
 
 #### Defined in
 
-[conversation/index.js:29](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L29)
+[conversation/index.js:32](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/conversation/index.js#L32)
 
 ___
 
 ### receive
 
 ▸ **receive**(`conversationId`, `request`): `Promise`<[`ConversationReceiveResponse`](../modules/conversation_lib.md#conversationreceiveresponse)\>
+
+Receives a message from the conversation.
 
 #### Parameters
 
@@ -225,13 +237,15 @@ ___
 
 #### Defined in
 
-[conversation/index.js:59](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L59)
+[conversation/index.js:70](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/conversation/index.js#L70)
 
 ___
 
 ### send
 
 ▸ **send**(`conversationId`, `request`): `Promise`<[`ConversationSendResponse`](../modules/conversation_lib.md#conversationsendresponse)\>
+
+Sends a message to the conversation.
 
 #### Parameters
 
@@ -246,4 +260,4 @@ ___
 
 #### Defined in
 
-[conversation/index.js:51](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L51)
+[conversation/index.js:60](https://github.com/chatbotkit/node-sdk/blob/9e1f019/packages/sdk/src/conversation/index.js#L60)

@@ -18,6 +18,8 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
+   * Completes the next bot message in a stateless conversation.
+   *
    * @param {import('./lib.js').ConversationCompleteRequest} request
    */
   complete(request) {
@@ -25,12 +27,15 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
+   * Retrieves a list of all existing conversations associated with this client.
    */
   list() {
     return conversationList(this)
   }
 
   /**
+   * Creates a new conversation.
+   *
    * @param {import('./lib.js').ConversationCreateRequest} request
    */
   create(request) {
@@ -38,6 +43,8 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
+   * Fetches a conversation.
+   *
    * @param {string} conversationId
    */
   fetch(conversationId) {
@@ -45,6 +52,8 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
+   * Sends a message to the conversation.
+   *
    * @param {string} conversationId
    * @param {import('./lib.js').ConversationSendRequest} request
    */
@@ -53,6 +62,8 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
+   * Receives a message from the conversation.
+   *
    * @param {string} conversationId
    * @param {import('./lib.js').ConversationReceiveRequest} request
    */
@@ -61,6 +72,8 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
+   * Deletes the conversation.
+   *
    * @param {string} conversationId
    */
   delete(conversationId) {
