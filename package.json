@@ -15,7 +15,7 @@
     "format:src": "prettier -w .",
     "lint": "eslint",
     "prepare": "husky install",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish",
+    "publish-packages": "turbo run build test && changeset version && changeset publish",
     "test": "turbo run test"
   },
   "dependencies": {
