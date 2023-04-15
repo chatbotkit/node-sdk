@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/isomorphic-fetch": "^0.0.36",
+    "dotenv": "^16.0.3",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "format-package": "^7.0.0",

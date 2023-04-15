@@ -18,6 +18,7 @@
 
 - [conversation](ChatBotKit.md#conversation)
 - [secret](ChatBotKit.md#secret)
+- [url](ChatBotKit.md#url)
 
 ### Methods
 
@@ -41,7 +42,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:8](https://github.com/chatbotkit/node-sdk/blob/92d702c/lib/index.js#L8)
+[index.js:8](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/index.js#L8)
 
 ## Properties
 
@@ -51,7 +52,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:11](https://github.com/chatbotkit/node-sdk/blob/92d702c/lib/index.js#L11)
+[index.js:11](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/index.js#L11)
 
 ___
 
@@ -65,13 +66,27 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:12](https://github.com/chatbotkit/node-sdk/blob/92d702c/lib/client.js#L12)
+[client.js:15](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/client.js#L15)
+
+___
+
+### url
+
+• **url**: `URL`
+
+#### Inherited from
+
+ChatBotKitClient.url
+
+#### Defined in
+
+[client.js:17](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/client.js#L17)
 
 ## Methods
 
 ### clientFetch
 
-▸ **clientFetch**<`T`\>(`url`, `options?`): `Promise`<`T`\>
+▸ **clientFetch**<`T`\>(`path`, `options?`): `Promise`<`T`\>
 
 #### Type parameters
 
@@ -83,7 +98,7 @@ ChatBotKitClient.secret
 
 | Name | Type |
 | :------ | :------ |
-| `url` | `string` |
+| `path` | `string` |
 | `options?` | `Object` |
 | `options.data?` | `Record`<`string`, `any`\> |
 
@@ -97,4 +112,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:21](https://github.com/chatbotkit/node-sdk/blob/92d702c/lib/client.js#L21)
+[client.js:28](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/client.js#L28)

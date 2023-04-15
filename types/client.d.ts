@@ -1,8 +1,12 @@
 export type ChatBotKitClientOptions = {
     secret: string;
+    host?: string;
 };
 /**
- * @typedef {{secret: string}} ChatBotKitClientOptions
+ * @typedef {{
+ * secret: string,
+ * host?: string
+ * }} ChatBotKitClientOptions
  */
 export class ChatBotKitClient {
     /**
@@ -10,13 +14,14 @@ export class ChatBotKitClient {
      */
     constructor(options: ChatBotKitClientOptions);
     secret: string;
+    url: URL;
     /**
      * @template T
-     * @param {string} url
+     * @param {string} path
      * @param {{data?: Record<string,any>}} [options]
      * @returns {Promise<T>}
      */
-    clientFetch<T>(url: string, options?: {
+    clientFetch<T>(path: string, options?: {
         data?: Record<string, any> | undefined;
     } | undefined): Promise<T>;
 }
