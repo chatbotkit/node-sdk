@@ -70,6 +70,29 @@ async function conversationCreate(client, request) {
 
 /**
  * @typedef {{
+ * id: string,
+ * backstory?: string,
+ * model?: string,
+ * datasetId?: string,
+ * skillsetId?: string,
+ * createdAt: number,
+ * updatedAt: number,
+ * }} ConversationFetchResponse
+ *
+ * @param {import('../client.js').ChatBotKitClient} client
+ * @param {string} conversationId
+ * @returns {Promise<ConversationFetchResponse>}
+ */
+async function conversationFetch(client, conversationId) {
+  const response = await client.clientFetch(
+    `/api/v1/conversation/${conversationId}/fetch`
+  )
+
+  return response
+}
+
+/**
+ * @typedef {{
  * id: string
  * }} ConversationDeleteResponse
  *
@@ -89,5 +112,6 @@ module.exports = {
   conversationComplete,
   conversationList,
   conversationCreate,
+  conversationFetch,
   conversationDelete,
 }

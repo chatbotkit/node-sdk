@@ -3,6 +3,7 @@ const {
   conversationComplete,
   conversationList,
   conversationCreate,
+  conversationFetch,
   conversationDelete,
 } = require('./lib.js')
 
@@ -32,6 +33,13 @@ class ConversationClient extends ChatBotKitClient {
    */
   create(request) {
     return conversationCreate(this, request)
+  }
+
+  /**
+   * @param {string} conversationId
+   */
+  fetch(conversationId) {
+    return conversationFetch(this, conversationId)
   }
 
   /**
