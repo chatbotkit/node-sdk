@@ -76,6 +76,9 @@
       }
     }
   },
+  "files": [
+    "./dist/**/*"
+  ],
   "scripts": {
     "build": "run-s build:*",
     "build:a": "pwd",

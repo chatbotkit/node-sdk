@@ -98,7 +98,7 @@ export async function conversationFetch(client, conversationId) {
  * end: number,
  * text: string,
  * replacement?: {
- * being: number,
+ * begin: number,
  * end: number,
  * text: string
  * }
