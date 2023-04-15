@@ -14,9 +14,11 @@ export class ChatBotKitClient {
   constructor(options) {
     this.secret = options.secret
 
-    this.url = new URL(`https://localhost`)
+    this.url = new URL(`https://api.chatbotkit.com`)
 
-    this.url.host = options.host || 'api.chatbotkit.com'
+    if (options.host) {
+      this.url.host = options.host
+    }
   }
 
   /**
