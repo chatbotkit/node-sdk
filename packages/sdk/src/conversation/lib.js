@@ -93,6 +93,77 @@ export async function conversationFetch(client, conversationId) {
 
 /**
  * @typedef {{
+ * type: string,
+ * begin: number,
+ * end: number,
+ * text: string,
+ * replacement?: {
+ * being: number,
+ * end: number,
+ * text: string
+ * }
+ * }} Entity
+ *
+ * @typedef {{
+ * text: string,
+ * entities?: Entity[]
+ * }} ConversationSendRequest
+ *
+ * @typedef {{
+ * id: string
+ * entities: Entity[]
+ * }} ConversationSendResponse
+ *
+ * @param {import('../client.js').ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationSendRequest} request
+ * @returns {Promise<ConversationSendResponse>}
+ */
+export async function conversationSend(client, conversationId, request) {
+  const response = await client.clientFetch(
+    `/api/v1/conversation/${conversationId}/send`,
+    {
+      data: request,
+    }
+  )
+
+  return response
+}
+
+/**
+ * @typedef {{
+ * type: string,
+ * text: string
+ * }} Action
+ *
+ * @typedef {{
+ * parse?: boolean
+ * messages?: Message[]
+ * }} ConversationReceiveRequest
+ *
+ * @typedef {{
+ * id: string,
+ * text: string|{stripped: string, original: string, actions: Action[]}
+ * }} ConversationReceiveResponse
+ *
+ * @param {import('../client.js').ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationReceiveRequest} request
+ * @returns {Promise<ConversationReceiveResponse>}
+ */
+export async function conversationReceive(client, conversationId, request) {
+  const response = await client.clientFetch(
+    `/api/v1/conversation/${conversationId}/receive`,
+    {
+      data: request,
+    }
+  )
+
+  return response
+}
+
+/**
+ * @typedef {{
  * id: string
  * }} ConversationDeleteResponse
  *

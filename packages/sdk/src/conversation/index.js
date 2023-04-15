@@ -4,6 +4,8 @@ import {
   conversationList,
   conversationCreate,
   conversationFetch,
+  conversationSend,
+  conversationReceive,
   conversationDelete,
 } from './lib.js'
 
@@ -40,6 +42,22 @@ export class ConversationClient extends ChatBotKitClient {
    */
   fetch(conversationId) {
     return conversationFetch(this, conversationId)
+  }
+
+  /**
+   * @param {string} conversationId
+   * @param {import('./lib.js').ConversationSendRequest} request
+   */
+  send(conversationId, request) {
+    return conversationSend(this, conversationId, request)
+  }
+
+  /**
+   * @param {string} conversationId
+   * @param {import('./lib.js').ConversationReceiveRequest} request
+   */
+  receive(conversationId, request) {
+    return conversationReceive(this, conversationId, request)
   }
 
   /**

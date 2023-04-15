@@ -29,6 +29,8 @@
 - [delete](conversation.ConversationClient.md#delete)
 - [fetch](conversation.ConversationClient.md#fetch)
 - [list](conversation.ConversationClient.md#list)
+- [receive](conversation.ConversationClient.md#receive)
+- [send](conversation.ConversationClient.md#send)
 
 ## Constructors
 
@@ -48,7 +50,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-conversation/index.js:14
+[conversation/index.js:16](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L16)
 
 ## Properties
 
@@ -62,7 +64,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-client.js:15
+[client.js:15](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/client.js#L15)
 
 ___
 
@@ -76,7 +78,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-client.js:17
+[client.js:17](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/client.js#L17)
 
 ## Methods
 
@@ -108,7 +110,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-client.js:28
+[client.js:30](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/client.js#L30)
 
 ___
 
@@ -128,7 +130,7 @@ ___
 
 #### Defined in
 
-conversation/index.js:21
+[conversation/index.js:23](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L23)
 
 ___
 
@@ -148,7 +150,7 @@ ___
 
 #### Defined in
 
-conversation/index.js:34
+[conversation/index.js:36](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L36)
 
 ___
 
@@ -168,7 +170,7 @@ ___
 
 #### Defined in
 
-conversation/index.js:48
+[conversation/index.js:66](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L66)
 
 ___
 
@@ -188,7 +190,7 @@ ___
 
 #### Defined in
 
-conversation/index.js:41
+[conversation/index.js:43](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L43)
 
 ___
 
@@ -202,4 +204,46 @@ ___
 
 #### Defined in
 
-conversation/index.js:27
+[conversation/index.js:29](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L29)
+
+___
+
+### receive
+
+▸ **receive**(`conversationId`, `request`): `Promise`<[`ConversationReceiveResponse`](../modules/conversation_lib.md#conversationreceiveresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `conversationId` | `string` |
+| `request` | [`ConversationReceiveRequest`](../modules/conversation_lib.md#conversationreceiverequest) |
+
+#### Returns
+
+`Promise`<[`ConversationReceiveResponse`](../modules/conversation_lib.md#conversationreceiveresponse)\>
+
+#### Defined in
+
+[conversation/index.js:59](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L59)
+
+___
+
+### send
+
+▸ **send**(`conversationId`, `request`): `Promise`<[`ConversationSendResponse`](../modules/conversation_lib.md#conversationsendresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `conversationId` | `string` |
+| `request` | [`ConversationSendRequest`](../modules/conversation_lib.md#conversationsendrequest) |
+
+#### Returns
+
+`Promise`<[`ConversationSendResponse`](../modules/conversation_lib.md#conversationsendresponse)\>
+
+#### Defined in
+
+[conversation/index.js:51](https://github.com/chatbotkit/node-sdk/blob/985daa2/packages/sdk/src/conversation/index.js#L51)
