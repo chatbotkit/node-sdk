@@ -1,0 +1,47 @@
+{
+  "name": "@chatbotkit/sdk",
+  "version": "0.0.1",
+  "description": "The fastest way to build advanced AI chat bots",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatbotkit/node-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chatbotkit/node-sdk/issues"
+  },
+  "homepage": "https://github.com/chatbotkit/node-sdk#readme",
+  "author": "",
+  "keywords": [
+    "gpt3",
+    "gpt4",
+    "chat",
+    "chatbot",
+    "sdk",
+    "chatbotkit"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npx -p typescript tsc",
+    "format": "run-s format:*",
+    "format:pkg": "format-package -w",
+    "format:src": "prettier -w .",
+    "lint": "eslint",
+    "prepare": "husky install",
+    "test": "true"
+  },
+  "types": "./types/index.d.ts",
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/isomorphic-fetch": "^0.0.36",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "format-package": "^7.0.0",
+    "husky": "^8.0.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.4"
+  }
+}
