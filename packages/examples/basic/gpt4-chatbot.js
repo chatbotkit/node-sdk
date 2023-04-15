@@ -2,7 +2,9 @@ const readline = require('node:readline/promises')
 
 require('dotenv').config()
 
-const { ConversationClient } = require('../../lib/conversation/index.js')
+const {
+  ConversationClient,
+} = require('@chatbotkit/sdk/lib/conversation/index.js')
 
 /**
  * The main() function creates a new ConversationClient object, which uses a
@@ -41,6 +43,10 @@ async function main() {
 
     messages.push({ type: 'user', text: user })
 
+    /**
+     * ChatBotKit automatically handles messages and trims to length to fit into
+     * the model context size.
+     */
     const { text: bot } = await client.complete({ model: 'gpt-4', messages })
 
     messages.push({ type: 'bot', text: bot })

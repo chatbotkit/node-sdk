@@ -1,52 +1,28 @@
 {
-  "name": "@chatbotkit/sdk",
-  "version": "0.0.1",
-  "description": "The fastest way to build advanced AI chat bots",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chatbotkit/node-sdk.git"
-  },
-  "bugs": {
-    "url": "https://github.com/chatbotkit/node-sdk/issues"
-  },
-  "homepage": "https://github.com/chatbotkit/node-sdk#readme",
-  "author": "",
-  "keywords": [
-    "gpt3",
-    "gpt4",
-    "chat",
-    "chatbot",
-    "sdk",
-    "chatbotkit"
+  "name": "@chatbotkit/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/sdk",
+    "packages/examples"
   ],
-  "main": "lib/index.js",
   "scripts": {
     "build": "run-s build:*",
-    "build:docs": "npx typedoc --plugin typedoc-plugin-markdown --out docs lib/index.js",
-    "build:types": "npx -p typescript tsc",
+    "build:sdk": "npm run -w packages/sdk build",
     "format": "run-s format:*",
     "format:pkg": "format-package -w",
     "format:src": "prettier -w .",
     "lint": "eslint",
     "prepare": "husky install",
-    "test": "true"
-  },
-  "types": "./types/index.d.ts",
-  "dependencies": {
-    "isomorphic-fetch": "^3.0.0"
+    "test": "run-s test:*",
+    "test:sdk": "npm run -w packages/sdk test"
   },
   "devDependencies": {
-    "@types/isomorphic-fetch": "^0.0.36",
-    "dotenv": "^16.0.3",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "format-package": "^7.0.0",
     "husky": "^8.0.3",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.7",
-    "typedoc": "^0.24.1",
-    "typedoc-plugin-markdown": "^3.15.1",
-    "typescript": "^5.0.4"
+    "prettier": "^2.8.7"
   }
 }

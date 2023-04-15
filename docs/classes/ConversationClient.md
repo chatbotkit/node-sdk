@@ -45,7 +45,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[conversation/index.js:13](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/conversation/index.js#L13)
+conversation/index.js:13
 
 ## Properties
 
@@ -59,7 +59,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:15](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/client.js#L15)
+client.js:15
 
 ___
 
@@ -73,7 +73,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:17](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/client.js#L17)
+client.js:17
 
 ## Methods
 
@@ -105,7 +105,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:28](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/client.js#L28)
+client.js:28
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[conversation/index.js:20](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/conversation/index.js#L20)
+conversation/index.js:20
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[conversation/index.js:33](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/conversation/index.js#L33)
+conversation/index.js:33
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-[conversation/index.js:40](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/conversation/index.js#L40)
+conversation/index.js:40
 
 ___
 
@@ -179,4 +179,4 @@ ___
 
 #### Defined in
 
-[conversation/index.js:26](https://github.com/chatbotkit/node-sdk/blob/181c528/lib/conversation/index.js#L26)
+conversation/index.js:26

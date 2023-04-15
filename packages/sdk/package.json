@@ -1,0 +1,41 @@
+{
+  "name": "@chatbotkit/sdk",
+  "version": "0.0.1",
+  "description": "The fastest way to build advanced AI chat bots",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatbotkit/node-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chatbotkit/node-sdk/issues"
+  },
+  "homepage": "https://github.com/chatbotkit/node-sdk#readme",
+  "author": "",
+  "keywords": [
+    "gpt3",
+    "gpt4",
+    "chat",
+    "chatbot",
+    "sdk",
+    "chatbotkit"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "run-s build:*",
+    "build:docs": "typedoc --plugin typedoc-plugin-markdown --out ../../docs lib/index.js",
+    "build:types": "tsc",
+    "test": "true"
+  },
+  "types": "./types/index.d.ts",
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "@types/isomorphic-fetch": "^0.0.36",
+    "typescript": "^5.0.4",
+    "typedoc": "^0.24.1",
+    "typedoc-plugin-markdown": "^3.15.1"
+  }
+}
