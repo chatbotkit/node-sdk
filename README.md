@@ -1,5 +1,7 @@
 > This SDK is currently under active development.
 
+# ChatBotKit Node SDK
+
 Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy chatbots that can interact with users in natural language.
 
 ## Features
