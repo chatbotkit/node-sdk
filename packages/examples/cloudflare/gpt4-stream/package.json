@@ -1,0 +1,13 @@
+{
+  "name": "gpt4-stream",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler publish",
+    "start": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "2.15.1",
+    "@chatbotkit/sdk": "*"
+  }
+}
