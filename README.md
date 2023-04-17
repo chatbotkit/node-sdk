@@ -47,6 +47,7 @@ To get started with ChatBotKit, follow these simple steps:
 Here is a simple streaming example that works in Edge and Serverless environments:
 
 ```js
+
 ```
 
 ## Documentation

@@ -44,7 +44,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:10](https://github.com/chatbotkit/node-sdk/blob/0d637a5/packages/sdk/src/index.js#L10)
+[index.js:10](https://github.com/chatbotkit/node-sdk/blob/80d2736/packages/sdk/src/index.js#L10)
 
 ## Properties
 
@@ -54,7 +54,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:13](https://github.com/chatbotkit/node-sdk/blob/0d637a5/packages/sdk/src/index.js#L13)
+[index.js:13](https://github.com/chatbotkit/node-sdk/blob/80d2736/packages/sdk/src/index.js#L13)
 
 ___
 
@@ -68,7 +68,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:15](https://github.com/chatbotkit/node-sdk/blob/0d637a5/packages/sdk/src/client.js#L15)
+[client.js:153](https://github.com/chatbotkit/node-sdk/blob/80d2736/packages/sdk/src/client.js#L153)
 
 ___
 
@@ -82,19 +82,20 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:17](https://github.com/chatbotkit/node-sdk/blob/0d637a5/packages/sdk/src/client.js#L17)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/80d2736/packages/sdk/src/client.js#L155)
 
 ## Methods
 
 ### clientFetch
 
-▸ **clientFetch**<`T`\>(`path`, `options?`): `Promise`<`T`\>
+▸ **clientFetch**<`T`, `D`\>(`path`, `options?`): `ResponsePromise`<`T`, `D`\>
 
 #### Type parameters
 
 | Name |
 | :------ |
 | `T` |
+| `D` |
 
 #### Parameters
 
@@ -106,7 +107,7 @@ ChatBotKitClient.url
 
 #### Returns
 
-`Promise`<`T`\>
+`ResponsePromise`<`T`, `D`\>
 
 #### Inherited from
 
@@ -114,4 +115,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:30](https://github.com/chatbotkit/node-sdk/blob/0d637a5/packages/sdk/src/client.js#L30)
+[client.js:168](https://github.com/chatbotkit/node-sdk/blob/80d2736/packages/sdk/src/client.js#L168)

@@ -10,6 +10,7 @@
     "build": "run-s build:*",
     "build:all": "turbo run build",
     "build:docs": "typedoc --plugin typedoc-plugin-markdown --out ./docs/sdk --tsconfig ./packages/sdk/tsconfig.json",
+    "build:readme": "cp README.md packages/sdk/README.md",
     "format": "run-s format:*",
     "format:pkg": "format-package -w",
     "format:src": "prettier -w .",

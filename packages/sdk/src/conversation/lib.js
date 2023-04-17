@@ -1,4 +1,8 @@
 /**
+ * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
+ */
+
+/**
  * @typedef {{
  * type: 'user'|'bot'|'context'|'instruction'|'backstory',
  * text: string
@@ -12,19 +16,29 @@
  * }} ConversationCompleteRequest
  *
  * @typedef {{
- * text: string
+ * text: string,
+ * usage: { token: number }
  * }} ConversationCompleteResponse
  *
- * @param {import('../client.js').ChatBotKitClient} client
+ * @typedef {{
+ * type: 'token',
+ * token: string
+ * }} ConversationCompleteStreamToken
+ * @typedef {{
+ * type: 'result',
+ * text: string,
+ * usage: { token: number }
+ * }} ConversationCompleteStreamResult
+ * @typedef {ConversationCompleteStreamToken|ConversationCompleteStreamResult} ConversationCompleteStreamType
+ *
+ * @param {ChatBotKitClient} client
  * @param {ConversationCompleteRequest} request
- * @returns {Promise<ConversationCompleteResponse>}
+ * @returns {import('../client.js').ResponsePromise<ConversationCompleteResponse,ConversationCompleteStreamType>}
  */
-export async function conversationComplete(client, request) {
-  const response = await client.clientFetch(`/api/v1/conversation/complete`, {
+export function conversationComplete(client, request) {
+  return client.clientFetch(`/api/v1/conversation/complete`, {
     data: request,
   })
-
-  return response
 }
 
 /**
@@ -32,13 +46,11 @@ export async function conversationComplete(client, request) {
  * id: string
  * }} ConversationListResponse
  *
- * @param {import('../client.js').ChatBotKitClient} client
+ * @param {ChatBotKitClient} client
  * @returns {Promise<ConversationListResponse>}
  */
 export async function conversationList(client) {
-  const response = await client.clientFetch(`/api/v1/conversation/list`)
-
-  return response
+  return client.clientFetch(`/api/v1/conversation/list`)
 }
 
 /**
@@ -56,16 +68,14 @@ export async function conversationList(client) {
  * id: string
  * }} ConversationCreateResponse
  *
- * @param {import('../client.js').ChatBotKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {ConversationCreateRequest} request
  * @returns {Promise<ConversationCreateResponse>}
  */
 export async function conversationCreate(client, request) {
-  const response = await client.clientFetch(`/api/v1/conversation/create`, {
+  return client.clientFetch(`/api/v1/conversation/create`, {
     data: request,
   })
-
-  return response
 }
 
 /**
@@ -79,16 +89,12 @@ export async function conversationCreate(client, request) {
  * updatedAt: number,
  * }} ConversationFetchResponse
  *
- * @param {import('../client.js').ChatBotKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @returns {Promise<ConversationFetchResponse>}
  */
 export async function conversationFetch(client, conversationId) {
-  const response = await client.clientFetch(
-    `/api/v1/conversation/${conversationId}/fetch`
-  )
-
-  return response
+  return client.clientFetch(`/api/v1/conversation/${conversationId}/fetch`)
 }
 
 /**
@@ -114,20 +120,15 @@ export async function conversationFetch(client, conversationId) {
  * entities: Entity[]
  * }} ConversationSendResponse
  *
- * @param {import('../client.js').ChatBotKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {ConversationSendRequest} request
  * @returns {Promise<ConversationSendResponse>}
  */
 export async function conversationSend(client, conversationId, request) {
-  const response = await client.clientFetch(
-    `/api/v1/conversation/${conversationId}/send`,
-    {
-      data: request,
-    }
-  )
-
-  return response
+  return client.clientFetch(`/api/v1/conversation/${conversationId}/send`, {
+    data: request,
+  })
 }
 
 /**
@@ -146,20 +147,15 @@ export async function conversationSend(client, conversationId, request) {
  * text: string|{stripped: string, original: string, actions: Action[]}
  * }} ConversationReceiveResponse
  *
- * @param {import('../client.js').ChatBotKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {ConversationReceiveRequest} request
  * @returns {Promise<ConversationReceiveResponse>}
  */
 export async function conversationReceive(client, conversationId, request) {
-  const response = await client.clientFetch(
-    `/api/v1/conversation/${conversationId}/receive`,
-    {
-      data: request,
-    }
-  )
-
-  return response
+  return client.clientFetch(`/api/v1/conversation/${conversationId}/receive`, {
+    data: request,
+  })
 }
 
 /**
@@ -167,14 +163,10 @@ export async function conversationReceive(client, conversationId, request) {
  * id: string
  * }} ConversationDeleteResponse
  *
- * @param {import('../client.js').ChatBotKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @returns {Promise<ConversationDeleteResponse>}
  */
 export async function conversationDelete(client, conversationId) {
-  const response = await client.clientFetch(
-    `/api/v1/conversation/${conversationId}/delete`
-  )
-
-  return response
+  return client.clientFetch(`/api/v1/conversation/${conversationId}/delete`)
 }
