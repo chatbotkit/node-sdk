@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.3.0
+
+### Minor Changes
+
+- Added missing API stubs.
+
 ## 0.2.0
 
 ### Minor Changes
