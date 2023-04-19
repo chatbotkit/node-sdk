@@ -35,6 +35,16 @@
         "default": "./dist/esm/bot/index.js"
       }
     },
+    "./bot/v1.js": {
+      "require": {
+        "types": "./dist/cjs/bot/v1.d.ts",
+        "default": "./dist/cjs/bot/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/v1.d.ts",
+        "default": "./dist/esm/bot/v1.js"
+      }
+    },
     "./client.js": {
       "require": {
         "types": "./dist/cjs/client.d.ts",

@@ -80,6 +80,7 @@ export async function conversationCreate(client, request) {
  * }} ConversationUpdateResponse
  *
  * @param {ChatBotKitClient} client
+ * @param {string} conversationId
  * @param {ConversationUpdateRequest} request
  * @returns {Promise<ConversationUpdateResponse>}
  */

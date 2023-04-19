@@ -48,10 +48,11 @@ export class ConversationClient extends ChatBotKitClient {
   /**
    * Updates a new conversation.
    *
+   * @param {string} conversationId
    * @param {import('./v1.js').ConversationUpdateRequest} request
    */
-  update(request) {
-    return conversationUpdate(this, request)
+  update(conversationId, request) {
+    return conversationUpdate(this, conversationId, request)
   }
 
   /**
