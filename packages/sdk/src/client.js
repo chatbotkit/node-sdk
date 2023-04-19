@@ -1,4 +1,4 @@
-import { fetchWithBackoff, RequestError } from './fetch.js'
+import { fetchWithBackoff, jsonl, RequestError } from './fetch.js'
 
 /**
  * @template T,D
@@ -105,41 +105,8 @@ export class ResponsePromise {
       return
     }
 
-    /** @type {string[]} */
-    let chunks = []
-
     // @ts-ignore
-    for await (const data of response.body) {
-      let chunk = this.decoder.decode(data)
-
-      let index = chunk.indexOf('\n')
-
-      if (index >= 0) {
-        const reminder = chunk.substring(index + 1)
-
-        chunk = chunk.substring(0, index)
-
-        chunks.push(chunk)
-
-        const json = chunks.join('').trim()
-
-        if (json) {
-          yield JSON.parse(json)
-        }
-
-        chunks = [reminder]
-      } else {
-        chunks.push(chunk)
-      }
-    }
-
-    if (chunks.length) {
-      const json = chunks.join('').trim()
-
-      if (json) {
-        yield JSON.parse(json)
-      }
-    }
+    yield* jsonl(response.body)
   }
 }
 

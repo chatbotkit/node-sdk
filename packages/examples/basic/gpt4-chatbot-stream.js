@@ -37,7 +37,7 @@ async function main() {
      * ChatBotKit automatically handles messages and trims to length to fit into
      * the model context size.
      */
-    for await (const { type, ...data } of client
+    for await (const { type, data } of client
       .complete({ model: 'gpt-4', messages })
       .stream()) {
       if (type === 'token') {

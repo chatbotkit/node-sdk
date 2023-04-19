@@ -25,7 +25,7 @@ export default {
 
       new ReadableStream({
         async start(controller) {
-          for await (const { type, ...data } of client
+          for await (const { type, data } of client
             .complete({ model: 'gpt-4', messages })
             .stream()) {
             if (type === 'token') {

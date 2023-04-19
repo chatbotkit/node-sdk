@@ -2,6 +2,26 @@
 
 import 'isomorphic-fetch'
 
+// NOTE: we need to pollyfill the ReadableStream for chrome and Safari
+
+if (
+  typeof global.ReadableStream === 'function' &&
+  // @ts-ignore
+  typeof global.ReadableStream.prototype[Symbol.asyncIterator] !== 'function'
+) {
+  // @ts-ignore
+  global.ReadableStream.prototype[Symbol.asyncIterator] = function () {
+    const reader = this.getReader()
+
+    return {
+      next: () => reader.read(),
+      return: () => {
+        reader.releaseLock()
+      },
+    }
+  }
+}
+
 export class RequestError extends Error {
   /**
    * @param {string} message
@@ -65,5 +85,36 @@ export async function fetchWithBackoff(
     await new Promise((resolve) => setTimeout(resolve, retryDelay))
 
     return fetchWithBackoff(url, options, retries - 1, retryDelay * 2)
+  }
+}
+
+/**
+ * @param {ReadableStream} body
+ * @returns {AsyncGenerator<Record<string,any>>}
+ */
+export async function* jsonl(body) {
+  const decoder = new TextDecoder()
+
+  let previous = ''
+
+  // @ts-ignore
+  for await (const chunk of body) {
+    previous += decoder.decode(chunk)
+
+    let eolIndex
+
+    while ((eolIndex = previous.indexOf('\n')) >= 0) {
+      const line = previous.slice(0, eolIndex + 1)
+
+      if (line) {
+        yield JSON.parse(line)
+      }
+
+      previous = previous.slice(eolIndex + 1)
+    }
+  }
+
+  if (previous.length > 0) {
+    yield JSON.parse(previous)
   }
 }
