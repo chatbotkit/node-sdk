@@ -48,7 +48,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[dataset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/dataset/index.js#L14)
+[dataset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/dataset/index.js#L14)
 
 ## Properties
 
@@ -62,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:125](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/client.js#L125)
+[client.js:125](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/client.js#L125)
 
 ___
 
@@ -76,7 +76,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:127](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/client.js#L127)
+[client.js:127](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/client.js#L127)
 
 ## Methods
 
@@ -109,7 +109,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:140](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/client.js#L140)
+[client.js:140](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/client.js#L140)
 
 ___
 
@@ -131,7 +131,7 @@ Creates a new dataset.
 
 #### Defined in
 
-[dataset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/dataset/index.js#L39)
+[dataset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/dataset/index.js#L39)
 
 ___
 
@@ -153,7 +153,7 @@ Deletes the dataset.
 
 #### Defined in
 
-[dataset/index.js:58](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/dataset/index.js#L58)
+[dataset/index.js:58](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/dataset/index.js#L58)
 
 ___
 
@@ -175,7 +175,7 @@ Fetches a dataset.
 
 #### Defined in
 
-[dataset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/dataset/index.js#L30)
+[dataset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/dataset/index.js#L30)
 
 ___
 
@@ -191,7 +191,7 @@ Retrieves a list of all existing datasets associated with this client.
 
 #### Defined in
 
-[dataset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/dataset/index.js#L21)
+[dataset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/dataset/index.js#L21)
 
 ___
 
@@ -214,4 +214,4 @@ Updates a new dataset.
 
 #### Defined in
 
-[dataset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/43f3938/packages/sdk/src/dataset/index.js#L49)
+[dataset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/dataset/index.js#L49)
