@@ -51,7 +51,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[conversation/index.js:19](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L19)
+[conversation/index.js:19](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L19)
 
 ## Properties
 
@@ -65,7 +65,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:125](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/client.js#L125)
+[client.js:125](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/client.js#L125)
 
 ___
 
@@ -79,7 +79,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:127](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/client.js#L127)
+[client.js:127](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/client.js#L127)
 
 ## Methods
 
@@ -112,13 +112,13 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:140](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/client.js#L140)
+[client.js:140](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/client.js#L140)
 
 ___
 
 ### complete
 
-▸ **complete**(`request`): `ResponsePromise`<`ConversationCompleteResponse`, `ConversationCompleteStreamType`\>
+▸ **complete**(`request`): `ResponsePromise`<[`ConversationCompleteResponse`](../modules/conversation_v2.md#conversationcompleteresponse), [`ConversationCompleteStreamType`](../modules/conversation_v2.md#conversationcompletestreamtype)\>
 
 Completes the next bot message in a stateless conversation.
 
@@ -126,21 +126,21 @@ Completes the next bot message in a stateless conversation.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `ConversationCompleteRequest` |
+| `request` | [`ConversationCompleteRequest`](../modules/conversation_v2.md#conversationcompleterequest) |
 
 #### Returns
 
-`ResponsePromise`<`ConversationCompleteResponse`, `ConversationCompleteStreamType`\>
+`ResponsePromise`<[`ConversationCompleteResponse`](../modules/conversation_v2.md#conversationcompleteresponse), [`ConversationCompleteStreamType`](../modules/conversation_v2.md#conversationcompletestreamtype)\>
 
 #### Defined in
 
-[conversation/index.js:72](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L72)
+[conversation/index.js:72](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L72)
 
 ___
 
 ### create
 
-▸ **create**(`request`): `Promise`<`ConversationCreateResponse`\>
+▸ **create**(`request`): `Promise`<[`ConversationCreateResponse`](../modules/conversation_v1.md#conversationcreateresponse)\>
 
 Creates a new conversation.
 
@@ -148,21 +148,21 @@ Creates a new conversation.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `ConversationCreateRequest` |
+| `request` | [`ConversationCreateRequest`](../modules/conversation_v1.md#conversationcreaterequest) |
 
 #### Returns
 
-`Promise`<`ConversationCreateResponse`\>
+`Promise`<[`ConversationCreateResponse`](../modules/conversation_v1.md#conversationcreateresponse)\>
 
 #### Defined in
 
-[conversation/index.js:44](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L44)
+[conversation/index.js:44](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L44)
 
 ___
 
 ### delete
 
-▸ **delete**(`conversationId`): `Promise`<`ConversationDeleteResponse`\>
+▸ **delete**(`conversationId`): `Promise`<[`ConversationDeleteResponse`](../modules/conversation_v1.md#conversationdeleteresponse)\>
 
 Deletes the conversation.
 
@@ -174,17 +174,17 @@ Deletes the conversation.
 
 #### Returns
 
-`Promise`<`ConversationDeleteResponse`\>
+`Promise`<[`ConversationDeleteResponse`](../modules/conversation_v1.md#conversationdeleteresponse)\>
 
 #### Defined in
 
-[conversation/index.js:63](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L63)
+[conversation/index.js:63](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L63)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`conversationId`): `Promise`<`ConversationFetchResponse`\>
+▸ **fetch**(`conversationId`): `Promise`<[`ConversationFetchResponse`](../modules/conversation_v1.md#conversationfetchresponse)\>
 
 Fetches a conversation.
 
@@ -196,33 +196,33 @@ Fetches a conversation.
 
 #### Returns
 
-`Promise`<`ConversationFetchResponse`\>
+`Promise`<[`ConversationFetchResponse`](../modules/conversation_v1.md#conversationfetchresponse)\>
 
 #### Defined in
 
-[conversation/index.js:35](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L35)
+[conversation/index.js:35](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L35)
 
 ___
 
 ### list
 
-▸ **list**(): `Promise`<`ConversationListResponse`\>
+▸ **list**(): `Promise`<[`ConversationListResponse`](../modules/conversation_v1.md#conversationlistresponse)\>
 
 Retrieves a list of all existing conversations associated with this client.
 
 #### Returns
 
-`Promise`<`ConversationListResponse`\>
+`Promise`<[`ConversationListResponse`](../modules/conversation_v1.md#conversationlistresponse)\>
 
 #### Defined in
 
-[conversation/index.js:26](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L26)
+[conversation/index.js:26](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L26)
 
 ___
 
 ### receive
 
-▸ **receive**(`conversationId`, `request`): `Promise`<`ConversationReceiveResponse`\>
+▸ **receive**(`conversationId`, `request`): `Promise`<[`ConversationReceiveResponse`](../modules/conversation_v2.md#conversationreceiveresponse)\>
 
 Receives a message from the conversation.
 
@@ -231,21 +231,21 @@ Receives a message from the conversation.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | `ConversationReceiveRequest` |
+| `request` | [`ConversationReceiveRequest`](../modules/conversation_v2.md#conversationreceiverequest) |
 
 #### Returns
 
-`Promise`<`ConversationReceiveResponse`\>
+`Promise`<[`ConversationReceiveResponse`](../modules/conversation_v2.md#conversationreceiveresponse)\>
 
 #### Defined in
 
-[conversation/index.js:92](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L92)
+[conversation/index.js:92](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L92)
 
 ___
 
 ### send
 
-▸ **send**(`conversationId`, `request`): `Promise`<`ConversationSendResponse`\>
+▸ **send**(`conversationId`, `request`): `Promise`<[`ConversationSendResponse`](../modules/conversation_v2.md#conversationsendresponse)\>
 
 Sends a message to the conversation.
 
@@ -254,21 +254,21 @@ Sends a message to the conversation.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | `ConversationSendRequest` |
+| `request` | [`ConversationSendRequest`](../modules/conversation_v2.md#conversationsendrequest) |
 
 #### Returns
 
-`Promise`<`ConversationSendResponse`\>
+`Promise`<[`ConversationSendResponse`](../modules/conversation_v2.md#conversationsendresponse)\>
 
 #### Defined in
 
-[conversation/index.js:82](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L82)
+[conversation/index.js:82](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L82)
 
 ___
 
 ### update
 
-▸ **update**(`conversationId`, `request`): `Promise`<`ConversationUpdateResponse`\>
+▸ **update**(`conversationId`, `request`): `Promise`<[`ConversationUpdateResponse`](../modules/conversation_v1.md#conversationupdateresponse)\>
 
 Updates a new conversation.
 
@@ -277,12 +277,12 @@ Updates a new conversation.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | `ConversationUpdateRequest` |
+| `request` | [`ConversationUpdateRequest`](../modules/conversation_v1.md#conversationupdaterequest) |
 
 #### Returns
 
-`Promise`<`ConversationUpdateResponse`\>
+`Promise`<[`ConversationUpdateResponse`](../modules/conversation_v1.md#conversationupdateresponse)\>
 
 #### Defined in
 
-[conversation/index.js:54](https://github.com/chatbotkit/node-sdk/blob/629c3de/packages/sdk/src/conversation/index.js#L54)
+[conversation/index.js:54](https://github.com/chatbotkit/node-sdk/blob/f805d5d/packages/sdk/src/conversation/index.js#L54)

@@ -1,6 +1,8 @@
 @chatbotkit/sdk / [Modules](modules.md)
 
-> This SDK is currently under active development.
+[![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
+[![NPM](https://img.shields.io/npm/v/@chatbotkit/sdk.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)
+[![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 
 # ChatBotKit Node SDK
 

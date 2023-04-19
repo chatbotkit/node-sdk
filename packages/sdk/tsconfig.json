@@ -112,8 +112,15 @@
   "typedocOptions": {
     "entryPoints": [
       "src/index.js",
+      "src/bot/index.js",
+      "src/bot/v1.js",
+      "src/skillset/index.js",
+      "src/skillset/v1.js",
+      "src/dataset/index.js",
+      "src/dataset/v1.js",
       "src/conversation/index.js",
-      "src/conversation/lib.js"
+      "src/conversation/v1.js",
+      "src/conversation/v2.js"
     ],
     "excludePrivate": true,
     "excludeInternal": true,
