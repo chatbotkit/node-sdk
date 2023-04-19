@@ -2,8 +2,6 @@
 [![NPM](https://img.shields.io/npm/v/@chatbotkit/sdk.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)
 [![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 
-> This SDK is currently under active development.
-
 # ChatBotKit Node SDK
 
 Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy chatbots that can interact with users in natural language.
