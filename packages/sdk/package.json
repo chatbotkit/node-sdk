@@ -45,14 +45,24 @@
         "default": "./dist/esm/conversation/index.js"
       }
     },
-    "./conversation/lib.js": {
+    "./conversation/v1.js": {
       "require": {
-        "types": "./dist/cjs/conversation/lib.d.ts",
-        "default": "./dist/cjs/conversation/lib.cjs"
+        "types": "./dist/cjs/conversation/v1.d.ts",
+        "default": "./dist/cjs/conversation/v1.cjs"
       },
       "import": {
-        "types": "./dist/esm/conversation/lib.d.ts",
-        "default": "./dist/esm/conversation/lib.js"
+        "types": "./dist/esm/conversation/v1.d.ts",
+        "default": "./dist/esm/conversation/v1.js"
+      }
+    },
+    "./conversation/v2.js": {
+      "require": {
+        "types": "./dist/cjs/conversation/v2.d.ts",
+        "default": "./dist/cjs/conversation/v2.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/v2.d.ts",
+        "default": "./dist/esm/conversation/v2.js"
       }
     },
     "./fetch.js": {

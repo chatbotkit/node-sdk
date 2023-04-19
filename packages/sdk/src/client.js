@@ -23,7 +23,7 @@ export class ResponsePromise {
   }
 
   /**
-   * @param {Record<string,any>} [params]
+   * @param {{headers?: Record<string,any>, data?: Record<string,any>}} [params]
    */
   async getRequest(params) {
     let body
@@ -31,12 +31,15 @@ export class ResponsePromise {
     const { method, headers, data } = this.request
 
     if (data) {
-      body = JSON.stringify({ ...data, ...params })
+      body = JSON.stringify({ ...data, ...params?.data })
     }
 
     const response = await fetchWithBackoff(this.url.toString(), {
       method,
-      headers,
+      headers: {
+        ...headers,
+        ...params?.headers,
+      },
       body,
     })
 
@@ -59,7 +62,9 @@ export class ResponsePromise {
 
   getStreamPromise() {
     if (!this.streamPromise) {
-      this.streamPromise = this.getRequest({ stream: true })
+      this.streamPromise = this.getRequest({
+        headers: { Accept: 'application/jsonl' },
+      })
     }
 
     return this.streamPromise
