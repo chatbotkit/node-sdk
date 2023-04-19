@@ -11,38 +11,6 @@
 
 /**
  * @typedef {{
- * model?: string,
- * messages: Message[]
- * }} ConversationCompleteRequest
- *
- * @typedef {{
- * text: string,
- * usage: { token: number }
- * }} ConversationCompleteResponse
- *
- * @typedef {{
- * type: 'token',
- * token: string
- * }} ConversationCompleteStreamToken
- * @typedef {{
- * type: 'result',
- * text: string,
- * usage: { token: number }
- * }} ConversationCompleteStreamResult
- * @typedef {ConversationCompleteStreamToken|ConversationCompleteStreamResult} ConversationCompleteStreamType
- *
- * @param {ChatBotKitClient} client
- * @param {ConversationCompleteRequest} request
- * @returns {import('../client.js').ResponsePromise<ConversationCompleteResponse,ConversationCompleteStreamType>}
- */
-export function conversationComplete(client, request) {
-  return client.clientFetch(`/api/v1/conversation/complete`, {
-    data: request,
-  })
-}
-
-/**
- * @typedef {{
  * id: string
  * }} ConversationListResponse
  *
@@ -51,6 +19,25 @@ export function conversationComplete(client, request) {
  */
 export async function conversationList(client) {
   return client.clientFetch(`/api/v1/conversation/list`)
+}
+
+/**
+ * @typedef {{
+ * id: string,
+ * backstory?: string,
+ * model?: string,
+ * datasetId?: string,
+ * skillsetId?: string,
+ * createdAt: number,
+ * updatedAt: number,
+ * }} ConversationFetchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @returns {Promise<ConversationFetchResponse>}
+ */
+export async function conversationFetch(client, conversationId) {
+  return client.clientFetch(`/api/v1/conversation/${conversationId}/fetch`)
 }
 
 /**
@@ -80,21 +67,71 @@ export async function conversationCreate(client, request) {
 
 /**
  * @typedef {{
- * id: string,
  * backstory?: string,
  * model?: string,
  * datasetId?: string,
  * skillsetId?: string,
- * createdAt: number,
- * updatedAt: number,
- * }} ConversationFetchResponse
+ * privacy?: boolean,
+ * moderation?: boolean,
+ * }} ConversationUpdateRequest
+ *
+ * @typedef {{
+ * id: string
+ * }} ConversationUpdateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {ConversationUpdateRequest} request
+ * @returns {Promise<ConversationUpdateResponse>}
+ */
+export async function conversationUpdate(client, conversationId, request) {
+  return client.clientFetch(`/api/v1/conversation/${conversationId}/update`, {
+    data: request,
+  })
+}
+
+/**
+ * @typedef {{
+ * id: string
+ * }} ConversationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
- * @returns {Promise<ConversationFetchResponse>}
+ * @returns {Promise<ConversationDeleteResponse>}
  */
-export async function conversationFetch(client, conversationId) {
-  return client.clientFetch(`/api/v1/conversation/${conversationId}/fetch`)
+export async function conversationDelete(client, conversationId) {
+  return client.clientFetch(`/api/v1/conversation/${conversationId}/delete`)
+}
+
+/**
+ * @typedef {{
+ * model?: string,
+ * messages: Message[]
+ * }} ConversationCompleteRequest
+ *
+ * @typedef {{
+ * text: string,
+ * usage: { token: number }
+ * }} ConversationCompleteResponse
+ *
+ * @typedef {{
+ * type: 'token',
+ * token: string
+ * }} ConversationCompleteStreamToken
+ * @typedef {{
+ * type: 'result',
+ * text: string,
+ * usage: { token: number }
+ * }} ConversationCompleteStreamResult
+ * @typedef {ConversationCompleteStreamToken|ConversationCompleteStreamResult} ConversationCompleteStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {ConversationCompleteRequest} request
+ * @returns {import('../client.js').ResponsePromise<ConversationCompleteResponse,ConversationCompleteStreamType>}
+ */
+export function conversationComplete(client, request) {
+  return client.clientFetch(`/api/v1/conversation/complete`, {
+    data: request,
+  })
 }
 
 /**
@@ -156,17 +193,4 @@ export async function conversationReceive(client, conversationId, request) {
   return client.clientFetch(`/api/v1/conversation/${conversationId}/receive`, {
     data: request,
   })
-}
-
-/**
- * @typedef {{
- * id: string
- * }} ConversationDeleteResponse
- *
- * @param {ChatBotKitClient} client
- * @param {string} conversationId
- * @returns {Promise<ConversationDeleteResponse>}
- */
-export async function conversationDelete(client, conversationId) {
-  return client.clientFetch(`/api/v1/conversation/${conversationId}/delete`)
 }

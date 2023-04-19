@@ -1,8 +1,9 @@
 import { ChatBotKitClient } from '../client.js'
 import {
   conversationList,
-  conversationCreate,
   conversationFetch,
+  conversationCreate,
+  conversationUpdate,
   conversationDelete,
 } from './v1.js'
 import {
@@ -20,19 +21,19 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
-   * Completes the next bot message in a stateless conversation.
-   *
-   * @param {import('./v2.js').ConversationCompleteRequest} request
-   */
-  complete(request) {
-    return conversationComplete(this, request)
-  }
-
-  /**
    * Retrieves a list of all existing conversations associated with this client.
    */
   list() {
     return conversationList(this)
+  }
+
+  /**
+   * Fetches a conversation.
+   *
+   * @param {string} conversationId
+   */
+  fetch(conversationId) {
+    return conversationFetch(this, conversationId)
   }
 
   /**
@@ -45,12 +46,30 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
-   * Fetches a conversation.
+   * Updates a new conversation.
+   *
+   * @param {import('./v1.js').ConversationUpdateRequest} request
+   */
+  update(request) {
+    return conversationUpdate(this, request)
+  }
+
+  /**
+   * Deletes the conversation.
    *
    * @param {string} conversationId
    */
-  fetch(conversationId) {
-    return conversationFetch(this, conversationId)
+  delete(conversationId) {
+    return conversationDelete(this, conversationId)
+  }
+
+  /**
+   * Completes the next bot message in a stateless conversation.
+   *
+   * @param {import('./v2.js').ConversationCompleteRequest} request
+   */
+  complete(request) {
+    return conversationComplete(this, request)
   }
 
   /**
@@ -71,14 +90,5 @@ export class ConversationClient extends ChatBotKitClient {
    */
   receive(conversationId, request) {
     return conversationReceive(this, conversationId, request)
-  }
-
-  /**
-   * Deletes the conversation.
-   *
-   * @param {string} conversationId
-   */
-  delete(conversationId) {
-    return conversationDelete(this, conversationId)
   }
 }
