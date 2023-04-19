@@ -25,6 +25,16 @@
   "type": "module",
   "main": "./dist/esm/index.js",
   "exports": {
+    "./bot/index.js": {
+      "require": {
+        "types": "./dist/cjs/bot/index.d.ts",
+        "default": "./dist/cjs/bot/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/index.d.ts",
+        "default": "./dist/esm/bot/index.js"
+      }
+    },
     "./client.js": {
       "require": {
         "types": "./dist/cjs/client.d.ts",
@@ -65,6 +75,16 @@
         "default": "./dist/esm/conversation/v2.js"
       }
     },
+    "./dataset/index.js": {
+      "require": {
+        "types": "./dist/cjs/dataset/index.d.ts",
+        "default": "./dist/cjs/dataset/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/index.d.ts",
+        "default": "./dist/esm/dataset/index.js"
+      }
+    },
     "./fetch.js": {
       "require": {
         "types": "./dist/cjs/fetch.d.ts",
@@ -83,6 +103,16 @@
       "import": {
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
+      }
+    },
+    "./skillset/index.js": {
+      "require": {
+        "types": "./dist/cjs/skillset/index.d.ts",
+        "default": "./dist/cjs/skillset/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/index.d.ts",
+        "default": "./dist/esm/skillset/index.js"
       }
     }
   },

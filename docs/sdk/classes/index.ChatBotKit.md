@@ -18,8 +18,11 @@
 
 ### Properties
 
+- [bot](index.ChatBotKit.md#bot)
 - [conversation](index.ChatBotKit.md#conversation)
+- [dataset](index.ChatBotKit.md#dataset)
 - [secret](index.ChatBotKit.md#secret)
+- [skillset](index.ChatBotKit.md#skillset)
 - [url](index.ChatBotKit.md#url)
 
 ### Methods
@@ -44,9 +47,19 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:10](https://github.com/chatbotkit/node-sdk/blob/96938d6/packages/sdk/src/index.js#L10)
+[index.js:17](https://github.com/chatbotkit/node-sdk/blob/7c74fe0/packages/sdk/src/index.js#L17)
 
 ## Properties
+
+### bot
+
+• **bot**: [`BotClient`](index.BotClient.md)
+
+#### Defined in
+
+[index.js:20](https://github.com/chatbotkit/node-sdk/blob/7c74fe0/packages/sdk/src/index.js#L20)
+
+___
 
 ### conversation
 
@@ -54,7 +67,17 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:13](https://github.com/chatbotkit/node-sdk/blob/96938d6/packages/sdk/src/index.js#L13)
+[index.js:23](https://github.com/chatbotkit/node-sdk/blob/7c74fe0/packages/sdk/src/index.js#L23)
+
+___
+
+### dataset
+
+• **dataset**: [`DatasetClient`](index.DatasetClient.md)
+
+#### Defined in
+
+[index.js:21](https://github.com/chatbotkit/node-sdk/blob/7c74fe0/packages/sdk/src/index.js#L21)
 
 ___
 
@@ -68,7 +91,17 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:125](https://github.com/chatbotkit/node-sdk/blob/96938d6/packages/sdk/src/client.js#L125)
+[client.js:125](https://github.com/chatbotkit/node-sdk/blob/7c74fe0/packages/sdk/src/client.js#L125)
+
+___
+
+### skillset
+
+• **skillset**: [`SkillsetClient`](index.SkillsetClient.md)
+
+#### Defined in
+
+[index.js:22](https://github.com/chatbotkit/node-sdk/blob/7c74fe0/packages/sdk/src/index.js#L22)
 
 ___
 
@@ -82,7 +115,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:127](https://github.com/chatbotkit/node-sdk/blob/96938d6/packages/sdk/src/client.js#L127)
+[client.js:127](https://github.com/chatbotkit/node-sdk/blob/7c74fe0/packages/sdk/src/client.js#L127)
 
 ## Methods
 
@@ -115,4 +148,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:140](https://github.com/chatbotkit/node-sdk/blob/96938d6/packages/sdk/src/client.js#L140)
+[client.js:140](https://github.com/chatbotkit/node-sdk/blob/7c74fe0/packages/sdk/src/client.js#L140)

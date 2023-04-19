@@ -10,7 +10,10 @@
 
 ### Classes
 
+- [BotClient](../classes/index.BotClient.md)
 - [ChatBotKit](../classes/index.ChatBotKit.md)
+- [DatasetClient](../classes/index.DatasetClient.md)
+- [SkillsetClient](../classes/index.SkillsetClient.md)
 
 ## References
 
