@@ -95,6 +95,16 @@
         "default": "./dist/esm/dataset/index.js"
       }
     },
+    "./dataset/v1.js": {
+      "require": {
+        "types": "./dist/cjs/dataset/v1.d.ts",
+        "default": "./dist/cjs/dataset/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/v1.d.ts",
+        "default": "./dist/esm/dataset/v1.js"
+      }
+    },
     "./fetch.js": {
       "require": {
         "types": "./dist/cjs/fetch.d.ts",
@@ -123,6 +133,16 @@
       "import": {
         "types": "./dist/esm/skillset/index.d.ts",
         "default": "./dist/esm/skillset/index.js"
+      }
+    },
+    "./skillset/v1.js": {
+      "require": {
+        "types": "./dist/cjs/skillset/v1.d.ts",
+        "default": "./dist/cjs/skillset/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/v1.d.ts",
+        "default": "./dist/esm/skillset/v1.js"
       }
     }
   },

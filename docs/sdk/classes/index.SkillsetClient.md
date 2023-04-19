@@ -24,6 +24,11 @@
 ### Methods
 
 - [clientFetch](index.SkillsetClient.md#clientfetch)
+- [create](index.SkillsetClient.md#create)
+- [delete](index.SkillsetClient.md#delete)
+- [fetch](index.SkillsetClient.md#fetch)
+- [list](index.SkillsetClient.md#list)
+- [update](index.SkillsetClient.md#update)
 
 ## Constructors
 
@@ -43,7 +48,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[skillset/index.js:7](https://github.com/chatbotkit/node-sdk/blob/7f4f0d2/packages/sdk/src/skillset/index.js#L7)
+[skillset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/skillset/index.js#L14)
 
 ## Properties
 
@@ -57,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:125](https://github.com/chatbotkit/node-sdk/blob/7f4f0d2/packages/sdk/src/client.js#L125)
+[client.js:125](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/client.js#L125)
 
 ___
 
@@ -71,7 +76,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:127](https://github.com/chatbotkit/node-sdk/blob/7f4f0d2/packages/sdk/src/client.js#L127)
+[client.js:127](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/client.js#L127)
 
 ## Methods
 
@@ -104,4 +109,109 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:140](https://github.com/chatbotkit/node-sdk/blob/7f4f0d2/packages/sdk/src/client.js#L140)
+[client.js:140](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/client.js#L140)
+
+___
+
+### create
+
+▸ **create**(`request`): `Promise`<`SkillsetCreateResponse`\>
+
+Creates a new skillset.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | `SkillsetCreateRequest` |
+
+#### Returns
+
+`Promise`<`SkillsetCreateResponse`\>
+
+#### Defined in
+
+[skillset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/skillset/index.js#L39)
+
+___
+
+### delete
+
+▸ **delete**(`skillsetId`): `Promise`<`SkillsetDeleteResponse`\>
+
+Deletes the skillset.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `skillsetId` | `string` |
+
+#### Returns
+
+`Promise`<`SkillsetDeleteResponse`\>
+
+#### Defined in
+
+[skillset/index.js:58](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/skillset/index.js#L58)
+
+___
+
+### fetch
+
+▸ **fetch**(`skillsetId`): `Promise`<`SkillsetFetchResponse`\>
+
+Fetches a skillset.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `skillsetId` | `string` |
+
+#### Returns
+
+`Promise`<`SkillsetFetchResponse`\>
+
+#### Defined in
+
+[skillset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/skillset/index.js#L30)
+
+___
+
+### list
+
+▸ **list**(): `Promise`<`SkillsetListResponse`\>
+
+Retrieves a list of all existing skillsets associated with this client.
+
+#### Returns
+
+`Promise`<`SkillsetListResponse`\>
+
+#### Defined in
+
+[skillset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/skillset/index.js#L21)
+
+___
+
+### update
+
+▸ **update**(`skillsetId`, `request`): `Promise`<`SkillsetUpdateResponse`\>
+
+Updates a new skillset.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `skillsetId` | `string` |
+| `request` | `SkillsetUpdateRequest` |
+
+#### Returns
+
+`Promise`<`SkillsetUpdateResponse`\>
+
+#### Defined in
+
+[skillset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/d9cb5ac/packages/sdk/src/skillset/index.js#L49)
