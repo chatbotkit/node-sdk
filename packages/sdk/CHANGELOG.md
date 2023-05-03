@@ -1,5 +1,12 @@
 # @chatbotkit/sdk
 
+## 0.4.0
+
+### Minor Changes
+
+- - Improved types and documentation.
+  - Added support for stream API to Conversation and Bot.
+
 ## 0.3.0
 
 ### Minor Changes
