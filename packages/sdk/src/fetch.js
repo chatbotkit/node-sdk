@@ -1,6 +1,4 @@
-/* global fetch */
-
-import 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch'
 
 // NOTE: we need to pollyfill the ReadableStream for chrome and Safari
 
@@ -118,3 +116,7 @@ export async function* jsonl(body) {
     yield JSON.parse(previous)
   }
 }
+
+export { fetch }
+
+export default fetch

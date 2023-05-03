@@ -5,12 +5,10 @@ import {
   conversationCreate,
   conversationUpdate,
   conversationDelete,
-} from './v1.js'
-import {
   conversationComplete,
   conversationSend,
   conversationReceive,
-} from './v2.js'
+} from './v1.js'
 
 export class ConversationClient extends ChatBotKitClient {
   /**
@@ -67,7 +65,7 @@ export class ConversationClient extends ChatBotKitClient {
   /**
    * Completes the next bot message in a stateless conversation.
    *
-   * @param {import('./v2.js').ConversationCompleteRequest} request
+   * @param {import('./v1.js').ConversationCompleteRequest} request
    */
   complete(request) {
     return conversationComplete(this, request)
@@ -77,7 +75,7 @@ export class ConversationClient extends ChatBotKitClient {
    * Sends a message to the conversation.
    *
    * @param {string} conversationId
-   * @param {import('./v2.js').ConversationSendRequest} request
+   * @param {import('./v1.js').ConversationSendRequest} request
    */
   send(conversationId, request) {
     return conversationSend(this, conversationId, request)
@@ -87,7 +85,7 @@ export class ConversationClient extends ChatBotKitClient {
    * Receives a message from the conversation.
    *
    * @param {string} conversationId
-   * @param {import('./v2.js').ConversationReceiveRequest} request
+   * @param {import('./v1.js').ConversationReceiveRequest} request
    */
   receive(conversationId, request) {
     return conversationReceive(this, conversationId, request)

@@ -4,32 +4,56 @@
 
 /**
  * @typedef {{
- * type: 'user'|'bot'|'context'|'instruction'|'backstory',
- * text: string
+ *   type: 'user'|'bot'|'context'|'instruction'|'backstory',
+ *   text: string
  * }} Message
  */
 
 /**
  * @typedef {{
- * id: string
+ *   id: string,
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   meta?: Record<string,any>
+ *   createdAt: number,
+ *   updatedAt: number
  * }} ConversationListResponse
  *
+ * @typedef {{
+ *   type: 'item',
+ *   data: {
+ *     id: string,
+ *     backstory?: string,
+ *     model?: string,
+ *     datasetId?: string,
+ *     skillsetId?: string,
+ *     meta?: Record<string,any>
+ *     createdAt: number,
+ *     updatedAt: number
+ *   }
+ * }} ConversationListStreamConversation
+ *
+ * @typedef {ConversationListStreamConversation} ConversationListStreamType
+ *
  * @param {ChatBotKitClient} client
- * @returns {Promise<ConversationListResponse>}
+ * @returns {import('../client.js').ResponsePromise<ConversationListResponse,ConversationListStreamType>}
  */
-export async function conversationList(client) {
+export function conversationList(client) {
   return client.clientFetch(`/api/v1/conversation/list`)
 }
 
 /**
  * @typedef {{
- * id: string,
- * backstory?: string,
- * model?: string,
- * datasetId?: string,
- * skillsetId?: string,
- * createdAt: number,
- * updatedAt: number,
+ *   id: string,
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   meta?: Record<string,any>
+ *   createdAt: number,
+ *   updatedAt: number
  * }} ConversationFetchResponse
  *
  * @param {ChatBotKitClient} client
@@ -42,17 +66,17 @@ export async function conversationFetch(client, conversationId) {
 
 /**
  * @typedef {{
- * backstory?: string,
- * model?: string,
- * datasetId?: string,
- * skillsetId?: string,
- * privacy?: boolean,
- * moderation?: boolean,
- * messages?: Message[]
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
+ *   messages?: Message[]
  * }} ConversationCreateRequest
  *
  * @typedef {{
- * id: string
+ *   id: string
  * }} ConversationCreateResponse
  *
  * @param {ChatBotKitClient} client
@@ -67,16 +91,16 @@ export async function conversationCreate(client, request) {
 
 /**
  * @typedef {{
- * backstory?: string,
- * model?: string,
- * datasetId?: string,
- * skillsetId?: string,
- * privacy?: boolean,
- * moderation?: boolean,
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
  * }} ConversationUpdateRequest
  *
  * @typedef {{
- * id: string
+ *   id: string
  * }} ConversationUpdateResponse
  *
  * @param {ChatBotKitClient} client
@@ -92,7 +116,7 @@ export async function conversationUpdate(client, conversationId, request) {
 
 /**
  * @typedef {{
- * id: string
+ *   id: string
  * }} ConversationDeleteResponse
  *
  * @param {ChatBotKitClient} client
@@ -100,29 +124,37 @@ export async function conversationUpdate(client, conversationId, request) {
  * @returns {Promise<ConversationDeleteResponse>}
  */
 export async function conversationDelete(client, conversationId) {
-  return client.clientFetch(`/api/v1/conversation/${conversationId}/delete`)
+  return client.clientFetch(`/api/v1/conversation/${conversationId}/delete`, {
+    data: {},
+  })
 }
 
 /**
  * @typedef {{
- * model?: string,
- * messages: Message[]
+ *   model?: string,
+ *   messages: Message[]
  * }} ConversationCompleteRequest
  *
  * @typedef {{
- * text: string,
- * usage: { token: number }
+ *   text: string,
+ *   usage: { token: number }
  * }} ConversationCompleteResponse
  *
  * @typedef {{
- * type: 'token',
- * token: string
+ *   type: 'token',
+ *   data: {
+ *     token: string
+ *   }
  * }} ConversationCompleteStreamToken
+ *
  * @typedef {{
- * type: 'result',
- * text: string,
+ *   type: 'result',
+ *   data: {
+ *     text: string
+ *   }
  * usage: { token: number }
  * }} ConversationCompleteStreamResult
+ *
  * @typedef {ConversationCompleteStreamToken|ConversationCompleteStreamResult} ConversationCompleteStreamType
  *
  * @param {ChatBotKitClient} client
@@ -137,25 +169,25 @@ export function conversationComplete(client, request) {
 
 /**
  * @typedef {{
- * type: string,
- * begin: number,
- * end: number,
- * text: string,
- * replacement?: {
- * begin: number,
- * end: number,
- * text: string
- * }
+ *   type: string,
+ *   begin: number,
+ *   end: number,
+ *   text: string,
+ *   replacement?: {
+ *     begin: number,
+ *     end: number,
+ *     text: string
+ *   }
  * }} Entity
  *
  * @typedef {{
- * text: string,
- * entities?: Entity[]
+ *   text: string,
+ *   entities?: Entity[]
  * }} ConversationSendRequest
  *
  * @typedef {{
- * id: string
- * entities: Entity[]
+ *   id: string
+ *   entities: Entity[]
  * }} ConversationSendResponse
  *
  * @param {ChatBotKitClient} client
@@ -171,18 +203,18 @@ export async function conversationSend(client, conversationId, request) {
 
 /**
  * @typedef {{
- * type: string,
- * text: string
+ *   type: string,
+ *   text: string
  * }} Action
  *
  * @typedef {{
- * parse?: boolean
- * messages?: Message[]
+ *   parse?: boolean
+ *   messages?: Message[]
  * }} ConversationReceiveRequest
  *
  * @typedef {{
- * id: string,
- * text: string|{stripped: string, original: string, actions: Action[]}
+ *   id: string,
+ *   text: string|{stripped: string, original: string, actions: Action[]}
  * }} ConversationReceiveResponse
  *
  * @param {ChatBotKitClient} client

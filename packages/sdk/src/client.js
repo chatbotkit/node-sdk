@@ -1,15 +1,15 @@
 import { fetchWithBackoff, jsonl, RequestError } from './fetch.js'
 
 /**
- * @template T,D
+ * @template T,U
  */
 export class ResponsePromise {
   /**
    * @param {URL|string} url
    * @param {{
-   * method: string,
-   * headers: Record<string,any>,
-   * data?: Record<string,any>
+   *   method: string,
+   *   headers: Record<string,any>,
+   *   data?: Record<string,any>
    * }} request
    */
   constructor(url, request) {
@@ -20,6 +20,10 @@ export class ResponsePromise {
 
     this.fetchPromise = null
     this.streamPromise = null
+  }
+
+  get [Symbol.toStringTag]() {
+    return 'ResponsePromise'
   }
 
   /**
@@ -96,7 +100,7 @@ export class ResponsePromise {
   }
 
   /**
-   * @returns {AsyncGenerator<D>}
+   * @returns {AsyncGenerator<U>}
    */
   async *stream() {
     const response = await this.getStreamPromise()
@@ -112,8 +116,9 @@ export class ResponsePromise {
 
 /**
  * @typedef {{
- * secret: string,
- * host?: string
+ *   secret: string,
+ *   host?: string,
+ *   protocol?: 'http:'|'https'
  * }} ChatBotKitClientOptions
  */
 
@@ -129,13 +134,17 @@ export class ChatBotKitClient {
     if (options.host) {
       this.url.host = options.host
     }
+
+    if (options.protocol) {
+      this.url.protocol = options.protocol
+    }
   }
 
   /**
-   * @template T,D
+   * @template T,U
    * @param {string} path
    * @param {{data?: Record<string,any>}} [options]
-   * @returns {ResponsePromise<T,D>}
+   * @returns {ResponsePromise<T,U>}
    */
   clientFetch(path, options) {
     let method = 'GET'

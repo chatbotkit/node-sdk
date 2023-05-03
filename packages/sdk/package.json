@@ -75,16 +75,6 @@
         "default": "./dist/esm/conversation/v1.js"
       }
     },
-    "./conversation/v2.js": {
-      "require": {
-        "types": "./dist/cjs/conversation/v2.d.ts",
-        "default": "./dist/cjs/conversation/v2.cjs"
-      },
-      "import": {
-        "types": "./dist/esm/conversation/v2.d.ts",
-        "default": "./dist/esm/conversation/v2.js"
-      }
-    },
     "./dataset/index.js": {
       "require": {
         "types": "./dist/cjs/dataset/index.d.ts",
