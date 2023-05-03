@@ -33,9 +33,9 @@
  *     createdAt: number,
  *     updatedAt: number
  *   }
- * }} ConversationListStreamConversation
+ * }} ConversationListStreamItem
  *
- * @typedef {ConversationListStreamConversation} ConversationListStreamType
+ * @typedef {ConversationListStreamItem} ConversationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @returns {import('../client.js').ResponsePromise<ConversationListResponse,ConversationListStreamType>}

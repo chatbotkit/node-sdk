@@ -4,7 +4,7 @@
 
 /**
  * @typedef {{
- * id: string
+ *   id: string
  * }} DatasetListResponse
  *
  * @param {ChatBotKitClient} client
@@ -16,11 +16,11 @@ export async function datasetList(client) {
 
 /**
  * @typedef {{
- * id: string,
- * name?: string,
- * description?: string,
- * createdAt: number,
- * updatedAt: number
+ *   id: string,
+ *   name?: string,
+ *   description?: string,
+ *   createdAt: number,
+ *   updatedAt: number
  * }} DatasetFetchResponse
  *
  * @param {ChatBotKitClient} client
@@ -33,12 +33,12 @@ export async function datasetFetch(client, datasetId) {
 
 /**
  * @typedef {{
- * name?: string,
- * description?: string
+ *   name?: string,
+ *   description?: string
  * }} DatasetCreateRequest
  *
  * @typedef {{
- * id: string
+ *   id: string
  * }} DatasetCreateResponse
  *
  * @param {ChatBotKitClient} client
@@ -53,12 +53,12 @@ export async function datasetCreate(client, request) {
 
 /**
  * @typedef {{
- * name?: string,
- * description?: string
+ *   name?: string,
+ *   description?: string
  * }} DatasetUpdateRequest
  *
  * @typedef {{
- * id: string
+ *   id: string
  * }} DatasetUpdateResponse
  *
  * @param {ChatBotKitClient} client
@@ -74,7 +74,7 @@ export async function datasetUpdate(client, datasetId, request) {
 
 /**
  * @typedef {{
- * id: string
+ *   id: string
  * }} DatasetDeleteResponse
  *
  * @param {ChatBotKitClient} client

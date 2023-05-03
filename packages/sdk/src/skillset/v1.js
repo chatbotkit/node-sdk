@@ -4,7 +4,7 @@
 
 /**
  * @typedef {{
- * id: string
+ *   id: string
  * }} SkillsetListResponse
  *
  * @param {ChatBotKitClient} client
@@ -16,11 +16,11 @@ export async function skillsetList(client) {
 
 /**
  * @typedef {{
- * id: string,
- * name?: string,
- * description?: string,
- * createdAt: number,
- * updatedAt: number
+ *   id: string,
+ *   name?: string,
+ *   description?: string,
+ *   createdAt: number,
+ *   updatedAt: number
  * }} SkillsetFetchResponse
  *
  * @param {ChatBotKitClient} client
@@ -33,12 +33,12 @@ export async function skillsetFetch(client, skillsetId) {
 
 /**
  * @typedef {{
- * name?: string,
- * description?: string
+ *   name?: string,
+ *   description?: string
  * }} SkillsetCreateRequest
  *
  * @typedef {{
- * id: string
+ *   id: string
  * }} SkillsetCreateResponse
  *
  * @param {ChatBotKitClient} client
@@ -53,12 +53,12 @@ export async function skillsetCreate(client, request) {
 
 /**
  * @typedef {{
- * name?: string,
- * description?: string
+ *   name?: string,
+ *   description?: string
  * }} SkillsetUpdateRequest
  *
  * @typedef {{
- * id: string
+ *   id: string
  * }} SkillsetUpdateResponse
  *
  * @param {ChatBotKitClient} client
@@ -74,7 +74,7 @@ export async function skillsetUpdate(client, skillsetId, request) {
 
 /**
  * @typedef {{
- * id: string
+ *   id: string
  * }} SkillsetDeleteResponse
  *
  * @param {ChatBotKitClient} client

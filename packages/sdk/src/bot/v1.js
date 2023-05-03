@@ -4,25 +4,46 @@
 
 /**
  * @typedef {{
- * id: string
+ *   id: string,
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   createdAt: number,
+ *   updatedAt: number
  * }} BotListResponse
  *
+ * @typedef {{
+ *   type: 'item',
+ *   data: {
+ *     id: string,
+ *     backstory?: string,
+ *     model?: string,
+ *     datasetId?: string,
+ *     skillsetId?: string,
+ *     createdAt: number,
+ *     updatedAt: number
+ *   }
+ * }} BotListStreamItemType
+ *
+ * @typedef {BotListStreamItemType} BotListStreamType
+ *
  * @param {ChatBotKitClient} client
- * @returns {Promise<BotListResponse>}
+ * @returns {import('../client.js').ResponsePromise<BotListResponse,BotListStreamType>}
  */
-export async function botList(client) {
+export function botList(client) {
   return client.clientFetch(`/api/v1/bot/list`)
 }
 
 /**
  * @typedef {{
- * id: string,
- * backstory?: string,
- * model?: string,
- * datasetId?: string,
- * skillsetId?: string,
- * createdAt: number,
- * updatedAt: number,
+ *   id: string,
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   createdAt: number,
+ *   updatedAt: number,
  * }} BotFetchResponse
  *
  * @param {ChatBotKitClient} client
@@ -35,16 +56,16 @@ export async function botFetch(client, botId) {
 
 /**
  * @typedef {{
- * backstory?: string,
- * model?: string,
- * datasetId?: string,
- * skillsetId?: string,
- * privacy?: boolean,
- * moderation?: boolean,
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
  * }} BotCreateRequest
  *
  * @typedef {{
- * id: string
+ *   id: string
  * }} BotCreateResponse
  *
  * @param {ChatBotKitClient} client
@@ -59,16 +80,16 @@ export async function botCreate(client, request) {
 
 /**
  * @typedef {{
- * backstory?: string,
- * model?: string,
- * datasetId?: string,
- * skillsetId?: string,
- * privacy?: boolean,
- * moderation?: boolean,
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
  * }} BotUpdateRequest
  *
  * @typedef {{
- * id: string
+ *   id: string
  * }} BotUpdateResponse
  *
  * @param {ChatBotKitClient} client
@@ -84,7 +105,7 @@ export async function botUpdate(client, botId, request) {
 
 /**
  * @typedef {{
- * id: string
+ *   id: string
  * }} BotDeleteResponse
  *
  * @param {ChatBotKitClient} client
