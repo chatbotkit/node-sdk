@@ -18,9 +18,10 @@ Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building co
 - 🗨 **Chat History**: Easily review and reference previous conversations with your bots, ensuring that it has all the information it needs.
 - 💾 **Custom Datasets**: Manage and organize the data that your chat bots use to respond to user input with bespoke datasets.
 - 🎬 **Media File Importing**: Import MP3, MP4, MPEG, WAV and many other media files directly into your your chatbot datasets
+- 🌐 **Widget Integration**: Embed ChatBotKit chatbots directly on any website using advanced customization options and theming.
 - 💬 **Slack Bot Integration**: Create and deploy wide-range of Slack bot integrations with just a few click.
 - 🎮 **Discord Bot Integration**: Create and deploy wide-range of Discord chat bot with just a few click.
-- 🌐 **Widget Integration**: Embed ChatBotKit chatbots directly on any website using advanced customization options and theming.
+- 📱 **WhatsApp Bot Integration**: Connect with your audience instantly on the world’s most popular AI bot platform.
 - 🗺 **Sitemap Integration**: Automatically ingest website content into a searchable knowledge base for your chatbot to reference.
 - 🤖 **GPT-3.5 Support**: State-of-the-art language models to power your conversations.
 - 🚀 **GPT-4 Support**: The latest and best language model now can power all chatbots.
