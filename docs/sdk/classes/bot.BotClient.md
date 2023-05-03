@@ -48,7 +48,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[bot/index.js:8](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/bot/index.js#L8)
+[bot/index.js:8](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/bot/index.js#L8)
 
 ## Properties
 
@@ -62,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:130](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/client.js#L130)
+[client.js:130](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/client.js#L130)
 
 ___
 
@@ -76,7 +76,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:132](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/client.js#L132)
+[client.js:132](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/client.js#L132)
 
 ## Methods
 
@@ -109,7 +109,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:149](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/client.js#L149)
+[client.js:149](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/client.js#L149)
 
 ___
 
@@ -131,7 +131,7 @@ Creates a new bot.
 
 #### Defined in
 
-[bot/index.js:33](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/bot/index.js#L33)
+[bot/index.js:33](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/bot/index.js#L33)
 
 ___
 
@@ -153,7 +153,7 @@ Deletes the bot.
 
 #### Defined in
 
-[bot/index.js:52](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/bot/index.js#L52)
+[bot/index.js:52](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/bot/index.js#L52)
 
 ___
 
@@ -175,7 +175,7 @@ Fetches a bot.
 
 #### Defined in
 
-[bot/index.js:24](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/bot/index.js#L24)
+[bot/index.js:24](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/bot/index.js#L24)
 
 ___
 
@@ -191,7 +191,7 @@ Retrieves a list of all existing bots associated with this client.
 
 #### Defined in
 
-[bot/index.js:15](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/bot/index.js#L15)
+[bot/index.js:15](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/bot/index.js#L15)
 
 ___
 
@@ -214,4 +214,4 @@ Updates a new bot.
 
 #### Defined in
 
-[bot/index.js:43](https://github.com/chatbotkit/node-sdk/blob/9c88124/packages/sdk/src/bot/index.js#L43)
+[bot/index.js:43](https://github.com/chatbotkit/node-sdk/blob/d87c7e2/packages/sdk/src/bot/index.js#L43)
