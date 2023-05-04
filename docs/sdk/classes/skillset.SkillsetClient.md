@@ -48,7 +48,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[skillset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/index.js#L14)
+[skillset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L14)
 
 ## Properties
 
@@ -62,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:130](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/client.js#L130)
+[client.js:130](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L130)
 
 ___
 
@@ -76,7 +76,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:132](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/client.js#L132)
+[client.js:132](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L132)
 
 ## Methods
 
@@ -109,7 +109,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:149](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/client.js#L149)
+[client.js:149](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L149)
 
 ___
 
@@ -123,7 +123,7 @@ Creates a new skillset.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SkillsetCreateRequest`](../modules/skillset_v1.md#skillsetcreaterequest) |
+| `request` | [`SkillsetOptions`](../modules/skillset_v1.md#skillsetoptions) |
 
 #### Returns
 
@@ -131,7 +131,7 @@ Creates a new skillset.
 
 #### Defined in
 
-[skillset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/index.js#L39)
+[skillset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L39)
 
 ___
 
@@ -153,13 +153,13 @@ Deletes the skillset.
 
 #### Defined in
 
-[skillset/index.js:58](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/index.js#L58)
+[skillset/index.js:58](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L58)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`skillsetId`): `Promise`<[`SkillsetFetchResponse`](../modules/skillset_v1.md#skillsetfetchresponse)\>
+▸ **fetch**(`skillsetId`): `Promise`<[`SkillsetInstance`](../modules/skillset_v1.md#skillsetinstance)\>
 
 Fetches a skillset.
 
@@ -171,27 +171,27 @@ Fetches a skillset.
 
 #### Returns
 
-`Promise`<[`SkillsetFetchResponse`](../modules/skillset_v1.md#skillsetfetchresponse)\>
+`Promise`<[`SkillsetInstance`](../modules/skillset_v1.md#skillsetinstance)\>
 
 #### Defined in
 
-[skillset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/index.js#L30)
+[skillset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L30)
 
 ___
 
 ### list
 
-▸ **list**(): `Promise`<[`SkillsetListResponse`](../modules/skillset_v1.md#skillsetlistresponse)\>
+▸ **list**(): `Promise`<[`SkillsetInstance`](../modules/skillset_v1.md#skillsetinstance)\>
 
 Retrieves a list of all existing skillsets associated with this client.
 
 #### Returns
 
-`Promise`<[`SkillsetListResponse`](../modules/skillset_v1.md#skillsetlistresponse)\>
+`Promise`<[`SkillsetInstance`](../modules/skillset_v1.md#skillsetinstance)\>
 
 #### Defined in
 
-[skillset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/index.js#L21)
+[skillset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L21)
 
 ___
 
@@ -206,7 +206,7 @@ Updates a new skillset.
 | Name | Type |
 | :------ | :------ |
 | `skillsetId` | `string` |
-| `request` | [`SkillsetUpdateRequest`](../modules/skillset_v1.md#skillsetupdaterequest) |
+| `request` | [`SkillsetOptions`](../modules/skillset_v1.md#skillsetoptions) |
 
 #### Returns
 
@@ -214,4 +214,4 @@ Updates a new skillset.
 
 #### Defined in
 
-[skillset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/index.js#L49)
+[skillset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L49)

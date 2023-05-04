@@ -11,7 +11,9 @@
 - [SkillsetCreateResponse](skillset_v1.md#skillsetcreateresponse)
 - [SkillsetDeleteResponse](skillset_v1.md#skillsetdeleteresponse)
 - [SkillsetFetchResponse](skillset_v1.md#skillsetfetchresponse)
+- [SkillsetInstance](skillset_v1.md#skillsetinstance)
 - [SkillsetListResponse](skillset_v1.md#skillsetlistresponse)
+- [SkillsetOptions](skillset_v1.md#skillsetoptions)
 - [SkillsetUpdateRequest](skillset_v1.md#skillsetupdaterequest)
 - [SkillsetUpdateResponse](skillset_v1.md#skillsetupdateresponse)
 
@@ -31,24 +33,17 @@
 
 #### Defined in
 
-[skillset/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L2)
+[skillset/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L2)
 
 ___
 
 ### SkillsetCreateRequest
 
-Ƭ **SkillsetCreateRequest**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `name?` | `string` |
+Ƭ **SkillsetCreateRequest**<\>: [`SkillsetOptions`](skillset_v1.md#skillsetoptions)
 
 #### Defined in
 
-[skillset/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L38)
+[skillset/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L41)
 
 ___
 
@@ -64,7 +59,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L42)
+[skillset/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L45)
 
 ___
 
@@ -80,13 +75,43 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L78)
+[skillset/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L78)
 
 ___
 
 ### SkillsetFetchResponse
 
-Ƭ **SkillsetFetchResponse**<\>: `Object`
+Ƭ **SkillsetFetchResponse**<\>: [`SkillsetInstance`](skillset_v1.md#skillsetinstance)
+
+#### Defined in
+
+[skillset/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L30)
+
+___
+
+### SkillsetInstance
+
+Ƭ **SkillsetInstance**<\>: { `id`: `string`  } & [`SkillsetOptions`](skillset_v1.md#skillsetoptions)
+
+#### Defined in
+
+[skillset/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L16)
+
+___
+
+### SkillsetListResponse
+
+Ƭ **SkillsetListResponse**<\>: [`SkillsetInstance`](skillset_v1.md#skillsetinstance)
+
+#### Defined in
+
+[skillset/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L20)
+
+___
+
+### SkillsetOptions
+
+Ƭ **SkillsetOptions**<\>: `Object`
 
 #### Type declaration
 
@@ -94,46 +119,23 @@ ___
 | :------ | :------ |
 | `createdAt` | `number` |
 | `description?` | `string` |
-| `id` | `string` |
+| `meta?` | `Record`<`string`, `any`\> |
 | `name?` | `string` |
 | `updatedAt` | `number` |
 
 #### Defined in
 
-[skillset/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L24)
-
-___
-
-### SkillsetListResponse
-
-Ƭ **SkillsetListResponse**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[skillset/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L8)
+[skillset/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L12)
 
 ___
 
 ### SkillsetUpdateRequest
 
-Ƭ **SkillsetUpdateRequest**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `name?` | `string` |
+Ƭ **SkillsetUpdateRequest**<\>: [`SkillsetOptions`](skillset_v1.md#skillsetoptions)
 
 #### Defined in
 
-[skillset/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L58)
+[skillset/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L58)
 
 ___
 
@@ -149,7 +151,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L62)
+[skillset/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L62)
 
 ## Functions
 
@@ -162,7 +164,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
-| `request` | [`SkillsetCreateRequest`](skillset_v1.md#skillsetcreaterequest) |
+| `request` | [`SkillsetOptions`](skillset_v1.md#skillsetoptions) |
 
 #### Returns
 
@@ -170,7 +172,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L48)
+[skillset/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L51)
 
 ___
 
@@ -191,13 +193,13 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L84)
+[skillset/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L84)
 
 ___
 
 ### skillsetFetch
 
-▸ **skillsetFetch**(`client`, `skillsetId`): `Promise`<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse)\>
+▸ **skillsetFetch**(`client`, `skillsetId`): `Promise`<[`SkillsetInstance`](skillset_v1.md#skillsetinstance)\>
 
 #### Parameters
 
@@ -208,17 +210,17 @@ ___
 
 #### Returns
 
-`Promise`<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse)\>
+`Promise`<[`SkillsetInstance`](skillset_v1.md#skillsetinstance)\>
 
 #### Defined in
 
-[skillset/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L30)
+[skillset/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L36)
 
 ___
 
 ### skillsetList
 
-▸ **skillsetList**(`client`): `Promise`<[`SkillsetListResponse`](skillset_v1.md#skillsetlistresponse)\>
+▸ **skillsetList**(`client`): `Promise`<[`SkillsetInstance`](skillset_v1.md#skillsetinstance)\>
 
 #### Parameters
 
@@ -228,11 +230,11 @@ ___
 
 #### Returns
 
-`Promise`<[`SkillsetListResponse`](skillset_v1.md#skillsetlistresponse)\>
+`Promise`<[`SkillsetInstance`](skillset_v1.md#skillsetinstance)\>
 
 #### Defined in
 
-[skillset/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L13)
+[skillset/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L25)
 
 ___
 
@@ -246,7 +248,7 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `skillsetId` | `string` |
-| `request` | [`SkillsetUpdateRequest`](skillset_v1.md#skillsetupdaterequest) |
+| `request` | [`SkillsetOptions`](skillset_v1.md#skillsetoptions) |
 
 #### Returns
 
@@ -254,4 +256,4 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/skillset/v1.js#L69)
+[skillset/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/v1.js#L69)

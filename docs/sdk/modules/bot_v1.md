@@ -10,9 +10,11 @@
 - [BotCreateResponse](bot_v1.md#botcreateresponse)
 - [BotDeleteResponse](bot_v1.md#botdeleteresponse)
 - [BotFetchResponse](bot_v1.md#botfetchresponse)
+- [BotInstance](bot_v1.md#botinstance)
 - [BotListResponse](bot_v1.md#botlistresponse)
 - [BotListStreamItemType](bot_v1.md#botliststreamitemtype)
 - [BotListStreamType](bot_v1.md#botliststreamtype)
+- [BotOptions](bot_v1.md#botoptions)
 - [BotUpdateRequest](bot_v1.md#botupdaterequest)
 - [BotUpdateResponse](bot_v1.md#botupdateresponse)
 - [ChatBotKitClient](bot_v1.md#chatbotkitclient)
@@ -29,22 +31,11 @@
 
 ### BotCreateRequest
 
-Ƭ **BotCreateRequest**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `datasetId?` | `string` |
-| `model?` | `string` |
-| `moderation?` | `boolean` |
-| `privacy?` | `boolean` |
-| `skillsetId?` | `string` |
+Ƭ **BotCreateRequest**<\>: [`BotOptions`](bot_v1.md#botoptions)
 
 #### Defined in
 
-[bot/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L65)
+[bot/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L50)
 
 ___
 
@@ -60,7 +51,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L69)
+[bot/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L54)
 
 ___
 
@@ -76,51 +67,37 @@ ___
 
 #### Defined in
 
-[bot/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L109)
+[bot/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L87)
 
 ___
 
 ### BotFetchResponse
 
-Ƭ **BotFetchResponse**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `createdAt` | `number` |
-| `datasetId?` | `string` |
-| `id` | `string` |
-| `model?` | `string` |
-| `skillsetId?` | `string` |
-| `updatedAt` | `number` |
+Ƭ **BotFetchResponse**<\>: [`BotInstance`](bot_v1.md#botinstance)
 
 #### Defined in
 
-[bot/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L47)
+[bot/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L39)
+
+___
+
+### BotInstance
+
+Ƭ **BotInstance**<\>: { `id`: `string`  } & [`BotOptions`](bot_v1.md#botoptions)
+
+#### Defined in
+
+[bot/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L18)
 
 ___
 
 ### BotListResponse
 
-Ƭ **BotListResponse**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `createdAt` | `number` |
-| `datasetId?` | `string` |
-| `id` | `string` |
-| `model?` | `string` |
-| `skillsetId?` | `string` |
-| `updatedAt` | `number` |
+Ƭ **BotListResponse**<\>: [`BotInstance`](bot_v1.md#botinstance)
 
 #### Defined in
 
-[bot/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L14)
+[bot/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L22)
 
 ___
 
@@ -132,19 +109,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `data` | { `backstory?`: `string` ; `createdAt`: `number` ; `datasetId?`: `string` ; `id`: `string` ; `model?`: `string` ; `skillsetId?`: `string` ; `updatedAt`: `number`  } |
-| `data.backstory?` | `string` |
-| `data.createdAt` | `number` |
-| `data.datasetId?` | `string` |
-| `data.id` | `string` |
-| `data.model?` | `string` |
-| `data.skillsetId?` | `string` |
-| `data.updatedAt` | `number` |
+| `data` | [`BotInstance`](bot_v1.md#botinstance) |
 | `type` | ``"item"`` |
 
 #### Defined in
 
-[bot/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L27)
+[bot/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L27)
 
 ___
 
@@ -154,28 +124,39 @@ ___
 
 #### Defined in
 
-[bot/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L29)
+[bot/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L29)
 
 ___
 
-### BotUpdateRequest
+### BotOptions
 
-Ƭ **BotUpdateRequest**<\>: `Object`
+Ƭ **BotOptions**<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
 | `backstory?` | `string` |
+| `createdAt` | `number` |
 | `datasetId?` | `string` |
+| `meta?` | `Record`<`string`, `any`\> |
 | `model?` | `string` |
-| `moderation?` | `boolean` |
-| `privacy?` | `boolean` |
 | `skillsetId?` | `string` |
+| `updatedAt` | `number` |
 
 #### Defined in
 
-[bot/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L89)
+[bot/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L14)
+
+___
+
+### BotUpdateRequest
+
+Ƭ **BotUpdateRequest**<\>: [`BotOptions`](bot_v1.md#botoptions)
+
+#### Defined in
+
+[bot/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L67)
 
 ___
 
@@ -191,7 +172,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L93)
+[bot/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L71)
 
 ___
 
@@ -201,7 +182,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L2)
+[bot/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L2)
 
 ## Functions
 
@@ -214,7 +195,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
-| `request` | [`BotCreateRequest`](bot_v1.md#botcreaterequest) |
+| `request` | [`BotOptions`](bot_v1.md#botoptions) |
 
 #### Returns
 
@@ -222,7 +203,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L75)
+[bot/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L60)
 
 ___
 
@@ -243,13 +224,13 @@ ___
 
 #### Defined in
 
-[bot/v1.js:115](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L115)
+[bot/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L93)
 
 ___
 
 ### botFetch
 
-▸ **botFetch**(`client`, `botId`): `Promise`<[`BotFetchResponse`](bot_v1.md#botfetchresponse)\>
+▸ **botFetch**(`client`, `botId`): `Promise`<[`BotInstance`](bot_v1.md#botinstance)\>
 
 #### Parameters
 
@@ -260,17 +241,17 @@ ___
 
 #### Returns
 
-`Promise`<[`BotFetchResponse`](bot_v1.md#botfetchresponse)\>
+`Promise`<[`BotInstance`](bot_v1.md#botinstance)\>
 
 #### Defined in
 
-[bot/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L53)
+[bot/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L45)
 
 ___
 
 ### botList
 
-▸ **botList**(`client`): `ResponsePromise`<[`BotListResponse`](bot_v1.md#botlistresponse), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
+▸ **botList**(`client`): `ResponsePromise`<[`BotInstance`](bot_v1.md#botinstance), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
 
 #### Parameters
 
@@ -280,11 +261,11 @@ ___
 
 #### Returns
 
-`ResponsePromise`<[`BotListResponse`](bot_v1.md#botlistresponse), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
+`ResponsePromise`<[`BotInstance`](bot_v1.md#botinstance), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
 
 #### Defined in
 
-[bot/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L34)
+[bot/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L34)
 
 ___
 
@@ -298,7 +279,7 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `botId` | `string` |
-| `request` | [`BotUpdateRequest`](bot_v1.md#botupdaterequest) |
+| `request` | [`BotOptions`](bot_v1.md#botoptions) |
 
 #### Returns
 
@@ -306,4 +287,4 @@ ___
 
 #### Defined in
 
-[bot/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/bot/v1.js#L100)
+[bot/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/bot/v1.js#L78)

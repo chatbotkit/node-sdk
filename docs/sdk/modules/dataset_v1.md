@@ -11,7 +11,9 @@
 - [DatasetCreateResponse](dataset_v1.md#datasetcreateresponse)
 - [DatasetDeleteResponse](dataset_v1.md#datasetdeleteresponse)
 - [DatasetFetchResponse](dataset_v1.md#datasetfetchresponse)
+- [DatasetInstance](dataset_v1.md#datasetinstance)
 - [DatasetListResponse](dataset_v1.md#datasetlistresponse)
+- [DatasetOptions](dataset_v1.md#datasetoptions)
 - [DatasetUpdateRequest](dataset_v1.md#datasetupdaterequest)
 - [DatasetUpdateResponse](dataset_v1.md#datasetupdateresponse)
 
@@ -31,24 +33,17 @@
 
 #### Defined in
 
-[dataset/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L2)
+[dataset/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L2)
 
 ___
 
 ### DatasetCreateRequest
 
-Ƭ **DatasetCreateRequest**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `name?` | `string` |
+Ƭ **DatasetCreateRequest**<\>: [`DatasetOptions`](dataset_v1.md#datasetoptions)
 
 #### Defined in
 
-[dataset/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L38)
+[dataset/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L41)
 
 ___
 
@@ -64,7 +59,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L42)
+[dataset/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L45)
 
 ___
 
@@ -80,13 +75,43 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L78)
+[dataset/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L78)
 
 ___
 
 ### DatasetFetchResponse
 
-Ƭ **DatasetFetchResponse**<\>: `Object`
+Ƭ **DatasetFetchResponse**<\>: [`DatasetInstance`](dataset_v1.md#datasetinstance)
+
+#### Defined in
+
+[dataset/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L30)
+
+___
+
+### DatasetInstance
+
+Ƭ **DatasetInstance**<\>: { `id`: `string`  } & [`DatasetOptions`](dataset_v1.md#datasetoptions)
+
+#### Defined in
+
+[dataset/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L16)
+
+___
+
+### DatasetListResponse
+
+Ƭ **DatasetListResponse**<\>: [`DatasetInstance`](dataset_v1.md#datasetinstance)
+
+#### Defined in
+
+[dataset/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L20)
+
+___
+
+### DatasetOptions
+
+Ƭ **DatasetOptions**<\>: `Object`
 
 #### Type declaration
 
@@ -94,46 +119,23 @@ ___
 | :------ | :------ |
 | `createdAt` | `number` |
 | `description?` | `string` |
-| `id` | `string` |
+| `meta?` | `Record`<`string`, `any`\> |
 | `name?` | `string` |
 | `updatedAt` | `number` |
 
 #### Defined in
 
-[dataset/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L24)
-
-___
-
-### DatasetListResponse
-
-Ƭ **DatasetListResponse**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[dataset/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L8)
+[dataset/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L12)
 
 ___
 
 ### DatasetUpdateRequest
 
-Ƭ **DatasetUpdateRequest**<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `name?` | `string` |
+Ƭ **DatasetUpdateRequest**<\>: [`DatasetOptions`](dataset_v1.md#datasetoptions)
 
 #### Defined in
 
-[dataset/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L58)
+[dataset/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L58)
 
 ___
 
@@ -149,7 +151,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L62)
+[dataset/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L62)
 
 ## Functions
 
@@ -162,7 +164,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
-| `request` | [`DatasetCreateRequest`](dataset_v1.md#datasetcreaterequest) |
+| `request` | [`DatasetOptions`](dataset_v1.md#datasetoptions) |
 
 #### Returns
 
@@ -170,7 +172,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L48)
+[dataset/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L51)
 
 ___
 
@@ -191,13 +193,13 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L84)
+[dataset/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L84)
 
 ___
 
 ### datasetFetch
 
-▸ **datasetFetch**(`client`, `datasetId`): `Promise`<[`DatasetFetchResponse`](dataset_v1.md#datasetfetchresponse)\>
+▸ **datasetFetch**(`client`, `datasetId`): `Promise`<[`DatasetInstance`](dataset_v1.md#datasetinstance)\>
 
 #### Parameters
 
@@ -208,17 +210,17 @@ ___
 
 #### Returns
 
-`Promise`<[`DatasetFetchResponse`](dataset_v1.md#datasetfetchresponse)\>
+`Promise`<[`DatasetInstance`](dataset_v1.md#datasetinstance)\>
 
 #### Defined in
 
-[dataset/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L30)
+[dataset/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L36)
 
 ___
 
 ### datasetList
 
-▸ **datasetList**(`client`): `Promise`<[`DatasetListResponse`](dataset_v1.md#datasetlistresponse)\>
+▸ **datasetList**(`client`): `Promise`<[`DatasetInstance`](dataset_v1.md#datasetinstance)\>
 
 #### Parameters
 
@@ -228,11 +230,11 @@ ___
 
 #### Returns
 
-`Promise`<[`DatasetListResponse`](dataset_v1.md#datasetlistresponse)\>
+`Promise`<[`DatasetInstance`](dataset_v1.md#datasetinstance)\>
 
 #### Defined in
 
-[dataset/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L13)
+[dataset/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L25)
 
 ___
 
@@ -246,7 +248,7 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `datasetId` | `string` |
-| `request` | [`DatasetUpdateRequest`](dataset_v1.md#datasetupdaterequest) |
+| `request` | [`DatasetOptions`](dataset_v1.md#datasetoptions) |
 
 #### Returns
 
@@ -254,4 +256,4 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/7aee3d9/packages/sdk/src/dataset/v1.js#L69)
+[dataset/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/v1.js#L69)
