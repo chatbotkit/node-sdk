@@ -4,8 +4,20 @@
 
 /**
  * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   meta?: Record<string,any>,
+ *   createdAt: number,
+ *   updatedAt: number
+ * }} SkillsetOptions
+ *
+ * @typedef {{
  *   id: string
- * }} SkillsetListResponse
+ * } & SkillsetOptions} SkillsetInstance
+ */
+
+/**
+ * @typedef {SkillsetInstance} SkillsetListResponse
  *
  * @param {ChatBotKitClient} client
  * @returns {Promise<SkillsetListResponse>}
@@ -15,13 +27,7 @@ export async function skillsetList(client) {
 }
 
 /**
- * @typedef {{
- *   id: string,
- *   name?: string,
- *   description?: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} SkillsetFetchResponse
+ * @typedef {SkillsetInstance} SkillsetFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -32,10 +38,7 @@ export async function skillsetFetch(client, skillsetId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string
- * }} SkillsetCreateRequest
+ * @typedef {SkillsetOptions} SkillsetCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -52,10 +55,7 @@ export async function skillsetCreate(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string
- * }} SkillsetUpdateRequest
+ * @typedef {SkillsetOptions} SkillsetUpdateRequest
  *
  * @typedef {{
  *   id: string

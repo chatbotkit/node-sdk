@@ -4,14 +4,6 @@
 
 /**
  * @typedef {{
- *   type: 'user'|'bot'|'context'|'instruction'|'backstory',
- *   text: string
- * }} Message
- */
-
-/**
- * @typedef {{
- *   id: string,
  *   backstory?: string,
  *   model?: string,
  *   datasetId?: string,
@@ -19,20 +11,24 @@
  *   meta?: Record<string,any>
  *   createdAt: number,
  *   updatedAt: number
- * }} ConversationListResponse
+ * }} ConversationOptions
+ *
+ * @typedef {{
+ *   id: string
+ * } & ConversationOptions} ConversationInstance
+ *
+ * @typedef {{
+ *   type: 'user'|'bot'|'context'|'instruction'|'backstory',
+ *   text: string
+ * }} Message
+ */
+
+/**
+ * @typedef {ConversationInstance} ConversationListResponse
  *
  * @typedef {{
  *   type: 'item',
- *   data: {
- *     id: string,
- *     backstory?: string,
- *     model?: string,
- *     datasetId?: string,
- *     skillsetId?: string,
- *     meta?: Record<string,any>
- *     createdAt: number,
- *     updatedAt: number
- *   }
+ *   data: ConversationInstance
  * }} ConversationListStreamItem
  *
  * @typedef {ConversationListStreamItem} ConversationListStreamType
@@ -45,16 +41,7 @@ export function conversationList(client) {
 }
 
 /**
- * @typedef {{
- *   id: string,
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   meta?: Record<string,any>
- *   createdAt: number,
- *   updatedAt: number
- * }} ConversationFetchResponse
+ * @typedef {ConversationInstance} ConversationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -65,15 +52,7 @@ export async function conversationFetch(client, conversationId) {
 }
 
 /**
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean,
- *   messages?: Message[]
- * }} ConversationCreateRequest
+ * @typedef {ConversationOptions} ConversationCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -90,14 +69,7 @@ export async function conversationCreate(client, request) {
 }
 
 /**
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean,
- * }} ConversationUpdateRequest
+ * @typedef {ConversationOptions} ConversationUpdateRequest
  *
  * @typedef {{
  *   id: string

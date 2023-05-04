@@ -4,26 +4,26 @@
 
 /**
  * @typedef {{
- *   id: string,
  *   backstory?: string,
  *   model?: string,
  *   datasetId?: string,
  *   skillsetId?: string,
+ *   meta?: Record<string,any>,
  *   createdAt: number,
  *   updatedAt: number
- * }} BotListResponse
+ * }} BotOptions
+ *
+ * @typedef {{
+ *   id: string
+ * } & BotOptions} BotInstance
+ */
+
+/**
+ * @typedef {BotInstance} BotListResponse
  *
  * @typedef {{
  *   type: 'item',
- *   data: {
- *     id: string,
- *     backstory?: string,
- *     model?: string,
- *     datasetId?: string,
- *     skillsetId?: string,
- *     createdAt: number,
- *     updatedAt: number
- *   }
+ *   data: BotInstance
  * }} BotListStreamItemType
  *
  * @typedef {BotListStreamItemType} BotListStreamType
@@ -36,15 +36,7 @@ export function botList(client) {
 }
 
 /**
- * @typedef {{
- *   id: string,
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   createdAt: number,
- *   updatedAt: number,
- * }} BotFetchResponse
+ * @typedef {BotInstance} BotFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -55,14 +47,7 @@ export async function botFetch(client, botId) {
 }
 
 /**
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean,
- * }} BotCreateRequest
+ * @typedef {BotOptions} BotCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -79,14 +64,7 @@ export async function botCreate(client, request) {
 }
 
 /**
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean,
- * }} BotUpdateRequest
+ * @typedef {BotOptions} BotUpdateRequest
  *
  * @typedef {{
  *   id: string
