@@ -4,8 +4,16 @@
   "description": "The fastest way to build advanced AI chat bots.",
   "license": "ISC",
   "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc"
+  },
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "@chatbotkit/sdk": "*"
+    "@chatbotkit/sdk": "*",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.3",
+    "typescript": "^5.0.4"
   }
 }

@@ -1,8 +1,9 @@
-const readline = require('node:readline/promises')
+import * as dotenv from 'dotenv'
+import readline from 'node:readline/promises'
 
-require('dotenv').config()
+dotenv.config()
 
-const { ConversationClient } = require('@chatbotkit/sdk/conversation/index.js')
+import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 /**
  * The main function serves as the entry point of the application. It
@@ -24,6 +25,7 @@ async function main() {
     output: process.stdout,
   })
 
+  /** @type {{type: 'user'|'bot', text: string}[]} */
   const messages = []
 
   for (;;) {

@@ -65,6 +65,26 @@
         "default": "./dist/esm/conversation/index.js"
       }
     },
+    "./conversation/message/index.js": {
+      "require": {
+        "types": "./dist/cjs/conversation/message/index.d.ts",
+        "default": "./dist/cjs/conversation/message/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/message/index.d.ts",
+        "default": "./dist/esm/conversation/message/index.js"
+      }
+    },
+    "./conversation/message/v1.js": {
+      "require": {
+        "types": "./dist/cjs/conversation/message/v1.d.ts",
+        "default": "./dist/cjs/conversation/message/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/message/v1.d.ts",
+        "default": "./dist/esm/conversation/message/v1.js"
+      }
+    },
     "./conversation/v1.js": {
       "require": {
         "types": "./dist/cjs/conversation/v1.d.ts",
@@ -83,6 +103,26 @@
       "import": {
         "types": "./dist/esm/dataset/index.d.ts",
         "default": "./dist/esm/dataset/index.js"
+      }
+    },
+    "./dataset/record/index.js": {
+      "require": {
+        "types": "./dist/cjs/dataset/record/index.d.ts",
+        "default": "./dist/cjs/dataset/record/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/record/index.d.ts",
+        "default": "./dist/esm/dataset/record/index.js"
+      }
+    },
+    "./dataset/record/v1.js": {
+      "require": {
+        "types": "./dist/cjs/dataset/record/v1.d.ts",
+        "default": "./dist/cjs/dataset/record/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/record/v1.d.ts",
+        "default": "./dist/esm/dataset/record/v1.js"
       }
     },
     "./dataset/v1.js": {
@@ -113,6 +153,26 @@
       "import": {
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
+      }
+    },
+    "./skillset/ability/index.js": {
+      "require": {
+        "types": "./dist/cjs/skillset/ability/index.d.ts",
+        "default": "./dist/cjs/skillset/ability/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/ability/index.d.ts",
+        "default": "./dist/esm/skillset/ability/index.js"
+      }
+    },
+    "./skillset/ability/v1.js": {
+      "require": {
+        "types": "./dist/cjs/skillset/ability/v1.d.ts",
+        "default": "./dist/cjs/skillset/ability/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/ability/v1.d.ts",
+        "default": "./dist/esm/skillset/ability/v1.js"
       }
     },
     "./skillset/index.js": {

@@ -1,6 +1,8 @@
-require('dotenv').config()
+import * as dotenv from 'dotenv'
 
-const { ConversationClient } = require('@chatbotkit/sdk/conversation/index.js')
+dotenv.config()
+
+import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 /**
  * Retrieves a list of conversations from the Chatbotkit Conversation API using

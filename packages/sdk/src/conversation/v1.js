@@ -9,16 +9,18 @@
  *   datasetId?: string,
  *   skillsetId?: string,
  *   meta?: Record<string,any>
- *   createdAt: number,
- *   updatedAt: number
  * }} ConversationOptions
  *
  * @typedef {{
- *   id: string
+ *   id: string,
+ *   createdAt: number,
+ *   updatedAt: number
  * } & ConversationOptions} ConversationInstance
  *
+ * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'} MessageType
+ *
  * @typedef {{
- *   type: 'user'|'bot'|'context'|'instruction'|'backstory',
+ *   type: MessageType,
  *   text: string
  * }} Message
  */

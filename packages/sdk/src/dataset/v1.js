@@ -7,12 +7,13 @@
  *   name?: string,
  *   description?: string,
  *   meta?: Record<string,any>,
- *   createdAt: number,
- *   updatedAt: number
  * }} DatasetOptions
  *
  * @typedef {{
- *   id: string
+ *   id: string,
+ *   store: string,
+ *   createdAt: number,
+ *   updatedAt: number
  * } & DatasetOptions} DatasetInstance
  */
 
@@ -38,7 +39,9 @@ export async function datasetFetch(client, datasetId) {
 }
 
 /**
- * @typedef {DatasetOptions} DatasetCreateRequest
+ * @typedef {DatasetOptions & {
+ *   store: string
+ * }} DatasetCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -83,4 +86,18 @@ export async function datasetUpdate(client, datasetId, request) {
  */
 export async function datasetDelete(client, datasetId) {
   return client.clientFetch(`/api/v1/dataset/${datasetId}/delete`)
+}
+
+/**
+ * @typedef {{
+ *   records: import('./record/v1.js').RecordInstance[]
+ * }} DatasetSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} datasetId
+ * @param {string} search
+ * @returns {Promise<DatasetSearchResponse>}
+ */
+export async function datasetSearch(client, datasetId, search) {
+  return client.clientFetch(`/api/v1/dataset/${datasetId}/search`)
 }

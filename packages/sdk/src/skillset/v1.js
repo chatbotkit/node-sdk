@@ -6,13 +6,13 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
- *   meta?: Record<string,any>,
- *   createdAt: number,
- *   updatedAt: number
+ *   meta?: Record<string,any>
  * }} SkillsetOptions
  *
  * @typedef {{
- *   id: string
+ *   id: string,
+ *   createdAt: number,
+ *   updatedAt: number
  * } & SkillsetOptions} SkillsetInstance
  */
 

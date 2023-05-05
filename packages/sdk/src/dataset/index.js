@@ -1,10 +1,12 @@
 import { ChatBotKitClient } from '../client.js'
+import { RecordClient } from './record/index.js'
 import {
   datasetList,
   datasetFetch,
   datasetCreate,
   datasetUpdate,
   datasetDelete,
+  datasetSearch,
 } from './v1.js'
 
 export class DatasetClient extends ChatBotKitClient {
@@ -13,6 +15,8 @@ export class DatasetClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    this.record = new RecordClient(options)
   }
 
   /**
@@ -57,5 +61,15 @@ export class DatasetClient extends ChatBotKitClient {
    */
   delete(datasetId) {
     return datasetDelete(this, datasetId)
+  }
+
+  /**
+   * Searches the dataset.
+   *
+   * @param {string} datasetId
+   * @param {string} search
+   */
+  search(datasetId, search) {
+    return datasetSearch(this, datasetId, search)
   }
 }

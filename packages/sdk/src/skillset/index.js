@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
+import { AbilityClient } from './ability/index.js'
 import {
   skillsetList,
   skillsetFetch,
@@ -13,6 +14,8 @@ export class SkillsetClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    this.ability = new AbilityClient(options)
   }
 
   /**

@@ -2,6 +2,7 @@
   "name": "gpt4-stream",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "deploy": "wrangler publish",
     "start": "wrangler dev"

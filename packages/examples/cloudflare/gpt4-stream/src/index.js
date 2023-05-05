@@ -5,6 +5,9 @@ import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 export default {
   // Define a Cloudflare Worker function to handle incoming requests
 
+  /**
+   * @param {Request} request
+   */
   async fetch(request) {
     // Parse the incoming request as JSON
 
@@ -13,6 +16,7 @@ export default {
     // Create a new ChatBotKit ConversationClient
 
     const client = new ConversationClient({
+      // @ts-ignore
       secret: CHATBOTKIT_API_SECRET,
     })
 
