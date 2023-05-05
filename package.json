@@ -10,6 +10,7 @@
     "build": "run-s build:*",
     "build:all": "turbo run build",
     "build:readme": "cp README.md packages/sdk/README.md",
+    "check": "turbo run check",
     "docs": "run-s docs:*",
     "docs:sdk": "typedoc --plugin typedoc-plugin-markdown --out ./docs/sdk --tsconfig ./packages/sdk/tsconfig.json",
     "format": "run-s format:*",

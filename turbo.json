@@ -4,6 +4,7 @@
     "build": {
       "outputs": [".dist/**"]
     },
+    "check": {},
     "test": {},
     "docs": {
       "dependsOn": ["^build"]
