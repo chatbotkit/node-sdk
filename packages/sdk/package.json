@@ -35,6 +35,26 @@
         "default": "./dist/esm/bot/index.js"
       }
     },
+    "./bot/session/index.js": {
+      "require": {
+        "types": "./dist/cjs/bot/session/index.d.ts",
+        "default": "./dist/cjs/bot/session/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/session/index.d.ts",
+        "default": "./dist/esm/bot/session/index.js"
+      }
+    },
+    "./bot/session/v1.js": {
+      "require": {
+        "types": "./dist/cjs/bot/session/v1.d.ts",
+        "default": "./dist/cjs/bot/session/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/session/v1.d.ts",
+        "default": "./dist/esm/bot/session/v1.js"
+      }
+    },
     "./bot/v1.js": {
       "require": {
         "types": "./dist/cjs/bot/v1.d.ts",
