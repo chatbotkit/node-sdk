@@ -85,6 +85,26 @@
         "default": "./dist/esm/conversation/message/v1.js"
       }
     },
+    "./conversation/session/index.js": {
+      "require": {
+        "types": "./dist/cjs/conversation/session/index.d.ts",
+        "default": "./dist/cjs/conversation/session/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/session/index.d.ts",
+        "default": "./dist/esm/conversation/session/index.js"
+      }
+    },
+    "./conversation/session/v1.js": {
+      "require": {
+        "types": "./dist/cjs/conversation/session/v1.d.ts",
+        "default": "./dist/cjs/conversation/session/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/session/v1.d.ts",
+        "default": "./dist/esm/conversation/session/v1.js"
+      }
+    },
     "./conversation/v1.js": {
       "require": {
         "types": "./dist/cjs/conversation/v1.d.ts",
