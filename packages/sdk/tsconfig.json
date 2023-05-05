@@ -125,7 +125,7 @@
       "src/conversation/index.js",
       "src/conversation/v1.js",
       "src/conversation/message/index.js",
-      "src/conversation/message/v1.js"
+      "src/conversation/message/v1.js",
       "src/conversation/session/index.js",
       "src/conversation/session/v1.js"
     ],
