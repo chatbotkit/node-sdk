@@ -18,6 +18,7 @@
 
 ### Properties
 
+- [ability](skillset.SkillsetClient.md#ability)
 - [secret](skillset.SkillsetClient.md#secret)
 - [url](skillset.SkillsetClient.md#url)
 
@@ -48,9 +49,19 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[skillset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L14)
+[skillset/index.js:15](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/skillset/index.js#L15)
 
 ## Properties
+
+### ability
+
+• **ability**: [`AbilityClient`](skillset_ability.AbilityClient.md)
+
+#### Defined in
+
+[skillset/index.js:18](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/skillset/index.js#L18)
+
+___
 
 ### secret
 
@@ -62,7 +73,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:130](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L130)
+[client.js:130](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/client.js#L130)
 
 ___
 
@@ -76,7 +87,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:132](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L132)
+[client.js:132](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/client.js#L132)
 
 ## Methods
 
@@ -109,7 +120,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:149](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L149)
+[client.js:149](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/client.js#L149)
 
 ___
 
@@ -131,7 +142,7 @@ Creates a new skillset.
 
 #### Defined in
 
-[skillset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L39)
+[skillset/index.js:42](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/skillset/index.js#L42)
 
 ___
 
@@ -153,7 +164,7 @@ Deletes the skillset.
 
 #### Defined in
 
-[skillset/index.js:58](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L58)
+[skillset/index.js:61](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/skillset/index.js#L61)
 
 ___
 
@@ -175,7 +186,7 @@ Fetches a skillset.
 
 #### Defined in
 
-[skillset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L30)
+[skillset/index.js:33](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/skillset/index.js#L33)
 
 ___
 
@@ -191,7 +202,7 @@ Retrieves a list of all existing skillsets associated with this client.
 
 #### Defined in
 
-[skillset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L21)
+[skillset/index.js:24](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/skillset/index.js#L24)
 
 ___
 
@@ -214,4 +225,4 @@ Updates a new skillset.
 
 #### Defined in
 
-[skillset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/skillset/index.js#L49)
+[skillset/index.js:52](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/skillset/index.js#L52)

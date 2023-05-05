@@ -18,6 +18,7 @@
 
 ### Properties
 
+- [record](dataset.DatasetClient.md#record)
 - [secret](dataset.DatasetClient.md#secret)
 - [url](dataset.DatasetClient.md#url)
 
@@ -28,6 +29,7 @@
 - [delete](dataset.DatasetClient.md#delete)
 - [fetch](dataset.DatasetClient.md#fetch)
 - [list](dataset.DatasetClient.md#list)
+- [search](dataset.DatasetClient.md#search)
 - [update](dataset.DatasetClient.md#update)
 
 ## Constructors
@@ -48,9 +50,19 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[dataset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/index.js#L14)
+[dataset/index.js:16](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/dataset/index.js#L16)
 
 ## Properties
+
+### record
+
+• **record**: [`RecordClient`](dataset_record.RecordClient.md)
+
+#### Defined in
+
+[dataset/index.js:19](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/dataset/index.js#L19)
+
+___
 
 ### secret
 
@@ -62,7 +74,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:130](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L130)
+[client.js:130](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/client.js#L130)
 
 ___
 
@@ -76,7 +88,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:132](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L132)
+[client.js:132](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/client.js#L132)
 
 ## Methods
 
@@ -109,7 +121,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:149](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/client.js#L149)
+[client.js:149](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/client.js#L149)
 
 ___
 
@@ -123,7 +135,7 @@ Creates a new dataset.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`DatasetOptions`](../modules/dataset_v1.md#datasetoptions) |
+| `request` | [`DatasetCreateRequest`](../modules/dataset_v1.md#datasetcreaterequest) |
 
 #### Returns
 
@@ -131,7 +143,7 @@ Creates a new dataset.
 
 #### Defined in
 
-[dataset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/index.js#L39)
+[dataset/index.js:43](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/dataset/index.js#L43)
 
 ___
 
@@ -153,7 +165,7 @@ Deletes the dataset.
 
 #### Defined in
 
-[dataset/index.js:58](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/index.js#L58)
+[dataset/index.js:62](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/dataset/index.js#L62)
 
 ___
 
@@ -175,7 +187,7 @@ Fetches a dataset.
 
 #### Defined in
 
-[dataset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/index.js#L30)
+[dataset/index.js:34](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/dataset/index.js#L34)
 
 ___
 
@@ -191,7 +203,30 @@ Retrieves a list of all existing datasets associated with this client.
 
 #### Defined in
 
-[dataset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/index.js#L21)
+[dataset/index.js:25](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/dataset/index.js#L25)
+
+___
+
+### search
+
+▸ **search**(`datasetId`, `search`): `Promise`<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
+
+Searches the dataset.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `datasetId` | `string` |
+| `search` | `string` |
+
+#### Returns
+
+`Promise`<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
+
+#### Defined in
+
+[dataset/index.js:72](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/dataset/index.js#L72)
 
 ___
 
@@ -214,4 +249,4 @@ Updates a new dataset.
 
 #### Defined in
 
-[dataset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/ef5e830/packages/sdk/src/dataset/index.js#L49)
+[dataset/index.js:53](https://github.com/chatbotkit/node-sdk/blob/dcc2aa9/packages/sdk/src/dataset/index.js#L53)
