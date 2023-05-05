@@ -7,6 +7,8 @@
 ### Modules
 
 - [bot](modules/bot.md)
+- [bot/session](modules/bot_session.md)
+- [bot/session/v1](modules/bot_session_v1.md)
 - [bot/v1](modules/bot_v1.md)
 - [conversation](modules/conversation.md)
 - [conversation/message](modules/conversation_message.md)

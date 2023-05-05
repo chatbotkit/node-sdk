@@ -1,8 +1,8 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [conversation/session](../modules/conversation_session.md) / SessionClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [bot/session](../modules/bot_session.md) / SessionClient
 
 # Class: SessionClient
 
-[conversation/session](../modules/conversation_session.md).SessionClient
+[bot/session](../modules/bot_session.md).SessionClient
 
 ## Hierarchy
 
@@ -14,17 +14,17 @@
 
 ### Constructors
 
-- [constructor](conversation_session.SessionClient.md#constructor)
+- [constructor](bot_session.SessionClient.md#constructor)
 
 ### Properties
 
-- [secret](conversation_session.SessionClient.md#secret)
-- [url](conversation_session.SessionClient.md#url)
+- [secret](bot_session.SessionClient.md#secret)
+- [url](bot_session.SessionClient.md#url)
 
 ### Methods
 
-- [clientFetch](conversation_session.SessionClient.md#clientfetch)
-- [create](conversation_session.SessionClient.md#create)
+- [clientFetch](bot_session.SessionClient.md#clientfetch)
+- [create](bot_session.SessionClient.md#create)
 
 ## Constructors
 
@@ -44,7 +44,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[conversation/session/index.js:8](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/conversation/session/index.js#L8)
+[bot/session/index.js:8](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/bot/session/index.js#L8)
 
 ## Properties
 
@@ -111,7 +111,7 @@ ___
 
 ### create
 
-▸ **create**(`conversationId`, `request`): `Promise`<[`SessionCreateResponse`](../modules/conversation_session_v1.md#sessioncreateresponse)\>
+▸ **create**(`botId`, `request`): `Promise`<[`SessionCreateResponse`](../modules/bot_session_v1.md#sessioncreateresponse)\>
 
 Creates a new session.
 
@@ -119,13 +119,13 @@ Creates a new session.
 
 | Name | Type |
 | :------ | :------ |
-| `conversationId` | `string` |
-| `request` | [`SessionCreateRequest`](../modules/conversation_session_v1.md#sessioncreaterequest) |
+| `botId` | `string` |
+| `request` | [`SessionCreateRequest`](../modules/bot_session_v1.md#sessioncreaterequest) |
 
 #### Returns
 
-`Promise`<[`SessionCreateResponse`](../modules/conversation_session_v1.md#sessioncreateresponse)\>
+`Promise`<[`SessionCreateResponse`](../modules/bot_session_v1.md#sessioncreateresponse)\>
 
 #### Defined in
 
-[conversation/session/index.js:18](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/conversation/session/index.js#L18)
+[bot/session/index.js:18](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/bot/session/index.js#L18)
