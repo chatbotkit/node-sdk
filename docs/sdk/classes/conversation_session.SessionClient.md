@@ -44,7 +44,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[conversation/session/index.js:8](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/conversation/session/index.js#L8)
+[conversation/session/index.js:8](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/conversation/session/index.js#L8)
 
 ## Properties
 
@@ -58,7 +58,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:130](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/client.js#L130)
+[client.js:130](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/client.js#L130)
 
 ___
 
@@ -72,7 +72,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:132](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/client.js#L132)
+[client.js:132](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/client.js#L132)
 
 ## Methods
 
@@ -105,7 +105,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:149](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/client.js#L149)
+[client.js:149](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/client.js#L149)
 
 ___
 
@@ -128,4 +128,4 @@ Creates a new session.
 
 #### Defined in
 
-[conversation/session/index.js:18](https://github.com/chatbotkit/node-sdk/blob/bd308cd/packages/sdk/src/conversation/session/index.js#L18)
+[conversation/session/index.js:18](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/conversation/session/index.js#L18)

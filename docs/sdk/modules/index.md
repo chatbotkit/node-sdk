@@ -10,6 +10,7 @@
 - [ConversationClient](index.md#conversationclient)
 - [DatasetClient](index.md#datasetclient)
 - [SkillsetClient](index.md#skillsetclient)
+- [default](index.md#default)
 
 ### Classes
 
@@ -38,3 +39,9 @@ ___
 ### SkillsetClient
 
 Re-exports [SkillsetClient](../classes/skillset.SkillsetClient.md)
+
+___
+
+### default
+
+Renames and re-exports [ChatBotKit](../classes/index.ChatBotKit.md)
