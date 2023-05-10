@@ -62,3 +62,5 @@ export class SkillsetClient extends ChatBotKitClient {
     return skillsetDelete(this, skillsetId)
   }
 }
+
+export default SkillsetClient

@@ -96,3 +96,5 @@ export class ConversationClient extends ChatBotKitClient {
     return conversationReceive(this, conversationId, request)
   }
 }
+
+export default ConversationClient

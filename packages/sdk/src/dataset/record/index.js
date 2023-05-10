@@ -65,3 +65,5 @@ export class RecordClient extends ChatBotKitClient {
     return recordDelete(this, datasetId, recordId)
   }
 }
+
+export default RecordClient

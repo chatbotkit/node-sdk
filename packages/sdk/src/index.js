@@ -23,3 +23,5 @@ export class ChatBotKit extends ChatBotKitClient {
     this.conversation = new ConversationClient(options)
   }
 }
+
+export default ChatBotKit

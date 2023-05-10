@@ -56,3 +56,5 @@ export class BotClient extends ChatBotKitClient {
     return botDelete(this, botId)
   }
 }
+
+export default BotClient

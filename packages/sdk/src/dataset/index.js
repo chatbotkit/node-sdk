@@ -73,3 +73,5 @@ export class DatasetClient extends ChatBotKitClient {
     return datasetSearch(this, datasetId, search)
   }
 }
+
+export default DatasetClient

@@ -19,3 +19,5 @@ export class SessionClient extends ChatBotKitClient {
     return sessionCreate(this, conversationId, request)
   }
 }
+
+export default SessionClient

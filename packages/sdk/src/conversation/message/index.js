@@ -65,3 +65,5 @@ export class MessageClient extends ChatBotKitClient {
     return messageDelete(this, conversationId, messageId)
   }
 }
+
+export default MessageClient
