@@ -25,6 +25,16 @@
   "type": "module",
   "main": "./dist/esm/index.js",
   "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
     "./bot/index.js": {
       "require": {
         "types": "./dist/cjs/bot/index.d.ts",

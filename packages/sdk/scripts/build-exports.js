@@ -1,14 +1,27 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
 
-async function buildExports(dirPath, exports) {
+async function buildExports(dirPath, exports, level = 0) {
+  if (level === 0) {
+    exports['.'] = {
+      require: {
+        types: './dist/cjs/index.d.ts',
+        default: './dist/cjs/index.cjs',
+      },
+      import: {
+        types: './dist/esm/index.d.ts',
+        default: './dist/esm/index.js',
+      },
+    }
+  }
+
   const files = await fs.readdir(dirPath, { withFileTypes: true })
 
   for (const file of files) {
     const filePath = path.join(dirPath, file.name)
 
     if (file.isDirectory()) {
-      await buildExports(filePath, exports)
+      await buildExports(filePath, exports, level + 1)
     } else if (filePath.endsWith('.ts')) {
       const fileName = path.join(dirPath, path.basename(filePath, 'd.ts'))
 
