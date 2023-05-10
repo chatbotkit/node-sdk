@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.7.1
+
+### Patch Changes
+
+- Fixed default exports.
+
 ## 0.7.0
 
 ### Minor Changes
