@@ -1,15 +1,15 @@
 [![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
-[![NPM](https://img.shields.io/npm/v/@chatbotkit/sdk.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)
+[![NPM](https://img.shields.io/npm/v/@chatbotkit/react.svg)](https://www.npmjs.com/package/@chatbotkit/react)
 [![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 
-# ChatBotKit Node SDK
+# ChatBotKit React SDK
 
-Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy chatbots that can interact with users in natural language.
+Welcome to the ChatBotKit React SDK. This SDK is a React solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy chatbots that can interact with users in natural language.
 
-## SDK Features
+## React SDK Features
 
-- **Easy setup** - The ChatBotKit SDK is easy to install and set up. You can have your first chatbot up and running in minutes.
-- **Serverless** - ChatBotKit SDK is compatible with the latest and greatest runtime environments such as Serverless and Edge with automatic support for Vercel, Netlify, Cloudflare Workerss, Deno, AWS Lambda and more.
+- **Easy setup** - The ChatBotKit React SDK is easy to install and set up. You can have your first chatbot up and running in minutes.
+- **No styles** - ChatBotKit React SDK does not enforce any styles. You can easily style your applications just the way you want them.
 - **Modern** - A modern SDK with built-in support for CommonJS, ECMAScript Modules, async/await, streams and much more.
 - **Customizable** - You can easily customize the chatbot's behavior and responses to fit your specific use case.
 
@@ -44,26 +44,85 @@ Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building co
 
 To get started with ChatBotKit, follow these simple steps:
 
-1. Install the SDK using npm: `npm install @chatbotkit/sdk`.
+1. Install the SDK using npm: `npm install @chatbotkit/react`.
 2. Use the SDK to setup or interact with your chatbot.
 
-Here is a simple streaming example that works in Edge and Serverless environments:
+Here is a simple example for the next.js framework. Within the body of our component we invoke the `useConversationManager` React Hook which setups a simple utility to manage the conversation flow.
 
 ```js
-import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+import { useConversationManager } from '@chatbotkit/react'
 
-for await (const { type, data } of client
-  .complete({ model: 'gpt-4', messages })
-  .stream()) {
-  if (type === 'token') {
-    process.stdout.write(data.token)
+export default function Home() {
+  const {
+    conversationId,
+    setConversationId,
+
+    token,
+    setToken,
+
+    text,
+    setText,
+
+    messages,
+
+    interact,
+  } = useConversationManager({ stream: true })
+
+  async function createSession() {
+    const response = await fetch(`/api/session/create`)
+
+    if (!response.ok) {
+      throw new Error(`Unexpected error`)
+    }
+
+    const { conversationId, token } = await response.json()
+
+    setConversationId(conversationId)
+    setToken(token)
   }
+
+  function handleOnKeyDown(event) {
+    // Detect the enter key.
+
+    if (event.keyCode === 13) {
+      event.preventDefault()
+
+      interact()
+    }
+  }
+
+  return (
+    <div>
+      {conversationId && token ? (
+        <>
+          <div>
+            {messages.map(({ id, type, text }) => {
+              switch (type) {
+                case 'user':
+                  return <div key={id}>user: {text}</div>
+
+                case 'bot':
+                  return <div key={id}>bot: {text}</div>
+              }
+            })}
+          </div>
+          <textarea
+            value={text}
+            onChange={(e) => setText(event.target.value)}
+            onKeyDown={handleOnKeyDown}
+          />
+        </>
+      ) : (
+        <button onClick={() => createSession()}>Start Chat</button>
+      )}
+    </div>
+  )
 }
 ```
 
 ## Documentation
 
-For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/blob/main/docs/sdk/modules.md).
+For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/blob/main/docs/react/modules.md).
 
 Checkout the [ChatBotKit Documentation](https://chatbotkit.com/docs) for more information about the platform.
 
