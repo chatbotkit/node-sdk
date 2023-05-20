@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.8.0
+
+### Minor Changes
+
+- Now with a functional React SDK.
+
 ## 0.7.2
 
 ### Patch Changes
