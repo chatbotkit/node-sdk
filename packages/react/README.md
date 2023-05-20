@@ -50,7 +50,7 @@ To get started with ChatBotKit, follow these simple steps:
 Here is a simple example for the next.js framework. Within the body of our component we invoke the `useConversationManager` React Hook which setups a simple utility to manage the conversation flow.
 
 ```js
-import { useConversationManager } from '@chatbotkit/react'
+import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
 export default function Home() {
   const {
@@ -64,6 +64,8 @@ export default function Home() {
     setText,
 
     messages,
+
+    thinking,
 
     interact,
   } = useConversationManager({ stream: true })
@@ -82,8 +84,6 @@ export default function Home() {
   }
 
   function handleOnKeyDown(event) {
-    // Detect the enter key.
-
     if (event.keyCode === 13) {
       event.preventDefault()
 
@@ -105,8 +105,9 @@ export default function Home() {
                   return <div key={id}>bot: {text}</div>
               }
             })}
+            {thinking ? <div key="thinking">bot: thinking...</div> : null}
           </div>
-          <textarea
+          <AutoTextarea
             value={text}
             onChange={(e) => setText(event.target.value)}
             onKeyDown={handleOnKeyDown}
