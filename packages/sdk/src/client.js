@@ -40,11 +40,16 @@ export class ResponsePromise {
 
     const response = await fetchWithBackoff(this.url.toString(), {
       method,
+
       headers: {
         ...headers,
         ...params?.headers,
       },
+
       body,
+
+      mode: 'cors',
+      cache: 'no-cache',
     })
 
     if (!response.ok) {
@@ -152,6 +157,13 @@ export class ChatBotKitClient {
     const url = new URL(this.url)
 
     url.pathname = path
+
+    if (
+      url.hostname === 'api.chatbotkit.com' &&
+      url.pathname.startsWith('/api/')
+    ) {
+      url.pathname = url.pathname.substring(4)
+    }
 
     /** @type {Record<string,string>} */
     const headers = {

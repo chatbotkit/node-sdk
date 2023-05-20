@@ -3,12 +3,13 @@ import fetch from 'isomorphic-fetch'
 // NOTE: we need to pollyfill the ReadableStream for chrome and Safari
 
 if (
-  typeof global.ReadableStream === 'function' &&
+  typeof globalThis.ReadableStream === 'function' &&
   // @ts-ignore
-  typeof global.ReadableStream.prototype[Symbol.asyncIterator] !== 'function'
+  typeof globalThis.ReadableStream.prototype[Symbol.asyncIterator] !==
+    'function'
 ) {
   // @ts-ignore
-  global.ReadableStream.prototype[Symbol.asyncIterator] = function () {
+  globalThis.ReadableStream.prototype[Symbol.asyncIterator] = function () {
     const reader = this.getReader()
 
     return {

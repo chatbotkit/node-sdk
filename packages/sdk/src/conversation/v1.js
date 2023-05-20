@@ -23,6 +23,18 @@
  *   type: MessageType,
  *   text: string
  * }} Message
+ *
+ * @typedef {{
+ *   type: string,
+ *   begin: number,
+ *   end: number,
+ *   text: string,
+ *   replacement?: {
+ *     begin: number,
+ *     end: number,
+ *     text: string
+ *   }
+ * }} Entity
  */
 
 /**
@@ -39,7 +51,9 @@
  * @returns {import('../client.js').ResponsePromise<ConversationListResponse,ConversationListStreamType>}
  */
 export function conversationList(client) {
-  return client.clientFetch(`/api/v1/conversation/list`)
+  const url = `/api/v1/conversation/list`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -50,7 +64,9 @@ export function conversationList(client) {
  * @returns {Promise<ConversationFetchResponse>}
  */
 export async function conversationFetch(client, conversationId) {
-  return client.clientFetch(`/api/v1/conversation/${conversationId}/fetch`)
+  const url = `/api/v1/conversation/${conversationId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -65,7 +81,9 @@ export async function conversationFetch(client, conversationId) {
  * @returns {Promise<ConversationCreateResponse>}
  */
 export async function conversationCreate(client, request) {
-  return client.clientFetch(`/api/v1/conversation/create`, {
+  const url = `/api/v1/conversation/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -83,7 +101,9 @@ export async function conversationCreate(client, request) {
  * @returns {Promise<ConversationUpdateResponse>}
  */
 export async function conversationUpdate(client, conversationId, request) {
-  return client.clientFetch(`/api/v1/conversation/${conversationId}/update`, {
+  const url = `/api/v1/conversation/${conversationId}/update`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -98,7 +118,9 @@ export async function conversationUpdate(client, conversationId, request) {
  * @returns {Promise<ConversationDeleteResponse>}
  */
 export async function conversationDelete(client, conversationId) {
-  return client.clientFetch(`/api/v1/conversation/${conversationId}/delete`, {
+  const url = `/api/v1/conversation/${conversationId}/delete`
+
+  return client.clientFetch(url, {
     data: {},
   })
 }
@@ -106,8 +128,9 @@ export async function conversationDelete(client, conversationId) {
 /**
  * @typedef {{
  *   model?: string,
- *   messages: Message[]
- * }} ConversationCompleteRequest
+ *   entities?: Entity[],
+ *   parse?: boolean
+ * } & ({text: string}|{messages: Message[]})} ConversationCompleteRequest
  *
  * @typedef {{
  *   text: string,
@@ -132,28 +155,25 @@ export async function conversationDelete(client, conversationId) {
  * @typedef {ConversationCompleteStreamToken|ConversationCompleteStreamResult} ConversationCompleteStreamType
  *
  * @param {ChatBotKitClient} client
+ * @param {string?} conversationId
  * @param {ConversationCompleteRequest} request
  * @returns {import('../client.js').ResponsePromise<ConversationCompleteResponse,ConversationCompleteStreamType>}
  */
-export function conversationComplete(client, request) {
-  return client.clientFetch(`/api/v1/conversation/complete`, {
+export function conversationComplete(client, conversationId, request) {
+  let url
+
+  if (conversationId) {
+    url = `/api/v1/conversation/${conversationId}/complete`
+  } else {
+    url = `/api/v1/conversation/complete`
+  }
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
 
 /**
- * @typedef {{
- *   type: string,
- *   begin: number,
- *   end: number,
- *   text: string,
- *   replacement?: {
- *     begin: number,
- *     end: number,
- *     text: string
- *   }
- * }} Entity
- *
  * @typedef {{
  *   text: string,
  *   entities?: Entity[]
@@ -170,7 +190,9 @@ export function conversationComplete(client, request) {
  * @returns {Promise<ConversationSendResponse>}
  */
 export async function conversationSend(client, conversationId, request) {
-  return client.clientFetch(`/api/v1/conversation/${conversationId}/send`, {
+  const url = `/api/v1/conversation/${conversationId}/send`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -197,7 +219,9 @@ export async function conversationSend(client, conversationId, request) {
  * @returns {Promise<ConversationReceiveResponse>}
  */
 export async function conversationReceive(client, conversationId, request) {
-  return client.clientFetch(`/api/v1/conversation/${conversationId}/receive`, {
+  const url = `/api/v1/conversation/${conversationId}/receive`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }

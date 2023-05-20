@@ -70,10 +70,12 @@ export class ConversationClient extends ChatBotKitClient {
   /**
    * Completes the next bot message in a stateless conversation.
    *
+   * @param {string?} conversationId
+   * @param {import('./v1.js').ConversationCompleteRequest} request
    * @param {import('./v1.js').ConversationCompleteRequest} request
    */
-  complete(request) {
-    return conversationComplete(this, request)
+  complete(conversationId, request) {
+    return conversationComplete(this, conversationId, request)
   }
 
   /**
