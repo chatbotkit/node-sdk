@@ -55,7 +55,7 @@ Here is a simple streaming example that works in Edge and Serverless environment
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 for await (const { type, data } of client
-  .complete({ model: 'gpt-4', messages })
+  .complete(null, { model: 'gpt-4', messages })
   .stream()) {
   if (type === 'token') {
     process.stdout.write(data.token)
