@@ -61,9 +61,13 @@ for await (const { type, data } of client
 }
 ```
 
+## Examples
+
+You can find a wide-range of examples at [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
+
 ## Documentation
 
-For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/blob/main/docs/sdk/modules.md).
+For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/tree/main/docs).
 
 Checkout the [ChatBotKit Documentation](https://chatbotkit.com/docs) for more information about the platform.
 

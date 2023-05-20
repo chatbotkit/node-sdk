@@ -1,3 +1,3 @@
 # ChatBotKit
 
-Please use @chatbotkit/sdk instead.
+Please use @chatbotkit/sdk or @chatbotkit/react instead.
