@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[dataset/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L2)
+[dataset/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L2)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L44)
+[dataset/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L44)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L48)
+[dataset/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L48)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L81)
+[dataset/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L81)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L31)
+[dataset/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L31)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L17)
+[dataset/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L17)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L21)
+[dataset/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L21)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L10)
+[dataset/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L10)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L94)
+[dataset/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L94)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L61)
+[dataset/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L61)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L65)
+[dataset/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L65)
 
 ## Functions
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L54)
+[dataset/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L54)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L87)
+[dataset/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L87)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L37)
+[dataset/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L37)
 
 ___
 
@@ -250,7 +250,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L26)
+[dataset/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L26)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L101)
+[dataset/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L101)
 
 ___
 
@@ -294,4 +294,4 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/dataset/v1.js#L72)
+[dataset/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/sdk/src/dataset/v1.js#L72)
