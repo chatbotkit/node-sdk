@@ -1,4 +1,4 @@
-import { useConversationManager } from '@chatbotkit/react'
+import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
 export default function Home() {
   const {
@@ -12,6 +12,8 @@ export default function Home() {
     setText,
 
     messages,
+
+    thinking,
 
     interact,
   } = useConversationManager({ stream: true })
@@ -43,7 +45,7 @@ export default function Home() {
   }
 
   // Our renderer is quite basic. We simply iterate over the messages and render
-  // them accordingly. We also use a basic textarea for the user input.
+  // them accordingly. We also use our own AutoTextarea for the user input.
 
   return (
     <div>
@@ -59,8 +61,9 @@ export default function Home() {
                   return <div key={id}>bot: {text}</div>
               }
             })}
+            {thinking ? <div key="thinking">bot: thinking...</div> : null}
           </div>
-          <textarea
+          <AutoTextarea
             value={text}
             onChange={(e) => setText(event.target.value)}
             onKeyDown={handleOnKeyDown}

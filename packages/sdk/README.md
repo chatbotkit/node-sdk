@@ -2,14 +2,14 @@
 [![NPM](https://img.shields.io/npm/v/@chatbotkit/sdk.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)
 [![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 
-# ChatBotKit JavaScript SDK
+# ChatBotKit Node SDK
 
-Welcome to the ChatBotKit JavaScript SDK. This SDK is a javascript-based solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy chatbots that can interact with users in natural language.
+Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy chatbots that can interact with users in natural language.
 
 ## SDK Features
 
-- **Easy setup** - The ChatBotKit JavaScript SDK is easy to install and set up. You can have your first chatbot up and running in minutes.
-- **Serverless** - ChatBotKit JavaScript SDK is compatible with the latest and greatest runtime environments such as Serverless and Edge with automatic support for Vercel, Netlify, Cloudflare Workerss, Deno, AWS Lambda and more.
+- **Easy setup** - The ChatBotKit SDK is easy to install and set up. You can have your first chatbot up and running in minutes.
+- **Serverless** - ChatBotKit SDK is compatible with the latest and greatest runtime environments such as Serverless and Edge with automatic support for Vercel, Netlify, Cloudflare Workerss, Deno, AWS Lambda and more.
 - **Modern** - A modern SDK with built-in support for CommonJS, ECMAScript Modules, async/await, streams and much more.
 - **Customizable** - You can easily customize the chatbot's behavior and responses to fit your specific use case.
 
@@ -53,7 +53,7 @@ Here is a simple streaming example that works in Edge and Serverless environment
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 for await (const { type, data } of client
-  .complete(null, { model: 'gpt-4', messages })
+  .complete({ model: 'gpt-4', messages })
   .stream()) {
   if (type === 'token') {
     process.stdout.write(data.token)

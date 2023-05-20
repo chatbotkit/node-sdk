@@ -33,6 +33,16 @@
         "default": "./dist/esm/index.js"
       }
     },
+    "./components/AutoTextarea.js": {
+      "require": {
+        "types": "./dist/cjs/components/AutoTextarea.d.ts",
+        "default": "./dist/cjs/components/AutoTextarea.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/components/AutoTextarea.d.ts",
+        "default": "./dist/esm/components/AutoTextarea.js"
+      }
+    },
     "./hooks/useConversationManager.js": {
       "require": {
         "types": "./dist/cjs/hooks/useConversationManager.d.ts",

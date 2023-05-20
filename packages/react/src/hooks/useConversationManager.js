@@ -101,7 +101,7 @@ export default function useConversationManager({
    */
   function unredactEnitities(text, en = entities) {
     Object.entries(en).forEach(([real, redacted]) => {
-      text = text.replaceAll(redacted, real)
+      text = text.split(redacted).join(real)
     })
 
     return text
