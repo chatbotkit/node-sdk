@@ -123,11 +123,15 @@ export default function Home() {
 }
 ```
 
+## Examples
+
+You can find a wide-range of examples at [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
+
 ## Documentation
 
 For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/blob/main/docs/react/modules.md).
 
-Checkout the [ChatBotKit Documentation](https://chatbotkit.com/docs) for more information about the platform.
+Checkout the [ChatBotKit Documentation](https://chatbotkit.com/docs/react-sdk) for more information about the platform.
 
 ## Contributing
 

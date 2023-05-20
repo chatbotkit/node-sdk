@@ -47,7 +47,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:17](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/index.js#L17)
+[index.js:17](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/index.js#L17)
 
 ## Properties
 
@@ -57,7 +57,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:20](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/index.js#L20)
+[index.js:20](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/index.js#L20)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[index.js:23](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/index.js#L23)
+[index.js:23](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/index.js#L23)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[index.js:21](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/index.js#L21)
+[index.js:21](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/index.js#L21)
 
 ___
 
@@ -91,7 +91,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:130](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/client.js#L130)
+[client.js:135](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/client.js#L135)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[index.js:22](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/index.js#L22)
+[index.js:22](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/index.js#L22)
 
 ___
 
@@ -115,7 +115,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:132](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/client.js#L132)
+[client.js:137](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/client.js#L137)
 
 ## Methods
 
@@ -148,4 +148,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:149](https://github.com/chatbotkit/node-sdk/blob/e17e7f6/packages/sdk/src/client.js#L149)
+[client.js:154](https://github.com/chatbotkit/node-sdk/blob/a3e56ee/packages/sdk/src/client.js#L154)
