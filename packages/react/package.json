@@ -1,0 +1,87 @@
+{
+  "name": "@chatbotkit/react",
+  "version": "0.1.0",
+  "description": "The fastest way to build advanced AI chat bots",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatbotkit/node-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chatbotkit/node-sdk/issues"
+  },
+  "homepage": "https://github.com/chatbotkit/node-sdk#readme",
+  "author": "",
+  "keywords": [
+    "gpt3",
+    "gpt4",
+    "chat",
+    "chatbot",
+    "chatbotkit",
+    "react"
+  ],
+  "type": "module",
+  "main": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./hooks/useConversationManager.js": {
+      "require": {
+        "types": "./dist/cjs/hooks/useConversationManager.d.ts",
+        "default": "./dist/cjs/hooks/useConversationManager.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/hooks/useConversationManager.d.ts",
+        "default": "./dist/esm/hooks/useConversationManager.js"
+      }
+    },
+    "./index.js": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./utils/string.js": {
+      "require": {
+        "types": "./dist/cjs/utils/string.d.ts",
+        "default": "./dist/cjs/utils/string.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/utils/string.d.ts",
+        "default": "./dist/esm/utils/string.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "run-s build:*",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs_rename": "find ./dist/cjs -name '*.js' -exec rename .js .cjs {} +",
+    "build:cjs_rewrite_cjs": "find ./dist/cjs -name '*.cjs' -exec sed -i 's/require(\"\\(.*\\)\\.js\")/require(\"\\1.cjs\")/g' {} +",
+    "build:cjs_rewrite_ts": "find ./dist/cjs -name '*.ts' -exec sed -i 's/from \"\\(.*\\)\\.js\"/from \"\\1.cjs\"/g' {} +",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:exports": "node scripts/build-exports.js",
+    "test": "true"
+  },
+  "types": "./dist/esm/index.d.ts",
+  "dependencies": {
+    "@chatbotkit/sdk": "*"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/react": "^18.2.6",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.0.4"
+  }
+}
