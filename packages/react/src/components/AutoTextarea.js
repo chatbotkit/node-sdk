@@ -4,9 +4,11 @@ import React from 'react'
  * @typedef {(event: React.ChangeEvent<HTMLTextAreaElement>) => any} onInputFn
  *
  * @param {{
- *   onInput?: onInputFn?
+ *   onInput?: onInputFn?,
+ *   [name: string]: any
  * }} [props]
  */
+// @ts-ignore
 export default function AutoTextarea({ onInput, ...props } = {}) {
   /**
    * @param {React.ChangeEvent<HTMLTextAreaElement>} event
