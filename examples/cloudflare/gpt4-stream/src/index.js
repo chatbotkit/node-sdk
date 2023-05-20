@@ -30,7 +30,7 @@ export default {
       new ReadableStream({
         async start(controller) {
           for await (const { type, data } of client
-            .complete({ model: 'gpt-4', messages })
+            .complete(null, { model: 'gpt-4', messages })
             .stream()) {
             if (type === 'token') {
               // If a token is received, enqueue it to the controller for streaming to the client

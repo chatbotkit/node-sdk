@@ -4,7 +4,10 @@
   "private": true,
   "workspaces": [
     "packages/sdk",
-    "packages/examples"
+    "packages/react",
+    "examples/sdk/*",
+    "examples/nextjs/*",
+    "examples/cloudflare/*"
   ],
   "scripts": {
     "build": "run-s build:*",
@@ -12,6 +15,7 @@
     "build:readme": "cp README.md packages/sdk/README.md",
     "check": "turbo run check",
     "docs": "run-s docs:*",
+    "docs:react": "typedoc --plugin typedoc-plugin-markdown --out ./docs/react --tsconfig ./packages/react/tsconfig.json",
     "docs:sdk": "typedoc --plugin typedoc-plugin-markdown --out ./docs/sdk --tsconfig ./packages/sdk/tsconfig.json",
     "format": "run-s format:*",
     "format:pkg": "format-package -w",

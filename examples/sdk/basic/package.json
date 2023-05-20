@@ -1,6 +1,6 @@
 {
-  "name": "@chatbotkit/examples",
-  "version": "0.0.1",
+  "name": "basic",
+  "version": "0.0.0",
   "description": "The fastest way to build advanced AI chat bots.",
   "license": "ISC",
   "private": true,
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
+    "react-scripts": "^5.0.1",
     "typescript": "^5.0.4"
   }
 }

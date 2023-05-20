@@ -47,7 +47,10 @@ async function main() {
      * ChatBotKit automatically handles messages and trims to length to fit into
      * the model context size.
      */
-    const { text: bot } = await client.complete({ model: 'gpt-4', messages })
+    const { text: bot } = await client.complete(null, {
+      model: 'gpt-4',
+      messages,
+    })
 
     messages.push({ type: 'bot', text: bot })
 

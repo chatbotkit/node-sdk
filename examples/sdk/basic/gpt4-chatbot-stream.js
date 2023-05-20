@@ -40,7 +40,7 @@ async function main() {
      * the model context size.
      */
     for await (const { type, data } of client
-      .complete({ model: 'gpt-4', messages })
+      .complete(null, { model: 'gpt-4', messages })
       .stream()) {
       if (type === 'token') {
         process.stdout.write(data.token)
