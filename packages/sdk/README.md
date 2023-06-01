@@ -1,6 +1,5 @@
-[![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
-[![NPM](https://img.shields.io/npm/v/@chatbotkit/sdk.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)
+[![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 
 # ChatBotKit Node SDK
 
@@ -67,9 +66,9 @@ You can find a wide-range of examples at [here](https://github.com/chatbotkit/no
 
 ## Documentation
 
-For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/blob/main/docs/sdk/modules.md).
+For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/tree/main/docs).
 
-Checkout the [ChatBotKit Documentation](https://chatbotkit.com/docs/node-sdk) for more information about the platform.
+Checkout the [ChatBotKit Documentation](https://chatbotkit.com/docs) for more information about the platform.
 
 ## Contributing
 
