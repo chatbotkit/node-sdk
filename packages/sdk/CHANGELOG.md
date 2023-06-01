@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.9.0
+
+### Minor Changes
+
+- API improvements and bug fixes
+
 ## 0.8.0
 
 ### Minor Changes
