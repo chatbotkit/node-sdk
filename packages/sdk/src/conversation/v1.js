@@ -127,6 +127,7 @@ export async function conversationDelete(client, conversationId) {
 
 /**
  * @typedef {{
+ *   text?: string,
  *   model?: string,
  *   entities?: Entity[],
  *   parse?: boolean
