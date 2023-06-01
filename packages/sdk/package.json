@@ -205,6 +205,36 @@
         "default": "./dist/esm/index.js"
       }
     },
+    "./integration/index.js": {
+      "require": {
+        "types": "./dist/cjs/integration/index.d.ts",
+        "default": "./dist/cjs/integration/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/index.d.ts",
+        "default": "./dist/esm/integration/index.js"
+      }
+    },
+    "./integration/sitemap/index.js": {
+      "require": {
+        "types": "./dist/cjs/integration/sitemap/index.d.ts",
+        "default": "./dist/cjs/integration/sitemap/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/sitemap/index.d.ts",
+        "default": "./dist/esm/integration/sitemap/index.js"
+      }
+    },
+    "./integration/sitemap/v1.js": {
+      "require": {
+        "types": "./dist/cjs/integration/sitemap/v1.d.ts",
+        "default": "./dist/cjs/integration/sitemap/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/sitemap/v1.d.ts",
+        "default": "./dist/esm/integration/sitemap/v1.js"
+      }
+    },
     "./skillset/ability/index.js": {
       "require": {
         "types": "./dist/cjs/skillset/ability/index.d.ts",
