@@ -301,7 +301,7 @@ export default function useConversationManager({
               },
             ])
 
-            if (text.length) {
+            if (tempText.length) {
               setThinking(false)
             }
 
