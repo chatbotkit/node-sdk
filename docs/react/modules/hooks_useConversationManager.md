@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[hooks/useConversationManager.js:13](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/react/src/hooks/useConversationManager.js#L13)
+[hooks/useConversationManager.js:13](https://github.com/chatbotkit/node-sdk/blob/2ecc7b3/packages/react/src/hooks/useConversationManager.js#L13)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:15](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/react/src/hooks/useConversationManager.js#L15)
+[hooks/useConversationManager.js:15](https://github.com/chatbotkit/node-sdk/blob/2ecc7b3/packages/react/src/hooks/useConversationManager.js#L15)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:17](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/react/src/hooks/useConversationManager.js#L17)
+[hooks/useConversationManager.js:17](https://github.com/chatbotkit/node-sdk/blob/2ecc7b3/packages/react/src/hooks/useConversationManager.js#L17)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:16](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/react/src/hooks/useConversationManager.js#L16)
+[hooks/useConversationManager.js:16](https://github.com/chatbotkit/node-sdk/blob/2ecc7b3/packages/react/src/hooks/useConversationManager.js#L16)
 
 ## Functions
 
@@ -155,4 +155,4 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:32](https://github.com/chatbotkit/node-sdk/blob/757deec/packages/react/src/hooks/useConversationManager.js#L32)
+[hooks/useConversationManager.js:32](https://github.com/chatbotkit/node-sdk/blob/2ecc7b3/packages/react/src/hooks/useConversationManager.js#L32)
