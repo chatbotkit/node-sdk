@@ -91,5 +91,7 @@ export async function botUpdate(client, botId, request) {
  * @returns {Promise<BotDeleteResponse>}
  */
 export async function botDelete(client, botId) {
-  return client.clientFetch(`/api/v1/bot/${botId}/delete`)
+  return client.clientFetch(`/api/v1/bot/${botId}/delete`, {
+    data: {},
+  })
 }

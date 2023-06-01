@@ -82,5 +82,7 @@ export async function skillsetUpdate(client, skillsetId, request) {
  * @returns {Promise<SkillsetDeleteResponse>}
  */
 export async function skillsetDelete(client, skillsetId) {
-  return client.clientFetch(`/api/v1/skillset/${skillsetId}/delete`)
+  return client.clientFetch(`/api/v1/skillset/${skillsetId}/delete`, {
+    data: {},
+  })
 }

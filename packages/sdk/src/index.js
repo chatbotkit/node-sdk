@@ -3,6 +3,7 @@ import { ChatBotKitClient } from './client.js'
 import { BotClient } from './bot/index.js'
 import { DatasetClient } from './dataset/index.js'
 import { SkillsetClient } from './skillset/index.js'
+import { IntegrationClient } from './integration/index.js'
 import { ConversationClient } from './conversation/index.js'
 
 export { BotClient } from './bot/index.js'
@@ -20,6 +21,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.bot = new BotClient(options)
     this.dataset = new DatasetClient(options)
     this.skillset = new SkillsetClient(options)
+    this.integration = new IntegrationClient(options)
     this.conversation = new ConversationClient(options)
   }
 }

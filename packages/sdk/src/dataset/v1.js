@@ -85,7 +85,9 @@ export async function datasetUpdate(client, datasetId, request) {
  * @returns {Promise<DatasetDeleteResponse>}
  */
 export async function datasetDelete(client, datasetId) {
-  return client.clientFetch(`/api/v1/dataset/${datasetId}/delete`)
+  return client.clientFetch(`/api/v1/dataset/${datasetId}/delete`, {
+    data: {},
+  })
 }
 
 /**
