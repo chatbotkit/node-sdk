@@ -1,36 +1,36 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [bot/session](../modules/bot_session.md) / SessionClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [integration](../modules/integration.md) / IntegrationClient
 
-# Class: SessionClient
+# Class: IntegrationClient
 
-[bot/session](../modules/bot_session.md).SessionClient
+[integration](../modules/integration.md).IntegrationClient
 
 ## Hierarchy
 
 - `ChatBotKitClient`
 
-  ↳ **`SessionClient`**
+  ↳ **`IntegrationClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](bot_session.SessionClient.md#constructor)
+- [constructor](integration.IntegrationClient.md#constructor)
 
 ### Properties
 
-- [secret](bot_session.SessionClient.md#secret)
-- [url](bot_session.SessionClient.md#url)
+- [secret](integration.IntegrationClient.md#secret)
+- [sitemap](integration.IntegrationClient.md#sitemap)
+- [url](integration.IntegrationClient.md#url)
 
 ### Methods
 
-- [clientFetch](bot_session.SessionClient.md#clientfetch)
-- [create](bot_session.SessionClient.md#create)
+- [clientFetch](integration.IntegrationClient.md#clientfetch)
 
 ## Constructors
 
 ### constructor
 
-• **new SessionClient**(`options`)
+• **new IntegrationClient**(`options`)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[bot/session/index.js:8](https://github.com/chatbotkit/node-sdk/blob/2d607d3/packages/sdk/src/bot/session/index.js#L8)
+[integration/index.js:8](https://github.com/chatbotkit/node-sdk/blob/2d607d3/packages/sdk/src/integration/index.js#L8)
 
 ## Properties
 
@@ -59,6 +59,16 @@ ChatBotKitClient.secret
 #### Defined in
 
 [client.js:135](https://github.com/chatbotkit/node-sdk/blob/2d607d3/packages/sdk/src/client.js#L135)
+
+___
+
+### sitemap
+
+• **sitemap**: [`SitemapClient`](integration_sitemap.SitemapClient.md)
+
+#### Defined in
+
+[integration/index.js:11](https://github.com/chatbotkit/node-sdk/blob/2d607d3/packages/sdk/src/integration/index.js#L11)
 
 ___
 
@@ -106,26 +116,3 @@ ChatBotKitClient.clientFetch
 #### Defined in
 
 [client.js:154](https://github.com/chatbotkit/node-sdk/blob/2d607d3/packages/sdk/src/client.js#L154)
-
-___
-
-### create
-
-▸ **create**(`botId`, `request`): `Promise`<[`SessionCreateResponse`](../modules/bot_session_v1.md#sessioncreateresponse)\>
-
-Creates a new session.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `botId` | `string` |
-| `request` | [`SessionCreateRequest`](../modules/bot_session_v1.md#sessioncreaterequest) |
-
-#### Returns
-
-`Promise`<[`SessionCreateResponse`](../modules/bot_session_v1.md#sessioncreateresponse)\>
-
-#### Defined in
-
-[bot/session/index.js:18](https://github.com/chatbotkit/node-sdk/blob/2d607d3/packages/sdk/src/bot/session/index.js#L18)

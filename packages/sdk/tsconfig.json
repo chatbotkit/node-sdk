@@ -132,7 +132,10 @@
       "src/conversation/message/index.js",
       "src/conversation/message/v1.js",
       "src/conversation/session/index.js",
-      "src/conversation/session/v1.js"
+      "src/conversation/session/v1.js",
+      "src/integration/index.js",
+      "src/integration/sitemap/index.js",
+      "src/integration/sitemap/v1.js"
     ],
     "excludePrivate": true,
     "excludeInternal": true,
