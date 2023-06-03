@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.9.1
+
+### Patch Changes
+
+- Fixed a bug in the callout for the sitemap sync method.
+
 ## 0.9.0
 
 ### Minor Changes
