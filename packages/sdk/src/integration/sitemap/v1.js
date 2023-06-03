@@ -111,7 +111,7 @@ export async function sitemapDelete(client, sitemapId) {
  * @returns {Promise<SitemapSyncResponse>}
  */
 export async function sitemapSync(client, sitemapId) {
-  return client.clientFetch(`/api/v1/integration/sitemap/${sitemapId}/delete`, {
+  return client.clientFetch(`/api/v1/integration/sitemap/${sitemapId}/sync`, {
     data: {},
   })
 }
