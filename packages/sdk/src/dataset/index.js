@@ -1,3 +1,4 @@
+import { FileClient } from './file/index.js'
 import { ChatBotKitClient } from '../client.js'
 import { RecordClient } from './record/index.js'
 import {
@@ -16,6 +17,7 @@ export class DatasetClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
+    this.file = new FileClient(options)
     this.record = new RecordClient(options)
   }
 

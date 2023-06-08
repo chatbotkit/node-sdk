@@ -145,6 +145,26 @@
         "default": "./dist/esm/conversation/v1.js"
       }
     },
+    "./dataset/file/index.js": {
+      "require": {
+        "types": "./dist/cjs/dataset/file/index.d.ts",
+        "default": "./dist/cjs/dataset/file/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/file/index.d.ts",
+        "default": "./dist/esm/dataset/file/index.js"
+      }
+    },
+    "./dataset/file/v1.js": {
+      "require": {
+        "types": "./dist/cjs/dataset/file/v1.d.ts",
+        "default": "./dist/cjs/dataset/file/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/file/v1.d.ts",
+        "default": "./dist/esm/dataset/file/v1.js"
+      }
+    },
     "./dataset/index.js": {
       "require": {
         "types": "./dist/cjs/dataset/index.d.ts",

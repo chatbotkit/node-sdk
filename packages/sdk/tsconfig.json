@@ -127,6 +127,8 @@
       "src/dataset/v1.js",
       "src/dataset/record/index.js",
       "src/dataset/record/v1.js",
+      "src/dataset/file/index.js",
+      "src/dataset/file/v1.js",
       "src/conversation/index.js",
       "src/conversation/v1.js",
       "src/conversation/message/index.js",
