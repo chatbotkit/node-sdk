@@ -28,6 +28,7 @@ export class SitemapClient extends ChatBotKitClient {
    * Fetches a sitemap.
    *
    * @param {string} sitemapId
+   * @returns {Promise<import('./v1.js').SitemapFetchResponse>}
    */
   fetch(sitemapId) {
     return sitemapFetch(this, sitemapId)
@@ -37,6 +38,7 @@ export class SitemapClient extends ChatBotKitClient {
    * Creates a new sitemap.
    *
    * @param {import('./v1.js').SitemapCreateRequest} request
+   * @returns {Promise<import('./v1.js').SitemapCreateResponse>}
    */
   create(request) {
     return sitemapCreate(this, request)
@@ -47,6 +49,7 @@ export class SitemapClient extends ChatBotKitClient {
    *
    * @param {string} sitemapId
    * @param {import('./v1.js').SitemapUpdateRequest} request
+   * @returns {Promise<import('./v1.js').SitemapUpdateResponse>}
    */
   update(sitemapId, request) {
     return sitemapUpdate(this, sitemapId, request)
@@ -56,6 +59,7 @@ export class SitemapClient extends ChatBotKitClient {
    * Deletes the sitemap.
    *
    * @param {string} sitemapId
+   * @returns {Promise<import('./v1.js').SitemapDeleteResponse>}
    */
   delete(sitemapId) {
     return sitemapDelete(this, sitemapId)
@@ -65,6 +69,7 @@ export class SitemapClient extends ChatBotKitClient {
    * Syncs the sitemap.
    *
    * @param {string} sitemapId
+   * @returns {Promise<import('./v1.js').SitemapSyncResponse>}
    */
   sync(sitemapId) {
     return sitemapSync(this, sitemapId)

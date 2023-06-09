@@ -30,6 +30,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * Fetches a skillset.
    *
    * @param {string} skillsetId
+   * @returns {Promise<import('./v1.js').SkillsetFetchResponse>}
    */
   fetch(skillsetId) {
     return skillsetFetch(this, skillsetId)
@@ -39,6 +40,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * Creates a new skillset.
    *
    * @param {import('./v1.js').SkillsetCreateRequest} request
+   * @returns {Promise<import('./v1.js').SkillsetCreateResponse>}
    */
   create(request) {
     return skillsetCreate(this, request)
@@ -49,6 +51,7 @@ export class SkillsetClient extends ChatBotKitClient {
    *
    * @param {string} skillsetId
    * @param {import('./v1.js').SkillsetUpdateRequest} request
+   * @returns {Promise<import('./v1.js').SkillsetUpdateResponse>}
    */
   update(skillsetId, request) {
     return skillsetUpdate(this, skillsetId, request)
@@ -58,6 +61,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * Deletes the skillset.
    *
    * @param {string} skillsetId
+   * @returns {Promise<import('./v1.js').SkillsetDeleteResponse>}
    */
   delete(skillsetId) {
     return skillsetDelete(this, skillsetId)

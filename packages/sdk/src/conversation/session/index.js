@@ -14,6 +14,7 @@ export class SessionClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {import('./v1.js').SessionCreateRequest} request
+   * @returns {Promise<import('./v1.js').SessionCreateResponse>}
    */
   create(conversationId, request) {
     return sessionCreate(this, conversationId, request)

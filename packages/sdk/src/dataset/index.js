@@ -33,6 +33,7 @@ export class DatasetClient extends ChatBotKitClient {
    * Fetches a dataset.
    *
    * @param {string} datasetId
+   * @returns {Promise<import('./v1.js').DatasetFetchResponse>}
    */
   fetch(datasetId) {
     return datasetFetch(this, datasetId)
@@ -42,6 +43,7 @@ export class DatasetClient extends ChatBotKitClient {
    * Creates a new dataset.
    *
    * @param {import('./v1.js').DatasetCreateRequest} request
+   * @returns {Promise<import('./v1.js').DatasetCreateResponse>}
    */
   create(request) {
     return datasetCreate(this, request)
@@ -52,6 +54,7 @@ export class DatasetClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {import('./v1.js').DatasetUpdateRequest} request
+   * @returns {Promise<import('./v1.js').DatasetUpdateResponse>}
    */
   update(datasetId, request) {
     return datasetUpdate(this, datasetId, request)
@@ -61,6 +64,7 @@ export class DatasetClient extends ChatBotKitClient {
    * Deletes the dataset.
    *
    * @param {string} datasetId
+   * @returns {Promise<import('./v1.js').DatasetDeleteResponse>}
    */
   delete(datasetId) {
     return datasetDelete(this, datasetId)
@@ -71,6 +75,7 @@ export class DatasetClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {string} search
+   * @returns {Promise<import('./v1.js').DatasetSearchResponse>}
    */
   search(datasetId, search) {
     return datasetSearch(this, datasetId, search)

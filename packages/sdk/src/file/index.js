@@ -27,6 +27,7 @@ export class FileClient extends ChatBotKitClient {
    * Fetches a file.
    *
    * @param {string} fileId
+   * @returns {Promise<import('./v1.js').FileFetchResponse>}
    */
   fetch(fileId) {
     return fileFetch(this, fileId)
@@ -36,6 +37,7 @@ export class FileClient extends ChatBotKitClient {
    * Creates a new file.
    *
    * @param {import('./v1.js').FileCreateRequest} request
+   * @returns {Promise<import('./v1.js').FileCreateResponse>}
    */
   create(request) {
     return fileCreate(this, request)
@@ -46,6 +48,7 @@ export class FileClient extends ChatBotKitClient {
    *
    * @param {string} fileId
    * @param {import('./v1.js').FileUpdateRequest} request
+   * @returns {Promise<import('./v1.js').FileUpdateResponse>}
    */
   update(fileId, request) {
     return fileUpdate(this, fileId, request)
@@ -55,6 +58,7 @@ export class FileClient extends ChatBotKitClient {
    * Deletes the file.
    *
    * @param {string} fileId
+   * @returns {Promise<import('./v1.js').FileDeleteResponse>}
    */
   delete(fileId) {
     return fileDelete(this, fileId)

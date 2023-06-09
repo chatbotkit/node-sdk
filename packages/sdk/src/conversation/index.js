@@ -35,6 +35,7 @@ export class ConversationClient extends ChatBotKitClient {
    * Fetches a conversation.
    *
    * @param {string} conversationId
+   * @returns {Promise<import('./v1.js').ConversationFetchResponse>}
    */
   fetch(conversationId) {
     return conversationFetch(this, conversationId)
@@ -44,6 +45,7 @@ export class ConversationClient extends ChatBotKitClient {
    * Creates a new conversation.
    *
    * @param {import('./v1.js').ConversationCreateRequest} request
+   * @returns {Promise<import('./v1.js').ConversationCreateResponse>}
    */
   create(request) {
     return conversationCreate(this, request)
@@ -54,6 +56,7 @@ export class ConversationClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {import('./v1.js').ConversationUpdateRequest} request
+   * @returns {Promise<import('./v1.js').ConversationUpdateResponse>}
    */
   update(conversationId, request) {
     return conversationUpdate(this, conversationId, request)
@@ -63,6 +66,7 @@ export class ConversationClient extends ChatBotKitClient {
    * Deletes the conversation.
    *
    * @param {string} conversationId
+   * @returns {Promise<import('./v1.js').ConversationDeleteResponse>}
    */
   delete(conversationId) {
     return conversationDelete(this, conversationId)

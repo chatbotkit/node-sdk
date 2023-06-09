@@ -19,6 +19,7 @@ export class MessageClient extends ChatBotKitClient {
    * Retrieves a list of all existing messages associated with this client.
    *
    * @param {string} conversationId
+   * @returns {import('../../client.js').ResponsePromise<import('./v1.js').MessageListResponse,import('./v1.js').MessageListStreamType>}
    */
   list(conversationId) {
     return messageList(this, conversationId)
@@ -29,6 +30,7 @@ export class MessageClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {string} messageId
+   * @returns {Promise<import('./v1.js').MessageFetchResponse>}
    */
   fetch(conversationId, messageId) {
     return messageFetch(this, conversationId, messageId)
@@ -39,6 +41,7 @@ export class MessageClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {import('./v1.js').MessageCreateRequest} request
+   * @returns {Promise<import('./v1.js').MessageCreateResponse>}
    */
   create(conversationId, request) {
     return messageCreate(this, conversationId, request)
@@ -50,6 +53,7 @@ export class MessageClient extends ChatBotKitClient {
    * @param {string} conversationId
    * @param {string} messageId
    * @param {import('./v1.js').MessageUpdateRequest} request
+   * @returns {Promise<import('./v1.js').MessageUpdateResponse>}
    */
   update(conversationId, messageId, request) {
     return messageUpdate(this, conversationId, messageId, request)
@@ -60,6 +64,7 @@ export class MessageClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {string} messageId
+   * @returns {Promise<import('./v1.js').MessageDeleteResponse>}
    */
   delete(conversationId, messageId) {
     return messageDelete(this, conversationId, messageId)

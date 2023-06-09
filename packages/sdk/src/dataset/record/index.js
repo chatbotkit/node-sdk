@@ -19,6 +19,7 @@ export class RecordClient extends ChatBotKitClient {
    * Retrieves a list of all existing records associated with this client.
    *
    * @param {string} datasetId
+   * @returns {import('../../client.js').ResponsePromise<import('./v1.js').RecordListResponse,import('./v1.js').RecordListStreamType>}
    */
   list(datasetId) {
     return recordList(this, datasetId)
@@ -29,6 +30,7 @@ export class RecordClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {string} recordId
+   * @returns {Promise<import('./v1.js').RecordFetchResponse>}
    */
   fetch(datasetId, recordId) {
     return recordFetch(this, datasetId, recordId)
@@ -39,6 +41,7 @@ export class RecordClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {import('./v1.js').RecordCreateRequest} request
+   * @returns {Promise<import('./v1.js').RecordCreateResponse>}
    */
   create(datasetId, request) {
     return recordCreate(this, datasetId, request)
@@ -50,6 +53,7 @@ export class RecordClient extends ChatBotKitClient {
    * @param {string} datasetId
    * @param {string} recordId
    * @param {import('./v1.js').RecordUpdateRequest} request
+   * @returns {Promise<import('./v1.js').RecordUpdateResponse>}
    */
   update(datasetId, recordId, request) {
     return recordUpdate(this, datasetId, recordId, request)
@@ -60,6 +64,7 @@ export class RecordClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {string} recordId
+   * @returns {Promise<import('./v1.js').RecordDeleteResponse>}
    */
   delete(datasetId, recordId) {
     return recordDelete(this, datasetId, recordId)
