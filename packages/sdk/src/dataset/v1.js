@@ -20,10 +20,17 @@
 /**
  * @typedef {DatasetInstance} DatasetListResponse
  *
+ * @typedef {{
+ *   type: 'item',
+ *   data: DatasetInstance
+ * }} DatasetListStreamItemType
+ *
+ * @typedef {DatasetListStreamItemType} DatasetListStreamType
+ *
  * @param {ChatBotKitClient} client
- * @returns {Promise<DatasetListResponse>}
+ * @returns {import('../client.js').ResponsePromise<DatasetListResponse,DatasetListStreamType>}
  */
-export async function datasetList(client) {
+export function datasetList(client) {
   return client.clientFetch(`/api/v1/dataset/list`)
 }
 

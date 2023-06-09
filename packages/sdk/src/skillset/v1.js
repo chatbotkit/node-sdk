@@ -19,10 +19,17 @@
 /**
  * @typedef {SkillsetInstance} SkillsetListResponse
  *
+ * @typedef {{
+ *   type: 'item',
+ *   data: SkillsetInstance
+ * }} SkillsetListStreamItemType
+ *
+ * @typedef {SkillsetListStreamItemType} SkillsetListStreamType
+ *
  * @param {ChatBotKitClient} client
- * @returns {Promise<SkillsetListResponse>}
+ * @returns {import('../client.js').ResponsePromise<SkillsetListResponse,SkillsetListStreamType>}
  */
-export async function skillsetList(client) {
+export function skillsetList(client) {
   return client.clientFetch(`/api/v1/skillset/list`)
 }
 

@@ -14,6 +14,7 @@ export class BotClient extends ChatBotKitClient {
 
   /**
    * Retrieves a list of all existing bots associated with this client.
+   * @returns {import('../client.js').ResponsePromise<import('./v1.js').BotListResponse,import('./v1.js').BotListStreamType>}
    */
   list() {
     return botList(this)
