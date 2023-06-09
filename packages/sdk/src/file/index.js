@@ -1,17 +1,15 @@
-import { ChatFileKitClient } from '../client.js'
+import { ChatBotKitClient } from '../client.js'
 import {
   fileList,
   fileFetch,
   fileCreate,
   fileUpdate,
   fileDelete,
-  fileUpload,
-  fileDownload,
 } from './v1.js'
 
-export class FileClient extends ChatFileKitClient {
+export class FileClient extends ChatBotKitClient {
   /**
-   * @param {import('../client.js').ChatFileKitClientOptions} options
+   * @param {import('../client.js').ChatBotKitClientOptions} options
    */
   constructor(options) {
     super(options)
@@ -59,27 +57,6 @@ export class FileClient extends ChatFileKitClient {
    */
   delete(fileId) {
     return fileDelete(this, fileId)
-  }
-
-  /**
-   * File upload.
-   *
-   * @param {string} fileId
-   * @param {ArrayBuffer} data
-   * @returns {import('./v1.js').FileUploadResponse}
-   */
-  upload(fileId, data) {
-    return fileUpload(this, fileId, data)
-  }
-
-  /**
-   * File download.
-   *
-   * @param {string} fileId
-   * @returns {Promise<ArrayBuffer>}
-   */
-  download(fileId) {
-    return fileDownload(this, fileId)
   }
 }
 

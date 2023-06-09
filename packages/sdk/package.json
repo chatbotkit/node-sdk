@@ -215,6 +215,26 @@
         "default": "./dist/esm/fetch.js"
       }
     },
+    "./file/index.js": {
+      "require": {
+        "types": "./dist/cjs/file/index.d.ts",
+        "default": "./dist/cjs/file/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/file/index.d.ts",
+        "default": "./dist/esm/file/index.js"
+      }
+    },
+    "./file/v1.js": {
+      "require": {
+        "types": "./dist/cjs/file/v1.d.ts",
+        "default": "./dist/cjs/file/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/file/v1.d.ts",
+        "default": "./dist/esm/file/v1.js"
+      }
+    },
     "./index.js": {
       "require": {
         "types": "./dist/cjs/index.d.ts",

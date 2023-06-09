@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../client.js').ChatFileKitClient} ChatFileKitClient
+ * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */
 
 /**
@@ -26,7 +26,7 @@
  *
  * @typedef {FileListStreamItemType} FileListStreamType
  *
- * @param {ChatFileKitClient} client
+ * @param {ChatBotKitClient} client
  * @returns {import('../client.js').ResponsePromise<FileListResponse,FileListStreamType>}
  */
 export function fileList(client) {
@@ -36,7 +36,7 @@ export function fileList(client) {
 /**
  * @typedef {FileInstance} FileFetchResponse
  *
- * @param {ChatFileKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {string} fileId
  * @returns {Promise<FileFetchResponse>}
  */
@@ -51,7 +51,7 @@ export async function fileFetch(client, fileId) {
  *   id: string
  * }} FileCreateResponse
  *
- * @param {ChatFileKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {FileCreateRequest} request
  * @returns {Promise<FileCreateResponse>}
  */
@@ -68,7 +68,7 @@ export async function fileCreate(client, request) {
  *   id: string
  * }} FileUpdateResponse
  *
- * @param {ChatFileKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {string} fileId
  * @param {FileUpdateRequest} request
  * @returns {Promise<FileUpdateResponse>}
@@ -84,7 +84,7 @@ export async function fileUpdate(client, fileId, request) {
  *   id: string
  * }} FileDeleteResponse
  *
- * @param {ChatFileKitClient} client
+ * @param {ChatBotKitClient} client
  * @param {string} fileId
  * @returns {Promise<FileDeleteResponse>}
  */
@@ -92,33 +92,4 @@ export async function fileDelete(client, fileId) {
   return client.clientFetch(`/api/v1/file/${fileId}/delete`, {
     data: {},
   })
-}
-
-/**
- * @typedef {{
- *   id: string
- * }} FileUploadResponse
- *
- * @param {ChatFileKitClient} client
- * @param {string} fileId
- * @param {ArrayBuffer} data
- * @returns {Promise<FileUploadResponse>}
- */
-export async function fileUpload(client, fileId, data) {
-  return client.clientFetch(`/api/v1/file/${fileId}/upload`, {
-    data: data,
-  })
-}
-
-/**
- * @param {ChatFileKitClient} client
- * @param {string} fileId
- * @returns {Promise<ArrayBuffer>}
- */
-export async function fileDownload(client, fileId) {
-  const response = await client.clientFetchRaw(
-    `/api/v1/file/${fileId}/download`
-  )
-
-  return await response.arrayBuffer()
 }
