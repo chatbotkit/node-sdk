@@ -5,6 +5,8 @@ import {
   fileCreate,
   fileUpdate,
   fileDelete,
+  fileUpload,
+  fileDownload,
 } from './v1.js'
 
 export class FileClient extends ChatBotKitClient {
@@ -62,6 +64,27 @@ export class FileClient extends ChatBotKitClient {
    */
   delete(fileId) {
     return fileDelete(this, fileId)
+  }
+
+  /**
+   * Upload file data.
+   *
+   * @param {string} fileId
+   * @param {import('./v1.js').FileUploadRequest} request
+   * @returns {Promise<import('./v1.js').FileUploadResponse>}
+   */
+  upload(fileId, request) {
+    return fileUpload(this, fileId, request)
+  }
+
+  /**
+   * Download file data.
+   *
+   * @param {string} fileId
+   * @returns {Promise<import('./v1.js').FileDownloadResponse>}
+   */
+  download(fileId) {
+    return fileDownload(this, fileId)
   }
 }
 

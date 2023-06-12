@@ -93,3 +93,38 @@ export async function fileDelete(client, fileId) {
     data: {},
   })
 }
+
+/**
+ * @typedef {{
+ *   name?: string,
+ *   type?: string,
+ *   data: string|ArrayBuffer
+ * }} FileUploadRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} FileUploadResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} fileId
+ * @param {FileUploadRequest} request
+ * @returns {Promise<FileUploadResponse>}
+ */
+export async function fileUpload(client, fileId, request) {
+  return client.clientFetch(`/api/v1/file/${fileId}/upload`, {
+    file: request,
+  })
+}
+
+/**
+ * @typedef {{
+ *   data: ArrayBuffer
+ * }} FileDownloadResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} fileId
+ * @returns {Promise<FileDownloadResponse>}
+ */
+export async function fileDownload(client, fileId) {
+  return client.clientFetch(`/api/v1/file/${fileId}/download`)
+}

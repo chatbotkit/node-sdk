@@ -1,4 +1,10 @@
-import { fetchWithBackoff, jsonl, RequestError } from './fetch.js'
+import {
+  fetchWithBackoff,
+  RequestError,
+  jsonl,
+  Blob,
+  FormData,
+} from './fetch.js'
 
 /**
  * @template T,U
@@ -35,7 +41,11 @@ export class ResponsePromise {
     const { method, headers, data } = this.request
 
     if (data) {
-      body = JSON.stringify({ ...data, ...params?.data })
+      if (data instanceof FormData) {
+        body = data
+      } else {
+        body = JSON.stringify({ ...data, ...params?.data })
+      }
     }
 
     const response = await fetchWithBackoff(this.url.toString(), {
@@ -86,7 +96,17 @@ export class ResponsePromise {
    */
   then(onSuccess, onFail) {
     return this.getFetchPromise()
-      .then((response) => response.json())
+      .then(async (response) => {
+        if (
+          response.headers.get('content-type')?.includes('application/json')
+        ) {
+          return await response.json()
+        } else {
+          return {
+            data: await response.arrayBuffer(),
+          }
+        }
+      })
       .then(onSuccess, onFail)
   }
 
@@ -148,7 +168,7 @@ export class ChatBotKitClient {
   /**
    * @template T,U
    * @param {string} path
-   * @param {{data?: Record<string,any>}} [options]
+   * @param {{data?: Record<string,any>, file?: { name?: string, type?: string, data: string|ArrayBuffer }}} [options]
    * @returns {ResponsePromise<T,U>}
    */
   clientFetch(path, options) {
@@ -178,6 +198,16 @@ export class ChatBotKitClient {
       headers['Content-Type'] = 'application/json'
 
       data = options.data
+    } else if (options?.file) {
+      method = 'POST'
+
+      data = new FormData()
+
+      data.append(
+        'file',
+        new Blob([options.file.data], { type: options.file.type }),
+        options.file.name
+      )
     }
 
     const request = {

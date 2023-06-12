@@ -1,25 +1,4 @@
-import fetch from 'isomorphic-fetch'
-
-// NOTE: we need to pollyfill the ReadableStream for chrome and Safari
-
-if (
-  typeof globalThis.ReadableStream === 'function' &&
-  // @ts-ignore
-  typeof globalThis.ReadableStream.prototype[Symbol.asyncIterator] !==
-    'function'
-) {
-  // @ts-ignore
-  globalThis.ReadableStream.prototype[Symbol.asyncIterator] = function () {
-    const reader = this.getReader()
-
-    return {
-      next: () => reader.read(),
-      return: () => {
-        reader.releaseLock()
-      },
-    }
-  }
-}
+import { fetch, Blob, FormData } from '@chatbotkit/fetch'
 
 export class RequestError extends Error {
   /**
@@ -118,6 +97,6 @@ export async function* jsonl(body) {
   }
 }
 
-export { fetch }
+export { fetch, Blob, FormData }
 
 export default fetch
