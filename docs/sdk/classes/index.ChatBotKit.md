@@ -21,6 +21,7 @@
 - [bot](index.ChatBotKit.md#bot)
 - [conversation](index.ChatBotKit.md#conversation)
 - [dataset](index.ChatBotKit.md#dataset)
+- [file](index.ChatBotKit.md#file)
 - [integration](index.ChatBotKit.md#integration)
 - [secret](index.ChatBotKit.md#secret)
 - [skillset](index.ChatBotKit.md#skillset)
@@ -48,7 +49,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:18](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/index.js#L18)
+[index.js:20](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/index.js#L20)
 
 ## Properties
 
@@ -58,7 +59,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:21](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/index.js#L21)
+[index.js:23](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/index.js#L23)
 
 ___
 
@@ -68,7 +69,7 @@ ___
 
 #### Defined in
 
-[index.js:25](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/index.js#L25)
+[index.js:28](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/index.js#L28)
 
 ___
 
@@ -78,7 +79,17 @@ ___
 
 #### Defined in
 
-[index.js:22](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/index.js#L22)
+[index.js:25](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/index.js#L25)
+
+___
+
+### file
+
+• **file**: [`FileClient`](file.FileClient.md)
+
+#### Defined in
+
+[index.js:24](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/index.js#L24)
 
 ___
 
@@ -88,7 +99,7 @@ ___
 
 #### Defined in
 
-[index.js:24](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/index.js#L24)
+[index.js:27](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/index.js#L27)
 
 ___
 
@@ -102,7 +113,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:135](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L135)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -112,7 +123,7 @@ ___
 
 #### Defined in
 
-[index.js:23](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/index.js#L23)
+[index.js:26](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/index.js#L26)
 
 ___
 
@@ -126,7 +137,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:137](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L137)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -148,6 +159,10 @@ ChatBotKitClient.url
 | `path` | `string` |
 | `options?` | `Object` |
 | `options.data?` | `Record`<`string`, `any`\> |
+| `options.file?` | `Object` |
+| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.name?` | `string` |
+| `options.file.type?` | `string` |
 
 #### Returns
 
@@ -159,4 +174,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:154](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L154)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L174)

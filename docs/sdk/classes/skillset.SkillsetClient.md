@@ -49,7 +49,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[skillset/index.js:15](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/skillset/index.js#L15)
+[skillset/index.js:15](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/index.js#L15)
 
 ## Properties
 
@@ -59,7 +59,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[skillset/index.js:18](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/skillset/index.js#L18)
+[skillset/index.js:18](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/index.js#L18)
 
 ___
 
@@ -73,7 +73,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:135](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L135)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -87,7 +87,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:137](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L137)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -109,6 +109,10 @@ ChatBotKitClient.url
 | `path` | `string` |
 | `options?` | `Object` |
 | `options.data?` | `Record`<`string`, `any`\> |
+| `options.file?` | `Object` |
+| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.name?` | `string` |
+| `options.file.type?` | `string` |
 
 #### Returns
 
@@ -120,7 +124,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:154](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L154)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L174)
 
 ___
 
@@ -142,7 +146,7 @@ Creates a new skillset.
 
 #### Defined in
 
-[skillset/index.js:42](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/skillset/index.js#L42)
+[skillset/index.js:45](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/index.js#L45)
 
 ___
 
@@ -164,7 +168,7 @@ Deletes the skillset.
 
 #### Defined in
 
-[skillset/index.js:61](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/skillset/index.js#L61)
+[skillset/index.js:66](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/index.js#L66)
 
 ___
 
@@ -186,23 +190,23 @@ Fetches a skillset.
 
 #### Defined in
 
-[skillset/index.js:33](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/skillset/index.js#L33)
+[skillset/index.js:35](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/index.js#L35)
 
 ___
 
 ### list
 
-▸ **list**(): `Promise`<[`SkillsetInstance`](../modules/skillset_v1.md#skillsetinstance)\>
+▸ **list**(): `ResponsePromise`<[`SkillsetInstance`](../modules/skillset_v1.md#skillsetinstance), [`SkillsetListStreamItemType`](../modules/skillset_v1.md#skillsetliststreamitemtype)\>
 
 Retrieves a list of all existing skillsets associated with this client.
 
 #### Returns
 
-`Promise`<[`SkillsetInstance`](../modules/skillset_v1.md#skillsetinstance)\>
+`ResponsePromise`<[`SkillsetInstance`](../modules/skillset_v1.md#skillsetinstance), [`SkillsetListStreamItemType`](../modules/skillset_v1.md#skillsetliststreamitemtype)\>
 
 #### Defined in
 
-[skillset/index.js:24](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/skillset/index.js#L24)
+[skillset/index.js:25](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/index.js#L25)
 
 ___
 
@@ -225,4 +229,4 @@ Updates a new skillset.
 
 #### Defined in
 
-[skillset/index.js:52](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/skillset/index.js#L52)
+[skillset/index.js:56](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/index.js#L56)

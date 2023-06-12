@@ -48,7 +48,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[dataset/record/index.js:14](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/dataset/record/index.js#L14)
+[dataset/record/index.js:14](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L14)
 
 ## Properties
 
@@ -62,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:135](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L135)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -76,7 +76,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:137](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L137)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -98,6 +98,10 @@ ChatBotKitClient.url
 | `path` | `string` |
 | `options?` | `Object` |
 | `options.data?` | `Record`<`string`, `any`\> |
+| `options.file?` | `Object` |
+| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.name?` | `string` |
+| `options.file.type?` | `string` |
 
 #### Returns
 
@@ -109,7 +113,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:154](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/client.js#L154)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L174)
 
 ___
 
@@ -132,7 +136,7 @@ Creates a new record.
 
 #### Defined in
 
-[dataset/record/index.js:43](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/dataset/record/index.js#L43)
+[dataset/record/index.js:46](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L46)
 
 ___
 
@@ -155,7 +159,7 @@ Deletes the record.
 
 #### Defined in
 
-[dataset/record/index.js:64](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/dataset/record/index.js#L64)
+[dataset/record/index.js:69](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L69)
 
 ___
 
@@ -178,7 +182,7 @@ Fetches a record.
 
 #### Defined in
 
-[dataset/record/index.js:33](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/dataset/record/index.js#L33)
+[dataset/record/index.js:35](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L35)
 
 ___
 
@@ -200,7 +204,7 @@ Retrieves a list of all existing records associated with this client.
 
 #### Defined in
 
-[dataset/record/index.js:23](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/dataset/record/index.js#L23)
+[dataset/record/index.js:24](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L24)
 
 ___
 
@@ -224,4 +228,4 @@ Updates a new record.
 
 #### Defined in
 
-[dataset/record/index.js:54](https://github.com/chatbotkit/node-sdk/blob/180c15b/packages/sdk/src/dataset/record/index.js#L54)
+[dataset/record/index.js:58](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L58)

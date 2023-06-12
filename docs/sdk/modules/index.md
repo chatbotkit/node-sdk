@@ -9,6 +9,7 @@
 - [BotClient](index.md#botclient)
 - [ConversationClient](index.md#conversationclient)
 - [DatasetClient](index.md#datasetclient)
+- [FileClient](index.md#fileclient)
 - [SkillsetClient](index.md#skillsetclient)
 - [default](index.md#default)
 
@@ -33,6 +34,12 @@ ___
 ### DatasetClient
 
 Re-exports [DatasetClient](../classes/dataset.DatasetClient.md)
+
+___
+
+### FileClient
+
+Re-exports [FileClient](../classes/file.FileClient.md)
 
 ___
 
