@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
+    "packages/fetch",
     "packages/sdk",
     "packages/react",
     "examples/sdk/*",
