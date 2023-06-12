@@ -1,5 +1,16 @@
 # @chatbotkit/sdk
 
+## 0.10.0
+
+### Minor Changes
+
+- File API support and isomorphic fetch.
+
+### Patch Changes
+
+- Updated dependencies
+  - @chatbotkit/fetch@0.1.0
+
 ## 0.9.1
 
 ### Patch Changes

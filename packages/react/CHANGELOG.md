@@ -1,5 +1,16 @@
 # @chatbotkit/react
 
+## 0.4.0
+
+### Minor Changes
+
+- File API support and isomorphic fetch.
+
+### Patch Changes
+
+- Updated dependencies
+  - @chatbotkit/sdk@0.10.0
+
 ## 0.3.0
 
 ### Minor Changes
