@@ -14,8 +14,8 @@
   "author": "",
   "keywords": [
     "fetch",
-    "FormData",
-    "Blob"
+    "Blob",
+    "FormData"
   ],
   "type": "module",
   "main": "./dist/esm/index.js",
@@ -30,16 +30,6 @@
         "default": "./dist/esm/index.js"
       }
     },
-    "./browser.js": {
-      "require": {
-        "types": "./dist/cjs/browser.d.ts",
-        "default": "./dist/cjs/browser.cjs"
-      },
-      "import": {
-        "types": "./dist/esm/browser.d.ts",
-        "default": "./dist/esm/browser.js"
-      }
-    },
     "./index.js": {
       "require": {
         "types": "./dist/cjs/index.d.ts",
@@ -51,7 +41,6 @@
       }
     }
   },
-  "browser": "./dist/esm/browser.js",
   "scripts": {
     "build": "run-s build:*",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -65,7 +54,8 @@
   "types": "./dist/esm/index.d.ts",
   "dependencies": {
     "isomorphic-fetch": "^3.0.0",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^3.3.1",
+    "node-fetch-native": "^1.2.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",

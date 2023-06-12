@@ -113,7 +113,7 @@
   "include": ["src/**/*.js"],
   "exclude": ["dist", "dist.esm", "dist.cjs"],
   "typedocOptions": {
-    "entryPoints": ["src/index.js", "src/browser.js"],
+    "entryPoints": ["src/index.js"],
     "excludePrivate": true,
     "excludeInternal": true,
     "excludeExternals": true
