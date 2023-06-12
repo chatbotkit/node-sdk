@@ -115,6 +115,8 @@
   "typedocOptions": {
     "entryPoints": [
       "src/index.js",
+      "src/file/index.js",
+      "src/file/v1.js",
       "src/bot/index.js",
       "src/bot/v1.js",
       "src/bot/session/index.js",

@@ -24,7 +24,7 @@ export class BotClient extends ChatBotKitClient {
    * Fetches a bot.
    *
    * @param {string} botId
-   * returns {Promise<import('./v1.js').BotFetchResponse>}
+   * @returns {Promise<import('./v1.js').BotFetchResponse>}
    */
   fetch(botId) {
     return botFetch(this, botId)
@@ -34,7 +34,7 @@ export class BotClient extends ChatBotKitClient {
    * Creates a new bot.
    *
    * @param {import('./v1.js').BotCreateRequest} request
-   * returns {Promise<import('./v1.js').BotCreateResponse>}
+   * @returns {Promise<import('./v1.js').BotCreateResponse>}
    */
   create(request) {
     return botCreate(this, request)
@@ -45,7 +45,7 @@ export class BotClient extends ChatBotKitClient {
    *
    * @param {string} botId
    * @param {import('./v1.js').BotUpdateRequest} request
-   * returns {Promise<import('./v1.js').BotUpdateResponse>}
+   * @returns {Promise<import('./v1.js').BotUpdateResponse>}
    */
   update(botId, request) {
     return botUpdate(this, botId, request)
@@ -55,7 +55,7 @@ export class BotClient extends ChatBotKitClient {
    * Deletes the bot.
    *
    * @param {string} botId
-   * returns {Promise<import('./v1.js').BotDeleteResponse>}
+   * @returns {Promise<import('./v1.js').BotDeleteResponse>}
    */
   delete(botId) {
     return botDelete(this, botId)
