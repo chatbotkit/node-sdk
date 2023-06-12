@@ -33,6 +33,7 @@ export async function fetchWithBackoff(
   let response
 
   try {
+    // @ts-ignore
     response = await fetch(url, options)
 
     if (!response.ok) {
@@ -45,14 +46,17 @@ export async function fetchWithBackoff(
             `Request failed`,
             response.status,
             options,
+            // @ts-ignore
             response
           )
 
         default:
+          // @ts-ignore
           return response
       }
     }
 
+    // @ts-ignore
     return response
   } catch (error) {
     if (retries === 0) {

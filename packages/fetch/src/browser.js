@@ -1,3 +1,5 @@
+/* global globalThis */
+
 // NOTE: we need to pollyfill the ReadableStream for chrome and Safari
 
 if (
