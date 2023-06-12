@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.10.1
+
+### Patch Changes
+
+- Fixed type typo.
+
 ## 0.10.0
 
 ### Minor Changes
