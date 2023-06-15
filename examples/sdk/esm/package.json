@@ -1,5 +1,5 @@
 {
-  "name": "basic",
+  "name": "@examples/sdk-esm",
   "version": "0.0.0",
   "description": "The fastest way to build advanced AI chat bots.",
   "license": "ISC",
