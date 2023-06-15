@@ -1,5 +1,5 @@
 {
-  "name": "gpt4-stream",
+  "name": "@examples/cloudflare-gpt4-stream",
   "version": "0.0.0",
   "private": true,
   "type": "module",

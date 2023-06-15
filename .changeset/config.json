@@ -7,5 +7,10 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["basic", "chat", "gpt4-stream"]
+  "ignore": [
+    "@examples/sdk-cjs",
+    "@examples/sdk-esm",
+    "@examples/nextjs-chat",
+    "@examples/cloudflare-gpt4-stream"
+  ]
 }
