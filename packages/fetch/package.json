@@ -53,7 +53,6 @@
   },
   "types": "./dist/esm/index.d.ts",
   "dependencies": {
-    "node-fetch": "^3.3.1",
     "node-fetch-native": "^1.2.0"
   },
   "devDependencies": {
