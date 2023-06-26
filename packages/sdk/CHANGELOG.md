@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.11.1
+
+### Patch Changes
+
+- Fixed type issue with list methods.
+
 ## 0.11.0
 
 ### Minor Changes
