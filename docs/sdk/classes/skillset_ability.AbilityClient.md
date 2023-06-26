@@ -48,7 +48,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[skillset/ability/index.js:14](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/ability/index.js#L14)
+[skillset/ability/index.js:14](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/skillset/ability/index.js#L14)
 
 ## Properties
 
@@ -62,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:155](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L155)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -76,7 +76,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:157](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L157)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -113,7 +113,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:174](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L174)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L174)
 
 ___
 
@@ -136,7 +136,7 @@ Creates a new ability.
 
 #### Defined in
 
-[skillset/ability/index.js:46](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/ability/index.js#L46)
+[skillset/ability/index.js:46](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/skillset/ability/index.js#L46)
 
 ___
 
@@ -159,7 +159,7 @@ Deletes the ability.
 
 #### Defined in
 
-[skillset/ability/index.js:69](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/ability/index.js#L69)
+[skillset/ability/index.js:69](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/skillset/ability/index.js#L69)
 
 ___
 
@@ -182,13 +182,13 @@ Fetches a ability.
 
 #### Defined in
 
-[skillset/ability/index.js:35](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/ability/index.js#L35)
+[skillset/ability/index.js:35](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/skillset/ability/index.js#L35)
 
 ___
 
 ### list
 
-▸ **list**(`skillsetId`): `ResponsePromise`<[`AbilityInstance`](../modules/skillset_ability_v1.md#abilityinstance), [`AbilityListStreamItem`](../modules/skillset_ability_v1.md#abilityliststreamitem)\>
+▸ **list**(`skillsetId`): `ResponsePromise`<[`AbilityListResponse`](../modules/skillset_ability_v1.md#abilitylistresponse), [`AbilityListStreamItem`](../modules/skillset_ability_v1.md#abilityliststreamitem)\>
 
 Retrieves a list of all existing abilitys associated with this client.
 
@@ -200,11 +200,11 @@ Retrieves a list of all existing abilitys associated with this client.
 
 #### Returns
 
-`ResponsePromise`<[`AbilityInstance`](../modules/skillset_ability_v1.md#abilityinstance), [`AbilityListStreamItem`](../modules/skillset_ability_v1.md#abilityliststreamitem)\>
+`ResponsePromise`<[`AbilityListResponse`](../modules/skillset_ability_v1.md#abilitylistresponse), [`AbilityListStreamItem`](../modules/skillset_ability_v1.md#abilityliststreamitem)\>
 
 #### Defined in
 
-[skillset/ability/index.js:24](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/ability/index.js#L24)
+[skillset/ability/index.js:24](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/skillset/ability/index.js#L24)
 
 ___
 
@@ -228,4 +228,4 @@ Updates a new ability.
 
 #### Defined in
 
-[skillset/ability/index.js:58](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/skillset/ability/index.js#L58)
+[skillset/ability/index.js:58](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/skillset/ability/index.js#L58)

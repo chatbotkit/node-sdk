@@ -48,7 +48,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[dataset/record/index.js:14](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L14)
+[dataset/record/index.js:14](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/dataset/record/index.js#L14)
 
 ## Properties
 
@@ -62,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:155](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L155)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -76,7 +76,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:157](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L157)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -113,7 +113,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:174](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L174)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L174)
 
 ___
 
@@ -136,7 +136,7 @@ Creates a new record.
 
 #### Defined in
 
-[dataset/record/index.js:46](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L46)
+[dataset/record/index.js:46](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/dataset/record/index.js#L46)
 
 ___
 
@@ -159,7 +159,7 @@ Deletes the record.
 
 #### Defined in
 
-[dataset/record/index.js:69](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L69)
+[dataset/record/index.js:69](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/dataset/record/index.js#L69)
 
 ___
 
@@ -182,13 +182,13 @@ Fetches a record.
 
 #### Defined in
 
-[dataset/record/index.js:35](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L35)
+[dataset/record/index.js:35](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/dataset/record/index.js#L35)
 
 ___
 
 ### list
 
-▸ **list**(`datasetId`): `ResponsePromise`<[`RecordInstance`](../modules/dataset_record_v1.md#recordinstance), [`RecordListStreamItem`](../modules/dataset_record_v1.md#recordliststreamitem)\>
+▸ **list**(`datasetId`): `ResponsePromise`<[`RecordListResponse`](../modules/dataset_record_v1.md#recordlistresponse), [`RecordListStreamItem`](../modules/dataset_record_v1.md#recordliststreamitem)\>
 
 Retrieves a list of all existing records associated with this client.
 
@@ -200,11 +200,11 @@ Retrieves a list of all existing records associated with this client.
 
 #### Returns
 
-`ResponsePromise`<[`RecordInstance`](../modules/dataset_record_v1.md#recordinstance), [`RecordListStreamItem`](../modules/dataset_record_v1.md#recordliststreamitem)\>
+`ResponsePromise`<[`RecordListResponse`](../modules/dataset_record_v1.md#recordlistresponse), [`RecordListStreamItem`](../modules/dataset_record_v1.md#recordliststreamitem)\>
 
 #### Defined in
 
-[dataset/record/index.js:24](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L24)
+[dataset/record/index.js:24](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/dataset/record/index.js#L24)
 
 ___
 
@@ -228,4 +228,4 @@ Updates a new record.
 
 #### Defined in
 
-[dataset/record/index.js:58](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/dataset/record/index.js#L58)
+[dataset/record/index.js:58](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/dataset/record/index.js#L58)

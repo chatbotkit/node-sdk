@@ -48,7 +48,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[conversation/message/index.js:14](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/conversation/message/index.js#L14)
+[conversation/message/index.js:14](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/conversation/message/index.js#L14)
 
 ## Properties
 
@@ -62,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:155](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L155)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -76,7 +76,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:157](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L157)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -113,7 +113,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:174](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/client.js#L174)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L174)
 
 ___
 
@@ -136,7 +136,7 @@ Creates a new message.
 
 #### Defined in
 
-[conversation/message/index.js:46](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/conversation/message/index.js#L46)
+[conversation/message/index.js:46](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/conversation/message/index.js#L46)
 
 ___
 
@@ -159,7 +159,7 @@ Deletes the message.
 
 #### Defined in
 
-[conversation/message/index.js:69](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/conversation/message/index.js#L69)
+[conversation/message/index.js:69](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/conversation/message/index.js#L69)
 
 ___
 
@@ -182,13 +182,13 @@ Fetches a message.
 
 #### Defined in
 
-[conversation/message/index.js:35](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/conversation/message/index.js#L35)
+[conversation/message/index.js:35](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/conversation/message/index.js#L35)
 
 ___
 
 ### list
 
-▸ **list**(`conversationId`): `ResponsePromise`<[`MessageInstance`](../modules/conversation_message_v1.md#messageinstance), [`MessageListStreamItem`](../modules/conversation_message_v1.md#messageliststreamitem)\>
+▸ **list**(`conversationId`): `ResponsePromise`<[`MessageListResponse`](../modules/conversation_message_v1.md#messagelistresponse), [`MessageListStreamItem`](../modules/conversation_message_v1.md#messageliststreamitem)\>
 
 Retrieves a list of all existing messages associated with this client.
 
@@ -200,11 +200,11 @@ Retrieves a list of all existing messages associated with this client.
 
 #### Returns
 
-`ResponsePromise`<[`MessageInstance`](../modules/conversation_message_v1.md#messageinstance), [`MessageListStreamItem`](../modules/conversation_message_v1.md#messageliststreamitem)\>
+`ResponsePromise`<[`MessageListResponse`](../modules/conversation_message_v1.md#messagelistresponse), [`MessageListStreamItem`](../modules/conversation_message_v1.md#messageliststreamitem)\>
 
 #### Defined in
 
-[conversation/message/index.js:24](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/conversation/message/index.js#L24)
+[conversation/message/index.js:24](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/conversation/message/index.js#L24)
 
 ___
 
@@ -228,4 +228,4 @@ Updates a new message.
 
 #### Defined in
 
-[conversation/message/index.js:58](https://github.com/chatbotkit/node-sdk/blob/9f47e54/packages/sdk/src/conversation/message/index.js#L58)
+[conversation/message/index.js:58](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/conversation/message/index.js#L58)
