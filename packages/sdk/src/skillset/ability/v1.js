@@ -18,7 +18,7 @@
  */
 
 /**
- * @typedef {AbilityInstance} AbilityListResponse
+ * @typedef {{items: AbilityInstance[]}} AbilityListResponse
  *
  * @typedef {{
  *   type: 'item',

@@ -18,7 +18,7 @@
  */
 
 /**
- * @typedef {DatasetInstance} DatasetListResponse
+ * @typedef {{items: DatasetInstance[]}} DatasetListResponse
  *
  * @typedef {{
  *   type: 'item',

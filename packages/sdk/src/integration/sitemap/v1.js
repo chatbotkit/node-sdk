@@ -24,7 +24,7 @@
  */
 
 /**
- * @typedef {SitemapInstance} SitemapListResponse
+ * @typedef {{items: SitemapInstance[]}} SitemapListResponse
  *
  * @typedef {{
  *   type: 'item',

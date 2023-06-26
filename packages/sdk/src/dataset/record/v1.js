@@ -16,7 +16,7 @@
  */
 
 /**
- * @typedef {RecordInstance} RecordListResponse
+ * @typedef {{items: RecordInstance[]}} RecordListResponse
  *
  * @typedef {{
  *   type: 'item',

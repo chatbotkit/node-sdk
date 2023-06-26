@@ -17,7 +17,7 @@
  */
 
 /**
- * @typedef {SkillsetInstance} SkillsetListResponse
+ * @typedef {{items: SkillsetInstance[]}} SkillsetListResponse
  *
  * @typedef {{
  *   type: 'item',

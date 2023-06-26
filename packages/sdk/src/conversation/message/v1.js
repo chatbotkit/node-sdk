@@ -19,7 +19,7 @@
  */
 
 /**
- * @typedef {MessageInstance} MessageListResponse
+ * @typedef {{items: MessageInstance[]}} MessageListResponse
  *
  * @typedef {{
  *   type: 'item',

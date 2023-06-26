@@ -19,7 +19,7 @@
  */
 
 /**
- * @typedef {BotInstance} BotListResponse
+ * @typedef {{items: BotInstance[]}} BotListResponse
  *
  * @typedef {{
  *   type: 'item',

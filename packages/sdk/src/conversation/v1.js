@@ -38,7 +38,7 @@
  */
 
 /**
- * @typedef {ConversationInstance} ConversationListResponse
+ * @typedef {{items: ConversationInstance[]}} ConversationListResponse
  *
  * @typedef {{
  *   type: 'item',

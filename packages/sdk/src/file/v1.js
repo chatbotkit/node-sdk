@@ -17,7 +17,7 @@
  */
 
 /**
- * @typedef {FileInstance} FileListResponse
+ * @typedef {{items: FileInstance[]}} FileListResponse
  *
  * @typedef {{
  *   type: 'item',
