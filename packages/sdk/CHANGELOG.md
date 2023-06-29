@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.11.2
+
+### Patch Changes
+
+- Added missing dataset types.
+
 ## 0.11.1
 
 ### Patch Changes
