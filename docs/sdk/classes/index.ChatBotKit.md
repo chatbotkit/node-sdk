@@ -49,7 +49,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:20](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/index.js#L20)
+[index.js:20](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/index.js#L20)
 
 ## Properties
 
@@ -59,7 +59,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:23](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/index.js#L23)
+[index.js:23](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/index.js#L23)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[index.js:28](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/index.js#L28)
+[index.js:28](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/index.js#L28)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[index.js:25](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/index.js#L25)
+[index.js:25](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/index.js#L25)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[index.js:24](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/index.js#L24)
+[index.js:24](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/index.js#L24)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[index.js:27](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/index.js#L27)
+[index.js:27](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/index.js#L27)
 
 ___
 
@@ -113,7 +113,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:155](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L155)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[index.js:26](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/index.js#L26)
+[index.js:26](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/index.js#L26)
 
 ___
 
@@ -137,7 +137,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:157](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L157)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -174,4 +174,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:174](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L174)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L174)

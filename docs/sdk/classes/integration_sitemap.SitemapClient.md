@@ -49,7 +49,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[integration/sitemap/index.js:15](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/integration/sitemap/index.js#L15)
+[integration/sitemap/index.js:15](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/integration/sitemap/index.js#L15)
 
 ## Properties
 
@@ -63,7 +63,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:155](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L155)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -77,7 +77,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:157](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L157)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -114,7 +114,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:174](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/client.js#L174)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L174)
 
 ___
 
@@ -136,7 +136,7 @@ Creates a new sitemap.
 
 #### Defined in
 
-[integration/sitemap/index.js:43](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/integration/sitemap/index.js#L43)
+[integration/sitemap/index.js:43](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/integration/sitemap/index.js#L43)
 
 ___
 
@@ -158,7 +158,7 @@ Deletes the sitemap.
 
 #### Defined in
 
-[integration/sitemap/index.js:64](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/integration/sitemap/index.js#L64)
+[integration/sitemap/index.js:64](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/integration/sitemap/index.js#L64)
 
 ___
 
@@ -180,7 +180,7 @@ Fetches a sitemap.
 
 #### Defined in
 
-[integration/sitemap/index.js:33](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/integration/sitemap/index.js#L33)
+[integration/sitemap/index.js:33](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/integration/sitemap/index.js#L33)
 
 ___
 
@@ -196,7 +196,7 @@ Retrieves a list of all existing sitemaps associated with this client.
 
 #### Defined in
 
-[integration/sitemap/index.js:23](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/integration/sitemap/index.js#L23)
+[integration/sitemap/index.js:23](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/integration/sitemap/index.js#L23)
 
 ___
 
@@ -218,7 +218,7 @@ Syncs the sitemap.
 
 #### Defined in
 
-[integration/sitemap/index.js:74](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/integration/sitemap/index.js#L74)
+[integration/sitemap/index.js:74](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/integration/sitemap/index.js#L74)
 
 ___
 
@@ -241,4 +241,4 @@ Updates a new sitemap.
 
 #### Defined in
 
-[integration/sitemap/index.js:54](https://github.com/chatbotkit/node-sdk/blob/c325fd2/packages/sdk/src/integration/sitemap/index.js#L54)
+[integration/sitemap/index.js:54](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/integration/sitemap/index.js#L54)
