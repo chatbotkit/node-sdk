@@ -6,6 +6,12 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   store?: string,
+ *   recordMaxTokens?: number,
+ *   searchMaxRecords?: number,
+ *   searchMaxTokens?: number,
+ *   matchInstruction?: string,
+ *   mismatchInstruction?: string,
  *   meta?: Record<string,any>,
  * }} DatasetOptions
  *
