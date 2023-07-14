@@ -49,7 +49,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[bot/index.js:9](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/bot/index.js#L9)
+[bot/index.js:9](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/bot/index.js#L9)
 
 ## Properties
 
@@ -63,7 +63,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:155](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L155)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[bot/index.js:12](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/bot/index.js#L12)
+[bot/index.js:12](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/bot/index.js#L12)
 
 ___
 
@@ -87,7 +87,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:157](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L157)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -124,7 +124,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:174](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L174)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/client.js#L174)
 
 ___
 
@@ -146,7 +146,7 @@ Creates a new bot.
 
 #### Defined in
 
-[bot/index.js:39](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/bot/index.js#L39)
+[bot/index.js:41](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/bot/index.js#L41)
 
 ___
 
@@ -168,7 +168,7 @@ Deletes the bot.
 
 #### Defined in
 
-[bot/index.js:60](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/bot/index.js#L60)
+[bot/index.js:62](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/bot/index.js#L62)
 
 ___
 
@@ -190,15 +190,21 @@ Fetches a bot.
 
 #### Defined in
 
-[bot/index.js:29](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/bot/index.js#L29)
+[bot/index.js:31](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/bot/index.js#L31)
 
 ___
 
 ### list
 
-▸ **list**(): `ResponsePromise`<[`BotListResponse`](../modules/bot_v1.md#botlistresponse), [`BotListStreamItemType`](../modules/bot_v1.md#botliststreamitemtype)\>
+▸ **list**(`cursor?`): `ResponsePromise`<[`BotListResponse`](../modules/bot_v1.md#botlistresponse), [`BotListStreamItemType`](../modules/bot_v1.md#botliststreamitemtype)\>
 
 Retrieves a list of all existing bots associated with this client.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `cursor?` | `string` |
 
 #### Returns
 
@@ -206,7 +212,7 @@ Retrieves a list of all existing bots associated with this client.
 
 #### Defined in
 
-[bot/index.js:19](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/bot/index.js#L19)
+[bot/index.js:21](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/bot/index.js#L21)
 
 ___
 
@@ -229,4 +235,4 @@ Updates a new bot.
 
 #### Defined in
 
-[bot/index.js:50](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/bot/index.js#L50)
+[bot/index.js:52](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/bot/index.js#L52)

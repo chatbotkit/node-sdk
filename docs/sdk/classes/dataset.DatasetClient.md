@@ -51,7 +51,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[dataset/index.js:17](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L17)
+[dataset/index.js:17](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L17)
 
 ## Properties
 
@@ -61,7 +61,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[dataset/index.js:20](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L20)
+[dataset/index.js:20](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L20)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[dataset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L21)
+[dataset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L21)
 
 ___
 
@@ -85,7 +85,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:155](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L155)
+[client.js:155](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/client.js#L155)
 
 ___
 
@@ -99,7 +99,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:157](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L157)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/client.js#L157)
 
 ## Methods
 
@@ -136,7 +136,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:174](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/client.js#L174)
+[client.js:174](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/client.js#L174)
 
 ___
 
@@ -158,7 +158,7 @@ Creates a new dataset.
 
 #### Defined in
 
-[dataset/index.js:48](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L48)
+[dataset/index.js:50](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L50)
 
 ___
 
@@ -180,7 +180,7 @@ Deletes the dataset.
 
 #### Defined in
 
-[dataset/index.js:69](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L69)
+[dataset/index.js:71](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L71)
 
 ___
 
@@ -202,15 +202,21 @@ Fetches a dataset.
 
 #### Defined in
 
-[dataset/index.js:38](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L38)
+[dataset/index.js:40](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L40)
 
 ___
 
 ### list
 
-▸ **list**(): `ResponsePromise`<[`DatasetListResponse`](../modules/dataset_v1.md#datasetlistresponse), [`DatasetListStreamItemType`](../modules/dataset_v1.md#datasetliststreamitemtype)\>
+▸ **list**(`cursor?`): `ResponsePromise`<[`DatasetListResponse`](../modules/dataset_v1.md#datasetlistresponse), [`DatasetListStreamItemType`](../modules/dataset_v1.md#datasetliststreamitemtype)\>
 
 Retrieves a list of all existing datasets associated with this client.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `cursor?` | `string` |
 
 #### Returns
 
@@ -218,7 +224,7 @@ Retrieves a list of all existing datasets associated with this client.
 
 #### Defined in
 
-[dataset/index.js:28](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L28)
+[dataset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L30)
 
 ___
 
@@ -241,7 +247,7 @@ Searches the dataset.
 
 #### Defined in
 
-[dataset/index.js:80](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L80)
+[dataset/index.js:82](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L82)
 
 ___
 
@@ -264,4 +270,4 @@ Updates a new dataset.
 
 #### Defined in
 
-[dataset/index.js:59](https://github.com/chatbotkit/node-sdk/blob/976a254/packages/sdk/src/dataset/index.js#L59)
+[dataset/index.js:61](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/sdk/src/dataset/index.js#L61)
