@@ -18,12 +18,11 @@
  * @returns {Promise<FileAttachResponse>}
  */
 export async function fileAttach(client, datasetId, fileId, request) {
-  return client.clientFetch(
-    `/api/v1/dataset/${datasetId}/file/${fileId}/attach`,
-    {
-      data: request,
-    }
-  )
+  const url = `/api/v1/dataset/${datasetId}/file/${fileId}/attach`
+
+  return client.clientFetch(url, {
+    data: request,
+  })
 }
 
 /**
@@ -40,12 +39,11 @@ export async function fileAttach(client, datasetId, fileId, request) {
  * @returns {Promise<FileDetachResponse>}
  */
 export async function fileDetach(client, datasetId, fileId, request) {
-  return client.clientFetch(
-    `/api/v1/dataset/${datasetId}/file/${fileId}/detach`,
-    {
-      data: request,
-    }
-  )
+  const url = `/api/v1/dataset/${datasetId}/file/${fileId}/detach`
+
+  return client.clientFetch(url, {
+    data: request,
+  })
 }
 
 /**
@@ -62,10 +60,9 @@ export async function fileDetach(client, datasetId, fileId, request) {
  * @returns {Promise<FileSyncResponse>}
  */
 export async function fileSync(client, datasetId, fileId, request) {
-  return client.clientFetch(
-    `/api/v1/dataset/${datasetId}/file/${fileId}/sync`,
-    {
-      data: {},
-    }
-  )
+  const url = `/api/v1/dataset/${datasetId}/file/${fileId}/sync`
+
+  return client.clientFetch(url, {
+    data: {},
+  })
 }

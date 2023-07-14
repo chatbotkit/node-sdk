@@ -27,10 +27,17 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
+ * @param {string} [cursor]
  * @returns {import('../../client.js').ResponsePromise<RecordListResponse,RecordListStreamType>}
  */
-export function recordList(client, datasetId) {
-  return client.clientFetch(`/api/v1/dataset/${datasetId}/record/list`)
+export function recordList(client, datasetId, cursor) {
+  let url = `/api/v1/dataset/${datasetId}/record/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -42,9 +49,9 @@ export function recordList(client, datasetId) {
  * @returns {Promise<RecordFetchResponse>}
  */
 export async function recordFetch(client, datasetId, recordId) {
-  return client.clientFetch(
-    `/api/v1/dataset/${datasetId}/record/${recordId}/fetch`
-  )
+  const url = `/api/v1/dataset/${datasetId}/record/${recordId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -60,7 +67,9 @@ export async function recordFetch(client, datasetId, recordId) {
  * @returns {Promise<RecordCreateResponse>}
  */
 export async function recordCreate(client, datasetId, request) {
-  return client.clientFetch(`/api/v1/dataset/${datasetId}/record/create`, {
+  const url = `/api/v1/dataset/${datasetId}/record/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -79,12 +88,11 @@ export async function recordCreate(client, datasetId, request) {
  * @returns {Promise<RecordUpdateResponse>}
  */
 export async function recordUpdate(client, datasetId, recordId, request) {
-  return client.clientFetch(
-    `/api/v1/dataset/${datasetId}/record/${recordId}/update`,
-    {
-      data: request,
-    }
-  )
+  const url = `/api/v1/dataset/${datasetId}/record/${recordId}/update`
+
+  return client.clientFetch(url, {
+    data: request,
+  })
 }
 
 /**
@@ -98,10 +106,9 @@ export async function recordUpdate(client, datasetId, recordId, request) {
  * @returns {Promise<RecordDeleteResponse>}
  */
 export async function recordDelete(client, datasetId, recordId) {
-  return client.clientFetch(
-    `/api/v1/dataset/${datasetId}/record/${recordId}/delete`,
-    {
-      data: {},
-    }
-  )
+  const url = `/api/v1/dataset/${datasetId}/record/${recordId}/delete`
+
+  return client.clientFetch(url, {
+    data: {},
+  })
 }

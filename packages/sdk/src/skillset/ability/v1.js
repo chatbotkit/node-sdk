@@ -29,10 +29,17 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
+ * @param {string} [cursor]
  * @returns {import('../../client.js').ResponsePromise<AbilityListResponse,AbilityListStreamType>}
  */
-export function abilityList(client, skillsetId) {
-  return client.clientFetch(`/api/v1/skillset/${skillsetId}/ability/list`)
+export function abilityList(client, skillsetId, cursor) {
+  let url = `/api/v1/skillset/${skillsetId}/ability/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -44,9 +51,9 @@ export function abilityList(client, skillsetId) {
  * @returns {Promise<AbilityFetchResponse>}
  */
 export async function abilityFetch(client, skillsetId, abilityId) {
-  return client.clientFetch(
-    `/api/v1/skillset/${skillsetId}/ability/${abilityId}/fetch`
-  )
+  const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -62,7 +69,9 @@ export async function abilityFetch(client, skillsetId, abilityId) {
  * @returns {Promise<AbilityCreateResponse>}
  */
 export async function abilityCreate(client, skillsetId, request) {
-  return client.clientFetch(`/api/v1/skillset/${skillsetId}/ability/create`, {
+  const url = `/api/v1/skillset/${skillsetId}/ability/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -81,12 +90,11 @@ export async function abilityCreate(client, skillsetId, request) {
  * @returns {Promise<AbilityUpdateResponse>}
  */
 export async function abilityUpdate(client, skillsetId, abilityId, request) {
-  return client.clientFetch(
-    `/api/v1/skillset/${skillsetId}/ability/${abilityId}/update`,
-    {
-      data: request,
-    }
-  )
+  const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/update`
+
+  return client.clientFetch(url, {
+    data: request,
+  })
 }
 
 /**
@@ -100,10 +108,9 @@ export async function abilityUpdate(client, skillsetId, abilityId, request) {
  * @returns {Promise<AbilityDeleteResponse>}
  */
 export async function abilityDelete(client, skillsetId, abilityId) {
-  return client.clientFetch(
-    `/api/v1/skillset/${skillsetId}/ability/${abilityId}/delete`,
-    {
-      data: {},
-    }
-  )
+  const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/delete`
+
+  return client.clientFetch(url, {
+    data: {},
+  })
 }

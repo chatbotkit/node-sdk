@@ -30,12 +30,17 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
+ * @param {string} [cursor]
  * @returns {import('../../client.js').ResponsePromise<MessageListResponse,MessageListStreamType>}
  */
-export function messageList(client, conversationId) {
-  return client.clientFetch(
-    `/api/v1/conversation/${conversationId}/message/list`
-  )
+export function messageList(client, conversationId, cursor) {
+  let url = `/api/v1/conversation/${conversationId}/message/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -47,9 +52,9 @@ export function messageList(client, conversationId) {
  * @returns {Promise<MessageFetchResponse>}
  */
 export async function messageFetch(client, conversationId, messageId) {
-  return client.clientFetch(
-    `/api/v1/conversation/${conversationId}/message/${messageId}/fetch`
-  )
+  const url = `/api/v1/conversation/${conversationId}/message/${messageId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -65,12 +70,11 @@ export async function messageFetch(client, conversationId, messageId) {
  * @returns {Promise<MessageCreateResponse>}
  */
 export async function messageCreate(client, conversationId, request) {
-  return client.clientFetch(
-    `/api/v1/conversation/${conversationId}/message/create`,
-    {
-      data: request,
-    }
-  )
+  const url = `/api/v1/conversation/${conversationId}/message/create`
+
+  return client.clientFetch(url, {
+    data: request,
+  })
 }
 
 /**
@@ -92,12 +96,11 @@ export async function messageUpdate(
   messageId,
   request
 ) {
-  return client.clientFetch(
-    `/api/v1/conversation/${conversationId}/message/${messageId}/update`,
-    {
-      data: request,
-    }
-  )
+  const url = `/api/v1/conversation/${conversationId}/message/${messageId}/update`
+
+  return client.clientFetch(url, {
+    data: request,
+  })
 }
 
 /**
@@ -111,10 +114,9 @@ export async function messageUpdate(
  * @returns {Promise<MessageDeleteResponse>}
  */
 export async function messageDelete(client, conversationId, messageId) {
-  return client.clientFetch(
-    `/api/v1/conversation/${conversationId}/message/${messageId}/delete`,
-    {
-      data: {},
-    }
-  )
+  const url = `/api/v1/conversation/${conversationId}/message/${messageId}/delete`
+
+  return client.clientFetch(url, {
+    data: {},
+  })
 }

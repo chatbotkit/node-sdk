@@ -19,10 +19,11 @@ export class RecordClient extends ChatBotKitClient {
    * Retrieves a list of all existing records associated with this client.
    *
    * @param {string} datasetId
+   * @param {string} [cursor]
    * @returns {import('../../client.js').ResponsePromise<import('./v1.js').RecordListResponse,import('./v1.js').RecordListStreamType>}
    */
-  list(datasetId) {
-    return recordList(this, datasetId)
+  list(datasetId, cursor) {
+    return recordList(this, datasetId, cursor)
   }
 
   /**

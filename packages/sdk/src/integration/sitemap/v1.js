@@ -34,10 +34,17 @@
  * @typedef {SitemapListStreamItem} SitemapListStreamType
  *
  * @param {ChatBotKitClient} client
+ * @param {string} [cursor]
  * @returns {import('../../client.js').ResponsePromise<SitemapListResponse,SitemapListStreamType>}
  */
-export function sitemapList(client) {
-  return client.clientFetch(`/api/v1/integration/sitemap/list`)
+export function sitemapList(client, cursor) {
+  let url = `/api/v1/integration/sitemap/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -48,7 +55,9 @@ export function sitemapList(client) {
  * @returns {Promise<SitemapFetchResponse>}
  */
 export async function sitemapFetch(client, sitemapId) {
-  return client.clientFetch(`/api/v1/integration/sitemap/${sitemapId}/fetch`)
+  const url = `/api/v1/integration/sitemap/${sitemapId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -63,7 +72,9 @@ export async function sitemapFetch(client, sitemapId) {
  * @returns {Promise<SitemapCreateResponse>}
  */
 export async function sitemapCreate(client, request) {
-  return client.clientFetch(`/api/v1/integration/sitemap/create`, {
+  const url = `/api/v1/integration/sitemap/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -81,7 +92,9 @@ export async function sitemapCreate(client, request) {
  * @returns {Promise<SitemapUpdateResponse>}
  */
 export async function sitemapUpdate(client, sitemapId, request) {
-  return client.clientFetch(`/api/v1/integration/sitemap/${sitemapId}/update`, {
+  const url = `/api/v1/integration/sitemap/${sitemapId}/update`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -96,7 +109,9 @@ export async function sitemapUpdate(client, sitemapId, request) {
  * @returns {Promise<SitemapDeleteResponse>}
  */
 export async function sitemapDelete(client, sitemapId) {
-  return client.clientFetch(`/api/v1/integration/sitemap/${sitemapId}/delete`, {
+  const url = `/api/v1/integration/sitemap/${sitemapId}/delete`
+
+  return client.clientFetch(url, {
     data: {},
   })
 }
@@ -111,7 +126,9 @@ export async function sitemapDelete(client, sitemapId) {
  * @returns {Promise<SitemapSyncResponse>}
  */
 export async function sitemapSync(client, sitemapId) {
-  return client.clientFetch(`/api/v1/integration/sitemap/${sitemapId}/sync`, {
+  const url = `/api/v1/integration/sitemap/${sitemapId}/sync`
+
+  return client.clientFetch(url, {
     data: {},
   })
 }

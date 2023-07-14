@@ -27,10 +27,17 @@
  * @typedef {SkillsetListStreamItemType} SkillsetListStreamType
  *
  * @param {ChatBotKitClient} client
+ * @param {string} [cursor]
  * @returns {import('../client.js').ResponsePromise<SkillsetListResponse,SkillsetListStreamType>}
  */
-export function skillsetList(client) {
-  return client.clientFetch(`/api/v1/skillset/list`)
+export function skillsetList(client, cursor) {
+  let url = `/api/v1/skillset/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -41,7 +48,9 @@ export function skillsetList(client) {
  * @returns {Promise<SkillsetFetchResponse>}
  */
 export async function skillsetFetch(client, skillsetId) {
-  return client.clientFetch(`/api/v1/skillset/${skillsetId}/fetch`)
+  const url = `/api/v1/skillset/${skillsetId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -56,7 +65,9 @@ export async function skillsetFetch(client, skillsetId) {
  * @returns {Promise<SkillsetCreateResponse>}
  */
 export async function skillsetCreate(client, request) {
-  return client.clientFetch(`/api/v1/skillset/create`, {
+  const url = `/api/v1/skillset/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -74,7 +85,9 @@ export async function skillsetCreate(client, request) {
  * @returns {Promise<SkillsetUpdateResponse>}
  */
 export async function skillsetUpdate(client, skillsetId, request) {
-  return client.clientFetch(`/api/v1/skillset/${skillsetId}/update`, {
+  const url = `/api/v1/skillset/${skillsetId}/update`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -89,7 +102,9 @@ export async function skillsetUpdate(client, skillsetId, request) {
  * @returns {Promise<SkillsetDeleteResponse>}
  */
 export async function skillsetDelete(client, skillsetId) {
-  return client.clientFetch(`/api/v1/skillset/${skillsetId}/delete`, {
+  const url = `/api/v1/skillset/${skillsetId}/delete`
+
+  return client.clientFetch(url, {
     data: {},
   })
 }

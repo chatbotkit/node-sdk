@@ -19,10 +19,11 @@ export class AbilityClient extends ChatBotKitClient {
    * Retrieves a list of all existing abilitys associated with this client.
    *
    * @param {string} skillsetId
+   * @param {string} [cursor]
    * @returns {import('../../client.js').ResponsePromise<import('./v1.js').AbilityListResponse,import('./v1.js').AbilityListStreamType>}
    */
-  list(skillsetId) {
-    return abilityList(this, skillsetId)
+  list(skillsetId, cursor) {
+    return abilityList(this, skillsetId, cursor)
   }
 
   /**

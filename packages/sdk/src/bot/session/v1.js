@@ -19,7 +19,9 @@
  * @returns {Promise<SessionCreateResponse>}
  */
 export async function sessionCreate(client, botId, request) {
-  return client.clientFetch(`/api/v1/bot/${botId}/session/create`, {
+  const url = `/api/v1/bot/${botId}/session/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }

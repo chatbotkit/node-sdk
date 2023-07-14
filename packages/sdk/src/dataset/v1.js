@@ -34,10 +34,17 @@
  * @typedef {DatasetListStreamItemType} DatasetListStreamType
  *
  * @param {ChatBotKitClient} client
+ * @param {string} [cursor]
  * @returns {import('../client.js').ResponsePromise<DatasetListResponse,DatasetListStreamType>}
  */
-export function datasetList(client) {
-  return client.clientFetch(`/api/v1/dataset/list`)
+export function datasetList(client, cursor) {
+  let url = `/api/v1/dataset/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -48,7 +55,9 @@ export function datasetList(client) {
  * @returns {Promise<DatasetFetchResponse>}
  */
 export async function datasetFetch(client, datasetId) {
-  return client.clientFetch(`/api/v1/dataset/${datasetId}/fetch`)
+  const url = `/api/v1/dataset/${datasetId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -65,7 +74,9 @@ export async function datasetFetch(client, datasetId) {
  * @returns {Promise<DatasetCreateResponse>}
  */
 export async function datasetCreate(client, request) {
-  return client.clientFetch(`/api/v1/dataset/create`, {
+  const url = `/api/v1/dataset/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -83,7 +94,9 @@ export async function datasetCreate(client, request) {
  * @returns {Promise<DatasetUpdateResponse>}
  */
 export async function datasetUpdate(client, datasetId, request) {
-  return client.clientFetch(`/api/v1/dataset/${datasetId}/update`, {
+  const url = `/api/v1/dataset/${datasetId}/update`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -98,7 +111,9 @@ export async function datasetUpdate(client, datasetId, request) {
  * @returns {Promise<DatasetDeleteResponse>}
  */
 export async function datasetDelete(client, datasetId) {
-  return client.clientFetch(`/api/v1/dataset/${datasetId}/delete`, {
+  const url = `/api/v1/dataset/${datasetId}/delete`
+
+  return client.clientFetch(url, {
     data: {},
   })
 }
@@ -114,5 +129,11 @@ export async function datasetDelete(client, datasetId) {
  * @returns {Promise<DatasetSearchResponse>}
  */
 export async function datasetSearch(client, datasetId, search) {
-  return client.clientFetch(`/api/v1/dataset/${datasetId}/search`)
+  const url = `/api/v1/dataset/${datasetId}/search`
+
+  return client.clientFetch(url, {
+    data: {
+      search,
+    },
+  })
 }

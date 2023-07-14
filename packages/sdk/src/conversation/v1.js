@@ -48,10 +48,15 @@
  * @typedef {ConversationListStreamItem} ConversationListStreamType
  *
  * @param {ChatBotKitClient} client
+ * @param {string} [cursor]
  * @returns {import('../client.js').ResponsePromise<ConversationListResponse,ConversationListStreamType>}
  */
-export function conversationList(client) {
-  const url = `/api/v1/conversation/list`
+export function conversationList(client, cursor) {
+  let url = `/api/v1/conversation/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
 
   return client.clientFetch(url)
 }

@@ -27,10 +27,17 @@
  * @typedef {FileListStreamItemType} FileListStreamType
  *
  * @param {ChatBotKitClient} client
+ * @param {string} [cursor]
  * @returns {import('../client.js').ResponsePromise<FileListResponse,FileListStreamType>}
  */
-export function fileList(client) {
-  return client.clientFetch(`/api/v1/file/list`)
+export function fileList(client, cursor) {
+  let url = `/api/v1/file/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -41,7 +48,9 @@ export function fileList(client) {
  * @returns {Promise<FileFetchResponse>}
  */
 export async function fileFetch(client, fileId) {
-  return client.clientFetch(`/api/v1/file/${fileId}/fetch`)
+  const url = `/api/v1/file/${fileId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -56,7 +65,9 @@ export async function fileFetch(client, fileId) {
  * @returns {Promise<FileCreateResponse>}
  */
 export async function fileCreate(client, request) {
-  return client.clientFetch(`/api/v1/file/create`, {
+  const url = `/api/v1/file/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -74,7 +85,9 @@ export async function fileCreate(client, request) {
  * @returns {Promise<FileUpdateResponse>}
  */
 export async function fileUpdate(client, fileId, request) {
-  return client.clientFetch(`/api/v1/file/${fileId}/update`, {
+  const url = `/api/v1/file/${fileId}/update`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -89,7 +102,9 @@ export async function fileUpdate(client, fileId, request) {
  * @returns {Promise<FileDeleteResponse>}
  */
 export async function fileDelete(client, fileId) {
-  return client.clientFetch(`/api/v1/file/${fileId}/delete`, {
+  const url = `/api/v1/file/${fileId}/delete`
+
+  return client.clientFetch(url, {
     data: {},
   })
 }
@@ -111,7 +126,9 @@ export async function fileDelete(client, fileId) {
  * @returns {Promise<FileUploadResponse>}
  */
 export async function fileUpload(client, fileId, request) {
-  return client.clientFetch(`/api/v1/file/${fileId}/upload`, {
+  const url = `/api/v1/file/${fileId}/upload`
+
+  return client.clientFetch(url, {
     file: request,
   })
 }
@@ -126,5 +143,7 @@ export async function fileUpload(client, fileId, request) {
  * @returns {Promise<FileDownloadResponse>}
  */
 export async function fileDownload(client, fileId) {
-  return client.clientFetch(`/api/v1/file/${fileId}/download`)
+  const url = `/api/v1/file/${fileId}/download`
+
+  return client.clientFetch(url)
 }

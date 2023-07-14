@@ -20,10 +20,12 @@ export class SkillsetClient extends ChatBotKitClient {
 
   /**
    * Retrieves a list of all existing skillsets associated with this client.
+   *
+   * @param {string} [cursor]
    * @returns {import('../client.js').ResponsePromise<import('./v1.js').SkillsetListResponse,import('./v1.js').SkillsetListStreamType>}
    */
-  list() {
-    return skillsetList(this)
+  list(cursor) {
+    return skillsetList(this, cursor)
   }
 
   /**

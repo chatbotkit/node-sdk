@@ -29,10 +29,17 @@
  * @typedef {BotListStreamItemType} BotListStreamType
  *
  * @param {ChatBotKitClient} client
+ * @param {string} [cursor]
  * @returns {import('../client.js').ResponsePromise<BotListResponse,BotListStreamType>}
  */
-export function botList(client) {
-  return client.clientFetch(`/api/v1/bot/list`)
+export function botList(client, cursor) {
+  let url = `/api/v1/bot/list`
+
+  if (cursor) {
+    url += `?cursor=${encodeURIComponent(cursor)}`
+  }
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -43,7 +50,9 @@ export function botList(client) {
  * @returns {Promise<BotFetchResponse>}
  */
 export async function botFetch(client, botId) {
-  return client.clientFetch(`/api/v1/bot/${botId}/fetch`)
+  const url = `/api/v1/bot/${botId}/fetch`
+
+  return client.clientFetch(url)
 }
 
 /**
@@ -58,7 +67,9 @@ export async function botFetch(client, botId) {
  * @returns {Promise<BotCreateResponse>}
  */
 export async function botCreate(client, request) {
-  return client.clientFetch(`/api/v1/bot/create`, {
+  const url = `/api/v1/bot/create`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -76,7 +87,9 @@ export async function botCreate(client, request) {
  * @returns {Promise<BotUpdateResponse>}
  */
 export async function botUpdate(client, botId, request) {
-  return client.clientFetch(`/api/v1/bot/${botId}/update`, {
+  const url = `/api/v1/bot/${botId}/update`
+
+  return client.clientFetch(url, {
     data: request,
   })
 }
@@ -91,7 +104,9 @@ export async function botUpdate(client, botId, request) {
  * @returns {Promise<BotDeleteResponse>}
  */
 export async function botDelete(client, botId) {
-  return client.clientFetch(`/api/v1/bot/${botId}/delete`, {
+  const url = `/api/v1/bot/${botId}/delete`
+
+  return client.clientFetch(url, {
     data: {},
   })
 }

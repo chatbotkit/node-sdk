@@ -19,10 +19,11 @@ export class MessageClient extends ChatBotKitClient {
    * Retrieves a list of all existing messages associated with this client.
    *
    * @param {string} conversationId
+   * @param {string} [cursor]
    * @returns {import('../../client.js').ResponsePromise<import('./v1.js').MessageListResponse,import('./v1.js').MessageListStreamType>}
    */
-  list(conversationId) {
-    return messageList(this, conversationId)
+  list(conversationId, cursor) {
+    return messageList(this, conversationId, cursor)
   }
 
   /**

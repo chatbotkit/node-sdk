@@ -18,10 +18,12 @@ export class SitemapClient extends ChatBotKitClient {
 
   /**
    * Retrieves a list of all existing sitemaps associated with this client.
+   *
+   * @param {string} [cursor]
    * @returns {import('../../client.js').ResponsePromise<import('./v1.js').SitemapListResponse,import('./v1.js').SitemapListStreamType>}
    */
-  list() {
-    return sitemapList(this)
+  list(cursor) {
+    return sitemapList(this, cursor)
   }
 
   /**

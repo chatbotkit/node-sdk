@@ -18,10 +18,9 @@
  * @returns {Promise<SessionCreateResponse>}
  */
 export async function sessionCreate(client, conversationId, request) {
-  return client.clientFetch(
-    `/api/v1/conversation/${conversationId}/session/create`,
-    {
-      data: request,
-    }
-  )
+  const url = `/api/v1/conversation/${conversationId}/session/create`
+
+  return client.clientFetch(url, {
+    data: request,
+  })
 }
