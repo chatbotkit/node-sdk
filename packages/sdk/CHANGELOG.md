@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.12.0
+
+### Minor Changes
+
+- Added cursor parameter to all list methods.
+
 ## 0.11.2
 
 ### Patch Changes
