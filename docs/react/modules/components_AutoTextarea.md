@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[components/AutoTextarea.js:4](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/react/src/components/AutoTextarea.js#L4)
+[components/AutoTextarea.js:4](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/react/src/components/AutoTextarea.js#L4)
 
 ## Functions
 
@@ -55,4 +55,4 @@
 
 #### Defined in
 
-[components/AutoTextarea.js:12](https://github.com/chatbotkit/node-sdk/blob/832c43e/packages/react/src/components/AutoTextarea.js#L12)
+[components/AutoTextarea.js:12](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/react/src/components/AutoTextarea.js#L12)
