@@ -1,5 +1,5 @@
 {
-  "name": "@examples/nextjs-chat",
+  "name": "@examples/nextjs-basic-chat",
   "version": "0.0.0",
   "private": true,
   "scripts": {
