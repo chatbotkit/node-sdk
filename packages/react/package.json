@@ -33,6 +33,16 @@
         "default": "./dist/esm/index.js"
       }
     },
+    "./components/AutoScroller.js": {
+      "require": {
+        "types": "./dist/cjs/components/AutoScroller.d.ts",
+        "default": "./dist/cjs/components/AutoScroller.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/components/AutoScroller.d.ts",
+        "default": "./dist/esm/components/AutoScroller.js"
+      }
+    },
     "./components/AutoTextarea.js": {
       "require": {
         "types": "./dist/cjs/components/AutoTextarea.d.ts",
