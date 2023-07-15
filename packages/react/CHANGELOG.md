@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 0.6.0
+
+### Minor Changes
+
+- Added auto-scrolling component.
+
 ## 0.5.0
 
 ### Minor Changes
