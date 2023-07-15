@@ -4,6 +4,16 @@ export function AutoScrollAnchor() {
   return <div className="auto-scroll-anchor ![height:1px]" />
 }
 
+/**
+ * @param {{
+ *   anchor?: 'top'|'bottom',
+ *   childList?: boolean,
+ *   subtree?: boolean,
+ *   block?: 'start'|'end',
+ *   delay?: number,
+ *   [name: string]: any
+ * }} props
+ */
 export default function AutoScroller({
   anchor = 'bottom',
 
@@ -30,7 +40,7 @@ export default function AutoScroller({
 
     let visible = false
     let pause = false
-    let timeout = null
+    let timeout = 0
 
     const io = new IntersectionObserver((entries) => {
       if (pause) {
@@ -40,6 +50,7 @@ export default function AutoScroller({
       visible = entries.some((entry) => entry.isIntersecting)
     })
 
+    // @ts-ignore
     io.observe(rootRef.current?.querySelector('.auto-scroll-anchor'))
 
     const mo = new MutationObserver(() => {
@@ -50,17 +61,20 @@ export default function AutoScroller({
       pause = true
 
       rootRef.current
+        // @ts-ignore
         ?.querySelector('.auto-scroll-anchor')
         ?.scrollIntoView({ behavior: 'smooth', block })
 
       clearTimeout(timeout)
 
+      // @ts-ignore
       timeout = setTimeout(() => {
         visible = true
         pause = false
       }, delay)
     })
 
+    // @ts-ignore
     mo.observe(rootRef.current, { childList, subtree })
 
     return () => {
@@ -70,6 +84,7 @@ export default function AutoScroller({
   }, [disabled])
 
   return (
+    // @ts-ignore
     <div ref={rootRef} {...props}>
       {anchor === 'top' ? <AutoScrollAnchor key="top" /> : null}
       {children}
