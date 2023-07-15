@@ -20,6 +20,7 @@ async function main() {
   for await (const { data: conversationData } of client.list().stream()) {
     console.log(`* exporting conversation ${conversationData.id}`)
 
+    /** @type {{ id: string, createdAt: number, messages: {id: string, type: string, text: string, createdAt: number}[]}} */
     const conversation = {
       id: conversationData.id,
 
