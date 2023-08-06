@@ -6,6 +6,19 @@ import {
   FormData,
 } from './fetch.js'
 
+const standardErrors = {
+  413: {
+    message:
+      'The request made from the client is too large to be processed by the web server.',
+    code: 'CONTENT_TOO_LARGE',
+  },
+
+  default: {
+    message: 'There was a generic error',
+    code: 'GENERIC_ERROR',
+  },
+}
+
 /**
  * @template T,U
  */
@@ -63,7 +76,21 @@ export class ResponsePromise {
     })
 
     if (!response.ok) {
-      const { message, code } = await response.json()
+      let message
+      let code
+
+      try {
+        const data = await response.json()
+
+        message = data.message
+        code = data.code
+      } catch (e) {
+        // @ts-ignore
+        const data = standardErrors[response.status] || standardErrors.default
+
+        message = data.message
+        code = data.code
+      }
 
       throw new RequestError(message, code, this.request, response)
     }
