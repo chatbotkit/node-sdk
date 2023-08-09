@@ -275,6 +275,26 @@
         "default": "./dist/esm/integration/sitemap/v1.js"
       }
     },
+    "./integration/whatsapp/index.js": {
+      "require": {
+        "types": "./dist/cjs/integration/whatsapp/index.d.ts",
+        "default": "./dist/cjs/integration/whatsapp/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/whatsapp/index.d.ts",
+        "default": "./dist/esm/integration/whatsapp/index.js"
+      }
+    },
+    "./integration/whatsapp/v1.js": {
+      "require": {
+        "types": "./dist/cjs/integration/whatsapp/v1.d.ts",
+        "default": "./dist/cjs/integration/whatsapp/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/whatsapp/v1.d.ts",
+        "default": "./dist/esm/integration/whatsapp/v1.js"
+      }
+    },
     "./skillset/ability/index.js": {
       "require": {
         "types": "./dist/cjs/skillset/ability/index.d.ts",
