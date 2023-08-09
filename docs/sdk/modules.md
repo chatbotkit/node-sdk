@@ -28,6 +28,8 @@
 - [integration](modules/integration.md)
 - [integration/sitemap](modules/integration_sitemap.md)
 - [integration/sitemap/v1](modules/integration_sitemap_v1.md)
+- [integration/whatsapp](modules/integration_whatsapp.md)
+- [integration/whatsapp/v1](modules/integration_whatsapp_v1.md)
 - [skillset](modules/skillset.md)
 - [skillset/ability](modules/skillset_ability.md)
 - [skillset/ability/v1](modules/skillset_ability_v1.md)

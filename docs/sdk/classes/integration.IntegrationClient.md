@@ -21,6 +21,7 @@
 - [secret](integration.IntegrationClient.md#secret)
 - [sitemap](integration.IntegrationClient.md#sitemap)
 - [url](integration.IntegrationClient.md#url)
+- [whatsapp](integration.IntegrationClient.md#whatsapp)
 
 ### Methods
 
@@ -44,7 +45,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[integration/index.js:8](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/integration/index.js#L8)
+[integration/index.js:9](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/integration/index.js#L9)
 
 ## Properties
 
@@ -58,7 +59,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:155](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/client.js#L155)
+[client.js:182](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/client.js#L182)
 
 ___
 
@@ -68,7 +69,7 @@ ___
 
 #### Defined in
 
-[integration/index.js:11](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/integration/index.js#L11)
+[integration/index.js:12](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/integration/index.js#L12)
 
 ___
 
@@ -82,7 +83,17 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:157](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/client.js#L157)
+[client.js:184](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/client.js#L184)
+
+___
+
+### whatsapp
+
+• **whatsapp**: [`WhatsappClient`](integration_whatsapp.WhatsappClient.md)
+
+#### Defined in
+
+[integration/index.js:13](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/integration/index.js#L13)
 
 ## Methods
 
@@ -119,4 +130,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:174](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/client.js#L174)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/client.js#L201)

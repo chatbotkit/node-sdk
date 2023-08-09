@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[conversation/session/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/conversation/session/v1.js#L2)
+[conversation/session/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/conversation/session/v1.js#L2)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[conversation/session/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/conversation/session/v1.js#L8)
+[conversation/session/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/conversation/session/v1.js#L8)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[conversation/session/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/conversation/session/v1.js#L13)
+[conversation/session/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/conversation/session/v1.js#L13)
 
 ## Functions
 
@@ -77,4 +77,4 @@ ___
 
 #### Defined in
 
-[conversation/session/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/834f7e8/packages/sdk/src/conversation/session/v1.js#L20)
+[conversation/session/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/90b5df9/packages/sdk/src/conversation/session/v1.js#L20)
