@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 0.13.0
+
+### Minor Changes
+
+- This release includes the whatsapp integration.
+
 ## 0.12.1
 
 ### Patch Changes
