@@ -17,7 +17,7 @@ export class SitemapClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing sitemaps associated with this client.
+   * Retrieves a list of all existing sitemap integrations associated with this client.
    *
    * @param {string} [cursor]
    * @returns {import('../../client.js').ResponsePromise<import('./v1.js').SitemapListResponse,import('./v1.js').SitemapListStreamType>}
@@ -27,7 +27,7 @@ export class SitemapClient extends ChatBotKitClient {
   }
 
   /**
-   * Fetches a sitemap.
+   * Fetches a sitemap integration.
    *
    * @param {string} sitemapId
    * @returns {Promise<import('./v1.js').SitemapFetchResponse>}
@@ -37,7 +37,7 @@ export class SitemapClient extends ChatBotKitClient {
   }
 
   /**
-   * Creates a new sitemap.
+   * Creates a new sitemap integration.
    *
    * @param {import('./v1.js').SitemapCreateRequest} request
    * @returns {Promise<import('./v1.js').SitemapCreateResponse>}
@@ -47,7 +47,7 @@ export class SitemapClient extends ChatBotKitClient {
   }
 
   /**
-   * Updates a new sitemap.
+   * Updates a sitemap integration.
    *
    * @param {string} sitemapId
    * @param {import('./v1.js').SitemapUpdateRequest} request
@@ -58,7 +58,7 @@ export class SitemapClient extends ChatBotKitClient {
   }
 
   /**
-   * Deletes the sitemap.
+   * Deletes a sitemap integration.
    *
    * @param {string} sitemapId
    * @returns {Promise<import('./v1.js').SitemapDeleteResponse>}
@@ -68,7 +68,7 @@ export class SitemapClient extends ChatBotKitClient {
   }
 
   /**
-   * Syncs the sitemap.
+   * Syncs a sitemap integration.
    *
    * @param {string} sitemapId
    * @returns {Promise<import('./v1.js').SitemapSyncResponse>}
