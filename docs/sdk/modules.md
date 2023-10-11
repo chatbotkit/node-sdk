@@ -34,3 +34,5 @@
 - [skillset/ability](modules/skillset_ability.md)
 - [skillset/ability/v1](modules/skillset_ability_v1.md)
 - [skillset/v1](modules/skillset_v1.md)
+- [usage](modules/usage.md)
+- [usage/v1](modules/usage_v1.md)

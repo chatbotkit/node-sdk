@@ -1,36 +1,36 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [bot/session](../modules/bot_session.md) / SessionClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [usage](../modules/usage.md) / UsageClient
 
-# Class: SessionClient
+# Class: UsageClient
 
-[bot/session](../modules/bot_session.md).SessionClient
+[usage](../modules/usage.md).UsageClient
 
 ## Hierarchy
 
 - `ChatBotKitClient`
 
-  ↳ **`SessionClient`**
+  ↳ **`UsageClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](bot_session.SessionClient.md#constructor)
+- [constructor](usage.UsageClient.md#constructor)
 
 ### Properties
 
-- [secret](bot_session.SessionClient.md#secret)
-- [url](bot_session.SessionClient.md#url)
+- [secret](usage.UsageClient.md#secret)
+- [url](usage.UsageClient.md#url)
 
 ### Methods
 
-- [clientFetch](bot_session.SessionClient.md#clientfetch)
-- [create](bot_session.SessionClient.md#create)
+- [clientFetch](usage.UsageClient.md#clientfetch)
+- [fetch](usage.UsageClient.md#fetch)
 
 ## Constructors
 
 ### constructor
 
-• **new SessionClient**(`options`)
+• **new UsageClient**(`options`)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[bot/session/index.js:8](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/bot/session/index.js#L8)
+[usage/index.js:8](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/usage/index.js#L8)
 
 ## Properties
 
@@ -113,23 +113,16 @@ ChatBotKitClient.clientFetch
 
 ___
 
-### create
+### fetch
 
-▸ **create**(`botId`, `request`): `Promise`<[`SessionCreateResponse`](../modules/bot_session_v1.md#sessioncreateresponse)\>
+▸ **fetch**(): `Promise`<[`UsageInstance`](../modules/usage_v1.md#usageinstance)\>
 
-Creates a new session.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `botId` | `string` |
-| `request` | [`SessionCreateRequest`](../modules/bot_session_v1.md#sessioncreaterequest) |
+Fetches usage.
 
 #### Returns
 
-`Promise`<[`SessionCreateResponse`](../modules/bot_session_v1.md#sessioncreateresponse)\>
+`Promise`<[`UsageInstance`](../modules/usage_v1.md#usageinstance)\>
 
 #### Defined in
 
-[bot/session/index.js:19](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/bot/session/index.js#L19)
+[usage/index.js:17](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/usage/index.js#L17)
