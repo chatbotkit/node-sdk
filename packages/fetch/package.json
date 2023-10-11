@@ -44,11 +44,11 @@
   "scripts": {
     "build": "run-s build:*",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:cjs_rename": "find ./dist/cjs -name '*.js' -exec rename .js .cjs {} +",
-    "build:cjs_rewrite_cjs": "find ./dist/cjs -name '*.cjs' -exec sed -i 's/require(\"\\(.*\\)\\.js\")/require(\"\\1.cjs\")/g' {} +",
-    "build:cjs_rewrite_ts": "find ./dist/cjs -name '*.ts' -exec sed -i 's/from \"\\(.*\\)\\.js\"/from \"\\1.cjs\"/g' {} +",
+    "build:cjs_rename": "node ../../scripts/rename-cjs.js",
+    "build:cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
+    "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "build:exports": "node scripts/build-exports.js",
+    "build:exports": "node ../../scripts/build-exports.js",
     "test": "true"
   },
   "types": "./dist/esm/index.d.ts",

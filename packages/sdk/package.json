@@ -334,16 +334,36 @@
         "types": "./dist/esm/skillset/v1.d.ts",
         "default": "./dist/esm/skillset/v1.js"
       }
+    },
+    "./usage/index.js": {
+      "require": {
+        "types": "./dist/cjs/usage/index.d.ts",
+        "default": "./dist/cjs/usage/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/usage/index.d.ts",
+        "default": "./dist/esm/usage/index.js"
+      }
+    },
+    "./usage/v1.js": {
+      "require": {
+        "types": "./dist/cjs/usage/v1.d.ts",
+        "default": "./dist/cjs/usage/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/usage/v1.d.ts",
+        "default": "./dist/esm/usage/v1.js"
+      }
     }
   },
   "scripts": {
     "build": "run-s build:*",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:cjs_rename": "find ./dist/cjs -name '*.js' -exec rename .js .cjs {} +",
-    "build:cjs_rewrite_cjs": "find ./dist/cjs -name '*.cjs' -exec sed -i 's/require(\"\\(.*\\)\\.js\")/require(\"\\1.cjs\")/g' {} +",
-    "build:cjs_rewrite_ts": "find ./dist/cjs -name '*.ts' -exec sed -i 's/from \"\\(.*\\)\\.js\"/from \"\\1.cjs\"/g' {} +",
+    "build:cjs_rename": "node ../../scripts/rename-cjs.js",
+    "build:cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
+    "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "build:exports": "node scripts/build-exports.js",
+    "build:exports": "node ../../scripts/build-exports.js",
     "test": "true"
   },
   "types": "./dist/esm/index.d.ts",
