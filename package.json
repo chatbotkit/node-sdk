@@ -2,6 +2,7 @@
   "name": "@chatbotkit/monorepo",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "workspaces": [
     "packages/fetch",
     "packages/sdk",
