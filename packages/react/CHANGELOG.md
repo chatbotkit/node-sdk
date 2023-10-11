@@ -1,5 +1,17 @@
 # @chatbotkit/react
 
+## 0.7.0
+
+### Minor Changes
+
+- - Refactored project scripts.
+  - Introduced a new usage method.
+
+### Patch Changes
+
+- Updated dependencies
+  - @chatbotkit/sdk@0.14.0
+
 ## 0.6.0
 
 ### Minor Changes

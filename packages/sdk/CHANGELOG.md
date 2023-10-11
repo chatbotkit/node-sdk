@@ -1,5 +1,17 @@
 # @chatbotkit/sdk
 
+## 0.14.0
+
+### Minor Changes
+
+- - Refactored project scripts.
+  - Introduced a new usage method.
+
+### Patch Changes
+
+- Updated dependencies
+  - @chatbotkit/fetch@0.3.0
+
 ## 0.13.0
 
 ### Minor Changes

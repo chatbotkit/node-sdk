@@ -1,5 +1,12 @@
 # @chatbotkit/fetch
 
+## 0.3.0
+
+### Minor Changes
+
+- - Refactored project scripts.
+  - Introduced a new usage method.
+
 ## 0.2.0
 
 ### Minor Changes
