@@ -49,7 +49,7 @@ export class SkillsetClient extends ChatBotKitClient {
   }
 
   /**
-   * Updates a new skillset.
+   * Updates a skillset.
    *
    * @param {string} skillsetId
    * @param {import('./v1.js').SkillsetUpdateRequest} request

@@ -49,7 +49,7 @@ export class MessageClient extends ChatBotKitClient {
   }
 
   /**
-   * Updates a new message.
+   * Updates a message.
    *
    * @param {string} conversationId
    * @param {string} messageId

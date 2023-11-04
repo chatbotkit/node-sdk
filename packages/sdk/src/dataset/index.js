@@ -52,7 +52,7 @@ export class DatasetClient extends ChatBotKitClient {
   }
 
   /**
-   * Updates a new dataset.
+   * Updates a dataset.
    *
    * @param {string} datasetId
    * @param {import('./v1.js').DatasetUpdateRequest} request

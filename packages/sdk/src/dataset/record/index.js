@@ -49,7 +49,7 @@ export class RecordClient extends ChatBotKitClient {
   }
 
   /**
-   * Updates a new record.
+   * Updates a record.
    *
    * @param {string} datasetId
    * @param {string} recordId

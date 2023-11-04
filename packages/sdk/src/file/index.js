@@ -48,7 +48,7 @@ export class FileClient extends ChatBotKitClient {
   }
 
   /**
-   * Updates a new file.
+   * Updates a file.
    *
    * @param {string} fileId
    * @param {import('./v1.js').FileUpdateRequest} request

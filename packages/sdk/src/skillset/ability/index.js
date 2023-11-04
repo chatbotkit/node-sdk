@@ -49,7 +49,7 @@ export class AbilityClient extends ChatBotKitClient {
   }
 
   /**
-   * Updates a new ability.
+   * Updates an ability.
    *
    * @param {string} skillsetId
    * @param {string} abilityId

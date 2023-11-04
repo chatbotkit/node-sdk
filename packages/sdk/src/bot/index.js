@@ -43,7 +43,7 @@ export class BotClient extends ChatBotKitClient {
   }
 
   /**
-   * Updates a new bot.
+   * Updates a bot.
    *
    * @param {string} botId
    * @param {import('./v1.js').BotUpdateRequest} request
