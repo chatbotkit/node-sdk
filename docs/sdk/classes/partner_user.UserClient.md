@@ -49,7 +49,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[partner/user/index.js:15](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/index.js#L15)
+[partner/user/index.js:15](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/index.js#L15)
 
 ## Properties
 
@@ -63,7 +63,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L182)
+[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[partner/user/index.js:18](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/index.js#L18)
+[partner/user/index.js:18](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/index.js#L18)
 
 ___
 
@@ -87,7 +87,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L184)
+[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
 
 ## Methods
 
@@ -124,7 +124,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L201)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
 
 ___
 
@@ -146,7 +146,7 @@ Creates a new user.
 
 #### Defined in
 
-[partner/user/index.js:47](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/index.js#L47)
+[partner/user/index.js:47](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/index.js#L47)
 
 ___
 
@@ -168,7 +168,7 @@ Deletes the user.
 
 #### Defined in
 
-[partner/user/index.js:68](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/index.js#L68)
+[partner/user/index.js:68](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/index.js#L68)
 
 ___
 
@@ -190,7 +190,7 @@ Fetches a user.
 
 #### Defined in
 
-[partner/user/index.js:37](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/index.js#L37)
+[partner/user/index.js:37](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/index.js#L37)
 
 ___
 
@@ -212,7 +212,7 @@ Retrieves a list of all existing users associated with this client.
 
 #### Defined in
 
-[partner/user/index.js:27](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/index.js#L27)
+[partner/user/index.js:27](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/index.js#L27)
 
 ___
 
@@ -235,4 +235,4 @@ Updates the user.
 
 #### Defined in
 
-[partner/user/index.js:58](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/index.js#L58)
+[partner/user/index.js:58](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/index.js#L58)

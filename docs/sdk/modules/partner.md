@@ -10,10 +10,10 @@
 
 ### Classes
 
-- [DatasetClient](../classes/partner.DatasetClient.md)
+- [PartnerClient](../classes/partner.PartnerClient.md)
 
 ## References
 
 ### default
 
-Renames and re-exports [DatasetClient](../classes/partner.DatasetClient.md)
+Renames and re-exports [PartnerClient](../classes/partner.PartnerClient.md)

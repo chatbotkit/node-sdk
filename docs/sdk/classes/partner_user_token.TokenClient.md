@@ -46,7 +46,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[partner/user/token/index.js:8](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/token/index.js#L8)
+[partner/user/token/index.js:8](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/index.js#L8)
 
 ## Properties
 
@@ -60,7 +60,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L182)
+[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
 
 ___
 
@@ -74,7 +74,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L184)
+[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
 
 ## Methods
 
@@ -111,7 +111,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L201)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
 
 ___
 
@@ -134,7 +134,7 @@ Creates a new user.
 
 #### Defined in
 
-[partner/user/token/index.js:30](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/token/index.js#L30)
+[partner/user/token/index.js:30](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/index.js#L30)
 
 ___
 
@@ -157,7 +157,7 @@ Deletes the user.
 
 #### Defined in
 
-[partner/user/token/index.js:41](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/token/index.js#L41)
+[partner/user/token/index.js:41](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/index.js#L41)
 
 ___
 
@@ -180,4 +180,4 @@ Retrieves a list of all existing user tokens associated with this client.
 
 #### Defined in
 
-[partner/user/token/index.js:19](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/user/token/index.js#L19)
+[partner/user/token/index.js:19](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/index.js#L19)

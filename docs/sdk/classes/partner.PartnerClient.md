@@ -1,36 +1,36 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [partner](../modules/partner.md) / DatasetClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [partner](../modules/partner.md) / PartnerClient
 
-# Class: DatasetClient
+# Class: PartnerClient
 
-[partner](../modules/partner.md).DatasetClient
+[partner](../modules/partner.md).PartnerClient
 
 ## Hierarchy
 
 - `ChatBotKitClient`
 
-  ↳ **`DatasetClient`**
+  ↳ **`PartnerClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](partner.DatasetClient.md#constructor)
+- [constructor](partner.PartnerClient.md#constructor)
 
 ### Properties
 
-- [secret](partner.DatasetClient.md#secret)
-- [url](partner.DatasetClient.md#url)
-- [user](partner.DatasetClient.md#user)
+- [secret](partner.PartnerClient.md#secret)
+- [url](partner.PartnerClient.md#url)
+- [user](partner.PartnerClient.md#user)
 
 ### Methods
 
-- [clientFetch](partner.DatasetClient.md#clientfetch)
+- [clientFetch](partner.PartnerClient.md#clientfetch)
 
 ## Constructors
 
 ### constructor
 
-• **new DatasetClient**(`options`)
+• **new PartnerClient**(`options`)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[partner/index.js:8](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/index.js#L8)
+[partner/index.js:8](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/index.js#L8)
 
 ## Properties
 
@@ -58,7 +58,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L182)
+[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
 
 ___
 
@@ -72,7 +72,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L184)
+[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[partner/index.js:11](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/index.js#L11)
+[partner/index.js:11](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/index.js#L11)
 
 ## Methods
 
@@ -119,4 +119,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L201)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
