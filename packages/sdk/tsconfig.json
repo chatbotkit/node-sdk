@@ -143,7 +143,13 @@
       "src/integration/sitemap/index.js",
       "src/integration/sitemap/v1.js",
       "src/integration/whatsapp/index.js",
-      "src/integration/whatsapp/v1.js"
+      "src/integration/whatsapp/v1.js",
+      "src/partner/index.js",
+      "src/partner/v1.js",
+      "src/partner/user/index.js",
+      "src/partner/user/v1.js",
+      "src/partner/user/token/index.js",
+      "src/partner/user/token/v1.js"
     ],
     "excludePrivate": true,
     "excludeInternal": true,
