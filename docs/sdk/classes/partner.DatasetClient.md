@@ -1,36 +1,36 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [conversation/session](../modules/conversation_session.md) / SessionClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [partner](../modules/partner.md) / DatasetClient
 
-# Class: SessionClient
+# Class: DatasetClient
 
-[conversation/session](../modules/conversation_session.md).SessionClient
+[partner](../modules/partner.md).DatasetClient
 
 ## Hierarchy
 
 - `ChatBotKitClient`
 
-  ↳ **`SessionClient`**
+  ↳ **`DatasetClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](conversation_session.SessionClient.md#constructor)
+- [constructor](partner.DatasetClient.md#constructor)
 
 ### Properties
 
-- [secret](conversation_session.SessionClient.md#secret)
-- [url](conversation_session.SessionClient.md#url)
+- [secret](partner.DatasetClient.md#secret)
+- [url](partner.DatasetClient.md#url)
+- [user](partner.DatasetClient.md#user)
 
 ### Methods
 
-- [clientFetch](conversation_session.SessionClient.md#clientfetch)
-- [create](conversation_session.SessionClient.md#create)
+- [clientFetch](partner.DatasetClient.md#clientfetch)
 
 ## Constructors
 
 ### constructor
 
-• **new SessionClient**(`options`)
+• **new DatasetClient**(`options`)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[conversation/session/index.js:8](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/conversation/session/index.js#L8)
+[partner/index.js:8](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/index.js#L8)
 
 ## Properties
 
@@ -73,6 +73,16 @@ ChatBotKitClient.url
 #### Defined in
 
 [client.js:184](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L184)
+
+___
+
+### user
+
+• **user**: [`UserClient`](partner_user.UserClient.md)
+
+#### Defined in
+
+[partner/index.js:11](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/partner/index.js#L11)
 
 ## Methods
 
@@ -110,26 +120,3 @@ ChatBotKitClient.clientFetch
 #### Defined in
 
 [client.js:201](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/client.js#L201)
-
-___
-
-### create
-
-▸ **create**(`conversationId`, `request`): `Promise`<[`SessionCreateResponse`](../modules/conversation_session_v1.md#sessioncreateresponse)\>
-
-Creates a new session.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `conversationId` | `string` |
-| `request` | [`SessionCreateRequest`](../modules/conversation_session_v1.md#sessioncreaterequest) |
-
-#### Returns
-
-`Promise`<[`SessionCreateResponse`](../modules/conversation_session_v1.md#sessioncreateresponse)\>
-
-#### Defined in
-
-[conversation/session/index.js:19](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/conversation/session/index.js#L19)

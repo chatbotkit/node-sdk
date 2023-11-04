@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[file/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L2)
+[file/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L2)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L57)
+[file/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L57)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L61)
+[file/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L61)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L98)
+[file/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L98)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L139)
+[file/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L139)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L44)
+[file/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L44)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L16)
+[file/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L16)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L20)
+[file/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L20)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L25)
+[file/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L25)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L27)
+[file/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L27)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L10)
+[file/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L10)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L76)
+[file/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L76)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L80)
+[file/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L80)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:117](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L117)
+[file/v1.js:117](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L117)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L121)
+[file/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L121)
 
 ## Functions
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L67)
+[file/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L67)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L104)
+[file/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L104)
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L145)
+[file/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L145)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L50)
+[file/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L50)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L33)
+[file/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L33)
 
 ___
 
@@ -366,7 +366,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L87)
+[file/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L87)
 
 ___
 
@@ -388,4 +388,4 @@ ___
 
 #### Defined in
 
-[file/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/file/v1.js#L128)
+[file/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/file/v1.js#L128)

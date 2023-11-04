@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[integration/sitemap/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L2)
+[integration/sitemap/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L2)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L64)
+[integration/sitemap/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L64)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L68)
+[integration/sitemap/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L68)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L105)
+[integration/sitemap/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L105)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L51)
+[integration/sitemap/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L51)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L23)
+[integration/sitemap/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L23)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L27)
+[integration/sitemap/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L27)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L32)
+[integration/sitemap/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L32)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L34)
+[integration/sitemap/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L34)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L17)
+[integration/sitemap/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L17)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L122)
+[integration/sitemap/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L122)
 
 ___
 
@@ -193,7 +193,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L83)
+[integration/sitemap/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L83)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L87)
+[integration/sitemap/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L87)
 
 ## Functions
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L74)
+[integration/sitemap/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L74)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L111)
+[integration/sitemap/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L111)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L57)
+[integration/sitemap/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L57)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L40)
+[integration/sitemap/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L40)
 
 ___
 
@@ -314,7 +314,7 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L128)
+[integration/sitemap/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L128)
 
 ___
 
@@ -336,4 +336,4 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/0fead0f/packages/sdk/src/integration/sitemap/v1.js#L94)
+[integration/sitemap/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/78a3d8e/packages/sdk/src/integration/sitemap/v1.js#L94)
