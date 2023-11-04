@@ -1,7 +1,7 @@
 import { UserClient } from './user/index.js'
 import { ChatBotKitClient } from '../client.js'
 
-export class DatasetClient extends ChatBotKitClient {
+export class PartnerClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
    */
@@ -12,4 +12,4 @@ export class DatasetClient extends ChatBotKitClient {
   }
 }
 
-export default DatasetClient
+export default PartnerClient
