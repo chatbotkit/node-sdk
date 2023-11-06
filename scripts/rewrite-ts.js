@@ -16,7 +16,6 @@ async function* readDirFiles(dirPath, ext = '.ts') {
   }
 }
 
-
 async function main() {
   const dirPath = './dist/cjs'
 
