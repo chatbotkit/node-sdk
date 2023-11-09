@@ -12,7 +12,7 @@ async function main() {
   const { id } = await client.create({
     name: 'random',
     description: 'purely random dataset',
-    store: 'ada-loom'
+    store: 'ada-loom',
   })
 
   console.log(`* dataset ${id} created`)
@@ -23,4 +23,3 @@ async function main() {
 }
 
 main()
-
