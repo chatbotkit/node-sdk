@@ -12,6 +12,12 @@ import {
   conversationReceive,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class ConversationClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
@@ -27,7 +33,7 @@ export class ConversationClient extends ChatBotKitClient {
    * Retrieves a list of all existing conversations associated with this client.
    *
    * @param {string} [cursor]
-   * @returns {import('../client.js').ResponsePromise<import('./v1.js').ConversationListResponse,import('./v1.js').ConversationListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').ConversationListResponse,import('./v1.js').ConversationListStreamType>}
    */
   list(cursor) {
     return conversationList(this, cursor)

@@ -7,6 +7,12 @@ import {
   messageDelete,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class MessageClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
@@ -20,7 +26,7 @@ export class MessageClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {string} [cursor]
-   * @returns {import('../../client.js').ResponsePromise<import('./v1.js').MessageListResponse,import('./v1.js').MessageListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').MessageListResponse,import('./v1.js').MessageListStreamType>}
    */
   list(conversationId, cursor) {
     return messageList(this, conversationId, cursor)

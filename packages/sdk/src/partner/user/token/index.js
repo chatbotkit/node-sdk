@@ -1,6 +1,12 @@
 import { ChatBotKitClient } from '../../../client.js'
 import { tokenList, tokenCreate, tokenDelete } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class TokenClient extends ChatBotKitClient {
   /**
    * @param {import('../../../client.js').ChatBotKitClientOptions} options
@@ -14,7 +20,7 @@ export class TokenClient extends ChatBotKitClient {
    *
    * @param {string} userId
    * @param {string} [cursor]
-   * @returns {import('../../../client.js').ResponsePromise<import('./v1.js').TokenListResponse,import('./v1.js').TokenListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').TokenListResponse,import('./v1.js').TokenListStreamType>}
    */
   list(userId, cursor) {
     return tokenList(this, userId, cursor)

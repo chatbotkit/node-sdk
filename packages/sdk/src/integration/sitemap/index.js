@@ -8,6 +8,12 @@ import {
   sitemapSync,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class SitemapClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
@@ -20,7 +26,7 @@ export class SitemapClient extends ChatBotKitClient {
    * Retrieves a list of all existing sitemap integrations associated with this client.
    *
    * @param {string} [cursor]
-   * @returns {import('../../client.js').ResponsePromise<import('./v1.js').SitemapListResponse,import('./v1.js').SitemapListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').SitemapListResponse,import('./v1.js').SitemapListStreamType>}
    */
   list(cursor) {
     return sitemapList(this, cursor)

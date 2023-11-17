@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  *   name?: string,
  *   image?: string,
@@ -28,7 +34,7 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} [cursor]
- * @returns {import('../../client.js').ResponsePromise<UserListResponse,UserListStreamType>}
+ * @returns {ResponsePromise<UserListResponse,UserListStreamType>}
  */
 export function userList(client, cursor) {
   let url = `/api/v1/partner/user/list`

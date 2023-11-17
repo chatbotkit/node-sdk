@@ -9,6 +9,12 @@ import {
   fileDownload,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class FileClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
@@ -21,7 +27,7 @@ export class FileClient extends ChatBotKitClient {
    * Retrieves a list of all existing files associated with this client.
    *
    * @param {string} [cursor]
-   * @returns {import('../client.js').ResponsePromise<import('./v1.js').FileListResponse,import('./v1.js').FileListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').FileListResponse,import('./v1.js').FileListStreamType>}
    */
   list(cursor) {
     return fileList(this, cursor)

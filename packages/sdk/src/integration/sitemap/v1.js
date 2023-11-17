@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  *   name?: string,
  *   description?: string,
@@ -35,7 +41,7 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} [cursor]
- * @returns {import('../../client.js').ResponsePromise<SitemapListResponse,SitemapListStreamType>}
+ * @returns {ResponsePromise<SitemapListResponse,SitemapListStreamType>}
  */
 export function sitemapList(client, cursor) {
   let url = `/api/v1/integration/sitemap/list`

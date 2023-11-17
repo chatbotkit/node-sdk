@@ -8,6 +8,12 @@ import {
   userDelete,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class UserClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
@@ -22,7 +28,7 @@ export class UserClient extends ChatBotKitClient {
    * Retrieves a list of all existing users associated with this client.
    *
    * @param {string} [cursor]
-   * @returns {import('../../client.js').ResponsePromise<import('./v1.js').UserListResponse,import('./v1.js').UserListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').UserListResponse,import('./v1.js').UserListStreamType>}
    */
   list(cursor) {
     return userList(this, cursor)

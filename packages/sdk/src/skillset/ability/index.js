@@ -7,6 +7,12 @@ import {
   abilityDelete,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class AbilityClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
@@ -20,7 +26,7 @@ export class AbilityClient extends ChatBotKitClient {
    *
    * @param {string} skillsetId
    * @param {string} [cursor]
-   * @returns {import('../../client.js').ResponsePromise<import('./v1.js').AbilityListResponse,import('./v1.js').AbilityListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').AbilityListResponse,import('./v1.js').AbilityListStreamType>}
    */
   list(skillsetId, cursor) {
     return abilityList(this, skillsetId, cursor)

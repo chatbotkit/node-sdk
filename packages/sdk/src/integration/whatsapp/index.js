@@ -8,6 +8,12 @@ import {
   whatsappSetup,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class WhatsappClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
@@ -20,7 +26,7 @@ export class WhatsappClient extends ChatBotKitClient {
    * Retrieves a list of all existing whatsapp integrations associated with this client.
    *
    * @param {string} [cursor]
-   * @returns {import('../../client.js').ResponsePromise<import('./v1.js').WhatsappListResponse,import('./v1.js').WhatsappListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').WhatsappListResponse,import('./v1.js').WhatsappListStreamType>}
    */
   list(cursor) {
     return whatsappList(this, cursor)

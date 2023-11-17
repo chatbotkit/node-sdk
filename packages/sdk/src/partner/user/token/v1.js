@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  * }} TokenOptions
  *
@@ -26,7 +32,7 @@
  * @param {ChatBotKitClient} client
  * @param {string} userId
  * @param {string} [cursor]
- * @returns {import('../../../client.js').ResponsePromise<TokenListResponse,TokenListStreamType>}
+ * @returns {ResponsePromise<TokenListResponse,TokenListStreamType>}
  */
 export function tokenList(client, userId, cursor) {
   let url = `/api/v1/partner/user/${userId}/token/list`

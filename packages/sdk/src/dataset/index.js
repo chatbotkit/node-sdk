@@ -10,6 +10,12 @@ import {
   datasetSearch,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class DatasetClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
@@ -25,7 +31,7 @@ export class DatasetClient extends ChatBotKitClient {
    * Retrieves a list of all existing datasets associated with this client.
    *
    * @param {string} [cursor]
-   * @returns {import('../client.js').ResponsePromise<import('./v1.js').DatasetListResponse,import('./v1.js').DatasetListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').DatasetListResponse,import('./v1.js').DatasetListStreamType>}
    */
   list(cursor) {
     return datasetList(this, cursor)

@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  *   name?: string,
  *   description?: string,
@@ -28,7 +34,7 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} [cursor]
- * @returns {import('../client.js').ResponsePromise<SkillsetListResponse,SkillsetListStreamType>}
+ * @returns {ResponsePromise<SkillsetListResponse,SkillsetListStreamType>}
  */
 export function skillsetList(client, cursor) {
   let url = `/api/v1/skillset/list`

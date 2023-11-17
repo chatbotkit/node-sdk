@@ -7,6 +7,12 @@ import {
   recordDelete,
 } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class RecordClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
@@ -20,7 +26,7 @@ export class RecordClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {string} [cursor]
-   * @returns {import('../../client.js').ResponsePromise<import('./v1.js').RecordListResponse,import('./v1.js').RecordListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').RecordListResponse,import('./v1.js').RecordListStreamType>}
    */
   list(datasetId, cursor) {
     return recordList(this, datasetId, cursor)

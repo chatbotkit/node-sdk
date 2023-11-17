@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'} MessageType
  *
  * @typedef {{
@@ -31,7 +37,7 @@
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {string} [cursor]
- * @returns {import('../../client.js').ResponsePromise<MessageListResponse,MessageListStreamType>}
+ * @returns {ResponsePromise<MessageListResponse,MessageListStreamType>}
  */
 export function messageList(client, conversationId, cursor) {
   let url = `/api/v1/conversation/${conversationId}/message/list`

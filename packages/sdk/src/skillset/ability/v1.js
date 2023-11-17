@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  *   name: string,
  *   description: string,
@@ -30,7 +36,7 @@
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
  * @param {string} [cursor]
- * @returns {import('../../client.js').ResponsePromise<AbilityListResponse,AbilityListStreamType>}
+ * @returns {ResponsePromise<AbilityListResponse,AbilityListStreamType>}
  */
 export function abilityList(client, skillsetId, cursor) {
   let url = `/api/v1/skillset/${skillsetId}/ability/list`

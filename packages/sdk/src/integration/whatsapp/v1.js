@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  *   botId?: string
  * }} BotRef
@@ -46,7 +52,7 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} [cursor]
- * @returns {import('../../client.js').ResponsePromise<WhatsappListResponse,WhatsappListStreamType>}
+ * @returns {ResponsePromise<WhatsappListResponse,WhatsappListStreamType>}
  */
 export function whatsappList(client, cursor) {
   let url = `/api/v1/integration/whatsapp/list`

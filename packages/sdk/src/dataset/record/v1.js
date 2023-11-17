@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  *   text: string,
  *   meta?: Record<string,any>
@@ -28,7 +34,7 @@
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
  * @param {string} [cursor]
- * @returns {import('../../client.js').ResponsePromise<RecordListResponse,RecordListStreamType>}
+ * @returns {ResponsePromise<RecordListResponse,RecordListStreamType>}
  */
 export function recordList(client, datasetId, cursor) {
   let url = `/api/v1/dataset/${datasetId}/record/list`

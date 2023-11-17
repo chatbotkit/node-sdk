@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  *   backstory?: string,
  *   model?: string,
@@ -49,7 +55,7 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} [cursor]
- * @returns {import('../client.js').ResponsePromise<ConversationListResponse,ConversationListStreamType>}
+ * @returns {ResponsePromise<ConversationListResponse,ConversationListStreamType>}
  */
 export function conversationList(client, cursor) {
   let url = `/api/v1/conversation/list`
@@ -178,7 +184,7 @@ export async function conversationDelete(client, conversationId) {
  * @param {ChatBotKitClient} client
  * @param {string?} conversationId
  * @param {ConversationCompleteRequest} request
- * @returns {import('../client.js').ResponsePromise<ConversationCompleteResponse,ConversationCompleteStreamType>}
+ * @returns {ResponsePromise<ConversationCompleteResponse,ConversationCompleteStreamType>}
  */
 export function conversationComplete(client, conversationId, request) {
   let url
