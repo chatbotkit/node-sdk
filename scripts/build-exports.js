@@ -1,20 +1,9 @@
+/* eslint-disable no-console */
+
 import path from 'node:path'
 import fs from 'node:fs/promises'
 
 async function buildExports(dirPath, exports, level = 0) {
-  if (level === 0) {
-    exports['.'] = {
-      require: {
-        types: './dist/cjs/index.d.ts',
-        default: './dist/cjs/index.cjs',
-      },
-      import: {
-        types: './dist/esm/index.d.ts',
-        default: './dist/esm/index.js',
-      },
-    }
-  }
-
   const files = await fs.readdir(dirPath, { withFileTypes: true })
 
   for (const file of files) {
@@ -23,17 +12,35 @@ async function buildExports(dirPath, exports, level = 0) {
     if (file.isDirectory()) {
       await buildExports(filePath, exports, level + 1)
     } else if (filePath.endsWith('.ts')) {
-      const fileName = path.join(dirPath, path.basename(filePath, 'd.ts'))
+      const baseName = path.basename(filePath, '.d.ts')
+      const fileName = path.join(dirPath, baseName)
 
-      exports['./' + fileName.slice(9) + 'js'] = {
-        require: {
-          types: './' + fileName.replace('dist/esm', 'dist/cjs') + 'd.ts',
-          default: './' + fileName.replace('dist/esm', 'dist/cjs') + 'cjs',
-        },
-        import: {
-          types: './' + fileName + 'd.ts',
-          default: './' + fileName + 'js',
-        },
+      const exportPoints = []
+
+      if (baseName === 'index') {
+        exportPoints.push('./' + fileName.slice(9, -6))
+      }
+
+      exportPoints.push(
+        './' + fileName.slice(9),
+        './' + fileName.slice(9) + '.js'
+      )
+
+      for (let exportPoint of exportPoints) {
+        if (exportPoint === './') {
+          exportPoint = '.'
+        }
+
+        exports[exportPoint] = {
+          require: {
+            types: './' + fileName.replace('dist/esm', 'dist/cjs') + '.d.ts',
+            default: './' + fileName.replace('dist/esm', 'dist/cjs') + '.cjs',
+          },
+          import: {
+            types: './' + fileName + '.d.ts',
+            default: './' + fileName + '.js',
+          },
+        }
       }
     }
   }

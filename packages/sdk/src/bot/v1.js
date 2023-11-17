@@ -52,7 +52,10 @@ export function botList(client, cursor) {
 export async function botFetch(client, botId) {
   const url = `/api/v1/bot/${botId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../types/api/v1.js').operations['fetchBot']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -69,9 +72,13 @@ export async function botFetch(client, botId) {
 export async function botCreate(client, request) {
   const url = `/api/v1/bot/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -89,9 +96,13 @@ export async function botCreate(client, request) {
 export async function botUpdate(client, botId, request) {
   const url = `/api/v1/bot/${botId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['updateBot']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['updateBot']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -106,7 +117,11 @@ export async function botUpdate(client, botId, request) {
 export async function botDelete(client, botId) {
   const url = `/api/v1/bot/${botId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['deleteBot']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['deleteBot']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }

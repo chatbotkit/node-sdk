@@ -60,6 +60,8 @@ export async function fileDetach(client, datasetId, fileId, request) {
  * @returns {Promise<FileSyncResponse>}
  */
 export async function fileSync(client, datasetId, fileId, request) {
+  request
+
   const url = `/api/v1/dataset/${datasetId}/file/${fileId}/sync`
 
   return client.clientFetch(url, {

@@ -1,11 +1,14 @@
 import {
-  fetchWithBackoff,
+  fetch,
+  withTimeout,
+  withRetry,
   RequestError,
   jsonl,
   Blob,
   FormData,
-} from './fetch.js'
+} from '@chatbotkit/fetch'
 
+/** @type {Record<string,{message: string, code: string}>} */
 const standardErrors = {
   413: {
     message:
@@ -18,6 +21,8 @@ const standardErrors = {
     code: 'GENERIC_ERROR',
   },
 }
+
+const fetchPlusPlus = withRetry(withTimeout(fetch))
 
 /**
  * @template T,U
@@ -61,7 +66,9 @@ export class ResponsePromise {
       }
     }
 
-    const response = await fetchWithBackoff(this.url.toString(), {
+    const url = this.url.toString()
+
+    const response = await fetchPlusPlus(url, {
       method,
 
       headers: {
@@ -85,14 +92,13 @@ export class ResponsePromise {
         message = data.message
         code = data.code
       } catch (e) {
-        // @ts-ignore
         const data = standardErrors[response.status] || standardErrors.default
 
         message = data.message
         code = data.code
       }
 
-      throw new RequestError(message, code, this.request, response)
+      throw new RequestError(message, code, url, this.request, response)
     }
 
     return response
@@ -161,7 +167,7 @@ export class ResponsePromise {
       return
     }
 
-    // @ts-ignore
+    // @ts-expect-error polyfill
     yield* jsonl(response.body)
   }
 }

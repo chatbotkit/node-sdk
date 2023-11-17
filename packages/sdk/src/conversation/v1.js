@@ -71,7 +71,10 @@ export function conversationList(client, cursor) {
 export async function conversationFetch(client, conversationId) {
   const url = `/api/v1/conversation/${conversationId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../types/api/v1.js').operations['fetchConversation']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -88,9 +91,13 @@ export async function conversationFetch(client, conversationId) {
 export async function conversationCreate(client, request) {
   const url = `/api/v1/conversation/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['createConversation']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['createConversation']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -108,9 +115,13 @@ export async function conversationCreate(client, request) {
 export async function conversationUpdate(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['updateConversation']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['updateConversation']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -125,9 +136,13 @@ export async function conversationUpdate(client, conversationId, request) {
 export async function conversationDelete(client, conversationId) {
   const url = `/api/v1/conversation/${conversationId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['deleteConversation']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['deleteConversation']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }
 
 /**

@@ -3,6 +3,9 @@
   "version": "0.3.0",
   "description": "Isomorphic implenetation for fetch specifically designed for @chatbotkit/sdk.",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.16.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chatbotkit/node-sdk.git"
@@ -21,6 +24,16 @@
   "main": "./dist/esm/index.js",
   "exports": {
     ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./index": {
       "require": {
         "types": "./dist/cjs/index.d.ts",
         "default": "./dist/cjs/index.cjs"
@@ -49,6 +62,7 @@
     "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
+    "check": "tsc --noEmit",
     "test": "true"
   },
   "types": "./dist/esm/index.d.ts",

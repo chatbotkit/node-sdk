@@ -2,6 +2,9 @@
   "name": "@chatbotkit/monorepo",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18.16.0"
+  },
   "type": "module",
   "workspaces": [
     "packages/fetch",
@@ -22,21 +25,25 @@
     "format": "run-s format:*",
     "format:pkg": "format-package -w",
     "format:src": "prettier -w .",
-    "lint": "eslint",
+    "lint": "eslint .",
     "prepare": "husky install",
     "prepare-packages": "changeset",
     "publish-packages": "turbo run build test && changeset version && changeset publish",
     "test": "turbo run test"
   },
   "dependencies": {
+    "@changesets/cli": "^2.26.1",
+    "@types/node": "^20.9.1",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "format-package": "^7.0.0",
     "husky": "^8.0.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.7",
+    "turbo": "^1.10.16",
     "typedoc": "^0.24.1",
-    "typedoc-plugin-markdown": "^3.15.1",
-    "@changesets/cli": "^2.26.1"
+    "typedoc-plugin-markdown": "^3.15.1"
   }
 }

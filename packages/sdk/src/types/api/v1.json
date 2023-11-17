@@ -1,0 +1,5229 @@
+{
+  "openapi": "3.0.0",
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700253936163)" },
+  "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
+  "components": {
+    "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
+    "schemas": {
+      "Entity": {
+        "type": "object",
+        "description": "Extracted entity from the message",
+        "required": ["type", "start", "end", "text"],
+        "properties": {
+          "type": { "type": "string", "description": "The entity type" },
+          "begin": { "type": "number", "description": "Start offset" },
+          "end": { "type": "number", "description": "End offset" },
+          "text": {
+            "type": "string",
+            "description": "The text value of the entity"
+          },
+          "replacement": {
+            "type": "object",
+            "required": ["start", "end", "text"],
+            "properties": {
+              "begin": { "type": "number", "description": "Start offset" },
+              "end": { "type": "number", "description": "End offset" },
+              "text": {
+                "type": "string",
+                "description": "The text value of the replacement"
+              }
+            }
+          }
+        }
+      },
+      "MessageType": {
+        "type": "string",
+        "description": "The type of the message",
+        "enum": ["user", "bot", "context", "instruction", "backstory"]
+      },
+      "BotVisibility": {
+        "type": "string",
+        "description": "The bot visibility",
+        "enum": [
+          "private",
+          "public",
+          "chat",
+          "restrictedAccessChat",
+          "unrestrictedAccessChat"
+        ]
+      },
+      "DatasetVisibility": {
+        "type": "string",
+        "description": "The dataset visibility",
+        "enum": ["private", "public"]
+      },
+      "DatasetFileAttachmentType": {
+        "type": "string",
+        "description": "The dataset file attachment type",
+        "enum": ["source"]
+      },
+      "SkillsetVisibility": {
+        "type": "string",
+        "description": "The skillset visibility",
+        "enum": ["private", "public"]
+      },
+      "FileVisibility": {
+        "type": "string",
+        "description": "The file visibility",
+        "enum": ["private", "public"]
+      },
+      "Usage": {
+        "type": "object",
+        "description": "Usage information",
+        "properties": {
+          "token": {
+            "type": "number",
+            "description": "The tokens used in this exchange"
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "description": "Meta data information",
+        "additionalProperties": true
+      },
+      "BotRef": {
+        "type": "object",
+        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+        "properties": {
+          "botId": {
+            "type": "string",
+            "description": "The ID of the bot this configuration is using"
+          }
+        }
+      },
+      "BotConfig": {
+        "type": "object",
+        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "The model this configuration is using"
+          },
+          "backstory": {
+            "type": "string",
+            "description": "The backstory this configuration is using"
+          },
+          "datasetId": {
+            "type": "string",
+            "description": "The id of the dataset this configuration is using"
+          },
+          "skillsetId": {
+            "type": "string",
+            "description": "The id of the skillset this configuration is using"
+          },
+          "privacy": {
+            "type": "boolean",
+            "description": "The privacy flag for this configuration"
+          },
+          "moderation": {
+            "type": "boolean",
+            "description": "The moderation flag for this configuration"
+          }
+        }
+      },
+      "BotRefOrConfig": {
+        "oneOf": [
+          { "$ref": "#/components/schemas/BotRef" },
+          { "$ref": "#/components/schemas/BotConfig" }
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": { "type": "string", "description": "The error message" },
+          "code": { "type": "string", "description": "The error code" }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "The request could not be understood or was missing required parameters.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          }
+        }
+      },
+      "Conflict": {
+        "description": "The request could not be completed due to a conflict with the current state of the resource.",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "The user is not authorized to access the requested resource",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "The specified resource was not found",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+          }
+        }
+      }
+    }
+  },
+  "security": [{ "BearerAuth": [] }],
+  "paths": {
+    "/bot/{botId}/delete": {
+      "post": {
+        "operationId": "deleteBot",
+        "summary": "Delete a bot",
+        "tags": ["Bot"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "botId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the bot to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The bot was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted bot",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/bot/{botId}/fetch": {
+      "get": {
+        "operationId": "fetchBot",
+        "summary": "Fetch a bot",
+        "tags": ["Bot"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "botId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the bot to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The bot was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the bot",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the bot",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the bot",
+                      "type": "string"
+                    },
+                    "backstory": {
+                      "description": "The backstory for the bot",
+                      "type": "string"
+                    },
+                    "model": {
+                      "description": "The model used in the bot",
+                      "type": "string"
+                    },
+                    "datasetId": {
+                      "description": "The ID of the dataset used in the bot",
+                      "type": "string"
+                    },
+                    "skillsetId": {
+                      "description": "The ID of the skillset used in the bot",
+                      "type": "string"
+                    },
+                    "visibility": {
+                      "$ref": "#/components/schemas/BotVisibility"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the bot was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the bot was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "visbility", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/bot/{botId}/session/create": {
+      "post": {
+        "operationId": "createBotSession",
+        "summary": "Create bot session",
+        "tags": ["Bot Session"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "botId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the bot to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "durationInSeconds": {
+                    "description": "The maximum amount of time this session will stay open",
+                    "type": "number"
+                  },
+                  "messages": {
+                    "description": "An array of messages to be included in the conversation",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": { "$ref": "#/components/schemas/MessageType" },
+                        "text": {
+                          "description": "The text of the message",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The bot was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the bot",
+                      "type": "string"
+                    },
+                    "conversationId": {
+                      "description": "The ID of the conversation",
+                      "type": "string"
+                    },
+                    "token": {
+                      "description": "The token for this conversaion",
+                      "type": "string"
+                    },
+                    "expiresAt": {
+                      "description": "The time the token will expire in milliseconds",
+                      "type": "number"
+                    },
+                    "messages": {
+                      "description": "An array of messages included in the conversation",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/components/schemas/MessageType"
+                          },
+                          "text": {
+                            "description": "The text of the message",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": ["id", "conversationId", "token", "expiresAt"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/bot/{botId}/update": {
+      "post": {
+        "operationId": "updateBot",
+        "summary": "Update the specified bot",
+        "tags": ["Bot"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "botId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the bot",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description of the bot",
+                    "type": "string"
+                  },
+                  "backstory": {
+                    "description": "The backstory of the bot",
+                    "type": "string"
+                  },
+                  "model": {
+                    "description": "The model of the bot",
+                    "type": "string"
+                  },
+                  "datasetId": {
+                    "description": "The id of the dataset the bot is using",
+                    "type": "string"
+                  },
+                  "skillsetId": {
+                    "description": "The id of the skillset the bot is using",
+                    "type": "string"
+                  },
+                  "visibility": {
+                    "$ref": "#/components/schemas/BotVisibility"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The bot was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated bot",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/bot/create": {
+      "post": {
+        "operationId": "createBot",
+        "summary": "Create a new bot",
+        "tags": ["Bot"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the bot",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description of the bot",
+                    "type": "string"
+                  },
+                  "backstory": {
+                    "description": "The backstory of the bot",
+                    "type": "string"
+                  },
+                  "model": {
+                    "description": "The model of the bot",
+                    "type": "string"
+                  },
+                  "datasetId": {
+                    "description": "The id of the dataset the bot is using",
+                    "type": "string"
+                  },
+                  "skillsetId": {
+                    "description": "The id of the skillset the bot is using",
+                    "type": "string"
+                  },
+                  "visibility": {
+                    "$ref": "#/components/schemas/BotVisibility"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The bot was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created bot",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/bot/list": {
+      "get": {
+        "operationId": "listBots",
+        "summary": "Retrieve a list of bots belonging to the current user",
+        "tags": ["Bot"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of bots was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of bots",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the bot",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the bot",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the bot",
+                            "type": "string"
+                          },
+                          "backstory": {
+                            "description": "The backstory of the bot",
+                            "type": "string"
+                          },
+                          "model": {
+                            "description": "The model of the bot",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "The id of the dataset the bot is using",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "The id of the skillset the bot is using",
+                            "type": "string"
+                          },
+                          "visibility": {
+                            "$ref": "#/components/schemas/BotVisibility"
+                          },
+                          "meta": { "$ref": "#/components/schemas/Meta" },
+                          "createdAt": {
+                            "description": "The timestamp when the bot was created",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp when the bot was last updated",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/complete": {
+      "post": {
+        "operationId": "completeConversationMessage",
+        "summary": "Send and receive a conversation response",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation to receive message from",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "description": "The text of the message to send",
+                    "type": "string"
+                  },
+                  "entities": {
+                    "description": "Known entities",
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/Entity" }
+                  }
+                },
+                "required": ["text"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was received successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created message",
+                      "type": "string"
+                    },
+                    "text": {
+                      "description": "The text of the message received",
+                      "type": "string"
+                    },
+                    "usage": { "$ref": "#/components/schemas/Usage" }
+                  },
+                  "required": ["id", "text", "usage"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["result"]
+                        },
+                        "data": {
+                          "description": "The data for the event",
+                          "type": "object",
+                          "properties": {
+                            "text": {
+                              "description": "The next bot message",
+                              "type": "string"
+                            },
+                            "usage": { "$ref": "#/components/schemas/Usage" }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["token"]
+                        },
+                        "data": {
+                          "description": "The data for the event",
+                          "type": "object",
+                          "properties": {
+                            "token": {
+                              "description": "The token generated",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/delete": {
+      "post": {
+        "operationId": "deleteConversation",
+        "summary": "Delete a conversation",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The conversation was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted conversation",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/fetch": {
+      "get": {
+        "operationId": "fetchConversation",
+        "summary": "Fetch a conversation",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The conversation was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the conversation",
+                      "type": "string"
+                    },
+                    "backstory": {
+                      "description": "The backstory for the conversation",
+                      "type": "string"
+                    },
+                    "model": {
+                      "description": "The model used in the conversation",
+                      "type": "string"
+                    },
+                    "datasetId": {
+                      "description": "The ID of the dataset used in the conversation",
+                      "type": "string"
+                    },
+                    "skillsetId": {
+                      "description": "The ID of the skillset used in the conversation",
+                      "type": "string"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the conversation was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the conversation was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/message/{messageId}/delete": {
+      "post": {
+        "operationId": "deleteConversationMessage",
+        "summary": "Delete a message from a conversation",
+        "tags": ["Conversation Message"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation containing the message",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "messageId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the message to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted message",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/message/{messageId}/fetch": {
+      "get": {
+        "operationId": "fetchConversationMessage",
+        "summary": "Fetch a conversation message",
+        "tags": ["Conversation Message"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation containing the message",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "messageId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the message to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The message was fetched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the fetched message",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of the fetched message",
+                      "type": "string"
+                    },
+                    "text": {
+                      "description": "The text of the fetched message",
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "description": "The date and time when the message was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The date and time when the message was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "type", "text", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/message/{messageId}/update": {
+      "post": {
+        "operationId": "updateCoversationMessage",
+        "summary": "Update a conversation message",
+        "tags": ["Conversation Message"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "messageId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the message",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "description": "The updated text of the message",
+                    "type": "string"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated message",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/message/create": {
+      "post": {
+        "operationId": "createConversationMessage",
+        "summary": "Create a new message",
+        "tags": ["Conversation Message"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": { "$ref": "#/components/schemas/MessageType" },
+                  "text": {
+                    "description": "The text of the message",
+                    "type": "string"
+                  },
+                  "entities": {
+                    "description": "Known entities",
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/Entity" }
+                  }
+                },
+                "required": ["type", "text"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created message",
+                      "type": "string"
+                    },
+                    "entities": {
+                      "description": "Extracted entities from the message",
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Entity" }
+                    }
+                  },
+                  "required": ["id", "entities"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/message/list": {
+      "get": {
+        "operationId": "listConversationMessages",
+        "summary": "List messages in a conversation",
+        "tags": ["Conversation Message"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation to list messages for",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The messages were listed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of conversation messages",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the message",
+                            "type": "string"
+                          },
+                          "type": {
+                            "$ref": "#/components/schemas/MessageType"
+                          },
+                          "text": {
+                            "description": "The text of the message",
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "description": "The timestamp of when the message was created (in milliseconds)",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp of when the message was last updated  (in milliseconds)",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/receive": {
+      "post": {
+        "operationId": "receiveConversationMessage",
+        "summary": "Receive a conversation response",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation to receive message from",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": {} }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was received successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created message",
+                      "type": "string"
+                    },
+                    "text": {
+                      "description": "The text of the message received",
+                      "type": "string"
+                    },
+                    "usage": { "$ref": "#/components/schemas/Usage" }
+                  },
+                  "required": ["id", "text", "usage"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["result"]
+                        },
+                        "data": {
+                          "description": "The data for the event",
+                          "type": "object",
+                          "properties": {
+                            "text": {
+                              "description": "The next bot message",
+                              "type": "string"
+                            },
+                            "usage": { "$ref": "#/components/schemas/Usage" }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["token"]
+                        },
+                        "data": {
+                          "description": "The data for the event",
+                          "type": "object",
+                          "properties": {
+                            "token": {
+                              "description": "The token generated",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/send": {
+      "post": {
+        "operationId": "sendConversationMessage",
+        "summary": "Send a message to a conversation",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation to send the message to",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "description": "The text of the message to send",
+                    "type": "string"
+                  },
+                  "entities": {
+                    "description": "Known entities",
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/Entity" }
+                  }
+                },
+                "required": ["text"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the sent message",
+                      "type": "string"
+                    },
+                    "entities": {
+                      "description": "Extracted entities from the message",
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Entity" }
+                    }
+                  }
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["result"]
+                        },
+                        "data": {
+                          "description": "The data for the event",
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The ID of the sent message",
+                              "type": "string"
+                            },
+                            "entities": {
+                              "description": "Extracted entities from the message",
+                              "type": "array",
+                              "items": { "$ref": "#/components/schemas/Entity" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/session/create": {
+      "post": {
+        "operationId": "createConversationSession",
+        "summary": "Create a new session",
+        "description": "Conversation tokens allow client-side applications to create a unique, authenticated credential for each conversation. This token can be used to interact with the conversation/{conversationId}/send, conversation/{conversationId}/receive, and conversation/{conversationId}/message/create routes on api.chatbotkit.com. By creating an individual token for each conversation, a client-side application is able to directly access and manipulate the conversation through these routes. Without conversation tokens, a client-side application would need to authenticate and access ChatBotKit conversation routes through a server-side application, which can be more complex and require additional infrastructure. By providing a way for client-side applications to authenticate and access the conversation routes directly, the token route simplifies the process of integrating with api.chatbotkit.com and makes it more convenient for developers to build chatbot applications.\n",
+        "tags": ["Conversation Session"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the conversation"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "durationInSeconds": {
+                    "description": "The maximum amount of time this session will stay open",
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The session was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the conversation",
+                      "type": "string"
+                    },
+                    "token": {
+                      "description": "The token for this conversation",
+                      "type": "string"
+                    },
+                    "expiresAt": {
+                      "description": "The time the token will expire in milliseconds",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "token", "expiresAt"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/{conversationId}/update": {
+      "post": {
+        "operationId": "updateConversation",
+        "summary": "Update the specified conversation",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The conversation was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated conversation",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/complete": {
+      "post": {
+        "operationId": "completeConversation",
+        "summary": "Complete the next message in a conversation",
+        "tags": ["Conversation"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "description": "The model to use for the conversation",
+                    "type": "string"
+                  },
+                  "messages": {
+                    "description": "An array of messages to be added to the conversation",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": { "$ref": "#/components/schemas/MessageType" },
+                        "text": {
+                          "description": "The text of the message",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "datasetId": {
+                    "description": "The id of the dataset to use",
+                    "type": "string"
+                  },
+                  "skillsetId": {
+                    "description": "The id of the skillset to use",
+                    "type": "string"
+                  }
+                },
+                "required": ["messages"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The next message in the conversation completed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "description": "The next bot message",
+                      "type": "string"
+                    },
+                    "usage": { "$ref": "#/components/schemas/Usage" }
+                  }
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["result"]
+                        },
+                        "data": {
+                          "description": "The data for the event",
+                          "type": "object",
+                          "properties": {
+                            "text": {
+                              "description": "The next bot message",
+                              "type": "string"
+                            },
+                            "usage": { "$ref": "#/components/schemas/Usage" }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["token"]
+                        },
+                        "data": {
+                          "description": "The data for the event",
+                          "type": "object",
+                          "properties": {
+                            "token": {
+                              "description": "The token generated",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/create": {
+      "post": {
+        "operationId": "createConversation",
+        "summary": "Create a new conversation",
+        "tags": ["Conversation"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "botId": {
+                    "description": "The bot id assigned to this conversation",
+                    "type": "string"
+                  },
+                  "backstory": {
+                    "description": "The backstory for the conversation",
+                    "type": "string"
+                  },
+                  "model": {
+                    "description": "The model to use for the conversation",
+                    "type": "string"
+                  },
+                  "datasetId": {
+                    "description": "The ID of the dataset to use for the conversation",
+                    "type": "string"
+                  },
+                  "skillsetId": {
+                    "description": "The ID of the skillset to use for the conversation",
+                    "type": "string"
+                  },
+                  "privacy": {
+                    "description": "Turn conversation privacy features on",
+                    "type": "boolean"
+                  },
+                  "moderation": {
+                    "description": "Turn conversation moderation features on",
+                    "type": "boolean"
+                  },
+                  "messages": {
+                    "description": "An array of messages to be added to the conversation",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": { "$ref": "#/components/schemas/MessageType" },
+                        "text": {
+                          "description": "The text of the message",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The conversation was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created conversation",
+                      "type": "string"
+                    },
+                    "messages": {
+                      "description": "An array of messages included in the conversation",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/components/schemas/MessageType"
+                          },
+                          "text": {
+                            "description": "The text of the message",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/conversation/export": {
+      "get": {
+        "operationId": "exportConversations",
+        "summary": "Export conversations",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The export of conversations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the conversation",
+                            "type": "string"
+                          },
+                          "botId": {
+                            "description": "The bot id assigned to this conversation",
+                            "type": "string"
+                          },
+                          "backstory": {
+                            "description": "The backstory for the conversation",
+                            "type": "string"
+                          },
+                          "model": {
+                            "description": "The model used in the conversation",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "The ID of the dataset used in the conversation",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "The ID of the skillset used in the conversation",
+                            "type": "string"
+                          },
+                          "meta": { "$ref": "#/components/schemas/Meta" },
+                          "createdAt": {
+                            "description": "The timestamp for when the conversation was created (in milliseconds)",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp for when the conversation was last updated (in milliseconds)",
+                            "type": "number"
+                          },
+                          "messages": {
+                            "description": "The messages associated with this conversation",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "description": "The ID of the message",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "$ref": "#/components/schemas/MessageType"
+                                },
+                                "text": {
+                                  "description": "The text of the message",
+                                  "type": "string"
+                                },
+                                "createdAt": {
+                                  "description": "The timestamp of when the message was created (in milliseconds)",
+                                  "type": "number"
+                                },
+                                "updatedAt": {
+                                  "description": "The timestamp of when the message was last updated  (in milliseconds)",
+                                  "type": "number"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1conversation~1export/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "text/csv": { "schema": { "type": "string" } }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/conversation/list": {
+      "get": {
+        "operationId": "listConversations",
+        "summary": "List conversations",
+        "tags": ["Conversation"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of conversations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the conversation",
+                            "type": "string"
+                          },
+                          "botId": {
+                            "description": "The bot id assigned to this conversation",
+                            "type": "string"
+                          },
+                          "backstory": {
+                            "description": "The backstory for the conversation",
+                            "type": "string"
+                          },
+                          "model": {
+                            "description": "The model used in the conversation",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "The ID of the dataset used in the conversation",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "The ID of the skillset used in the conversation",
+                            "type": "string"
+                          },
+                          "meta": { "$ref": "#/components/schemas/Meta" },
+                          "createdAt": {
+                            "description": "The timestamp for when the conversation was created (in milliseconds)",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp for when the conversation was last updated (in milliseconds)",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/delete": {
+      "post": {
+        "operationId": "deleteDataset",
+        "summary": "Delete a dataset",
+        "tags": ["Dataset"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The dataset was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted dataset",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/fetch": {
+      "get": {
+        "operationId": "fetchDataset",
+        "summary": "Fetch a dataset",
+        "tags": ["Dataset"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The dataset was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the dataset",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the dataset",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the dataset",
+                      "type": "string"
+                    },
+                    "store": {
+                      "description": "The store for the dataset",
+                      "type": "string"
+                    },
+                    "recordMaxTokens": {
+                      "description": "The total number of tokens for each record",
+                      "type": "number"
+                    },
+                    "searchMaxRecords": {
+                      "description": "The total number of records to return during search",
+                      "type": "number"
+                    },
+                    "searchMaxTokens": {
+                      "description": "The total number of tokens to use during search",
+                      "type": "number"
+                    },
+                    "matchInstruction": {
+                      "description": "An instruction to include before found records",
+                      "type": "string"
+                    },
+                    "mismatchInstruction": {
+                      "description": "An instruction to include if no records where found",
+                      "type": "string"
+                    },
+                    "visibility": {
+                      "$ref": "#/components/schemas/DatasetVisibility"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the dataset was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the dataset was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "store",
+                    "visibility",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/file/{fileId}/attach": {
+      "post": {
+        "operationId": "attachDatasetFile",
+        "summary": "Attach dataset file",
+        "tags": ["Dataset File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": { "description": "The ID of the file", "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "$ref": "#/components/schemas/DatasetFileAttachmentType"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The dataset file that was attached successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the dataset file",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/file/{fileId}/detach": {
+      "post": {
+        "operationId": "detachDatasetFile",
+        "summary": "Detach dataset file",
+        "tags": ["Dataset File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": { "description": "The ID of the file", "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The dataset file that was detached successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the dataset file",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/file/{fileId}/sync": {
+      "post": {
+        "operationId": "syncDatasetFile",
+        "summary": "Sync dataset file",
+        "tags": ["Dataset File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": { "description": "The ID of the file", "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The dataset file that was synced successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the dataset file",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/record/{recordId}/delete": {
+      "post": {
+        "operationId": "deleteDatasetRecord",
+        "summary": "Delete a record from a dataset",
+        "tags": ["Dataset Record"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the record to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The record was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted record",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/record/{recordId}/fetch": {
+      "get": {
+        "operationId": "fetchDatasetRecord",
+        "summary": "Fetch a record from a dataset",
+        "tags": ["Dataset Record"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the record to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The dataset was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the dataset record",
+                      "type": "string"
+                    },
+                    "text": {
+                      "description": "The text of the dataset record",
+                      "type": "string"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the dataset record was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the dataset record was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "text", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/record/{recordId}/update": {
+      "post": {
+        "operationId": "updateDatasetRecord",
+        "summary": "Update a dataset record",
+        "tags": ["Dataset Record"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "description": "The text to update the record with",
+                    "type": "string"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The record was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated record",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/record/create": {
+      "post": {
+        "operationId": "createDatasetRecord",
+        "summary": "Create a new record",
+        "tags": ["Dataset Record"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "description": "The text of the record",
+                    "type": "string"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                },
+                "required": ["text"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The record was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created record",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/record/export": {
+      "get": {
+        "operationId": "exportDatasetRecords",
+        "summary": "Export dataset records",
+        "tags": ["Dataset Record"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset to export",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The export of dataset records was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "text": { "type": "string" },
+                          "meta": { "type": "object" },
+                          "createdAt": { "type": "integer" },
+                          "updatedAt": { "type": "integer" }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1dataset~1%7BdatasetId%7D~1record~1export/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "text/csv": { "schema": { "type": "string" } }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/record/list": {
+      "get": {
+        "operationId": "listDatasetRecords",
+        "summary": "Retrieve a list of records for a dataset",
+        "tags": ["Dataset Record"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of records was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "text": { "type": "string" },
+                          "meta": { "type": "object" },
+                          "createdAt": { "type": "integer" },
+                          "updatedAt": { "type": "integer" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/search": {
+      "post": {
+        "operationId": "searchDataset",
+        "summary": "Search a dataset for records matching a given search query",
+        "tags": ["Dataset"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset to search",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "description": "The search query to use for the search",
+                    "type": "string"
+                  }
+                },
+                "required": ["search"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The search was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the dataset that was searched",
+                      "type": "string"
+                    },
+                    "records": {
+                      "description": "An array of records matching the search query",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "text": { "type": "string" }
+                        },
+                        "required": ["id", "text"]
+                      }
+                    }
+                  },
+                  "required": ["id", "records"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/dataset/{datasetId}/update": {
+      "post": {
+        "operationId": "updateDataset",
+        "summary": "Update the specified dataset",
+        "tags": ["Dataset"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The new name for the dataset",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The new description for the dataset",
+                    "type": "string"
+                  },
+                  "recordMaxTokens": {
+                    "description": "The total number of tokens to for each record",
+                    "type": "number"
+                  },
+                  "searchMaxRecords": {
+                    "description": "The total number of records to return during search",
+                    "type": "number"
+                  },
+                  "searchMaxTokens": {
+                    "description": "The total number of tokens to use during search",
+                    "type": "number"
+                  },
+                  "matchInstruction": {
+                    "description": "An instruction to include before found records",
+                    "type": "string"
+                  },
+                  "mismatchInstruction": {
+                    "description": "An instruction to include if no records where found",
+                    "type": "string"
+                  },
+                  "visibility": {
+                    "$ref": "#/components/schemas/DatasetVisibility"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The dataset was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated dataset",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/dataset/create": {
+      "post": {
+        "operationId": "createDataset",
+        "summary": "Create a new dataset",
+        "tags": ["Dataset"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the dataset",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "A description of the dataset",
+                    "type": "string"
+                  },
+                  "store": {
+                    "description": "The storage class for this dataset",
+                    "type": "string"
+                  },
+                  "recordMaxTokens": {
+                    "description": "The total number of tokens for each record",
+                    "type": "number"
+                  },
+                  "searchMaxRecords": {
+                    "description": "The total number of records to return during search",
+                    "type": "number"
+                  },
+                  "searchMaxTokens": {
+                    "description": "The total number of tokens to use during search",
+                    "type": "number"
+                  },
+                  "matchInstruction": {
+                    "description": "An instruction to include before found records",
+                    "type": "string"
+                  },
+                  "mismatchInstruction": {
+                    "description": "An instruction to include if no records where found",
+                    "type": "string"
+                  },
+                  "visibility": {
+                    "$ref": "#/components/schemas/DatasetVisibility"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The dataset was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created dataset",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/dataset/list": {
+      "get": {
+        "operationId": "listDatasets",
+        "summary": "Retrieve a list of datasets belonging to the current user",
+        "tags": ["Dataset"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of datasets was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of datasets",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the dataset",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the dataset",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the dataset",
+                            "type": "string"
+                          },
+                          "visibility": {
+                            "$ref": "#/components/schemas/DatasetVisibility"
+                          },
+                          "meta": { "$ref": "#/components/schemas/Meta" },
+                          "createdAt": {
+                            "description": "The timestamp when the dataset was created",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp when the dataset was last updated",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/file/{fileId}/delete": {
+      "post": {
+        "operationId": "deleteFile",
+        "summary": "Delete a file",
+        "tags": ["File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the file to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted file",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/file/{fileId}/download": {
+      "get": {
+        "operationId": "downloadFile",
+        "summary": "Download a file",
+        "tags": ["File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the file to download",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "The file was downloaded successfully" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/file/{fileId}/fetch": {
+      "get": {
+        "operationId": "fetchFile",
+        "summary": "Fetch a file",
+        "tags": ["File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the file to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the file",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the file",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the file",
+                      "type": "string"
+                    },
+                    "visibility": {
+                      "$ref": "#/components/schemas/FileVisibility"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the file was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the file was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "visibility", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/file/{fileId}/sync": {
+      "post": {
+        "operationId": "syncFile",
+        "summary": "Sync file",
+        "tags": ["File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the file to sync",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was synced successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the file",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/file/{fileId}/update": {
+      "post": {
+        "operationId": "updateFile",
+        "summary": "Update the specified file",
+        "tags": ["File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The new name for the file",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The new description for the file",
+                    "type": "string"
+                  },
+                  "visibility": {
+                    "$ref": "#/components/schemas/FileVisibility"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated file",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/file/{fileId}/upload": {
+      "post": {
+        "operationId": "uploadFile",
+        "summary": "Upload the specified file",
+        "tags": ["File"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data:": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was uploadd successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the uploadd file",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/file/create": {
+      "post": {
+        "operationId": "createFile",
+        "summary": "Create a new file",
+        "tags": ["File"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the file",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "A description of the file",
+                    "type": "string"
+                  },
+                  "visibility": {
+                    "$ref": "#/components/schemas/FileVisibility"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created file",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/file/list": {
+      "get": {
+        "operationId": "listFiles",
+        "summary": "Retrieve a list of files belonging to the current user",
+        "tags": ["File"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of files was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of files",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the file",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the file",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the file",
+                            "type": "string"
+                          },
+                          "visibility": {
+                            "$ref": "#/components/schemas/FileVisibility"
+                          },
+                          "meta": { "$ref": "#/components/schemas/Meta" },
+                          "createdAt": {
+                            "description": "The timestamp when the file was created",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp when the file was last updated",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/integration/sitemap/{sitemapIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteSitemapIntegration",
+        "summary": "Delete Sitemap integration",
+        "tags": ["Sitemap Integration"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sitemapIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Sitemap integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The Sitemap integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Sitemap integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/integration/sitemap/{sitemapIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchSitemapIntegration",
+        "summary": "Fetch a sitemapIntegration",
+        "tags": ["Sitemap Integration"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sitemapIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Sitemap integration to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Sitemap integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Sitemap integration",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the Sitemap integration",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the Sitemap integration",
+                      "type": "string"
+                    },
+                    "datasetId": {
+                      "description": "The ID of the dataset used in the Sitemap integration",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "The URL to use for this Sitemap integration",
+                      "type": "string"
+                    },
+                    "glob": {
+                      "description": "The glob rules to use for this Sitemap integration",
+                      "type": "string"
+                    },
+                    "selectors": {
+                      "description": "The selector rules to use for this Sitemap integration",
+                      "type": "string"
+                    },
+                    "javascript": {
+                      "description": "Indicates if the Sitemap integration should use JavaScript during the spidering process",
+                      "type": "boolean"
+                    },
+                    "syncSchedule": {
+                      "description": "The sync schedule to use for this Sitemap integration",
+                      "type": "string"
+                    },
+                    "expiresIn": {
+                      "description": "Record expiry in milliseconds",
+                      "type": "number"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the Sitemap integration was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the Sitemap integration was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/integration/sitemap/{sitemapIntegrationId}/sync": {
+      "post": {
+        "operationId": "syncSitemapIntegration",
+        "summary": "Sync a Sitemap integration",
+        "tags": ["Sitemap Integration"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sitemapIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Sitemap integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The Sitemap integration was scheduled for syncing successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Sitemap Integration",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/integration/sitemap/{sitemapIntegrationId}/update": {
+      "post": {
+        "operationId": "updateSitemapIntegration",
+        "summary": "Update a Sitemap integration",
+        "tags": ["Sitemap Integration"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sitemapIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Sitemap integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "datasetId": {
+                    "description": "The ID of the dataset to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "The URL to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "glob": {
+                    "description": "The glob rules to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "selectors": {
+                    "description": "The selector rules to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "javascript": {
+                    "description": "Indicates if the Sitemap integration should use JavaScript during the spidering process",
+                    "type": "boolean"
+                  },
+                  "syncSchedule": {
+                    "description": "The sync schedule to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "expiresIn": {
+                    "description": "Record expiry in milliseconds",
+                    "type": "number"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Sitemap integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Sitemap Integration",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/integration/sitemap/create": {
+      "post": {
+        "operationId": "createSitemapIntegration",
+        "summary": "Create a new Sitemap integration",
+        "tags": ["Sitemap Integration"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "datasetId": {
+                    "description": "The ID of the dataset to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "The URL to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "glob": {
+                    "description": "The glob rules to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "selectors": {
+                    "description": "The selector rules to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "javascript": {
+                    "description": "Indicates if the Sitemap integration should use JavaScript during the spidering process",
+                    "type": "boolean"
+                  },
+                  "syncSchedule": {
+                    "description": "The sync schedule to use for this Sitemap integration",
+                    "type": "string"
+                  },
+                  "expiresIn": {
+                    "description": "Record expiry in milliseconds",
+                    "type": "number"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Sitemap integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Sitemap Integration",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/integration/sitemap/list": {
+      "get": {
+        "operationId": "listSitemapIntegrations",
+        "summary": "List Sitemap integrations",
+        "tags": ["Sitemap Integration"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Sitemap integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the Sitemap integration",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the Sitemap integration",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the Sitemap integration",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "The ID of the dataset used by the Sitemap integration",
+                            "type": "string"
+                          },
+                          "meta": { "$ref": "#/components/schemas/Meta" },
+                          "createdAt": {
+                            "description": "The timestamp for when the Sitemap integration was created (in milliseconds)",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp for when the Sitemap integration was last updated (in milliseconds)",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/integration/whatsapp/{whatsappIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteWhatsAppIntegration",
+        "summary": "Delete WhatsApp integration",
+        "tags": ["WhatsApp Integration"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "whatsappIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the WhatsApp integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The WhatsApp integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted WhatsApp integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/integration/whatsapp/{whatsappIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchWhatsAppIntegration",
+        "summary": "Fetch a whatsappIntegration",
+        "tags": ["WhatsApp Integration"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "whatsappIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the WhatsApp integration to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The WhatsApp integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    { "$ref": "#/components/schemas/BotRefOrConfig" },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "The name for this WhatsApp integration",
+                          "type": "string"
+                        },
+                        "description": {
+                          "description": "The description for this WhatsApp integration",
+                          "type": "string"
+                        },
+                        "phoneNumberId": {
+                          "description": "The WhatsApp integration phone number ID",
+                          "type": "string"
+                        },
+                        "accessToken": {
+                          "description": "The WhatsApp integration access token",
+                          "type": "string"
+                        },
+                        "sessionDuration": {
+                          "description": "The session duration (in milliseconds)",
+                          "type": "number"
+                        },
+                        "meta": { "$ref": "#/components/schemas/Meta" }
+                      }
+                    }
+                  ],
+                  "required": ["id", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/integration/whatsapp/{whatsappIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupWhatsAppIntegration",
+        "summary": "Setup a WhatsApp integration",
+        "tags": ["WhatsApp Integration"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "whatsappIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the WhatsApp integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The WhatsApp integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the WhatsApp Integration",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/integration/whatsapp/{whatsappIntegrationId}/update": {
+      "post": {
+        "operationId": "updateWhatsAppIntegration",
+        "summary": "Update a WhatsApp integration",
+        "tags": ["WhatsApp Integration"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "whatsappIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the WhatsApp integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  { "$ref": "#/components/schemas/BotRefOrConfig" },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name for this WhatsApp integration",
+                        "type": "string"
+                      },
+                      "description": {
+                        "description": "The description for this WhatsApp integration",
+                        "type": "string"
+                      },
+                      "phoneNumberId": {
+                        "description": "The WhatsApp integration phone number ID",
+                        "type": "string"
+                      },
+                      "accessToken": {
+                        "description": "The WhatsApp integration access token",
+                        "type": "string"
+                      },
+                      "sessionDuration": {
+                        "description": "The session duration (in milliseconds)",
+                        "type": "number"
+                      },
+                      "meta": { "$ref": "#/components/schemas/Meta" }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The WhatsApp integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the WhatsApp Integration",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/integration/whatsapp/create": {
+      "post": {
+        "operationId": "createWhatsAppIntegration",
+        "summary": "Create a new WhatsApp integration",
+        "tags": ["WhatsApp Integration"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  { "$ref": "#/components/schemas/BotRefOrConfig" },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name for this WhatsApp integration",
+                        "type": "string"
+                      },
+                      "description": {
+                        "description": "The description for this WhatsApp integration",
+                        "type": "string"
+                      },
+                      "phoneNumberId": {
+                        "description": "The WhatsApp integration phone number ID",
+                        "type": "string"
+                      },
+                      "accessToken": {
+                        "description": "The WhatsApp integration access token",
+                        "type": "string"
+                      },
+                      "sessionDuration": {
+                        "description": "The session duration (in milliseconds)",
+                        "type": "number"
+                      },
+                      "meta": { "$ref": "#/components/schemas/Meta" }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The WhatsApp integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the WhatsApp Integration",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/integration/whatsapp/list": {
+      "get": {
+        "operationId": "listWhatsAppIntegrations",
+        "summary": "List WhatsApp integrations",
+        "tags": ["WhatsApp Integration"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of WhatsApp integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          { "$ref": "#/components/schemas/BotRefOrConfig" },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "The ID of the WhatsApp integration",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the WhatsApp integration",
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "The description of the WhatsApp integration",
+                                "type": "string"
+                              },
+                              "meta": { "$ref": "#/components/schemas/Meta" },
+                              "createdAt": {
+                                "description": "The timestamp for when the WhatsApp integration was created (in milliseconds)",
+                                "type": "number"
+                              },
+                              "updatedAt": {
+                                "description": "The timestamp for when the WhatsApp integration was last updated (in milliseconds)",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/partner/user/{userId}/delete": {
+      "post": {
+        "operationId": "deletePartnerUser",
+        "summary": "Delete a partner user",
+        "tags": ["Partner"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the user to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The user was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted user",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/partner/user/{userId}/fetch": {
+      "get": {
+        "operationId": "fetchPartnerUser",
+        "summary": "Fetch a partner user",
+        "tags": ["Partner"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the partner user to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The partner user was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the partner user",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the partner user",
+                      "type": "string"
+                    },
+                    "image": {
+                      "description": "The image of the partner user",
+                      "type": "string"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the partner user was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the partner user was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/partner/user/{userId}/token/{tokenId}/delete": {
+      "post": {
+        "operationId": "deletePartnerUserToken",
+        "summary": "Delete a partner user token",
+        "tags": ["Partner"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": { "description": "The ID of the user", "type": "string" }
+          },
+          {
+            "in": "path",
+            "name": "tokenId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the user token to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The user token was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted user token",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/partner/user/{userId}/token/create": {
+      "post": {
+        "operationId": "createPartnerUserToken",
+        "summary": "Create a new partner user token",
+        "tags": ["Partner"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": { "description": "The ID of the user", "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The user token was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created user token",
+                      "type": "string"
+                    },
+                    "token": {
+                      "description": "The token of the created user token",
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "description": "The timestamp for when the user token was created (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "token", "createdAt"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/partner/user/{userId}/token/list": {
+      "get": {
+        "operationId": "listPartnerUserTokens",
+        "summary": "List partner user tokens",
+        "tags": ["Partner"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": { "description": "The ID of the user", "type": "string" }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of user tokens was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the user",
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "description": "The timestamp for when the user token was created (in milliseconds)",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/partner/user/{userId}/update": {
+      "post": {
+        "operationId": "updatePartnerUser",
+        "summary": "Update a partner user",
+        "tags": ["Partner"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the partner user",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the partner user",
+                    "type": "string"
+                  },
+                  "image": {
+                    "description": "The image of the partner user",
+                    "type": "string"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated partner user",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/partner/user/create": {
+      "post": {
+        "operationId": "createPartnerUser",
+        "summary": "Create a new partner user",
+        "tags": ["Partner"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the partner user",
+                    "type": "string"
+                  },
+                  "image": {
+                    "description": "The image of the partner user",
+                    "type": "string"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The user was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created user",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/partner/user/list": {
+      "get": {
+        "operationId": "listPartnerUsers",
+        "summary": "List partner users",
+        "tags": ["Partner"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of users was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the user",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the user",
+                            "type": "string"
+                          },
+                          "image": {
+                            "description": "The image of the user",
+                            "type": "string"
+                          },
+                          "meta": { "$ref": "#/components/schemas/Meta" },
+                          "createdAt": {
+                            "description": "The timestamp for when the user was created (in milliseconds)",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp for when the user was last updated (in milliseconds)",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/ability/{abilityId}/delete": {
+      "post": {
+        "operationId": "deleteSkillsetAbility",
+        "summary": "Delete a ability from a skillset",
+        "tags": ["Skillset Ability"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the skillset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "abilityId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the ability to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The ability was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted ability",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/ability/{abilityId}/fetch": {
+      "get": {
+        "operationId": "fetchSkillsetAbility",
+        "summary": "Fetch a ability from a skillset",
+        "tags": ["Skillset Ability"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the skillset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "abilityId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the ability to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The skillset was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the skillset ability",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the skillset ability",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the skillset ability",
+                      "type": "string"
+                    },
+                    "instruction": {
+                      "description": "The instruction of the skillset ability",
+                      "type": "string"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the skillset ability was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the skillset ability was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "instruction", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/ability/{abilityId}/update": {
+      "post": {
+        "operationId": "updateSkillsetAbility",
+        "summary": "Update a skillset ability",
+        "tags": ["Skillset Ability"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "path",
+            "name": "abilityId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the ability",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description for the ability",
+                    "type": "string"
+                  },
+                  "instruction": {
+                    "description": "The text to update the ability with",
+                    "type": "string"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The ability was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated ability",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/ability/create": {
+      "post": {
+        "operationId": "createSkillsetAbility",
+        "summary": "Create a new ability",
+        "tags": ["Skillset Ability"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the ability",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description for the ability",
+                    "type": "string"
+                  },
+                  "instruction": {
+                    "description": "The instruction of the ability",
+                    "type": "string"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                },
+                "required": ["name", "description", "instruction"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The ability was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created ability",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/ability/export": {
+      "get": {
+        "operationId": "exportSkillsetAbilities",
+        "summary": "Export skillset abilities",
+        "tags": ["Skillset Ability"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the skillset to export",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The export of skillset abilities was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "name": { "type": "string" },
+                          "description": { "type": "string" },
+                          "instruction": { "type": "string" },
+                          "meta": { "type": "object" },
+                          "createdAt": { "type": "integer" },
+                          "updatedAt": { "type": "integer" }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1skillset~1%7BskillsetId%7D~1ability~1export/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "text/csv": { "schema": { "type": "string" } }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/ability/list": {
+      "get": {
+        "operationId": "listSkillsetAbilities",
+        "summary": "Retrieve a list of abilities for a skillset",
+        "tags": ["Skillset Ability"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the skillset"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of abilities was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "name": { "type": "string" },
+                          "description": { "type": "string" },
+                          "instruction": { "type": "string" },
+                          "meta": { "type": "object" },
+                          "createdAt": { "type": "integer" },
+                          "updatedAt": { "type": "integer" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/delete": {
+      "post": {
+        "operationId": "deleteSkillset",
+        "summary": "Delete a skillset",
+        "tags": ["Skillset"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the skillset to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "type": "object" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "The skillset was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted skillset",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/fetch": {
+      "get": {
+        "operationId": "fetchSkillset",
+        "summary": "Fetch a skillset",
+        "tags": ["Skillset"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the skillset to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The skillset was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the skillset",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the skillset",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the skillset",
+                      "type": "string"
+                    },
+                    "visibility": {
+                      "$ref": "#/components/schemas/SkillsetVisibility"
+                    },
+                    "meta": { "$ref": "#/components/schemas/Meta" },
+                    "createdAt": {
+                      "description": "The timestamp for when the skillset was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the skillset was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": ["id", "visiblity", "createdAt", "updatedAt"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/skillset/{skillsetId}/update": {
+      "post": {
+        "operationId": "updateSkillset",
+        "summary": "Update the specified skillset",
+        "tags": ["Skillset"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The new name for the skillset",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The new description for the skillset",
+                    "type": "string"
+                  },
+                  "visibility": {
+                    "$ref": "#/components/schemas/SkillsetVisibility"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The skillset was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated skillset",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/skillset/create": {
+      "post": {
+        "operationId": "createSkillset",
+        "summary": "Create a new skillset",
+        "tags": ["Skillset"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the skillset",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "A description of the skillset",
+                    "type": "string"
+                  },
+                  "visibility": {
+                    "$ref": "#/components/schemas/SkillsetVisibility"
+                  },
+                  "meta": { "$ref": "#/components/schemas/Meta" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The skillset was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created skillset",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id"]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
+        }
+      }
+    },
+    "/skillset/list": {
+      "get": {
+        "operationId": "listSkillsets",
+        "summary": "Retrieve a list of skillsets belonging to the current user",
+        "tags": ["Skillset"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of skillsets was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of skillsets",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the skillset",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the skillset",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the skillset",
+                            "type": "string"
+                          },
+                          "visibility": {
+                            "$ref": "#/components/schemas/SkillsetVisibility"
+                          },
+                          "meta": { "$ref": "#/components/schemas/Meta" },
+                          "createdAt": {
+                            "description": "The timestamp when the skillset was created",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp when the skillset was last updated",
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/usage/fetch": {
+      "get": {
+        "operationId": "usageFetch",
+        "summary": "Fetch usage",
+        "tags": ["Usage"],
+        "responses": {
+          "200": {
+            "description": "The usage information was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "description": "The number of tokens the user has used",
+                      "type": "string"
+                    },
+                    "conversations": {
+                      "description": "The number of conversations the user has created",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["tokens", "conversations"]
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    }
+  },
+  "tags": []
+}

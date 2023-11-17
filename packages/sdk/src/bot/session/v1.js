@@ -21,7 +21,11 @@
 export async function sessionCreate(client, botId, request) {
   const url = `/api/v1/bot/${botId}/session/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['createBotSession']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['createBotSession']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }

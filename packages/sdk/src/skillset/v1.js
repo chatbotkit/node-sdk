@@ -50,7 +50,10 @@ export function skillsetList(client, cursor) {
 export async function skillsetFetch(client, skillsetId) {
   const url = `/api/v1/skillset/${skillsetId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../types/api/v1.js').operations['fetchSkillset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -67,9 +70,13 @@ export async function skillsetFetch(client, skillsetId) {
 export async function skillsetCreate(client, request) {
   const url = `/api/v1/skillset/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['createSkillset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['createSkillset']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -87,9 +94,13 @@ export async function skillsetCreate(client, request) {
 export async function skillsetUpdate(client, skillsetId, request) {
   const url = `/api/v1/skillset/${skillsetId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['updateSkillset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['updateSkillset']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -104,7 +115,11 @@ export async function skillsetUpdate(client, skillsetId, request) {
 export async function skillsetDelete(client, skillsetId) {
   const url = `/api/v1/skillset/${skillsetId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['deleteSkillset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['deleteSkillset']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }

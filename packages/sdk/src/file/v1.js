@@ -50,7 +50,10 @@ export function fileList(client, cursor) {
 export async function fileFetch(client, fileId) {
   const url = `/api/v1/file/${fileId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../types/api/v1.js').operations['fetchFile']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -67,9 +70,13 @@ export async function fileFetch(client, fileId) {
 export async function fileCreate(client, request) {
   const url = `/api/v1/file/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['createFile']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['createFile']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -87,9 +94,13 @@ export async function fileCreate(client, request) {
 export async function fileUpdate(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['updateFile']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['updateFile']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -104,9 +115,13 @@ export async function fileUpdate(client, fileId, request) {
 export async function fileDelete(client, fileId) {
   const url = `/api/v1/file/${fileId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['deleteFile']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['deleteFile']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }
 
 /**

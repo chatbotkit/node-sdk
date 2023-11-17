@@ -65,7 +65,7 @@ export default function Home() {
           </div>
           <AutoTextarea
             value={text}
-            onChange={(e) => setText(event.target.value)}
+            onChange={(e) => setText(e.target.value)}
             onKeyDown={handleOnKeyDown}
           />
         </>

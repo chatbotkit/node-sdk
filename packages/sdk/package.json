@@ -3,6 +3,9 @@
   "version": "0.15.1",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.16.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chatbotkit/node-sdk.git"
@@ -25,14 +28,24 @@
   "type": "module",
   "main": "./dist/esm/index.js",
   "exports": {
-    ".": {
+    "./bot": {
       "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
+        "types": "./dist/cjs/bot/index.d.ts",
+        "default": "./dist/cjs/bot/index.cjs"
       },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "types": "./dist/esm/bot/index.d.ts",
+        "default": "./dist/esm/bot/index.js"
+      }
+    },
+    "./bot/index": {
+      "require": {
+        "types": "./dist/cjs/bot/index.d.ts",
+        "default": "./dist/cjs/bot/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/index.d.ts",
+        "default": "./dist/esm/bot/index.js"
       }
     },
     "./bot/index.js": {
@@ -45,6 +58,26 @@
         "default": "./dist/esm/bot/index.js"
       }
     },
+    "./bot/session": {
+      "require": {
+        "types": "./dist/cjs/bot/session/index.d.ts",
+        "default": "./dist/cjs/bot/session/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/session/index.d.ts",
+        "default": "./dist/esm/bot/session/index.js"
+      }
+    },
+    "./bot/session/index": {
+      "require": {
+        "types": "./dist/cjs/bot/session/index.d.ts",
+        "default": "./dist/cjs/bot/session/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/session/index.d.ts",
+        "default": "./dist/esm/bot/session/index.js"
+      }
+    },
     "./bot/session/index.js": {
       "require": {
         "types": "./dist/cjs/bot/session/index.d.ts",
@@ -53,6 +86,16 @@
       "import": {
         "types": "./dist/esm/bot/session/index.d.ts",
         "default": "./dist/esm/bot/session/index.js"
+      }
+    },
+    "./bot/session/v1": {
+      "require": {
+        "types": "./dist/cjs/bot/session/v1.d.ts",
+        "default": "./dist/cjs/bot/session/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/session/v1.d.ts",
+        "default": "./dist/esm/bot/session/v1.js"
       }
     },
     "./bot/session/v1.js": {
@@ -65,6 +108,16 @@
         "default": "./dist/esm/bot/session/v1.js"
       }
     },
+    "./bot/v1": {
+      "require": {
+        "types": "./dist/cjs/bot/v1.d.ts",
+        "default": "./dist/cjs/bot/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/bot/v1.d.ts",
+        "default": "./dist/esm/bot/v1.js"
+      }
+    },
     "./bot/v1.js": {
       "require": {
         "types": "./dist/cjs/bot/v1.d.ts",
@@ -73,6 +126,16 @@
       "import": {
         "types": "./dist/esm/bot/v1.d.ts",
         "default": "./dist/esm/bot/v1.js"
+      }
+    },
+    "./client": {
+      "require": {
+        "types": "./dist/cjs/client.d.ts",
+        "default": "./dist/cjs/client.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/client.d.ts",
+        "default": "./dist/esm/client.js"
       }
     },
     "./client.js": {
@@ -85,6 +148,26 @@
         "default": "./dist/esm/client.js"
       }
     },
+    "./conversation": {
+      "require": {
+        "types": "./dist/cjs/conversation/index.d.ts",
+        "default": "./dist/cjs/conversation/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/index.d.ts",
+        "default": "./dist/esm/conversation/index.js"
+      }
+    },
+    "./conversation/index": {
+      "require": {
+        "types": "./dist/cjs/conversation/index.d.ts",
+        "default": "./dist/cjs/conversation/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/index.d.ts",
+        "default": "./dist/esm/conversation/index.js"
+      }
+    },
     "./conversation/index.js": {
       "require": {
         "types": "./dist/cjs/conversation/index.d.ts",
@@ -93,6 +176,26 @@
       "import": {
         "types": "./dist/esm/conversation/index.d.ts",
         "default": "./dist/esm/conversation/index.js"
+      }
+    },
+    "./conversation/message": {
+      "require": {
+        "types": "./dist/cjs/conversation/message/index.d.ts",
+        "default": "./dist/cjs/conversation/message/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/message/index.d.ts",
+        "default": "./dist/esm/conversation/message/index.js"
+      }
+    },
+    "./conversation/message/index": {
+      "require": {
+        "types": "./dist/cjs/conversation/message/index.d.ts",
+        "default": "./dist/cjs/conversation/message/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/message/index.d.ts",
+        "default": "./dist/esm/conversation/message/index.js"
       }
     },
     "./conversation/message/index.js": {
@@ -105,6 +208,16 @@
         "default": "./dist/esm/conversation/message/index.js"
       }
     },
+    "./conversation/message/v1": {
+      "require": {
+        "types": "./dist/cjs/conversation/message/v1.d.ts",
+        "default": "./dist/cjs/conversation/message/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/message/v1.d.ts",
+        "default": "./dist/esm/conversation/message/v1.js"
+      }
+    },
     "./conversation/message/v1.js": {
       "require": {
         "types": "./dist/cjs/conversation/message/v1.d.ts",
@@ -113,6 +226,26 @@
       "import": {
         "types": "./dist/esm/conversation/message/v1.d.ts",
         "default": "./dist/esm/conversation/message/v1.js"
+      }
+    },
+    "./conversation/session": {
+      "require": {
+        "types": "./dist/cjs/conversation/session/index.d.ts",
+        "default": "./dist/cjs/conversation/session/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/session/index.d.ts",
+        "default": "./dist/esm/conversation/session/index.js"
+      }
+    },
+    "./conversation/session/index": {
+      "require": {
+        "types": "./dist/cjs/conversation/session/index.d.ts",
+        "default": "./dist/cjs/conversation/session/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/session/index.d.ts",
+        "default": "./dist/esm/conversation/session/index.js"
       }
     },
     "./conversation/session/index.js": {
@@ -125,6 +258,16 @@
         "default": "./dist/esm/conversation/session/index.js"
       }
     },
+    "./conversation/session/v1": {
+      "require": {
+        "types": "./dist/cjs/conversation/session/v1.d.ts",
+        "default": "./dist/cjs/conversation/session/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/session/v1.d.ts",
+        "default": "./dist/esm/conversation/session/v1.js"
+      }
+    },
     "./conversation/session/v1.js": {
       "require": {
         "types": "./dist/cjs/conversation/session/v1.d.ts",
@@ -133,6 +276,16 @@
       "import": {
         "types": "./dist/esm/conversation/session/v1.d.ts",
         "default": "./dist/esm/conversation/session/v1.js"
+      }
+    },
+    "./conversation/v1": {
+      "require": {
+        "types": "./dist/cjs/conversation/v1.d.ts",
+        "default": "./dist/cjs/conversation/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/conversation/v1.d.ts",
+        "default": "./dist/esm/conversation/v1.js"
       }
     },
     "./conversation/v1.js": {
@@ -145,6 +298,26 @@
         "default": "./dist/esm/conversation/v1.js"
       }
     },
+    "./dataset/file": {
+      "require": {
+        "types": "./dist/cjs/dataset/file/index.d.ts",
+        "default": "./dist/cjs/dataset/file/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/file/index.d.ts",
+        "default": "./dist/esm/dataset/file/index.js"
+      }
+    },
+    "./dataset/file/index": {
+      "require": {
+        "types": "./dist/cjs/dataset/file/index.d.ts",
+        "default": "./dist/cjs/dataset/file/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/file/index.d.ts",
+        "default": "./dist/esm/dataset/file/index.js"
+      }
+    },
     "./dataset/file/index.js": {
       "require": {
         "types": "./dist/cjs/dataset/file/index.d.ts",
@@ -153,6 +326,16 @@
       "import": {
         "types": "./dist/esm/dataset/file/index.d.ts",
         "default": "./dist/esm/dataset/file/index.js"
+      }
+    },
+    "./dataset/file/v1": {
+      "require": {
+        "types": "./dist/cjs/dataset/file/v1.d.ts",
+        "default": "./dist/cjs/dataset/file/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/file/v1.d.ts",
+        "default": "./dist/esm/dataset/file/v1.js"
       }
     },
     "./dataset/file/v1.js": {
@@ -165,6 +348,26 @@
         "default": "./dist/esm/dataset/file/v1.js"
       }
     },
+    "./dataset": {
+      "require": {
+        "types": "./dist/cjs/dataset/index.d.ts",
+        "default": "./dist/cjs/dataset/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/index.d.ts",
+        "default": "./dist/esm/dataset/index.js"
+      }
+    },
+    "./dataset/index": {
+      "require": {
+        "types": "./dist/cjs/dataset/index.d.ts",
+        "default": "./dist/cjs/dataset/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/index.d.ts",
+        "default": "./dist/esm/dataset/index.js"
+      }
+    },
     "./dataset/index.js": {
       "require": {
         "types": "./dist/cjs/dataset/index.d.ts",
@@ -173,6 +376,26 @@
       "import": {
         "types": "./dist/esm/dataset/index.d.ts",
         "default": "./dist/esm/dataset/index.js"
+      }
+    },
+    "./dataset/record": {
+      "require": {
+        "types": "./dist/cjs/dataset/record/index.d.ts",
+        "default": "./dist/cjs/dataset/record/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/record/index.d.ts",
+        "default": "./dist/esm/dataset/record/index.js"
+      }
+    },
+    "./dataset/record/index": {
+      "require": {
+        "types": "./dist/cjs/dataset/record/index.d.ts",
+        "default": "./dist/cjs/dataset/record/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/record/index.d.ts",
+        "default": "./dist/esm/dataset/record/index.js"
       }
     },
     "./dataset/record/index.js": {
@@ -185,6 +408,16 @@
         "default": "./dist/esm/dataset/record/index.js"
       }
     },
+    "./dataset/record/v1": {
+      "require": {
+        "types": "./dist/cjs/dataset/record/v1.d.ts",
+        "default": "./dist/cjs/dataset/record/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/record/v1.d.ts",
+        "default": "./dist/esm/dataset/record/v1.js"
+      }
+    },
     "./dataset/record/v1.js": {
       "require": {
         "types": "./dist/cjs/dataset/record/v1.d.ts",
@@ -193,6 +426,16 @@
       "import": {
         "types": "./dist/esm/dataset/record/v1.d.ts",
         "default": "./dist/esm/dataset/record/v1.js"
+      }
+    },
+    "./dataset/v1": {
+      "require": {
+        "types": "./dist/cjs/dataset/v1.d.ts",
+        "default": "./dist/cjs/dataset/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/dataset/v1.d.ts",
+        "default": "./dist/esm/dataset/v1.js"
       }
     },
     "./dataset/v1.js": {
@@ -205,6 +448,16 @@
         "default": "./dist/esm/dataset/v1.js"
       }
     },
+    "./fetch": {
+      "require": {
+        "types": "./dist/cjs/fetch.d.ts",
+        "default": "./dist/cjs/fetch.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/fetch.d.ts",
+        "default": "./dist/esm/fetch.js"
+      }
+    },
     "./fetch.js": {
       "require": {
         "types": "./dist/cjs/fetch.d.ts",
@@ -213,6 +466,26 @@
       "import": {
         "types": "./dist/esm/fetch.d.ts",
         "default": "./dist/esm/fetch.js"
+      }
+    },
+    "./file": {
+      "require": {
+        "types": "./dist/cjs/file/index.d.ts",
+        "default": "./dist/cjs/file/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/file/index.d.ts",
+        "default": "./dist/esm/file/index.js"
+      }
+    },
+    "./file/index": {
+      "require": {
+        "types": "./dist/cjs/file/index.d.ts",
+        "default": "./dist/cjs/file/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/file/index.d.ts",
+        "default": "./dist/esm/file/index.js"
       }
     },
     "./file/index.js": {
@@ -225,6 +498,16 @@
         "default": "./dist/esm/file/index.js"
       }
     },
+    "./file/v1": {
+      "require": {
+        "types": "./dist/cjs/file/v1.d.ts",
+        "default": "./dist/cjs/file/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/file/v1.d.ts",
+        "default": "./dist/esm/file/v1.js"
+      }
+    },
     "./file/v1.js": {
       "require": {
         "types": "./dist/cjs/file/v1.d.ts",
@@ -233,6 +516,26 @@
       "import": {
         "types": "./dist/esm/file/v1.d.ts",
         "default": "./dist/esm/file/v1.js"
+      }
+    },
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./index": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       }
     },
     "./index.js": {
@@ -245,6 +548,26 @@
         "default": "./dist/esm/index.js"
       }
     },
+    "./integration": {
+      "require": {
+        "types": "./dist/cjs/integration/index.d.ts",
+        "default": "./dist/cjs/integration/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/index.d.ts",
+        "default": "./dist/esm/integration/index.js"
+      }
+    },
+    "./integration/index": {
+      "require": {
+        "types": "./dist/cjs/integration/index.d.ts",
+        "default": "./dist/cjs/integration/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/index.d.ts",
+        "default": "./dist/esm/integration/index.js"
+      }
+    },
     "./integration/index.js": {
       "require": {
         "types": "./dist/cjs/integration/index.d.ts",
@@ -253,6 +576,26 @@
       "import": {
         "types": "./dist/esm/integration/index.d.ts",
         "default": "./dist/esm/integration/index.js"
+      }
+    },
+    "./integration/sitemap": {
+      "require": {
+        "types": "./dist/cjs/integration/sitemap/index.d.ts",
+        "default": "./dist/cjs/integration/sitemap/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/sitemap/index.d.ts",
+        "default": "./dist/esm/integration/sitemap/index.js"
+      }
+    },
+    "./integration/sitemap/index": {
+      "require": {
+        "types": "./dist/cjs/integration/sitemap/index.d.ts",
+        "default": "./dist/cjs/integration/sitemap/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/sitemap/index.d.ts",
+        "default": "./dist/esm/integration/sitemap/index.js"
       }
     },
     "./integration/sitemap/index.js": {
@@ -265,6 +608,16 @@
         "default": "./dist/esm/integration/sitemap/index.js"
       }
     },
+    "./integration/sitemap/v1": {
+      "require": {
+        "types": "./dist/cjs/integration/sitemap/v1.d.ts",
+        "default": "./dist/cjs/integration/sitemap/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/sitemap/v1.d.ts",
+        "default": "./dist/esm/integration/sitemap/v1.js"
+      }
+    },
     "./integration/sitemap/v1.js": {
       "require": {
         "types": "./dist/cjs/integration/sitemap/v1.d.ts",
@@ -273,6 +626,26 @@
       "import": {
         "types": "./dist/esm/integration/sitemap/v1.d.ts",
         "default": "./dist/esm/integration/sitemap/v1.js"
+      }
+    },
+    "./integration/whatsapp": {
+      "require": {
+        "types": "./dist/cjs/integration/whatsapp/index.d.ts",
+        "default": "./dist/cjs/integration/whatsapp/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/whatsapp/index.d.ts",
+        "default": "./dist/esm/integration/whatsapp/index.js"
+      }
+    },
+    "./integration/whatsapp/index": {
+      "require": {
+        "types": "./dist/cjs/integration/whatsapp/index.d.ts",
+        "default": "./dist/cjs/integration/whatsapp/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/whatsapp/index.d.ts",
+        "default": "./dist/esm/integration/whatsapp/index.js"
       }
     },
     "./integration/whatsapp/index.js": {
@@ -285,6 +658,16 @@
         "default": "./dist/esm/integration/whatsapp/index.js"
       }
     },
+    "./integration/whatsapp/v1": {
+      "require": {
+        "types": "./dist/cjs/integration/whatsapp/v1.d.ts",
+        "default": "./dist/cjs/integration/whatsapp/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/integration/whatsapp/v1.d.ts",
+        "default": "./dist/esm/integration/whatsapp/v1.js"
+      }
+    },
     "./integration/whatsapp/v1.js": {
       "require": {
         "types": "./dist/cjs/integration/whatsapp/v1.d.ts",
@@ -293,6 +676,26 @@
       "import": {
         "types": "./dist/esm/integration/whatsapp/v1.d.ts",
         "default": "./dist/esm/integration/whatsapp/v1.js"
+      }
+    },
+    "./partner": {
+      "require": {
+        "types": "./dist/cjs/partner/index.d.ts",
+        "default": "./dist/cjs/partner/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/index.d.ts",
+        "default": "./dist/esm/partner/index.js"
+      }
+    },
+    "./partner/index": {
+      "require": {
+        "types": "./dist/cjs/partner/index.d.ts",
+        "default": "./dist/cjs/partner/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/index.d.ts",
+        "default": "./dist/esm/partner/index.js"
       }
     },
     "./partner/index.js": {
@@ -305,6 +708,26 @@
         "default": "./dist/esm/partner/index.js"
       }
     },
+    "./partner/user": {
+      "require": {
+        "types": "./dist/cjs/partner/user/index.d.ts",
+        "default": "./dist/cjs/partner/user/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/user/index.d.ts",
+        "default": "./dist/esm/partner/user/index.js"
+      }
+    },
+    "./partner/user/index": {
+      "require": {
+        "types": "./dist/cjs/partner/user/index.d.ts",
+        "default": "./dist/cjs/partner/user/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/user/index.d.ts",
+        "default": "./dist/esm/partner/user/index.js"
+      }
+    },
     "./partner/user/index.js": {
       "require": {
         "types": "./dist/cjs/partner/user/index.d.ts",
@@ -313,6 +736,26 @@
       "import": {
         "types": "./dist/esm/partner/user/index.d.ts",
         "default": "./dist/esm/partner/user/index.js"
+      }
+    },
+    "./partner/user/token": {
+      "require": {
+        "types": "./dist/cjs/partner/user/token/index.d.ts",
+        "default": "./dist/cjs/partner/user/token/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/user/token/index.d.ts",
+        "default": "./dist/esm/partner/user/token/index.js"
+      }
+    },
+    "./partner/user/token/index": {
+      "require": {
+        "types": "./dist/cjs/partner/user/token/index.d.ts",
+        "default": "./dist/cjs/partner/user/token/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/user/token/index.d.ts",
+        "default": "./dist/esm/partner/user/token/index.js"
       }
     },
     "./partner/user/token/index.js": {
@@ -325,6 +768,16 @@
         "default": "./dist/esm/partner/user/token/index.js"
       }
     },
+    "./partner/user/token/v1": {
+      "require": {
+        "types": "./dist/cjs/partner/user/token/v1.d.ts",
+        "default": "./dist/cjs/partner/user/token/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/user/token/v1.d.ts",
+        "default": "./dist/esm/partner/user/token/v1.js"
+      }
+    },
     "./partner/user/token/v1.js": {
       "require": {
         "types": "./dist/cjs/partner/user/token/v1.d.ts",
@@ -333,6 +786,16 @@
       "import": {
         "types": "./dist/esm/partner/user/token/v1.d.ts",
         "default": "./dist/esm/partner/user/token/v1.js"
+      }
+    },
+    "./partner/user/v1": {
+      "require": {
+        "types": "./dist/cjs/partner/user/v1.d.ts",
+        "default": "./dist/cjs/partner/user/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/user/v1.d.ts",
+        "default": "./dist/esm/partner/user/v1.js"
       }
     },
     "./partner/user/v1.js": {
@@ -345,6 +808,16 @@
         "default": "./dist/esm/partner/user/v1.js"
       }
     },
+    "./partner/v1": {
+      "require": {
+        "types": "./dist/cjs/partner/v1.d.ts",
+        "default": "./dist/cjs/partner/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/partner/v1.d.ts",
+        "default": "./dist/esm/partner/v1.js"
+      }
+    },
     "./partner/v1.js": {
       "require": {
         "types": "./dist/cjs/partner/v1.d.ts",
@@ -353,6 +826,26 @@
       "import": {
         "types": "./dist/esm/partner/v1.d.ts",
         "default": "./dist/esm/partner/v1.js"
+      }
+    },
+    "./skillset/ability": {
+      "require": {
+        "types": "./dist/cjs/skillset/ability/index.d.ts",
+        "default": "./dist/cjs/skillset/ability/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/ability/index.d.ts",
+        "default": "./dist/esm/skillset/ability/index.js"
+      }
+    },
+    "./skillset/ability/index": {
+      "require": {
+        "types": "./dist/cjs/skillset/ability/index.d.ts",
+        "default": "./dist/cjs/skillset/ability/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/ability/index.d.ts",
+        "default": "./dist/esm/skillset/ability/index.js"
       }
     },
     "./skillset/ability/index.js": {
@@ -365,6 +858,16 @@
         "default": "./dist/esm/skillset/ability/index.js"
       }
     },
+    "./skillset/ability/v1": {
+      "require": {
+        "types": "./dist/cjs/skillset/ability/v1.d.ts",
+        "default": "./dist/cjs/skillset/ability/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/ability/v1.d.ts",
+        "default": "./dist/esm/skillset/ability/v1.js"
+      }
+    },
     "./skillset/ability/v1.js": {
       "require": {
         "types": "./dist/cjs/skillset/ability/v1.d.ts",
@@ -373,6 +876,26 @@
       "import": {
         "types": "./dist/esm/skillset/ability/v1.d.ts",
         "default": "./dist/esm/skillset/ability/v1.js"
+      }
+    },
+    "./skillset": {
+      "require": {
+        "types": "./dist/cjs/skillset/index.d.ts",
+        "default": "./dist/cjs/skillset/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/index.d.ts",
+        "default": "./dist/esm/skillset/index.js"
+      }
+    },
+    "./skillset/index": {
+      "require": {
+        "types": "./dist/cjs/skillset/index.d.ts",
+        "default": "./dist/cjs/skillset/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/index.d.ts",
+        "default": "./dist/esm/skillset/index.js"
       }
     },
     "./skillset/index.js": {
@@ -385,6 +908,16 @@
         "default": "./dist/esm/skillset/index.js"
       }
     },
+    "./skillset/v1": {
+      "require": {
+        "types": "./dist/cjs/skillset/v1.d.ts",
+        "default": "./dist/cjs/skillset/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/skillset/v1.d.ts",
+        "default": "./dist/esm/skillset/v1.js"
+      }
+    },
     "./skillset/v1.js": {
       "require": {
         "types": "./dist/cjs/skillset/v1.d.ts",
@@ -395,6 +928,26 @@
         "default": "./dist/esm/skillset/v1.js"
       }
     },
+    "./usage": {
+      "require": {
+        "types": "./dist/cjs/usage/index.d.ts",
+        "default": "./dist/cjs/usage/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/usage/index.d.ts",
+        "default": "./dist/esm/usage/index.js"
+      }
+    },
+    "./usage/index": {
+      "require": {
+        "types": "./dist/cjs/usage/index.d.ts",
+        "default": "./dist/cjs/usage/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/usage/index.d.ts",
+        "default": "./dist/esm/usage/index.js"
+      }
+    },
     "./usage/index.js": {
       "require": {
         "types": "./dist/cjs/usage/index.d.ts",
@@ -403,6 +956,16 @@
       "import": {
         "types": "./dist/esm/usage/index.d.ts",
         "default": "./dist/esm/usage/index.js"
+      }
+    },
+    "./usage/v1": {
+      "require": {
+        "types": "./dist/cjs/usage/v1.d.ts",
+        "default": "./dist/cjs/usage/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/usage/v1.d.ts",
+        "default": "./dist/esm/usage/v1.js"
       }
     },
     "./usage/v1.js": {
@@ -424,6 +987,8 @@
     "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
+    "check": "tsc --noEmit",
+    "gen:types:api": "openapi-typescript src/types/api/v1.json --output ./src/types/api/v1.d.ts",
     "test": "true"
   },
   "types": "./dist/esm/index.d.ts",
@@ -433,6 +998,7 @@
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",
     "npm-run-all": "^4.1.5",
+    "openapi-typescript": "^6.7.1",
     "typescript": "^5.0.4"
   }
 }

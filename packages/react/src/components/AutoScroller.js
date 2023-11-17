@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import React, { useRef, useEffect } from 'react'
 
 export function AutoScrollAnchor() {

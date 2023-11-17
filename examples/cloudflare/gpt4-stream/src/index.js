@@ -16,7 +16,8 @@ export default {
     // Create a new ChatBotKit ConversationClient
 
     const client = new ConversationClient({
-      // @ts-ignore
+      // @ts-expect-error we need better linting for cf
+      // eslint-disable-next-line no-undef
       secret: CHATBOTKIT_API_SECRET,
     })
 

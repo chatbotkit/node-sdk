@@ -3,6 +3,9 @@
   "version": "0.7.0",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.16.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chatbotkit/node-sdk.git"
@@ -23,14 +26,14 @@
   "type": "module",
   "main": "./dist/esm/index.js",
   "exports": {
-    ".": {
+    "./components/AutoScroller": {
       "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
+        "types": "./dist/cjs/components/AutoScroller.d.ts",
+        "default": "./dist/cjs/components/AutoScroller.cjs"
       },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "types": "./dist/esm/components/AutoScroller.d.ts",
+        "default": "./dist/esm/components/AutoScroller.js"
       }
     },
     "./components/AutoScroller.js": {
@@ -43,6 +46,16 @@
         "default": "./dist/esm/components/AutoScroller.js"
       }
     },
+    "./components/AutoTextarea": {
+      "require": {
+        "types": "./dist/cjs/components/AutoTextarea.d.ts",
+        "default": "./dist/cjs/components/AutoTextarea.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/components/AutoTextarea.d.ts",
+        "default": "./dist/esm/components/AutoTextarea.js"
+      }
+    },
     "./components/AutoTextarea.js": {
       "require": {
         "types": "./dist/cjs/components/AutoTextarea.d.ts",
@@ -51,6 +64,16 @@
       "import": {
         "types": "./dist/esm/components/AutoTextarea.d.ts",
         "default": "./dist/esm/components/AutoTextarea.js"
+      }
+    },
+    "./hooks/useConversationManager": {
+      "require": {
+        "types": "./dist/cjs/hooks/useConversationManager.d.ts",
+        "default": "./dist/cjs/hooks/useConversationManager.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/hooks/useConversationManager.d.ts",
+        "default": "./dist/esm/hooks/useConversationManager.js"
       }
     },
     "./hooks/useConversationManager.js": {
@@ -63,6 +86,26 @@
         "default": "./dist/esm/hooks/useConversationManager.js"
       }
     },
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
+    "./index": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      }
+    },
     "./index.js": {
       "require": {
         "types": "./dist/cjs/index.d.ts",
@@ -71,6 +114,16 @@
       "import": {
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
+      }
+    },
+    "./utils/string": {
+      "require": {
+        "types": "./dist/cjs/utils/string.d.ts",
+        "default": "./dist/cjs/utils/string.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/utils/string.d.ts",
+        "default": "./dist/esm/utils/string.js"
       }
     },
     "./utils/string.js": {
@@ -92,6 +145,7 @@
     "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
+    "check": "tsc --noEmit",
     "test": "true"
   },
   "types": "./dist/esm/index.d.ts",

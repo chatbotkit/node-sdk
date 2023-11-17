@@ -57,7 +57,10 @@ export function datasetList(client, cursor) {
 export async function datasetFetch(client, datasetId) {
   const url = `/api/v1/dataset/${datasetId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../types/api/v1.js').operations['fetchDataset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -76,9 +79,13 @@ export async function datasetFetch(client, datasetId) {
 export async function datasetCreate(client, request) {
   const url = `/api/v1/dataset/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['createDataset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['createDataset']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -96,9 +103,13 @@ export async function datasetCreate(client, request) {
 export async function datasetUpdate(client, datasetId, request) {
   const url = `/api/v1/dataset/${datasetId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['updateDataset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['updateDataset']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -113,14 +124,18 @@ export async function datasetUpdate(client, datasetId, request) {
 export async function datasetDelete(client, datasetId) {
   const url = `/api/v1/dataset/${datasetId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['deleteDataset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['deleteDataset']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }
 
 /**
  * @typedef {{
- *   records: import('./record/v1.js').RecordInstance[]
+ *   records: {id: string, text: string}[]
  * }} DatasetSearchResponse
  *
  * @param {ChatBotKitClient} client
@@ -131,9 +146,13 @@ export async function datasetDelete(client, datasetId) {
 export async function datasetSearch(client, datasetId, search) {
   const url = `/api/v1/dataset/${datasetId}/search`
 
-  return client.clientFetch(url, {
+  /** @type {import('../types/api/v1.js').operations['searchDataset']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['searchDataset']['requestBody']['content']['application/json']} */
     data: {
       search,
     },
   })
+
+  return response
 }

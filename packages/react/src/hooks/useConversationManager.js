@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import { useState, useEffect } from 'react'
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
