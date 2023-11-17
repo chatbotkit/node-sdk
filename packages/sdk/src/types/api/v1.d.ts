@@ -64,7 +64,7 @@ export interface paths {
   }
   '/conversation/{conversationId}/message/{messageId}/update': {
     /** Update a conversation message */
-    post: operations['updateCoversationMessage']
+    post: operations['updateConversationMessage']
   }
   '/conversation/{conversationId}/message/create': {
     /** Create a new message */
@@ -867,8 +867,7 @@ export interface operations {
           'application/json': {
             /** @description The ID of the fetched message */
             id: string
-            /** @description The type of the fetched message */
-            type: string
+            type: components['schemas']['MessageType']
             /** @description The text of the fetched message */
             text: string
             /** @description The date and time when the message was created (in milliseconds) */
@@ -883,7 +882,7 @@ export interface operations {
     }
   }
   /** Update a conversation message */
-  updateCoversationMessage: {
+  updateConversationMessage: {
     parameters: {
       path: {
         conversationId: string

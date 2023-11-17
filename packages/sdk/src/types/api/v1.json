@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700253936163)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700254872449)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -936,10 +936,7 @@
                       "description": "The ID of the fetched message",
                       "type": "string"
                     },
-                    "type": {
-                      "description": "The type of the fetched message",
-                      "type": "string"
-                    },
+                    "type": { "$ref": "#/components/schemas/MessageType" },
                     "text": {
                       "description": "The text of the fetched message",
                       "type": "string"
@@ -965,7 +962,7 @@
     },
     "/conversation/{conversationId}/message/{messageId}/update": {
       "post": {
-        "operationId": "updateCoversationMessage",
+        "operationId": "updateConversationMessage",
         "summary": "Update a conversation message",
         "tags": ["Conversation Message"],
         "parameters": [

@@ -20,7 +20,11 @@
 export async function sessionCreate(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/session/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['createConversationSession']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['createConversationSession']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }

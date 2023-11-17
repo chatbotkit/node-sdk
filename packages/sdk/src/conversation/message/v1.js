@@ -54,7 +54,10 @@ export function messageList(client, conversationId, cursor) {
 export async function messageFetch(client, conversationId, messageId) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../../types/api/v1.js').operations['fetchConversationMessage']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -72,9 +75,13 @@ export async function messageFetch(client, conversationId, messageId) {
 export async function messageCreate(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/message/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['createConversationMessage']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['createConversationMessage']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -98,9 +105,13 @@ export async function messageUpdate(
 ) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['updateConversationMessage']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['updateConversationMessage']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -116,7 +127,11 @@ export async function messageUpdate(
 export async function messageDelete(client, conversationId, messageId) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['deleteConversationMessage']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['deleteConversationMessage']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }
