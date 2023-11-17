@@ -50,7 +50,10 @@ export function userList(client, cursor) {
 export async function userFetch(client, userId) {
   const url = `/api/v1/partner/user/${userId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../../types/api/v1.js').operations['fetchPartnerUser']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -67,9 +70,13 @@ export async function userFetch(client, userId) {
 export async function userCreate(client, request) {
   const url = `/api/v1/partner/user/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['createPartnerUser']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['createPartnerUser']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -87,9 +94,13 @@ export async function userCreate(client, request) {
 export async function userUpdate(client, userId, request) {
   const url = `/api/v1/partner/user/${userId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['updatePartnerUser']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['updatePartnerUser']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -104,7 +115,11 @@ export async function userUpdate(client, userId, request) {
 export async function userDelete(client, userId) {
   const url = `/api/v1/partner/user/${userId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['deletePartnerUser']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['deletePartnerUser']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }

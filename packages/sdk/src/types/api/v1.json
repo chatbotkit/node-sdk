@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700255792042)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700256049422)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -4368,7 +4368,7 @@
                   "properties": {
                     "id": {
                       "description": "The ID of the updated partner user",
-                      "type": "number"
+                      "type": "string"
                     }
                   },
                   "required": ["id"]

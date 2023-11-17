@@ -55,9 +55,13 @@ export function tokenList(client, userId, cursor) {
 export async function tokenCreate(client, userId, request) {
   const url = `/api/v1/partner/user/${userId}/token/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../../types/api/v1.js').operations['createPartnerUserToken']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../../types/api/v1.js').operations['createPartnerUserToken']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -73,7 +77,11 @@ export async function tokenCreate(client, userId, request) {
 export async function tokenDelete(client, userId, tokenId) {
   const url = `/api/v1/partner/user/${userId}/token/${tokenId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../../types/api/v1.js').operations['deletePartnerUserToken']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../../types/api/v1.js').operations['deletePartnerUserToken']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }

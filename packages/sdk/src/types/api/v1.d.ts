@@ -2678,7 +2678,7 @@ export interface operations {
         content: {
           'application/json': {
             /** @description The ID of the updated partner user */
-            id: number
+            id: string
           }
         }
       }
