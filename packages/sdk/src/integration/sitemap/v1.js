@@ -57,7 +57,9 @@ export function sitemapList(client, cursor) {
 export async function sitemapFetch(client, sitemapId) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/fetch`
 
-  return client.clientFetch(url)
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -74,9 +76,11 @@ export async function sitemapFetch(client, sitemapId) {
 export async function sitemapCreate(client, request) {
   const url = `/api/v1/integration/sitemap/create`
 
-  return client.clientFetch(url, {
+  const response = await client.clientFetch(url, {
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -94,9 +98,11 @@ export async function sitemapCreate(client, request) {
 export async function sitemapUpdate(client, sitemapId, request) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/update`
 
-  return client.clientFetch(url, {
+  const response = await client.clientFetch(url, {
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -111,9 +117,11 @@ export async function sitemapUpdate(client, sitemapId, request) {
 export async function sitemapDelete(client, sitemapId) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/delete`
 
-  return client.clientFetch(url, {
+  const response = await client.clientFetch(url, {
     data: {},
   })
+
+  return response
 }
 
 /**
@@ -128,7 +136,9 @@ export async function sitemapDelete(client, sitemapId) {
 export async function sitemapSync(client, sitemapId) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/sync`
 
-  return client.clientFetch(url, {
+  const response = await client.clientFetch(url, {
     data: {},
   })
+
+  return response
 }

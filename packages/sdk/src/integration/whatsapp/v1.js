@@ -68,7 +68,9 @@ export function whatsappList(client, cursor) {
 export async function whatsappFetch(client, whatsappId) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/fetch`
 
-  return client.clientFetch(url)
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -85,9 +87,11 @@ export async function whatsappFetch(client, whatsappId) {
 export async function whatsappCreate(client, request) {
   const url = `/api/v1/integration/whatsapp/create`
 
-  return client.clientFetch(url, {
+  const response = await client.clientFetch(url, {
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -105,9 +109,11 @@ export async function whatsappCreate(client, request) {
 export async function whatsappUpdate(client, whatsappId, request) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/update`
 
-  return client.clientFetch(url, {
+  const response = await client.clientFetch(url, {
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -122,9 +128,11 @@ export async function whatsappUpdate(client, whatsappId, request) {
 export async function whatsappDelete(client, whatsappId) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/delete`
 
-  return client.clientFetch(url, {
+  const response = await client.clientFetch(url, {
     data: {},
   })
+
+  return response
 }
 
 /**
@@ -139,7 +147,9 @@ export async function whatsappDelete(client, whatsappId) {
 export async function whatsappSetup(client, whatsappId) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/setup`
 
-  return client.clientFetch(url, {
+  const response = await client.clientFetch(url, {
     data: {},
   })
+
+  return response
 }
