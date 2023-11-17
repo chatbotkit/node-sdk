@@ -64,7 +64,9 @@ export function conversationList(client, cursor) {
     url += `?cursor=${encodeURIComponent(cursor)}`
   }
 
-  return client.clientFetch(url)
+  const response = client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -195,9 +197,11 @@ export function conversationComplete(client, conversationId, request) {
     url = `/api/v1/conversation/complete`
   }
 
-  return client.clientFetch(url, {
+  const response = client.clientFetch(url, {
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -219,9 +223,11 @@ export function conversationComplete(client, conversationId, request) {
 export async function conversationSend(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/send`
 
-  return client.clientFetch(url, {
+  const response = client.clientFetch(url, {
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -248,7 +254,9 @@ export async function conversationSend(client, conversationId, request) {
 export async function conversationReceive(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/receive`
 
-  return client.clientFetch(url, {
+  const response = client.clientFetch(url, {
     data: request,
   })
+
+  return response
 }

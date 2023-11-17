@@ -43,7 +43,9 @@ export function fileList(client, cursor) {
     url += `?cursor=${encodeURIComponent(cursor)}`
   }
 
-  return client.clientFetch(url)
+  const response = client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -149,9 +151,11 @@ export async function fileDelete(client, fileId) {
 export async function fileUpload(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/upload`
 
-  return client.clientFetch(url, {
+  const response = client.clientFetch(url, {
     file: request,
   })
+
+  return response
 }
 
 /**
@@ -166,5 +170,7 @@ export async function fileUpload(client, fileId, request) {
 export async function fileDownload(client, fileId) {
   const url = `/api/v1/file/${fileId}/download`
 
-  return client.clientFetch(url)
+  const response = client.clientFetch(url)
+
+  return response
 }

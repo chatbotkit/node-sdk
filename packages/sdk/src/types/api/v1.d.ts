@@ -327,7 +327,7 @@ export interface paths {
   }
   '/usage/fetch': {
     /** Fetch usage */
-    get: operations['usageFetch']
+    get: operations['fetchUsage']
   }
 }
 
@@ -1674,7 +1674,7 @@ export interface operations {
              * @enum {string}
              */
             type?: 'item'
-            data?: paths['/dataset/%7BdatasetId%7D/record/export']['get']['responses']['200']['content']['application/json']['schema']['items']['items']
+            data?: paths['/dataset/{datasetId}/record/export']['get']['responses']['200']['content']['application/json']['schema']['items']['items']
           }
           'text/csv': string
         }
@@ -2912,7 +2912,7 @@ export interface operations {
              * @enum {string}
              */
             type?: 'item'
-            data?: paths['/skillset/%7BskillsetId%7D/ability/export']['get']['responses']['200']['content']['application/json']['schema']['items']['items']
+            data?: paths['/skillset/{skillsetId}/ability/export']['get']['responses']['200']['content']['application/json']['schema']['items']['items']
           }
           'text/csv': string
         }
@@ -3107,16 +3107,16 @@ export interface operations {
     }
   }
   /** Fetch usage */
-  usageFetch: {
+  fetchUsage: {
     responses: {
       /** @description The usage information was retrieved successfully */
       200: {
         content: {
           'application/json': {
             /** @description The number of tokens the user has used */
-            tokens: string
+            tokens: number
             /** @description The number of conversations the user has created */
-            conversations: string
+            conversations: number
           }
         }
       }

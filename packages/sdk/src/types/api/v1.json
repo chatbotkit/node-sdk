@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700256049422)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700258306887)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -2500,7 +2500,7 @@
                           "enum": ["item"]
                         },
                         "data": {
-                          "$ref": "#/paths/~1dataset~1%7BdatasetId%7D~1record~1export/get/responses/200/content/application~1json/schema/properties/items/items"
+                          "$ref": "#/paths/~1dataset~1{datasetId}~1record~1export/get/responses/200/content/application~1json/schema/properties/items/items"
                         }
                       }
                     }
@@ -4832,7 +4832,7 @@
                           "enum": ["item"]
                         },
                         "data": {
-                          "$ref": "#/paths/~1skillset~1%7BskillsetId%7D~1ability~1export/get/responses/200/content/application~1json/schema/properties/items/items"
+                          "$ref": "#/paths/~1skillset~1{skillsetId}~1ability~1export/get/responses/200/content/application~1json/schema/properties/items/items"
                         }
                       }
                     }
@@ -5202,7 +5202,7 @@
     },
     "/usage/fetch": {
       "get": {
-        "operationId": "usageFetch",
+        "operationId": "fetchUsage",
         "summary": "Fetch usage",
         "tags": ["Usage"],
         "responses": {
@@ -5215,11 +5215,11 @@
                   "properties": {
                     "tokens": {
                       "description": "The number of tokens the user has used",
-                      "type": "string"
+                      "type": "number"
                     },
                     "conversations": {
                       "description": "The number of conversations the user has created",
-                      "type": "string"
+                      "type": "number"
                     }
                   },
                   "required": ["tokens", "conversations"]

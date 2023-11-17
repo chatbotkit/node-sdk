@@ -9,10 +9,6 @@
  * }} UsageOptions
  *
  * @typedef {{
- *   id: string,
- *   store: string,
- *   createdAt: number,
- *   updatedAt: number
  * } & UsageOptions} UsageInstance
  */
 
@@ -25,5 +21,8 @@
 export async function usageFetch(client) {
   const url = `/api/v1/usage/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../types/api/v1.js').operations['fetchUsage']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }

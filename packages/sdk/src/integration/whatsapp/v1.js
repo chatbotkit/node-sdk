@@ -61,7 +61,9 @@ export function whatsappList(client, cursor) {
     url += `?cursor=${encodeURIComponent(cursor)}`
   }
 
-  return client.clientFetch(url)
+  const response = client.clientFetch(url)
+
+  return response
 }
 
 /**
