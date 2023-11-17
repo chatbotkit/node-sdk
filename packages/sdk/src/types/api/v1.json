@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700254872449)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700255792042)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -2093,7 +2093,8 @@
                       "description": "The ID of the dataset file",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -2141,7 +2142,8 @@
                       "description": "The ID of the dataset file",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -2189,7 +2191,8 @@
                       "description": "The ID of the dataset file",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -4609,7 +4612,14 @@
                       "type": "number"
                     }
                   },
-                  "required": ["id", "instruction", "createdAt", "updatedAt"]
+                  "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "instruction",
+                    "createdAt",
+                    "updatedAt"
+                  ]
                 }
               }
             }

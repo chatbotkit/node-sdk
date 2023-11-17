@@ -1461,7 +1461,7 @@ export interface operations {
         content: {
           'application/json': {
             /** @description The ID of the dataset file */
-            id?: string
+            id: string
           }
         }
       }
@@ -1488,7 +1488,7 @@ export interface operations {
         content: {
           'application/json': {
             /** @description The ID of the dataset file */
-            id?: string
+            id: string
           }
         }
       }
@@ -1515,7 +1515,7 @@ export interface operations {
         content: {
           'application/json': {
             /** @description The ID of the dataset file */
-            id?: string
+            id: string
           }
         }
       }
@@ -2790,9 +2790,9 @@ export interface operations {
             /** @description The ID of the skillset ability */
             id: string
             /** @description The name of the skillset ability */
-            name?: string
+            name: string
             /** @description The description of the skillset ability */
-            description?: string
+            description: string
             /** @description The instruction of the skillset ability */
             instruction: string
             meta?: components['schemas']['Meta']

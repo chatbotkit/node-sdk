@@ -51,7 +51,10 @@ export function recordList(client, datasetId, cursor) {
 export async function recordFetch(client, datasetId, recordId) {
   const url = `/api/v1/dataset/${datasetId}/record/${recordId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../../types/api/v1.js').operations['fetchDatasetRecord']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -69,9 +72,13 @@ export async function recordFetch(client, datasetId, recordId) {
 export async function recordCreate(client, datasetId, request) {
   const url = `/api/v1/dataset/${datasetId}/record/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['createDatasetRecord']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['createDatasetRecord']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -90,9 +97,13 @@ export async function recordCreate(client, datasetId, request) {
 export async function recordUpdate(client, datasetId, recordId, request) {
   const url = `/api/v1/dataset/${datasetId}/record/${recordId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['updateDatasetRecord']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['updateDatasetRecord']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -108,7 +119,11 @@ export async function recordUpdate(client, datasetId, recordId, request) {
 export async function recordDelete(client, datasetId, recordId) {
   const url = `/api/v1/dataset/${datasetId}/record/${recordId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['deleteDatasetRecord']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['deleteDatasetRecord']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }

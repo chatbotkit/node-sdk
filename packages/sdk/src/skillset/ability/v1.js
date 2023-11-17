@@ -53,7 +53,10 @@ export function abilityList(client, skillsetId, cursor) {
 export async function abilityFetch(client, skillsetId, abilityId) {
   const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/fetch`
 
-  return client.clientFetch(url)
+  /** @type {import('../../types/api/v1.js').operations['fetchSkillsetAbility']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
 }
 
 /**
@@ -71,9 +74,13 @@ export async function abilityFetch(client, skillsetId, abilityId) {
 export async function abilityCreate(client, skillsetId, request) {
   const url = `/api/v1/skillset/${skillsetId}/ability/create`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['createSkillsetAbility']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['createSkillsetAbility']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -92,9 +99,13 @@ export async function abilityCreate(client, skillsetId, request) {
 export async function abilityUpdate(client, skillsetId, abilityId, request) {
   const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/update`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['updateSkillsetAbility']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['updateSkillsetAbility']['requestBody']['content']['application/json']} */
     data: request,
   })
+
+  return response
 }
 
 /**
@@ -110,7 +121,11 @@ export async function abilityUpdate(client, skillsetId, abilityId, request) {
 export async function abilityDelete(client, skillsetId, abilityId) {
   const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/delete`
 
-  return client.clientFetch(url, {
+  /** @type {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['requestBody']['content']['application/json']} */
     data: {},
   })
+
+  return response
 }
