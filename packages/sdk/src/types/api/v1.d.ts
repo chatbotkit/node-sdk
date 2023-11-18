@@ -1974,7 +1974,7 @@ export interface operations {
         content: {
           "application/json": {
             /** @description The ID of the file */
-            id?: string;
+            id: string;
           };
         };
       };
@@ -2031,7 +2031,7 @@ export interface operations {
            * Format: binary
            * @description The file to upload
            */
-          file?: string;
+          file: string;
         };
       };
     };
@@ -2041,7 +2041,7 @@ export interface operations {
         content: {
           "application/json": {
             /** @description The ID of the uploadd file */
-            id?: string;
+            id: string;
           };
         };
       };
@@ -2209,7 +2209,7 @@ export interface operations {
         content: {
           "application/json": {
             /** @description The ID of the Sitemap Integration */
-            id?: string;
+            id: string;
           };
         };
       };
@@ -2257,7 +2257,7 @@ export interface operations {
         content: {
           "application/json": {
             /** @description The ID of the Sitemap Integration */
-            id?: string;
+            id: string;
           };
         };
       };
@@ -2277,7 +2277,7 @@ export interface operations {
           /** @description The description for this Sitemap integration */
           description?: string;
           /** @description The ID of the dataset to use for this Sitemap integration */
-          datasetId?: string;
+          datasetId: string;
           /** @description The URL to use for this Sitemap integration */
           url?: string;
           /** @description The glob rules to use for this Sitemap integration */
@@ -2300,7 +2300,7 @@ export interface operations {
         content: {
           "application/json": {
             /** @description The ID of the Sitemap Integration */
-            id?: string;
+            id: string;
           };
         };
       };
@@ -2428,7 +2428,7 @@ export interface operations {
         content: {
           "application/json": {
             /** @description The ID of the WhatsApp Integration */
-            id?: string;
+            id: string;
           };
         };
       };
@@ -2468,7 +2468,7 @@ export interface operations {
         content: {
           "application/json": {
             /** @description The ID of the WhatsApp Integration */
-            id?: string;
+            id: string;
           };
         };
       };
@@ -2503,7 +2503,7 @@ export interface operations {
         content: {
           "application/json": {
             /** @description The ID of the WhatsApp Integration */
-            id?: string;
+            id: string;
           };
         };
       };
@@ -2525,19 +2525,19 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            items: (WithRequired<components["schemas"]["BotRefOrConfig"] & {
+            items: (components["schemas"]["BotRefOrConfig"] & {
                 /** @description The ID of the WhatsApp integration */
-                id?: string;
+                id: string;
                 /** @description The name of the WhatsApp integration */
                 name?: string;
                 /** @description The description of the WhatsApp integration */
                 description?: string;
                 meta?: components["schemas"]["Meta"];
                 /** @description The timestamp for when the WhatsApp integration was created (in milliseconds) */
-                createdAt?: number;
+                createdAt: number;
                 /** @description The timestamp for when the WhatsApp integration was last updated (in milliseconds) */
-                updatedAt?: number;
-              }, "id" | "createdAt" | "updatedAt">)[];
+                updatedAt: number;
+              })[];
           };
           "application/jsonl": {
             /**

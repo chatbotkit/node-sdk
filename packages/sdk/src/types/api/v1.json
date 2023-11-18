@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700302350215)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700347633239)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -3196,7 +3196,8 @@
                       "description": "The ID of the file",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -3293,7 +3294,8 @@
                     "format": "binary",
                     "description": "The file to upload"
                   }
-                }
+                },
+                "required": ["file"]
               }
             }
           }
@@ -3310,7 +3312,8 @@
                       "description": "The ID of the uploadd file",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -3633,7 +3636,8 @@
                       "description": "The ID of the Sitemap Integration",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -3722,7 +3726,8 @@
                       "description": "The ID of the Sitemap Integration",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -3783,7 +3788,8 @@
                     "type": "number"
                   },
                   "meta": { "$ref": "#/components/schemas/Meta" }
-                }
+                },
+                "required": ["datasetId"]
               }
             }
           }
@@ -3800,7 +3806,8 @@
                       "description": "The ID of the Sitemap Integration",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -4052,7 +4059,8 @@
                       "description": "The ID of the WhatsApp Integration",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -4130,7 +4138,8 @@
                       "description": "The ID of the WhatsApp Integration",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -4197,7 +4206,8 @@
                       "description": "The ID of the WhatsApp Integration",
                       "type": "string"
                     }
-                  }
+                  },
+                  "required": ["id"]
                 }
               }
             }
@@ -4268,10 +4278,10 @@
                                 "description": "The timestamp for when the WhatsApp integration was last updated (in milliseconds)",
                                 "type": "number"
                               }
-                            }
+                            },
+                            "required": ["id", "createdAt", "updatedAt"]
                           }
-                        ],
-                        "required": ["id", "createdAt", "updatedAt"]
+                        ]
                       }
                     }
                   },
