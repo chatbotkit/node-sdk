@@ -35,20 +35,16 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
- * @param {string} [cursor]
+ * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<AbilityListResponse,AbilityListStreamType>}
  */
-export function abilityList(client, skillsetId, cursor) {
+export function abilityList(client, skillsetId, query) {
   let url = `/api/v1/skillset/${skillsetId}/ability/list`
-
-  if (cursor) {
-    url += `?cursor=${encodeURIComponent(cursor)}`
-  }
 
   /** @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url)
+  const response = client.clientFetch(url, { query })
 
   return response
 }

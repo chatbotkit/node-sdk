@@ -33,20 +33,16 @@
  * @typedef {UserListStreamItem} UserListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {string} [cursor]
+ * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<UserListResponse,UserListStreamType>}
  */
-export function userList(client, cursor) {
+export function userList(client, query) {
   let url = `/api/v1/partner/user/list`
-
-  if (cursor) {
-    url += `?cursor=${encodeURIComponent(cursor)}`
-  }
 
   /** @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url)
+  const response = client.clientFetch(url, { query })
 
   return response
 }

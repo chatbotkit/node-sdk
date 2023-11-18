@@ -19,11 +19,11 @@ export class TokenClient extends ChatBotKitClient {
    * Retrieves a list of all existing user tokens associated with this client.
    *
    * @param {string} userId
-   * @param {string} [cursor]
+   * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
    * @returns {ResponsePromise<import('./v1.js').TokenListResponse,import('./v1.js').TokenListStreamType>}
    */
-  list(userId, cursor) {
-    return tokenList(this, userId, cursor)
+  list(userId, query) {
+    return tokenList(this, userId, query)
   }
 
   /**

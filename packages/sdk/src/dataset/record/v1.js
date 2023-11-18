@@ -33,20 +33,16 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
- * @param {string} [cursor]
+ * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<RecordListResponse,RecordListStreamType>}
  */
-export function recordList(client, datasetId, cursor) {
+export function recordList(client, datasetId, query) {
   let url = `/api/v1/dataset/${datasetId}/record/list`
-
-  if (cursor) {
-    url += `?cursor=${encodeURIComponent(cursor)}`
-  }
 
   /** @typedef {import('../../types/api/v1.js').operations['listDatasetRecords']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listDatasetRecords']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url)
+  const response = client.clientFetch(url, { query })
 
   return response
 }

@@ -35,20 +35,16 @@
  * @typedef {BotListStreamItemType} BotListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {string} [cursor]
+ * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<BotListResponse,BotListStreamType>}
  */
-export function botList(client, cursor) {
+export function botList(client, query) {
   let url = `/api/v1/bot/list`
-
-  if (cursor) {
-    url += `?cursor=${encodeURIComponent(cursor)}`
-  }
 
   /** @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url)
+  const response = client.clientFetch(url, { query })
 
   return response
 }

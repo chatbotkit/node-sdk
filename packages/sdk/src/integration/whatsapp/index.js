@@ -25,11 +25,11 @@ export class WhatsappClient extends ChatBotKitClient {
   /**
    * Retrieves a list of all existing whatsapp integrations associated with this client.
    *
-   * @param {string} [cursor]
+   * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
    * @returns {ResponsePromise<import('./v1.js').WhatsappListResponse,import('./v1.js').WhatsappListStreamType>}
    */
-  list(cursor) {
-    return whatsappList(this, cursor)
+  list(query) {
+    return whatsappList(this, query)
   }
 
   /**

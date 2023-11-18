@@ -21,11 +21,11 @@ export class BotClient extends ChatBotKitClient {
   /**
    * Retrieves a list of all existing bots associated with this client.
    *
-   * @param {string} [cursor]
+   * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
    * @returns {ResponsePromise<import('./v1.js').BotListResponse,import('./v1.js').BotListStreamType>}
    */
-  list(cursor) {
-    return botList(this, cursor)
+  list(query) {
+    return botList(this, query)
   }
 
   /**

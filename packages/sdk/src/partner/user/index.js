@@ -27,11 +27,11 @@ export class UserClient extends ChatBotKitClient {
   /**
    * Retrieves a list of all existing users associated with this client.
    *
-   * @param {string} [cursor]
+   * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
    * @returns {ResponsePromise<import('./v1.js').UserListResponse,import('./v1.js').UserListStreamType>}
    */
-  list(cursor) {
-    return userList(this, cursor)
+  list(query) {
+    return userList(this, query)
   }
 
   /**

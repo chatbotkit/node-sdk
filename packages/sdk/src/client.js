@@ -201,7 +201,7 @@ export class ChatBotKitClient {
   /**
    * @template T,U
    * @param {string} path
-   * @param {{data?: Record<string,any>, file?: { name?: string, type?: string, data: string|ArrayBuffer }}} [options]
+   * @param {{query?: Record<string,any>, data?: Record<string,any>, file?: { name?: string, type?: string, data: string|ArrayBuffer }}} [options]
    * @returns {ResponsePromise<T,U>}
    */
   clientFetch(path, options) {
@@ -216,6 +216,22 @@ export class ChatBotKitClient {
       url.pathname.startsWith('/api/')
     ) {
       url.pathname = url.pathname.substring(4)
+    }
+
+    if (options?.query) {
+      for (const key in options.query) {
+        const value = options.query[key]
+
+        if (typeof value === 'object') {
+          for (const subKey in value) {
+            const subValue = value[subKey]
+
+            url.searchParams.append(`${key}.${subKey}`, subValue)
+          }
+        } else {
+          url.searchParams.append(key, value)
+        }
+      }
     }
 
     /** @type {Record<string,string>} */
