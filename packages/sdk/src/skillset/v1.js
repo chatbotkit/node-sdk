@@ -43,6 +43,9 @@ export function skillsetList(client, cursor) {
     url += `?cursor=${encodeURIComponent(cursor)}`
   }
 
+  /** @typedef {import('../types/api/v1.js').operations['listSkillsets']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../types/api/v1.js').operations['listSkillsets']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url)
 
   return response

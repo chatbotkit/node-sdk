@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700258306887)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700302350215)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -329,7 +329,8 @@
                           "description": "The text of the message",
                           "type": "string"
                         }
-                      }
+                      },
+                      "required": ["type", "text"]
                     }
                   }
                 }
@@ -374,7 +375,8 @@
                             "description": "The text of the message",
                             "type": "string"
                           }
-                        }
+                        },
+                        "required": ["type", "text"]
                       }
                     }
                   },
@@ -613,10 +615,37 @@
                             "description": "The timestamp when the bot was last updated",
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "visibility",
+                          "createdAt",
+                          "updatedAt"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1bot~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -704,9 +733,11 @@
                               "type": "string"
                             },
                             "usage": { "$ref": "#/components/schemas/Usage" }
-                          }
+                          },
+                          "required": ["text", "usage"]
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     },
                     {
                       "type": "object",
@@ -726,7 +757,8 @@
                             }
                           }
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     }
                   ]
                 }
@@ -1161,10 +1193,38 @@
                             "description": "The timestamp of when the message was last updated  (in milliseconds)",
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "text",
+                          "createdAt",
+                          "updatedAt"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1conversation~1~1{conversationId}~1message~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -1239,9 +1299,11 @@
                               "type": "string"
                             },
                             "usage": { "$ref": "#/components/schemas/Usage" }
-                          }
+                          },
+                          "required": ["text", "usage"]
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     },
                     {
                       "type": "object",
@@ -1261,7 +1323,8 @@
                             }
                           }
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     }
                   ]
                 }
@@ -1330,7 +1393,8 @@
                       "type": "array",
                       "items": { "$ref": "#/components/schemas/Entity" }
                     }
-                  }
+                  },
+                  "required": ["id", "entities"]
                 }
               },
               "application/jsonl": {
@@ -1357,9 +1421,11 @@
                               "type": "array",
                               "items": { "$ref": "#/components/schemas/Entity" }
                             }
-                          }
+                          },
+                          "required": ["id", "entities"]
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     }
                   ]
                 }
@@ -1517,7 +1583,8 @@
                           "description": "The text of the message",
                           "type": "string"
                         }
-                      }
+                      },
+                      "required": ["type", "text"]
                     }
                   },
                   "datasetId": {
@@ -1547,7 +1614,8 @@
                       "type": "string"
                     },
                     "usage": { "$ref": "#/components/schemas/Usage" }
-                  }
+                  },
+                  "required": ["text", "usage"]
                 }
               },
               "application/jsonl": {
@@ -1572,7 +1640,8 @@
                             "usage": { "$ref": "#/components/schemas/Usage" }
                           }
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     },
                     {
                       "type": "object",
@@ -1592,7 +1661,8 @@
                             }
                           }
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     }
                   ]
                 }
@@ -1655,7 +1725,8 @@
                           "description": "The text of the message",
                           "type": "string"
                         }
-                      }
+                      },
+                      "required": ["type", "text"]
                     }
                   }
                 }
@@ -1688,7 +1759,8 @@
                             "description": "The text of the message",
                             "type": "string"
                           }
-                        }
+                        },
+                        "required": ["type", "text"]
                       }
                     }
                   },
@@ -1796,13 +1868,22 @@
                                   "description": "The timestamp of when the message was last updated  (in milliseconds)",
                                   "type": "number"
                                 }
-                              }
+                              },
+                              "required": [
+                                "id",
+                                "type",
+                                "text",
+                                "createdAt",
+                                "updatedAt"
+                              ]
                             }
                           }
-                        }
+                        },
+                        "required": ["id", "createdAt", "updatedAt"]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
                 }
               },
               "application/jsonl": {
@@ -1819,7 +1900,8 @@
                         "data": {
                           "$ref": "#/paths/~1conversation~1export/get/responses/200/content/application~1json/schema/properties/items/items"
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     }
                   ]
                 }
@@ -1900,10 +1982,32 @@
                             "description": "The timestamp for when the conversation was last updated (in milliseconds)",
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": ["id", "createdAt", "updatedAt"]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1conversation~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -2482,10 +2586,12 @@
                           "meta": { "type": "object" },
                           "createdAt": { "type": "integer" },
                           "updatedAt": { "type": "integer" }
-                        }
+                        },
+                        "required": ["id", "text", "createdAt", "updatedAt"]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
                 }
               },
               "application/jsonl": {
@@ -2502,7 +2608,8 @@
                         "data": {
                           "$ref": "#/paths/~1dataset~1{datasetId}~1record~1export/get/responses/200/content/application~1json/schema/properties/items/items"
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     }
                   ]
                 }
@@ -2564,10 +2671,32 @@
                           "meta": { "type": "object" },
                           "createdAt": { "type": "integer" },
                           "updatedAt": { "type": "integer" }
-                        }
+                        },
+                        "required": ["id", "text", "createdAt", "updatedAt"]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1dataset~1{datasetId}~1record~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -2854,6 +2983,10 @@
                             "description": "The description of the dataset",
                             "type": "string"
                           },
+                          "store": {
+                            "description": "The store for the dataset",
+                            "type": "string"
+                          },
                           "visibility": {
                             "$ref": "#/components/schemas/DatasetVisibility"
                           },
@@ -2866,10 +2999,38 @@
                             "description": "The timestamp when the dataset was last updated",
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "store",
+                          "visibility",
+                          "createdAt",
+                          "updatedAt"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1dataset~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -3273,10 +3434,37 @@
                             "description": "The timestamp when the file was last updated",
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "visibility",
+                          "createdAt",
+                          "updatedAt"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1file~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -3675,6 +3863,10 @@
                             "description": "The ID of the dataset used by the Sitemap integration",
                             "type": "string"
                           },
+                          "syncSchedule": {
+                            "description": "The sync schedule to use for this Sitemap integration",
+                            "type": "string"
+                          },
                           "meta": { "$ref": "#/components/schemas/Meta" },
                           "createdAt": {
                             "description": "The timestamp for when the Sitemap integration was created (in milliseconds)",
@@ -3684,10 +3876,37 @@
                             "description": "The timestamp for when the Sitemap integration was last updated (in milliseconds)",
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "syncSchedule",
+                          "createdAt",
+                          "updatedAt"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1integration~1sitemap~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -4051,10 +4270,32 @@
                               }
                             }
                           }
-                        ]
+                        ],
+                        "required": ["id", "createdAt", "updatedAt"]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1integration~1whatsapp~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -4308,11 +4549,37 @@
                           "createdAt": {
                             "description": "The timestamp for when the user token was created (in milliseconds)",
                             "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp for when the user token was updated (in milliseconds)",
+                            "type": "number"
                           }
-                        }
+                        },
+                        "required": ["id", "createdAt", "updatedAt"]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1partner~1user~1{userId}~1token~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -4489,10 +4756,32 @@
                             "description": "The timestamp for when the user was last updated (in milliseconds)",
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": ["id", "createdAt", "updatedAt"]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1partner~1user~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -4814,10 +5103,19 @@
                           "meta": { "type": "object" },
                           "createdAt": { "type": "integer" },
                           "updatedAt": { "type": "integer" }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "description",
+                          "instruction",
+                          "createdAt",
+                          "updatedAt"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
                 }
               },
               "application/jsonl": {
@@ -4834,7 +5132,8 @@
                         "data": {
                           "$ref": "#/paths/~1skillset~1{skillsetId}~1ability~1export/get/responses/200/content/application~1json/schema/properties/items/items"
                         }
-                      }
+                      },
+                      "required": ["type", "data"]
                     }
                   ]
                 }
@@ -4898,10 +5197,39 @@
                           "meta": { "type": "object" },
                           "createdAt": { "type": "integer" },
                           "updatedAt": { "type": "integer" }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "description",
+                          "instruction",
+                          "createdAt",
+                          "updatedAt"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1skillset~1{skillsetId}~1ability~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }
@@ -5188,10 +5516,37 @@
                             "description": "The timestamp when the skillset was last updated",
                             "type": "number"
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "visibility",
+                          "createdAt",
+                          "updatedAt"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "required": ["items"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": ["item"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1skillset~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
                 }
               }
             }

@@ -43,6 +43,9 @@ export function fileList(client, cursor) {
     url += `?cursor=${encodeURIComponent(cursor)}`
   }
 
+  /** @typedef {import('../types/api/v1.js').operations['listFiles']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../types/api/v1.js').operations['listFiles']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url)
 
   return response
@@ -151,6 +154,7 @@ export async function fileDelete(client, fileId) {
 export async function fileUpload(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/upload`
 
+  // @todo add api types
   const response = client.clientFetch(url, {
     file: request,
   })
@@ -170,6 +174,7 @@ export async function fileUpload(client, fileId, request) {
 export async function fileDownload(client, fileId) {
   const url = `/api/v1/file/${fileId}/download`
 
+  // @todo add api types
   const response = client.clientFetch(url)
 
   return response

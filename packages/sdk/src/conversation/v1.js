@@ -64,6 +64,9 @@ export function conversationList(client, cursor) {
     url += `?cursor=${encodeURIComponent(cursor)}`
   }
 
+  /** @typedef {import('../types/api/v1.js').operations['listConversations']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../types/api/v1.js').operations['listConversations']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url)
 
   return response

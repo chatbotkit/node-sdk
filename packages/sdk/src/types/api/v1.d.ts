@@ -3,1097 +3,1092 @@
  * Do not make direct changes to the file.
  */
 
+
 /** WithRequired type helpers */
-type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] }
+type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 
 /** OneOf type helpers */
-type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never }
-type XOR<T, U> = T | U extends object
-  ? (Without<T, U> & U) | (Without<U, T> & T)
-  : T | U
-type OneOf<T extends any[]> = T extends [infer Only]
-  ? Only
-  : T extends [infer A, infer B, ...infer Rest]
-  ? OneOf<[XOR<A, B>, ...Rest]>
-  : never
+type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
+type XOR<T, U> = (T | U) extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
+type OneOf<T extends any[]> = T extends [infer Only] ? Only : T extends [infer A, infer B, ...infer Rest] ? OneOf<[XOR<A, B>, ...Rest]> : never;
 
 export interface paths {
-  '/bot/{botId}/delete': {
+  "/bot/{botId}/delete": {
     /** Delete a bot */
-    post: operations['deleteBot']
-  }
-  '/bot/{botId}/fetch': {
+    post: operations["deleteBot"];
+  };
+  "/bot/{botId}/fetch": {
     /** Fetch a bot */
-    get: operations['fetchBot']
-  }
-  '/bot/{botId}/session/create': {
+    get: operations["fetchBot"];
+  };
+  "/bot/{botId}/session/create": {
     /** Create bot session */
-    post: operations['createBotSession']
-  }
-  '/bot/{botId}/update': {
+    post: operations["createBotSession"];
+  };
+  "/bot/{botId}/update": {
     /** Update the specified bot */
-    post: operations['updateBot']
-  }
-  '/bot/create': {
+    post: operations["updateBot"];
+  };
+  "/bot/create": {
     /** Create a new bot */
-    post: operations['createBot']
-  }
-  '/bot/list': {
+    post: operations["createBot"];
+  };
+  "/bot/list": {
     /** Retrieve a list of bots belonging to the current user */
-    get: operations['listBots']
-  }
-  '/conversation/{conversationId}/complete': {
+    get: operations["listBots"];
+  };
+  "/conversation/{conversationId}/complete": {
     /** Send and receive a conversation response */
-    post: operations['completeConversationMessage']
-  }
-  '/conversation/{conversationId}/delete': {
+    post: operations["completeConversationMessage"];
+  };
+  "/conversation/{conversationId}/delete": {
     /** Delete a conversation */
-    post: operations['deleteConversation']
-  }
-  '/conversation/{conversationId}/fetch': {
+    post: operations["deleteConversation"];
+  };
+  "/conversation/{conversationId}/fetch": {
     /** Fetch a conversation */
-    get: operations['fetchConversation']
-  }
-  '/conversation/{conversationId}/message/{messageId}/delete': {
+    get: operations["fetchConversation"];
+  };
+  "/conversation/{conversationId}/message/{messageId}/delete": {
     /** Delete a message from a conversation */
-    post: operations['deleteConversationMessage']
-  }
-  '/conversation/{conversationId}/message/{messageId}/fetch': {
+    post: operations["deleteConversationMessage"];
+  };
+  "/conversation/{conversationId}/message/{messageId}/fetch": {
     /** Fetch a conversation message */
-    get: operations['fetchConversationMessage']
-  }
-  '/conversation/{conversationId}/message/{messageId}/update': {
+    get: operations["fetchConversationMessage"];
+  };
+  "/conversation/{conversationId}/message/{messageId}/update": {
     /** Update a conversation message */
-    post: operations['updateConversationMessage']
-  }
-  '/conversation/{conversationId}/message/create': {
+    post: operations["updateConversationMessage"];
+  };
+  "/conversation/{conversationId}/message/create": {
     /** Create a new message */
-    post: operations['createConversationMessage']
-  }
-  '/conversation/{conversationId}/message/list': {
+    post: operations["createConversationMessage"];
+  };
+  "/conversation/{conversationId}/message/list": {
     /** List messages in a conversation */
-    get: operations['listConversationMessages']
-  }
-  '/conversation/{conversationId}/receive': {
+    get: operations["listConversationMessages"];
+  };
+  "/conversation/{conversationId}/receive": {
     /** Receive a conversation response */
-    post: operations['receiveConversationMessage']
-  }
-  '/conversation/{conversationId}/send': {
+    post: operations["receiveConversationMessage"];
+  };
+  "/conversation/{conversationId}/send": {
     /** Send a message to a conversation */
-    post: operations['sendConversationMessage']
-  }
-  '/conversation/{conversationId}/session/create': {
+    post: operations["sendConversationMessage"];
+  };
+  "/conversation/{conversationId}/session/create": {
     /**
      * Create a new session
      * @description Conversation tokens allow client-side applications to create a unique, authenticated credential for each conversation. This token can be used to interact with the conversation/{conversationId}/send, conversation/{conversationId}/receive, and conversation/{conversationId}/message/create routes on api.chatbotkit.com. By creating an individual token for each conversation, a client-side application is able to directly access and manipulate the conversation through these routes. Without conversation tokens, a client-side application would need to authenticate and access ChatBotKit conversation routes through a server-side application, which can be more complex and require additional infrastructure. By providing a way for client-side applications to authenticate and access the conversation routes directly, the token route simplifies the process of integrating with api.chatbotkit.com and makes it more convenient for developers to build chatbot applications.
      */
-    post: operations['createConversationSession']
-  }
-  '/conversation/{conversationId}/update': {
+    post: operations["createConversationSession"];
+  };
+  "/conversation/{conversationId}/update": {
     /** Update the specified conversation */
-    post: operations['updateConversation']
-  }
-  '/conversation/complete': {
+    post: operations["updateConversation"];
+  };
+  "/conversation/complete": {
     /** Complete the next message in a conversation */
-    post: operations['completeConversation']
-  }
-  '/conversation/create': {
+    post: operations["completeConversation"];
+  };
+  "/conversation/create": {
     /** Create a new conversation */
-    post: operations['createConversation']
-  }
-  '/conversation/export': {
+    post: operations["createConversation"];
+  };
+  "/conversation/export": {
     /** Export conversations */
-    get: operations['exportConversations']
-  }
-  '/conversation/list': {
+    get: operations["exportConversations"];
+  };
+  "/conversation/list": {
     /** List conversations */
-    get: operations['listConversations']
-  }
-  '/dataset/{datasetId}/delete': {
+    get: operations["listConversations"];
+  };
+  "/dataset/{datasetId}/delete": {
     /** Delete a dataset */
-    post: operations['deleteDataset']
-  }
-  '/dataset/{datasetId}/fetch': {
+    post: operations["deleteDataset"];
+  };
+  "/dataset/{datasetId}/fetch": {
     /** Fetch a dataset */
-    get: operations['fetchDataset']
-  }
-  '/dataset/{datasetId}/file/{fileId}/attach': {
+    get: operations["fetchDataset"];
+  };
+  "/dataset/{datasetId}/file/{fileId}/attach": {
     /** Attach dataset file */
-    post: operations['attachDatasetFile']
-  }
-  '/dataset/{datasetId}/file/{fileId}/detach': {
+    post: operations["attachDatasetFile"];
+  };
+  "/dataset/{datasetId}/file/{fileId}/detach": {
     /** Detach dataset file */
-    post: operations['detachDatasetFile']
-  }
-  '/dataset/{datasetId}/file/{fileId}/sync': {
+    post: operations["detachDatasetFile"];
+  };
+  "/dataset/{datasetId}/file/{fileId}/sync": {
     /** Sync dataset file */
-    post: operations['syncDatasetFile']
-  }
-  '/dataset/{datasetId}/record/{recordId}/delete': {
+    post: operations["syncDatasetFile"];
+  };
+  "/dataset/{datasetId}/record/{recordId}/delete": {
     /** Delete a record from a dataset */
-    post: operations['deleteDatasetRecord']
-  }
-  '/dataset/{datasetId}/record/{recordId}/fetch': {
+    post: operations["deleteDatasetRecord"];
+  };
+  "/dataset/{datasetId}/record/{recordId}/fetch": {
     /** Fetch a record from a dataset */
-    get: operations['fetchDatasetRecord']
-  }
-  '/dataset/{datasetId}/record/{recordId}/update': {
+    get: operations["fetchDatasetRecord"];
+  };
+  "/dataset/{datasetId}/record/{recordId}/update": {
     /** Update a dataset record */
-    post: operations['updateDatasetRecord']
-  }
-  '/dataset/{datasetId}/record/create': {
+    post: operations["updateDatasetRecord"];
+  };
+  "/dataset/{datasetId}/record/create": {
     /** Create a new record */
-    post: operations['createDatasetRecord']
-  }
-  '/dataset/{datasetId}/record/export': {
+    post: operations["createDatasetRecord"];
+  };
+  "/dataset/{datasetId}/record/export": {
     /** Export dataset records */
-    get: operations['exportDatasetRecords']
-  }
-  '/dataset/{datasetId}/record/list': {
+    get: operations["exportDatasetRecords"];
+  };
+  "/dataset/{datasetId}/record/list": {
     /** Retrieve a list of records for a dataset */
-    get: operations['listDatasetRecords']
-  }
-  '/dataset/{datasetId}/search': {
+    get: operations["listDatasetRecords"];
+  };
+  "/dataset/{datasetId}/search": {
     /** Search a dataset for records matching a given search query */
-    post: operations['searchDataset']
-  }
-  '/dataset/{datasetId}/update': {
+    post: operations["searchDataset"];
+  };
+  "/dataset/{datasetId}/update": {
     /** Update the specified dataset */
-    post: operations['updateDataset']
-  }
-  '/dataset/create': {
+    post: operations["updateDataset"];
+  };
+  "/dataset/create": {
     /** Create a new dataset */
-    post: operations['createDataset']
-  }
-  '/dataset/list': {
+    post: operations["createDataset"];
+  };
+  "/dataset/list": {
     /** Retrieve a list of datasets belonging to the current user */
-    get: operations['listDatasets']
-  }
-  '/file/{fileId}/delete': {
+    get: operations["listDatasets"];
+  };
+  "/file/{fileId}/delete": {
     /** Delete a file */
-    post: operations['deleteFile']
-  }
-  '/file/{fileId}/download': {
+    post: operations["deleteFile"];
+  };
+  "/file/{fileId}/download": {
     /** Download a file */
-    get: operations['downloadFile']
-  }
-  '/file/{fileId}/fetch': {
+    get: operations["downloadFile"];
+  };
+  "/file/{fileId}/fetch": {
     /** Fetch a file */
-    get: operations['fetchFile']
-  }
-  '/file/{fileId}/sync': {
+    get: operations["fetchFile"];
+  };
+  "/file/{fileId}/sync": {
     /** Sync file */
-    post: operations['syncFile']
-  }
-  '/file/{fileId}/update': {
+    post: operations["syncFile"];
+  };
+  "/file/{fileId}/update": {
     /** Update the specified file */
-    post: operations['updateFile']
-  }
-  '/file/{fileId}/upload': {
+    post: operations["updateFile"];
+  };
+  "/file/{fileId}/upload": {
     /** Upload the specified file */
-    post: operations['uploadFile']
-  }
-  '/file/create': {
+    post: operations["uploadFile"];
+  };
+  "/file/create": {
     /** Create a new file */
-    post: operations['createFile']
-  }
-  '/file/list': {
+    post: operations["createFile"];
+  };
+  "/file/list": {
     /** Retrieve a list of files belonging to the current user */
-    get: operations['listFiles']
-  }
-  '/integration/sitemap/{sitemapIntegrationId}/delete': {
+    get: operations["listFiles"];
+  };
+  "/integration/sitemap/{sitemapIntegrationId}/delete": {
     /** Delete Sitemap integration */
-    post: operations['deleteSitemapIntegration']
-  }
-  '/integration/sitemap/{sitemapIntegrationId}/fetch': {
+    post: operations["deleteSitemapIntegration"];
+  };
+  "/integration/sitemap/{sitemapIntegrationId}/fetch": {
     /** Fetch a sitemapIntegration */
-    get: operations['fetchSitemapIntegration']
-  }
-  '/integration/sitemap/{sitemapIntegrationId}/sync': {
+    get: operations["fetchSitemapIntegration"];
+  };
+  "/integration/sitemap/{sitemapIntegrationId}/sync": {
     /** Sync a Sitemap integration */
-    post: operations['syncSitemapIntegration']
-  }
-  '/integration/sitemap/{sitemapIntegrationId}/update': {
+    post: operations["syncSitemapIntegration"];
+  };
+  "/integration/sitemap/{sitemapIntegrationId}/update": {
     /** Update a Sitemap integration */
-    post: operations['updateSitemapIntegration']
-  }
-  '/integration/sitemap/create': {
+    post: operations["updateSitemapIntegration"];
+  };
+  "/integration/sitemap/create": {
     /** Create a new Sitemap integration */
-    post: operations['createSitemapIntegration']
-  }
-  '/integration/sitemap/list': {
+    post: operations["createSitemapIntegration"];
+  };
+  "/integration/sitemap/list": {
     /** List Sitemap integrations */
-    get: operations['listSitemapIntegrations']
-  }
-  '/integration/whatsapp/{whatsappIntegrationId}/delete': {
+    get: operations["listSitemapIntegrations"];
+  };
+  "/integration/whatsapp/{whatsappIntegrationId}/delete": {
     /** Delete WhatsApp integration */
-    post: operations['deleteWhatsAppIntegration']
-  }
-  '/integration/whatsapp/{whatsappIntegrationId}/fetch': {
+    post: operations["deleteWhatsAppIntegration"];
+  };
+  "/integration/whatsapp/{whatsappIntegrationId}/fetch": {
     /** Fetch a whatsappIntegration */
-    get: operations['fetchWhatsAppIntegration']
-  }
-  '/integration/whatsapp/{whatsappIntegrationId}/setup': {
+    get: operations["fetchWhatsAppIntegration"];
+  };
+  "/integration/whatsapp/{whatsappIntegrationId}/setup": {
     /** Setup a WhatsApp integration */
-    post: operations['setupWhatsAppIntegration']
-  }
-  '/integration/whatsapp/{whatsappIntegrationId}/update': {
+    post: operations["setupWhatsAppIntegration"];
+  };
+  "/integration/whatsapp/{whatsappIntegrationId}/update": {
     /** Update a WhatsApp integration */
-    post: operations['updateWhatsAppIntegration']
-  }
-  '/integration/whatsapp/create': {
+    post: operations["updateWhatsAppIntegration"];
+  };
+  "/integration/whatsapp/create": {
     /** Create a new WhatsApp integration */
-    post: operations['createWhatsAppIntegration']
-  }
-  '/integration/whatsapp/list': {
+    post: operations["createWhatsAppIntegration"];
+  };
+  "/integration/whatsapp/list": {
     /** List WhatsApp integrations */
-    get: operations['listWhatsAppIntegrations']
-  }
-  '/partner/user/{userId}/delete': {
+    get: operations["listWhatsAppIntegrations"];
+  };
+  "/partner/user/{userId}/delete": {
     /** Delete a partner user */
-    post: operations['deletePartnerUser']
-  }
-  '/partner/user/{userId}/fetch': {
+    post: operations["deletePartnerUser"];
+  };
+  "/partner/user/{userId}/fetch": {
     /** Fetch a partner user */
-    get: operations['fetchPartnerUser']
-  }
-  '/partner/user/{userId}/token/{tokenId}/delete': {
+    get: operations["fetchPartnerUser"];
+  };
+  "/partner/user/{userId}/token/{tokenId}/delete": {
     /** Delete a partner user token */
-    post: operations['deletePartnerUserToken']
-  }
-  '/partner/user/{userId}/token/create': {
+    post: operations["deletePartnerUserToken"];
+  };
+  "/partner/user/{userId}/token/create": {
     /** Create a new partner user token */
-    post: operations['createPartnerUserToken']
-  }
-  '/partner/user/{userId}/token/list': {
+    post: operations["createPartnerUserToken"];
+  };
+  "/partner/user/{userId}/token/list": {
     /** List partner user tokens */
-    get: operations['listPartnerUserTokens']
-  }
-  '/partner/user/{userId}/update': {
+    get: operations["listPartnerUserTokens"];
+  };
+  "/partner/user/{userId}/update": {
     /** Update a partner user */
-    post: operations['updatePartnerUser']
-  }
-  '/partner/user/create': {
+    post: operations["updatePartnerUser"];
+  };
+  "/partner/user/create": {
     /** Create a new partner user */
-    post: operations['createPartnerUser']
-  }
-  '/partner/user/list': {
+    post: operations["createPartnerUser"];
+  };
+  "/partner/user/list": {
     /** List partner users */
-    get: operations['listPartnerUsers']
-  }
-  '/skillset/{skillsetId}/ability/{abilityId}/delete': {
+    get: operations["listPartnerUsers"];
+  };
+  "/skillset/{skillsetId}/ability/{abilityId}/delete": {
     /** Delete a ability from a skillset */
-    post: operations['deleteSkillsetAbility']
-  }
-  '/skillset/{skillsetId}/ability/{abilityId}/fetch': {
+    post: operations["deleteSkillsetAbility"];
+  };
+  "/skillset/{skillsetId}/ability/{abilityId}/fetch": {
     /** Fetch a ability from a skillset */
-    get: operations['fetchSkillsetAbility']
-  }
-  '/skillset/{skillsetId}/ability/{abilityId}/update': {
+    get: operations["fetchSkillsetAbility"];
+  };
+  "/skillset/{skillsetId}/ability/{abilityId}/update": {
     /** Update a skillset ability */
-    post: operations['updateSkillsetAbility']
-  }
-  '/skillset/{skillsetId}/ability/create': {
+    post: operations["updateSkillsetAbility"];
+  };
+  "/skillset/{skillsetId}/ability/create": {
     /** Create a new ability */
-    post: operations['createSkillsetAbility']
-  }
-  '/skillset/{skillsetId}/ability/export': {
+    post: operations["createSkillsetAbility"];
+  };
+  "/skillset/{skillsetId}/ability/export": {
     /** Export skillset abilities */
-    get: operations['exportSkillsetAbilities']
-  }
-  '/skillset/{skillsetId}/ability/list': {
+    get: operations["exportSkillsetAbilities"];
+  };
+  "/skillset/{skillsetId}/ability/list": {
     /** Retrieve a list of abilities for a skillset */
-    get: operations['listSkillsetAbilities']
-  }
-  '/skillset/{skillsetId}/delete': {
+    get: operations["listSkillsetAbilities"];
+  };
+  "/skillset/{skillsetId}/delete": {
     /** Delete a skillset */
-    post: operations['deleteSkillset']
-  }
-  '/skillset/{skillsetId}/fetch': {
+    post: operations["deleteSkillset"];
+  };
+  "/skillset/{skillsetId}/fetch": {
     /** Fetch a skillset */
-    get: operations['fetchSkillset']
-  }
-  '/skillset/{skillsetId}/update': {
+    get: operations["fetchSkillset"];
+  };
+  "/skillset/{skillsetId}/update": {
     /** Update the specified skillset */
-    post: operations['updateSkillset']
-  }
-  '/skillset/create': {
+    post: operations["updateSkillset"];
+  };
+  "/skillset/create": {
     /** Create a new skillset */
-    post: operations['createSkillset']
-  }
-  '/skillset/list': {
+    post: operations["createSkillset"];
+  };
+  "/skillset/list": {
     /** Retrieve a list of skillsets belonging to the current user */
-    get: operations['listSkillsets']
-  }
-  '/usage/fetch': {
+    get: operations["listSkillsets"];
+  };
+  "/usage/fetch": {
     /** Fetch usage */
-    get: operations['fetchUsage']
-  }
+    get: operations["fetchUsage"];
+  };
 }
 
-export type webhooks = Record<string, never>
+export type webhooks = Record<string, never>;
 
 export interface components {
   schemas: {
     /** @description Extracted entity from the message */
     Entity: {
       /** @description The entity type */
-      type: string
+      type: string;
       /** @description Start offset */
-      begin?: number
+      begin?: number;
       /** @description End offset */
-      end: number
+      end: number;
       /** @description The text value of the entity */
-      text: string
+      text: string;
       replacement?: {
         /** @description Start offset */
-        begin?: number
+        begin?: number;
         /** @description End offset */
-        end: number
+        end: number;
         /** @description The text value of the replacement */
-        text: string
-      }
-    }
+        text: string;
+      };
+    };
     /**
      * @description The type of the message
      * @enum {string}
      */
-    MessageType: 'user' | 'bot' | 'context' | 'instruction' | 'backstory'
+    MessageType: "user" | "bot" | "context" | "instruction" | "backstory";
     /**
      * @description The bot visibility
      * @enum {string}
      */
-    BotVisibility:
-      | 'private'
-      | 'public'
-      | 'chat'
-      | 'restrictedAccessChat'
-      | 'unrestrictedAccessChat'
+    BotVisibility: "private" | "public" | "chat" | "restrictedAccessChat" | "unrestrictedAccessChat";
     /**
      * @description The dataset visibility
      * @enum {string}
      */
-    DatasetVisibility: 'private' | 'public'
+    DatasetVisibility: "private" | "public";
     /**
      * @description The dataset file attachment type
      * @enum {string}
      */
-    DatasetFileAttachmentType: 'source'
+    DatasetFileAttachmentType: "source";
     /**
      * @description The skillset visibility
      * @enum {string}
      */
-    SkillsetVisibility: 'private' | 'public'
+    SkillsetVisibility: "private" | "public";
     /**
      * @description The file visibility
      * @enum {string}
      */
-    FileVisibility: 'private' | 'public'
+    FileVisibility: "private" | "public";
     /** @description Usage information */
     Usage: {
       /** @description The tokens used in this exchange */
-      token?: number
-    }
+      token?: number;
+    };
     /** @description Meta data information */
     Meta: {
-      [key: string]: unknown
-    }
+      [key: string]: unknown;
+    };
     /** @description A bot configuration that can be applied without a dedicated bot instance. */
     BotRef: {
       /** @description The ID of the bot this configuration is using */
-      botId?: string
-    }
+      botId?: string;
+    };
     /** @description A bot configuration that can be applied without a dedicated bot instance. */
     BotConfig: {
       /** @description The model this configuration is using */
-      model?: string
+      model?: string;
       /** @description The backstory this configuration is using */
-      backstory?: string
+      backstory?: string;
       /** @description The id of the dataset this configuration is using */
-      datasetId?: string
+      datasetId?: string;
       /** @description The id of the skillset this configuration is using */
-      skillsetId?: string
+      skillsetId?: string;
       /** @description The privacy flag for this configuration */
-      privacy?: boolean
+      privacy?: boolean;
       /** @description The moderation flag for this configuration */
-      moderation?: boolean
-    }
-    BotRefOrConfig:
-      | components['schemas']['BotRef']
-      | components['schemas']['BotConfig']
+      moderation?: boolean;
+    };
+    BotRefOrConfig: components["schemas"]["BotRef"] | components["schemas"]["BotConfig"];
     ErrorResponse: {
       /** @description The error message */
-      message?: string
+      message?: string;
       /** @description The error code */
-      code?: string
-    }
-  }
+      code?: string;
+    };
+  };
   responses: {
     /** @description The request could not be understood or was missing required parameters. */
     BadRequest: {
       content: {
-        'application/json': components['schemas']['ErrorResponse']
-      }
-    }
+        "application/json": components["schemas"]["ErrorResponse"];
+      };
+    };
     /** @description The request could not be completed due to a conflict with the current state of the resource. */
     Conflict: {
       content: {
-        'application/json': components['schemas']['ErrorResponse']
-      }
-    }
+        "application/json": components["schemas"]["ErrorResponse"];
+      };
+    };
     /** @description The user is not authorized to access the requested resource */
     Unauthorized: {
       content: {
-        'application/json': components['schemas']['ErrorResponse']
-      }
-    }
+        "application/json": components["schemas"]["ErrorResponse"];
+      };
+    };
     /** @description The specified resource was not found */
     NotFound: {
       content: {
-        'application/json': components['schemas']['ErrorResponse']
-      }
-    }
-  }
-  parameters: never
-  requestBodies: never
-  headers: never
-  pathItems: never
+        "application/json": components["schemas"]["ErrorResponse"];
+      };
+    };
+  };
+  parameters: never;
+  requestBodies: never;
+  headers: never;
+  pathItems: never;
 }
 
-export type $defs = Record<string, never>
+export type $defs = Record<string, never>;
 
-export type external = Record<string, never>
+export type external = Record<string, never>;
 
 export interface operations {
+
   /** Delete a bot */
   deleteBot: {
     parameters: {
       path: {
-        botId: string
-      }
-    }
+        botId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': Record<string, never>
-      }
-    }
+        "application/json": Record<string, never>;
+      };
+    };
     responses: {
       /** @description The bot was deleted successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the deleted bot */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Fetch a bot */
   fetchBot: {
     parameters: {
       path: {
-        botId: string
-      }
-    }
+        botId: string;
+      };
+    };
     responses: {
       /** @description The bot was retrieved successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the bot */
-            id: string
+            id: string;
             /** @description The name of the bot */
-            name?: string
+            name?: string;
             /** @description The description of the bot */
-            description?: string
+            description?: string;
             /** @description The backstory for the bot */
-            backstory?: string
+            backstory?: string;
             /** @description The model used in the bot */
-            model?: string
+            model?: string;
             /** @description The ID of the dataset used in the bot */
-            datasetId?: string
+            datasetId?: string;
             /** @description The ID of the skillset used in the bot */
-            skillsetId?: string
-            visibility?: components['schemas']['BotVisibility']
-            meta?: components['schemas']['Meta']
+            skillsetId?: string;
+            visibility?: components["schemas"]["BotVisibility"];
+            meta?: components["schemas"]["Meta"];
             /** @description The timestamp for when the bot was created (in milliseconds) */
-            createdAt: number
+            createdAt: number;
             /** @description The timestamp for when the bot was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Create bot session */
   createBotSession: {
     parameters: {
       path: {
-        botId: string
-      }
-    }
+        botId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The maximum amount of time this session will stay open */
-          durationInSeconds?: number
+          durationInSeconds?: number;
           /** @description An array of messages to be included in the conversation */
           messages?: {
-            type?: components['schemas']['MessageType']
-            /** @description The text of the message */
-            text?: string
-          }[]
-        }
-      }
-    }
+              type: components["schemas"]["MessageType"];
+              /** @description The text of the message */
+              text: string;
+            }[];
+        };
+      };
+    };
     responses: {
       /** @description The bot was deleted successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the bot */
-            id: string
+            id: string;
             /** @description The ID of the conversation */
-            conversationId: string
+            conversationId: string;
             /** @description The token for this conversaion */
-            token: string
+            token: string;
             /** @description The time the token will expire in milliseconds */
-            expiresAt: number
+            expiresAt: number;
             /** @description An array of messages included in the conversation */
             messages?: {
-              type?: components['schemas']['MessageType']
-              /** @description The text of the message */
-              text?: string
-            }[]
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
+                type: components["schemas"]["MessageType"];
+                /** @description The text of the message */
+                text: string;
+              }[];
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Update the specified bot */
   updateBot: {
     parameters: {
       path: {
-        botId: string
-      }
-    }
+        botId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The name of the bot */
-          name?: string
+          name?: string;
           /** @description The description of the bot */
-          description?: string
+          description?: string;
           /** @description The backstory of the bot */
-          backstory?: string
+          backstory?: string;
           /** @description The model of the bot */
-          model?: string
+          model?: string;
           /** @description The id of the dataset the bot is using */
-          datasetId?: string
+          datasetId?: string;
           /** @description The id of the skillset the bot is using */
-          skillsetId?: string
-          visibility?: components['schemas']['BotVisibility']
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
+          skillsetId?: string;
+          visibility?: components["schemas"]["BotVisibility"];
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
     responses: {
       /** @description The bot was updated successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the updated bot */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Create a new bot */
   createBot: {
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The name of the bot */
-          name?: string
+          name?: string;
           /** @description The description of the bot */
-          description?: string
+          description?: string;
           /** @description The backstory of the bot */
-          backstory?: string
+          backstory?: string;
           /** @description The model of the bot */
-          model?: string
+          model?: string;
           /** @description The id of the dataset the bot is using */
-          datasetId?: string
+          datasetId?: string;
           /** @description The id of the skillset the bot is using */
-          skillsetId?: string
-          visibility?: components['schemas']['BotVisibility']
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
+          skillsetId?: string;
+          visibility?: components["schemas"]["BotVisibility"];
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
     responses: {
       /** @description The bot was created successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the created bot */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      409: components['responses']['Conflict']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Retrieve a list of bots belonging to the current user */
   listBots: {
     parameters: {
       query?: {
-        cursor?: string
-        take?: number
-      }
-    }
+        cursor?: string;
+        take?: number;
+      };
+    };
     responses: {
       /** @description The list of bots was retrieved successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description An array of bots */
-            items?: {
-              /** @description The ID of the bot */
-              id?: string
-              /** @description The name of the bot */
-              name?: string
-              /** @description The description of the bot */
-              description?: string
-              /** @description The backstory of the bot */
-              backstory?: string
-              /** @description The model of the bot */
-              model?: string
-              /** @description The id of the dataset the bot is using */
-              datasetId?: string
-              /** @description The id of the skillset the bot is using */
-              skillsetId?: string
-              visibility?: components['schemas']['BotVisibility']
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp when the bot was created */
-              createdAt?: number
-              /** @description The timestamp when the bot was last updated */
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
-  /** Send and receive a conversation response */
-  completeConversationMessage: {
-    parameters: {
-      path: {
-        conversationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The text of the message to send */
-          text: string
-          /** @description Known entities */
-          entities?: components['schemas']['Entity'][]
-        }
-      }
-    }
-    responses: {
-      /** @description The message was received successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the created message */
-            id: string
-            /** @description The text of the message received */
-            text: string
-            usage: components['schemas']['Usage']
-          }
-          'application/jsonl': OneOf<
-            [
-              {
-                /**
-                 * @description The type of event
-                 * @enum {string}
-                 */
-                type?: 'result'
-                /** @description The data for the event */
-                data?: {
-                  /** @description The next bot message */
-                  text?: string
-                  usage?: components['schemas']['Usage']
-                }
-              },
-              {
-                /**
-                 * @description The type of event
-                 * @enum {string}
-                 */
-                type?: 'token'
-                /** @description The data for the event */
-                data?: {
-                  /** @description The token generated */
-                  token?: string
-                }
-              }
-            ]
-          >
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Delete a conversation */
-  deleteConversation: {
-    parameters: {
-      path: {
-        conversationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The conversation was deleted successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the deleted conversation */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Fetch a conversation */
-  fetchConversation: {
-    parameters: {
-      path: {
-        conversationId: string
-      }
-    }
-    responses: {
-      /** @description The conversation was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the conversation */
-            id: string
-            /** @description The backstory for the conversation */
-            backstory?: string
-            /** @description The model used in the conversation */
-            model?: string
-            /** @description The ID of the dataset used in the conversation */
-            datasetId?: string
-            /** @description The ID of the skillset used in the conversation */
-            skillsetId?: string
-            meta?: components['schemas']['Meta']
-            /** @description The timestamp for when the conversation was created (in milliseconds) */
-            createdAt: number
-            /** @description The timestamp for when the conversation was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Delete a message from a conversation */
-  deleteConversationMessage: {
-    parameters: {
-      path: {
-        conversationId: string
-        messageId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The message was deleted successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the deleted message */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Fetch a conversation message */
-  fetchConversationMessage: {
-    parameters: {
-      path: {
-        conversationId: string
-        messageId: string
-      }
-    }
-    responses: {
-      /** @description The message was fetched successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the fetched message */
-            id: string
-            type: components['schemas']['MessageType']
-            /** @description The text of the fetched message */
-            text: string
-            /** @description The date and time when the message was created (in milliseconds) */
-            createdAt: number
-            /** @description The date and time when the message was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Update a conversation message */
-  updateConversationMessage: {
-    parameters: {
-      path: {
-        conversationId: string
-        messageId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The updated text of the message */
-          text?: string
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The message was updated successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the updated message */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Create a new message */
-  createConversationMessage: {
-    parameters: {
-      path: {
-        conversationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          type: components['schemas']['MessageType']
-          /** @description The text of the message */
-          text: string
-          /** @description Known entities */
-          entities?: components['schemas']['Entity'][]
-        }
-      }
-    }
-    responses: {
-      /** @description The message was created successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the created message */
-            id: string
-            /** @description Extracted entities from the message */
-            entities: components['schemas']['Entity'][]
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** List messages in a conversation */
-  listConversationMessages: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-      path: {
-        conversationId: string
-      }
-    }
-    responses: {
-      /** @description The messages were listed successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description An array of conversation messages */
-            items?: {
-              /** @description The ID of the message */
-              id?: string
-              type?: components['schemas']['MessageType']
-              /** @description The text of the message */
-              text?: string
-              /** @description The timestamp of when the message was created (in milliseconds) */
-              createdAt?: number
-              /** @description The timestamp of when the message was last updated  (in milliseconds) */
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Receive a conversation response */
-  receiveConversationMessage: {
-    parameters: {
-      path: {
-        conversationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The message was received successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the created message */
-            id: string
-            /** @description The text of the message received */
-            text: string
-            usage: components['schemas']['Usage']
-          }
-          'application/jsonl': OneOf<
-            [
-              {
-                /**
-                 * @description The type of event
-                 * @enum {string}
-                 */
-                type?: 'result'
-                /** @description The data for the event */
-                data?: {
-                  /** @description The next bot message */
-                  text?: string
-                  usage?: components['schemas']['Usage']
-                }
-              },
-              {
-                /**
-                 * @description The type of event
-                 * @enum {string}
-                 */
-                type?: 'token'
-                /** @description The data for the event */
-                data?: {
-                  /** @description The token generated */
-                  token?: string
-                }
-              }
-            ]
-          >
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Send a message to a conversation */
-  sendConversationMessage: {
-    parameters: {
-      path: {
-        conversationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The text of the message to send */
-          text: string
-          /** @description Known entities */
-          entities?: components['schemas']['Entity'][]
-        }
-      }
-    }
-    responses: {
-      /** @description The message was sent successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the sent message */
-            id?: string
-            /** @description Extracted entities from the message */
-            entities?: components['schemas']['Entity'][]
-          }
-          'application/jsonl': {
+            items: {
+                /** @description The ID of the bot */
+                id: string;
+                /** @description The name of the bot */
+                name?: string;
+                /** @description The description of the bot */
+                description?: string;
+                /** @description The backstory of the bot */
+                backstory?: string;
+                /** @description The model of the bot */
+                model?: string;
+                /** @description The id of the dataset the bot is using */
+                datasetId?: string;
+                /** @description The id of the skillset the bot is using */
+                skillsetId?: string;
+                visibility: components["schemas"]["BotVisibility"];
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp when the bot was created */
+                createdAt: number;
+                /** @description The timestamp when the bot was last updated */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
             /**
              * @description The type of event
              * @enum {string}
              */
-            type?: 'result'
+            type: "item";
+            data: paths["/bot/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
+  /** Send and receive a conversation response */
+  completeConversationMessage: {
+    parameters: {
+      path: {
+        conversationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The text of the message to send */
+          text: string;
+          /** @description Known entities */
+          entities?: components["schemas"]["Entity"][];
+        };
+      };
+    };
+    responses: {
+      /** @description The message was received successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the created message */
+            id: string;
+            /** @description The text of the message received */
+            text: string;
+            usage: components["schemas"]["Usage"];
+          };
+          "application/jsonl": OneOf<[{
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "result";
             /** @description The data for the event */
-            data?: {
+            data: {
+              /** @description The next bot message */
+              text: string;
+              usage: components["schemas"]["Usage"];
+            };
+          }, {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "token";
+            /** @description The data for the event */
+            data: {
+              /** @description The token generated */
+              token?: string;
+            };
+          }]>;
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Delete a conversation */
+  deleteConversation: {
+    parameters: {
+      path: {
+        conversationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The conversation was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted conversation */
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Fetch a conversation */
+  fetchConversation: {
+    parameters: {
+      path: {
+        conversationId: string;
+      };
+    };
+    responses: {
+      /** @description The conversation was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the conversation */
+            id: string;
+            /** @description The backstory for the conversation */
+            backstory?: string;
+            /** @description The model used in the conversation */
+            model?: string;
+            /** @description The ID of the dataset used in the conversation */
+            datasetId?: string;
+            /** @description The ID of the skillset used in the conversation */
+            skillsetId?: string;
+            meta?: components["schemas"]["Meta"];
+            /** @description The timestamp for when the conversation was created (in milliseconds) */
+            createdAt: number;
+            /** @description The timestamp for when the conversation was last updated (in milliseconds) */
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Delete a message from a conversation */
+  deleteConversationMessage: {
+    parameters: {
+      path: {
+        conversationId: string;
+        messageId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The message was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted message */
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Fetch a conversation message */
+  fetchConversationMessage: {
+    parameters: {
+      path: {
+        conversationId: string;
+        messageId: string;
+      };
+    };
+    responses: {
+      /** @description The message was fetched successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the fetched message */
+            id: string;
+            type: components["schemas"]["MessageType"];
+            /** @description The text of the fetched message */
+            text: string;
+            /** @description The date and time when the message was created (in milliseconds) */
+            createdAt: number;
+            /** @description The date and time when the message was last updated (in milliseconds) */
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Update a conversation message */
+  updateConversationMessage: {
+    parameters: {
+      path: {
+        conversationId: string;
+        messageId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The updated text of the message */
+          text?: string;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The message was updated successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the updated message */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Create a new message */
+  createConversationMessage: {
+    parameters: {
+      path: {
+        conversationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          type: components["schemas"]["MessageType"];
+          /** @description The text of the message */
+          text: string;
+          /** @description Known entities */
+          entities?: components["schemas"]["Entity"][];
+        };
+      };
+    };
+    responses: {
+      /** @description The message was created successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the created message */
+            id: string;
+            /** @description Extracted entities from the message */
+            entities: components["schemas"]["Entity"][];
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** List messages in a conversation */
+  listConversationMessages: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+      path: {
+        conversationId: string;
+      };
+    };
+    responses: {
+      /** @description The messages were listed successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description An array of conversation messages */
+            items: {
+                /** @description The ID of the message */
+                id: string;
+                type: components["schemas"]["MessageType"];
+                /** @description The text of the message */
+                text: string;
+                /** @description The timestamp of when the message was created (in milliseconds) */
+                createdAt: number;
+                /** @description The timestamp of when the message was last updated  (in milliseconds) */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/conversation//{conversationId}/message/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Receive a conversation response */
+  receiveConversationMessage: {
+    parameters: {
+      path: {
+        conversationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The message was received successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the created message */
+            id: string;
+            /** @description The text of the message received */
+            text: string;
+            usage: components["schemas"]["Usage"];
+          };
+          "application/jsonl": OneOf<[{
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "result";
+            /** @description The data for the event */
+            data: {
+              /** @description The next bot message */
+              text: string;
+              usage: components["schemas"]["Usage"];
+            };
+          }, {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "token";
+            /** @description The data for the event */
+            data: {
+              /** @description The token generated */
+              token?: string;
+            };
+          }]>;
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Send a message to a conversation */
+  sendConversationMessage: {
+    parameters: {
+      path: {
+        conversationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The text of the message to send */
+          text: string;
+          /** @description Known entities */
+          entities?: components["schemas"]["Entity"][];
+        };
+      };
+    };
+    responses: {
+      /** @description The message was sent successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the sent message */
+            id: string;
+            /** @description Extracted entities from the message */
+            entities: components["schemas"]["Entity"][];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "result";
+            /** @description The data for the event */
+            data: {
               /** @description The ID of the sent message */
-              id?: string
+              id: string;
               /** @description Extracted entities from the message */
-              entities?: components['schemas']['Entity'][]
-            }
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
+              entities: components["schemas"]["Entity"][];
+            };
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /**
    * Create a new session
    * @description Conversation tokens allow client-side applications to create a unique, authenticated credential for each conversation. This token can be used to interact with the conversation/{conversationId}/send, conversation/{conversationId}/receive, and conversation/{conversationId}/message/create routes on api.chatbotkit.com. By creating an individual token for each conversation, a client-side application is able to directly access and manipulate the conversation through these routes. Without conversation tokens, a client-side application would need to authenticate and access ChatBotKit conversation routes through a server-side application, which can be more complex and require additional infrastructure. By providing a way for client-side applications to authenticate and access the conversation routes directly, the token route simplifies the process of integrating with api.chatbotkit.com and makes it more convenient for developers to build chatbot applications.
@@ -1101,2026 +1096,2104 @@ export interface operations {
   createConversationSession: {
     parameters: {
       path: {
-        conversationId: string
-      }
-    }
+        conversationId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The maximum amount of time this session will stay open */
-          durationInSeconds?: number
-        }
-      }
-    }
+          durationInSeconds?: number;
+        };
+      };
+    };
     responses: {
       /** @description The session was created successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the conversation */
-            id: string
+            id: string;
             /** @description The token for this conversation */
-            token: string
+            token: string;
             /** @description The time the token will expire in milliseconds */
-            expiresAt: number
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
+            expiresAt: number;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Update the specified conversation */
   updateConversation: {
     parameters: {
       path: {
-        conversationId: string
-      }
-    }
+        conversationId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': {
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
+        "application/json": {
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
     responses: {
       /** @description The conversation was updated successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the updated conversation */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Complete the next message in a conversation */
   completeConversation: {
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The model to use for the conversation */
-          model?: string
+          model?: string;
           /** @description An array of messages to be added to the conversation */
           messages: {
-            type?: components['schemas']['MessageType']
-            /** @description The text of the message */
-            text?: string
-          }[]
+              type: components["schemas"]["MessageType"];
+              /** @description The text of the message */
+              text: string;
+            }[];
           /** @description The id of the dataset to use */
-          datasetId?: string
+          datasetId?: string;
           /** @description The id of the skillset to use */
-          skillsetId?: string
-        }
-      }
-    }
+          skillsetId?: string;
+        };
+      };
+    };
     responses: {
       /** @description The next message in the conversation completed successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The next bot message */
-            text?: string
-            usage?: components['schemas']['Usage']
-          }
-          'application/jsonl': OneOf<
-            [
-              {
-                /**
-                 * @description The type of event
-                 * @enum {string}
-                 */
-                type?: 'result'
-                /** @description The data for the event */
-                data?: {
-                  /** @description The next bot message */
-                  text?: string
-                  usage?: components['schemas']['Usage']
-                }
-              },
-              {
-                /**
-                 * @description The type of event
-                 * @enum {string}
-                 */
-                type?: 'token'
-                /** @description The data for the event */
-                data?: {
-                  /** @description The token generated */
-                  token?: string
-                }
-              }
-            ]
-          >
-        }
-      }
-      400: components['responses']['BadRequest']
-      409: components['responses']['Conflict']
-    }
-  }
+            text: string;
+            usage: components["schemas"]["Usage"];
+          };
+          "application/jsonl": OneOf<[{
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "result";
+            /** @description The data for the event */
+            data: {
+              /** @description The next bot message */
+              text?: string;
+              usage?: components["schemas"]["Usage"];
+            };
+          }, {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "token";
+            /** @description The data for the event */
+            data: {
+              /** @description The token generated */
+              token?: string;
+            };
+          }]>;
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Create a new conversation */
   createConversation: {
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The bot id assigned to this conversation */
-          botId?: string
+          botId?: string;
           /** @description The backstory for the conversation */
-          backstory?: string
+          backstory?: string;
           /** @description The model to use for the conversation */
-          model?: string
+          model?: string;
           /** @description The ID of the dataset to use for the conversation */
-          datasetId?: string
+          datasetId?: string;
           /** @description The ID of the skillset to use for the conversation */
-          skillsetId?: string
+          skillsetId?: string;
           /** @description Turn conversation privacy features on */
-          privacy?: boolean
+          privacy?: boolean;
           /** @description Turn conversation moderation features on */
-          moderation?: boolean
+          moderation?: boolean;
           /** @description An array of messages to be added to the conversation */
           messages?: {
-            type?: components['schemas']['MessageType']
-            /** @description The text of the message */
-            text?: string
-          }[]
-        }
-      }
-    }
+              type: components["schemas"]["MessageType"];
+              /** @description The text of the message */
+              text: string;
+            }[];
+        };
+      };
+    };
     responses: {
       /** @description The conversation was created successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the created conversation */
-            id: string
+            id: string;
             /** @description An array of messages included in the conversation */
             messages?: {
-              type?: components['schemas']['MessageType']
-              /** @description The text of the message */
-              text?: string
-            }[]
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      409: components['responses']['Conflict']
-    }
-  }
+                type: components["schemas"]["MessageType"];
+                /** @description The text of the message */
+                text: string;
+              }[];
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Export conversations */
   exportConversations: {
     parameters: {
       query?: {
-        cursor?: string
-        take?: number
-      }
-    }
+        cursor?: string;
+        take?: number;
+      };
+    };
     responses: {
       /** @description The export of conversations was retrieved successfully */
       200: {
         content: {
-          'application/json': {
-            items?: {
-              /** @description The ID of the conversation */
-              id?: string
-              /** @description The bot id assigned to this conversation */
-              botId?: string
-              /** @description The backstory for the conversation */
-              backstory?: string
-              /** @description The model used in the conversation */
-              model?: string
-              /** @description The ID of the dataset used in the conversation */
-              datasetId?: string
-              /** @description The ID of the skillset used in the conversation */
-              skillsetId?: string
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp for when the conversation was created (in milliseconds) */
-              createdAt?: number
-              /** @description The timestamp for when the conversation was last updated (in milliseconds) */
-              updatedAt?: number
-              /** @description The messages associated with this conversation */
-              messages?: {
-                /** @description The ID of the message */
-                id?: string
-                type?: components['schemas']['MessageType']
-                /** @description The text of the message */
-                text?: string
-                /** @description The timestamp of when the message was created (in milliseconds) */
-                createdAt?: number
-                /** @description The timestamp of when the message was last updated  (in milliseconds) */
-                updatedAt?: number
-              }[]
-            }[]
-          }
-          'application/jsonl': {
+          "application/json": {
+            items: {
+                /** @description The ID of the conversation */
+                id: string;
+                /** @description The bot id assigned to this conversation */
+                botId?: string;
+                /** @description The backstory for the conversation */
+                backstory?: string;
+                /** @description The model used in the conversation */
+                model?: string;
+                /** @description The ID of the dataset used in the conversation */
+                datasetId?: string;
+                /** @description The ID of the skillset used in the conversation */
+                skillsetId?: string;
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp for when the conversation was created (in milliseconds) */
+                createdAt: number;
+                /** @description The timestamp for when the conversation was last updated (in milliseconds) */
+                updatedAt: number;
+                /** @description The messages associated with this conversation */
+                messages?: {
+                    /** @description The ID of the message */
+                    id: string;
+                    type: components["schemas"]["MessageType"];
+                    /** @description The text of the message */
+                    text: string;
+                    /** @description The timestamp of when the message was created (in milliseconds) */
+                    createdAt: number;
+                    /** @description The timestamp of when the message was last updated  (in milliseconds) */
+                    updatedAt: number;
+                  }[];
+              }[];
+          };
+          "application/jsonl": {
             /**
              * @description The type of event
              * @enum {string}
              */
-            type?: 'item'
-            data?: paths['/conversation/export']['get']['responses']['200']['content']['application/json']['schema']['items']['items']
-          }
-          'text/csv': string
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
+            type: "item";
+            data: paths["/conversation/export"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+          "text/csv": string;
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
   /** List conversations */
   listConversations: {
     parameters: {
       query?: {
-        cursor?: string
-        take?: number
-      }
-    }
+        cursor?: string;
+        take?: number;
+      };
+    };
     responses: {
       /** @description The list of conversations was retrieved successfully */
       200: {
         content: {
-          'application/json': {
-            items?: {
-              /** @description The ID of the conversation */
-              id?: string
-              /** @description The bot id assigned to this conversation */
-              botId?: string
-              /** @description The backstory for the conversation */
-              backstory?: string
-              /** @description The model used in the conversation */
-              model?: string
-              /** @description The ID of the dataset used in the conversation */
-              datasetId?: string
-              /** @description The ID of the skillset used in the conversation */
-              skillsetId?: string
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp for when the conversation was created (in milliseconds) */
-              createdAt?: number
-              /** @description The timestamp for when the conversation was last updated (in milliseconds) */
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
+          "application/json": {
+            items: {
+                /** @description The ID of the conversation */
+                id: string;
+                /** @description The bot id assigned to this conversation */
+                botId?: string;
+                /** @description The backstory for the conversation */
+                backstory?: string;
+                /** @description The model used in the conversation */
+                model?: string;
+                /** @description The ID of the dataset used in the conversation */
+                datasetId?: string;
+                /** @description The ID of the skillset used in the conversation */
+                skillsetId?: string;
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp for when the conversation was created (in milliseconds) */
+                createdAt: number;
+                /** @description The timestamp for when the conversation was last updated (in milliseconds) */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/conversation/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
   /** Delete a dataset */
   deleteDataset: {
     parameters: {
       path: {
-        datasetId: string
-      }
-    }
+        datasetId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': Record<string, never>
-      }
-    }
+        "application/json": Record<string, never>;
+      };
+    };
     responses: {
       /** @description The dataset was deleted successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the deleted dataset */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Fetch a dataset */
   fetchDataset: {
     parameters: {
       path: {
-        datasetId: string
-      }
-    }
+        datasetId: string;
+      };
+    };
     responses: {
       /** @description The dataset was retrieved successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the dataset */
-            id: string
+            id: string;
             /** @description The name of the dataset */
-            name?: string
+            name?: string;
             /** @description The description of the dataset */
-            description?: string
+            description?: string;
             /** @description The store for the dataset */
-            store: string
+            store: string;
             /** @description The total number of tokens for each record */
-            recordMaxTokens?: number
+            recordMaxTokens?: number;
             /** @description The total number of records to return during search */
-            searchMaxRecords?: number
+            searchMaxRecords?: number;
             /** @description The total number of tokens to use during search */
-            searchMaxTokens?: number
+            searchMaxTokens?: number;
             /** @description An instruction to include before found records */
-            matchInstruction?: string
+            matchInstruction?: string;
             /** @description An instruction to include if no records where found */
-            mismatchInstruction?: string
-            visibility: components['schemas']['DatasetVisibility']
-            meta?: components['schemas']['Meta']
+            mismatchInstruction?: string;
+            visibility: components["schemas"]["DatasetVisibility"];
+            meta?: components["schemas"]["Meta"];
             /** @description The timestamp for when the dataset was created (in milliseconds) */
-            createdAt: number
+            createdAt: number;
             /** @description The timestamp for when the dataset was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Attach dataset file */
   attachDatasetFile: {
     parameters: {
       path: {
-        datasetId: string
-        fileId: string
-      }
-    }
+        datasetId: string;
+        fileId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': {
-          type?: components['schemas']['DatasetFileAttachmentType']
-        }
-      }
-    }
+        "application/json": {
+          type?: components["schemas"]["DatasetFileAttachmentType"];
+        };
+      };
+    };
     responses: {
       /** @description The dataset file that was attached successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the dataset file */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Detach dataset file */
   detachDatasetFile: {
     parameters: {
       path: {
-        datasetId: string
-        fileId: string
-      }
-    }
+        datasetId: string;
+        fileId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': Record<string, never>
-      }
-    }
+        "application/json": Record<string, never>;
+      };
+    };
     responses: {
       /** @description The dataset file that was detached successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the dataset file */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Sync dataset file */
   syncDatasetFile: {
     parameters: {
       path: {
-        datasetId: string
-        fileId: string
-      }
-    }
+        datasetId: string;
+        fileId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': Record<string, never>
-      }
-    }
+        "application/json": Record<string, never>;
+      };
+    };
     responses: {
       /** @description The dataset file that was synced successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the dataset file */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Delete a record from a dataset */
   deleteDatasetRecord: {
     parameters: {
       path: {
-        datasetId: string
-        recordId: string
-      }
-    }
+        datasetId: string;
+        recordId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': Record<string, never>
-      }
-    }
+        "application/json": Record<string, never>;
+      };
+    };
     responses: {
       /** @description The record was deleted successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the deleted record */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Fetch a record from a dataset */
   fetchDatasetRecord: {
     parameters: {
       path: {
-        datasetId: string
-        recordId: string
-      }
-    }
+        datasetId: string;
+        recordId: string;
+      };
+    };
     responses: {
       /** @description The dataset was retrieved successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the dataset record */
-            id: string
+            id: string;
             /** @description The text of the dataset record */
-            text: string
-            meta?: components['schemas']['Meta']
+            text: string;
+            meta?: components["schemas"]["Meta"];
             /** @description The timestamp for when the dataset record was created (in milliseconds) */
-            createdAt: number
+            createdAt: number;
             /** @description The timestamp for when the dataset record was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Update a dataset record */
   updateDatasetRecord: {
     parameters: {
       path: {
-        datasetId: string
-        recordId: string
-      }
-    }
+        datasetId: string;
+        recordId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The text to update the record with */
-          text?: string
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
+          text?: string;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
     responses: {
       /** @description The record was updated successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the updated record */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Create a new record */
   createDatasetRecord: {
     parameters: {
       path: {
-        datasetId: string
-      }
-    }
+        datasetId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The text of the record */
-          text: string
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
+          text: string;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
     responses: {
       /** @description The record was created successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the created record */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Export dataset records */
   exportDatasetRecords: {
     parameters: {
       query?: {
-        cursor?: string
-        take?: number
-      }
+        cursor?: string;
+        take?: number;
+      };
       path: {
-        datasetId: string
-      }
-    }
+        datasetId: string;
+      };
+    };
     responses: {
       /** @description The export of dataset records was retrieved successfully */
       200: {
         content: {
-          'application/json': {
-            items?: {
-              id?: string
-              text?: string
-              meta?: Record<string, never>
-              createdAt?: number
-              updatedAt?: number
-            }[]
-          }
-          'application/jsonl': {
+          "application/json": {
+            items: {
+                id: string;
+                text: string;
+                meta?: Record<string, never>;
+                createdAt: number;
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
             /**
              * @description The type of event
              * @enum {string}
              */
-            type?: 'item'
-            data?: paths['/dataset/{datasetId}/record/export']['get']['responses']['200']['content']['application/json']['schema']['items']['items']
-          }
-          'text/csv': string
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
+            type: "item";
+            data: paths["/dataset/{datasetId}/record/export"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+          "text/csv": string;
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
   /** Retrieve a list of records for a dataset */
   listDatasetRecords: {
     parameters: {
       query?: {
-        cursor?: string
-        take?: number
-      }
+        cursor?: string;
+        take?: number;
+      };
       path: {
-        datasetId: string
-      }
-    }
+        datasetId: string;
+      };
+    };
     responses: {
       /** @description The list of records was retrieved successfully */
       200: {
         content: {
-          'application/json': {
-            items?: {
-              id?: string
-              text?: string
-              meta?: Record<string, never>
-              createdAt?: number
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Search a dataset for records matching a given search query */
-  searchDataset: {
-    parameters: {
-      path: {
-        datasetId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The search query to use for the search */
-          search: string
-        }
-      }
-    }
-    responses: {
-      /** @description The search was successful */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the dataset that was searched */
-            id: string
-            /** @description An array of records matching the search query */
-            records: {
-              id: string
-              text: string
-            }[]
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Update the specified dataset */
-  updateDataset: {
-    parameters: {
-      path: {
-        datasetId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The new name for the dataset */
-          name?: string
-          /** @description The new description for the dataset */
-          description?: string
-          /** @description The total number of tokens to for each record */
-          recordMaxTokens?: number
-          /** @description The total number of records to return during search */
-          searchMaxRecords?: number
-          /** @description The total number of tokens to use during search */
-          searchMaxTokens?: number
-          /** @description An instruction to include before found records */
-          matchInstruction?: string
-          /** @description An instruction to include if no records where found */
-          mismatchInstruction?: string
-          visibility?: components['schemas']['DatasetVisibility']
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The dataset was updated successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the updated dataset */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Create a new dataset */
-  createDataset: {
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The name of the dataset */
-          name?: string
-          /** @description A description of the dataset */
-          description?: string
-          /** @description The storage class for this dataset */
-          store?: string
-          /** @description The total number of tokens for each record */
-          recordMaxTokens?: number
-          /** @description The total number of records to return during search */
-          searchMaxRecords?: number
-          /** @description The total number of tokens to use during search */
-          searchMaxTokens?: number
-          /** @description An instruction to include before found records */
-          matchInstruction?: string
-          /** @description An instruction to include if no records where found */
-          mismatchInstruction?: string
-          visibility?: components['schemas']['DatasetVisibility']
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The dataset was created successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the created dataset */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Retrieve a list of datasets belonging to the current user */
-  listDatasets: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-    }
-    responses: {
-      /** @description The list of datasets was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description An array of datasets */
-            items?: {
-              /** @description The ID of the dataset */
-              id?: string
-              /** @description The name of the dataset */
-              name?: string
-              /** @description The description of the dataset */
-              description?: string
-              visibility?: components['schemas']['DatasetVisibility']
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp when the dataset was created */
-              createdAt?: number
-              /** @description The timestamp when the dataset was last updated */
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
-  /** Delete a file */
-  deleteFile: {
-    parameters: {
-      path: {
-        fileId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The file was deleted successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the deleted file */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Download a file */
-  downloadFile: {
-    parameters: {
-      path: {
-        fileId: string
-      }
-    }
-    responses: {
-      /** @description The file was downloaded successfully */
-      200: {
-        content: never
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Fetch a file */
-  fetchFile: {
-    parameters: {
-      path: {
-        fileId: string
-      }
-    }
-    responses: {
-      /** @description The file was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the file */
-            id: string
-            /** @description The name of the file */
-            name?: string
-            /** @description The description of the file */
-            description?: string
-            visibility: components['schemas']['FileVisibility']
-            meta?: components['schemas']['Meta']
-            /** @description The timestamp for when the file was created (in milliseconds) */
-            createdAt: number
-            /** @description The timestamp for when the file was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Sync file */
-  syncFile: {
-    parameters: {
-      path: {
-        fileId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The file was synced successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the file */
-            id?: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Update the specified file */
-  updateFile: {
-    parameters: {
-      path: {
-        fileId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The new name for the file */
-          name?: string
-          /** @description The new description for the file */
-          description?: string
-          visibility?: components['schemas']['FileVisibility']
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The file was updated successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the updated file */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Upload the specified file */
-  uploadFile: {
-    parameters: {
-      path: {
-        fileId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'multipart/form-data:': {
-          /**
-           * Format: binary
-           * @description The file to upload
-           */
-          file?: string
-        }
-      }
-    }
-    responses: {
-      /** @description The file was uploadd successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the uploadd file */
-            id?: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Create a new file */
-  createFile: {
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The name of the file */
-          name?: string
-          /** @description A description of the file */
-          description?: string
-          visibility?: components['schemas']['FileVisibility']
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The file was created successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the created file */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Retrieve a list of files belonging to the current user */
-  listFiles: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-    }
-    responses: {
-      /** @description The list of files was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description An array of files */
-            items?: {
-              /** @description The ID of the file */
-              id?: string
-              /** @description The name of the file */
-              name?: string
-              /** @description The description of the file */
-              description?: string
-              visibility?: components['schemas']['FileVisibility']
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp when the file was created */
-              createdAt?: number
-              /** @description The timestamp when the file was last updated */
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
-  /** Delete Sitemap integration */
-  deleteSitemapIntegration: {
-    parameters: {
-      path: {
-        sitemapIntegrationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The Sitemap integration was deleted successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the deleted Sitemap integration */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Fetch a sitemapIntegration */
-  fetchSitemapIntegration: {
-    parameters: {
-      path: {
-        sitemapIntegrationId: string
-      }
-    }
-    responses: {
-      /** @description The Sitemap integration was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the Sitemap integration */
-            id: string
-            /** @description The name of the Sitemap integration */
-            name?: string
-            /** @description The description of the Sitemap integration */
-            description?: string
-            /** @description The ID of the dataset used in the Sitemap integration */
-            datasetId?: string
-            /** @description The URL to use for this Sitemap integration */
-            url?: string
-            /** @description The glob rules to use for this Sitemap integration */
-            glob?: string
-            /** @description The selector rules to use for this Sitemap integration */
-            selectors?: string
-            /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
-            javascript?: boolean
-            /** @description The sync schedule to use for this Sitemap integration */
-            syncSchedule?: string
-            /** @description Record expiry in milliseconds */
-            expiresIn?: number
-            meta?: components['schemas']['Meta']
-            /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
-            createdAt: number
-            /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Sync a Sitemap integration */
-  syncSitemapIntegration: {
-    parameters: {
-      path: {
-        sitemapIntegrationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The Sitemap integration was scheduled for syncing successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the Sitemap Integration */
-            id?: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Update a Sitemap integration */
-  updateSitemapIntegration: {
-    parameters: {
-      path: {
-        sitemapIntegrationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The name for this Sitemap integration */
-          name?: string
-          /** @description The description for this Sitemap integration */
-          description?: string
-          /** @description The ID of the dataset to use for this Sitemap integration */
-          datasetId?: string
-          /** @description The URL to use for this Sitemap integration */
-          url?: string
-          /** @description The glob rules to use for this Sitemap integration */
-          glob?: string
-          /** @description The selector rules to use for this Sitemap integration */
-          selectors?: string
-          /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
-          javascript?: boolean
-          /** @description The sync schedule to use for this Sitemap integration */
-          syncSchedule?: string
-          /** @description Record expiry in milliseconds */
-          expiresIn?: number
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The Sitemap integration was updated successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the Sitemap Integration */
-            id?: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Create a new Sitemap integration */
-  createSitemapIntegration: {
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The name for this Sitemap integration */
-          name?: string
-          /** @description The description for this Sitemap integration */
-          description?: string
-          /** @description The ID of the dataset to use for this Sitemap integration */
-          datasetId?: string
-          /** @description The URL to use for this Sitemap integration */
-          url?: string
-          /** @description The glob rules to use for this Sitemap integration */
-          glob?: string
-          /** @description The selector rules to use for this Sitemap integration */
-          selectors?: string
-          /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
-          javascript?: boolean
-          /** @description The sync schedule to use for this Sitemap integration */
-          syncSchedule?: string
-          /** @description Record expiry in milliseconds */
-          expiresIn?: number
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The Sitemap integration was created successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the Sitemap Integration */
-            id?: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** List Sitemap integrations */
-  listSitemapIntegrations: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-    }
-    responses: {
-      /** @description The list of Sitemap integrations was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            items?: {
-              /** @description The ID of the Sitemap integration */
-              id?: string
-              /** @description The name of the Sitemap integration */
-              name?: string
-              /** @description The description of the Sitemap integration */
-              description?: string
-              /** @description The ID of the dataset used by the Sitemap integration */
-              datasetId?: string
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
-              createdAt?: number
-              /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
-  /** Delete WhatsApp integration */
-  deleteWhatsAppIntegration: {
-    parameters: {
-      path: {
-        whatsappIntegrationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The WhatsApp integration was deleted successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the deleted WhatsApp integration */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Fetch a whatsappIntegration */
-  fetchWhatsAppIntegration: {
-    parameters: {
-      path: {
-        whatsappIntegrationId: string
-      }
-    }
-    responses: {
-      /** @description The WhatsApp integration was retrieved successfully */
-      200: {
-        content: {
-          'application/json': WithRequired<
-            components['schemas']['BotRefOrConfig'] & {
-              /** @description The name for this WhatsApp integration */
-              name?: string
-              /** @description The description for this WhatsApp integration */
-              description?: string
-              /** @description The WhatsApp integration phone number ID */
-              phoneNumberId?: string
-              /** @description The WhatsApp integration access token */
-              accessToken?: string
-              /** @description The session duration (in milliseconds) */
-              sessionDuration?: number
-              meta?: components['schemas']['Meta']
-            },
-            'id' | 'createdAt' | 'updatedAt'
-          >
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Setup a WhatsApp integration */
-  setupWhatsAppIntegration: {
-    parameters: {
-      path: {
-        whatsappIntegrationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The WhatsApp integration was successfully setup */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the WhatsApp Integration */
-            id?: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Update a WhatsApp integration */
-  updateWhatsAppIntegration: {
-    parameters: {
-      path: {
-        whatsappIntegrationId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['BotRefOrConfig'] & {
-          /** @description The name for this WhatsApp integration */
-          name?: string
-          /** @description The description for this WhatsApp integration */
-          description?: string
-          /** @description The WhatsApp integration phone number ID */
-          phoneNumberId?: string
-          /** @description The WhatsApp integration access token */
-          accessToken?: string
-          /** @description The session duration (in milliseconds) */
-          sessionDuration?: number
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The WhatsApp integration was updated successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the WhatsApp Integration */
-            id?: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Create a new WhatsApp integration */
-  createWhatsAppIntegration: {
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['BotRefOrConfig'] & {
-          /** @description The name for this WhatsApp integration */
-          name?: string
-          /** @description The description for this WhatsApp integration */
-          description?: string
-          /** @description The WhatsApp integration phone number ID */
-          phoneNumberId?: string
-          /** @description The WhatsApp integration access token */
-          accessToken?: string
-          /** @description The session duration (in milliseconds) */
-          sessionDuration?: number
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The WhatsApp integration was created successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the WhatsApp Integration */
-            id?: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** List WhatsApp integrations */
-  listWhatsAppIntegrations: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-    }
-    responses: {
-      /** @description The list of WhatsApp integrations was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            items?: (components['schemas']['BotRefOrConfig'] & {
-              /** @description The ID of the WhatsApp integration */
-              id?: string
-              /** @description The name of the WhatsApp integration */
-              name?: string
-              /** @description The description of the WhatsApp integration */
-              description?: string
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp for when the WhatsApp integration was created (in milliseconds) */
-              createdAt?: number
-              /** @description The timestamp for when the WhatsApp integration was last updated (in milliseconds) */
-              updatedAt?: number
-            })[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
-  /** Delete a partner user */
-  deletePartnerUser: {
-    parameters: {
-      path: {
-        userId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The user was deleted successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the deleted user */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Fetch a partner user */
-  fetchPartnerUser: {
-    parameters: {
-      path: {
-        userId: string
-      }
-    }
-    responses: {
-      /** @description The partner user was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the partner user */
-            id: string
-            /** @description The name of the partner user */
-            name?: string
-            /** @description The image of the partner user */
-            image?: string
-            meta?: components['schemas']['Meta']
-            /** @description The timestamp for when the partner user was created (in milliseconds) */
-            createdAt: number
-            /** @description The timestamp for when the partner user was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Delete a partner user token */
-  deletePartnerUserToken: {
-    parameters: {
-      path: {
-        userId: string
-        tokenId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The user token was deleted successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the deleted user token */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Create a new partner user token */
-  createPartnerUserToken: {
-    parameters: {
-      path: {
-        userId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The user token was created successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the created user token */
-            id: string
-            /** @description The token of the created user token */
-            token: string
-            /** @description The timestamp for when the user token was created (in milliseconds) */
-            createdAt: number
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** List partner user tokens */
-  listPartnerUserTokens: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-      path: {
-        userId: string
-      }
-    }
-    responses: {
-      /** @description The list of user tokens was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            items?: {
-              /** @description The ID of the user */
-              id?: string
-              /** @description The timestamp for when the user token was created (in milliseconds) */
-              createdAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
-  /** Update a partner user */
-  updatePartnerUser: {
-    parameters: {
-      path: {
-        userId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The name of the partner user */
-          name?: string
-          /** @description The image of the partner user */
-          image?: string
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The message was updated successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the updated partner user */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Create a new partner user */
-  createPartnerUser: {
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The name of the partner user */
-          name?: string
-          /** @description The image of the partner user */
-          image?: string
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The user was created successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the created user */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** List partner users */
-  listPartnerUsers: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-    }
-    responses: {
-      /** @description The list of users was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            items?: {
-              /** @description The ID of the user */
-              id?: string
-              /** @description The name of the user */
-              name?: string
-              /** @description The image of the user */
-              image?: string
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp for when the user was created (in milliseconds) */
-              createdAt?: number
-              /** @description The timestamp for when the user was last updated (in milliseconds) */
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
-  /** Delete a ability from a skillset */
-  deleteSkillsetAbility: {
-    parameters: {
-      path: {
-        skillsetId: string
-        abilityId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': Record<string, never>
-      }
-    }
-    responses: {
-      /** @description The ability was deleted successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the deleted ability */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Fetch a ability from a skillset */
-  fetchSkillsetAbility: {
-    parameters: {
-      path: {
-        skillsetId: string
-        abilityId: string
-      }
-    }
-    responses: {
-      /** @description The skillset was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the skillset ability */
-            id: string
-            /** @description The name of the skillset ability */
-            name: string
-            /** @description The description of the skillset ability */
-            description: string
-            /** @description The instruction of the skillset ability */
-            instruction: string
-            meta?: components['schemas']['Meta']
-            /** @description The timestamp for when the skillset ability was created (in milliseconds) */
-            createdAt: number
-            /** @description The timestamp for when the skillset ability was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Update a skillset ability */
-  updateSkillsetAbility: {
-    parameters: {
-      path: {
-        skillsetId: string
-        abilityId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The name of the ability */
-          name?: string
-          /** @description The description for the ability */
-          description?: string
-          /** @description The text to update the ability with */
-          instruction?: string
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The ability was updated successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the updated ability */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Create a new ability */
-  createSkillsetAbility: {
-    parameters: {
-      path: {
-        skillsetId: string
-      }
-    }
-    requestBody: {
-      content: {
-        'application/json': {
-          /** @description The name of the ability */
-          name: string
-          /** @description The description for the ability */
-          description: string
-          /** @description The instruction of the ability */
-          instruction: string
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
-    responses: {
-      /** @description The ability was created successfully */
-      200: {
-        content: {
-          'application/json': {
-            /** @description The ID of the created ability */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
-  /** Export skillset abilities */
-  exportSkillsetAbilities: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-      path: {
-        skillsetId: string
-      }
-    }
-    responses: {
-      /** @description The export of skillset abilities was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            items?: {
-              id?: string
-              name?: string
-              description?: string
-              instruction?: string
-              meta?: Record<string, never>
-              createdAt?: number
-              updatedAt?: number
-            }[]
-          }
-          'application/jsonl': {
+          "application/json": {
+            items: {
+                id: string;
+                text: string;
+                meta?: Record<string, never>;
+                createdAt: number;
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
             /**
              * @description The type of event
              * @enum {string}
              */
-            type?: 'item'
-            data?: paths['/skillset/{skillsetId}/ability/export']['get']['responses']['200']['content']['application/json']['schema']['items']['items']
-          }
-          'text/csv': string
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
-  /** Retrieve a list of abilities for a skillset */
-  listSkillsetAbilities: {
-    parameters: {
-      query?: {
-        cursor?: string
-        take?: number
-      }
-      path: {
-        skillsetId: string
-      }
-    }
-    responses: {
-      /** @description The list of abilities was retrieved successfully */
-      200: {
-        content: {
-          'application/json': {
-            items?: {
-              id?: string
-              name?: string
-              description?: string
-              instruction?: string
-              meta?: Record<string, never>
-              createdAt?: number
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Delete a skillset */
-  deleteSkillset: {
+            type: "item";
+            data: paths["/dataset/{datasetId}/record/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Search a dataset for records matching a given search query */
+  searchDataset: {
     parameters: {
       path: {
-        skillsetId: string
-      }
-    }
+        datasetId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': Record<string, never>
-      }
-    }
+        "application/json": {
+          /** @description The search query to use for the search */
+          search: string;
+        };
+      };
+    };
     responses: {
-      /** @description The skillset was deleted successfully */
+      /** @description The search was successful */
       200: {
         content: {
-          'application/json': {
-            /** @description The ID of the deleted skillset */
-            id: string
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
-  /** Fetch a skillset */
-  fetchSkillset: {
+          "application/json": {
+            /** @description The ID of the dataset that was searched */
+            id: string;
+            /** @description An array of records matching the search query */
+            records: {
+                id: string;
+                text: string;
+              }[];
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Update the specified dataset */
+  updateDataset: {
     parameters: {
       path: {
-        skillsetId: string
-      }
-    }
+        datasetId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The new name for the dataset */
+          name?: string;
+          /** @description The new description for the dataset */
+          description?: string;
+          /** @description The total number of tokens to for each record */
+          recordMaxTokens?: number;
+          /** @description The total number of records to return during search */
+          searchMaxRecords?: number;
+          /** @description The total number of tokens to use during search */
+          searchMaxTokens?: number;
+          /** @description An instruction to include before found records */
+          matchInstruction?: string;
+          /** @description An instruction to include if no records where found */
+          mismatchInstruction?: string;
+          visibility?: components["schemas"]["DatasetVisibility"];
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The dataset was updated successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the updated dataset */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Create a new dataset */
+  createDataset: {
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The name of the dataset */
+          name?: string;
+          /** @description A description of the dataset */
+          description?: string;
+          /** @description The storage class for this dataset */
+          store?: string;
+          /** @description The total number of tokens for each record */
+          recordMaxTokens?: number;
+          /** @description The total number of records to return during search */
+          searchMaxRecords?: number;
+          /** @description The total number of tokens to use during search */
+          searchMaxTokens?: number;
+          /** @description An instruction to include before found records */
+          matchInstruction?: string;
+          /** @description An instruction to include if no records where found */
+          mismatchInstruction?: string;
+          visibility?: components["schemas"]["DatasetVisibility"];
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The dataset was created successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the created dataset */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Retrieve a list of datasets belonging to the current user */
+  listDatasets: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+    };
+    responses: {
+      /** @description The list of datasets was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description An array of datasets */
+            items: {
+                /** @description The ID of the dataset */
+                id: string;
+                /** @description The name of the dataset */
+                name?: string;
+                /** @description The description of the dataset */
+                description?: string;
+                /** @description The store for the dataset */
+                store: string;
+                visibility: components["schemas"]["DatasetVisibility"];
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp when the dataset was created */
+                createdAt: number;
+                /** @description The timestamp when the dataset was last updated */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/dataset/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
+  /** Delete a file */
+  deleteFile: {
+    parameters: {
+      path: {
+        fileId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The file was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted file */
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Download a file */
+  downloadFile: {
+    parameters: {
+      path: {
+        fileId: string;
+      };
+    };
+    responses: {
+      /** @description The file was downloaded successfully */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Fetch a file */
+  fetchFile: {
+    parameters: {
+      path: {
+        fileId: string;
+      };
+    };
+    responses: {
+      /** @description The file was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the file */
+            id: string;
+            /** @description The name of the file */
+            name?: string;
+            /** @description The description of the file */
+            description?: string;
+            visibility: components["schemas"]["FileVisibility"];
+            meta?: components["schemas"]["Meta"];
+            /** @description The timestamp for when the file was created (in milliseconds) */
+            createdAt: number;
+            /** @description The timestamp for when the file was last updated (in milliseconds) */
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Sync file */
+  syncFile: {
+    parameters: {
+      path: {
+        fileId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The file was synced successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the file */
+            id?: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Update the specified file */
+  updateFile: {
+    parameters: {
+      path: {
+        fileId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The new name for the file */
+          name?: string;
+          /** @description The new description for the file */
+          description?: string;
+          visibility?: components["schemas"]["FileVisibility"];
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The file was updated successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the updated file */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Upload the specified file */
+  uploadFile: {
+    parameters: {
+      path: {
+        fileId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "multipart/form-data:": {
+          /**
+           * Format: binary
+           * @description The file to upload
+           */
+          file?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description The file was uploadd successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the uploadd file */
+            id?: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Create a new file */
+  createFile: {
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The name of the file */
+          name?: string;
+          /** @description A description of the file */
+          description?: string;
+          visibility?: components["schemas"]["FileVisibility"];
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The file was created successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the created file */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Retrieve a list of files belonging to the current user */
+  listFiles: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+    };
+    responses: {
+      /** @description The list of files was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description An array of files */
+            items: {
+                /** @description The ID of the file */
+                id: string;
+                /** @description The name of the file */
+                name?: string;
+                /** @description The description of the file */
+                description?: string;
+                visibility: components["schemas"]["FileVisibility"];
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp when the file was created */
+                createdAt: number;
+                /** @description The timestamp when the file was last updated */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/file/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
+  /** Delete Sitemap integration */
+  deleteSitemapIntegration: {
+    parameters: {
+      path: {
+        sitemapIntegrationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The Sitemap integration was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted Sitemap integration */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Fetch a sitemapIntegration */
+  fetchSitemapIntegration: {
+    parameters: {
+      path: {
+        sitemapIntegrationId: string;
+      };
+    };
+    responses: {
+      /** @description The Sitemap integration was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the Sitemap integration */
+            id: string;
+            /** @description The name of the Sitemap integration */
+            name?: string;
+            /** @description The description of the Sitemap integration */
+            description?: string;
+            /** @description The ID of the dataset used in the Sitemap integration */
+            datasetId?: string;
+            /** @description The URL to use for this Sitemap integration */
+            url?: string;
+            /** @description The glob rules to use for this Sitemap integration */
+            glob?: string;
+            /** @description The selector rules to use for this Sitemap integration */
+            selectors?: string;
+            /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
+            javascript?: boolean;
+            /** @description The sync schedule to use for this Sitemap integration */
+            syncSchedule?: string;
+            /** @description Record expiry in milliseconds */
+            expiresIn?: number;
+            meta?: components["schemas"]["Meta"];
+            /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
+            createdAt: number;
+            /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Sync a Sitemap integration */
+  syncSitemapIntegration: {
+    parameters: {
+      path: {
+        sitemapIntegrationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The Sitemap integration was scheduled for syncing successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the Sitemap Integration */
+            id?: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Update a Sitemap integration */
+  updateSitemapIntegration: {
+    parameters: {
+      path: {
+        sitemapIntegrationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The name for this Sitemap integration */
+          name?: string;
+          /** @description The description for this Sitemap integration */
+          description?: string;
+          /** @description The ID of the dataset to use for this Sitemap integration */
+          datasetId?: string;
+          /** @description The URL to use for this Sitemap integration */
+          url?: string;
+          /** @description The glob rules to use for this Sitemap integration */
+          glob?: string;
+          /** @description The selector rules to use for this Sitemap integration */
+          selectors?: string;
+          /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
+          javascript?: boolean;
+          /** @description The sync schedule to use for this Sitemap integration */
+          syncSchedule?: string;
+          /** @description Record expiry in milliseconds */
+          expiresIn?: number;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The Sitemap integration was updated successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the Sitemap Integration */
+            id?: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Create a new Sitemap integration */
+  createSitemapIntegration: {
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The name for this Sitemap integration */
+          name?: string;
+          /** @description The description for this Sitemap integration */
+          description?: string;
+          /** @description The ID of the dataset to use for this Sitemap integration */
+          datasetId?: string;
+          /** @description The URL to use for this Sitemap integration */
+          url?: string;
+          /** @description The glob rules to use for this Sitemap integration */
+          glob?: string;
+          /** @description The selector rules to use for this Sitemap integration */
+          selectors?: string;
+          /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
+          javascript?: boolean;
+          /** @description The sync schedule to use for this Sitemap integration */
+          syncSchedule?: string;
+          /** @description Record expiry in milliseconds */
+          expiresIn?: number;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The Sitemap integration was created successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the Sitemap Integration */
+            id?: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** List Sitemap integrations */
+  listSitemapIntegrations: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+    };
+    responses: {
+      /** @description The list of Sitemap integrations was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            items: {
+                /** @description The ID of the Sitemap integration */
+                id: string;
+                /** @description The name of the Sitemap integration */
+                name?: string;
+                /** @description The description of the Sitemap integration */
+                description?: string;
+                /** @description The ID of the dataset used by the Sitemap integration */
+                datasetId?: string;
+                /** @description The sync schedule to use for this Sitemap integration */
+                syncSchedule: string;
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
+                createdAt: number;
+                /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/integration/sitemap/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
+  /** Delete WhatsApp integration */
+  deleteWhatsAppIntegration: {
+    parameters: {
+      path: {
+        whatsappIntegrationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The WhatsApp integration was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted WhatsApp integration */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Fetch a whatsappIntegration */
+  fetchWhatsAppIntegration: {
+    parameters: {
+      path: {
+        whatsappIntegrationId: string;
+      };
+    };
+    responses: {
+      /** @description The WhatsApp integration was retrieved successfully */
+      200: {
+        content: {
+          "application/json": WithRequired<components["schemas"]["BotRefOrConfig"] & {
+            /** @description The name for this WhatsApp integration */
+            name?: string;
+            /** @description The description for this WhatsApp integration */
+            description?: string;
+            /** @description The WhatsApp integration phone number ID */
+            phoneNumberId?: string;
+            /** @description The WhatsApp integration access token */
+            accessToken?: string;
+            /** @description The session duration (in milliseconds) */
+            sessionDuration?: number;
+            meta?: components["schemas"]["Meta"];
+          }, "id" | "createdAt" | "updatedAt">;
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Setup a WhatsApp integration */
+  setupWhatsAppIntegration: {
+    parameters: {
+      path: {
+        whatsappIntegrationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The WhatsApp integration was successfully setup */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the WhatsApp Integration */
+            id?: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Update a WhatsApp integration */
+  updateWhatsAppIntegration: {
+    parameters: {
+      path: {
+        whatsappIntegrationId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["BotRefOrConfig"] & {
+          /** @description The name for this WhatsApp integration */
+          name?: string;
+          /** @description The description for this WhatsApp integration */
+          description?: string;
+          /** @description The WhatsApp integration phone number ID */
+          phoneNumberId?: string;
+          /** @description The WhatsApp integration access token */
+          accessToken?: string;
+          /** @description The session duration (in milliseconds) */
+          sessionDuration?: number;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The WhatsApp integration was updated successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the WhatsApp Integration */
+            id?: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Create a new WhatsApp integration */
+  createWhatsAppIntegration: {
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["BotRefOrConfig"] & {
+          /** @description The name for this WhatsApp integration */
+          name?: string;
+          /** @description The description for this WhatsApp integration */
+          description?: string;
+          /** @description The WhatsApp integration phone number ID */
+          phoneNumberId?: string;
+          /** @description The WhatsApp integration access token */
+          accessToken?: string;
+          /** @description The session duration (in milliseconds) */
+          sessionDuration?: number;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The WhatsApp integration was created successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the WhatsApp Integration */
+            id?: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** List WhatsApp integrations */
+  listWhatsAppIntegrations: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+    };
+    responses: {
+      /** @description The list of WhatsApp integrations was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            items: (WithRequired<components["schemas"]["BotRefOrConfig"] & {
+                /** @description The ID of the WhatsApp integration */
+                id?: string;
+                /** @description The name of the WhatsApp integration */
+                name?: string;
+                /** @description The description of the WhatsApp integration */
+                description?: string;
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp for when the WhatsApp integration was created (in milliseconds) */
+                createdAt?: number;
+                /** @description The timestamp for when the WhatsApp integration was last updated (in milliseconds) */
+                updatedAt?: number;
+              }, "id" | "createdAt" | "updatedAt">)[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/integration/whatsapp/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
+  /** Delete a partner user */
+  deletePartnerUser: {
+    parameters: {
+      path: {
+        userId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The user was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted user */
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Fetch a partner user */
+  fetchPartnerUser: {
+    parameters: {
+      path: {
+        userId: string;
+      };
+    };
+    responses: {
+      /** @description The partner user was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the partner user */
+            id: string;
+            /** @description The name of the partner user */
+            name?: string;
+            /** @description The image of the partner user */
+            image?: string;
+            meta?: components["schemas"]["Meta"];
+            /** @description The timestamp for when the partner user was created (in milliseconds) */
+            createdAt: number;
+            /** @description The timestamp for when the partner user was last updated (in milliseconds) */
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Delete a partner user token */
+  deletePartnerUserToken: {
+    parameters: {
+      path: {
+        userId: string;
+        tokenId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The user token was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted user token */
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Create a new partner user token */
+  createPartnerUserToken: {
+    parameters: {
+      path: {
+        userId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The user token was created successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the created user token */
+            id: string;
+            /** @description The token of the created user token */
+            token: string;
+            /** @description The timestamp for when the user token was created (in milliseconds) */
+            createdAt: number;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** List partner user tokens */
+  listPartnerUserTokens: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+      path: {
+        userId: string;
+      };
+    };
+    responses: {
+      /** @description The list of user tokens was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            items: {
+                /** @description The ID of the user */
+                id: string;
+                /** @description The timestamp for when the user token was created (in milliseconds) */
+                createdAt: number;
+                /** @description The timestamp for when the user token was updated (in milliseconds) */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/partner/user/{userId}/token/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
+  /** Update a partner user */
+  updatePartnerUser: {
+    parameters: {
+      path: {
+        userId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The name of the partner user */
+          name?: string;
+          /** @description The image of the partner user */
+          image?: string;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The message was updated successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the updated partner user */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Create a new partner user */
+  createPartnerUser: {
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The name of the partner user */
+          name?: string;
+          /** @description The image of the partner user */
+          image?: string;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The user was created successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the created user */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** List partner users */
+  listPartnerUsers: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+    };
+    responses: {
+      /** @description The list of users was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            items: {
+                /** @description The ID of the user */
+                id: string;
+                /** @description The name of the user */
+                name?: string;
+                /** @description The image of the user */
+                image?: string;
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp for when the user was created (in milliseconds) */
+                createdAt: number;
+                /** @description The timestamp for when the user was last updated (in milliseconds) */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/partner/user/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
+  /** Delete a ability from a skillset */
+  deleteSkillsetAbility: {
+    parameters: {
+      path: {
+        skillsetId: string;
+        abilityId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The ability was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted ability */
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Fetch a ability from a skillset */
+  fetchSkillsetAbility: {
+    parameters: {
+      path: {
+        skillsetId: string;
+        abilityId: string;
+      };
+    };
     responses: {
       /** @description The skillset was retrieved successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
+            /** @description The ID of the skillset ability */
+            id: string;
+            /** @description The name of the skillset ability */
+            name: string;
+            /** @description The description of the skillset ability */
+            description: string;
+            /** @description The instruction of the skillset ability */
+            instruction: string;
+            meta?: components["schemas"]["Meta"];
+            /** @description The timestamp for when the skillset ability was created (in milliseconds) */
+            createdAt: number;
+            /** @description The timestamp for when the skillset ability was last updated (in milliseconds) */
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Update a skillset ability */
+  updateSkillsetAbility: {
+    parameters: {
+      path: {
+        skillsetId: string;
+        abilityId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The name of the ability */
+          name?: string;
+          /** @description The description for the ability */
+          description?: string;
+          /** @description The text to update the ability with */
+          instruction?: string;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The ability was updated successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the updated ability */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Create a new ability */
+  createSkillsetAbility: {
+    parameters: {
+      path: {
+        skillsetId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": {
+          /** @description The name of the ability */
+          name: string;
+          /** @description The description for the ability */
+          description: string;
+          /** @description The instruction of the ability */
+          instruction: string;
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
+    responses: {
+      /** @description The ability was created successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the created ability */
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
+  /** Export skillset abilities */
+  exportSkillsetAbilities: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+      path: {
+        skillsetId: string;
+      };
+    };
+    responses: {
+      /** @description The export of skillset abilities was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            items: {
+                id: string;
+                name: string;
+                description: string;
+                instruction: string;
+                meta?: Record<string, never>;
+                createdAt: number;
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/skillset/{skillsetId}/ability/export"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+          "text/csv": string;
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
+  /** Retrieve a list of abilities for a skillset */
+  listSkillsetAbilities: {
+    parameters: {
+      query?: {
+        cursor?: string;
+        take?: number;
+      };
+      path: {
+        skillsetId: string;
+      };
+    };
+    responses: {
+      /** @description The list of abilities was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
+            items: {
+                id: string;
+                name: string;
+                description: string;
+                instruction: string;
+                meta?: Record<string, never>;
+                createdAt: number;
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/skillset/{skillsetId}/ability/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Delete a skillset */
+  deleteSkillset: {
+    parameters: {
+      path: {
+        skillsetId: string;
+      };
+    };
+    requestBody: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description The skillset was deleted successfully */
+      200: {
+        content: {
+          "application/json": {
+            /** @description The ID of the deleted skillset */
+            id: string;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
+  /** Fetch a skillset */
+  fetchSkillset: {
+    parameters: {
+      path: {
+        skillsetId: string;
+      };
+    };
+    responses: {
+      /** @description The skillset was retrieved successfully */
+      200: {
+        content: {
+          "application/json": {
             /** @description The ID of the skillset */
-            id: string
+            id: string;
             /** @description The name of the skillset */
-            name?: string
+            name?: string;
             /** @description The description of the skillset */
-            description?: string
-            visibility?: components['schemas']['SkillsetVisibility']
-            meta?: components['schemas']['Meta']
+            description?: string;
+            visibility?: components["schemas"]["SkillsetVisibility"];
+            meta?: components["schemas"]["Meta"];
             /** @description The timestamp for when the skillset was created (in milliseconds) */
-            createdAt: number
+            createdAt: number;
             /** @description The timestamp for when the skillset was last updated (in milliseconds) */
-            updatedAt: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-    }
-  }
+            updatedAt: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+    };
+  };
   /** Update the specified skillset */
   updateSkillset: {
     parameters: {
       path: {
-        skillsetId: string
-      }
-    }
+        skillsetId: string;
+      };
+    };
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The new name for the skillset */
-          name?: string
+          name?: string;
           /** @description The new description for the skillset */
-          description?: string
-          visibility?: components['schemas']['SkillsetVisibility']
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
+          description?: string;
+          visibility?: components["schemas"]["SkillsetVisibility"];
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
     responses: {
       /** @description The skillset was updated successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the updated skillset */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      401: components['responses']['Unauthorized']
-      404: components['responses']['NotFound']
-      409: components['responses']['Conflict']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      401: components["responses"]["Unauthorized"];
+      404: components["responses"]["NotFound"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Create a new skillset */
   createSkillset: {
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description The name of the skillset */
-          name?: string
+          name?: string;
           /** @description A description of the skillset */
-          description?: string
-          visibility?: components['schemas']['SkillsetVisibility']
-          meta?: components['schemas']['Meta']
-        }
-      }
-    }
+          description?: string;
+          visibility?: components["schemas"]["SkillsetVisibility"];
+          meta?: components["schemas"]["Meta"];
+        };
+      };
+    };
     responses: {
       /** @description The skillset was created successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The ID of the created skillset */
-            id: string
-          }
-        }
-      }
-      400: components['responses']['BadRequest']
-      409: components['responses']['Conflict']
-    }
-  }
+            id: string;
+          };
+        };
+      };
+      400: components["responses"]["BadRequest"];
+      409: components["responses"]["Conflict"];
+    };
+  };
   /** Retrieve a list of skillsets belonging to the current user */
   listSkillsets: {
     parameters: {
       query?: {
-        cursor?: string
-        take?: number
-      }
-    }
+        cursor?: string;
+        take?: number;
+      };
+    };
     responses: {
       /** @description The list of skillsets was retrieved successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description An array of skillsets */
-            items?: {
-              /** @description The ID of the skillset */
-              id?: string
-              /** @description The name of the skillset */
-              name?: string
-              /** @description The description of the skillset */
-              description?: string
-              visibility?: components['schemas']['SkillsetVisibility']
-              meta?: components['schemas']['Meta']
-              /** @description The timestamp when the skillset was created */
-              createdAt?: number
-              /** @description The timestamp when the skillset was last updated */
-              updatedAt?: number
-            }[]
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
+            items: {
+                /** @description The ID of the skillset */
+                id: string;
+                /** @description The name of the skillset */
+                name?: string;
+                /** @description The description of the skillset */
+                description?: string;
+                visibility: components["schemas"]["SkillsetVisibility"];
+                meta?: components["schemas"]["Meta"];
+                /** @description The timestamp when the skillset was created */
+                createdAt: number;
+                /** @description The timestamp when the skillset was last updated */
+                updatedAt: number;
+              }[];
+          };
+          "application/jsonl": {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "item";
+            data: paths["/skillset/list"]["get"]["responses"]["200"]["content"]["application/json"]["schema"]["items"]["items"];
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
   /** Fetch usage */
   fetchUsage: {
     responses: {
       /** @description The usage information was retrieved successfully */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @description The number of tokens the user has used */
-            tokens: number
+            tokens: number;
             /** @description The number of conversations the user has created */
-            conversations: number
-          }
-        }
-      }
-      401: components['responses']['Unauthorized']
-    }
-  }
+            conversations: number;
+          };
+        };
+      };
+      401: components["responses"]["Unauthorized"];
+    };
+  };
 }
