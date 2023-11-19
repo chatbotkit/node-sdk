@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700347633239)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build f20a)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
