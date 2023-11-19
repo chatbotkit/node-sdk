@@ -988,8 +988,9 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
     "check": "tsc --noEmit",
-    "gen:types:api": "openapi-typescript src/types/api/v1.json --output ./src/types/api/v1.d.ts",
-    "test": "true"
+    "generate:api-types": "openapi-typescript src/types/api/v1.json --output ./src/types/api/v1.d.ts",
+    "test": "true",
+    "update:api-types": "curl https://api.chatbotkit.com/v1/spec.json -o src/types/api/v1.json"
   },
   "types": "./dist/esm/index.d.ts",
   "dependencies": {
