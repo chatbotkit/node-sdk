@@ -13,8 +13,7 @@ const fetchPlusPlus = withRetry(withTimeout(fetch))
 /** @type {Record<string,{message: string, code: string}>} */
 const standardErrors = {
   413: {
-    message:
-      'The request made from the client is too large to be processed by the web server.',
+    message: 'Client request is too large to be processed by the web server.',
     code: 'CONTENT_TOO_LARGE',
   },
 
