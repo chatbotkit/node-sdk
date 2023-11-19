@@ -8,12 +8,13 @@ import { SkillsetClient } from './skillset/index.js'
 import { IntegrationClient } from './integration/index.js'
 import { ConversationClient } from './conversation/index.js'
 
-export { BotClient } from './bot/index.js'
-export { FileClient } from './file/index.js'
-export { PartnerClient } from './partner/index.js'
-export { DatasetClient } from './dataset/index.js'
-export { SkillsetClient } from './skillset/index.js'
-export { ConversationClient } from './conversation/index.js'
+export { BotClient }
+export { FileClient }
+export { PartnerClient }
+export { DatasetClient }
+export { SkillsetClient }
+export { IntegrationClient }
+export { ConversationClient }
 
 export class ChatBotKit extends ChatBotKitClient {
   /**
