@@ -2,11 +2,13 @@ import {
   fetch,
   withTimeout,
   withRetry,
-  RequestError,
+  FetchError,
   jsonl,
   Blob,
   FormData,
 } from '@chatbotkit/fetch'
+
+const fetchPlusPlus = withRetry(withTimeout(fetch))
 
 /** @type {Record<string,{message: string, code: string}>} */
 const standardErrors = {
@@ -21,8 +23,6 @@ const standardErrors = {
     code: 'GENERIC_ERROR',
   },
 }
-
-const fetchPlusPlus = withRetry(withTimeout(fetch))
 
 /**
  * @template T,U
@@ -98,7 +98,7 @@ export class ResponsePromise {
         code = data.code
       }
 
-      throw new RequestError(message, code, url, this.request, response)
+      throw new FetchError(message, code, url, this.request, response)
     }
 
     return response
