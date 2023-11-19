@@ -11,7 +11,7 @@ async function main() {
     secret: process.env.CHATBOTKIT_API_SECRET,
   })
 
-  for await (const { data } of  client.list().stream()) {
+  for await (const { data } of client.list().stream()) {
     console.log(`id: ${JSON.stringify(data.id)}`)
     console.log(`name: ${JSON.stringify(data.name)}`)
     console.log(`description: ${JSON.stringify(data.description)}`)
