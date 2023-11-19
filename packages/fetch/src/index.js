@@ -53,7 +53,7 @@ export function anySignal(signals) {
  * @todo add definition
  * @todo move to @chatbotkit/fetch sdk
  */
-export class RequestError extends Error {
+export class FetchError extends Error {
   /**
    * @param {string} message
    * @param {number|string} code
@@ -100,7 +100,8 @@ export function withTimeout(fetch, defaultOptions) {
     if (timeout > 0 && timeout !== Infinity) {
       const abortController = new AbortController()
 
-      // @todo use AbortSignal.timeout(n) if widely supported
+      // @todo use AbortSignal.timeout(n) when widely supported
+
       handler = setTimeout(() => {
         abortController.abort(TIMEOUT_ERROR_NAME)
       }, timeout)
@@ -133,7 +134,8 @@ export function withTimeout(fetch, defaultOptions) {
  *   retries?: number,
  *   retryDelay?: number,
  *   retryAbort?: boolean,
- *   retryTimeout?: boolean
+ *   retryTimeout?: boolean,
+ *   retryStatuses?: number[]
  * }} withRetryOptions
  *
  * @todo move to @chatbotkit/fetch sdk
@@ -154,6 +156,8 @@ export function withRetry(fetch, defaultOptions) {
       options?.retryAbort ?? defaultOptions?.retryAbort ?? false
     const retryTimeout =
       options?.retryTimeout ?? defaultOptions?.retryTimeout ?? false
+    const retryStatuses = options?.retryStatuses ??
+      defaultOptions?.retryStatuses ?? [429, 500, 502, 503, 504]
 
     let response
 
@@ -161,24 +165,16 @@ export function withRetry(fetch, defaultOptions) {
       response = await fetch(url, { ...options })
 
       if (!response.ok) {
-        switch (response.status) {
-          case 429:
-          case 500:
-          case 502:
-          case 503:
-          case 504:
-            throw new RequestError(
-              `Request failed`,
-              response.status,
-              url,
-              options || {},
-              response
-            )
-
-          // by default we return the response as is
-
-          default:
-            return response
+        if (retryStatuses.includes(response.status)) {
+          throw new FetchError(
+            `Request failed`,
+            response.status,
+            url,
+            options || {},
+            response
+          )
+        } else {
+          return response
         }
       }
 
