@@ -34,7 +34,7 @@
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<PartnerUserTokenListResponse,PartnerUserTokenListStreamType>}
  */
-export function listTokens(client, userId, query) {
+export function listPartnerUserTokens(client, userId, query) {
   let url = `/api/v1/partner/user/${userId}/token/list`
 
   /** @typedef {import('../../../types/api/v1.js').operations['listPartnerUserTokens']['responses']['200']['content']['application/json']} T */
@@ -59,7 +59,7 @@ export function listTokens(client, userId, query) {
  * @param {PartnerUserTokenCreateRequest} request
  * @returns {Promise<PartnerUserTokenCreateResponse>}
  */
-export async function createToken(client, userId, request) {
+export async function createPartnerUserToken(client, userId, request) {
   const url = `/api/v1/partner/user/${userId}/token/create`
 
   /** @type {import('../../../types/api/v1.js').operations['createPartnerUserToken']['responses']['200']['content']['application/json']} */
@@ -81,7 +81,7 @@ export async function createToken(client, userId, request) {
  * @param {string} tokenId
  * @returns {Promise<PartnerUserTokenDeleteResponse>}
  */
-export async function deleteToken(client, userId, tokenId) {
+export async function deletePartnerUserToken(client, userId, tokenId) {
   const url = `/api/v1/partner/user/${userId}/token/${tokenId}/delete`
 
   /** @type {import('../../../types/api/v1.js').operations['deletePartnerUserToken']['responses']['200']['content']['application/json']} */

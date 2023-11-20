@@ -1,11 +1,11 @@
-import { TokenClient } from './token/index.js'
+import { PartnerUserTokenClient } from './token/index.js'
 import { ChatBotKitClient } from '../../client.js'
 import {
-  listUsers,
-  fetchUser,
-  createUser,
-  updateUser,
-  deleteUser,
+  listPartnerUsers,
+  fetchPartnerUser,
+  createPartnerUser,
+  updatePartnerUser,
+  deletePartnerUser,
 } from './v1.js'
 
 /**
@@ -14,14 +14,14 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
-export class UserClient extends ChatBotKitClient {
+export class PartnerUserClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
    */
   constructor(options) {
     super(options)
 
-    this.token = new TokenClient(options)
+    this.token = new PartnerUserTokenClient(options)
   }
 
   /**
@@ -31,7 +31,7 @@ export class UserClient extends ChatBotKitClient {
    * @returns {ResponsePromise<import('./v1.js').PartnerUserListResponse,import('./v1.js').PartnerUserListStreamType>}
    */
   list(query) {
-    return listUsers(this, query)
+    return listPartnerUsers(this, query)
   }
 
   /**
@@ -41,7 +41,7 @@ export class UserClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').PartnerUserFetchResponse>}
    */
   fetch(userId) {
-    return fetchUser(this, userId)
+    return fetchPartnerUser(this, userId)
   }
 
   /**
@@ -51,7 +51,7 @@ export class UserClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').PartnerUserCreateResponse>}
    */
   create(request) {
-    return createUser(this, request)
+    return createPartnerUser(this, request)
   }
 
   /**
@@ -62,7 +62,7 @@ export class UserClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').PartnerUserUpdateResponse>}
    */
   update(userId, request) {
-    return updateUser(this, userId, request)
+    return updatePartnerUser(this, userId, request)
   }
 
   /**
@@ -72,8 +72,8 @@ export class UserClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').PartnerUserDeleteResponse>}
    */
   delete(userId) {
-    return deleteUser(this, userId)
+    return deletePartnerUser(this, userId)
   }
 }
 
-export default UserClient
+export default PartnerUserClient

@@ -1,6 +1,6 @@
 import { ChatBotKitClient } from '../client.js'
-import { SitemapClient } from './sitemap/index.js'
-import { WhatsappClient } from './whatsapp/index.js'
+import { SitemapIntegrationClient } from './sitemap/index.js'
+import { WhatsAppIntegrationClient } from './whatsapp/index.js'
 
 export class IntegrationClient extends ChatBotKitClient {
   /**
@@ -9,8 +9,8 @@ export class IntegrationClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
-    this.sitemap = new SitemapClient(options)
-    this.whatsapp = new WhatsappClient(options)
+    this.sitemap = new SitemapIntegrationClient(options)
+    this.whatsapp = new WhatsAppIntegrationClient(options)
   }
 }
 

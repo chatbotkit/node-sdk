@@ -1,4 +1,4 @@
-import { UserClient } from './user/index.js'
+import { PartnerUserClient } from './user/index.js'
 import { ChatBotKitClient } from '../client.js'
 
 export class PartnerClient extends ChatBotKitClient {
@@ -8,7 +8,7 @@ export class PartnerClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
-    this.user = new UserClient(options)
+    this.user = new PartnerUserClient(options)
   }
 }
 

@@ -36,7 +36,7 @@
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<PartnerUserListResponse,PartnerUserListStreamType>}
  */
-export function listUsers(client, query) {
+export function listPartnerUsers(client, query) {
   let url = `/api/v1/partner/user/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/json']} T */
@@ -54,7 +54,7 @@ export function listUsers(client, query) {
  * @param {string} userId
  * @returns {Promise<PartnerUserFetchResponse>}
  */
-export async function fetchUser(client, userId) {
+export async function fetchPartnerUser(client, userId) {
   const url = `/api/v1/partner/user/${userId}/fetch`
 
   /** @type {import('../../types/api/v1.js').operations['fetchPartnerUser']['responses']['200']['content']['application/json']} */
@@ -74,7 +74,7 @@ export async function fetchUser(client, userId) {
  * @param {PartnerUserCreateRequest} request
  * @returns {Promise<PartnerUserCreateResponse>}
  */
-export async function createUser(client, request) {
+export async function createPartnerUser(client, request) {
   const url = `/api/v1/partner/user/create`
 
   /** @type {import('../../types/api/v1.js').operations['createPartnerUser']['responses']['200']['content']['application/json']} */
@@ -98,7 +98,7 @@ export async function createUser(client, request) {
  * @param {PartnerUserUpdateRequest} request
  * @returns {Promise<PartnerUserUpdateResponse>}
  */
-export async function updateUser(client, userId, request) {
+export async function updatePartnerUser(client, userId, request) {
   const url = `/api/v1/partner/user/${userId}/update`
 
   /** @type {import('../../types/api/v1.js').operations['updatePartnerUser']['responses']['200']['content']['application/json']} */
@@ -119,7 +119,7 @@ export async function updateUser(client, userId, request) {
  * @param {string} userId
  * @returns {Promise<PartnerUserDeleteResponse>}
  */
-export async function deleteUser(client, userId) {
+export async function deletePartnerUser(client, userId) {
   const url = `/api/v1/partner/user/${userId}/delete`
 
   /** @type {import('../../types/api/v1.js').operations['deletePartnerUser']['responses']['200']['content']['application/json']} */

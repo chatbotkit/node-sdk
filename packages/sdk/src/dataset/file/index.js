@@ -1,7 +1,7 @@
 import { ChatBotKitClient } from '../../client.js'
 import { attachDatasetFile, detachDatasetFile, syncDatasetFile } from './v1.js'
 
-export class FileClient extends ChatBotKitClient {
+export class DatasetFileClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
    */
@@ -46,4 +46,4 @@ export class FileClient extends ChatBotKitClient {
   }
 }
 
-export default FileClient
+export default DatasetFileClient

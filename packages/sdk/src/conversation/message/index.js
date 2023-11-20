@@ -13,7 +13,7 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
-export class MessageClient extends ChatBotKitClient {
+export class ConversationMessageClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
    */
@@ -78,4 +78,4 @@ export class MessageClient extends ChatBotKitClient {
   }
 }
 
-export default MessageClient
+export default ConversationMessageClient

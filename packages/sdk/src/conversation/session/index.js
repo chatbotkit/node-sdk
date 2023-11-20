@@ -1,7 +1,7 @@
 import { createConversationSession } from './v1.js'
 import { ChatBotKitClient } from '../../client.js'
 
-export class SessionClient extends ChatBotKitClient {
+export class ConversationSessionClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
    */
@@ -21,4 +21,4 @@ export class SessionClient extends ChatBotKitClient {
   }
 }
 
-export default SessionClient
+export default ConversationSessionClient

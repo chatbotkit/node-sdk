@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
-import { SessionClient } from './session/index.js'
+import { BotSessionClient } from './session/index.js'
 import { listBots, fetchBot, createBot, updateBot, deleteBot } from './v1.js'
 
 /**
@@ -15,7 +15,7 @@ export class BotClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
-    this.session = new SessionClient(options)
+    this.session = new BotSessionClient(options)
   }
 
   /**

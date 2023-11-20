@@ -13,7 +13,7 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
-export class AbilityClient extends ChatBotKitClient {
+export class SkillsetAbilityClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
    */
@@ -78,4 +78,4 @@ export class AbilityClient extends ChatBotKitClient {
   }
 }
 
-export default AbilityClient
+export default SkillsetAbilityClient

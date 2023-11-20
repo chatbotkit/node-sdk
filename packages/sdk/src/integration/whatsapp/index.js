@@ -14,7 +14,7 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
-export class WhatsappClient extends ChatBotKitClient {
+export class WhatsAppIntegrationClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
    */
@@ -84,4 +84,4 @@ export class WhatsappClient extends ChatBotKitClient {
   }
 }
 
-export default WhatsappClient
+export default WhatsAppIntegrationClient

@@ -14,7 +14,7 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
-export class SitemapClient extends ChatBotKitClient {
+export class SitemapIntegrationClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
    */
@@ -84,4 +84,4 @@ export class SitemapClient extends ChatBotKitClient {
   }
 }
 
-export default SitemapClient
+export default SitemapIntegrationClient

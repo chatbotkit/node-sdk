@@ -1,6 +1,6 @@
 import { ChatBotKitClient } from '../client.js'
-import { MessageClient } from './message/index.js'
-import { SessionClient } from './session/index.js'
+import { ConversationMessageClient } from './message/index.js'
+import { ConversationSessionClient } from './session/index.js'
 import {
   listConversations,
   fetchConversation,
@@ -25,8 +25,8 @@ export class ConversationClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
-    this.message = new MessageClient(options)
-    this.session = new SessionClient(options)
+    this.message = new ConversationMessageClient(options)
+    this.session = new ConversationSessionClient(options)
   }
 
   /**

@@ -13,7 +13,7 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
-export class RecordClient extends ChatBotKitClient {
+export class DatasetRecordClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
    */
@@ -78,4 +78,4 @@ export class RecordClient extends ChatBotKitClient {
   }
 }
 
-export default RecordClient
+export default DatasetRecordClient

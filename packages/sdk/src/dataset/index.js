@@ -1,6 +1,6 @@
-import { FileClient } from './file/index.js'
+import { DatasetFileClient } from './file/index.js'
 import { ChatBotKitClient } from '../client.js'
-import { RecordClient } from './record/index.js'
+import { DatasetRecordClient } from './record/index.js'
 import {
   listDatasets,
   fetchDataset,
@@ -23,8 +23,8 @@ export class DatasetClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
-    this.file = new FileClient(options)
-    this.record = new RecordClient(options)
+    this.file = new DatasetFileClient(options)
+    this.record = new DatasetRecordClient(options)
   }
 
   /**
