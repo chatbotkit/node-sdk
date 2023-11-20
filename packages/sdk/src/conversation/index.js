@@ -8,8 +8,9 @@ import {
   updateConversation,
   deleteConversation,
   completeConversation,
-  sendToConversation,
-  receiveFromConversation,
+  completeConversationMessage,
+  sendConversationMessage,
+  receiveConversationMessage,
 } from './v1.js'
 
 /**
@@ -83,32 +84,54 @@ export class ConversationClient extends ChatBotKitClient {
   /**
    * Completes the next bot message in a stateless conversation.
    *
-   * @param {string?} conversationId
+   * @overload
+   * @param {null} conversationId
    * @param {import('./v1.js').ConversationCompleteRequest} request
-   * @param {import('./v1.js').ConversationCompleteRequest} request
+   * @returns {ResponsePromise<import('./v1.js').ConversationCompleteResponse,import('./v1.js').ConversationCompleteStreamType>}
+   *
+   * @overload
+   * @param {string} conversationId
+   * @param {import('./v1.js').ConversationCompleteMessageRequest} request
+   * @returns {ResponsePromise<import('./v1.js').ConversationCompleteMessageResponse,import('./v1.js').ConversationCompleteMessageStreamType>}
+   *
+   * @param {null|string} conversationId
+   * @param {import('./v1.js').ConversationCompleteRequest|import('./v1.js').ConversationCompleteMessageRequest} request
    */
   complete(conversationId, request) {
-    return completeConversation(this, conversationId, request)
+    if (!conversationId) {
+      return completeConversation(
+        this,
+        /** @type {import('./v1.js').ConversationCompleteRequest} */ (request)
+      )
+    } else {
+      return completeConversationMessage(
+        this,
+        conversationId,
+        /** @type {import('./v1.js').ConversationCompleteMessageRequest} */ (
+          request
+        )
+      )
+    }
   }
 
   /**
    * Sends a message to the conversation.
    *
    * @param {string} conversationId
-   * @param {import('./v1.js').ConversationSendRequest} request
+   * @param {import('./v1.js').ConversationSendMessageRequest} request
    */
   send(conversationId, request) {
-    return sendToConversation(this, conversationId, request)
+    return sendConversationMessage(this, conversationId, request)
   }
 
   /**
    * Receives a message from the conversation.
    *
    * @param {string} conversationId
-   * @param {import('./v1.js').ConversationReceiveRequest} request
+   * @param {import('./v1.js').ConversationReceiveMessageRequest} request
    */
   receive(conversationId, request) {
-    return receiveFromConversation(this, conversationId, request)
+    return receiveConversationMessage(this, conversationId, request)
   }
 }
 

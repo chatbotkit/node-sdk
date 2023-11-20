@@ -157,7 +157,6 @@ export async function deleteConversation(client, conversationId) {
  *   text?: string,
  *   model?: string,
  *   entities?: Entity[],
- *   parse?: boolean
  * } & ({text: string}|{messages: Message[]})} ConversationCompleteRequest
  *
  * @typedef {{
@@ -166,36 +165,29 @@ export async function deleteConversation(client, conversationId) {
  * }} ConversationCompleteResponse
  *
  * @typedef {{
+ *   type: 'result',
+ *   data: ConversationCompleteResponse
+ * }} ConversationCompleteStreamResult
+ *
+ * @typedef {{
  *   type: 'token',
  *   data: {
  *     token: string
  *   }
  * }} ConversationCompleteStreamToken
  *
- * @typedef {{
- *   type: 'result',
- *   data: {
- *     text: string
- *   }
- * usage: { token: number }
- * }} ConversationCompleteStreamResult
- *
- * @typedef {ConversationCompleteStreamToken|ConversationCompleteStreamResult} ConversationCompleteStreamType
+ * @typedef {ConversationCompleteStreamResult|ConversationCompleteStreamToken} ConversationCompleteStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {string?} conversationId
  * @param {ConversationCompleteRequest} request
  * @returns {ResponsePromise<ConversationCompleteResponse,ConversationCompleteStreamType>}
  */
-export function completeConversation(client, conversationId, request) {
-  let url
+export function completeConversation(client, request) {
+  let url = `/api/v1/conversation/complete`
 
-  if (conversationId) {
-    url = `/api/v1/conversation/${conversationId}/complete`
-  } else {
-    url = `/api/v1/conversation/complete`
-  }
-
+  /** @typedef {import('../types/api/v1.js').operations['completeConversation']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../types/api/v1.js').operations['completeConversation']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
     data: request,
   })
@@ -207,21 +199,39 @@ export function completeConversation(client, conversationId, request) {
  * @typedef {{
  *   text: string,
  *   entities?: Entity[]
- * }} ConversationSendRequest
+ * }} ConversationCompleteMessageRequest
  *
  * @typedef {{
- *   id: string
- *   entities: Entity[]
- * }} ConversationSendResponse
+ *   id: string,
+ *   text: string,
+ *   usage: { token: number }
+ * }} ConversationCompleteMessageResponse
+ *
+ * @typedef {{
+ *   type: 'result',
+ *   data: ConversationCompleteMessageResponse
+ * }} ConversationCompleteMessageStreamResult
+ *
+ * @typedef {{
+ *   type: 'token',
+ *   data: {
+ *     token: string
+ *   }
+ * }} ConversationCompleteMessageStreamToken
+ *
+ * @typedef {ConversationCompleteMessageStreamResult|ConversationCompleteMessageStreamToken} ConversationCompleteMessageStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
- * @param {ConversationSendRequest} request
- * @returns {Promise<ConversationSendResponse>}
+ * @param {ConversationCompleteMessageRequest} request
+ * @returns {ResponsePromise<ConversationCompleteMessageResponse,ConversationCompleteMessageStreamType>}
  */
-export async function sendToConversation(client, conversationId, request) {
-  const url = `/api/v1/conversation/${conversationId}/send`
+export function completeConversationMessage(client, conversationId, request) {
+  const url = `/api/v1/conversation/${conversationId}/complete`
 
+  /** @typedef {import('../types/api/v1.js').operations['completeConversationMessage']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../types/api/v1.js').operations['completeConversationMessage']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
     data: request,
   })
@@ -231,28 +241,77 @@ export async function sendToConversation(client, conversationId, request) {
 
 /**
  * @typedef {{
- *   type: string,
- *   text: string
- * }} Action
+ *   text?: string,
+ *   model?: string,
+ *   entities?: Entity[],
+ * }} ConversationSendMessageRequest
  *
  * @typedef {{
- *   parse?: boolean
- *   messages?: Message[]
- * }} ConversationReceiveRequest
+ *   id: string
+ *   entities: Entity[]
+ * }} ConversationSendMessageResponse
  *
  * @typedef {{
- *   id: string,
- *   text: string|{stripped: string, original: string, actions: Action[]}
- * }} ConversationReceiveResponse
+ *   type: 'result',
+ *   data: ConversationSendMessageResponse
+ * }} ConversationSendMessageStreamResult
+ *
+ * @typedef {ConversationSendMessageStreamResult} ConversationSendMessageStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
- * @param {ConversationReceiveRequest} request
- * @returns {Promise<ConversationReceiveResponse>}
+ * @param {ConversationSendMessageRequest} request
+ * @returns {ResponsePromise<ConversationSendMessageResponse,ConversationSendMessageStreamType>}
  */
-export async function receiveFromConversation(client, conversationId, request) {
+export function sendConversationMessage(client, conversationId, request) {
+  const url = `/api/v1/conversation/${conversationId}/send`
+
+  /** @typedef {import('../types/api/v1.js').operations['sendConversationMessage']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../types/api/v1.js').operations['sendConversationMessage']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
+  const response = client.clientFetch(url, {
+    data: request,
+  })
+
+  return response
+}
+
+/**
+ * @typedef {{
+ *   messages?: Message[]
+ * }} ConversationReceiveMessageRequest
+ *
+ * @typedef {{
+ *   id: string,
+ *   text: string,
+ *   usage: { token: number }
+ * }} ConversationReceiveMessageResponse
+ *
+ * @typedef {{
+ *   type: 'result',
+ *   data: ConversationReceiveMessageResponse
+ * }} ConversationReceiveMessageStreamResult
+ *
+ * @typedef {{
+ *   type: 'token',
+ *   data: {
+ *     token: string
+ *   }
+ * }} ConversationReceiveMessageStreamToken
+ *
+ * @typedef {ConversationReceiveMessageStreamResult|ConversationReceiveMessageStreamToken} ConversationReceiveStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationReceiveMessageRequest} request
+ * @returns {ResponsePromise<ConversationReceiveMessageResponse,ConversationReceiveStreamType>}
+ */
+export function receiveConversationMessage(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/receive`
 
+  /** @typedef {import('../types/api/v1.js').operations['receiveConversationMessage']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../types/api/v1.js').operations['receiveConversationMessage']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
     data: request,
   })

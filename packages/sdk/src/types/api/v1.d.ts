@@ -337,14 +337,14 @@ export interface components {
       /** @description The entity type */
       type: string
       /** @description Start offset */
-      begin?: number
+      begin: number
       /** @description End offset */
       end: number
       /** @description The text value of the entity */
       text: string
       replacement?: {
         /** @description Start offset */
-        begin?: number
+        begin: number
         /** @description End offset */
         end: number
         /** @description The text value of the replacement */
@@ -389,7 +389,7 @@ export interface components {
     /** @description Usage information */
     Usage: {
       /** @description The tokens used in this exchange */
-      token?: number
+      token: number
     }
     /** @description Meta data information */
     Meta: {
@@ -741,12 +741,7 @@ export interface operations {
                  * @enum {string}
                  */
                 type: 'result'
-                /** @description The data for the event */
-                data: {
-                  /** @description The next bot message */
-                  text: string
-                  usage: components['schemas']['Usage']
-                }
+                data: paths['/conversation/{conversationId}/complete']['get']['responses']['200']['content']['application/json']['schema']
               },
               {
                 /**
@@ -757,7 +752,7 @@ export interface operations {
                 /** @description The data for the event */
                 data: {
                   /** @description The token generated */
-                  token?: string
+                  token: string
                 }
               }
             ]
@@ -1029,12 +1024,7 @@ export interface operations {
                  * @enum {string}
                  */
                 type: 'result'
-                /** @description The data for the event */
-                data: {
-                  /** @description The next bot message */
-                  text: string
-                  usage: components['schemas']['Usage']
-                }
+                data: paths['/conversation/{conversationId}/receive']['get']['responses']['200']['content']['application/json']['schema']
               },
               {
                 /**
@@ -1045,7 +1035,7 @@ export interface operations {
                 /** @description The data for the event */
                 data: {
                   /** @description The token generated */
-                  token?: string
+                  token: string
                 }
               }
             ]
@@ -1091,13 +1081,7 @@ export interface operations {
              * @enum {string}
              */
             type: 'result'
-            /** @description The data for the event */
-            data: {
-              /** @description The ID of the sent message */
-              id: string
-              /** @description Extracted entities from the message */
-              entities: components['schemas']['Entity'][]
-            }
+            data: paths['/conversation/{conversationId}/send']['get']['responses']['200']['content']['application/json']['schema']
           }
         }
       }
@@ -1212,12 +1196,7 @@ export interface operations {
                  * @enum {string}
                  */
                 type: 'result'
-                /** @description The data for the event */
-                data: {
-                  /** @description The next bot message */
-                  text?: string
-                  usage?: components['schemas']['Usage']
-                }
+                data: paths['/conversation/complete']['get']['responses']['200']['content']['application/json']['schema']
               },
               {
                 /**
@@ -1228,7 +1207,7 @@ export interface operations {
                 /** @description The data for the event */
                 data: {
                   /** @description The token generated */
-                  token?: string
+                  token: string
                 }
               }
             ]
