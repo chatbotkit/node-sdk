@@ -22,7 +22,6 @@ import { getRandomId, replaceWithCoordinates } from '../utils/string.js'
  *   conversationId?: string,
  *   token?: string,
  *   messages?: Message[],
- *   parse?: boolean,
  *   stream?: boolean,
  *   verbose?: boolean,
  *   onError?: onErrorFn?,
@@ -37,8 +36,6 @@ export default function useConversationManager({
   token: _token = '',
 
   messages: _messages = [],
-
-  parse = false,
 
   stream = false,
 
@@ -209,13 +206,10 @@ export default function useConversationManager({
 
     const client = new ConversationClient({ secret })
 
+    // @ts-ignore
     const completion = client.complete(conversationId, {
-      // @ts-ignore
       text: redactedText,
-      // @ts-ignore
       entities: redactedEntities,
-
-      parse: parse,
     })
 
     let iter
