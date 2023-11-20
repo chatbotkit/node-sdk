@@ -1,11 +1,11 @@
 import { ChatBotKitClient } from '../../client.js'
 import {
-  whatsappList,
-  whatsappFetch,
-  whatsappCreate,
-  whatsappUpdate,
-  whatsappDelete,
-  whatsappSetup,
+  listWhatsAppIntegrations,
+  fetchWhatsAppIntegration,
+  createWhatsAppIntegration,
+  updateWhatsAppIntegration,
+  deleteWhatsAppIntegration,
+  setupWhatsAppIntegration,
 } from './v1.js'
 
 /**
@@ -26,61 +26,61 @@ export class WhatsappClient extends ChatBotKitClient {
    * Retrieves a list of all existing whatsapp integrations associated with this client.
    *
    * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
-   * @returns {ResponsePromise<import('./v1.js').WhatsappListResponse,import('./v1.js').WhatsappListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').WhatsAppIntegrationListResponse,import('./v1.js').WhatsAppIntegrationListStreamType>}
    */
   list(query) {
-    return whatsappList(this, query)
+    return listWhatsAppIntegrations(this, query)
   }
 
   /**
    * Fetches a whatsapp integration.
    *
    * @param {string} whatsappId
-   * @returns {Promise<import('./v1.js').WhatsappFetchResponse>}
+   * @returns {Promise<import('./v1.js').WhatsAppIntegrationFetchResponse>}
    */
   fetch(whatsappId) {
-    return whatsappFetch(this, whatsappId)
+    return fetchWhatsAppIntegration(this, whatsappId)
   }
 
   /**
    * Creates a new whatsapp integration.
    *
-   * @param {import('./v1.js').WhatsappCreateRequest} request
-   * @returns {Promise<import('./v1.js').WhatsappCreateResponse>}
+   * @param {import('./v1.js').WhatsAppIntegrationCreateRequest} request
+   * @returns {Promise<import('./v1.js').WhatsAppIntegrationCreateResponse>}
    */
   create(request) {
-    return whatsappCreate(this, request)
+    return createWhatsAppIntegration(this, request)
   }
 
   /**
    * Updates a whatsapp integration.
    *
    * @param {string} whatsappId
-   * @param {import('./v1.js').WhatsappUpdateRequest} request
-   * @returns {Promise<import('./v1.js').WhatsappUpdateResponse>}
+   * @param {import('./v1.js').WhatsAppIntegrationUpdateRequest} request
+   * @returns {Promise<import('./v1.js').WhatsAppIntegrationUpdateResponse>}
    */
   update(whatsappId, request) {
-    return whatsappUpdate(this, whatsappId, request)
+    return updateWhatsAppIntegration(this, whatsappId, request)
   }
 
   /**
    * Deletes a whatsapp integration.
    *
    * @param {string} whatsappId
-   * @returns {Promise<import('./v1.js').WhatsappDeleteResponse>}
+   * @returns {Promise<import('./v1.js').WhatsAppIntegrationDeleteResponse>}
    */
   delete(whatsappId) {
-    return whatsappDelete(this, whatsappId)
+    return deleteWhatsAppIntegration(this, whatsappId)
   }
 
   /**
    * Setups a whatsapp integration.
    *
    * @param {string} whatsappId
-   * @returns {Promise<import('./v1.js').WhatsappSetupResponse>}
+   * @returns {Promise<import('./v1.js').WhatsAppIntegrationSetupResponse>}
    */
   setup(whatsappId) {
-    return whatsappSetup(this, whatsappId)
+    return setupWhatsAppIntegration(this, whatsappId)
   }
 }
 

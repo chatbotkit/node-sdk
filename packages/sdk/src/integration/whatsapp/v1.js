@@ -31,30 +31,30 @@
  *   accessToken?: string,
  *   sessionDuration?: number,
  *   meta?: Record<string,any>
- * }} WhatsappOptions
+ * }} WhatsAppIntegrationOptions
  *
  * @typedef {{
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & WhatsappOptions} WhatsappInstance
+ * } & WhatsAppIntegrationOptions} WhatsAppIntegrationInstance
  */
 
 /**
- * @typedef {{items: WhatsappInstance[]}} WhatsappListResponse
+ * @typedef {{items: WhatsAppIntegrationInstance[]}} WhatsAppIntegrationListResponse
  *
  * @typedef {{
  *   type: 'item',
- *   data: WhatsappInstance
- * }} WhatsappListStreamItem
+ *   data: WhatsAppIntegrationInstance
+ * }} WhatsAppIntegrationListStreamItem
  *
- * @typedef {WhatsappListStreamItem} WhatsappListStreamType
+ * @typedef {WhatsAppIntegrationListStreamItem} WhatsAppIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
- * @returns {ResponsePromise<WhatsappListResponse,WhatsappListStreamType>}
+ * @returns {ResponsePromise<WhatsAppIntegrationListResponse,WhatsAppIntegrationListStreamType>}
  */
-export function whatsappList(client, query) {
+export function listWhatsAppIntegrations(client, query) {
   let url = `/api/v1/integration/whatsapp/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listWhatsAppIntegrations']['responses']['200']['content']['application/json']} T */
@@ -66,35 +66,38 @@ export function whatsappList(client, query) {
 }
 
 /**
- * @typedef {WhatsappInstance} WhatsappFetchResponse
+ * @typedef {WhatsAppIntegrationInstance} WhatsAppIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
- * @returns {Promise<WhatsappFetchResponse>}
+ * @returns {Promise<WhatsAppIntegrationFetchResponse>}
  */
-export async function whatsappFetch(client, whatsappId) {
+export async function fetchWhatsAppIntegration(client, whatsappId) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/fetch`
 
+  /** @type {import('../../types/api/v1.js').operations['fetchWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {WhatsappOptions} WhatsappCreateRequest
+ * @typedef {WhatsAppIntegrationOptions & {}} WhatsAppIntegrationCreateRequest
  *
  * @typedef {{
  *   id: string
- * }} WhatsappCreateResponse
+ * }} WhatsAppIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
- * @param {WhatsappCreateRequest} request
- * @returns {Promise<WhatsappCreateResponse>}
+ * @param {WhatsAppIntegrationCreateRequest} request
+ * @returns {Promise<WhatsAppIntegrationCreateResponse>}
  */
-export async function whatsappCreate(client, request) {
+export async function createWhatsAppIntegration(client, request) {
   const url = `/api/v1/integration/whatsapp/create`
 
+  /** @type {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['requestBody']['content']['application/json']} */
     data: request,
   })
 
@@ -102,21 +105,23 @@ export async function whatsappCreate(client, request) {
 }
 
 /**
- * @typedef {WhatsappOptions} WhatsappUpdateRequest
+ * @typedef {WhatsAppIntegrationOptions & {}} WhatsAppIntegrationUpdateRequest
  *
  * @typedef {{
  *   id: string
- * }} WhatsappUpdateResponse
+ * }} WhatsAppIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
- * @param {WhatsappUpdateRequest} request
- * @returns {Promise<WhatsappUpdateResponse>}
+ * @param {WhatsAppIntegrationUpdateRequest} request
+ * @returns {Promise<WhatsAppIntegrationUpdateResponse>}
  */
-export async function whatsappUpdate(client, whatsappId, request) {
+export async function updateWhatsAppIntegration(client, whatsappId, request) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/update`
 
+  /** @type {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['requestBody']['content']['application/json']} */
     data: request,
   })
 
@@ -126,16 +131,18 @@ export async function whatsappUpdate(client, whatsappId, request) {
 /**
  * @typedef {{
  *   id: string
- * }} WhatsappDeleteResponse
+ * }} WhatsAppIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
- * @returns {Promise<WhatsappDeleteResponse>}
+ * @returns {Promise<WhatsAppIntegrationDeleteResponse>}
  */
-export async function whatsappDelete(client, whatsappId) {
+export async function deleteWhatsAppIntegration(client, whatsappId) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/delete`
 
+  /** @type {import('../../types/api/v1.js').operations['deleteWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['deleteWhatsAppIntegration']['requestBody']['content']['application/json']} */
     data: {},
   })
 
@@ -145,16 +152,18 @@ export async function whatsappDelete(client, whatsappId) {
 /**
  * @typedef {{
  *   id: string
- * }} WhatsappSetupResponse
+ * }} WhatsAppIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
- * @returns {Promise<WhatsappSetupResponse>}
+ * @returns {Promise<WhatsAppIntegrationSetupResponse>}
  */
-export async function whatsappSetup(client, whatsappId) {
+export async function setupWhatsAppIntegration(client, whatsappId) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/setup`
 
+  /** @type {import('../../types/api/v1.js').operations['setupWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['setupWhatsAppIntegration']['requestBody']['content']['application/json']} */
     data: {},
   })
 

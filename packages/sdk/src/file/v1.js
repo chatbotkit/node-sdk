@@ -36,7 +36,7 @@
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<FileListResponse,FileListStreamType>}
  */
-export function fileList(client, query) {
+export function listFiles(client, query) {
   let url = `/api/v1/file/list`
 
   /** @typedef {import('../types/api/v1.js').operations['listFiles']['responses']['200']['content']['application/json']} T */
@@ -54,7 +54,7 @@ export function fileList(client, query) {
  * @param {string} fileId
  * @returns {Promise<FileFetchResponse>}
  */
-export async function fileFetch(client, fileId) {
+export async function fetchFile(client, fileId) {
   const url = `/api/v1/file/${fileId}/fetch`
 
   /** @type {import('../types/api/v1.js').operations['fetchFile']['responses']['200']['content']['application/json']} */
@@ -74,7 +74,7 @@ export async function fileFetch(client, fileId) {
  * @param {FileCreateRequest} request
  * @returns {Promise<FileCreateResponse>}
  */
-export async function fileCreate(client, request) {
+export async function createFile(client, request) {
   const url = `/api/v1/file/create`
 
   /** @type {import('../types/api/v1.js').operations['createFile']['responses']['200']['content']['application/json']} */
@@ -98,7 +98,7 @@ export async function fileCreate(client, request) {
  * @param {FileUpdateRequest} request
  * @returns {Promise<FileUpdateResponse>}
  */
-export async function fileUpdate(client, fileId, request) {
+export async function updateFile(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/update`
 
   /** @type {import('../types/api/v1.js').operations['updateFile']['responses']['200']['content']['application/json']} */
@@ -119,7 +119,7 @@ export async function fileUpdate(client, fileId, request) {
  * @param {string} fileId
  * @returns {Promise<FileDeleteResponse>}
  */
-export async function fileDelete(client, fileId) {
+export async function deleteFile(client, fileId) {
   const url = `/api/v1/file/${fileId}/delete`
 
   /** @type {import('../types/api/v1.js').operations['deleteFile']['responses']['200']['content']['application/json']} */
@@ -147,7 +147,7 @@ export async function fileDelete(client, fileId) {
  * @param {FileUploadRequest} request
  * @returns {Promise<FileUploadResponse>}
  */
-export async function fileUpload(client, fileId, request) {
+export async function uploadFile(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/upload`
 
   // @todo add api types
@@ -167,7 +167,7 @@ export async function fileUpload(client, fileId, request) {
  * @param {string} fileId
  * @returns {Promise<FileDownloadResponse>}
  */
-export async function fileDownload(client, fileId) {
+export async function downloadFile(client, fileId) {
   const url = `/api/v1/file/${fileId}/download`
 
   // @todo add api types

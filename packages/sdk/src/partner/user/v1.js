@@ -13,30 +13,30 @@
  *   name?: string,
  *   image?: string,
  *   meta?: Record<string,any>
- * }} UserOptions
+ * }} PartnerUserOptions
  *
  * @typedef {{
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & UserOptions} UserInstance
+ * } & PartnerUserOptions} PartnerUserInstance
  */
 
 /**
- * @typedef {{items: UserInstance[]}} UserListResponse
+ * @typedef {{items: PartnerUserInstance[]}} PartnerUserListResponse
  *
  * @typedef {{
  *   type: 'item',
- *   data: UserInstance
- * }} UserListStreamItem
+ *   data: PartnerUserInstance
+ * }} PartnerUserListStreamItem
  *
- * @typedef {UserListStreamItem} UserListStreamType
+ * @typedef {PartnerUserListStreamItem} PartnerUserListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
- * @returns {ResponsePromise<UserListResponse,UserListStreamType>}
+ * @returns {ResponsePromise<PartnerUserListResponse,PartnerUserListStreamType>}
  */
-export function userList(client, query) {
+export function listUsers(client, query) {
   let url = `/api/v1/partner/user/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/json']} T */
@@ -48,13 +48,13 @@ export function userList(client, query) {
 }
 
 /**
- * @typedef {UserInstance} UserFetchResponse
+ * @typedef {PartnerUserInstance} PartnerUserFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
- * @returns {Promise<UserFetchResponse>}
+ * @returns {Promise<PartnerUserFetchResponse>}
  */
-export async function userFetch(client, userId) {
+export async function fetchUser(client, userId) {
   const url = `/api/v1/partner/user/${userId}/fetch`
 
   /** @type {import('../../types/api/v1.js').operations['fetchPartnerUser']['responses']['200']['content']['application/json']} */
@@ -64,17 +64,17 @@ export async function userFetch(client, userId) {
 }
 
 /**
- * @typedef {UserOptions} UserCreateRequest
+ * @typedef {PartnerUserOptions} PartnerUserCreateRequest
  *
  * @typedef {{
  *   id: string
- * }} UserCreateResponse
+ * }} PartnerUserCreateResponse
  *
  * @param {ChatBotKitClient} client
- * @param {UserCreateRequest} request
- * @returns {Promise<UserCreateResponse>}
+ * @param {PartnerUserCreateRequest} request
+ * @returns {Promise<PartnerUserCreateResponse>}
  */
-export async function userCreate(client, request) {
+export async function createUser(client, request) {
   const url = `/api/v1/partner/user/create`
 
   /** @type {import('../../types/api/v1.js').operations['createPartnerUser']['responses']['200']['content']['application/json']} */
@@ -87,18 +87,18 @@ export async function userCreate(client, request) {
 }
 
 /**
- * @typedef {UserOptions} UserUpdateRequest
+ * @typedef {PartnerUserOptions} PartnerUserUpdateRequest
  *
  * @typedef {{
  *   id: string
- * }} UserUpdateResponse
+ * }} PartnerUserUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
- * @param {UserUpdateRequest} request
- * @returns {Promise<UserUpdateResponse>}
+ * @param {PartnerUserUpdateRequest} request
+ * @returns {Promise<PartnerUserUpdateResponse>}
  */
-export async function userUpdate(client, userId, request) {
+export async function updateUser(client, userId, request) {
   const url = `/api/v1/partner/user/${userId}/update`
 
   /** @type {import('../../types/api/v1.js').operations['updatePartnerUser']['responses']['200']['content']['application/json']} */
@@ -113,13 +113,13 @@ export async function userUpdate(client, userId, request) {
 /**
  * @typedef {{
  *   id: string
- * }} UserDeleteResponse
+ * }} PartnerUserDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
- * @returns {Promise<UserDeleteResponse>}
+ * @returns {Promise<PartnerUserDeleteResponse>}
  */
-export async function userDelete(client, userId) {
+export async function deleteUser(client, userId) {
   const url = `/api/v1/partner/user/${userId}/delete`
 
   /** @type {import('../../types/api/v1.js').operations['deletePartnerUser']['responses']['200']['content']['application/json']} */

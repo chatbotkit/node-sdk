@@ -2,12 +2,12 @@ import { FileClient } from './file/index.js'
 import { ChatBotKitClient } from '../client.js'
 import { RecordClient } from './record/index.js'
 import {
-  datasetList,
-  datasetFetch,
-  datasetCreate,
-  datasetUpdate,
-  datasetDelete,
-  datasetSearch,
+  listDatasets,
+  fetchDataset,
+  createDataset,
+  updateDataset,
+  deleteDataset,
+  searchDataset,
 } from './v1.js'
 
 /**
@@ -34,7 +34,7 @@ export class DatasetClient extends ChatBotKitClient {
    * @returns {ResponsePromise<import('./v1.js').DatasetListResponse,import('./v1.js').DatasetListStreamType>}
    */
   list(query) {
-    return datasetList(this, query)
+    return listDatasets(this, query)
   }
 
   /**
@@ -44,7 +44,7 @@ export class DatasetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').DatasetFetchResponse>}
    */
   fetch(datasetId) {
-    return datasetFetch(this, datasetId)
+    return fetchDataset(this, datasetId)
   }
 
   /**
@@ -54,7 +54,7 @@ export class DatasetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').DatasetCreateResponse>}
    */
   create(request) {
-    return datasetCreate(this, request)
+    return createDataset(this, request)
   }
 
   /**
@@ -65,7 +65,7 @@ export class DatasetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').DatasetUpdateResponse>}
    */
   update(datasetId, request) {
-    return datasetUpdate(this, datasetId, request)
+    return updateDataset(this, datasetId, request)
   }
 
   /**
@@ -75,7 +75,7 @@ export class DatasetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').DatasetDeleteResponse>}
    */
   delete(datasetId) {
-    return datasetDelete(this, datasetId)
+    return deleteDataset(this, datasetId)
   }
 
   /**
@@ -86,7 +86,7 @@ export class DatasetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').DatasetSearchResponse>}
    */
   search(datasetId, search) {
-    return datasetSearch(this, datasetId, search)
+    return searchDataset(this, datasetId, search)
   }
 }
 

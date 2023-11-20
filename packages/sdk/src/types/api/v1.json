@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build f20a)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700461620439)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -3993,12 +3993,16 @@
                     {
                       "type": "object",
                       "properties": {
+                        "id": {
+                          "description": "The ID of the WhatsApp integration",
+                          "type": "string"
+                        },
                         "name": {
-                          "description": "The name for this WhatsApp integration",
+                          "description": "The name of the WhatsApp integration",
                           "type": "string"
                         },
                         "description": {
-                          "description": "The description for this WhatsApp integration",
+                          "description": "The description of the WhatsApp integration",
                           "type": "string"
                         },
                         "phoneNumberId": {
@@ -4013,11 +4017,19 @@
                           "description": "The session duration (in milliseconds)",
                           "type": "number"
                         },
-                        "meta": { "$ref": "#/components/schemas/Meta" }
-                      }
+                        "meta": { "$ref": "#/components/schemas/Meta" },
+                        "createdAt": {
+                          "description": "The timestamp for when the Sitemap integration was created (in milliseconds)",
+                          "type": "number"
+                        },
+                        "updatedAt": {
+                          "description": "The timestamp for when the Sitemap integration was last updated (in milliseconds)",
+                          "type": "number"
+                        }
+                      },
+                      "required": ["id", "createdAt", "updatedAt"]
                     }
-                  ],
-                  "required": ["id", "createdAt", "updatedAt"]
+                  ]
                 }
               }
             }

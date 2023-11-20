@@ -17,33 +17,33 @@
  *   glob?: string,
  *   selectors?: string,
  *   javascript?: boolean,
- *   syncSchedule: string,
+ *   syncSchedule?: string,
  *   expiresIn?: number
  *   meta?: Record<string,any>
- * }} SitemapOptions
+ * }} SitemapIntegrationOptions
  *
  * @typedef {{
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & SitemapOptions} SitemapInstance
+ * } & SitemapIntegrationOptions} SitemapInegrationInstance
  */
 
 /**
- * @typedef {{items: SitemapInstance[]}} SitemapListResponse
+ * @typedef {{items: SitemapInegrationInstance[]}} SitemapIntegrationListResponse
  *
  * @typedef {{
  *   type: 'item',
- *   data: SitemapInstance
- * }} SitemapListStreamItem
+ *   data: SitemapInegrationInstance
+ * }} SitemapIntegrationListStreamItem
  *
- * @typedef {SitemapListStreamItem} SitemapListStreamType
+ * @typedef {SitemapIntegrationListStreamItem} SitemapIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
- * @returns {ResponsePromise<SitemapListResponse,SitemapListStreamType>}
+ * @returns {ResponsePromise<SitemapIntegrationListResponse,SitemapIntegrationListStreamType>}
  */
-export function sitemapList(client, query) {
+export function listSitemapIntegrations(client, query) {
   let url = `/api/v1/integration/sitemap/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listSitemapIntegrations']['responses']['200']['content']['application/json']} T */
@@ -55,35 +55,38 @@ export function sitemapList(client, query) {
 }
 
 /**
- * @typedef {SitemapInstance} SitemapFetchResponse
+ * @typedef {SitemapInegrationInstance} SitemapIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
- * @returns {Promise<SitemapFetchResponse>}
+ * @returns {Promise<SitemapIntegrationFetchResponse>}
  */
-export async function sitemapFetch(client, sitemapId) {
+export async function fetchSitemapIntegration(client, sitemapId) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/fetch`
 
+  /** @type {import('../../types/api/v1.js').operations['fetchSitemapIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {SitemapOptions} SitemapCreateRequest
+ * @typedef {SitemapIntegrationOptions & {datasetId: string}} SitemapIntegrationCreateRequest
  *
  * @typedef {{
  *   id: string
- * }} SitemapCreateResponse
+ * }} SitemapIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
- * @param {SitemapCreateRequest} request
- * @returns {Promise<SitemapCreateResponse>}
+ * @param {SitemapIntegrationCreateRequest} request
+ * @returns {Promise<SitemapIntegrationCreateResponse>}
  */
-export async function sitemapCreate(client, request) {
+export async function createSitemapIntegration(client, request) {
   const url = `/api/v1/integration/sitemap/create`
 
+  /** @type {import('../../types/api/v1.js').operations['createSitemapIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['createSitemapIntegration']['requestBody']['content']['application/json']} */
     data: request,
   })
 
@@ -91,21 +94,23 @@ export async function sitemapCreate(client, request) {
 }
 
 /**
- * @typedef {SitemapOptions} SitemapUpdateRequest
+ * @typedef {SitemapIntegrationOptions & {}} SitemapIntegrationUpdateRequest
  *
  * @typedef {{
  *   id: string
- * }} SitemapUpdateResponse
+ * }} SitemapIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
- * @param {SitemapUpdateRequest} request
- * @returns {Promise<SitemapUpdateResponse>}
+ * @param {SitemapIntegrationUpdateRequest} request
+ * @returns {Promise<SitemapIntegrationUpdateResponse>}
  */
-export async function sitemapUpdate(client, sitemapId, request) {
+export async function updateSitemapIntegration(client, sitemapId, request) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/update`
 
+  /** @type {import('../../types/api/v1.js').operations['updateSitemapIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['updateSitemapIntegration']['requestBody']['content']['application/json']} */
     data: request,
   })
 
@@ -115,16 +120,18 @@ export async function sitemapUpdate(client, sitemapId, request) {
 /**
  * @typedef {{
  *   id: string
- * }} SitemapDeleteResponse
+ * }} SitemapIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
- * @returns {Promise<SitemapDeleteResponse>}
+ * @returns {Promise<SitemapIntegrationDeleteResponse>}
  */
-export async function sitemapDelete(client, sitemapId) {
+export async function deleteSitemapIntegration(client, sitemapId) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/delete`
 
+  /** @type {import('../../types/api/v1.js').operations['deleteSitemapIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['deleteSitemapIntegration']['requestBody']['content']['application/json']} */
     data: {},
   })
 
@@ -134,16 +141,18 @@ export async function sitemapDelete(client, sitemapId) {
 /**
  * @typedef {{
  *   id: string
- * }} SitemapSyncResponse
+ * }} SitemapIntegrationSyncResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
- * @returns {Promise<SitemapSyncResponse>}
+ * @returns {Promise<SitemapIntegrationSyncResponse>}
  */
-export async function sitemapSync(client, sitemapId) {
+export async function syncSitemapIntegration(client, sitemapId) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/sync`
 
+  /** @type {import('../../types/api/v1.js').operations['syncSitemapIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['syncSitemapIntegration']['requestBody']['content']['application/json']} */
     data: {},
   })
 

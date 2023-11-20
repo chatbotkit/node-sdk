@@ -36,7 +36,7 @@
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<SkillsetListResponse,SkillsetListStreamType>}
  */
-export function skillsetList(client, query) {
+export function listSkillsets(client, query) {
   let url = `/api/v1/skillset/list`
 
   /** @typedef {import('../types/api/v1.js').operations['listSkillsets']['responses']['200']['content']['application/json']} T */
@@ -54,7 +54,7 @@ export function skillsetList(client, query) {
  * @param {string} skillsetId
  * @returns {Promise<SkillsetFetchResponse>}
  */
-export async function skillsetFetch(client, skillsetId) {
+export async function fetchSkillset(client, skillsetId) {
   const url = `/api/v1/skillset/${skillsetId}/fetch`
 
   /** @type {import('../types/api/v1.js').operations['fetchSkillset']['responses']['200']['content']['application/json']} */
@@ -74,7 +74,7 @@ export async function skillsetFetch(client, skillsetId) {
  * @param {SkillsetCreateRequest} request
  * @returns {Promise<SkillsetCreateResponse>}
  */
-export async function skillsetCreate(client, request) {
+export async function createSkillset(client, request) {
   const url = `/api/v1/skillset/create`
 
   /** @type {import('../types/api/v1.js').operations['createSkillset']['responses']['200']['content']['application/json']} */
@@ -98,7 +98,7 @@ export async function skillsetCreate(client, request) {
  * @param {SkillsetUpdateRequest} request
  * @returns {Promise<SkillsetUpdateResponse>}
  */
-export async function skillsetUpdate(client, skillsetId, request) {
+export async function updateSkillset(client, skillsetId, request) {
   const url = `/api/v1/skillset/${skillsetId}/update`
 
   /** @type {import('../types/api/v1.js').operations['updateSkillset']['responses']['200']['content']['application/json']} */
@@ -119,7 +119,7 @@ export async function skillsetUpdate(client, skillsetId, request) {
  * @param {string} skillsetId
  * @returns {Promise<SkillsetDeleteResponse>}
  */
-export async function skillsetDelete(client, skillsetId) {
+export async function deleteSkillset(client, skillsetId) {
   const url = `/api/v1/skillset/${skillsetId}/delete`
 
   /** @type {import('../types/api/v1.js').operations['deleteSkillset']['responses']['200']['content']['application/json']} */

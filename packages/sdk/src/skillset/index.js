@@ -1,11 +1,11 @@
 import { ChatBotKitClient } from '../client.js'
 import { AbilityClient } from './ability/index.js'
 import {
-  skillsetList,
-  skillsetFetch,
-  skillsetCreate,
-  skillsetUpdate,
-  skillsetDelete,
+  listSkillsets,
+  fetchSkillset,
+  createSkillset,
+  updateSkillset,
+  deleteSkillset,
 } from './v1.js'
 
 /**
@@ -31,7 +31,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * @returns {ResponsePromise<import('./v1.js').SkillsetListResponse,import('./v1.js').SkillsetListStreamType>}
    */
   list(query) {
-    return skillsetList(this, query)
+    return listSkillsets(this, query)
   }
 
   /**
@@ -41,7 +41,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').SkillsetFetchResponse>}
    */
   fetch(skillsetId) {
-    return skillsetFetch(this, skillsetId)
+    return fetchSkillset(this, skillsetId)
   }
 
   /**
@@ -51,7 +51,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').SkillsetCreateResponse>}
    */
   create(request) {
-    return skillsetCreate(this, request)
+    return createSkillset(this, request)
   }
 
   /**
@@ -62,7 +62,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').SkillsetUpdateResponse>}
    */
   update(skillsetId, request) {
-    return skillsetUpdate(this, skillsetId, request)
+    return updateSkillset(this, skillsetId, request)
   }
 
   /**
@@ -72,7 +72,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').SkillsetDeleteResponse>}
    */
   delete(skillsetId) {
-    return skillsetDelete(this, skillsetId)
+    return deleteSkillset(this, skillsetId)
   }
 }
 

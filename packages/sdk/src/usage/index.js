@@ -1,4 +1,4 @@
-import { usageFetch } from './v1.js'
+import { fetchUsage } from './v1.js'
 import { ChatBotKitClient } from '../client.js'
 
 export class UsageClient extends ChatBotKitClient {
@@ -15,7 +15,7 @@ export class UsageClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').UsageFetchResponse>}
    */
   fetch() {
-    return usageFetch(this)
+    return fetchUsage(this)
   }
 }
 

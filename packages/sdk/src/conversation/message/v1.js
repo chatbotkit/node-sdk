@@ -9,37 +9,37 @@
  */
 
 /**
- * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'} MessageType
+ * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'} ConversationMessageType
  *
  * @typedef {{
- *   type: MessageType,
+ *   type: ConversationMessageType,
  *   text: string,
  *   meta?: Record<string,any>
- * }} MessageOptions
+ * }} ConversationMessageOptions
  *
  * @typedef {{
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & MessageOptions} MessageInstance
+ * } & ConversationMessageOptions} ConversationMessageInstance
  */
 
 /**
- * @typedef {{items: MessageInstance[]}} MessageListResponse
+ * @typedef {{items: ConversationMessageInstance[]}} ConversationMessageListResponse
  *
  * @typedef {{
  *   type: 'item',
- *   data: MessageInstance
- * }} MessageListStreamItem
+ *   data: ConversationMessageInstance
+ * }} ConversationMessageListStreamItem
  *
- * @typedef {MessageListStreamItem} MessageListStreamType
+ * @typedef {ConversationMessageListStreamItem} ConversationMessageListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
- * @returns {ResponsePromise<MessageListResponse,MessageListStreamType>}
+ * @returns {ResponsePromise<ConversationMessageListResponse,ConversationMessageListStreamType>}
  */
-export function messageList(client, conversationId, query) {
+export function listConversationMessages(client, conversationId, query) {
   let url = `/api/v1/conversation/${conversationId}/message/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listConversationMessages']['responses']['200']['content']['application/json']} T */
@@ -51,14 +51,18 @@ export function messageList(client, conversationId, query) {
 }
 
 /**
- * @typedef {MessageInstance} MessageFetchResponse
+ * @typedef {ConversationMessageInstance} ConversationMessageFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {string} messageId
- * @returns {Promise<MessageFetchResponse>}
+ * @returns {Promise<ConversationMessageFetchResponse>}
  */
-export async function messageFetch(client, conversationId, messageId) {
+export async function fetchConversationMessage(
+  client,
+  conversationId,
+  messageId
+) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/fetch`
 
   /** @type {import('../../types/api/v1.js').operations['fetchConversationMessage']['responses']['200']['content']['application/json']} */
@@ -68,18 +72,22 @@ export async function messageFetch(client, conversationId, messageId) {
 }
 
 /**
- * @typedef {MessageOptions} MessageCreateRequest
+ * @typedef {ConversationMessageOptions} ConversationMessageCreateRequest
  *
  * @typedef {{
  *   id: string
- * }} MessageCreateResponse
+ * }} ConversationMessageCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
- * @param {MessageCreateRequest} request
- * @returns {Promise<MessageCreateResponse>}
+ * @param {ConversationMessageCreateRequest} request
+ * @returns {Promise<ConversationMessageCreateResponse>}
  */
-export async function messageCreate(client, conversationId, request) {
+export async function createConversationMessage(
+  client,
+  conversationId,
+  request
+) {
   const url = `/api/v1/conversation/${conversationId}/message/create`
 
   /** @type {import('../../types/api/v1.js').operations['createConversationMessage']['responses']['200']['content']['application/json']} */
@@ -92,19 +100,19 @@ export async function messageCreate(client, conversationId, request) {
 }
 
 /**
- * @typedef {MessageOptions} MessageUpdateRequest
+ * @typedef {ConversationMessageOptions} ConversationMessageUpdateRequest
  *
  * @typedef {{
  *   id: string
- * }} MessageUpdateResponse
+ * }} ConversationMessageUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {string} messageId
- * @param {MessageUpdateRequest} request
- * @returns {Promise<MessageUpdateResponse>}
+ * @param {ConversationMessageUpdateRequest} request
+ * @returns {Promise<ConversationMessageUpdateResponse>}
  */
-export async function messageUpdate(
+export async function updateConversationMessage(
   client,
   conversationId,
   messageId,
@@ -124,14 +132,18 @@ export async function messageUpdate(
 /**
  * @typedef {{
  *   id: string
- * }} MessageDeleteResponse
+ * }} ConversationMessageDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {string} messageId
- * @returns {Promise<MessageDeleteResponse>}
+ * @returns {Promise<ConversationMessageDeleteResponse>}
  */
-export async function messageDelete(client, conversationId, messageId) {
+export async function deleteConversationMessage(
+  client,
+  conversationId,
+  messageId
+) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/delete`
 
   /** @type {import('../../types/api/v1.js').operations['deleteConversationMessage']['responses']['200']['content']['application/json']} */

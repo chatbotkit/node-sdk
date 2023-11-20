@@ -5,19 +5,19 @@
 /**
  * @typedef {{
  *   type: 'source'
- * }} FileAttachRequest
+ * }} DatasetFileAttachRequest
  *
  * @typedef {{
  *   id: string
- * }} FileAttachResponse
+ * }} DatasetFileAttachResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
  * @param {string} fileId
- * @param {FileAttachRequest} request
- * @returns {Promise<FileAttachResponse>}
+ * @param {DatasetFileAttachRequest} request
+ * @returns {Promise<DatasetFileAttachResponse>}
  */
-export async function fileAttach(client, datasetId, fileId, request) {
+export async function attachDatasetFile(client, datasetId, fileId, request) {
   const url = `/api/v1/dataset/${datasetId}/file/${fileId}/attach`
 
   /** @type {import('../../types/api/v1.js').operations['attachDatasetFile']['responses']['200']['content']['application/json']} */
@@ -30,19 +30,19 @@ export async function fileAttach(client, datasetId, fileId, request) {
 }
 
 /**
- * @typedef {{}} FileDetachRequest
+ * @typedef {{}} DatasetFileDetachRequest
  *
  * @typedef {{
  *   id: string
- * }} FileDetachResponse
+ * }} DatasetFileDetachResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
  * @param {string} fileId
- * @param {FileDetachRequest} request
- * @returns {Promise<FileDetachResponse>}
+ * @param {DatasetFileDetachRequest} request
+ * @returns {Promise<DatasetFileDetachResponse>}
  */
-export async function fileDetach(client, datasetId, fileId, request) {
+export async function detachDatasetFile(client, datasetId, fileId, request) {
   const url = `/api/v1/dataset/${datasetId}/file/${fileId}/detach`
 
   /** @type {import('../../types/api/v1.js').operations['detachDatasetFile']['responses']['200']['content']['application/json']} */
@@ -55,19 +55,19 @@ export async function fileDetach(client, datasetId, fileId, request) {
 }
 
 /**
- * @typedef {{}} FileSyncRequest
+ * @typedef {{}} DatasetFileSyncRequest
  *
  * @typedef {{
  *   id: string
- * }} FileSyncResponse
+ * }} DatasetFileSyncResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
  * @param {string} fileId
- * @param {FileSyncRequest} request
- * @returns {Promise<FileSyncResponse>}
+ * @param {DatasetFileSyncRequest} request
+ * @returns {Promise<DatasetFileSyncResponse>}
  */
-export async function fileSync(client, datasetId, fileId, request) {
+export async function syncDatasetFile(client, datasetId, fileId, request) {
   const url = `/api/v1/dataset/${datasetId}/file/${fileId}/sync`
 
   /** @type {import('../../types/api/v1.js').operations['syncDatasetFile']['responses']['200']['content']['application/json']} */

@@ -18,7 +18,7 @@
  * @param {ChatBotKitClient} client
  * @returns {Promise<UsageFetchResponse>}
  */
-export async function usageFetch(client) {
+export async function fetchUsage(client) {
   const url = `/api/v1/usage/fetch`
 
   /** @type {import('../types/api/v1.js').operations['fetchUsage']['responses']['200']['content']['application/json']} */

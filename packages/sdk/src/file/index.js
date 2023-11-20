@@ -1,12 +1,12 @@
 import { ChatBotKitClient } from '../client.js'
 import {
-  fileList,
-  fileFetch,
-  fileCreate,
-  fileUpdate,
-  fileDelete,
-  fileUpload,
-  fileDownload,
+  listFiles,
+  fetchFile,
+  createFile,
+  updateFile,
+  deleteFile,
+  uploadFile,
+  downloadFile,
 } from './v1.js'
 
 /**
@@ -30,7 +30,7 @@ export class FileClient extends ChatBotKitClient {
    * @returns {ResponsePromise<import('./v1.js').FileListResponse,import('./v1.js').FileListStreamType>}
    */
   list(query) {
-    return fileList(this, query)
+    return listFiles(this, query)
   }
 
   /**
@@ -40,7 +40,7 @@ export class FileClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').FileFetchResponse>}
    */
   fetch(fileId) {
-    return fileFetch(this, fileId)
+    return fetchFile(this, fileId)
   }
 
   /**
@@ -50,7 +50,7 @@ export class FileClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').FileCreateResponse>}
    */
   create(request) {
-    return fileCreate(this, request)
+    return createFile(this, request)
   }
 
   /**
@@ -61,7 +61,7 @@ export class FileClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').FileUpdateResponse>}
    */
   update(fileId, request) {
-    return fileUpdate(this, fileId, request)
+    return updateFile(this, fileId, request)
   }
 
   /**
@@ -71,7 +71,7 @@ export class FileClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').FileDeleteResponse>}
    */
   delete(fileId) {
-    return fileDelete(this, fileId)
+    return deleteFile(this, fileId)
   }
 
   /**
@@ -82,7 +82,7 @@ export class FileClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').FileUploadResponse>}
    */
   upload(fileId, request) {
-    return fileUpload(this, fileId, request)
+    return uploadFile(this, fileId, request)
   }
 
   /**
@@ -92,7 +92,7 @@ export class FileClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').FileDownloadResponse>}
    */
   download(fileId) {
-    return fileDownload(this, fileId)
+    return downloadFile(this, fileId)
   }
 }
 

@@ -38,7 +38,7 @@
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<BotListResponse,BotListStreamType>}
  */
-export function botList(client, query) {
+export function listBots(client, query) {
   let url = `/api/v1/bot/list`
 
   /** @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/json']} T */
@@ -56,7 +56,7 @@ export function botList(client, query) {
  * @param {string} botId
  * @returns {Promise<BotFetchResponse>}
  */
-export async function botFetch(client, botId) {
+export async function fetchBot(client, botId) {
   const url = `/api/v1/bot/${botId}/fetch`
 
   /** @type {import('../types/api/v1.js').operations['fetchBot']['responses']['200']['content']['application/json']} */
@@ -76,7 +76,7 @@ export async function botFetch(client, botId) {
  * @param {BotCreateRequest} request
  * @returns {Promise<BotCreateResponse>}
  */
-export async function botCreate(client, request) {
+export async function createBot(client, request) {
   const url = `/api/v1/bot/create`
 
   /** @type {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} */
@@ -100,7 +100,7 @@ export async function botCreate(client, request) {
  * @param {BotUpdateRequest} request
  * @returns {Promise<BotUpdateResponse>}
  */
-export async function botUpdate(client, botId, request) {
+export async function updateBot(client, botId, request) {
   const url = `/api/v1/bot/${botId}/update`
 
   /** @type {import('../types/api/v1.js').operations['updateBot']['responses']['200']['content']['application/json']} */
@@ -121,7 +121,7 @@ export async function botUpdate(client, botId, request) {
  * @param {string} botId
  * @returns {Promise<BotDeleteResponse>}
  */
-export async function botDelete(client, botId) {
+export async function deleteBot(client, botId) {
   const url = `/api/v1/bot/${botId}/delete`
 
   /** @type {import('../types/api/v1.js').operations['deleteBot']['responses']['200']['content']['application/json']} */

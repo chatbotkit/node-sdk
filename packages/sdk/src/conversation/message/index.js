@@ -1,10 +1,10 @@
 import { ChatBotKitClient } from '../../client.js'
 import {
-  messageList,
-  messageFetch,
-  messageCreate,
-  messageUpdate,
-  messageDelete,
+  listConversationMessages,
+  fetchConversationMessage,
+  createConversationMessage,
+  updateConversationMessage,
+  deleteConversationMessage,
 } from './v1.js'
 
 /**
@@ -26,10 +26,10 @@ export class MessageClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
-   * @returns {ResponsePromise<import('./v1.js').MessageListResponse,import('./v1.js').MessageListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').ConversationMessageListResponse,import('./v1.js').ConversationMessageListStreamType>}
    */
   list(conversationId, query) {
-    return messageList(this, conversationId, query)
+    return listConversationMessages(this, conversationId, query)
   }
 
   /**
@@ -37,21 +37,21 @@ export class MessageClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {string} messageId
-   * @returns {Promise<import('./v1.js').MessageFetchResponse>}
+   * @returns {Promise<import('./v1.js').ConversationMessageFetchResponse>}
    */
   fetch(conversationId, messageId) {
-    return messageFetch(this, conversationId, messageId)
+    return fetchConversationMessage(this, conversationId, messageId)
   }
 
   /**
    * Creates a new message.
    *
    * @param {string} conversationId
-   * @param {import('./v1.js').MessageCreateRequest} request
-   * @returns {Promise<import('./v1.js').MessageCreateResponse>}
+   * @param {import('./v1.js').ConversationMessageCreateRequest} request
+   * @returns {Promise<import('./v1.js').ConversationMessageCreateResponse>}
    */
   create(conversationId, request) {
-    return messageCreate(this, conversationId, request)
+    return createConversationMessage(this, conversationId, request)
   }
 
   /**
@@ -59,11 +59,11 @@ export class MessageClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {string} messageId
-   * @param {import('./v1.js').MessageUpdateRequest} request
-   * @returns {Promise<import('./v1.js').MessageUpdateResponse>}
+   * @param {import('./v1.js').ConversationMessageUpdateRequest} request
+   * @returns {Promise<import('./v1.js').ConversationMessageUpdateResponse>}
    */
   update(conversationId, messageId, request) {
-    return messageUpdate(this, conversationId, messageId, request)
+    return updateConversationMessage(this, conversationId, messageId, request)
   }
 
   /**
@@ -71,10 +71,10 @@ export class MessageClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {string} messageId
-   * @returns {Promise<import('./v1.js').MessageDeleteResponse>}
+   * @returns {Promise<import('./v1.js').ConversationMessageDeleteResponse>}
    */
   delete(conversationId, messageId) {
-    return messageDelete(this, conversationId, messageId)
+    return deleteConversationMessage(this, conversationId, messageId)
   }
 }
 

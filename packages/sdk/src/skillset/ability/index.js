@@ -1,10 +1,10 @@
 import { ChatBotKitClient } from '../../client.js'
 import {
-  abilityList,
-  abilityFetch,
-  abilityCreate,
-  abilityUpdate,
-  abilityDelete,
+  listSkillsetAbilities,
+  fetchSkillsetAbility,
+  createSkillsetAbility,
+  updateSkillsetAbility,
+  deleteSkillsetAbility,
 } from './v1.js'
 
 /**
@@ -26,10 +26,10 @@ export class AbilityClient extends ChatBotKitClient {
    *
    * @param {string} skillsetId
    * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
-   * @returns {ResponsePromise<import('./v1.js').AbilityListResponse,import('./v1.js').AbilityListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').SkillsetAbilityListResponse,import('./v1.js').SkillsetAbilityListStreamType>}
    */
   list(skillsetId, query) {
-    return abilityList(this, skillsetId, query)
+    return listSkillsetAbilities(this, skillsetId, query)
   }
 
   /**
@@ -37,21 +37,21 @@ export class AbilityClient extends ChatBotKitClient {
    *
    * @param {string} skillsetId
    * @param {string} abilityId
-   * @returns {Promise<import('./v1.js').AbilityFetchResponse>}
+   * @returns {Promise<import('./v1.js').SkillsetAbilityFetchResponse>}
    */
   fetch(skillsetId, abilityId) {
-    return abilityFetch(this, skillsetId, abilityId)
+    return fetchSkillsetAbility(this, skillsetId, abilityId)
   }
 
   /**
    * Creates a new ability.
    *
    * @param {string} skillsetId
-   * @param {import('./v1.js').AbilityCreateRequest} request
-   * @returns {Promise<import('./v1.js').AbilityCreateResponse>}
+   * @param {import('./v1.js').SkillsetAbilityCreateRequest} request
+   * @returns {Promise<import('./v1.js').SkillsetAbilityCreateResponse>}
    */
   create(skillsetId, request) {
-    return abilityCreate(this, skillsetId, request)
+    return createSkillsetAbility(this, skillsetId, request)
   }
 
   /**
@@ -59,11 +59,11 @@ export class AbilityClient extends ChatBotKitClient {
    *
    * @param {string} skillsetId
    * @param {string} abilityId
-   * @param {import('./v1.js').AbilityUpdateRequest} request
-   * @returns {Promise<import('./v1.js').AbilityUpdateResponse>}
+   * @param {import('./v1.js').SkillsetAbilityUpdateRequest} request
+   * @returns {Promise<import('./v1.js').SkillsetAbilityUpdateResponse>}
    */
   update(skillsetId, abilityId, request) {
-    return abilityUpdate(this, skillsetId, abilityId, request)
+    return updateSkillsetAbility(this, skillsetId, abilityId, request)
   }
 
   /**
@@ -71,10 +71,10 @@ export class AbilityClient extends ChatBotKitClient {
    *
    * @param {string} skillsetId
    * @param {string} abilityId
-   * @returns {Promise<import('./v1.js').AbilityDeleteResponse>}
+   * @returns {Promise<import('./v1.js').SkillsetAbilityDeleteResponse>}
    */
   delete(skillsetId, abilityId) {
-    return abilityDelete(this, skillsetId, abilityId)
+    return deleteSkillsetAbility(this, skillsetId, abilityId)
   }
 }
 

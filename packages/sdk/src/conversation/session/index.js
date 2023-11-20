@@ -1,4 +1,4 @@
-import { sessionCreate } from './v1.js'
+import { createConversationSession } from './v1.js'
 import { ChatBotKitClient } from '../../client.js'
 
 export class SessionClient extends ChatBotKitClient {
@@ -13,11 +13,11 @@ export class SessionClient extends ChatBotKitClient {
    * Creates a new session.
    *
    * @param {string} conversationId
-   * @param {import('./v1.js').SessionCreateRequest} request
-   * @returns {Promise<import('./v1.js').SessionCreateResponse>}
+   * @param {import('./v1.js').ConversationSessionCreateRequest} request
+   * @returns {Promise<import('./v1.js').ConversationSessionCreateResponse>}
    */
   create(conversationId, request) {
-    return sessionCreate(this, conversationId, request)
+    return createConversationSession(this, conversationId, request)
   }
 }
 

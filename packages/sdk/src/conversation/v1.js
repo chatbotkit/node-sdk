@@ -57,7 +57,7 @@
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<ConversationListResponse,ConversationListStreamType>}
  */
-export function conversationList(client, query) {
+export function listConversations(client, query) {
   let url = `/api/v1/conversation/list`
 
   /** @typedef {import('../types/api/v1.js').operations['listConversations']['responses']['200']['content']['application/json']} T */
@@ -75,7 +75,7 @@ export function conversationList(client, query) {
  * @param {string} conversationId
  * @returns {Promise<ConversationFetchResponse>}
  */
-export async function conversationFetch(client, conversationId) {
+export async function fetchConversation(client, conversationId) {
   const url = `/api/v1/conversation/${conversationId}/fetch`
 
   /** @type {import('../types/api/v1.js').operations['fetchConversation']['responses']['200']['content']['application/json']} */
@@ -95,7 +95,7 @@ export async function conversationFetch(client, conversationId) {
  * @param {ConversationCreateRequest} request
  * @returns {Promise<ConversationCreateResponse>}
  */
-export async function conversationCreate(client, request) {
+export async function createConversation(client, request) {
   const url = `/api/v1/conversation/create`
 
   /** @type {import('../types/api/v1.js').operations['createConversation']['responses']['200']['content']['application/json']} */
@@ -119,7 +119,7 @@ export async function conversationCreate(client, request) {
  * @param {ConversationUpdateRequest} request
  * @returns {Promise<ConversationUpdateResponse>}
  */
-export async function conversationUpdate(client, conversationId, request) {
+export async function updateConversation(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/update`
 
   /** @type {import('../types/api/v1.js').operations['updateConversation']['responses']['200']['content']['application/json']} */
@@ -140,7 +140,7 @@ export async function conversationUpdate(client, conversationId, request) {
  * @param {string} conversationId
  * @returns {Promise<ConversationDeleteResponse>}
  */
-export async function conversationDelete(client, conversationId) {
+export async function deleteConversation(client, conversationId) {
   const url = `/api/v1/conversation/${conversationId}/delete`
 
   /** @type {import('../types/api/v1.js').operations['deleteConversation']['responses']['200']['content']['application/json']} */
@@ -187,7 +187,7 @@ export async function conversationDelete(client, conversationId) {
  * @param {ConversationCompleteRequest} request
  * @returns {ResponsePromise<ConversationCompleteResponse,ConversationCompleteStreamType>}
  */
-export function conversationComplete(client, conversationId, request) {
+export function completeConversation(client, conversationId, request) {
   let url
 
   if (conversationId) {
@@ -219,7 +219,7 @@ export function conversationComplete(client, conversationId, request) {
  * @param {ConversationSendRequest} request
  * @returns {Promise<ConversationSendResponse>}
  */
-export async function conversationSend(client, conversationId, request) {
+export async function sendToConversation(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/send`
 
   const response = client.clientFetch(url, {
@@ -250,7 +250,7 @@ export async function conversationSend(client, conversationId, request) {
  * @param {ConversationReceiveRequest} request
  * @returns {Promise<ConversationReceiveResponse>}
  */
-export async function conversationReceive(client, conversationId, request) {
+export async function receiveFromConversation(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/receive`
 
   const response = client.clientFetch(url, {

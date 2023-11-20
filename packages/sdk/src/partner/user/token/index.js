@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../../../client.js'
-import { tokenList, tokenCreate, tokenDelete } from './v1.js'
+import { listTokens, createToken, deleteToken } from './v1.js'
 
 /**
  * @template T
@@ -20,21 +20,21 @@ export class TokenClient extends ChatBotKitClient {
    *
    * @param {string} userId
    * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
-   * @returns {ResponsePromise<import('./v1.js').TokenListResponse,import('./v1.js').TokenListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').PartnerUserTokenListResponse,import('./v1.js').PartnerUserTokenListStreamType>}
    */
   list(userId, query) {
-    return tokenList(this, userId, query)
+    return listTokens(this, userId, query)
   }
 
   /**
-   * Creates a new user.
+   * Creates a new user token.
    *
    * @param {string} userId
-   * @param {import('./v1.js').TokenCreateRequest} request
-   * @returns {Promise<import('./v1.js').TokenCreateResponse>}
+   * @param {import('./v1.js').PartnerUserTokenCreateRequest} request
+   * @returns {Promise<import('./v1.js').PartnerUserTokenCreateResponse>}
    */
   create(userId, request) {
-    return tokenCreate(this, userId, request)
+    return createToken(this, userId, request)
   }
 
   /**
@@ -42,10 +42,10 @@ export class TokenClient extends ChatBotKitClient {
    *
    * @param {string} userId
    * @param {string} tokenId
-   * @returns {Promise<import('./v1.js').TokenDeleteResponse>}
+   * @returns {Promise<import('./v1.js').PartnerUserTokenDeleteResponse>}
    */
   delete(userId, tokenId) {
-    return tokenDelete(this, userId, tokenId)
+    return deleteToken(this, userId, tokenId)
   }
 }
 

@@ -3,9 +3,6 @@
  * Do not make direct changes to the file.
  */
 
-/** WithRequired type helpers */
-type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] }
-
 /** OneOf type helpers */
 type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never }
 type XOR<T, U> = T | U extends object
@@ -2417,22 +2414,25 @@ export interface operations {
       /** @description The WhatsApp integration was retrieved successfully */
       200: {
         content: {
-          'application/json': WithRequired<
-            components['schemas']['BotRefOrConfig'] & {
-              /** @description The name for this WhatsApp integration */
-              name?: string
-              /** @description The description for this WhatsApp integration */
-              description?: string
-              /** @description The WhatsApp integration phone number ID */
-              phoneNumberId?: string
-              /** @description The WhatsApp integration access token */
-              accessToken?: string
-              /** @description The session duration (in milliseconds) */
-              sessionDuration?: number
-              meta?: components['schemas']['Meta']
-            },
-            'id' | 'createdAt' | 'updatedAt'
-          >
+          'application/json': components['schemas']['BotRefOrConfig'] & {
+            /** @description The ID of the WhatsApp integration */
+            id: string
+            /** @description The name of the WhatsApp integration */
+            name?: string
+            /** @description The description of the WhatsApp integration */
+            description?: string
+            /** @description The WhatsApp integration phone number ID */
+            phoneNumberId?: string
+            /** @description The WhatsApp integration access token */
+            accessToken?: string
+            /** @description The session duration (in milliseconds) */
+            sessionDuration?: number
+            meta?: components['schemas']['Meta']
+            /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
+            createdAt: number
+            /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
+            updatedAt: number
+          }
         }
       }
       401: components['responses']['Unauthorized']

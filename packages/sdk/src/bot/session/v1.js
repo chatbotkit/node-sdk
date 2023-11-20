@@ -5,20 +5,20 @@
 /**
  * @typedef {{
  *   durationInSeconds?: number
- * }} SessionCreateRequest
+ * }} BotSessionCreateRequest
  *
  * @typedef {{
  *   conversationId: string,
  *   token: string,
  *   expiresAt: number
- * }} SessionCreateResponse
+ * }} BotSessionCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
- * @param {SessionCreateRequest} request
- * @returns {Promise<SessionCreateResponse>}
+ * @param {BotSessionCreateRequest} request
+ * @returns {Promise<BotSessionCreateResponse>}
  */
-export async function sessionCreate(client, botId, request) {
+export async function createBotSession(client, botId, request) {
   const url = `/api/v1/bot/${botId}/session/create`
 
   /** @type {import('../../types/api/v1.js').operations['createBotSession']['responses']['200']['content']['application/json']} */

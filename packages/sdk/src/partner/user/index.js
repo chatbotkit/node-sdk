@@ -1,11 +1,11 @@
 import { TokenClient } from './token/index.js'
 import { ChatBotKitClient } from '../../client.js'
 import {
-  userList,
-  userFetch,
-  userCreate,
-  userUpdate,
-  userDelete,
+  listUsers,
+  fetchUser,
+  createUser,
+  updateUser,
+  deleteUser,
 } from './v1.js'
 
 /**
@@ -28,51 +28,51 @@ export class UserClient extends ChatBotKitClient {
    * Retrieves a list of all existing users associated with this client.
    *
    * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
-   * @returns {ResponsePromise<import('./v1.js').UserListResponse,import('./v1.js').UserListStreamType>}
+   * @returns {ResponsePromise<import('./v1.js').PartnerUserListResponse,import('./v1.js').PartnerUserListStreamType>}
    */
   list(query) {
-    return userList(this, query)
+    return listUsers(this, query)
   }
 
   /**
    * Fetches a user.
    *
    * @param {string} userId
-   * @returns {Promise<import('./v1.js').UserFetchResponse>}
+   * @returns {Promise<import('./v1.js').PartnerUserFetchResponse>}
    */
   fetch(userId) {
-    return userFetch(this, userId)
+    return fetchUser(this, userId)
   }
 
   /**
    * Creates a new user.
    *
-   * @param {import('./v1.js').UserCreateRequest} request
-   * @returns {Promise<import('./v1.js').UserCreateResponse>}
+   * @param {import('./v1.js').PartnerUserCreateRequest} request
+   * @returns {Promise<import('./v1.js').PartnerUserCreateResponse>}
    */
   create(request) {
-    return userCreate(this, request)
+    return createUser(this, request)
   }
 
   /**
    * Updates the user.
    *
    * @param {string} userId
-   * @param {import('./v1.js').UserUpdateRequest} request
-   * @returns {Promise<import('./v1.js').UserUpdateResponse>}
+   * @param {import('./v1.js').PartnerUserUpdateRequest} request
+   * @returns {Promise<import('./v1.js').PartnerUserUpdateResponse>}
    */
   update(userId, request) {
-    return userUpdate(this, userId, request)
+    return updateUser(this, userId, request)
   }
 
   /**
    * Deletes the user.
    *
    * @param {string} userId
-   * @returns {Promise<import('./v1.js').UserDeleteResponse>}
+   * @returns {Promise<import('./v1.js').PartnerUserDeleteResponse>}
    */
   delete(userId) {
-    return userDelete(this, userId)
+    return deleteUser(this, userId)
   }
 }
 

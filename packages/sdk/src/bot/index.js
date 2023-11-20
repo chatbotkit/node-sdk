@@ -1,6 +1,6 @@
 import { ChatBotKitClient } from '../client.js'
 import { SessionClient } from './session/index.js'
-import { botList, botFetch, botCreate, botUpdate, botDelete } from './v1.js'
+import { listBots, fetchBot, createBot, updateBot, deleteBot } from './v1.js'
 
 /**
  * @template T
@@ -25,7 +25,7 @@ export class BotClient extends ChatBotKitClient {
    * @returns {ResponsePromise<import('./v1.js').BotListResponse,import('./v1.js').BotListStreamType>}
    */
   list(query) {
-    return botList(this, query)
+    return listBots(this, query)
   }
 
   /**
@@ -35,7 +35,7 @@ export class BotClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').BotFetchResponse>}
    */
   fetch(botId) {
-    return botFetch(this, botId)
+    return fetchBot(this, botId)
   }
 
   /**
@@ -45,7 +45,7 @@ export class BotClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').BotCreateResponse>}
    */
   create(request) {
-    return botCreate(this, request)
+    return createBot(this, request)
   }
 
   /**
@@ -56,7 +56,7 @@ export class BotClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').BotUpdateResponse>}
    */
   update(botId, request) {
-    return botUpdate(this, botId, request)
+    return updateBot(this, botId, request)
   }
 
   /**
@@ -66,7 +66,7 @@ export class BotClient extends ChatBotKitClient {
    * @returns {Promise<import('./v1.js').BotDeleteResponse>}
    */
   delete(botId) {
-    return botDelete(this, botId)
+    return deleteBot(this, botId)
   }
 }
 

@@ -10,31 +10,31 @@
 
 /**
  * @typedef {{
- * }} TokenOptions
+ * }} PartnerUserTokenOptions
  *
  * @typedef {{
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & TokenOptions} TokenInstance
+ * } & PartnerUserTokenOptions} PartnerUserTokenInstance
  */
 
 /**
- * @typedef {{items: TokenInstance[]}} TokenListResponse
+ * @typedef {{items: PartnerUserTokenInstance[]}} PartnerUserTokenListResponse
  *
  * @typedef {{
  *   type: 'item',
- *   data: TokenInstance
- * }} TokenListStreamItem
+ *   data: PartnerUserTokenInstance
+ * }} PartnerUserTokenListStreamItem
  *
- * @typedef {TokenListStreamItem} TokenListStreamType
+ * @typedef {PartnerUserTokenListStreamItem} PartnerUserTokenListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
- * @returns {ResponsePromise<TokenListResponse,TokenListStreamType>}
+ * @returns {ResponsePromise<PartnerUserTokenListResponse,PartnerUserTokenListStreamType>}
  */
-export function tokenList(client, userId, query) {
+export function listTokens(client, userId, query) {
   let url = `/api/v1/partner/user/${userId}/token/list`
 
   /** @typedef {import('../../../types/api/v1.js').operations['listPartnerUserTokens']['responses']['200']['content']['application/json']} T */
@@ -46,20 +46,20 @@ export function tokenList(client, userId, query) {
 }
 
 /**
- * @typedef {TokenOptions} TokenCreateRequest
+ * @typedef {PartnerUserTokenOptions} PartnerUserTokenCreateRequest
  *
  * @typedef {{
  *   id: string,
  *   token: string,
  *   createdAt: number
- * }} TokenCreateResponse
+ * }} PartnerUserTokenCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
- * @param {TokenCreateRequest} request
- * @returns {Promise<TokenCreateResponse>}
+ * @param {PartnerUserTokenCreateRequest} request
+ * @returns {Promise<PartnerUserTokenCreateResponse>}
  */
-export async function tokenCreate(client, userId, request) {
+export async function createToken(client, userId, request) {
   const url = `/api/v1/partner/user/${userId}/token/create`
 
   /** @type {import('../../../types/api/v1.js').operations['createPartnerUserToken']['responses']['200']['content']['application/json']} */
@@ -74,14 +74,14 @@ export async function tokenCreate(client, userId, request) {
 /**
  * @typedef {{
  *   id: string
- * }} TokenDeleteResponse
+ * }} PartnerUserTokenDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
  * @param {string} tokenId
- * @returns {Promise<TokenDeleteResponse>}
+ * @returns {Promise<PartnerUserTokenDeleteResponse>}
  */
-export async function tokenDelete(client, userId, tokenId) {
+export async function deleteToken(client, userId, tokenId) {
   const url = `/api/v1/partner/user/${userId}/token/${tokenId}/delete`
 
   /** @type {import('../../../types/api/v1.js').operations['deletePartnerUserToken']['responses']['200']['content']['application/json']} */

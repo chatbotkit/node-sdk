@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../../client.js'
-import { fileAttach, fileDetach, fileSync } from './v1.js'
+import { attachDatasetFile, detachDatasetFile, syncDatasetFile } from './v1.js'
 
 export class FileClient extends ChatBotKitClient {
   /**
@@ -14,11 +14,11 @@ export class FileClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {string} fileId
-   * @param {import('./v1.js').FileAttachRequest} request
-   * @returns {Promise<import('./v1.js').FileAttachResponse>}
+   * @param {import('./v1.js').DatasetFileAttachRequest} request
+   * @returns {Promise<import('./v1.js').DatasetFileAttachResponse>}
    */
   attach(datasetId, fileId, request) {
-    return fileAttach(this, datasetId, fileId, request)
+    return attachDatasetFile(this, datasetId, fileId, request)
   }
 
   /**
@@ -26,11 +26,11 @@ export class FileClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {string} fileId
-   * @param {import('./v1.js').FileDetachRequest} request
-   * @returns {Promise<import('./v1.js').FileDetachResponse>}
+   * @param {import('./v1.js').DatasetFileDetachRequest} request
+   * @returns {Promise<import('./v1.js').DatasetFileDetachResponse>}
    */
   detach(datasetId, fileId, request) {
-    return fileDetach(this, datasetId, fileId, request)
+    return detachDatasetFile(this, datasetId, fileId, request)
   }
 
   /**
@@ -38,11 +38,11 @@ export class FileClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {string} fileId
-   * @param {import('./v1.js').FileSyncRequest} request
-   * @returns {Promise<import('./v1.js').FileSyncResponse>}
+   * @param {import('./v1.js').DatasetFileSyncRequest} request
+   * @returns {Promise<import('./v1.js').DatasetFileSyncResponse>}
    */
   sync(datasetId, fileId, request) {
-    return fileSync(this, datasetId, fileId, request)
+    return syncDatasetFile(this, datasetId, fileId, request)
   }
 }
 

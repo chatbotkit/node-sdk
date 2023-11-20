@@ -43,7 +43,7 @@
  * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
  * @returns {ResponsePromise<DatasetListResponse,DatasetListStreamType>}
  */
-export function datasetList(client, query) {
+export function listDatasets(client, query) {
   let url = `/api/v1/dataset/list`
 
   /** @typedef {import('../types/api/v1.js').operations['listDatasets']['responses']['200']['content']['application/json']} T */
@@ -61,7 +61,7 @@ export function datasetList(client, query) {
  * @param {string} datasetId
  * @returns {Promise<DatasetFetchResponse>}
  */
-export async function datasetFetch(client, datasetId) {
+export async function fetchDataset(client, datasetId) {
   const url = `/api/v1/dataset/${datasetId}/fetch`
 
   /** @type {import('../types/api/v1.js').operations['fetchDataset']['responses']['200']['content']['application/json']} */
@@ -83,7 +83,7 @@ export async function datasetFetch(client, datasetId) {
  * @param {DatasetCreateRequest} request
  * @returns {Promise<DatasetCreateResponse>}
  */
-export async function datasetCreate(client, request) {
+export async function createDataset(client, request) {
   const url = `/api/v1/dataset/create`
 
   /** @type {import('../types/api/v1.js').operations['createDataset']['responses']['200']['content']['application/json']} */
@@ -107,7 +107,7 @@ export async function datasetCreate(client, request) {
  * @param {DatasetUpdateRequest} request
  * @returns {Promise<DatasetUpdateResponse>}
  */
-export async function datasetUpdate(client, datasetId, request) {
+export async function updateDataset(client, datasetId, request) {
   const url = `/api/v1/dataset/${datasetId}/update`
 
   /** @type {import('../types/api/v1.js').operations['updateDataset']['responses']['200']['content']['application/json']} */
@@ -128,7 +128,7 @@ export async function datasetUpdate(client, datasetId, request) {
  * @param {string} datasetId
  * @returns {Promise<DatasetDeleteResponse>}
  */
-export async function datasetDelete(client, datasetId) {
+export async function deleteDataset(client, datasetId) {
   const url = `/api/v1/dataset/${datasetId}/delete`
 
   /** @type {import('../types/api/v1.js').operations['deleteDataset']['responses']['200']['content']['application/json']} */
@@ -150,7 +150,7 @@ export async function datasetDelete(client, datasetId) {
  * @param {string} search
  * @returns {Promise<DatasetSearchResponse>}
  */
-export async function datasetSearch(client, datasetId, search) {
+export async function searchDataset(client, datasetId, search) {
   const url = `/api/v1/dataset/${datasetId}/search`
 
   /** @type {import('../types/api/v1.js').operations['searchDataset']['responses']['200']['content']['application/json']} */
