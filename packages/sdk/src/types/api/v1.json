@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700468099983)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 1700473299250)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -3064,7 +3064,14 @@
           }
         ],
         "responses": {
-          "200": { "description": "The file was downloaded successfully" },
+          "200": {
+            "description": "The file was downloaded successfully",
+            "content": {
+              "application/octet-stream": {
+                "schema": { "type": "string", "format": "binary" }
+              }
+            }
+          },
           "401": { "$ref": "#/components/responses/Unauthorized" },
           "404": { "$ref": "#/components/responses/NotFound" }
         }
@@ -3250,7 +3257,7 @@
         "requestBody": {
           "required": true,
           "content": {
-            "multipart/form-data:": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
