@@ -5,7 +5,7 @@
 
 # ChatBotKit Node SDK
 
-Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy chatbots that can interact with users in natural language.
+Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy AI bots that can interact with users in natural language.
 
 ## SDK Features
 
@@ -18,28 +18,23 @@ Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building co
 
 - 🗨 **Chat History**: Easily review and reference previous conversations with your bots, ensuring that it has all the information it needs.
 - 💾 **Custom Datasets**: Manage and organize the data that your chat bots use to respond to user input with bespoke datasets.
+- 💾 **Custom Skillset**: Create special skills for your chatbot, such as the ability to generate images or fetch web pages.
+- 🎬 **Document File Importing**: Import PDF, CSV, JSON, MD and many other document files directly into your your chatbot datasets
 - 🎬 **Media File Importing**: Import MP3, MP4, MPEG, WAV and many other media files directly into your your chatbot datasets
 - 🌐 **Widget Integration**: Embed ChatBotKit chatbots directly on any website using advanced customization options and theming.
 - 💬 **Slack Bot Integration**: Create and deploy wide-range of Slack bot integrations with just a few click.
 - 🎮 **Discord Bot Integration**: Create and deploy wide-range of Discord chat bot with just a few click.
 - 📱 **WhatsApp Bot Integration**: Connect with your audience instantly on the world’s most popular AI bot platform.
 - 🗺 **Sitemap Integration**: Automatically ingest website content into a searchable knowledge base for your chatbot to reference.
+- 🗺 **Suppoert Integration**: Automatically send conversation summaries to your prefered support system and follow up with users off-session.
 - 🤖 **GPT-3.5 Support**: State-of-the-art language models to power your conversations.
 - 🚀 **GPT-4 Support**: The latest and best language model now can power all chatbots.
 - 🎥 **Streaming**: You can turn on and off streaming capabilities for your chatbots.
 - 🎨 **Widget Themes**: Customize the appearance of your chatbot widget with different themes to match your website branding or personal preferences.
-- 💡 **ChatGPT Extended**: Create your own own ChatGPT bot on variety of skills and domain-specific knowledge.
-- 🔄 **Multiple AI Models**: Leverage diverse models from various AI providers to enhance performance and accuracy.
 - 🔒 **Data Security**: Ensuring the security of user data, with robust measures in place to protect against unauthorized access.
 - 🕵 **Focus on Privacy**: Get strong privacy controls out of the box. Privide confindence that your customers' data is being handled responsibly.
 - 🚫 **Content Moderation**: All messages are automatically scanned for abusive content and automatically flagged by the system.
-- 🔍 **Semantic Search**: Your chat bot can provide more relevant and accurate responses.
-- ⚙️ **AI Playgrounds**: Interactive environments that provide a safe and controlled space to experiment, explore, and learn.
-- ⚒️ **No-Code Platform**: Easily build, customize and deploy chatbots without needing to write any code.
 - 💵 **Simple Pricing**: Our pricing is straightforward and easy to understand, with no hidden fees or surprises.
-- 📱 **App Platform**: Our platform provides capabilities for building and deploying chatbots for a wide range of applications.
-- 🔧 **Extreme Customization**: Customize your chatbots' responses and behavior based on variety of preferences.
-- 🌟 **Expanding Feature Set**: We are constantly adding new features to so you can always stay up-to-date with the latest AI capabilities.
 
 ## Getting Started
 

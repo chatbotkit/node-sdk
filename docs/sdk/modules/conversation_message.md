@@ -10,10 +10,31 @@
 
 ### Classes
 
-- [MessageClient](../classes/conversation_message.MessageClient.md)
+- [ConversationMessageClient](../classes/conversation_message.ConversationMessageClient.md)
+
+### Type Aliases
+
+- [ResponsePromise](conversation_message.md#responsepromise)
 
 ## References
 
 ### default
 
-Renames and re-exports [MessageClient](../classes/conversation_message.MessageClient.md)
+Renames and re-exports [ConversationMessageClient](../classes/conversation_message.ConversationMessageClient.md)
+
+## Type Aliases
+
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: `ResponsePromise`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[conversation/message/index.js:13](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/conversation/message/index.js#L13)

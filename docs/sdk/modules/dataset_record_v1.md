@@ -7,51 +7,53 @@
 ### Type Aliases
 
 - [ChatBotKitClient](dataset_record_v1.md#chatbotkitclient)
-- [RecordCreateRequest](dataset_record_v1.md#recordcreaterequest)
-- [RecordCreateResponse](dataset_record_v1.md#recordcreateresponse)
-- [RecordDeleteResponse](dataset_record_v1.md#recorddeleteresponse)
-- [RecordFetchResponse](dataset_record_v1.md#recordfetchresponse)
-- [RecordInstance](dataset_record_v1.md#recordinstance)
-- [RecordListResponse](dataset_record_v1.md#recordlistresponse)
-- [RecordListStreamItem](dataset_record_v1.md#recordliststreamitem)
-- [RecordListStreamType](dataset_record_v1.md#recordliststreamtype)
-- [RecordOptions](dataset_record_v1.md#recordoptions)
-- [RecordUpdateRequest](dataset_record_v1.md#recordupdaterequest)
-- [RecordUpdateResponse](dataset_record_v1.md#recordupdateresponse)
+- [DatasetRecordCreateRequest](dataset_record_v1.md#datasetrecordcreaterequest)
+- [DatasetRecordCreateResponse](dataset_record_v1.md#datasetrecordcreateresponse)
+- [DatasetRecordDeleteResponse](dataset_record_v1.md#datasetrecorddeleteresponse)
+- [DatasetRecordFetchResponse](dataset_record_v1.md#datasetrecordfetchresponse)
+- [DatasetRecordInstance](dataset_record_v1.md#datasetrecordinstance)
+- [DatasetRecordListRequest](dataset_record_v1.md#datasetrecordlistrequest)
+- [DatasetRecordListResponse](dataset_record_v1.md#datasetrecordlistresponse)
+- [DatasetRecordListStreamItem](dataset_record_v1.md#datasetrecordliststreamitem)
+- [DatasetRecordListStreamType](dataset_record_v1.md#datasetrecordliststreamtype)
+- [DatasetRecordOptions](dataset_record_v1.md#datasetrecordoptions)
+- [DatasetRecordUpdateRequest](dataset_record_v1.md#datasetrecordupdaterequest)
+- [DatasetRecordUpdateResponse](dataset_record_v1.md#datasetrecordupdateresponse)
+- [ResponsePromise](dataset_record_v1.md#responsepromise)
 
 ### Functions
 
-- [recordCreate](dataset_record_v1.md#recordcreate)
-- [recordDelete](dataset_record_v1.md#recorddelete)
-- [recordFetch](dataset_record_v1.md#recordfetch)
-- [recordList](dataset_record_v1.md#recordlist)
-- [recordUpdate](dataset_record_v1.md#recordupdate)
+- [createDatasetRecord](dataset_record_v1.md#createdatasetrecord)
+- [deleteDatasetRecord](dataset_record_v1.md#deletedatasetrecord)
+- [fetchDatasetRecord](dataset_record_v1.md#fetchdatasetrecord)
+- [listDatasetRecords](dataset_record_v1.md#listdatasetrecords)
+- [updateDatasetRecord](dataset_record_v1.md#updatedatasetrecord)
 
 ## Type Aliases
 
 ### ChatBotKitClient
 
-Ƭ **ChatBotKitClient**<\>: `ChatBotKitClient`
+Ƭ **ChatBotKitClient**\<\>: `ChatBotKitClient`
 
 #### Defined in
 
-[dataset/record/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L2)
+[dataset/record/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L2)
 
 ___
 
-### RecordCreateRequest
+### DatasetRecordCreateRequest
 
-Ƭ **RecordCreateRequest**<\>: [`RecordOptions`](dataset_record_v1.md#recordoptions)
+Ƭ **DatasetRecordCreateRequest**\<\>: [`DatasetRecordOptions`](dataset_record_v1.md#datasetrecordoptions)
 
 #### Defined in
 
-[dataset/record/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L58)
+[dataset/record/v1.js:70](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L70)
 
 ___
 
-### RecordCreateResponse
+### DatasetRecordCreateResponse
 
-Ƭ **RecordCreateResponse**<\>: `Object`
+Ƭ **DatasetRecordCreateResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -61,13 +63,13 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L62)
+[dataset/record/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L74)
 
 ___
 
-### RecordDeleteResponse
+### DatasetRecordDeleteResponse
 
-Ƭ **RecordDeleteResponse**<\>: `Object`
+Ƭ **DatasetRecordDeleteResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -77,103 +79,121 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L101)
+[dataset/record/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L126)
 
 ___
 
-### RecordFetchResponse
+### DatasetRecordFetchResponse
 
-Ƭ **RecordFetchResponse**<\>: [`RecordInstance`](dataset_record_v1.md#recordinstance)
+Ƭ **DatasetRecordFetchResponse**\<\>: [`DatasetRecordInstance`](dataset_record_v1.md#datasetrecordinstance)
 
 #### Defined in
 
-[dataset/record/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L44)
+[dataset/record/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L53)
 
 ___
 
-### RecordInstance
+### DatasetRecordInstance
 
-Ƭ **RecordInstance**<\>: { `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  } & [`RecordOptions`](dataset_record_v1.md#recordoptions)
+Ƭ **DatasetRecordInstance**\<\>: \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  } & [`DatasetRecordOptions`](dataset_record_v1.md#datasetrecordoptions)
 
 #### Defined in
 
-[dataset/record/v1.js:15](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L15)
+[dataset/record/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L21)
 
 ___
 
-### RecordListResponse
+### DatasetRecordListRequest
 
-Ƭ **RecordListResponse**<\>: `Object`
+Ƭ **DatasetRecordListRequest**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `items` | [`RecordInstance`](dataset_record_v1.md#recordinstance)[] |
+| `cursor?` | `string` |
+| `meta?` | `Record`\<`string`, `string`\> |
+| `take?` | `number` |
 
 #### Defined in
 
-[dataset/record/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L19)
+[dataset/record/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L25)
 
 ___
 
-### RecordListStreamItem
+### DatasetRecordListResponse
 
-Ƭ **RecordListStreamItem**<\>: `Object`
+Ƭ **DatasetRecordListResponse**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [`RecordInstance`](dataset_record_v1.md#recordinstance) |
+| `items` | [`DatasetRecordInstance`](dataset_record_v1.md#datasetrecordinstance)[] |
+
+#### Defined in
+
+[dataset/record/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L27)
+
+___
+
+### DatasetRecordListStreamItem
+
+Ƭ **DatasetRecordListStreamItem**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`DatasetRecordInstance`](dataset_record_v1.md#datasetrecordinstance) |
 | `type` | ``"item"`` |
 
 #### Defined in
 
-[dataset/record/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L24)
+[dataset/record/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L32)
 
 ___
 
-### RecordListStreamType
+### DatasetRecordListStreamType
 
-Ƭ **RecordListStreamType**<\>: [`RecordListStreamItem`](dataset_record_v1.md#recordliststreamitem)
+Ƭ **DatasetRecordListStreamType**\<\>: [`DatasetRecordListStreamItem`](dataset_record_v1.md#datasetrecordliststreamitem)
 
 #### Defined in
 
-[dataset/record/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L26)
+[dataset/record/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L34)
 
 ___
 
-### RecordOptions
+### DatasetRecordOptions
 
-Ƭ **RecordOptions**<\>: `Object`
+Ƭ **DatasetRecordOptions**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `meta?` | `Record`<`string`, `any`\> |
+| `meta?` | `Record`\<`string`, `any`\> |
 | `text` | `string` |
 
 #### Defined in
 
-[dataset/record/v1.js:9](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L9)
+[dataset/record/v1.js:15](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L15)
 
 ___
 
-### RecordUpdateRequest
+### DatasetRecordUpdateRequest
 
-Ƭ **RecordUpdateRequest**<\>: [`RecordOptions`](dataset_record_v1.md#recordoptions)
+Ƭ **DatasetRecordUpdateRequest**\<\>: [`DatasetRecordOptions`](dataset_record_v1.md#datasetrecordoptions)
 
 #### Defined in
 
-[dataset/record/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L78)
+[dataset/record/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L94)
 
 ___
 
-### RecordUpdateResponse
+### DatasetRecordUpdateResponse
 
-Ƭ **RecordUpdateResponse**<\>: `Object`
+Ƭ **DatasetRecordUpdateResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -183,13 +203,30 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L82)
+[dataset/record/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L98)
+
+___
+
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: `ResponsePromise`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[dataset/record/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L8)
 
 ## Functions
 
-### recordCreate
+### createDatasetRecord
 
-▸ **recordCreate**(`client`, `datasetId`, `request`): `Promise`<[`RecordCreateResponse`](dataset_record_v1.md#recordcreateresponse)\>
+▸ **createDatasetRecord**(`client`, `datasetId`, `request`): `Promise`\<[`DatasetRecordCreateResponse`](dataset_record_v1.md#datasetrecordcreateresponse)\>
 
 #### Parameters
 
@@ -197,21 +234,21 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `datasetId` | `string` |
-| `request` | [`RecordOptions`](dataset_record_v1.md#recordoptions) |
+| `request` | [`DatasetRecordOptions`](dataset_record_v1.md#datasetrecordoptions) |
 
 #### Returns
 
-`Promise`<[`RecordCreateResponse`](dataset_record_v1.md#recordcreateresponse)\>
+`Promise`\<[`DatasetRecordCreateResponse`](dataset_record_v1.md#datasetrecordcreateresponse)\>
 
 #### Defined in
 
-[dataset/record/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L69)
+[dataset/record/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L81)
 
 ___
 
-### recordDelete
+### deleteDatasetRecord
 
-▸ **recordDelete**(`client`, `datasetId`, `recordId`): `Promise`<[`RecordDeleteResponse`](dataset_record_v1.md#recorddeleteresponse)\>
+▸ **deleteDatasetRecord**(`client`, `datasetId`, `recordId`): `Promise`\<[`DatasetRecordDeleteResponse`](dataset_record_v1.md#datasetrecorddeleteresponse)\>
 
 #### Parameters
 
@@ -223,17 +260,17 @@ ___
 
 #### Returns
 
-`Promise`<[`RecordDeleteResponse`](dataset_record_v1.md#recorddeleteresponse)\>
+`Promise`\<[`DatasetRecordDeleteResponse`](dataset_record_v1.md#datasetrecorddeleteresponse)\>
 
 #### Defined in
 
-[dataset/record/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L108)
+[dataset/record/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L133)
 
 ___
 
-### recordFetch
+### fetchDatasetRecord
 
-▸ **recordFetch**(`client`, `datasetId`, `recordId`): `Promise`<[`RecordInstance`](dataset_record_v1.md#recordinstance)\>
+▸ **fetchDatasetRecord**(`client`, `datasetId`, `recordId`): `Promise`\<[`DatasetRecordInstance`](dataset_record_v1.md#datasetrecordinstance)\>
 
 #### Parameters
 
@@ -245,17 +282,17 @@ ___
 
 #### Returns
 
-`Promise`<[`RecordInstance`](dataset_record_v1.md#recordinstance)\>
+`Promise`\<[`DatasetRecordInstance`](dataset_record_v1.md#datasetrecordinstance)\>
 
 #### Defined in
 
-[dataset/record/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L51)
+[dataset/record/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L60)
 
 ___
 
-### recordList
+### listDatasetRecords
 
-▸ **recordList**(`client`, `datasetId`, `cursor?`): `ResponsePromise`<[`RecordListResponse`](dataset_record_v1.md#recordlistresponse), [`RecordListStreamItem`](dataset_record_v1.md#recordliststreamitem)\>
+▸ **listDatasetRecords**(`client`, `datasetId`, `request?`): `ResponsePromise`\<[`DatasetRecordListResponse`](dataset_record_v1.md#datasetrecordlistresponse), [`DatasetRecordListStreamItem`](dataset_record_v1.md#datasetrecordliststreamitem)\>
 
 #### Parameters
 
@@ -263,21 +300,21 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `datasetId` | `string` |
-| `cursor?` | `string` |
+| `request?` | [`DatasetRecordListRequest`](dataset_record_v1.md#datasetrecordlistrequest) |
 
 #### Returns
 
-`ResponsePromise`<[`RecordListResponse`](dataset_record_v1.md#recordlistresponse), [`RecordListStreamItem`](dataset_record_v1.md#recordliststreamitem)\>
+`ResponsePromise`\<[`DatasetRecordListResponse`](dataset_record_v1.md#datasetrecordlistresponse), [`DatasetRecordListStreamItem`](dataset_record_v1.md#datasetrecordliststreamitem)\>
 
 #### Defined in
 
-[dataset/record/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L33)
+[dataset/record/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L41)
 
 ___
 
-### recordUpdate
+### updateDatasetRecord
 
-▸ **recordUpdate**(`client`, `datasetId`, `recordId`, `request`): `Promise`<[`RecordUpdateResponse`](dataset_record_v1.md#recordupdateresponse)\>
+▸ **updateDatasetRecord**(`client`, `datasetId`, `recordId`, `request`): `Promise`\<[`DatasetRecordUpdateResponse`](dataset_record_v1.md#datasetrecordupdateresponse)\>
 
 #### Parameters
 
@@ -286,12 +323,12 @@ ___
 | `client` | `ChatBotKitClient` |
 | `datasetId` | `string` |
 | `recordId` | `string` |
-| `request` | [`RecordOptions`](dataset_record_v1.md#recordoptions) |
+| `request` | [`DatasetRecordOptions`](dataset_record_v1.md#datasetrecordoptions) |
 
 #### Returns
 
-`Promise`<[`RecordUpdateResponse`](dataset_record_v1.md#recordupdateresponse)\>
+`Promise`\<[`DatasetRecordUpdateResponse`](dataset_record_v1.md#datasetrecordupdateresponse)\>
 
 #### Defined in
 
-[dataset/record/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/record/v1.js#L90)
+[dataset/record/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/v1.js#L106)

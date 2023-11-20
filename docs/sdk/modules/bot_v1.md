@@ -11,6 +11,7 @@
 - [BotDeleteResponse](bot_v1.md#botdeleteresponse)
 - [BotFetchResponse](bot_v1.md#botfetchresponse)
 - [BotInstance](bot_v1.md#botinstance)
+- [BotListRequest](bot_v1.md#botlistrequest)
 - [BotListResponse](bot_v1.md#botlistresponse)
 - [BotListStreamItemType](bot_v1.md#botliststreamitemtype)
 - [BotListStreamType](bot_v1.md#botliststreamtype)
@@ -18,30 +19,31 @@
 - [BotUpdateRequest](bot_v1.md#botupdaterequest)
 - [BotUpdateResponse](bot_v1.md#botupdateresponse)
 - [ChatBotKitClient](bot_v1.md#chatbotkitclient)
+- [ResponsePromise](bot_v1.md#responsepromise)
 
 ### Functions
 
-- [botCreate](bot_v1.md#botcreate)
-- [botDelete](bot_v1.md#botdelete)
-- [botFetch](bot_v1.md#botfetch)
-- [botList](bot_v1.md#botlist)
-- [botUpdate](bot_v1.md#botupdate)
+- [createBot](bot_v1.md#createbot)
+- [deleteBot](bot_v1.md#deletebot)
+- [fetchBot](bot_v1.md#fetchbot)
+- [listBots](bot_v1.md#listbots)
+- [updateBot](bot_v1.md#updatebot)
 
 ## Type Aliases
 
 ### BotCreateRequest
 
-Ƭ **BotCreateRequest**<\>: [`BotOptions`](bot_v1.md#botoptions)
+Ƭ **BotCreateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions)
 
 #### Defined in
 
-[bot/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L59)
+[bot/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L71)
 
 ___
 
 ### BotCreateResponse
 
-Ƭ **BotCreateResponse**<\>: `Object`
+Ƭ **BotCreateResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -51,13 +53,13 @@ ___
 
 #### Defined in
 
-[bot/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L63)
+[bot/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L75)
 
 ___
 
 ### BotDeleteResponse
 
-Ƭ **BotDeleteResponse**<\>: `Object`
+Ƭ **BotDeleteResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -67,33 +69,51 @@ ___
 
 #### Defined in
 
-[bot/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L100)
+[bot/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L120)
 
 ___
 
 ### BotFetchResponse
 
-Ƭ **BotFetchResponse**<\>: [`BotInstance`](bot_v1.md#botinstance)
+Ƭ **BotFetchResponse**\<\>: [`BotInstance`](bot_v1.md#botinstance)
 
 #### Defined in
 
-[bot/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L46)
+[bot/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L55)
 
 ___
 
 ### BotInstance
 
-Ƭ **BotInstance**<\>: { `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  } & [`BotOptions`](bot_v1.md#botoptions)
+Ƭ **BotInstance**\<\>: \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  } & [`BotOptions`](bot_v1.md#botoptions)
 
 #### Defined in
 
-[bot/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L18)
+[bot/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L24)
+
+___
+
+### BotListRequest
+
+Ƭ **BotListRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `cursor?` | `string` |
+| `meta?` | `Record`\<`string`, `string`\> |
+| `take?` | `number` |
+
+#### Defined in
+
+[bot/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L28)
 
 ___
 
 ### BotListResponse
 
-Ƭ **BotListResponse**<\>: `Object`
+Ƭ **BotListResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -103,13 +123,13 @@ ___
 
 #### Defined in
 
-[bot/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L22)
+[bot/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L30)
 
 ___
 
 ### BotListStreamItemType
 
-Ƭ **BotListStreamItemType**<\>: `Object`
+Ƭ **BotListStreamItemType**\<\>: `Object`
 
 #### Type declaration
 
@@ -120,23 +140,23 @@ ___
 
 #### Defined in
 
-[bot/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L27)
+[bot/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L35)
 
 ___
 
 ### BotListStreamType
 
-Ƭ **BotListStreamType**<\>: [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)
+Ƭ **BotListStreamType**\<\>: [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)
 
 #### Defined in
 
-[bot/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L29)
+[bot/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L37)
 
 ___
 
 ### BotOptions
 
-Ƭ **BotOptions**<\>: `Object`
+Ƭ **BotOptions**\<\>: `Object`
 
 #### Type declaration
 
@@ -144,29 +164,29 @@ ___
 | :------ | :------ |
 | `backstory?` | `string` |
 | `datasetId?` | `string` |
-| `meta?` | `Record`<`string`, `any`\> |
+| `meta?` | `Record`\<`string`, `any`\> |
 | `model?` | `string` |
 | `skillsetId?` | `string` |
 
 #### Defined in
 
-[bot/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L12)
+[bot/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L18)
 
 ___
 
 ### BotUpdateRequest
 
-Ƭ **BotUpdateRequest**<\>: [`BotOptions`](bot_v1.md#botoptions)
+Ƭ **BotUpdateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions)
 
 #### Defined in
 
-[bot/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L78)
+[bot/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L94)
 
 ___
 
 ### BotUpdateResponse
 
-Ƭ **BotUpdateResponse**<\>: `Object`
+Ƭ **BotUpdateResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -176,23 +196,40 @@ ___
 
 #### Defined in
 
-[bot/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L82)
+[bot/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L98)
 
 ___
 
 ### ChatBotKitClient
 
-Ƭ **ChatBotKitClient**<\>: `ChatBotKitClient`
+Ƭ **ChatBotKitClient**\<\>: `ChatBotKitClient`
 
 #### Defined in
 
-[bot/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L2)
+[bot/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L2)
+
+___
+
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: `ResponsePromise`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[bot/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L8)
 
 ## Functions
 
-### botCreate
+### createBot
 
-▸ **botCreate**(`client`, `request`): `Promise`<[`BotCreateResponse`](bot_v1.md#botcreateresponse)\>
+▸ **createBot**(`client`, `request`): `Promise`\<[`BotCreateResponse`](bot_v1.md#botcreateresponse)\>
 
 #### Parameters
 
@@ -203,17 +240,17 @@ ___
 
 #### Returns
 
-`Promise`<[`BotCreateResponse`](bot_v1.md#botcreateresponse)\>
+`Promise`\<[`BotCreateResponse`](bot_v1.md#botcreateresponse)\>
 
 #### Defined in
 
-[bot/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L69)
+[bot/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L81)
 
 ___
 
-### botDelete
+### deleteBot
 
-▸ **botDelete**(`client`, `botId`): `Promise`<[`BotDeleteResponse`](bot_v1.md#botdeleteresponse)\>
+▸ **deleteBot**(`client`, `botId`): `Promise`\<[`BotDeleteResponse`](bot_v1.md#botdeleteresponse)\>
 
 #### Parameters
 
@@ -224,17 +261,17 @@ ___
 
 #### Returns
 
-`Promise`<[`BotDeleteResponse`](bot_v1.md#botdeleteresponse)\>
+`Promise`\<[`BotDeleteResponse`](bot_v1.md#botdeleteresponse)\>
 
 #### Defined in
 
-[bot/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L106)
+[bot/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L126)
 
 ___
 
-### botFetch
+### fetchBot
 
-▸ **botFetch**(`client`, `botId`): `Promise`<[`BotInstance`](bot_v1.md#botinstance)\>
+▸ **fetchBot**(`client`, `botId`): `Promise`\<[`BotInstance`](bot_v1.md#botinstance)\>
 
 #### Parameters
 
@@ -245,38 +282,38 @@ ___
 
 #### Returns
 
-`Promise`<[`BotInstance`](bot_v1.md#botinstance)\>
+`Promise`\<[`BotInstance`](bot_v1.md#botinstance)\>
 
 #### Defined in
 
-[bot/v1.js:52](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L52)
+[bot/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L61)
 
 ___
 
-### botList
+### listBots
 
-▸ **botList**(`client`, `cursor?`): `ResponsePromise`<[`BotListResponse`](bot_v1.md#botlistresponse), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
+▸ **listBots**(`client`, `request?`): `ResponsePromise`\<[`BotListResponse`](bot_v1.md#botlistresponse), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
-| `cursor?` | `string` |
+| `request?` | [`BotListRequest`](bot_v1.md#botlistrequest) |
 
 #### Returns
 
-`ResponsePromise`<[`BotListResponse`](bot_v1.md#botlistresponse), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
+`ResponsePromise`\<[`BotListResponse`](bot_v1.md#botlistresponse), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
 
 #### Defined in
 
-[bot/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L35)
+[bot/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L43)
 
 ___
 
-### botUpdate
+### updateBot
 
-▸ **botUpdate**(`client`, `botId`, `request`): `Promise`<[`BotUpdateResponse`](bot_v1.md#botupdateresponse)\>
+▸ **updateBot**(`client`, `botId`, `request`): `Promise`\<[`BotUpdateResponse`](bot_v1.md#botupdateresponse)\>
 
 #### Parameters
 
@@ -288,8 +325,8 @@ ___
 
 #### Returns
 
-`Promise`<[`BotUpdateResponse`](bot_v1.md#botupdateresponse)\>
+`Promise`\<[`BotUpdateResponse`](bot_v1.md#botupdateresponse)\>
 
 #### Defined in
 
-[bot/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/v1.js#L89)
+[bot/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/v1.js#L105)

@@ -10,10 +10,31 @@
 
 ### Classes
 
-- [SitemapClient](../classes/integration_sitemap.SitemapClient.md)
+- [SitemapIntegrationClient](../classes/integration_sitemap.SitemapIntegrationClient.md)
+
+### Type Aliases
+
+- [ResponsePromise](integration_sitemap.md#responsepromise)
 
 ## References
 
 ### default
 
-Renames and re-exports [SitemapClient](../classes/integration_sitemap.SitemapClient.md)
+Renames and re-exports [SitemapIntegrationClient](../classes/integration_sitemap.SitemapIntegrationClient.md)
+
+## Type Aliases
+
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: `ResponsePromise`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[integration/sitemap/index.js:14](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/sitemap/index.js#L14)

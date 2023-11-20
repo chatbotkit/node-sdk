@@ -7,46 +7,48 @@
 ### Type Aliases
 
 - [ChatBotKitClient](partner_user_token_v1.md#chatbotkitclient)
-- [TokenCreateRequest](partner_user_token_v1.md#tokencreaterequest)
-- [TokenCreateResponse](partner_user_token_v1.md#tokencreateresponse)
-- [TokenDeleteResponse](partner_user_token_v1.md#tokendeleteresponse)
-- [TokenInstance](partner_user_token_v1.md#tokeninstance)
-- [TokenListResponse](partner_user_token_v1.md#tokenlistresponse)
-- [TokenListStreamItem](partner_user_token_v1.md#tokenliststreamitem)
-- [TokenListStreamType](partner_user_token_v1.md#tokenliststreamtype)
-- [TokenOptions](partner_user_token_v1.md#tokenoptions)
+- [PartnerUserTokenCreateRequest](partner_user_token_v1.md#partnerusertokencreaterequest)
+- [PartnerUserTokenCreateResponse](partner_user_token_v1.md#partnerusertokencreateresponse)
+- [PartnerUserTokenDeleteResponse](partner_user_token_v1.md#partnerusertokendeleteresponse)
+- [PartnerUserTokenInstance](partner_user_token_v1.md#partnerusertokeninstance)
+- [PartnerUserTokenListRequest](partner_user_token_v1.md#partnerusertokenlistrequest)
+- [PartnerUserTokenListResponse](partner_user_token_v1.md#partnerusertokenlistresponse)
+- [PartnerUserTokenListStreamItem](partner_user_token_v1.md#partnerusertokenliststreamitem)
+- [PartnerUserTokenListStreamType](partner_user_token_v1.md#partnerusertokenliststreamtype)
+- [PartnerUserTokenOptions](partner_user_token_v1.md#partnerusertokenoptions)
+- [ResponsePromise](partner_user_token_v1.md#responsepromise)
 
 ### Functions
 
-- [tokenCreate](partner_user_token_v1.md#tokencreate)
-- [tokenDelete](partner_user_token_v1.md#tokendelete)
-- [tokenList](partner_user_token_v1.md#tokenlist)
+- [createPartnerUserToken](partner_user_token_v1.md#createpartnerusertoken)
+- [deletePartnerUserToken](partner_user_token_v1.md#deletepartnerusertoken)
+- [listPartnerUserTokens](partner_user_token_v1.md#listpartnerusertokens)
 
 ## Type Aliases
 
 ### ChatBotKitClient
 
-Ƭ **ChatBotKitClient**<\>: `ChatBotKitClient`
+Ƭ **ChatBotKitClient**\<\>: `ChatBotKitClient`
 
 #### Defined in
 
-[partner/user/token/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L2)
+[partner/user/token/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L2)
 
 ___
 
-### TokenCreateRequest
+### PartnerUserTokenCreateRequest
 
-Ƭ **TokenCreateRequest**<\>: [`TokenOptions`](partner_user_token_v1.md#tokenoptions)
+Ƭ **PartnerUserTokenCreateRequest**\<\>: [`PartnerUserTokenOptions`](partner_user_token_v1.md#partnerusertokenoptions)
 
 #### Defined in
 
-[partner/user/token/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L42)
+[partner/user/token/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L51)
 
 ___
 
-### TokenCreateResponse
+### PartnerUserTokenCreateResponse
 
-Ƭ **TokenCreateResponse**<\>: `Object`
+Ƭ **PartnerUserTokenCreateResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -58,13 +60,13 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L48)
+[partner/user/token/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L57)
 
 ___
 
-### TokenDeleteResponse
+### PartnerUserTokenDeleteResponse
 
-Ƭ **TokenDeleteResponse**<\>: `Object`
+Ƭ **PartnerUserTokenDeleteResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -74,76 +76,111 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L66)
+[partner/user/token/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L79)
 
 ___
 
-### TokenInstance
+### PartnerUserTokenInstance
 
-Ƭ **TokenInstance**<\>: { `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  } & [`TokenOptions`](partner_user_token_v1.md#tokenoptions)
+Ƭ **PartnerUserTokenInstance**\<\>: \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  } & [`PartnerUserTokenOptions`](partner_user_token_v1.md#partnerusertokenoptions)
 
 #### Defined in
 
-[partner/user/token/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L13)
+[partner/user/token/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L19)
 
 ___
 
-### TokenListResponse
+### PartnerUserTokenListRequest
 
-Ƭ **TokenListResponse**<\>: `Object`
+Ƭ **PartnerUserTokenListRequest**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `items` | [`TokenInstance`](partner_user_token_v1.md#tokeninstance)[] |
+| `cursor?` | `string` |
+| `meta?` | `Record`\<`string`, `string`\> |
+| `take?` | `number` |
 
 #### Defined in
 
-[partner/user/token/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L17)
+[partner/user/token/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L23)
 
 ___
 
-### TokenListStreamItem
+### PartnerUserTokenListResponse
 
-Ƭ **TokenListStreamItem**<\>: `Object`
+Ƭ **PartnerUserTokenListResponse**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [`TokenInstance`](partner_user_token_v1.md#tokeninstance) |
+| `items` | [`PartnerUserTokenInstance`](partner_user_token_v1.md#partnerusertokeninstance)[] |
+
+#### Defined in
+
+[partner/user/token/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L25)
+
+___
+
+### PartnerUserTokenListStreamItem
+
+Ƭ **PartnerUserTokenListStreamItem**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`PartnerUserTokenInstance`](partner_user_token_v1.md#partnerusertokeninstance) |
 | `type` | ``"item"`` |
 
 #### Defined in
 
-[partner/user/token/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L22)
+[partner/user/token/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L30)
 
 ___
 
-### TokenListStreamType
+### PartnerUserTokenListStreamType
 
-Ƭ **TokenListStreamType**<\>: [`TokenListStreamItem`](partner_user_token_v1.md#tokenliststreamitem)
+Ƭ **PartnerUserTokenListStreamType**\<\>: [`PartnerUserTokenListStreamItem`](partner_user_token_v1.md#partnerusertokenliststreamitem)
 
 #### Defined in
 
-[partner/user/token/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L24)
+[partner/user/token/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L32)
 
 ___
 
-### TokenOptions
+### PartnerUserTokenOptions
 
-Ƭ **TokenOptions**<\>: `Object`
+Ƭ **PartnerUserTokenOptions**\<\>: `Object`
 
 #### Defined in
 
-[partner/user/token/v1.js:7](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L7)
+[partner/user/token/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L13)
+
+___
+
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: `ResponsePromise`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[partner/user/token/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L8)
 
 ## Functions
 
-### tokenCreate
+### createPartnerUserToken
 
-▸ **tokenCreate**(`client`, `userId`, `request`): `Promise`<[`TokenCreateResponse`](partner_user_token_v1.md#tokencreateresponse)\>
+▸ **createPartnerUserToken**(`client`, `userId`, `request`): `Promise`\<[`PartnerUserTokenCreateResponse`](partner_user_token_v1.md#partnerusertokencreateresponse)\>
 
 #### Parameters
 
@@ -151,21 +188,21 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `userId` | `string` |
-| `request` | [`TokenOptions`](partner_user_token_v1.md#tokenoptions) |
+| `request` | [`PartnerUserTokenOptions`](partner_user_token_v1.md#partnerusertokenoptions) |
 
 #### Returns
 
-`Promise`<[`TokenCreateResponse`](partner_user_token_v1.md#tokencreateresponse)\>
+`Promise`\<[`PartnerUserTokenCreateResponse`](partner_user_token_v1.md#partnerusertokencreateresponse)\>
 
 #### Defined in
 
-[partner/user/token/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L55)
+[partner/user/token/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L64)
 
 ___
 
-### tokenDelete
+### deletePartnerUserToken
 
-▸ **tokenDelete**(`client`, `userId`, `tokenId`): `Promise`<[`TokenDeleteResponse`](partner_user_token_v1.md#tokendeleteresponse)\>
+▸ **deletePartnerUserToken**(`client`, `userId`, `tokenId`): `Promise`\<[`PartnerUserTokenDeleteResponse`](partner_user_token_v1.md#partnerusertokendeleteresponse)\>
 
 #### Parameters
 
@@ -177,17 +214,17 @@ ___
 
 #### Returns
 
-`Promise`<[`TokenDeleteResponse`](partner_user_token_v1.md#tokendeleteresponse)\>
+`Promise`\<[`PartnerUserTokenDeleteResponse`](partner_user_token_v1.md#partnerusertokendeleteresponse)\>
 
 #### Defined in
 
-[partner/user/token/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L73)
+[partner/user/token/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L86)
 
 ___
 
-### tokenList
+### listPartnerUserTokens
 
-▸ **tokenList**(`client`, `userId`, `cursor?`): `ResponsePromise`<[`TokenListResponse`](partner_user_token_v1.md#tokenlistresponse), [`TokenListStreamItem`](partner_user_token_v1.md#tokenliststreamitem)\>
+▸ **listPartnerUserTokens**(`client`, `userId`, `request?`): `ResponsePromise`\<[`PartnerUserTokenListResponse`](partner_user_token_v1.md#partnerusertokenlistresponse), [`PartnerUserTokenListStreamItem`](partner_user_token_v1.md#partnerusertokenliststreamitem)\>
 
 #### Parameters
 
@@ -195,12 +232,12 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `userId` | `string` |
-| `cursor?` | `string` |
+| `request?` | [`PartnerUserTokenListRequest`](partner_user_token_v1.md#partnerusertokenlistrequest) |
 
 #### Returns
 
-`ResponsePromise`<[`TokenListResponse`](partner_user_token_v1.md#tokenlistresponse), [`TokenListStreamItem`](partner_user_token_v1.md#tokenliststreamitem)\>
+`ResponsePromise`\<[`PartnerUserTokenListResponse`](partner_user_token_v1.md#partnerusertokenlistresponse), [`PartnerUserTokenListStreamItem`](partner_user_token_v1.md#partnerusertokenliststreamitem)\>
 
 #### Defined in
 
-[partner/user/token/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/partner/user/token/v1.js#L31)
+[partner/user/token/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/partner/user/token/v1.js#L39)

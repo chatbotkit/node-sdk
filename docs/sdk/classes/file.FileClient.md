@@ -4,6 +4,10 @@
 
 [file](../modules/file.md).FileClient
 
+**`Template`**
+
+**`Template`**
+
 ## Hierarchy
 
 - `ChatBotKitClient`
@@ -36,7 +40,7 @@
 
 ### constructor
 
-• **new FileClient**(`options`)
+• **new FileClient**(`options`): [`FileClient`](file.FileClient.md)
 
 #### Parameters
 
@@ -44,13 +48,17 @@
 | :------ | :------ |
 | `options` | `ChatBotKitClientOptions` |
 
+#### Returns
+
+[`FileClient`](file.FileClient.md)
+
 #### Overrides
 
 ChatBotKitClient.constructor
 
 #### Defined in
 
-[file/index.js:16](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/file/index.js#L16)
+[file/index.js:22](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L22)
 
 ## Properties
 
@@ -64,7 +72,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L187)
 
 ___
 
@@ -78,13 +86,13 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L189)
 
 ## Methods
 
 ### clientFetch
 
-▸ **clientFetch**<`T`, `U`\>(`path`, `options?`): `ResponsePromise`<`T`, `U`\>
+▸ **clientFetch**\<`T`, `U`\>(`path`, `options?`): `ResponsePromise`\<`T`, `U`\>
 
 #### Type parameters
 
@@ -99,15 +107,16 @@ ChatBotKitClient.url
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.data?` | `Record`<`string`, `any`\> |
+| `options.data?` | `Record`\<`string`, `any`\> |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| `ArrayBuffer` |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
+| `options.query?` | `Record`\<`string`, `any`\> |
 
 #### Returns
 
-`ResponsePromise`<`T`, `U`\>
+`ResponsePromise`\<`T`, `U`\>
 
 #### Inherited from
 
@@ -115,13 +124,13 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L206)
 
 ___
 
 ### create
 
-▸ **create**(`request`): `Promise`<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
+▸ **create**(`request`): `Promise`\<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
 
 Creates a new file.
 
@@ -133,17 +142,17 @@ Creates a new file.
 
 #### Returns
 
-`Promise`<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
+`Promise`\<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
 
 #### Defined in
 
-[file/index.js:46](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/file/index.js#L46)
+[file/index.js:52](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L52)
 
 ___
 
 ### delete
 
-▸ **delete**(`fileId`): `Promise`<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
+▸ **delete**(`fileId`): `Promise`\<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
 
 Deletes the file.
 
@@ -155,17 +164,17 @@ Deletes the file.
 
 #### Returns
 
-`Promise`<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
+`Promise`\<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
 
 #### Defined in
 
-[file/index.js:67](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/file/index.js#L67)
+[file/index.js:73](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L73)
 
 ___
 
 ### download
 
-▸ **download**(`fileId`): `Promise`<[`FileDownloadResponse`](../modules/file_v1.md#filedownloadresponse)\>
+▸ **download**(`fileId`): `Promise`\<[`FileDownloadResponse`](../modules/file_v1.md#filedownloadresponse)\>
 
 Download file data.
 
@@ -177,17 +186,17 @@ Download file data.
 
 #### Returns
 
-`Promise`<[`FileDownloadResponse`](../modules/file_v1.md#filedownloadresponse)\>
+`Promise`\<[`FileDownloadResponse`](../modules/file_v1.md#filedownloadresponse)\>
 
 #### Defined in
 
-[file/index.js:88](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/file/index.js#L88)
+[file/index.js:94](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L94)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`fileId`): `Promise`<[`FileInstance`](../modules/file_v1.md#fileinstance)\>
+▸ **fetch**(`fileId`): `Promise`\<[`FileInstance`](../modules/file_v1.md#fileinstance)\>
 
 Fetches a file.
 
@@ -199,39 +208,39 @@ Fetches a file.
 
 #### Returns
 
-`Promise`<[`FileInstance`](../modules/file_v1.md#fileinstance)\>
+`Promise`\<[`FileInstance`](../modules/file_v1.md#fileinstance)\>
 
 #### Defined in
 
-[file/index.js:36](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/file/index.js#L36)
+[file/index.js:42](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L42)
 
 ___
 
 ### list
 
-▸ **list**(`cursor?`): `ResponsePromise`<[`FileListResponse`](../modules/file_v1.md#filelistresponse), [`FileListStreamItemType`](../modules/file_v1.md#fileliststreamitemtype)\>
+▸ **list**(`request?`): `ResponsePromise`\<[`FileListResponse`](../modules/file_v1.md#filelistresponse), [`FileListStreamItemType`](../modules/file_v1.md#fileliststreamitemtype)\>
 
-Retrieves a list of all existing files associated with this client.
+Retrieves a list of all files.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `cursor?` | `string` |
+| `request?` | [`FileListRequest`](../modules/file_v1.md#filelistrequest) |
 
 #### Returns
 
-`ResponsePromise`<[`FileListResponse`](../modules/file_v1.md#filelistresponse), [`FileListStreamItemType`](../modules/file_v1.md#fileliststreamitemtype)\>
+`ResponsePromise`\<[`FileListResponse`](../modules/file_v1.md#filelistresponse), [`FileListStreamItemType`](../modules/file_v1.md#fileliststreamitemtype)\>
 
 #### Defined in
 
-[file/index.js:26](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/file/index.js#L26)
+[file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L32)
 
 ___
 
 ### update
 
-▸ **update**(`fileId`, `request`): `Promise`<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
+▸ **update**(`fileId`, `request`): `Promise`\<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
 
 Updates a file.
 
@@ -244,17 +253,17 @@ Updates a file.
 
 #### Returns
 
-`Promise`<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
+`Promise`\<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
 
 #### Defined in
 
-[file/index.js:57](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/file/index.js#L57)
+[file/index.js:63](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L63)
 
 ___
 
 ### upload
 
-▸ **upload**(`fileId`, `request`): `Promise`<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
+▸ **upload**(`fileId`, `request`): `Promise`\<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
 
 Upload file data.
 
@@ -267,8 +276,8 @@ Upload file data.
 
 #### Returns
 
-`Promise`<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
+`Promise`\<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
 
 #### Defined in
 
-[file/index.js:78](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/file/index.js#L78)
+[file/index.js:84](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L84)

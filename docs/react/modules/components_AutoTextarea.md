@@ -16,7 +16,7 @@
 
 ### onInputFn
 
-Ƭ **onInputFn**<\>: (`event`: `React.ChangeEvent`<`HTMLTextAreaElement`\>) => `any`
+Ƭ **onInputFn**\<\>: (`event`: `React.ChangeEvent`\<`HTMLTextAreaElement`\>) => `any`
 
 #### Type declaration
 
@@ -26,7 +26,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `event` | `React.ChangeEvent`<`HTMLTextAreaElement`\> |
+| `event` | `React.ChangeEvent`\<`HTMLTextAreaElement`\> |
 
 ##### Returns
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[components/AutoTextarea.js:4](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/react/src/components/AutoTextarea.js#L4)
+[components/AutoTextarea.js:6](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/react/src/components/AutoTextarea.js#L6)
 
 ## Functions
 
@@ -55,4 +55,4 @@
 
 #### Defined in
 
-[components/AutoTextarea.js:12](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/react/src/components/AutoTextarea.js#L12)
+[components/AutoTextarea.js:14](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/react/src/components/AutoTextarea.js#L14)

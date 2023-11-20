@@ -6,42 +6,71 @@
 
 ### Type Aliases
 
-- [AbilityCreateRequest](skillset_ability_v1.md#abilitycreaterequest)
-- [AbilityCreateResponse](skillset_ability_v1.md#abilitycreateresponse)
-- [AbilityDeleteResponse](skillset_ability_v1.md#abilitydeleteresponse)
-- [AbilityFetchResponse](skillset_ability_v1.md#abilityfetchresponse)
-- [AbilityInstance](skillset_ability_v1.md#abilityinstance)
-- [AbilityListResponse](skillset_ability_v1.md#abilitylistresponse)
-- [AbilityListStreamItem](skillset_ability_v1.md#abilityliststreamitem)
-- [AbilityListStreamType](skillset_ability_v1.md#abilityliststreamtype)
-- [AbilityOptions](skillset_ability_v1.md#abilityoptions)
-- [AbilityUpdateRequest](skillset_ability_v1.md#abilityupdaterequest)
-- [AbilityUpdateResponse](skillset_ability_v1.md#abilityupdateresponse)
 - [ChatBotKitClient](skillset_ability_v1.md#chatbotkitclient)
+- [ResponsePromise](skillset_ability_v1.md#responsepromise)
+- [SkillsetAbilityCreateRequest](skillset_ability_v1.md#skillsetabilitycreaterequest)
+- [SkillsetAbilityCreateResponse](skillset_ability_v1.md#skillsetabilitycreateresponse)
+- [SkillsetAbilityDeleteResponse](skillset_ability_v1.md#skillsetabilitydeleteresponse)
+- [SkillsetAbilityFetchResponse](skillset_ability_v1.md#skillsetabilityfetchresponse)
+- [SkillsetAbilityInstance](skillset_ability_v1.md#skillsetabilityinstance)
+- [SkillsetAbilityListRequest](skillset_ability_v1.md#skillsetabilitylistrequest)
+- [SkillsetAbilityListResponse](skillset_ability_v1.md#skillsetabilitylistresponse)
+- [SkillsetAbilityListStreamItem](skillset_ability_v1.md#skillsetabilityliststreamitem)
+- [SkillsetAbilityListStreamType](skillset_ability_v1.md#skillsetabilityliststreamtype)
+- [SkillsetAbilityOptions](skillset_ability_v1.md#skillsetabilityoptions)
+- [SkillsetAbilityUpdateRequest](skillset_ability_v1.md#skillsetabilityupdaterequest)
+- [SkillsetAbilityUpdateResponse](skillset_ability_v1.md#skillsetabilityupdateresponse)
 
 ### Functions
 
-- [abilityCreate](skillset_ability_v1.md#abilitycreate)
-- [abilityDelete](skillset_ability_v1.md#abilitydelete)
-- [abilityFetch](skillset_ability_v1.md#abilityfetch)
-- [abilityList](skillset_ability_v1.md#abilitylist)
-- [abilityUpdate](skillset_ability_v1.md#abilityupdate)
+- [createSkillsetAbility](skillset_ability_v1.md#createskillsetability)
+- [deleteSkillsetAbility](skillset_ability_v1.md#deleteskillsetability)
+- [fetchSkillsetAbility](skillset_ability_v1.md#fetchskillsetability)
+- [listSkillsetAbilities](skillset_ability_v1.md#listskillsetabilities)
+- [updateSkillsetAbility](skillset_ability_v1.md#updateskillsetability)
 
 ## Type Aliases
 
-### AbilityCreateRequest
+### ChatBotKitClient
 
-Ƭ **AbilityCreateRequest**<\>: [`AbilityOptions`](skillset_ability_v1.md#abilityoptions)
+Ƭ **ChatBotKitClient**\<\>: `ChatBotKitClient`
 
 #### Defined in
 
-[skillset/ability/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L60)
+[skillset/ability/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L2)
 
 ___
 
-### AbilityCreateResponse
+### ResponsePromise
 
-Ƭ **AbilityCreateResponse**<\>: `Object`
+Ƭ **ResponsePromise**\<`T`, `U`\>: `ResponsePromise`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[skillset/ability/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L8)
+
+___
+
+### SkillsetAbilityCreateRequest
+
+Ƭ **SkillsetAbilityCreateRequest**\<\>: [`SkillsetAbilityOptions`](skillset_ability_v1.md#skillsetabilityoptions)
+
+#### Defined in
+
+[skillset/ability/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L72)
+
+___
+
+### SkillsetAbilityCreateResponse
+
+Ƭ **SkillsetAbilityCreateResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -51,13 +80,13 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L64)
+[skillset/ability/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L76)
 
 ___
 
-### AbilityDeleteResponse
+### SkillsetAbilityDeleteResponse
 
-Ƭ **AbilityDeleteResponse**<\>: `Object`
+Ƭ **SkillsetAbilityDeleteResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -67,76 +96,94 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L103)
+[skillset/ability/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L128)
 
 ___
 
-### AbilityFetchResponse
+### SkillsetAbilityFetchResponse
 
-Ƭ **AbilityFetchResponse**<\>: [`AbilityInstance`](skillset_ability_v1.md#abilityinstance)
+Ƭ **SkillsetAbilityFetchResponse**\<\>: [`SkillsetAbilityInstance`](skillset_ability_v1.md#skillsetabilityinstance)
 
 #### Defined in
 
-[skillset/ability/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L46)
+[skillset/ability/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L55)
 
 ___
 
-### AbilityInstance
+### SkillsetAbilityInstance
 
-Ƭ **AbilityInstance**<\>: { `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  } & [`AbilityOptions`](skillset_ability_v1.md#abilityoptions)
+Ƭ **SkillsetAbilityInstance**\<\>: \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  } & [`SkillsetAbilityOptions`](skillset_ability_v1.md#skillsetabilityoptions)
 
 #### Defined in
 
-[skillset/ability/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L17)
+[skillset/ability/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L23)
 
 ___
 
-### AbilityListResponse
+### SkillsetAbilityListRequest
 
-Ƭ **AbilityListResponse**<\>: `Object`
+Ƭ **SkillsetAbilityListRequest**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `items` | [`AbilityInstance`](skillset_ability_v1.md#abilityinstance)[] |
+| `cursor?` | `string` |
+| `meta?` | `Record`\<`string`, `string`\> |
+| `take?` | `number` |
 
 #### Defined in
 
-[skillset/ability/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L21)
+[skillset/ability/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L27)
 
 ___
 
-### AbilityListStreamItem
+### SkillsetAbilityListResponse
 
-Ƭ **AbilityListStreamItem**<\>: `Object`
+Ƭ **SkillsetAbilityListResponse**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [`AbilityInstance`](skillset_ability_v1.md#abilityinstance) |
+| `items` | [`SkillsetAbilityInstance`](skillset_ability_v1.md#skillsetabilityinstance)[] |
+
+#### Defined in
+
+[skillset/ability/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L29)
+
+___
+
+### SkillsetAbilityListStreamItem
+
+Ƭ **SkillsetAbilityListStreamItem**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`SkillsetAbilityInstance`](skillset_ability_v1.md#skillsetabilityinstance) |
 | `type` | ``"item"`` |
 
 #### Defined in
 
-[skillset/ability/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L26)
+[skillset/ability/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L34)
 
 ___
 
-### AbilityListStreamType
+### SkillsetAbilityListStreamType
 
-Ƭ **AbilityListStreamType**<\>: [`AbilityListStreamItem`](skillset_ability_v1.md#abilityliststreamitem)
+Ƭ **SkillsetAbilityListStreamType**\<\>: [`SkillsetAbilityListStreamItem`](skillset_ability_v1.md#skillsetabilityliststreamitem)
 
 #### Defined in
 
-[skillset/ability/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L28)
+[skillset/ability/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L36)
 
 ___
 
-### AbilityOptions
+### SkillsetAbilityOptions
 
-Ƭ **AbilityOptions**<\>: `Object`
+Ƭ **SkillsetAbilityOptions**\<\>: `Object`
 
 #### Type declaration
 
@@ -144,28 +191,28 @@ ___
 | :------ | :------ |
 | `description` | `string` |
 | `instruction` | `string` |
-| `meta?` | `Record`<`string`, `any`\> |
+| `meta?` | `Record`\<`string`, `any`\> |
 | `name` | `string` |
 
 #### Defined in
 
-[skillset/ability/v1.js:11](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L11)
+[skillset/ability/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L17)
 
 ___
 
-### AbilityUpdateRequest
+### SkillsetAbilityUpdateRequest
 
-Ƭ **AbilityUpdateRequest**<\>: [`AbilityOptions`](skillset_ability_v1.md#abilityoptions)
+Ƭ **SkillsetAbilityUpdateRequest**\<\>: [`SkillsetAbilityOptions`](skillset_ability_v1.md#skillsetabilityoptions)
 
 #### Defined in
 
-[skillset/ability/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L80)
+[skillset/ability/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L96)
 
 ___
 
-### AbilityUpdateResponse
+### SkillsetAbilityUpdateResponse
 
-Ƭ **AbilityUpdateResponse**<\>: `Object`
+Ƭ **SkillsetAbilityUpdateResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -175,23 +222,13 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L84)
-
-___
-
-### ChatBotKitClient
-
-Ƭ **ChatBotKitClient**<\>: `ChatBotKitClient`
-
-#### Defined in
-
-[skillset/ability/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L2)
+[skillset/ability/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L100)
 
 ## Functions
 
-### abilityCreate
+### createSkillsetAbility
 
-▸ **abilityCreate**(`client`, `skillsetId`, `request`): `Promise`<[`AbilityCreateResponse`](skillset_ability_v1.md#abilitycreateresponse)\>
+▸ **createSkillsetAbility**(`client`, `skillsetId`, `request`): `Promise`\<[`SkillsetAbilityCreateResponse`](skillset_ability_v1.md#skillsetabilitycreateresponse)\>
 
 #### Parameters
 
@@ -199,21 +236,21 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `skillsetId` | `string` |
-| `request` | [`AbilityOptions`](skillset_ability_v1.md#abilityoptions) |
+| `request` | [`SkillsetAbilityOptions`](skillset_ability_v1.md#skillsetabilityoptions) |
 
 #### Returns
 
-`Promise`<[`AbilityCreateResponse`](skillset_ability_v1.md#abilitycreateresponse)\>
+`Promise`\<[`SkillsetAbilityCreateResponse`](skillset_ability_v1.md#skillsetabilitycreateresponse)\>
 
 #### Defined in
 
-[skillset/ability/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L71)
+[skillset/ability/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L83)
 
 ___
 
-### abilityDelete
+### deleteSkillsetAbility
 
-▸ **abilityDelete**(`client`, `skillsetId`, `abilityId`): `Promise`<[`AbilityDeleteResponse`](skillset_ability_v1.md#abilitydeleteresponse)\>
+▸ **deleteSkillsetAbility**(`client`, `skillsetId`, `abilityId`): `Promise`\<[`SkillsetAbilityDeleteResponse`](skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
 
 #### Parameters
 
@@ -225,17 +262,17 @@ ___
 
 #### Returns
 
-`Promise`<[`AbilityDeleteResponse`](skillset_ability_v1.md#abilitydeleteresponse)\>
+`Promise`\<[`SkillsetAbilityDeleteResponse`](skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
 
 #### Defined in
 
-[skillset/ability/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L110)
+[skillset/ability/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L135)
 
 ___
 
-### abilityFetch
+### fetchSkillsetAbility
 
-▸ **abilityFetch**(`client`, `skillsetId`, `abilityId`): `Promise`<[`AbilityInstance`](skillset_ability_v1.md#abilityinstance)\>
+▸ **fetchSkillsetAbility**(`client`, `skillsetId`, `abilityId`): `Promise`\<[`SkillsetAbilityInstance`](skillset_ability_v1.md#skillsetabilityinstance)\>
 
 #### Parameters
 
@@ -247,17 +284,17 @@ ___
 
 #### Returns
 
-`Promise`<[`AbilityInstance`](skillset_ability_v1.md#abilityinstance)\>
+`Promise`\<[`SkillsetAbilityInstance`](skillset_ability_v1.md#skillsetabilityinstance)\>
 
 #### Defined in
 
-[skillset/ability/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L53)
+[skillset/ability/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L62)
 
 ___
 
-### abilityList
+### listSkillsetAbilities
 
-▸ **abilityList**(`client`, `skillsetId`, `cursor?`): `ResponsePromise`<[`AbilityListResponse`](skillset_ability_v1.md#abilitylistresponse), [`AbilityListStreamItem`](skillset_ability_v1.md#abilityliststreamitem)\>
+▸ **listSkillsetAbilities**(`client`, `skillsetId`, `request?`): `ResponsePromise`\<[`SkillsetAbilityListResponse`](skillset_ability_v1.md#skillsetabilitylistresponse), [`SkillsetAbilityListStreamItem`](skillset_ability_v1.md#skillsetabilityliststreamitem)\>
 
 #### Parameters
 
@@ -265,21 +302,21 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `skillsetId` | `string` |
-| `cursor?` | `string` |
+| `request?` | [`SkillsetAbilityListRequest`](skillset_ability_v1.md#skillsetabilitylistrequest) |
 
 #### Returns
 
-`ResponsePromise`<[`AbilityListResponse`](skillset_ability_v1.md#abilitylistresponse), [`AbilityListStreamItem`](skillset_ability_v1.md#abilityliststreamitem)\>
+`ResponsePromise`\<[`SkillsetAbilityListResponse`](skillset_ability_v1.md#skillsetabilitylistresponse), [`SkillsetAbilityListStreamItem`](skillset_ability_v1.md#skillsetabilityliststreamitem)\>
 
 #### Defined in
 
-[skillset/ability/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L35)
+[skillset/ability/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L43)
 
 ___
 
-### abilityUpdate
+### updateSkillsetAbility
 
-▸ **abilityUpdate**(`client`, `skillsetId`, `abilityId`, `request`): `Promise`<[`AbilityUpdateResponse`](skillset_ability_v1.md#abilityupdateresponse)\>
+▸ **updateSkillsetAbility**(`client`, `skillsetId`, `abilityId`, `request`): `Promise`\<[`SkillsetAbilityUpdateResponse`](skillset_ability_v1.md#skillsetabilityupdateresponse)\>
 
 #### Parameters
 
@@ -288,12 +325,12 @@ ___
 | `client` | `ChatBotKitClient` |
 | `skillsetId` | `string` |
 | `abilityId` | `string` |
-| `request` | [`AbilityOptions`](skillset_ability_v1.md#abilityoptions) |
+| `request` | [`SkillsetAbilityOptions`](skillset_ability_v1.md#skillsetabilityoptions) |
 
 #### Returns
 
-`Promise`<[`AbilityUpdateResponse`](skillset_ability_v1.md#abilityupdateresponse)\>
+`Promise`\<[`SkillsetAbilityUpdateResponse`](skillset_ability_v1.md#skillsetabilityupdateresponse)\>
 
 #### Defined in
 
-[skillset/ability/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/skillset/ability/v1.js#L92)
+[skillset/ability/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/v1.js#L108)

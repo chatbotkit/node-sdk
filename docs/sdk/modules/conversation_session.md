@@ -10,10 +10,10 @@
 
 ### Classes
 
-- [SessionClient](../classes/conversation_session.SessionClient.md)
+- [ConversationSessionClient](../classes/conversation_session.ConversationSessionClient.md)
 
 ## References
 
 ### default
 
-Renames and re-exports [SessionClient](../classes/conversation_session.SessionClient.md)
+Renames and re-exports [ConversationSessionClient](../classes/conversation_session.ConversationSessionClient.md)

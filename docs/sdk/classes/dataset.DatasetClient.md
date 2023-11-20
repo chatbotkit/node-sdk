@@ -4,6 +4,10 @@
 
 [dataset](../modules/dataset.md).DatasetClient
 
+**`Template`**
+
+**`Template`**
+
 ## Hierarchy
 
 - `ChatBotKitClient`
@@ -37,7 +41,7 @@
 
 ### constructor
 
-• **new DatasetClient**(`options`)
+• **new DatasetClient**(`options`): [`DatasetClient`](dataset.DatasetClient.md)
 
 #### Parameters
 
@@ -45,33 +49,37 @@
 | :------ | :------ |
 | `options` | `ChatBotKitClientOptions` |
 
+#### Returns
+
+[`DatasetClient`](dataset.DatasetClient.md)
+
 #### Overrides
 
 ChatBotKitClient.constructor
 
 #### Defined in
 
-[dataset/index.js:17](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L17)
+[dataset/index.js:23](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L23)
 
 ## Properties
 
 ### file
 
-• **file**: [`FileClient`](dataset_file.FileClient.md)
+• **file**: [`DatasetFileClient`](dataset_file.DatasetFileClient.md)
 
 #### Defined in
 
-[dataset/index.js:20](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L20)
+[dataset/index.js:26](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L26)
 
 ___
 
 ### record
 
-• **record**: [`RecordClient`](dataset_record.RecordClient.md)
+• **record**: [`DatasetRecordClient`](dataset_record.DatasetRecordClient.md)
 
 #### Defined in
 
-[dataset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L21)
+[dataset/index.js:27](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L27)
 
 ___
 
@@ -85,7 +93,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L187)
 
 ___
 
@@ -99,13 +107,13 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L189)
 
 ## Methods
 
 ### clientFetch
 
-▸ **clientFetch**<`T`, `U`\>(`path`, `options?`): `ResponsePromise`<`T`, `U`\>
+▸ **clientFetch**\<`T`, `U`\>(`path`, `options?`): `ResponsePromise`\<`T`, `U`\>
 
 #### Type parameters
 
@@ -120,15 +128,16 @@ ChatBotKitClient.url
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.data?` | `Record`<`string`, `any`\> |
+| `options.data?` | `Record`\<`string`, `any`\> |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| `ArrayBuffer` |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
+| `options.query?` | `Record`\<`string`, `any`\> |
 
 #### Returns
 
-`ResponsePromise`<`T`, `U`\>
+`ResponsePromise`\<`T`, `U`\>
 
 #### Inherited from
 
@@ -136,13 +145,13 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L206)
 
 ___
 
 ### create
 
-▸ **create**(`request`): `Promise`<[`DatasetCreateResponse`](../modules/dataset_v1.md#datasetcreateresponse)\>
+▸ **create**(`request`): `Promise`\<[`DatasetCreateResponse`](../modules/dataset_v1.md#datasetcreateresponse)\>
 
 Creates a new dataset.
 
@@ -154,17 +163,17 @@ Creates a new dataset.
 
 #### Returns
 
-`Promise`<[`DatasetCreateResponse`](../modules/dataset_v1.md#datasetcreateresponse)\>
+`Promise`\<[`DatasetCreateResponse`](../modules/dataset_v1.md#datasetcreateresponse)\>
 
 #### Defined in
 
-[dataset/index.js:50](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L50)
+[dataset/index.js:56](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L56)
 
 ___
 
 ### delete
 
-▸ **delete**(`datasetId`): `Promise`<[`DatasetDeleteResponse`](../modules/dataset_v1.md#datasetdeleteresponse)\>
+▸ **delete**(`datasetId`): `Promise`\<[`DatasetDeleteResponse`](../modules/dataset_v1.md#datasetdeleteresponse)\>
 
 Deletes the dataset.
 
@@ -176,17 +185,17 @@ Deletes the dataset.
 
 #### Returns
 
-`Promise`<[`DatasetDeleteResponse`](../modules/dataset_v1.md#datasetdeleteresponse)\>
+`Promise`\<[`DatasetDeleteResponse`](../modules/dataset_v1.md#datasetdeleteresponse)\>
 
 #### Defined in
 
-[dataset/index.js:71](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L71)
+[dataset/index.js:77](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L77)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`datasetId`): `Promise`<[`DatasetInstance`](../modules/dataset_v1.md#datasetinstance)\>
+▸ **fetch**(`datasetId`): `Promise`\<[`DatasetInstance`](../modules/dataset_v1.md#datasetinstance)\>
 
 Fetches a dataset.
 
@@ -198,39 +207,39 @@ Fetches a dataset.
 
 #### Returns
 
-`Promise`<[`DatasetInstance`](../modules/dataset_v1.md#datasetinstance)\>
+`Promise`\<[`DatasetInstance`](../modules/dataset_v1.md#datasetinstance)\>
 
 #### Defined in
 
-[dataset/index.js:40](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L40)
+[dataset/index.js:46](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L46)
 
 ___
 
 ### list
 
-▸ **list**(`cursor?`): `ResponsePromise`<[`DatasetListResponse`](../modules/dataset_v1.md#datasetlistresponse), [`DatasetListStreamItemType`](../modules/dataset_v1.md#datasetliststreamitemtype)\>
+▸ **list**(`request?`): `ResponsePromise`\<[`DatasetListResponse`](../modules/dataset_v1.md#datasetlistresponse), [`DatasetListStreamItemType`](../modules/dataset_v1.md#datasetliststreamitemtype)\>
 
-Retrieves a list of all existing datasets associated with this client.
+Retrieves a list of all datasets.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `cursor?` | `string` |
+| `request?` | [`DatasetListRequest`](../modules/dataset_v1.md#datasetlistrequest) |
 
 #### Returns
 
-`ResponsePromise`<[`DatasetListResponse`](../modules/dataset_v1.md#datasetlistresponse), [`DatasetListStreamItemType`](../modules/dataset_v1.md#datasetliststreamitemtype)\>
+`ResponsePromise`\<[`DatasetListResponse`](../modules/dataset_v1.md#datasetlistresponse), [`DatasetListStreamItemType`](../modules/dataset_v1.md#datasetliststreamitemtype)\>
 
 #### Defined in
 
-[dataset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L30)
+[dataset/index.js:36](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L36)
 
 ___
 
 ### search
 
-▸ **search**(`datasetId`, `search`): `Promise`<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
+▸ **search**(`datasetId`, `search`): `Promise`\<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
 
 Searches the dataset.
 
@@ -243,17 +252,17 @@ Searches the dataset.
 
 #### Returns
 
-`Promise`<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
+`Promise`\<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
 
 #### Defined in
 
-[dataset/index.js:82](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L82)
+[dataset/index.js:88](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L88)
 
 ___
 
 ### update
 
-▸ **update**(`datasetId`, `request`): `Promise`<[`DatasetUpdateResponse`](../modules/dataset_v1.md#datasetupdateresponse)\>
+▸ **update**(`datasetId`, `request`): `Promise`\<[`DatasetUpdateResponse`](../modules/dataset_v1.md#datasetupdateresponse)\>
 
 Updates a dataset.
 
@@ -266,8 +275,8 @@ Updates a dataset.
 
 #### Returns
 
-`Promise`<[`DatasetUpdateResponse`](../modules/dataset_v1.md#datasetupdateresponse)\>
+`Promise`\<[`DatasetUpdateResponse`](../modules/dataset_v1.md#datasetupdateresponse)\>
 
 #### Defined in
 
-[dataset/index.js:61](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/dataset/index.js#L61)
+[dataset/index.js:67](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/index.js#L67)

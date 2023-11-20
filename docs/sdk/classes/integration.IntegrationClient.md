@@ -31,7 +31,7 @@
 
 ### constructor
 
-• **new IntegrationClient**(`options`)
+• **new IntegrationClient**(`options`): [`IntegrationClient`](integration.IntegrationClient.md)
 
 #### Parameters
 
@@ -39,13 +39,17 @@
 | :------ | :------ |
 | `options` | `ChatBotKitClientOptions` |
 
+#### Returns
+
+[`IntegrationClient`](integration.IntegrationClient.md)
+
 #### Overrides
 
 ChatBotKitClient.constructor
 
 #### Defined in
 
-[integration/index.js:9](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/integration/index.js#L9)
+[integration/index.js:9](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/index.js#L9)
 
 ## Properties
 
@@ -59,17 +63,17 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L187)
 
 ___
 
 ### sitemap
 
-• **sitemap**: [`SitemapClient`](integration_sitemap.SitemapClient.md)
+• **sitemap**: [`SitemapIntegrationClient`](integration_sitemap.SitemapIntegrationClient.md)
 
 #### Defined in
 
-[integration/index.js:12](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/integration/index.js#L12)
+[integration/index.js:12](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/index.js#L12)
 
 ___
 
@@ -83,23 +87,23 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L189)
 
 ___
 
 ### whatsapp
 
-• **whatsapp**: [`WhatsappClient`](integration_whatsapp.WhatsappClient.md)
+• **whatsapp**: [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
 
 #### Defined in
 
-[integration/index.js:13](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/integration/index.js#L13)
+[integration/index.js:13](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/index.js#L13)
 
 ## Methods
 
 ### clientFetch
 
-▸ **clientFetch**<`T`, `U`\>(`path`, `options?`): `ResponsePromise`<`T`, `U`\>
+▸ **clientFetch**\<`T`, `U`\>(`path`, `options?`): `ResponsePromise`\<`T`, `U`\>
 
 #### Type parameters
 
@@ -114,15 +118,16 @@ ___
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.data?` | `Record`<`string`, `any`\> |
+| `options.data?` | `Record`\<`string`, `any`\> |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| `ArrayBuffer` |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
+| `options.query?` | `Record`\<`string`, `any`\> |
 
 #### Returns
 
-`ResponsePromise`<`T`, `U`\>
+`ResponsePromise`\<`T`, `U`\>
 
 #### Inherited from
 
@@ -130,4 +135,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L206)

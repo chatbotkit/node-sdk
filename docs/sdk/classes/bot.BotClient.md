@@ -4,6 +4,10 @@
 
 [bot](../modules/bot.md).BotClient
 
+**`Template`**
+
+**`Template`**
+
 ## Hierarchy
 
 - `ChatBotKitClient`
@@ -35,7 +39,7 @@
 
 ### constructor
 
-• **new BotClient**(`options`)
+• **new BotClient**(`options`): [`BotClient`](bot.BotClient.md)
 
 #### Parameters
 
@@ -43,13 +47,17 @@
 | :------ | :------ |
 | `options` | `ChatBotKitClientOptions` |
 
+#### Returns
+
+[`BotClient`](bot.BotClient.md)
+
 #### Overrides
 
 ChatBotKitClient.constructor
 
 #### Defined in
 
-[bot/index.js:9](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/index.js#L9)
+[bot/index.js:15](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/index.js#L15)
 
 ## Properties
 
@@ -63,17 +71,17 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L187)
 
 ___
 
 ### session
 
-• **session**: [`SessionClient`](bot_session.SessionClient.md)
+• **session**: [`BotSessionClient`](bot_session.BotSessionClient.md)
 
 #### Defined in
 
-[bot/index.js:12](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/index.js#L12)
+[bot/index.js:18](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/index.js#L18)
 
 ___
 
@@ -87,13 +95,13 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L189)
 
 ## Methods
 
 ### clientFetch
 
-▸ **clientFetch**<`T`, `U`\>(`path`, `options?`): `ResponsePromise`<`T`, `U`\>
+▸ **clientFetch**\<`T`, `U`\>(`path`, `options?`): `ResponsePromise`\<`T`, `U`\>
 
 #### Type parameters
 
@@ -108,15 +116,16 @@ ChatBotKitClient.url
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.data?` | `Record`<`string`, `any`\> |
+| `options.data?` | `Record`\<`string`, `any`\> |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| `ArrayBuffer` |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
+| `options.query?` | `Record`\<`string`, `any`\> |
 
 #### Returns
 
-`ResponsePromise`<`T`, `U`\>
+`ResponsePromise`\<`T`, `U`\>
 
 #### Inherited from
 
@@ -124,13 +133,13 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L206)
 
 ___
 
 ### create
 
-▸ **create**(`request`): `Promise`<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
+▸ **create**(`request`): `Promise`\<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
 
 Creates a new bot.
 
@@ -142,17 +151,17 @@ Creates a new bot.
 
 #### Returns
 
-`Promise`<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
+`Promise`\<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
 
 #### Defined in
 
-[bot/index.js:41](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/index.js#L41)
+[bot/index.js:47](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/index.js#L47)
 
 ___
 
 ### delete
 
-▸ **delete**(`botId`): `Promise`<[`BotDeleteResponse`](../modules/bot_v1.md#botdeleteresponse)\>
+▸ **delete**(`botId`): `Promise`\<[`BotDeleteResponse`](../modules/bot_v1.md#botdeleteresponse)\>
 
 Deletes the bot.
 
@@ -164,17 +173,17 @@ Deletes the bot.
 
 #### Returns
 
-`Promise`<[`BotDeleteResponse`](../modules/bot_v1.md#botdeleteresponse)\>
+`Promise`\<[`BotDeleteResponse`](../modules/bot_v1.md#botdeleteresponse)\>
 
 #### Defined in
 
-[bot/index.js:62](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/index.js#L62)
+[bot/index.js:68](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/index.js#L68)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`botId`): `Promise`<[`BotInstance`](../modules/bot_v1.md#botinstance)\>
+▸ **fetch**(`botId`): `Promise`\<[`BotInstance`](../modules/bot_v1.md#botinstance)\>
 
 Fetches a bot.
 
@@ -186,39 +195,39 @@ Fetches a bot.
 
 #### Returns
 
-`Promise`<[`BotInstance`](../modules/bot_v1.md#botinstance)\>
+`Promise`\<[`BotInstance`](../modules/bot_v1.md#botinstance)\>
 
 #### Defined in
 
-[bot/index.js:31](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/index.js#L31)
+[bot/index.js:37](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/index.js#L37)
 
 ___
 
 ### list
 
-▸ **list**(`cursor?`): `ResponsePromise`<[`BotListResponse`](../modules/bot_v1.md#botlistresponse), [`BotListStreamItemType`](../modules/bot_v1.md#botliststreamitemtype)\>
+▸ **list**(`request?`): `ResponsePromise`\<[`BotListResponse`](../modules/bot_v1.md#botlistresponse), [`BotListStreamItemType`](../modules/bot_v1.md#botliststreamitemtype)\>
 
-Retrieves a list of all existing bots associated with this client.
+Retrieves a list of all bots.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `cursor?` | `string` |
+| `request?` | [`BotListRequest`](../modules/bot_v1.md#botlistrequest) |
 
 #### Returns
 
-`ResponsePromise`<[`BotListResponse`](../modules/bot_v1.md#botlistresponse), [`BotListStreamItemType`](../modules/bot_v1.md#botliststreamitemtype)\>
+`ResponsePromise`\<[`BotListResponse`](../modules/bot_v1.md#botlistresponse), [`BotListStreamItemType`](../modules/bot_v1.md#botliststreamitemtype)\>
 
 #### Defined in
 
-[bot/index.js:21](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/index.js#L21)
+[bot/index.js:27](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/index.js#L27)
 
 ___
 
 ### update
 
-▸ **update**(`botId`, `request`): `Promise`<[`BotUpdateResponse`](../modules/bot_v1.md#botupdateresponse)\>
+▸ **update**(`botId`, `request`): `Promise`\<[`BotUpdateResponse`](../modules/bot_v1.md#botupdateresponse)\>
 
 Updates a bot.
 
@@ -231,8 +240,8 @@ Updates a bot.
 
 #### Returns
 
-`Promise`<[`BotUpdateResponse`](../modules/bot_v1.md#botupdateresponse)\>
+`Promise`\<[`BotUpdateResponse`](../modules/bot_v1.md#botupdateresponse)\>
 
 #### Defined in
 
-[bot/index.js:52](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/index.js#L52)
+[bot/index.js:58](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/index.js#L58)

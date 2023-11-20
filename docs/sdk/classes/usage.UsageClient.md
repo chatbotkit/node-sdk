@@ -30,7 +30,7 @@
 
 ### constructor
 
-• **new UsageClient**(`options`)
+• **new UsageClient**(`options`): [`UsageClient`](usage.UsageClient.md)
 
 #### Parameters
 
@@ -38,13 +38,17 @@
 | :------ | :------ |
 | `options` | `ChatBotKitClientOptions` |
 
+#### Returns
+
+[`UsageClient`](usage.UsageClient.md)
+
 #### Overrides
 
 ChatBotKitClient.constructor
 
 #### Defined in
 
-[usage/index.js:8](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/usage/index.js#L8)
+[usage/index.js:8](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/usage/index.js#L8)
 
 ## Properties
 
@@ -58,7 +62,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L187)
 
 ___
 
@@ -72,13 +76,13 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L189)
 
 ## Methods
 
 ### clientFetch
 
-▸ **clientFetch**<`T`, `U`\>(`path`, `options?`): `ResponsePromise`<`T`, `U`\>
+▸ **clientFetch**\<`T`, `U`\>(`path`, `options?`): `ResponsePromise`\<`T`, `U`\>
 
 #### Type parameters
 
@@ -93,15 +97,16 @@ ChatBotKitClient.url
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.data?` | `Record`<`string`, `any`\> |
+| `options.data?` | `Record`\<`string`, `any`\> |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| `ArrayBuffer` |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
+| `options.query?` | `Record`\<`string`, `any`\> |
 
 #### Returns
 
-`ResponsePromise`<`T`, `U`\>
+`ResponsePromise`\<`T`, `U`\>
 
 #### Inherited from
 
@@ -109,20 +114,20 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L206)
 
 ___
 
 ### fetch
 
-▸ **fetch**(): `Promise`<[`UsageInstance`](../modules/usage_v1.md#usageinstance)\>
+▸ **fetch**(): `Promise`\<[`UsageOptions`](../modules/usage_v1.md#usageoptions)\>
 
 Fetches usage.
 
 #### Returns
 
-`Promise`<[`UsageInstance`](../modules/usage_v1.md#usageinstance)\>
+`Promise`\<[`UsageOptions`](../modules/usage_v1.md#usageoptions)\>
 
 #### Defined in
 
-[usage/index.js:17](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/usage/index.js#L17)
+[usage/index.js:17](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/usage/index.js#L17)

@@ -6,29 +6,19 @@
 
 ### Type Aliases
 
+- [BotSessionCreateRequest](bot_session_v1.md#botsessioncreaterequest)
+- [BotSessionCreateResponse](bot_session_v1.md#botsessioncreateresponse)
 - [ChatBotKitClient](bot_session_v1.md#chatbotkitclient)
-- [SessionCreateRequest](bot_session_v1.md#sessioncreaterequest)
-- [SessionCreateResponse](bot_session_v1.md#sessioncreateresponse)
 
 ### Functions
 
-- [sessionCreate](bot_session_v1.md#sessioncreate)
+- [createBotSession](bot_session_v1.md#createbotsession)
 
 ## Type Aliases
 
-### ChatBotKitClient
+### BotSessionCreateRequest
 
-Ƭ **ChatBotKitClient**<\>: `ChatBotKitClient`
-
-#### Defined in
-
-[bot/session/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/session/v1.js#L2)
-
-___
-
-### SessionCreateRequest
-
-Ƭ **SessionCreateRequest**<\>: `Object`
+Ƭ **BotSessionCreateRequest**\<\>: `Object`
 
 #### Type declaration
 
@@ -38,13 +28,13 @@ ___
 
 #### Defined in
 
-[bot/session/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/session/v1.js#L8)
+[bot/session/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/session/v1.js#L8)
 
 ___
 
-### SessionCreateResponse
+### BotSessionCreateResponse
 
-Ƭ **SessionCreateResponse**<\>: `Object`
+Ƭ **BotSessionCreateResponse**\<\>: `Object`
 
 #### Type declaration
 
@@ -56,13 +46,23 @@ ___
 
 #### Defined in
 
-[bot/session/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/session/v1.js#L14)
+[bot/session/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/session/v1.js#L14)
+
+___
+
+### ChatBotKitClient
+
+Ƭ **ChatBotKitClient**\<\>: `ChatBotKitClient`
+
+#### Defined in
+
+[bot/session/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/session/v1.js#L2)
 
 ## Functions
 
-### sessionCreate
+### createBotSession
 
-▸ **sessionCreate**(`client`, `botId`, `request`): `Promise`<[`SessionCreateResponse`](bot_session_v1.md#sessioncreateresponse)\>
+▸ **createBotSession**(`client`, `botId`, `request`): `Promise`\<[`BotSessionCreateResponse`](bot_session_v1.md#botsessioncreateresponse)\>
 
 #### Parameters
 
@@ -70,12 +70,12 @@ ___
 | :------ | :------ |
 | `client` | `ChatBotKitClient` |
 | `botId` | `string` |
-| `request` | [`SessionCreateRequest`](bot_session_v1.md#sessioncreaterequest) |
+| `request` | [`BotSessionCreateRequest`](bot_session_v1.md#botsessioncreaterequest) |
 
 #### Returns
 
-`Promise`<[`SessionCreateResponse`](bot_session_v1.md#sessioncreateresponse)\>
+`Promise`\<[`BotSessionCreateResponse`](bot_session_v1.md#botsessioncreateresponse)\>
 
 #### Defined in
 
-[bot/session/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/bot/session/v1.js#L21)
+[bot/session/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/bot/session/v1.js#L21)

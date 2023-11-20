@@ -10,10 +10,31 @@
 
 ### Classes
 
-- [AbilityClient](../classes/skillset_ability.AbilityClient.md)
+- [SkillsetAbilityClient](../classes/skillset_ability.SkillsetAbilityClient.md)
+
+### Type Aliases
+
+- [ResponsePromise](skillset_ability.md#responsepromise)
 
 ## References
 
 ### default
 
-Renames and re-exports [AbilityClient](../classes/skillset_ability.AbilityClient.md)
+Renames and re-exports [SkillsetAbilityClient](../classes/skillset_ability.SkillsetAbilityClient.md)
+
+## Type Aliases
+
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: `ResponsePromise`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[skillset/ability/index.js:13](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/index.js#L13)

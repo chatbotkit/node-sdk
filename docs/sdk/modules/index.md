@@ -10,6 +10,7 @@
 - [ConversationClient](index.md#conversationclient)
 - [DatasetClient](index.md#datasetclient)
 - [FileClient](index.md#fileclient)
+- [IntegrationClient](index.md#integrationclient)
 - [PartnerClient](index.md#partnerclient)
 - [SkillsetClient](index.md#skillsetclient)
 - [default](index.md#default)
@@ -41,6 +42,12 @@ ___
 ### FileClient
 
 Re-exports [FileClient](../classes/file.FileClient.md)
+
+___
+
+### IntegrationClient
+
+Re-exports [IntegrationClient](../classes/integration.IntegrationClient.md)
 
 ___
 

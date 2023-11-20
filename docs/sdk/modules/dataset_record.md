@@ -10,10 +10,31 @@
 
 ### Classes
 
-- [RecordClient](../classes/dataset_record.RecordClient.md)
+- [DatasetRecordClient](../classes/dataset_record.DatasetRecordClient.md)
+
+### Type Aliases
+
+- [ResponsePromise](dataset_record.md#responsepromise)
 
 ## References
 
 ### default
 
-Renames and re-exports [RecordClient](../classes/dataset_record.RecordClient.md)
+Renames and re-exports [DatasetRecordClient](../classes/dataset_record.DatasetRecordClient.md)
+
+## Type Aliases
+
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: `ResponsePromise`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[dataset/record/index.js:13](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/dataset/record/index.js#L13)

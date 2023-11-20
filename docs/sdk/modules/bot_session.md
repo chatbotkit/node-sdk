@@ -6,4 +6,4 @@
 
 ### Classes
 
-- [SessionClient](../classes/bot_session.SessionClient.md)
+- [BotSessionClient](../classes/bot_session.BotSessionClient.md)

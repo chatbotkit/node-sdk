@@ -13,43 +13,43 @@
 
 ### Functions
 
-- [usageFetch](usage_v1.md#usagefetch)
+- [fetchUsage](usage_v1.md#fetchusage)
 
 ## Type Aliases
 
 ### ChatBotKitClient
 
-Ƭ **ChatBotKitClient**<\>: `ChatBotKitClient`
+Ƭ **ChatBotKitClient**\<\>: `ChatBotKitClient`
 
 #### Defined in
 
-[usage/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/usage/v1.js#L2)
+[usage/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/usage/v1.js#L2)
 
 ___
 
 ### UsageFetchResponse
 
-Ƭ **UsageFetchResponse**<\>: [`UsageInstance`](usage_v1.md#usageinstance)
+Ƭ **UsageFetchResponse**\<\>: [`UsageInstance`](usage_v1.md#usageinstance)
 
 #### Defined in
 
-[usage/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/usage/v1.js#L20)
+[usage/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/usage/v1.js#L16)
 
 ___
 
 ### UsageInstance
 
-Ƭ **UsageInstance**<\>: { `createdAt`: `number` ; `id`: `string` ; `store`: `string` ; `updatedAt`: `number`  } & [`UsageOptions`](usage_v1.md#usageoptions)
+Ƭ **UsageInstance**\<\>: {} & [`UsageOptions`](usage_v1.md#usageoptions)
 
 #### Defined in
 
-[usage/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/usage/v1.js#L16)
+[usage/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/usage/v1.js#L12)
 
 ___
 
 ### UsageOptions
 
-Ƭ **UsageOptions**<\>: `Object`
+Ƭ **UsageOptions**\<\>: `Object`
 
 #### Type declaration
 
@@ -60,13 +60,13 @@ ___
 
 #### Defined in
 
-[usage/v1.js:9](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/usage/v1.js#L9)
+[usage/v1.js:9](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/usage/v1.js#L9)
 
 ## Functions
 
-### usageFetch
+### fetchUsage
 
-▸ **usageFetch**(`client`): `Promise`<[`UsageInstance`](usage_v1.md#usageinstance)\>
+▸ **fetchUsage**(`client`): `Promise`\<[`UsageOptions`](usage_v1.md#usageoptions)\>
 
 #### Parameters
 
@@ -76,8 +76,8 @@ ___
 
 #### Returns
 
-`Promise`<[`UsageInstance`](usage_v1.md#usageinstance)\>
+`Promise`\<[`UsageOptions`](usage_v1.md#usageoptions)\>
 
 #### Defined in
 
-[usage/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/usage/v1.js#L25)
+[usage/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/usage/v1.js#L21)

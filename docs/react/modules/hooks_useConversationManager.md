@@ -19,7 +19,7 @@
 
 ### Message
 
-Ƭ **Message**<\>: `Object`
+Ƭ **Message**\<\>: `Object`
 
 #### Type declaration
 
@@ -27,19 +27,19 @@
 | :------ | :------ |
 | `createdAt` | `number` |
 | `id` | `string` |
-| `meta?` | `Record`<`string`, `any`\> |
+| `meta?` | `Record`\<`string`, `any`\> |
 | `text` | `string` |
 | `type` | `string` |
 
 #### Defined in
 
-[hooks/useConversationManager.js:13](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/react/src/hooks/useConversationManager.js#L13)
+[hooks/useConversationManager.js:15](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/react/src/hooks/useConversationManager.js#L15)
 
 ___
 
 ### onErrorFn
 
-Ƭ **onErrorFn**<\>: (`error`: `any`) => `any`
+Ƭ **onErrorFn**\<\>: (`error`: `any`) => `any`
 
 #### Type declaration
 
@@ -57,13 +57,13 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:15](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/react/src/hooks/useConversationManager.js#L15)
+[hooks/useConversationManager.js:17](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/react/src/hooks/useConversationManager.js#L17)
 
 ___
 
 ### onReceiveFn
 
-Ƭ **onReceiveFn**<\>: (`conversationId`: `string`, `messages`: [`Message`](hooks_useConversationManager.md#message)[], `data`: `Record`<`string`, `any`\>) => `any`
+Ƭ **onReceiveFn**\<\>: (`conversationId`: `string`, `messages`: [`Message`](hooks_useConversationManager.md#message)[], `data`: `Record`\<`string`, `any`\>) => `any`
 
 #### Type declaration
 
@@ -75,7 +75,7 @@ ___
 | :------ | :------ |
 | `conversationId` | `string` |
 | `messages` | [`Message`](hooks_useConversationManager.md#message)[] |
-| `data` | `Record`<`string`, `any`\> |
+| `data` | `Record`\<`string`, `any`\> |
 
 ##### Returns
 
@@ -83,13 +83,13 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:17](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/react/src/hooks/useConversationManager.js#L17)
+[hooks/useConversationManager.js:19](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/react/src/hooks/useConversationManager.js#L19)
 
 ___
 
 ### onSendFn
 
-Ƭ **onSendFn**<\>: (`conversationId`: `string`, `messages`: [`Message`](hooks_useConversationManager.md#message)[], `data`: `Record`<`string`, `any`\>) => `any`
+Ƭ **onSendFn**\<\>: (`conversationId`: `string`, `messages`: [`Message`](hooks_useConversationManager.md#message)[], `data`: `Record`\<`string`, `any`\>) => `any`
 
 #### Type declaration
 
@@ -101,7 +101,7 @@ ___
 | :------ | :------ |
 | `conversationId` | `string` |
 | `messages` | [`Message`](hooks_useConversationManager.md#message)[] |
-| `data` | `Record`<`string`, `any`\> |
+| `data` | `Record`\<`string`, `any`\> |
 
 ##### Returns
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:16](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/react/src/hooks/useConversationManager.js#L16)
+[hooks/useConversationManager.js:18](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/react/src/hooks/useConversationManager.js#L18)
 
 ## Functions
 
@@ -127,7 +127,6 @@ ___
 | `options.onError?` | ``null`` \| [`onErrorFn`](hooks_useConversationManager.md#onerrorfn) |
 | `options.onReceive?` | ``null`` \| [`onReceiveFn`](hooks_useConversationManager.md#onreceivefn) |
 | `options.onSend?` | ``null`` \| [`onSendFn`](hooks_useConversationManager.md#onsendfn) |
-| `options.parse?` | `boolean` |
 | `options.stream?` | `boolean` |
 | `options.token?` | `string` |
 | `options.verbose?` | `boolean` |
@@ -138,21 +137,21 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `continueConversation` | (`options?`: { `token?`: `string`  }) => `Promise`<`void`\> |
+| `continueConversation` | (`options?`: \{ `token?`: `string`  }) => `Promise`\<`void`\> |
 | `conversationId` | `string` |
-| `flushUserMessage` | () => `Promise`<`void`\> |
-| `interact` | (`options?`: { `conversationId?`: `string` ; `messages?`: [`Message`](hooks_useConversationManager.md#message)[] ; `token?`: `string`  }) => `void` |
+| `flushUserMessage` | () => `Promise`\<`void`\> |
+| `interact` | (`options?`: \{ `conversationId?`: `string` ; `messages?`: [`Message`](hooks_useConversationManager.md#message)[] ; `token?`: `string`  }) => `void` |
 | `loading` | `boolean` |
 | `messages` | [`Message`](hooks_useConversationManager.md#message)[] |
 | `reset` | () => `void` |
-| `setConversationId` | `Dispatch`<`SetStateAction`<`string`\>\> |
-| `setMessages` | `Dispatch`<`SetStateAction`<[`Message`](hooks_useConversationManager.md#message)[]\>\> |
-| `setText` | `Dispatch`<`SetStateAction`<`string`\>\> |
-| `setToken` | `Dispatch`<`SetStateAction`<`string`\>\> |
+| `setConversationId` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
+| `setMessages` | `Dispatch`\<`SetStateAction`\<[`Message`](hooks_useConversationManager.md#message)[]\>\> |
+| `setText` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
+| `setToken` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
 | `text` | `string` |
 | `thinking` | `boolean` |
 | `token` | `string` |
 
 #### Defined in
 
-[hooks/useConversationManager.js:32](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/react/src/hooks/useConversationManager.js#L32)
+[hooks/useConversationManager.js:33](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/react/src/hooks/useConversationManager.js#L33)

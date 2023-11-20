@@ -36,7 +36,7 @@
 
 ### constructor
 
-• **new ChatBotKit**(`options`)
+• **new ChatBotKit**(`options`): [`ChatBotKit`](index.ChatBotKit.md)
 
 #### Parameters
 
@@ -44,13 +44,17 @@
 | :------ | :------ |
 | `options` | `ChatBotKitClientOptions` |
 
+#### Returns
+
+[`ChatBotKit`](index.ChatBotKit.md)
+
 #### Overrides
 
 ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:22](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/index.js#L22)
+[index.js:23](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/index.js#L23)
 
 ## Properties
 
@@ -60,7 +64,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[index.js:25](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/index.js#L25)
+[index.js:26](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/index.js#L26)
 
 ___
 
@@ -70,7 +74,7 @@ ___
 
 #### Defined in
 
-[index.js:31](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/index.js#L31)
+[index.js:32](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/index.js#L32)
 
 ___
 
@@ -80,7 +84,7 @@ ___
 
 #### Defined in
 
-[index.js:28](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/index.js#L28)
+[index.js:29](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/index.js#L29)
 
 ___
 
@@ -90,7 +94,7 @@ ___
 
 #### Defined in
 
-[index.js:26](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/index.js#L26)
+[index.js:27](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/index.js#L27)
 
 ___
 
@@ -100,7 +104,7 @@ ___
 
 #### Defined in
 
-[index.js:30](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/index.js#L30)
+[index.js:31](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/index.js#L31)
 
 ___
 
@@ -110,7 +114,7 @@ ___
 
 #### Defined in
 
-[index.js:27](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/index.js#L27)
+[index.js:28](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/index.js#L28)
 
 ___
 
@@ -124,7 +128,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:182](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L182)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L187)
 
 ___
 
@@ -134,7 +138,7 @@ ___
 
 #### Defined in
 
-[index.js:29](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/index.js#L29)
+[index.js:30](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/index.js#L30)
 
 ___
 
@@ -148,13 +152,13 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L184)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L189)
 
 ## Methods
 
 ### clientFetch
 
-▸ **clientFetch**<`T`, `U`\>(`path`, `options?`): `ResponsePromise`<`T`, `U`\>
+▸ **clientFetch**\<`T`, `U`\>(`path`, `options?`): `ResponsePromise`\<`T`, `U`\>
 
 #### Type parameters
 
@@ -169,15 +173,16 @@ ChatBotKitClient.url
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.data?` | `Record`<`string`, `any`\> |
+| `options.data?` | `Record`\<`string`, `any`\> |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| `ArrayBuffer` |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
+| `options.query?` | `Record`\<`string`, `any`\> |
 
 #### Returns
 
-`ResponsePromise`<`T`, `U`\>
+`ResponsePromise`\<`T`, `U`\>
 
 #### Inherited from
 
@@ -185,4 +190,4 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/09ac200/packages/sdk/src/client.js#L201)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L206)

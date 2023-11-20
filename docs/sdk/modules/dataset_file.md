@@ -10,10 +10,10 @@
 
 ### Classes
 
-- [FileClient](../classes/dataset_file.FileClient.md)
+- [DatasetFileClient](../classes/dataset_file.DatasetFileClient.md)
 
 ## References
 
 ### default
 
-Renames and re-exports [FileClient](../classes/dataset_file.FileClient.md)
+Renames and re-exports [DatasetFileClient](../classes/dataset_file.DatasetFileClient.md)
