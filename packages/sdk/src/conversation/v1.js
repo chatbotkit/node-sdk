@@ -156,9 +156,10 @@ export async function deleteConversation(client, conversationId) {
 
 /**
  * @typedef {{
- *   text?: string,
  *   model?: string,
- *   entities?: Entity[],
+ *   messages?: Message[],
+ *   datasetId?: string,
+ *   skillsetId?: string,
  * } & ({text: string}|{messages: Message[]})} ConversationCompleteRequest
  *
  * @typedef {{
@@ -244,7 +245,6 @@ export function completeConversationMessage(client, conversationId, request) {
 /**
  * @typedef {{
  *   text?: string,
- *   model?: string,
  *   entities?: Entity[],
  * }} ConversationSendMessageRequest
  *
@@ -280,7 +280,6 @@ export function sendConversationMessage(client, conversationId, request) {
 
 /**
  * @typedef {{
- *   messages?: Message[]
  * }} ConversationReceiveMessageRequest
  *
  * @typedef {{

@@ -82,7 +82,7 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
-   * Completes the next bot message in a stateless conversation.
+   * Completes the next bot message.
    *
    * @overload
    * @param {null} conversationId
