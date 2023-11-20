@@ -30,6 +30,8 @@
 - [integration/sitemap/v1](modules/integration_sitemap_v1.md)
 - [integration/whatsapp](modules/integration_whatsapp.md)
 - [integration/whatsapp/v1](modules/integration_whatsapp_v1.md)
+- [magic](modules/magic.md)
+- [magic/v1](modules/magic_v1.md)
 - [partner](modules/partner.md)
 - [partner/user](modules/partner_user.md)
 - [partner/user/token](modules/partner_user_token.md)

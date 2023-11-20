@@ -37,4 +37,4 @@ Renames and re-exports [SkillsetAbilityClient](../classes/skillset_ability.Skill
 
 #### Defined in
 
-[skillset/ability/index.js:13](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/skillset/ability/index.js#L13)
+[skillset/ability/index.js:13](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/skillset/ability/index.js#L13)

@@ -1,37 +1,40 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [integration](../modules/integration.md) / IntegrationClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [magic](../modules/magic.md) / MagicClient
 
-# Class: IntegrationClient
+# Class: MagicClient
 
-[integration](../modules/integration.md).IntegrationClient
+[magic](../modules/magic.md).MagicClient
+
+**`Template`**
+
+**`Template`**
 
 ## Hierarchy
 
 - `ChatBotKitClient`
 
-  ↳ **`IntegrationClient`**
+  ↳ **`MagicClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](integration.IntegrationClient.md#constructor)
+- [constructor](magic.MagicClient.md#constructor)
 
 ### Properties
 
-- [secret](integration.IntegrationClient.md#secret)
-- [sitemap](integration.IntegrationClient.md#sitemap)
-- [url](integration.IntegrationClient.md#url)
-- [whatsapp](integration.IntegrationClient.md#whatsapp)
+- [secret](magic.MagicClient.md#secret)
+- [url](magic.MagicClient.md#url)
 
 ### Methods
 
-- [clientFetch](integration.IntegrationClient.md#clientfetch)
+- [clientFetch](magic.MagicClient.md#clientfetch)
+- [generate](magic.MagicClient.md#generate)
 
 ## Constructors
 
 ### constructor
 
-• **new IntegrationClient**(`options`): [`IntegrationClient`](integration.IntegrationClient.md)
+• **new MagicClient**(`options`): [`MagicClient`](magic.MagicClient.md)
 
 #### Parameters
 
@@ -41,7 +44,7 @@
 
 #### Returns
 
-[`IntegrationClient`](integration.IntegrationClient.md)
+[`MagicClient`](magic.MagicClient.md)
 
 #### Overrides
 
@@ -49,7 +52,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[integration/index.js:9](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/index.js#L9)
+[magic/index.js:14](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/magic/index.js#L14)
 
 ## Properties
 
@@ -67,16 +70,6 @@ ChatBotKitClient.secret
 
 ___
 
-### sitemap
-
-• **sitemap**: [`SitemapIntegrationClient`](integration_sitemap.SitemapIntegrationClient.md)
-
-#### Defined in
-
-[integration/index.js:12](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/index.js#L12)
-
-___
-
 ### url
 
 • **url**: `URL`
@@ -88,16 +81,6 @@ ChatBotKitClient.url
 #### Defined in
 
 [client.js:189](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L189)
-
-___
-
-### whatsapp
-
-• **whatsapp**: [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
-
-#### Defined in
-
-[integration/index.js:13](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/index.js#L13)
 
 ## Methods
 
@@ -136,3 +119,26 @@ ChatBotKitClient.clientFetch
 #### Defined in
 
 [client.js:206](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L206)
+
+___
+
+### generate
+
+▸ **generate**(`magicId`, `request`): `ResponsePromise`\<[`MagicGenerateResponse`](../modules/magic_v1.md#magicgenerateresponse), [`MagicGenerateStreamResult`](../modules/magic_v1.md#magicgeneratestreamresult)\>
+
+Generates magic.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `magicId` | `string` |
+| `request` | [`MagicGenerateRequest`](../modules/magic_v1.md#magicgeneraterequest) |
+
+#### Returns
+
+`ResponsePromise`\<[`MagicGenerateResponse`](../modules/magic_v1.md#magicgenerateresponse), [`MagicGenerateStreamResult`](../modules/magic_v1.md#magicgeneratestreamresult)\>
+
+#### Defined in
+
+[magic/index.js:25](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/magic/index.js#L25)

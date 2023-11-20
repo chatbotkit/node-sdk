@@ -57,7 +57,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[integration/whatsapp/index.js:21](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/whatsapp/index.js#L21)
+[integration/whatsapp/index.js:21](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/whatsapp/index.js#L21)
 
 ## Properties
 
@@ -71,7 +71,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:187](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L187)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L187)
 
 ___
 
@@ -85,7 +85,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L189)
 
 ## Methods
 
@@ -123,7 +123,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:206](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L206)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L206)
 
 ___
 
@@ -145,7 +145,7 @@ Creates a new whatsapp integration.
 
 #### Defined in
 
-[integration/whatsapp/index.js:51](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/whatsapp/index.js#L51)
+[integration/whatsapp/index.js:51](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/whatsapp/index.js#L51)
 
 ___
 
@@ -167,7 +167,7 @@ Deletes a whatsapp integration.
 
 #### Defined in
 
-[integration/whatsapp/index.js:72](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/whatsapp/index.js#L72)
+[integration/whatsapp/index.js:72](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/whatsapp/index.js#L72)
 
 ___
 
@@ -189,7 +189,7 @@ Fetches a whatsapp integration.
 
 #### Defined in
 
-[integration/whatsapp/index.js:41](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/whatsapp/index.js#L41)
+[integration/whatsapp/index.js:41](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/whatsapp/index.js#L41)
 
 ___
 
@@ -211,7 +211,7 @@ Retrieves a list of all whatsapp integrations.
 
 #### Defined in
 
-[integration/whatsapp/index.js:31](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/whatsapp/index.js#L31)
+[integration/whatsapp/index.js:31](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/whatsapp/index.js#L31)
 
 ___
 
@@ -233,7 +233,7 @@ Setups a whatsapp integration.
 
 #### Defined in
 
-[integration/whatsapp/index.js:82](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/whatsapp/index.js#L82)
+[integration/whatsapp/index.js:82](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/whatsapp/index.js#L82)
 
 ___
 
@@ -256,4 +256,4 @@ Updates a whatsapp integration.
 
 #### Defined in
 
-[integration/whatsapp/index.js:62](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/whatsapp/index.js#L62)
+[integration/whatsapp/index.js:62](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/whatsapp/index.js#L62)

@@ -37,4 +37,4 @@ Renames and re-exports [WhatsAppIntegrationClient](../classes/integration_whatsa
 
 #### Defined in
 
-[integration/whatsapp/index.js:14](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/integration/whatsapp/index.js#L14)
+[integration/whatsapp/index.js:14](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/whatsapp/index.js#L14)

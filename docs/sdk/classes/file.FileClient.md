@@ -58,7 +58,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[file/index.js:22](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L22)
+[file/index.js:22](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L22)
 
 ## Properties
 
@@ -72,7 +72,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:187](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L187)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L187)
 
 ___
 
@@ -86,7 +86,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L189)
 
 ## Methods
 
@@ -124,7 +124,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:206](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/client.js#L206)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L206)
 
 ___
 
@@ -146,7 +146,7 @@ Creates a new file.
 
 #### Defined in
 
-[file/index.js:52](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L52)
+[file/index.js:52](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L52)
 
 ___
 
@@ -168,7 +168,7 @@ Deletes the file.
 
 #### Defined in
 
-[file/index.js:73](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L73)
+[file/index.js:73](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L73)
 
 ___
 
@@ -190,7 +190,7 @@ Download file data.
 
 #### Defined in
 
-[file/index.js:94](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L94)
+[file/index.js:94](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L94)
 
 ___
 
@@ -212,7 +212,7 @@ Fetches a file.
 
 #### Defined in
 
-[file/index.js:42](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L42)
+[file/index.js:42](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L42)
 
 ___
 
@@ -234,7 +234,7 @@ Retrieves a list of all files.
 
 #### Defined in
 
-[file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L32)
+[file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L32)
 
 ___
 
@@ -257,7 +257,7 @@ Updates a file.
 
 #### Defined in
 
-[file/index.js:63](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L63)
+[file/index.js:63](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L63)
 
 ___
 
@@ -280,4 +280,4 @@ Upload file data.
 
 #### Defined in
 
-[file/index.js:84](https://github.com/chatbotkit/node-sdk/blob/b5ebcd8/packages/sdk/src/file/index.js#L84)
+[file/index.js:84](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L84)

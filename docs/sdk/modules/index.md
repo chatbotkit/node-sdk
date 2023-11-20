@@ -11,6 +11,7 @@
 - [DatasetClient](index.md#datasetclient)
 - [FileClient](index.md#fileclient)
 - [IntegrationClient](index.md#integrationclient)
+- [MagicClient](index.md#magicclient)
 - [PartnerClient](index.md#partnerclient)
 - [SkillsetClient](index.md#skillsetclient)
 - [default](index.md#default)
@@ -48,6 +49,12 @@ ___
 ### IntegrationClient
 
 Re-exports [IntegrationClient](../classes/integration.IntegrationClient.md)
+
+___
+
+### MagicClient
+
+Re-exports [MagicClient](../classes/magic.MagicClient.md)
 
 ___
 
