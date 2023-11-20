@@ -1,5 +1,16 @@
 # @chatbotkit/sdk
 
+## 1.0.0
+
+### Major Changes
+
+- Better and more consistent API types, list filtering and more.
+
+### Patch Changes
+
+- Updated dependencies
+  - @chatbotkit/fetch@1.0.0
+
 ## 0.15.1
 
 ### Patch Changes

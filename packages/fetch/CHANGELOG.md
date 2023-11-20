@@ -1,5 +1,11 @@
 # @chatbotkit/fetch
 
+## 1.0.0
+
+### Major Changes
+
+- Better and more consistent API types, list filtering and more.
+
 ## 0.3.0
 
 ### Minor Changes
