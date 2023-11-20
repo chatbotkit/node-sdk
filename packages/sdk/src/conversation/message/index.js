@@ -22,7 +22,7 @@ export class ConversationMessageClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing messages associated with this client.
+   * Retrieves a list of all messages.
    *
    * @param {string} conversationId
    * @param {import('./v1.js').ConversationMessageListRequest} [request]

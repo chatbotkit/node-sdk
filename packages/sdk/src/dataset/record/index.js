@@ -22,7 +22,7 @@ export class DatasetRecordClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing records associated with this client.
+   * Retrieves a list of all records.
    *
    * @param {string} datasetId
    * @param {import('./v1.js').DatasetRecordListRequest} [request]

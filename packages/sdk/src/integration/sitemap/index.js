@@ -23,7 +23,7 @@ export class SitemapIntegrationClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing sitemap integrations associated with this client.
+   * Retrieves a list of all sitemap integrations.
    *
    * @param {import('./v1.js').SitemapIntegrationListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').SitemapIntegrationListResponse,import('./v1.js').SitemapIntegrationListStreamType>}

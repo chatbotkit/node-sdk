@@ -24,7 +24,7 @@ export class FileClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing files associated with this client.
+   * Retrieves a list of all files.
    *
    * @param {import('./v1.js').FileListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').FileListResponse,import('./v1.js').FileListStreamType>}

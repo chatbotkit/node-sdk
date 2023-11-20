@@ -20,7 +20,7 @@ export class PartnerUserTokenClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing user tokens associated with this client.
+   * Retrieves a list of all user tokens.
    *
    * @param {string} userId
    * @param {import('./v1.js').PartnerUserTokenListRequest} [request]

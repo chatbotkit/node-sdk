@@ -19,7 +19,7 @@ export class BotClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing bots associated with this client.
+   * Retrieves a list of all bots.
    *
    * @param {import('./v1.js').BotListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').BotListResponse,import('./v1.js').BotListStreamType>}

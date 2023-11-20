@@ -31,7 +31,7 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing conversations associated with this client.
+   * Retrieves a list of all conversations.
    *
    * @param {import('./v1.js').ConversationListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').ConversationListResponse,import('./v1.js').ConversationListStreamType>}

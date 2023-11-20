@@ -23,7 +23,7 @@ export class WhatsAppIntegrationClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing whatsapp integrations associated with this client.
+   * Retrieves a list of all whatsapp integrations.
    *
    * @param {import('./v1.js').WhatsAppIntegrationListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').WhatsAppIntegrationListResponse,import('./v1.js').WhatsAppIntegrationListStreamType>}

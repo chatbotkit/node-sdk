@@ -28,7 +28,7 @@ export class DatasetClient extends ChatBotKitClient {
   }
 
   /**
-   * Retrieves a list of all existing datasets associated with this client.
+   * Retrieves a list of all datasets.
    *
    * @param {import('./v1.js').DatasetListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').DatasetListResponse,import('./v1.js').DatasetListStreamType>}
