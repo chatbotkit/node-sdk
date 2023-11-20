@@ -119,6 +119,7 @@ export class ConversationClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {import('./v1.js').ConversationSendMessageRequest} request
+   * @returns {ResponsePromise<import('./v1.js').ConversationSendMessageResponse,import('./v1.js').ConversationSendMessageStreamType>}
    */
   send(conversationId, request) {
     return sendConversationMessage(this, conversationId, request)
@@ -129,6 +130,7 @@ export class ConversationClient extends ChatBotKitClient {
    *
    * @param {string} conversationId
    * @param {import('./v1.js').ConversationReceiveMessageRequest} request
+   * @returns {ResponsePromise<import('./v1.js').ConversationReceiveMessageResponse,import('./v1.js').ConversationReceiveMessageStreamType>}
    */
   receive(conversationId, request) {
     return receiveConversationMessage(this, conversationId, request)

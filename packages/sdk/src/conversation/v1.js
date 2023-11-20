@@ -301,12 +301,12 @@ export function sendConversationMessage(client, conversationId, request) {
  *   }
  * }} ConversationReceiveMessageStreamToken
  *
- * @typedef {ConversationReceiveMessageStreamResult|ConversationReceiveMessageStreamToken} ConversationReceiveStreamType
+ * @typedef {ConversationReceiveMessageStreamResult|ConversationReceiveMessageStreamToken} ConversationReceiveMessageStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {ConversationReceiveMessageRequest} request
- * @returns {ResponsePromise<ConversationReceiveMessageResponse,ConversationReceiveStreamType>}
+ * @returns {ResponsePromise<ConversationReceiveMessageResponse,ConversationReceiveMessageStreamType>}
  */
 export function receiveConversationMessage(client, conversationId, request) {
   const url = `/api/v1/conversation/${conversationId}/receive`
