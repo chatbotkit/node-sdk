@@ -678,6 +678,56 @@
         "default": "./dist/esm/integration/whatsapp/v1.js"
       }
     },
+    "./magic": {
+      "require": {
+        "types": "./dist/cjs/magic/index.d.ts",
+        "default": "./dist/cjs/magic/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/magic/index.d.ts",
+        "default": "./dist/esm/magic/index.js"
+      }
+    },
+    "./magic/index": {
+      "require": {
+        "types": "./dist/cjs/magic/index.d.ts",
+        "default": "./dist/cjs/magic/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/magic/index.d.ts",
+        "default": "./dist/esm/magic/index.js"
+      }
+    },
+    "./magic/index.js": {
+      "require": {
+        "types": "./dist/cjs/magic/index.d.ts",
+        "default": "./dist/cjs/magic/index.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/magic/index.d.ts",
+        "default": "./dist/esm/magic/index.js"
+      }
+    },
+    "./magic/v1": {
+      "require": {
+        "types": "./dist/cjs/magic/v1.d.ts",
+        "default": "./dist/cjs/magic/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/magic/v1.d.ts",
+        "default": "./dist/esm/magic/v1.js"
+      }
+    },
+    "./magic/v1.js": {
+      "require": {
+        "types": "./dist/cjs/magic/v1.d.ts",
+        "default": "./dist/cjs/magic/v1.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/magic/v1.d.ts",
+        "default": "./dist/esm/magic/v1.js"
+      }
+    },
     "./partner": {
       "require": {
         "types": "./dist/cjs/partner/index.d.ts",

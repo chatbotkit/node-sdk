@@ -144,6 +144,8 @@
       "src/integration/sitemap/v1.js",
       "src/integration/whatsapp/index.js",
       "src/integration/whatsapp/v1.js",
+      "src/magic/index.js",
+      "src/magic/v1.js",
       "src/partner/index.js",
       "src/partner/v1.js",
       "src/partner/user/index.js",

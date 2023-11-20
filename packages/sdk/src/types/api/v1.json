@@ -1,6 +1,6 @@
 {
   "openapi": "3.0.0",
-  "info": { "title": "ChatBotKit API", "version": "v1 (build 9071)" },
+  "info": { "title": "ChatBotKit API", "version": "v1 (build 3bf8)" },
   "servers": [{ "url": "https://api.chatbotkit.com/v1" }],
   "components": {
     "securitySchemes": { "BearerAuth": { "type": "http", "scheme": "bearer" } },
@@ -4295,6 +4295,72 @@
             }
           },
           "401": { "$ref": "#/components/responses/Unauthorized" }
+        }
+      }
+    },
+    "/magic/{magicId}/generate": {
+      "post": {
+        "operationId": "generateMagic",
+        "summary": "Generate text (description, records, abilities and more) based on input.",
+        "tags": ["Magic"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "description": "The text to use as input",
+                    "type": "string"
+                  }
+                },
+                "required": ["text"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The next message in the conversation completed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "description": "The input text",
+                      "type": "string"
+                    },
+                    "usage": { "$ref": "#/components/schemas/Usage" }
+                  },
+                  "required": ["text", "usage"]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The generated text",
+                          "type": "string",
+                          "enum": ["result"]
+                        },
+                        "data": {
+                          "$ref": "#/paths/~1magic~1{magicId}~1generate/get/responses/200/content/application~1json/schema"
+                        }
+                      },
+                      "required": ["type", "data"]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "409": { "$ref": "#/components/responses/Conflict" }
         }
       }
     },

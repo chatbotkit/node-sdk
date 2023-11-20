@@ -2,6 +2,7 @@ import { ChatBotKitClient } from './client.js'
 
 import { BotClient } from './bot/index.js'
 import { FileClient } from './file/index.js'
+import { MagicClient } from './magic/index.js'
 import { PartnerClient } from './partner/index.js'
 import { DatasetClient } from './dataset/index.js'
 import { SkillsetClient } from './skillset/index.js'
@@ -10,6 +11,7 @@ import { ConversationClient } from './conversation/index.js'
 
 export { BotClient }
 export { FileClient }
+export { MagicClient }
 export { PartnerClient }
 export { DatasetClient }
 export { SkillsetClient }
@@ -25,6 +27,7 @@ export class ChatBotKit extends ChatBotKitClient {
 
     this.bot = new BotClient(options)
     this.file = new FileClient(options)
+    this.magic = new MagicClient(options)
     this.partner = new PartnerClient(options)
     this.dataset = new DatasetClient(options)
     this.skillset = new SkillsetClient(options)
