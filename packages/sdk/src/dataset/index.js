@@ -30,11 +30,11 @@ export class DatasetClient extends ChatBotKitClient {
   /**
    * Retrieves a list of all existing datasets associated with this client.
    *
-   * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+   * @param {import('./v1.js').DatasetListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').DatasetListResponse,import('./v1.js').DatasetListStreamType>}
    */
-  list(query) {
-    return listDatasets(this, query)
+  list(request) {
+    return listDatasets(this, request)
   }
 
   /**

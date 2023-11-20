@@ -23,11 +23,11 @@ export class PartnerUserTokenClient extends ChatBotKitClient {
    * Retrieves a list of all existing user tokens associated with this client.
    *
    * @param {string} userId
-   * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+   * @param {import('./v1.js').PartnerUserTokenListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').PartnerUserTokenListResponse,import('./v1.js').PartnerUserTokenListStreamType>}
    */
-  list(userId, query) {
-    return listPartnerUserTokens(this, userId, query)
+  list(userId, request) {
+    return listPartnerUserTokens(this, userId, request)
   }
 
   /**

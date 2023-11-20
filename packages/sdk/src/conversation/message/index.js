@@ -25,11 +25,11 @@ export class ConversationMessageClient extends ChatBotKitClient {
    * Retrieves a list of all existing messages associated with this client.
    *
    * @param {string} conversationId
-   * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+   * @param {import('./v1.js').ConversationMessageListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').ConversationMessageListResponse,import('./v1.js').ConversationMessageListStreamType>}
    */
-  list(conversationId, query) {
-    return listConversationMessages(this, conversationId, query)
+  list(conversationId, request) {
+    return listConversationMessages(this, conversationId, request)
   }
 
   /**

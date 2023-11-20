@@ -22,6 +22,8 @@
  */
 
 /**
+ * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} DatasetRecordListRequest
+ *
  * @typedef {{items: DatasetRecordInstance[]}} DatasetRecordListResponse
  *
  * @typedef {{
@@ -33,16 +35,16 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
- * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+ * @param {DatasetRecordListRequest} [request]
  * @returns {ResponsePromise<DatasetRecordListResponse,DatasetRecordListStreamType>}
  */
-export function listDatasetRecords(client, datasetId, query) {
+export function listDatasetRecords(client, datasetId, request) {
   let url = `/api/v1/dataset/${datasetId}/record/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listDatasetRecords']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listDatasetRecords']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url, { query })
+  const response = client.clientFetch(url, { query: request })
 
   return response
 }

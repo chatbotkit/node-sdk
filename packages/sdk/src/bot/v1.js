@@ -25,6 +25,8 @@
  */
 
 /**
+ * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} BotListRequest
+ *
  * @typedef {{items: BotInstance[]}} BotListResponse
  *
  * @typedef {{
@@ -35,16 +37,16 @@
  * @typedef {BotListStreamItemType} BotListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+ * @param {BotListRequest} [request]
  * @returns {ResponsePromise<BotListResponse,BotListStreamType>}
  */
-export function listBots(client, query) {
+export function listBots(client, request) {
   let url = `/api/v1/bot/list`
 
   /** @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url, { query })
+  const response = client.clientFetch(url, { query: request })
 
   return response
 }

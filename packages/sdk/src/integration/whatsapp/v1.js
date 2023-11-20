@@ -41,6 +41,8 @@
  */
 
 /**
+ * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} WhatsAppIntegrationListRequest
+ *
  * @typedef {{items: WhatsAppIntegrationInstance[]}} WhatsAppIntegrationListResponse
  *
  * @typedef {{
@@ -51,16 +53,16 @@
  * @typedef {WhatsAppIntegrationListStreamItem} WhatsAppIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+ * @param {WhatsAppIntegrationListRequest} [request]
  * @returns {ResponsePromise<WhatsAppIntegrationListResponse,WhatsAppIntegrationListStreamType>}
  */
-export function listWhatsAppIntegrations(client, query) {
+export function listWhatsAppIntegrations(client, request) {
   let url = `/api/v1/integration/whatsapp/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listWhatsAppIntegrations']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listWhatsAppIntegrations']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url, { query })
+  const response = client.clientFetch(url, { query: request })
 
   return response
 }

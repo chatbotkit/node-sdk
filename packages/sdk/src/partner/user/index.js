@@ -27,11 +27,11 @@ export class PartnerUserClient extends ChatBotKitClient {
   /**
    * Retrieves a list of all existing users associated with this client.
    *
-   * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+   * @param {import('./v1.js').PartnerUserListRequest} [request]
    * @returns {ResponsePromise<import('./v1.js').PartnerUserListResponse,import('./v1.js').PartnerUserListStreamType>}
    */
-  list(query) {
-    return listPartnerUsers(this, query)
+  list(request) {
+    return listPartnerUsers(this, request)
   }
 
   /**

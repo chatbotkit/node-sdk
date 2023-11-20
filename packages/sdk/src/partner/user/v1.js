@@ -23,6 +23,8 @@
  */
 
 /**
+ * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} PartnerUserListRequest
+ *
  * @typedef {{items: PartnerUserInstance[]}} PartnerUserListResponse
  *
  * @typedef {{
@@ -33,16 +35,16 @@
  * @typedef {PartnerUserListStreamItem} PartnerUserListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+ * @param {PartnerUserListRequest} [request]
  * @returns {ResponsePromise<PartnerUserListResponse,PartnerUserListStreamType>}
  */
-export function listPartnerUsers(client, query) {
+export function listPartnerUsers(client, request) {
   let url = `/api/v1/partner/user/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url, { query })
+  const response = client.clientFetch(url, { query: request })
 
   return response
 }

@@ -30,6 +30,8 @@
  */
 
 /**
+ * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} SitemapIntegrationListRequest
+ *
  * @typedef {{items: SitemapInegrationInstance[]}} SitemapIntegrationListResponse
  *
  * @typedef {{
@@ -40,16 +42,16 @@
  * @typedef {SitemapIntegrationListStreamItem} SitemapIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+ * @param {SitemapIntegrationListRequest} [request]
  * @returns {ResponsePromise<SitemapIntegrationListResponse,SitemapIntegrationListStreamType>}
  */
-export function listSitemapIntegrations(client, query) {
+export function listSitemapIntegrations(client, request) {
   let url = `/api/v1/integration/sitemap/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listSitemapIntegrations']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listSitemapIntegrations']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url, { query })
+  const response = client.clientFetch(url, { query: request })
 
   return response
 }

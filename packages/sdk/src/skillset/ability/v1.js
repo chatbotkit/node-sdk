@@ -24,6 +24,8 @@
  */
 
 /**
+ * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} SkillsetAbilityListRequest
+ *
  * @typedef {{items: SkillsetAbilityInstance[]}} SkillsetAbilityListResponse
  *
  * @typedef {{
@@ -35,16 +37,16 @@
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
- * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+ * @param {SkillsetAbilityListRequest} [request]
  * @returns {ResponsePromise<SkillsetAbilityListResponse,SkillsetAbilityListStreamType>}
  */
-export function listSkillsetAbilities(client, skillsetId, query) {
+export function listSkillsetAbilities(client, skillsetId, request) {
   let url = `/api/v1/skillset/${skillsetId}/ability/list`
 
   /** @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url, { query })
+  const response = client.clientFetch(url, { query: request })
 
   return response
 }

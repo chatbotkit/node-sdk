@@ -44,6 +44,8 @@
  */
 
 /**
+ * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} ConversationListRequest
+ *
  * @typedef {{items: ConversationInstance[]}} ConversationListResponse
  *
  * @typedef {{
@@ -54,16 +56,16 @@
  * @typedef {ConversationListStreamItem} ConversationListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {{cursor?: string, take?: number, meta: Record<string,string>}} [query]
+ * @param {ConversationListRequest} [request]
  * @returns {ResponsePromise<ConversationListResponse,ConversationListStreamType>}
  */
-export function listConversations(client, query) {
+export function listConversations(client, request) {
   let url = `/api/v1/conversation/list`
 
   /** @typedef {import('../types/api/v1.js').operations['listConversations']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../types/api/v1.js').operations['listConversations']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
-  const response = client.clientFetch(url, { query })
+  const response = client.clientFetch(url, { query: request })
 
   return response
 }
