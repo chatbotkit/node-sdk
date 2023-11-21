@@ -10,6 +10,8 @@
 
 /**
  * @typedef {{
+ *   name?: string,
+ *   description?: string,
  *   backstory?: string,
  *   model?: string,
  *   datasetId?: string,
