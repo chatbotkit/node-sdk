@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.1.1
+
+### Patch Changes
+
+- Expose bot name and description.
+
 ## 1.1.0
 
 ### Minor Changes
