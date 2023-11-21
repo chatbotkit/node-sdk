@@ -37,4 +37,4 @@ Renames and re-exports [SitemapIntegrationClient](../classes/integration_sitemap
 
 #### Defined in
 
-[integration/sitemap/index.js:14](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/integration/sitemap/index.js#L14)
+[integration/sitemap/index.js:14](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/integration/sitemap/index.js#L14)

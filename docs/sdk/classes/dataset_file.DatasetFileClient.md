@@ -50,7 +50,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[dataset/file/index.js:8](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/dataset/file/index.js#L8)
+[dataset/file/index.js:8](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/dataset/file/index.js#L8)
 
 ## Properties
 
@@ -64,7 +64,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:187](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L187)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/client.js#L187)
 
 ___
 
@@ -78,7 +78,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/client.js#L189)
 
 ## Methods
 
@@ -102,7 +102,7 @@ Attaches a file.
 
 #### Defined in
 
-[dataset/file/index.js:20](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/dataset/file/index.js#L20)
+[dataset/file/index.js:20](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/dataset/file/index.js#L20)
 
 ___
 
@@ -140,7 +140,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:206](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L206)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/client.js#L206)
 
 ___
 
@@ -164,7 +164,7 @@ Detach a file.
 
 #### Defined in
 
-[dataset/file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/dataset/file/index.js#L32)
+[dataset/file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/dataset/file/index.js#L32)
 
 ___
 
@@ -188,4 +188,4 @@ Sync a file.
 
 #### Defined in
 
-[dataset/file/index.js:44](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/dataset/file/index.js#L44)
+[dataset/file/index.js:44](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/dataset/file/index.js#L44)

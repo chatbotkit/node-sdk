@@ -52,7 +52,7 @@ ChatBotKitClient.constructor
 
 #### Defined in
 
-[magic/index.js:14](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/magic/index.js#L14)
+[magic/index.js:14](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/magic/index.js#L14)
 
 ## Properties
 
@@ -66,7 +66,7 @@ ChatBotKitClient.secret
 
 #### Defined in
 
-[client.js:187](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L187)
+[client.js:187](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/client.js#L187)
 
 ___
 
@@ -80,7 +80,7 @@ ChatBotKitClient.url
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/client.js#L189)
 
 ## Methods
 
@@ -118,7 +118,7 @@ ChatBotKitClient.clientFetch
 
 #### Defined in
 
-[client.js:206](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/client.js#L206)
+[client.js:206](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/client.js#L206)
 
 ___
 
@@ -141,4 +141,4 @@ Generates magic.
 
 #### Defined in
 
-[magic/index.js:25](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/magic/index.js#L25)
+[magic/index.js:25](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/magic/index.js#L25)

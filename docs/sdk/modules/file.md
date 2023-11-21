@@ -37,4 +37,4 @@ Renames and re-exports [FileClient](../classes/file.FileClient.md)
 
 #### Defined in
 
-[file/index.js:15](https://github.com/chatbotkit/node-sdk/blob/ae269f9/packages/sdk/src/file/index.js#L15)
+[file/index.js:15](https://github.com/chatbotkit/node-sdk/blob/d5a6097/packages/sdk/src/file/index.js#L15)
