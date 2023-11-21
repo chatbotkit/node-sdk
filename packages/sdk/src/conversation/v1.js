@@ -10,6 +10,7 @@
 
 /**
  * @typedef {{
+ *   botId?: string,
  *   backstory?: string,
  *   model?: string,
  *   datasetId?: string,
