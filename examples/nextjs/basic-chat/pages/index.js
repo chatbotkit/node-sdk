@@ -1,5 +1,16 @@
 import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
+// This is a basic example of how to use the ChatbotKit React components in a
+// Next.js application. We use the useConversationManager hook to manage the
+// conversation state and the AutoTextarea component to render the user input
+// field.
+//
+// The useConversationManager hook is a React hook that manages the conversation
+// state. It is a wrapper around the ChatBotKit SDK client.
+//
+// The AutoTextarea component is a simple textarea that automatically
+// resizes itself based on the content.
+
 export default function Home() {
   const {
     conversationId,
@@ -18,6 +29,9 @@ export default function Home() {
     interact,
   } = useConversationManager({ stream: true })
 
+  /**
+   * Create a new ChatBotKit conversation session
+   */
   async function createSession() {
     const response = await fetch(`/api/session/create`)
 
@@ -31,6 +45,9 @@ export default function Home() {
     setToken(token)
   }
 
+  /**
+   * Handle the user input field key down event.
+   */
   function handleOnKeyDown(event) {
     // Detect the enter key.
 
