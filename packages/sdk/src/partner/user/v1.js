@@ -15,11 +15,11 @@
  *   meta?: Record<string,any>
  * }} PartnerUserOptions
  *
- * @typedef {{
+ * @typedef {PartnerUserOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & PartnerUserOptions} PartnerUserInstance
+ * }} PartnerUserInstance
  */
 
 /**
@@ -50,7 +50,8 @@ export function listPartnerUsers(client, request) {
 }
 
 /**
- * @typedef {PartnerUserInstance} PartnerUserFetchResponse
+ * @typedef {PartnerUserInstance & {
+ * }} PartnerUserFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
@@ -66,7 +67,8 @@ export async function fetchPartnerUser(client, userId) {
 }
 
 /**
- * @typedef {PartnerUserOptions} PartnerUserCreateRequest
+ * @typedef {PartnerUserOptions & {
+ * }} PartnerUserCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -89,7 +91,8 @@ export async function createPartnerUser(client, request) {
 }
 
 /**
- * @typedef {PartnerUserOptions} PartnerUserUpdateRequest
+ * @typedef {PartnerUserOptions & {
+ * }} PartnerUserUpdateRequest
  *
  * @typedef {{
  *   id: string

@@ -18,11 +18,11 @@
  *   meta?: Record<string,any>
  * }} ConversationOptions
  *
- * @typedef {{
+ * @typedef {ConversationOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & ConversationOptions} ConversationInstance
+ * }} ConversationInstance
  *
  * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'} MessageType
  *
@@ -72,7 +72,8 @@ export function listConversations(client, request) {
 }
 
 /**
- * @typedef {ConversationInstance} ConversationFetchResponse
+ * @typedef {ConversationInstance & {
+ * }} ConversationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -88,7 +89,8 @@ export async function fetchConversation(client, conversationId) {
 }
 
 /**
- * @typedef {ConversationOptions} ConversationCreateRequest
+ * @typedef {ConversationOptions & {
+ * }} ConversationCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -111,7 +113,7 @@ export async function createConversation(client, request) {
 }
 
 /**
- * @typedef {ConversationOptions} ConversationUpdateRequest
+ * @typedef {ConversationOptions & {}} ConversationUpdateRequest
  *
  * @typedef {{
  *   id: string

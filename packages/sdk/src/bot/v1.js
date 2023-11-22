@@ -19,11 +19,11 @@
  *   meta?: Record<string,any>
  * }} BotOptions
  *
- * @typedef {{
+ * @typedef {BotOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & BotOptions} BotInstance
+ * }} BotInstance
  */
 
 /**
@@ -54,7 +54,8 @@ export function listBots(client, request) {
 }
 
 /**
- * @typedef {BotInstance} BotFetchResponse
+ * @typedef {BotInstance & {
+ * }} BotFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -70,7 +71,8 @@ export async function fetchBot(client, botId) {
 }
 
 /**
- * @typedef {BotOptions} BotCreateRequest
+ * @typedef {BotOptions & {
+ * }} BotCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -93,7 +95,8 @@ export async function createBot(client, request) {
 }
 
 /**
- * @typedef {BotOptions} BotUpdateRequest
+ * @typedef {BotOptions & {
+ * }} BotUpdateRequest
  *
  * @typedef {{
  *   id: string

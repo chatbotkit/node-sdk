@@ -12,11 +12,11 @@
  * @typedef {{
  * }} PartnerUserTokenOptions
  *
- * @typedef {{
+ * @typedef {PartnerUserTokenOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & PartnerUserTokenOptions} PartnerUserTokenInstance
+ * }} PartnerUserTokenInstance
  */
 
 /**
@@ -48,7 +48,8 @@ export function listPartnerUserTokens(client, userId, request) {
 }
 
 /**
- * @typedef {PartnerUserTokenOptions} PartnerUserTokenCreateRequest
+ * @typedef {PartnerUserTokenOptions & {
+ * }} PartnerUserTokenCreateRequest
  *
  * @typedef {{
  *   id: string,

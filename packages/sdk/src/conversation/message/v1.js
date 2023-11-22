@@ -17,11 +17,11 @@
  *   meta?: Record<string,any>
  * }} ConversationMessageOptions
  *
- * @typedef {{
+ * @typedef {ConversationMessageOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & ConversationMessageOptions} ConversationMessageInstance
+ * }} ConversationMessageInstance
  */
 
 /**
@@ -53,7 +53,8 @@ export function listConversationMessages(client, conversationId, request) {
 }
 
 /**
- * @typedef {ConversationMessageInstance} ConversationMessageFetchResponse
+ * @typedef {ConversationMessageInstance & {
+ * }} ConversationMessageFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -74,7 +75,8 @@ export async function fetchConversationMessage(
 }
 
 /**
- * @typedef {ConversationMessageOptions} ConversationMessageCreateRequest
+ * @typedef {ConversationMessageOptions & {
+ * }} ConversationMessageCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -102,7 +104,8 @@ export async function createConversationMessage(
 }
 
 /**
- * @typedef {ConversationMessageOptions} ConversationMessageUpdateRequest
+ * @typedef {ConversationMessageOptions & {
+ * }} ConversationMessageUpdateRequest
  *
  * @typedef {{
  *   id: string

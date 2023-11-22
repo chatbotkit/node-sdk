@@ -33,11 +33,11 @@
  *   meta?: Record<string,any>
  * }} WhatsAppIntegrationOptions
  *
- * @typedef {{
+ * @typedef {WhatsAppIntegrationOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & WhatsAppIntegrationOptions} WhatsAppIntegrationInstance
+ * }} WhatsAppIntegrationInstance
  */
 
 /**
@@ -68,7 +68,8 @@ export function listWhatsAppIntegrations(client, request) {
 }
 
 /**
- * @typedef {WhatsAppIntegrationInstance} WhatsAppIntegrationFetchResponse
+ * @typedef {WhatsAppIntegrationInstance & {
+ * }} WhatsAppIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId

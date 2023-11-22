@@ -14,11 +14,11 @@
  *   meta?: Record<string,any>
  * }} DatasetRecordOptions
  *
- * @typedef {{
+ * @typedef {DatasetRecordOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & DatasetRecordOptions} DatasetRecordInstance
+ * }} DatasetRecordInstance
  */
 
 /**
@@ -50,7 +50,8 @@ export function listDatasetRecords(client, datasetId, request) {
 }
 
 /**
- * @typedef {DatasetRecordInstance} DatasetRecordFetchResponse
+ * @typedef {DatasetRecordInstance & {
+ * }} DatasetRecordFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -67,7 +68,8 @@ export async function fetchDatasetRecord(client, datasetId, recordId) {
 }
 
 /**
- * @typedef {DatasetRecordOptions} DatasetRecordCreateRequest
+ * @typedef {DatasetRecordOptions & {
+ * }} DatasetRecordCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -91,7 +93,8 @@ export async function createDatasetRecord(client, datasetId, request) {
 }
 
 /**
- * @typedef {DatasetRecordOptions} DatasetRecordUpdateRequest
+ * @typedef {DatasetRecordOptions & {
+ * }} DatasetRecordUpdateRequest
  *
  * @typedef {{
  *   id: string

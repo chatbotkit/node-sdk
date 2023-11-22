@@ -22,11 +22,11 @@
  *   meta?: Record<string,any>
  * }} SitemapIntegrationOptions
  *
- * @typedef {{
+ * @typedef {SitemapIntegrationOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & SitemapIntegrationOptions} SitemapInegrationInstance
+ * }} SitemapInegrationInstance
  */
 
 /**
@@ -57,7 +57,8 @@ export function listSitemapIntegrations(client, request) {
 }
 
 /**
- * @typedef {SitemapInegrationInstance} SitemapIntegrationFetchResponse
+ * @typedef {SitemapInegrationInstance & {
+ * }} SitemapIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId

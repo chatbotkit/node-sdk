@@ -8,12 +8,13 @@
  *   conversations: number,
  * }} UsageOptions
  *
- * @typedef {{
- * } & UsageOptions} UsageInstance
+ * @typedef {UsageOptions & {
+ * }} UsageInstance
  */
 
 /**
- * @typedef {UsageInstance} UsageFetchResponse
+ * @typedef {UsageInstance & {
+ * }} UsageFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @returns {Promise<UsageFetchResponse>}

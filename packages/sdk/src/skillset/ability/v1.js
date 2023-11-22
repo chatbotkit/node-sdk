@@ -16,11 +16,11 @@
  *   meta?: Record<string,any>
  * }} SkillsetAbilityOptions
  *
- * @typedef {{
+ * @typedef {SkillsetAbilityOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & SkillsetAbilityOptions} SkillsetAbilityInstance
+ * }} SkillsetAbilityInstance
  */
 
 /**
@@ -52,7 +52,8 @@ export function listSkillsetAbilities(client, skillsetId, request) {
 }
 
 /**
- * @typedef {SkillsetAbilityInstance} SkillsetAbilityFetchResponse
+ * @typedef {SkillsetAbilityInstance & {
+ * }} SkillsetAbilityFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -69,7 +70,8 @@ export async function fetchSkillsetAbility(client, skillsetId, abilityId) {
 }
 
 /**
- * @typedef {SkillsetAbilityOptions} SkillsetAbilityCreateRequest
+ * @typedef {SkillsetAbilityOptions & {
+ * }} SkillsetAbilityCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -93,7 +95,8 @@ export async function createSkillsetAbility(client, skillsetId, request) {
 }
 
 /**
- * @typedef {SkillsetAbilityOptions} SkillsetAbilityUpdateRequest
+ * @typedef {SkillsetAbilityOptions & {
+ * }} SkillsetAbilityUpdateRequest
  *
  * @typedef {{
  *   id: string

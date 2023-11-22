@@ -15,11 +15,11 @@
  *   meta?: Record<string,any>
  * }} FileOptions
  *
- * @typedef {{
+ * @typedef {FileOptions & {
  *   id: string,
  *   createdAt: number,
  *   updatedAt: number
- * } & FileOptions} FileInstance
+ * }} FileInstance
  */
 
 /**
@@ -49,7 +49,8 @@ export function listFiles(client, request) {
 }
 
 /**
- * @typedef {FileInstance} FileFetchResponse
+ * @typedef {FileInstance & {
+ * }} FileFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
@@ -65,7 +66,7 @@ export async function fetchFile(client, fileId) {
 }
 
 /**
- * @typedef {FileOptions} FileCreateRequest
+ * @typedef {FileOptions & {}} FileCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -88,7 +89,7 @@ export async function createFile(client, request) {
 }
 
 /**
- * @typedef {FileOptions} FileUpdateRequest
+ * @typedef {FileOptions & {}} FileUpdateRequest
  *
  * @typedef {{
  *   id: string
