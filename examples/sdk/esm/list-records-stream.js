@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv'
 
 dotenv.config()
 
-import { RecordClient } from '@chatbotkit/sdk/dataset/record/index.js'
+import { DatasetRecordClient } from '@chatbotkit/sdk/dataset/record/index.js'
 
 async function main() {
   if (!process.env.CHATBOTKIT_API_SECRET) {
@@ -19,7 +19,7 @@ async function main() {
     process.exit(1)
   }
 
-  const client = new RecordClient({
+  const client = new DatasetRecordClient({
     secret: process.env.CHATBOTKIT_API_SECRET,
   })
 

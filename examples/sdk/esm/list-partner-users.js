@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv'
 
 dotenv.config()
 
-import { UserClient } from '@chatbotkit/sdk/partner/user/index.js'
+import { PartnerUserClient } from '@chatbotkit/sdk/partner/user/index.js'
 
 async function main() {
   if (!process.env.CHATBOTKIT_API_SECRET) {
@@ -13,7 +13,7 @@ async function main() {
     process.exit(1)
   }
 
-  const client = new UserClient({
+  const client = new PartnerUserClient({
     secret: process.env.CHATBOTKIT_API_SECRET,
   })
 

@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv'
 
 dotenv.config()
 
-import { AbilityClient } from '@chatbotkit/sdk/skillset/ability/index.js'
+import { SkillsetAbilityClient } from '@chatbotkit/sdk/skillset/ability/index.js'
 
 async function main() {
   if (!process.env.CHATBOTKIT_API_SECRET) {
@@ -19,7 +19,7 @@ async function main() {
     process.exit(1)
   }
 
-  const client = new AbilityClient({
+  const client = new SkillsetAbilityClient({
     secret: process.env.CHATBOTKIT_API_SECRET,
   })
 
