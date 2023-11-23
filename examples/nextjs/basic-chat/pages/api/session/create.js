@@ -15,7 +15,10 @@ const cbk = new ChatBotKit({
 export default async function handler(req, res) {
   // Step 1: create a conversation
 
-  const { id: conversationId } = await cbk.conversation.create({})
+  const { id: conversationId } = await cbk.conversation.create({
+    // You can pass any botId or a combination between backstory, model,
+    // datasetId and skillsetId parameters here
+  })
 
   // Step 2: create an authentication token for this conversation
 
