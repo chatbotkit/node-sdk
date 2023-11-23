@@ -10,7 +10,8 @@ const cbk = new ChatBotKit({
 // This method creates a conversation and a session token. We can use the
 // session token to initialise the React SDK. This way we do not need to build
 // our own backend but we can leverage ChatBotKit API directly and with that all
-// other goodies such globally distributed endpoints on the edge and streaming.
+// other goodies such globally distributed endpoints on the edge, streaming and
+// continuations.
 
 export default async function handler(req, res) {
   // Step 1: create a conversation

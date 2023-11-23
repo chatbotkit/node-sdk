@@ -6,7 +6,7 @@ import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 // field.
 //
 // The useConversationManager hook is a React hook that manages the conversation
-// state. It is a wrapper around the ChatBotKit SDK client.
+// state including the messages and the input text.
 //
 // The AutoTextarea component is a simple textarea that automatically
 // resizes itself based on the content.
@@ -72,13 +72,25 @@ export default function Home() {
             {messages.map(({ id, type, text }) => {
               switch (type) {
                 case 'user':
-                  return <div key={id}>user: {text}</div>
+                  return (
+                    <div key={id}>
+                      <strong>user:</strong> {text}
+                    </div>
+                  )
 
                 case 'bot':
-                  return <div key={id}>bot: {text}</div>
+                  return (
+                    <div key={id}>
+                      <strong>bot</strong>: {text}
+                    </div>
+                  )
               }
             })}
-            {thinking ? <div key="thinking">bot: thinking...</div> : null}
+            {thinking ? (
+              <div key="thinking">
+                <strong>bot</strong>: thinking...
+              </div>
+            ) : null}
           </div>
           <AutoTextarea
             value={text}
