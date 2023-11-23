@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
 import React, { useRef, useEffect } from 'react'
 
 export function AutoScrollAnchor() {
@@ -33,16 +31,23 @@ export default function AutoScroller({
 
   ...props
 }) {
-  const rootRef = useRef()
+  const rootRef = /** @type {React.MutableRefObject<HTMLDivElement>} */ (
+    useRef()
+  )
 
   useEffect(() => {
     if (disabled) {
       return
     }
 
+    /** @type {boolean} */
     let visible = false
+
+    /** @type {boolean} */
     let pause = false
-    let timeout = 0
+
+    /** @type {NodeJS.Timeout} */
+    let timeout
 
     const io = new IntersectionObserver((entries) => {
       if (pause) {
@@ -52,8 +57,11 @@ export default function AutoScroller({
       visible = entries.some((entry) => entry.isIntersecting)
     })
 
-    // @ts-ignore
-    io.observe(rootRef.current?.querySelector('.auto-scroll-anchor'))
+    const anchor = rootRef.current?.querySelector('.auto-scroll-anchor')
+
+    if (anchor) {
+      io.observe(anchor)
+    }
 
     const mo = new MutationObserver(() => {
       if (!visible) {
@@ -63,21 +71,22 @@ export default function AutoScroller({
       pause = true
 
       rootRef.current
-        // @ts-ignore
         ?.querySelector('.auto-scroll-anchor')
         ?.scrollIntoView({ behavior: 'smooth', block })
 
       clearTimeout(timeout)
 
-      // @ts-ignore
       timeout = setTimeout(() => {
         visible = true
         pause = false
       }, delay)
     })
 
-    // @ts-ignore
-    mo.observe(rootRef.current, { childList, subtree })
+    const root = rootRef.current
+
+    if (root) {
+      mo.observe(root, { childList, subtree })
+    }
 
     return () => {
       io.disconnect()
@@ -86,7 +95,6 @@ export default function AutoScroller({
   }, [disabled])
 
   return (
-    // @ts-ignore
     <div ref={rootRef} {...props}>
       {anchor === 'top' ? <AutoScrollAnchor key="top" /> : null}
       {children}
