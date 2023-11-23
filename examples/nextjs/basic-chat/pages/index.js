@@ -65,7 +65,7 @@ export default function Home() {
   // them accordingly. We also use our own AutoTextarea for the user input.
 
   return (
-    <div>
+    <div style={{ fontFamily: 'monospace', padding: '10px' }}>
       {conversationId && token ? (
         <>
           <div>
@@ -84,6 +84,14 @@ export default function Home() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             onKeyDown={handleOnKeyDown}
+            placeholder="Type something..."
+            style={{
+              border: 0,
+              outline: 'none',
+              resize: 'none',
+              width: '100%',
+              marginTop: '10px',
+            }}
           />
         </>
       ) : (
