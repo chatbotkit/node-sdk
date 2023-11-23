@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
 import React from 'react'
 
 /**
@@ -10,7 +8,6 @@ import React from 'react'
  *   [name: string]: any
  * }} [props]
  */
-// @ts-ignore
 export default function AutoTextarea({ onInput, ...props } = {}) {
   /**
    * @param {React.ChangeEvent<HTMLTextAreaElement>} event
