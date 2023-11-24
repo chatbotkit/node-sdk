@@ -108,7 +108,6 @@
     "postpublish": "npm run export",
     "test": "true"
   },
-  "types": "./dist/esm/index.d.ts",
   "dependencies": {
     "@chatbotkit/sdk": "*"
   },

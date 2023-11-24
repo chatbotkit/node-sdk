@@ -55,7 +55,6 @@
     "postpublish": "npm run export",
     "test": "true"
   },
-  "types": "./dist/esm/index.d.ts",
   "dependencies": {
     "node-fetch-native": "^1.2.0"
   },
