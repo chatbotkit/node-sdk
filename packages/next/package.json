@@ -23,6 +23,16 @@
   "type": "module",
   "main": "./src/index.js",
   "exports": {
+    "./edge": {
+      "import": {
+        "default": "./src/edge.js"
+      }
+    },
+    "./edge.js": {
+      "import": {
+        "default": "./src/edge.js"
+      }
+    },
     ".": {
       "import": {
         "default": "./src/index.js"
@@ -36,16 +46,6 @@
     "./index.js": {
       "import": {
         "default": "./src/index.js"
-      }
-    },
-    "./stream": {
-      "import": {
-        "default": "./src/stream.js"
-      }
-    },
-    "./stream.js": {
-      "import": {
-        "default": "./src/stream.js"
       }
     }
   },

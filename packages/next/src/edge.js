@@ -21,8 +21,12 @@ export function stream(source) {
           throw new Error('Invald source')
         }
 
-        for await (const event of it) {
-          controller.enqueue(encoder.encode(`${JSON.stringify(event)}\n`))
+        try {
+          for await (const event of it) {
+            controller.enqueue(encoder.encode(`${JSON.stringify(event)}\n`))
+          }
+        } catch (e) {
+          controller.error(e)
         }
 
         controller.close()
