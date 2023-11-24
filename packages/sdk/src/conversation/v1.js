@@ -159,6 +159,7 @@ export async function deleteConversation(client, conversationId) {
 
 /**
  * @typedef {{
+ *   backstory?: string,
  *   model?: string,
  *   messages?: Message[],
  *   datasetId?: string,
