@@ -56,16 +56,6 @@
         "default": "./src/hooks/useConversationManager.js"
       }
     },
-    "./hooks/useConversationManager2": {
-      "import": {
-        "default": "./src/hooks/useConversationManager2.js"
-      }
-    },
-    "./hooks/useConversationManager2.js": {
-      "import": {
-        "default": "./src/hooks/useConversationManager2.js"
-      }
-    },
     ".": {
       "import": {
         "default": "./src/index.js"
@@ -81,14 +71,14 @@
         "default": "./src/index.js"
       }
     },
-    "./utils/class": {
+    "./utils/object": {
       "import": {
-        "default": "./src/utils/class.js"
+        "default": "./src/utils/object.js"
       }
     },
-    "./utils/class.js": {
+    "./utils/object.js": {
       "import": {
-        "default": "./src/utils/class.js"
+        "default": "./src/utils/object.js"
       }
     },
     "./utils/string": {

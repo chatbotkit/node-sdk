@@ -8,7 +8,7 @@ import React from 'react'
  *   [name: string]: any
  * }} [props]
  */
-export default function AutoTextarea({ onInput, ...props } = {}) {
+export function AutoTextarea({ onInput, ...props } = {}) {
   /**
    * @param {React.ChangeEvent<HTMLTextAreaElement>} event
    */
@@ -29,3 +29,5 @@ export default function AutoTextarea({ onInput, ...props } = {}) {
 
   return <textarea {...props} rows={1} onInput={handleOnInput} />
 }
+
+export default AutoTextarea

@@ -14,7 +14,7 @@ export function AutoScrollAnchor() {
  *   [name: string]: any
  * }} props
  */
-export default function AutoScroller({
+export function AutoScroller({
   anchor = 'bottom',
 
   childList = true,
@@ -102,3 +102,5 @@ export default function AutoScroller({
     </div>
   )
 }
+
+export default AutoScroller

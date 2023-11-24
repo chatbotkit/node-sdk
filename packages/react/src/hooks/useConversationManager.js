@@ -1,422 +1,210 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* globals globalThis */
 
-import { useState, useEffect } from 'react'
-import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+import { useMemo, useState } from 'react'
+import { ConversationClient } from '@chatbotkit/sdk'
 
-import { getRandomId, replaceWithCoordinates } from '../utils/string.js'
+import { cloneAndExtend } from '../utils/object.js'
 
 /**
- * @typedef {{
- *   id: string,
- *   type: string,
- *   text: string,
- *   createdAt: number,
- *   meta?: Record<string,any>
- * }} Message
- *
- * @typedef {(error: any) => any} onErrorFn
- * @typedef {(conversationId: string, messages: Message[], data: Record<string,any>) => any} onSendFn
- * @typedef {(conversationId: string, messages: Message[], data: Record<string,any>) => any} onReceiveFn
- *
- * @param {{
- *   conversationId?: string,
- *   token?: string,
- *   messages?: Message[],
- *   stream?: boolean,
- *   verbose?: boolean,
- *   onError?: onErrorFn?,
- *   onSend?: onSendFn?,
- *   onReceive?: onReceiveFn?,
- * }}[options]
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  */
-// @ts-ignore
-export default function useConversationManager({
-  conversationId: _conversationId = '',
 
-  token: _token = '',
+/**
+ * @param {{
+ *   client?: ConversationClient,
+ *   endpoint?: string,
+ *   token?: string,
+ *   conversationId?: string,
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   [key: string]: any
+ * }} options
+ */
+export function useConversationManager(options) {
+  const {
+    client: _client,
 
-  messages: _messages = [],
+    endpoint,
 
-  stream = false,
+    token: _token,
 
-  verbose = false,
+    conversationId: _conversationId,
 
-  onError = null,
-  onSend = null,
-  onReceive = null,
-} = {}) {
-  // general states
+    backstory: _backstory,
 
-  const [conversationId, setConversationId] = useState(_conversationId)
+    model: _model,
+
+    datasetId: _datasetId,
+    skillsetId: _skillsetId,
+
+    ...rest
+  } = options
 
   const [token, setToken] = useState(_token)
 
-  const [messages, setMessages] = useState(_messages)
+  const [conversationId, setConversationId] = useState(_conversationId)
 
-  const [text, setText] = useState('')
+  const [backstory, setBackstory] = useState(_backstory)
 
-  const [entities, setEntities] = useState({})
+  const [model, setModel] = useState(_model)
 
-  const [outgoingMessage, setOutgoingMessage] = useState('')
+  const [datasetId, setDatasetId] = useState(_datasetId)
 
-  // loading & thinking state
+  const [skillsetId, setSkillsetId] = useState(_skillsetId)
 
-  const [loading, setLoading] = useState(false)
+  const client = useMemo(() => {
+    const options = { ...rest, secret: token || '' }
+
+    let thisClient = _client || new ConversationClient(options)
+
+    const extension = {}
+
+    if (endpoint) {
+      extension.url = new URL(
+        globalThis.window?.location?.origin || 'about:blank'
+      )
+
+      extension.endpoints = {
+        '/api/v1/conversation/complete': endpoint,
+      }
+    }
+
+    if (token) {
+      extension.secret = token
+    }
+
+    if (Object.keys(extension).length === 0) {
+      return thisClient
+    }
+
+    return cloneAndExtend(thisClient, extension)
+  }, [_client, endpoint, token])
+
+  const [text, setText] = useState(/** @type {string} */ (''))
+
+  const [messages, setMessages] = useState(/** @type { Message[]} */ ([]))
 
   const [thinking, setThinking] = useState(false)
+  const [writing, setWriting] = useState(false)
 
-  useEffect(() => {
-    // NOTE: if we are loading we must be thinking
+  const [error, setError] = useState(/** @type {any} */ (null))
 
-    if (loading) {
-      setThinking(true)
-    }
-  }, [loading])
-
-  // entity methods
-
-  /**
-   * @param {string} text
-   * @param {Record<string,string>} en
-   */
-  function redactEnitities(text, en = entities) {
-    const steps = replaceWithCoordinates(text, Object.entries(en))
-
-    const output = steps.pop()
-
-    steps.forEach((step) => {
-      // @ts-ignore
-      delete step.input
-      // @ts-ignore
-      delete step.output
-    })
-
-    return [output, ...steps]
-  }
-
-  /**
-   * @param {string} text
-   * @param {Record<string,string>} en
-   */
-  function unredactEnitities(text, en = entities) {
-    Object.entries(en).forEach(([real, redacted]) => {
-      text = text.split(redacted).join(real)
-    })
-
-    return text
-  }
-
-  // state utility methods
-
-  /**
-   * @returns {Promise<void>}
-   */
-  async function flushUserMessage() {
+  async function submit() {
     if (!text) {
       return
     }
 
     setText('')
 
-    setOutgoingMessage(text)
-
-    let newMessages = messages.slice(0)
-
-    newMessages = newMessages.concat({
-      id: getRandomId('message-'),
+    /** @type {Message} */
+    const userMessage = {
       type: 'user',
-      text,
-      createdAt: Date.now(),
-    })
-
-    setMessages(newMessages)
-  }
-
-  // utility states
-
-  const [nextStep, setNextStep] = useState(null)
-
-  useEffect(() => {
-    if (!nextStep) {
-      return
+      text: text,
     }
 
-    setNextStep(null)
-
-    // @ts-ignore
-    switch (nextStep.fn) {
-      case 'continueConversation':
-        // @ts-ignore
-        continueConversation(nextStep.options)
-
-        break
-
-      default:
-        // @ts-ignore
-        throw new Error(`Unrecognised fn: ${nextStep.fn}`)
-    }
-  }, [nextStep])
-
-  // base methods
-
-  /**
-   * @param {{
-   *   token?: string,
-   * }} [options]
-   * @returns {Promise<void>}
-   */
-  async function continueConversation(options) {
+    /** @type {Message[]} */
     let newMessages = messages.slice(0)
 
-    let thisText
+    newMessages = [...newMessages, userMessage]
 
-    if (text) {
-      thisText = text
+    setMessages([...newMessages])
 
-      const message = {
-        id: getRandomId('message-'),
+    setThinking(true)
 
-        text: text,
-        type: 'user',
-
-        createdAt: Date.now(),
-      }
-
-      newMessages = newMessages.concat([message])
-
-      setText('')
-    } else if (outgoingMessage) {
-      thisText = outgoingMessage
-
-      setOutgoingMessage('')
-    } else {
-      return
-    }
-
-    setMessages(newMessages)
-
-    setLoading(true)
-
-    const [redactedText, ...redactedEntities] = redactEnitities(
-      thisText,
-      entities
-    )
-
-    const secret = options?.token || token
-
-    const client = new ConversationClient({ secret })
-
-    // @ts-ignore
-    const completion = client.complete(conversationId, {
-      text: redactedText,
-      entities: redactedEntities,
-    })
-
-    let iter
-
-    if (stream) {
-      iter = completion.stream()
-    } else {
-      iter = (async function* () {
-        yield { type: 'receiveResult', data: await completion }
-      })()
-    }
+    let it
 
     try {
-      if (onSend) {
-        await onSend(conversationId, newMessages, {})
+      if (conversationId) {
+        it = client.complete(conversationId, { text })
+      } else {
+        it = client.complete(null, {
+          backstory: backstory,
+          model: model,
+          datasetId: datasetId,
+          skillsetId: skillsetId,
+          messages: newMessages.slice(-100),
+        })
       }
+    } catch (e) {
+      setThinking(false)
 
-      const tempId = getRandomId('tmp-')
+      setError(e)
 
-      let tempText = ''
+      return
+    }
 
-      for await (let { type, data } of iter) {
-        switch (type) {
-          case 'intentDetectionEnd': {
-            if (!verbose) {
-              break
-            }
+    /** @type {Message} */
+    const botMessage = {
+      type: 'bot',
+      text: '',
+    }
 
-            const { action } = data
+    let alreadyStreaming = false
 
-            if (!action) {
-              break
-            }
+    try {
+      for await (const event of it.stream()) {
+        if (event.type === 'token') {
+          if (!alreadyStreaming) {
+            alreadyStreaming = true
 
-            const { name, input } = action
+            newMessages = [...newMessages, botMessage]
 
-            switch (name) {
-              case 'search': {
-                const id = getRandomId('tmp-')
-
-                newMessages = newMessages.concat([
-                  {
-                    id: id,
-
-                    text: '',
-                    type: 'context',
-
-                    createdAt: Date.now(),
-
-                    meta: {
-                      search: input,
-                    },
-                  },
-                ])
-
-                setMessages(newMessages)
-
-                break
-              }
-            }
-
-            break
-          }
-
-          case 'token': {
-            if (!stream) {
-              break
-            }
-
-            const { token } = data
-
-            tempText += token
-
-            setMessages([
-              ...newMessages,
-              {
-                id: tempId,
-
-                text: tempText,
-                type: 'bot',
-
-                createdAt: Date.now(),
-
-                meta: {},
-              },
-            ])
-
-            if (tempText.length) {
-              setThinking(false)
-            }
-
-            break
-          }
-
-          case 'sendResult': {
-            const { entities: newEntities } = data
-
-            setEntities({ ...entities, ...newEntities })
-
-            break
-          }
-
-          case 'receiveResult': {
-            const { id, text, parse } = data
-
-            setMessages([
-              ...newMessages,
-              {
-                id: id,
-
-                text: unredactEnitities(
-                  (parse ? parse.stripped : text).trim(),
-                  entities
-                ),
-
-                type: 'bot',
-
-                createdAt: Date.now(),
-              },
-            ])
+            setMessages(newMessages)
 
             setThinking(false)
-
-            if (onReceive) {
-              await onReceive(conversationId, newMessages, data)
-            }
-
-            break
+            setWriting(true)
           }
+
+          botMessage.text += event.data.token
+
+          setMessages([...newMessages])
         }
       }
     } catch (e) {
-      if (onError) {
-        onError(e)
-      }
-    }
-
-    setLoading(false)
-  }
-
-  // helper methods
-
-  /**
-   * @param {{
-   *   token?: string,
-   *   conversationId?: string
-   *   messages?: Message[]
-   * }} [options]
-   * @returns {void}
-   */
-  function interact(options) {
-    if (options?.token) {
-      setToken(options.token)
-    }
-
-    if (options?.conversationId) {
-      setConversationId(options.conversationId)
-    }
-
-    if (options?.messages) {
-      setMessages(options.messages)
-    }
-
-    if (options?.conversationId || conversationId) {
-      setNextStep({
-        // @ts-ignore
-        fn: 'continueConversation',
-        options,
-      })
-    } else {
-      throw new Error(`No conversation id specified`)
+      setError(e)
+    } finally {
+      setWriting(false)
     }
   }
-
-  /**
-   * @returns {void}
-   */
-  function reset() {
-    setMessages([])
-
-    setConversationId('')
-  }
-
-  // final
 
   return {
-    text,
-    setText,
-
     token,
     setToken,
 
     conversationId,
     setConversationId,
 
+    backstory,
+    setBackstory,
+
+    model,
+    setModel,
+
+    datasetId,
+    setDatasetId,
+
+    skillsetId,
+    setSkillsetId,
+
+    text,
+    setText,
+
     messages,
     setMessages,
 
-    flushUserMessage,
-
-    continueConversation,
-
-    interact,
-    reset,
-
-    loading,
-
     thinking,
+    setThinking,
+
+    writing,
+    setWriting,
+
+    error,
+    setError,
+
+    submit,
   }
 }
+
+export default useConversationManager

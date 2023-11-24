@@ -1,2 +1,2 @@
-export { default as AutoTextarea } from './components/AutoTextarea.js'
-export { default as useConversationManager } from './hooks/useConversationManager.js'
+export { AutoTextarea } from './components/AutoTextarea.js'
+export { useConversationManager } from './hooks/useConversationManager.js'
