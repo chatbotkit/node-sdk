@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.1.2
+
+### Patch Changes
+
+- Exported additional missing types.
+
 ## 1.1.1
 
 ### Patch Changes
