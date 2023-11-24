@@ -3,7 +3,7 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
 
-async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
+async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
   const files = await fs.readdir(dirPath, { withFileTypes: true })
 
   for (const file of files) {
@@ -12,7 +12,7 @@ async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
     const ext = '.js'
 
     if (file.isDirectory()) {
-      await buildExports(filePath, exports, level + 1, rootDir)
+      await gatherExports(filePath, exports, level + 1, rootDir)
     } else if (filePath.endsWith(ext)) {
       const baseName = path.basename(filePath, ext)
       const fileName = path.join(dirPath, baseName)
@@ -48,7 +48,7 @@ async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
 async function main() {
   const exports = {}
 
-  await buildExports(path.join('src'), exports)
+  await gatherExports(path.join('src'), exports)
 
   const packageFile = await fs.readFile('package.json')
 

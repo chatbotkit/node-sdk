@@ -3,7 +3,7 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
 
-async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
+async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
   const files = await fs.readdir(dirPath, { withFileTypes: true })
 
   for (const file of files) {
@@ -12,7 +12,7 @@ async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
     const ext = '.d.ts'
 
     if (file.isDirectory()) {
-      await buildExports(filePath, exports, level + 1)
+      await gatherExports(filePath, exports, level + 1)
     } else if (filePath.endsWith(ext)) {
       const baseName = path.basename(filePath, ext)
       const fileName = path.join(dirPath, baseName)
@@ -53,7 +53,7 @@ async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
 async function main() {
   const exports = {}
 
-  await buildExports(path.join('dist', 'esm'), exports)
+  await gatherExports(path.join('dist', 'esm'), exports)
 
   const packageFile = await fs.readFile('package.json')
 

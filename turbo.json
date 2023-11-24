@@ -4,12 +4,14 @@
     "build": {
       "outputs": [".dist/**"]
     },
-    "destroy": {
+    "export": {
       "outputs": ["package.json"],
       "cache": false
     },
+    "lint": {},
     "check": {},
     "test": {},
+    "format": {},
     "docs": {
       "dependsOn": ["^build"]
     }

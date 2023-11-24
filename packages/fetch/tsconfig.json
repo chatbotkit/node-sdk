@@ -1,5 +1,10 @@
 {
-  "extends": "@system/typescript",
+  "extends": "@system/toolchain/tsconfig.build.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "outDir": "./dist"
+  },
   "include": ["src/**/*.ts", "src/**/*.js"],
   "exclude": ["dist", "dist.esm", "dist.cjs"],
   "typedocOptions": {

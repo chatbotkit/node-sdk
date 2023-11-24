@@ -7,8 +7,10 @@
     "deploy": "wrangler publish",
     "start": "wrangler dev"
   },
-  "devDependencies": {
-    "wrangler": "2.15.1",
+  "dependencies": {
     "@chatbotkit/sdk": "*"
+  },
+  "devDependencies": {
+    "wrangler": "2.15.1"
   }
 }

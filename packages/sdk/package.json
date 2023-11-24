@@ -528,10 +528,10 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
     "check": "tsc --noEmit",
-    "destroy": "run-s destroy:*",
-    "destroy:exports": "node ../../scripts/destroy-exports.js",
+    "export": "node ../../scripts/create-exports.js",
     "generate:api-types": "openapi-typescript src/types/api/v1.json --output ./src/types/api/v1.d.ts",
-    "postpublish": "run-s destroy:*",
+    "lint": "eslint .",
+    "postpublish": "npm run export",
     "test": "true",
     "update:api-types": "curl https://api.chatbotkit.com/v1/spec.json -o src/types/api/v1.json"
   },
@@ -540,8 +540,7 @@
     "@chatbotkit/fetch": "*"
   },
   "devDependencies": {
-    "@system/typescript": "*",
-    "npm-run-all": "^4.1.5",
+    "@system/toolchain": "*",
     "openapi-typescript": "^6.7.1"
   }
 }

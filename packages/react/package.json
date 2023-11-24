@@ -101,9 +101,9 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
     "check": "tsc --noEmit",
-    "destroy": "run-s destroy:*",
-    "destroy:exports": "node ../../scripts/destroy-exports.js",
-    "postpublish": "run-s destroy:*",
+    "export": "node ../../scripts/create-exports.js",
+    "lint": "eslint .",
+    "postpublish": "npm run export",
     "test": "true"
   },
   "types": "./dist/esm/index.d.ts",
@@ -115,8 +115,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@system/typescript": "*",
-    "@types/react": "^18.2.6",
-    "npm-run-all": "^4.1.5"
+    "@system/toolchain": "*",
+    "@types/react": "^18.2.6"
   }
 }
