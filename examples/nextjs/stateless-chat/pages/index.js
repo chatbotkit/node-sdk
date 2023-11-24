@@ -1,5 +1,4 @@
-import { AutoTextarea } from '@chatbotkit/react'
-import useConversationManager from '@chatbotkit/react/hooks/useConversationManager2.js'
+import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
 // This is a basic example of how to use the ChatbotKit React components in a
 // Next.js application. We use the AutoTextarea component to render the user
