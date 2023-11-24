@@ -9,10 +9,10 @@ async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
   for (const file of files) {
     const filePath = path.join(dirPath, file.name)
 
-    const ext = '.d.ts'
+    const ext = '.js'
 
     if (file.isDirectory()) {
-      await buildExports(filePath, exports, level + 1)
+      await buildExports(filePath, exports, level + 1, rootDir)
     } else if (filePath.endsWith(ext)) {
       const baseName = path.basename(filePath, ext)
       const fileName = path.join(dirPath, baseName)
@@ -26,8 +26,8 @@ async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
       }
 
       exportPoints.push(
-        './' + fileName.slice(rootDir + 1),
-        './' + fileName.slice(rootDir + 1) + '.js'
+        './' + fileName.slice(rootDir.length + 1),
+        './' + fileName.slice(rootDir.length + 1) + '.js'
       )
 
       for (let exportPoint of exportPoints) {
@@ -36,12 +36,7 @@ async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
         }
 
         exports[exportPoint] = {
-          require: {
-            types: './' + fileName.replace('dist/esm', 'dist/cjs') + '.d.ts',
-            default: './' + fileName.replace('dist/esm', 'dist/cjs') + '.cjs',
-          },
           import: {
-            types: './' + fileName + '.d.ts',
             default: './' + fileName + '.js',
           },
         }
@@ -53,7 +48,7 @@ async function buildExports(dirPath, exports, level = 0, rootDir = dirPath) {
 async function main() {
   const exports = {}
 
-  await buildExports(path.join('dist', 'esm'), exports)
+  await buildExports(path.join('src'), exports)
 
   const packageFile = await fs.readFile('package.json')
 
@@ -61,7 +56,7 @@ async function main() {
 
   packageStruct.exports = exports
 
-  packageStruct.main = './dist/esm/index.js'
+  packageStruct.main = './src/index.js'
 
   await fs.writeFile(
     'package.json',

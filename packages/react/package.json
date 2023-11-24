@@ -24,116 +24,81 @@
     "react"
   ],
   "type": "module",
-  "main": "./dist/esm/index.js",
+  "main": "./src/index.js",
   "exports": {
     "./components/AutoScroller": {
-      "require": {
-        "types": "./dist/cjs/components/AutoScroller.d.ts",
-        "default": "./dist/cjs/components/AutoScroller.cjs"
-      },
       "import": {
-        "types": "./dist/esm/components/AutoScroller.d.ts",
-        "default": "./dist/esm/components/AutoScroller.js"
+        "default": "./src/components/AutoScroller.js"
       }
     },
     "./components/AutoScroller.js": {
-      "require": {
-        "types": "./dist/cjs/components/AutoScroller.d.ts",
-        "default": "./dist/cjs/components/AutoScroller.cjs"
-      },
       "import": {
-        "types": "./dist/esm/components/AutoScroller.d.ts",
-        "default": "./dist/esm/components/AutoScroller.js"
+        "default": "./src/components/AutoScroller.js"
       }
     },
     "./components/AutoTextarea": {
-      "require": {
-        "types": "./dist/cjs/components/AutoTextarea.d.ts",
-        "default": "./dist/cjs/components/AutoTextarea.cjs"
-      },
       "import": {
-        "types": "./dist/esm/components/AutoTextarea.d.ts",
-        "default": "./dist/esm/components/AutoTextarea.js"
+        "default": "./src/components/AutoTextarea.js"
       }
     },
     "./components/AutoTextarea.js": {
-      "require": {
-        "types": "./dist/cjs/components/AutoTextarea.d.ts",
-        "default": "./dist/cjs/components/AutoTextarea.cjs"
-      },
       "import": {
-        "types": "./dist/esm/components/AutoTextarea.d.ts",
-        "default": "./dist/esm/components/AutoTextarea.js"
+        "default": "./src/components/AutoTextarea.js"
       }
     },
     "./hooks/useConversationManager": {
-      "require": {
-        "types": "./dist/cjs/hooks/useConversationManager.d.ts",
-        "default": "./dist/cjs/hooks/useConversationManager.cjs"
-      },
       "import": {
-        "types": "./dist/esm/hooks/useConversationManager.d.ts",
-        "default": "./dist/esm/hooks/useConversationManager.js"
+        "default": "./src/hooks/useConversationManager.js"
       }
     },
     "./hooks/useConversationManager.js": {
-      "require": {
-        "types": "./dist/cjs/hooks/useConversationManager.d.ts",
-        "default": "./dist/cjs/hooks/useConversationManager.cjs"
-      },
       "import": {
-        "types": "./dist/esm/hooks/useConversationManager.d.ts",
-        "default": "./dist/esm/hooks/useConversationManager.js"
+        "default": "./src/hooks/useConversationManager.js"
+      }
+    },
+    "./hooks/useConversationManager2": {
+      "import": {
+        "default": "./src/hooks/useConversationManager2.js"
+      }
+    },
+    "./hooks/useConversationManager2.js": {
+      "import": {
+        "default": "./src/hooks/useConversationManager2.js"
       }
     },
     ".": {
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
-      },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "default": "./src/index.js"
       }
     },
     "./index": {
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
-      },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "default": "./src/index.js"
       }
     },
     "./index.js": {
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
-      },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "default": "./src/index.js"
+      }
+    },
+    "./utils/class": {
+      "import": {
+        "default": "./src/utils/class.js"
+      }
+    },
+    "./utils/class.js": {
+      "import": {
+        "default": "./src/utils/class.js"
       }
     },
     "./utils/string": {
-      "require": {
-        "types": "./dist/cjs/utils/string.d.ts",
-        "default": "./dist/cjs/utils/string.cjs"
-      },
       "import": {
-        "types": "./dist/esm/utils/string.d.ts",
-        "default": "./dist/esm/utils/string.js"
+        "default": "./src/utils/string.js"
       }
     },
     "./utils/string.js": {
-      "require": {
-        "types": "./dist/cjs/utils/string.d.ts",
-        "default": "./dist/cjs/utils/string.cjs"
-      },
       "import": {
-        "types": "./dist/esm/utils/string.d.ts",
-        "default": "./dist/esm/utils/string.js"
+        "default": "./src/utils/string.js"
       }
     }
   },
@@ -146,6 +111,9 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
     "check": "tsc --noEmit",
+    "destroy": "run-s destroy:*",
+    "destroy:exports": "node ../../scripts/destroy-exports.js",
+    "postpublish": "run-s destroy:*",
     "test": "true"
   },
   "types": "./dist/esm/index.d.ts",

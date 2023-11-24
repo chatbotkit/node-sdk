@@ -21,36 +21,21 @@
     "FormData"
   ],
   "type": "module",
-  "main": "./dist/esm/index.js",
+  "main": "./src/index.js",
   "exports": {
     ".": {
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
-      },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "default": "./src/index.js"
       }
     },
     "./index": {
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
-      },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "default": "./src/index.js"
       }
     },
     "./index.js": {
-      "require": {
-        "types": "./dist/cjs/index.d.ts",
-        "default": "./dist/cjs/index.cjs"
-      },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "default": "./src/index.js"
       }
     }
   },
@@ -63,6 +48,9 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
     "check": "tsc --noEmit",
+    "destroy": "run-s destroy:*",
+    "destroy:exports": "node ../../scripts/destroy-exports.js",
+    "postpublish": "run-s destroy:*",
     "test": "true"
   },
   "types": "./dist/esm/index.d.ts",

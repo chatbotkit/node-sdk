@@ -4,6 +4,10 @@
     "build": {
       "outputs": [".dist/**"]
     },
+    "destroy": {
+      "outputs": ["package.json"],
+      "cache": false
+    },
     "check": {},
     "test": {},
     "docs": {
