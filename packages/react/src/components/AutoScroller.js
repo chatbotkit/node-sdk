@@ -12,25 +12,27 @@ export function AutoScrollAnchor() {
  *   block?: 'start'|'end',
  *   delay?: number,
  *   [name: string]: any
- * }} props
+ * }} [props]
  */
-export function AutoScroller({
-  anchor = 'bottom',
+export function AutoScroller(props) {
+  const {
+    anchor = 'bottom',
 
-  childList = true,
+    childList = true,
 
-  subtree = false,
+    subtree = false,
 
-  block = 'end',
+    block = 'end',
 
-  delay = 3000,
+    delay = 3000,
 
-  disabled,
+    disabled,
 
-  children,
+    children,
 
-  ...props
-}) {
+    ...rest
+  } = props || {}
+
   const rootRef = /** @type {React.MutableRefObject<HTMLDivElement>} */ (
     useRef()
   )
@@ -95,7 +97,7 @@ export function AutoScroller({
   }, [disabled])
 
   return (
-    <div ref={rootRef} {...props}>
+    <div ref={rootRef} {...rest}>
       {anchor === 'top' ? <AutoScrollAnchor key="top" /> : null}
       {children}
       {anchor === 'bottom' ? <AutoScrollAnchor key="bottom" /> : null}
