@@ -26,8 +26,8 @@ async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
       }
 
       exportPoints.push(
-        './' + fileName.slice(rootDir + 1),
-        './' + fileName.slice(rootDir + 1) + '.js'
+        './' + fileName.slice(rootDir.length + 1),
+        './' + fileName.slice(rootDir.length + 1) + '.js'
       )
 
       for (let exportPoint of exportPoints) {
