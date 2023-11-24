@@ -49,10 +49,10 @@
     "check": "tsc --noEmit",
     "clean": "run-s clean:*",
     "clean:dists": "rimraf dist",
-    "export": "node ../../scripts/create-exports.js",
+    "export": "node ../../scripts/create-standard-exports.js",
     "lint": "eslint .",
-    "postpack": "node ../../scripts/create-exports.js",
-    "prepack": "node ../../scripts/build-exports.js",
+    "postpack": "node ../../scripts/create-standard-exports.js",
+    "prepack": "node ../../scripts/create-dist-exports.js",
     "test": "true"
   },
   "dependencies": {
