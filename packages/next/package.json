@@ -25,27 +25,32 @@
   "exports": {
     "./edge": {
       "import": {
-        "default": "./src/edge.js"
+        "default": "./src/edge.js",
+        "types": "./src/edge.js"
       }
     },
     "./edge.js": {
       "import": {
-        "default": "./src/edge.js"
+        "default": "./src/edge.js",
+        "types": "./src/edge.js"
       }
     },
     ".": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./index": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./index.js": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     }
   },
@@ -65,6 +70,7 @@
     "prepack": "node ../../scripts/create-dist-exports.js",
     "test": "true"
   },
+  "types": "./src/index.js",
   "dependencies": {},
   "devDependencies": {
     "@system/toolchain": "*"

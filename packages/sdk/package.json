@@ -30,492 +30,590 @@
   "exports": {
     "./bot": {
       "import": {
-        "default": "./src/bot/index.js"
+        "default": "./src/bot/index.js",
+        "types": "./src/bot/index.js"
       }
     },
     "./bot/index": {
       "import": {
-        "default": "./src/bot/index.js"
+        "default": "./src/bot/index.js",
+        "types": "./src/bot/index.js"
       }
     },
     "./bot/index.js": {
       "import": {
-        "default": "./src/bot/index.js"
+        "default": "./src/bot/index.js",
+        "types": "./src/bot/index.js"
       }
     },
     "./bot/session": {
       "import": {
-        "default": "./src/bot/session/index.js"
+        "default": "./src/bot/session/index.js",
+        "types": "./src/bot/session/index.js"
       }
     },
     "./bot/session/index": {
       "import": {
-        "default": "./src/bot/session/index.js"
+        "default": "./src/bot/session/index.js",
+        "types": "./src/bot/session/index.js"
       }
     },
     "./bot/session/index.js": {
       "import": {
-        "default": "./src/bot/session/index.js"
+        "default": "./src/bot/session/index.js",
+        "types": "./src/bot/session/index.js"
       }
     },
     "./bot/session/v1": {
       "import": {
-        "default": "./src/bot/session/v1.js"
+        "default": "./src/bot/session/v1.js",
+        "types": "./src/bot/session/v1.js"
       }
     },
     "./bot/session/v1.js": {
       "import": {
-        "default": "./src/bot/session/v1.js"
+        "default": "./src/bot/session/v1.js",
+        "types": "./src/bot/session/v1.js"
       }
     },
     "./bot/v1": {
       "import": {
-        "default": "./src/bot/v1.js"
+        "default": "./src/bot/v1.js",
+        "types": "./src/bot/v1.js"
       }
     },
     "./bot/v1.js": {
       "import": {
-        "default": "./src/bot/v1.js"
+        "default": "./src/bot/v1.js",
+        "types": "./src/bot/v1.js"
       }
     },
     "./client": {
       "import": {
-        "default": "./src/client.js"
+        "default": "./src/client.js",
+        "types": "./src/client.js"
       }
     },
     "./client.js": {
       "import": {
-        "default": "./src/client.js"
+        "default": "./src/client.js",
+        "types": "./src/client.js"
       }
     },
     "./conversation": {
       "import": {
-        "default": "./src/conversation/index.js"
+        "default": "./src/conversation/index.js",
+        "types": "./src/conversation/index.js"
       }
     },
     "./conversation/index": {
       "import": {
-        "default": "./src/conversation/index.js"
+        "default": "./src/conversation/index.js",
+        "types": "./src/conversation/index.js"
       }
     },
     "./conversation/index.js": {
       "import": {
-        "default": "./src/conversation/index.js"
+        "default": "./src/conversation/index.js",
+        "types": "./src/conversation/index.js"
       }
     },
     "./conversation/message": {
       "import": {
-        "default": "./src/conversation/message/index.js"
+        "default": "./src/conversation/message/index.js",
+        "types": "./src/conversation/message/index.js"
       }
     },
     "./conversation/message/index": {
       "import": {
-        "default": "./src/conversation/message/index.js"
+        "default": "./src/conversation/message/index.js",
+        "types": "./src/conversation/message/index.js"
       }
     },
     "./conversation/message/index.js": {
       "import": {
-        "default": "./src/conversation/message/index.js"
+        "default": "./src/conversation/message/index.js",
+        "types": "./src/conversation/message/index.js"
       }
     },
     "./conversation/message/v1": {
       "import": {
-        "default": "./src/conversation/message/v1.js"
+        "default": "./src/conversation/message/v1.js",
+        "types": "./src/conversation/message/v1.js"
       }
     },
     "./conversation/message/v1.js": {
       "import": {
-        "default": "./src/conversation/message/v1.js"
+        "default": "./src/conversation/message/v1.js",
+        "types": "./src/conversation/message/v1.js"
       }
     },
     "./conversation/session": {
       "import": {
-        "default": "./src/conversation/session/index.js"
+        "default": "./src/conversation/session/index.js",
+        "types": "./src/conversation/session/index.js"
       }
     },
     "./conversation/session/index": {
       "import": {
-        "default": "./src/conversation/session/index.js"
+        "default": "./src/conversation/session/index.js",
+        "types": "./src/conversation/session/index.js"
       }
     },
     "./conversation/session/index.js": {
       "import": {
-        "default": "./src/conversation/session/index.js"
+        "default": "./src/conversation/session/index.js",
+        "types": "./src/conversation/session/index.js"
       }
     },
     "./conversation/session/v1": {
       "import": {
-        "default": "./src/conversation/session/v1.js"
+        "default": "./src/conversation/session/v1.js",
+        "types": "./src/conversation/session/v1.js"
       }
     },
     "./conversation/session/v1.js": {
       "import": {
-        "default": "./src/conversation/session/v1.js"
+        "default": "./src/conversation/session/v1.js",
+        "types": "./src/conversation/session/v1.js"
       }
     },
     "./conversation/v1": {
       "import": {
-        "default": "./src/conversation/v1.js"
+        "default": "./src/conversation/v1.js",
+        "types": "./src/conversation/v1.js"
       }
     },
     "./conversation/v1.js": {
       "import": {
-        "default": "./src/conversation/v1.js"
+        "default": "./src/conversation/v1.js",
+        "types": "./src/conversation/v1.js"
       }
     },
     "./dataset/file": {
       "import": {
-        "default": "./src/dataset/file/index.js"
+        "default": "./src/dataset/file/index.js",
+        "types": "./src/dataset/file/index.js"
       }
     },
     "./dataset/file/index": {
       "import": {
-        "default": "./src/dataset/file/index.js"
+        "default": "./src/dataset/file/index.js",
+        "types": "./src/dataset/file/index.js"
       }
     },
     "./dataset/file/index.js": {
       "import": {
-        "default": "./src/dataset/file/index.js"
+        "default": "./src/dataset/file/index.js",
+        "types": "./src/dataset/file/index.js"
       }
     },
     "./dataset/file/v1": {
       "import": {
-        "default": "./src/dataset/file/v1.js"
+        "default": "./src/dataset/file/v1.js",
+        "types": "./src/dataset/file/v1.js"
       }
     },
     "./dataset/file/v1.js": {
       "import": {
-        "default": "./src/dataset/file/v1.js"
+        "default": "./src/dataset/file/v1.js",
+        "types": "./src/dataset/file/v1.js"
       }
     },
     "./dataset": {
       "import": {
-        "default": "./src/dataset/index.js"
+        "default": "./src/dataset/index.js",
+        "types": "./src/dataset/index.js"
       }
     },
     "./dataset/index": {
       "import": {
-        "default": "./src/dataset/index.js"
+        "default": "./src/dataset/index.js",
+        "types": "./src/dataset/index.js"
       }
     },
     "./dataset/index.js": {
       "import": {
-        "default": "./src/dataset/index.js"
+        "default": "./src/dataset/index.js",
+        "types": "./src/dataset/index.js"
       }
     },
     "./dataset/record": {
       "import": {
-        "default": "./src/dataset/record/index.js"
+        "default": "./src/dataset/record/index.js",
+        "types": "./src/dataset/record/index.js"
       }
     },
     "./dataset/record/index": {
       "import": {
-        "default": "./src/dataset/record/index.js"
+        "default": "./src/dataset/record/index.js",
+        "types": "./src/dataset/record/index.js"
       }
     },
     "./dataset/record/index.js": {
       "import": {
-        "default": "./src/dataset/record/index.js"
+        "default": "./src/dataset/record/index.js",
+        "types": "./src/dataset/record/index.js"
       }
     },
     "./dataset/record/v1": {
       "import": {
-        "default": "./src/dataset/record/v1.js"
+        "default": "./src/dataset/record/v1.js",
+        "types": "./src/dataset/record/v1.js"
       }
     },
     "./dataset/record/v1.js": {
       "import": {
-        "default": "./src/dataset/record/v1.js"
+        "default": "./src/dataset/record/v1.js",
+        "types": "./src/dataset/record/v1.js"
       }
     },
     "./dataset/v1": {
       "import": {
-        "default": "./src/dataset/v1.js"
+        "default": "./src/dataset/v1.js",
+        "types": "./src/dataset/v1.js"
       }
     },
     "./dataset/v1.js": {
       "import": {
-        "default": "./src/dataset/v1.js"
+        "default": "./src/dataset/v1.js",
+        "types": "./src/dataset/v1.js"
       }
     },
     "./file": {
       "import": {
-        "default": "./src/file/index.js"
+        "default": "./src/file/index.js",
+        "types": "./src/file/index.js"
       }
     },
     "./file/index": {
       "import": {
-        "default": "./src/file/index.js"
+        "default": "./src/file/index.js",
+        "types": "./src/file/index.js"
       }
     },
     "./file/index.js": {
       "import": {
-        "default": "./src/file/index.js"
+        "default": "./src/file/index.js",
+        "types": "./src/file/index.js"
       }
     },
     "./file/v1": {
       "import": {
-        "default": "./src/file/v1.js"
+        "default": "./src/file/v1.js",
+        "types": "./src/file/v1.js"
       }
     },
     "./file/v1.js": {
       "import": {
-        "default": "./src/file/v1.js"
+        "default": "./src/file/v1.js",
+        "types": "./src/file/v1.js"
       }
     },
     ".": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./index": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./index.js": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./integration": {
       "import": {
-        "default": "./src/integration/index.js"
+        "default": "./src/integration/index.js",
+        "types": "./src/integration/index.js"
       }
     },
     "./integration/index": {
       "import": {
-        "default": "./src/integration/index.js"
+        "default": "./src/integration/index.js",
+        "types": "./src/integration/index.js"
       }
     },
     "./integration/index.js": {
       "import": {
-        "default": "./src/integration/index.js"
+        "default": "./src/integration/index.js",
+        "types": "./src/integration/index.js"
       }
     },
     "./integration/sitemap": {
       "import": {
-        "default": "./src/integration/sitemap/index.js"
+        "default": "./src/integration/sitemap/index.js",
+        "types": "./src/integration/sitemap/index.js"
       }
     },
     "./integration/sitemap/index": {
       "import": {
-        "default": "./src/integration/sitemap/index.js"
+        "default": "./src/integration/sitemap/index.js",
+        "types": "./src/integration/sitemap/index.js"
       }
     },
     "./integration/sitemap/index.js": {
       "import": {
-        "default": "./src/integration/sitemap/index.js"
+        "default": "./src/integration/sitemap/index.js",
+        "types": "./src/integration/sitemap/index.js"
       }
     },
     "./integration/sitemap/v1": {
       "import": {
-        "default": "./src/integration/sitemap/v1.js"
+        "default": "./src/integration/sitemap/v1.js",
+        "types": "./src/integration/sitemap/v1.js"
       }
     },
     "./integration/sitemap/v1.js": {
       "import": {
-        "default": "./src/integration/sitemap/v1.js"
+        "default": "./src/integration/sitemap/v1.js",
+        "types": "./src/integration/sitemap/v1.js"
       }
     },
     "./integration/whatsapp": {
       "import": {
-        "default": "./src/integration/whatsapp/index.js"
+        "default": "./src/integration/whatsapp/index.js",
+        "types": "./src/integration/whatsapp/index.js"
       }
     },
     "./integration/whatsapp/index": {
       "import": {
-        "default": "./src/integration/whatsapp/index.js"
+        "default": "./src/integration/whatsapp/index.js",
+        "types": "./src/integration/whatsapp/index.js"
       }
     },
     "./integration/whatsapp/index.js": {
       "import": {
-        "default": "./src/integration/whatsapp/index.js"
+        "default": "./src/integration/whatsapp/index.js",
+        "types": "./src/integration/whatsapp/index.js"
       }
     },
     "./integration/whatsapp/v1": {
       "import": {
-        "default": "./src/integration/whatsapp/v1.js"
+        "default": "./src/integration/whatsapp/v1.js",
+        "types": "./src/integration/whatsapp/v1.js"
       }
     },
     "./integration/whatsapp/v1.js": {
       "import": {
-        "default": "./src/integration/whatsapp/v1.js"
+        "default": "./src/integration/whatsapp/v1.js",
+        "types": "./src/integration/whatsapp/v1.js"
       }
     },
     "./magic": {
       "import": {
-        "default": "./src/magic/index.js"
+        "default": "./src/magic/index.js",
+        "types": "./src/magic/index.js"
       }
     },
     "./magic/index": {
       "import": {
-        "default": "./src/magic/index.js"
+        "default": "./src/magic/index.js",
+        "types": "./src/magic/index.js"
       }
     },
     "./magic/index.js": {
       "import": {
-        "default": "./src/magic/index.js"
+        "default": "./src/magic/index.js",
+        "types": "./src/magic/index.js"
       }
     },
     "./magic/v1": {
       "import": {
-        "default": "./src/magic/v1.js"
+        "default": "./src/magic/v1.js",
+        "types": "./src/magic/v1.js"
       }
     },
     "./magic/v1.js": {
       "import": {
-        "default": "./src/magic/v1.js"
+        "default": "./src/magic/v1.js",
+        "types": "./src/magic/v1.js"
       }
     },
     "./partner": {
       "import": {
-        "default": "./src/partner/index.js"
+        "default": "./src/partner/index.js",
+        "types": "./src/partner/index.js"
       }
     },
     "./partner/index": {
       "import": {
-        "default": "./src/partner/index.js"
+        "default": "./src/partner/index.js",
+        "types": "./src/partner/index.js"
       }
     },
     "./partner/index.js": {
       "import": {
-        "default": "./src/partner/index.js"
+        "default": "./src/partner/index.js",
+        "types": "./src/partner/index.js"
       }
     },
     "./partner/user": {
       "import": {
-        "default": "./src/partner/user/index.js"
+        "default": "./src/partner/user/index.js",
+        "types": "./src/partner/user/index.js"
       }
     },
     "./partner/user/index": {
       "import": {
-        "default": "./src/partner/user/index.js"
+        "default": "./src/partner/user/index.js",
+        "types": "./src/partner/user/index.js"
       }
     },
     "./partner/user/index.js": {
       "import": {
-        "default": "./src/partner/user/index.js"
+        "default": "./src/partner/user/index.js",
+        "types": "./src/partner/user/index.js"
       }
     },
     "./partner/user/token": {
       "import": {
-        "default": "./src/partner/user/token/index.js"
+        "default": "./src/partner/user/token/index.js",
+        "types": "./src/partner/user/token/index.js"
       }
     },
     "./partner/user/token/index": {
       "import": {
-        "default": "./src/partner/user/token/index.js"
+        "default": "./src/partner/user/token/index.js",
+        "types": "./src/partner/user/token/index.js"
       }
     },
     "./partner/user/token/index.js": {
       "import": {
-        "default": "./src/partner/user/token/index.js"
+        "default": "./src/partner/user/token/index.js",
+        "types": "./src/partner/user/token/index.js"
       }
     },
     "./partner/user/token/v1": {
       "import": {
-        "default": "./src/partner/user/token/v1.js"
+        "default": "./src/partner/user/token/v1.js",
+        "types": "./src/partner/user/token/v1.js"
       }
     },
     "./partner/user/token/v1.js": {
       "import": {
-        "default": "./src/partner/user/token/v1.js"
+        "default": "./src/partner/user/token/v1.js",
+        "types": "./src/partner/user/token/v1.js"
       }
     },
     "./partner/user/v1": {
       "import": {
-        "default": "./src/partner/user/v1.js"
+        "default": "./src/partner/user/v1.js",
+        "types": "./src/partner/user/v1.js"
       }
     },
     "./partner/user/v1.js": {
       "import": {
-        "default": "./src/partner/user/v1.js"
+        "default": "./src/partner/user/v1.js",
+        "types": "./src/partner/user/v1.js"
       }
     },
     "./partner/v1": {
       "import": {
-        "default": "./src/partner/v1.js"
+        "default": "./src/partner/v1.js",
+        "types": "./src/partner/v1.js"
       }
     },
     "./partner/v1.js": {
       "import": {
-        "default": "./src/partner/v1.js"
+        "default": "./src/partner/v1.js",
+        "types": "./src/partner/v1.js"
       }
     },
     "./skillset/ability": {
       "import": {
-        "default": "./src/skillset/ability/index.js"
+        "default": "./src/skillset/ability/index.js",
+        "types": "./src/skillset/ability/index.js"
       }
     },
     "./skillset/ability/index": {
       "import": {
-        "default": "./src/skillset/ability/index.js"
+        "default": "./src/skillset/ability/index.js",
+        "types": "./src/skillset/ability/index.js"
       }
     },
     "./skillset/ability/index.js": {
       "import": {
-        "default": "./src/skillset/ability/index.js"
+        "default": "./src/skillset/ability/index.js",
+        "types": "./src/skillset/ability/index.js"
       }
     },
     "./skillset/ability/v1": {
       "import": {
-        "default": "./src/skillset/ability/v1.js"
+        "default": "./src/skillset/ability/v1.js",
+        "types": "./src/skillset/ability/v1.js"
       }
     },
     "./skillset/ability/v1.js": {
       "import": {
-        "default": "./src/skillset/ability/v1.js"
+        "default": "./src/skillset/ability/v1.js",
+        "types": "./src/skillset/ability/v1.js"
       }
     },
     "./skillset": {
       "import": {
-        "default": "./src/skillset/index.js"
+        "default": "./src/skillset/index.js",
+        "types": "./src/skillset/index.js"
       }
     },
     "./skillset/index": {
       "import": {
-        "default": "./src/skillset/index.js"
+        "default": "./src/skillset/index.js",
+        "types": "./src/skillset/index.js"
       }
     },
     "./skillset/index.js": {
       "import": {
-        "default": "./src/skillset/index.js"
+        "default": "./src/skillset/index.js",
+        "types": "./src/skillset/index.js"
       }
     },
     "./skillset/v1": {
       "import": {
-        "default": "./src/skillset/v1.js"
+        "default": "./src/skillset/v1.js",
+        "types": "./src/skillset/v1.js"
       }
     },
     "./skillset/v1.js": {
       "import": {
-        "default": "./src/skillset/v1.js"
+        "default": "./src/skillset/v1.js",
+        "types": "./src/skillset/v1.js"
       }
     },
     "./usage": {
       "import": {
-        "default": "./src/usage/index.js"
+        "default": "./src/usage/index.js",
+        "types": "./src/usage/index.js"
       }
     },
     "./usage/index": {
       "import": {
-        "default": "./src/usage/index.js"
+        "default": "./src/usage/index.js",
+        "types": "./src/usage/index.js"
       }
     },
     "./usage/index.js": {
       "import": {
-        "default": "./src/usage/index.js"
+        "default": "./src/usage/index.js",
+        "types": "./src/usage/index.js"
       }
     },
     "./usage/v1": {
       "import": {
-        "default": "./src/usage/v1.js"
+        "default": "./src/usage/v1.js",
+        "types": "./src/usage/v1.js"
       }
     },
     "./usage/v1.js": {
       "import": {
-        "default": "./src/usage/v1.js"
+        "default": "./src/usage/v1.js",
+        "types": "./src/usage/v1.js"
       }
     }
   },
@@ -537,6 +635,7 @@
     "test": "true",
     "update:api-types": "curl https://api.chatbotkit.com/v1/spec.json -o src/types/api/v1.json"
   },
+  "types": "./src/index.js",
   "dependencies": {
     "@chatbotkit/fetch": "*"
   },

@@ -28,67 +28,80 @@
   "exports": {
     "./components/AutoScroller": {
       "import": {
-        "default": "./src/components/AutoScroller.js"
+        "default": "./src/components/AutoScroller.js",
+        "types": "./src/components/AutoScroller.js"
       }
     },
     "./components/AutoScroller.js": {
       "import": {
-        "default": "./src/components/AutoScroller.js"
+        "default": "./src/components/AutoScroller.js",
+        "types": "./src/components/AutoScroller.js"
       }
     },
     "./components/AutoTextarea": {
       "import": {
-        "default": "./src/components/AutoTextarea.js"
+        "default": "./src/components/AutoTextarea.js",
+        "types": "./src/components/AutoTextarea.js"
       }
     },
     "./components/AutoTextarea.js": {
       "import": {
-        "default": "./src/components/AutoTextarea.js"
+        "default": "./src/components/AutoTextarea.js",
+        "types": "./src/components/AutoTextarea.js"
       }
     },
     "./hooks/useConversationManager": {
       "import": {
-        "default": "./src/hooks/useConversationManager.js"
+        "default": "./src/hooks/useConversationManager.js",
+        "types": "./src/hooks/useConversationManager.js"
       }
     },
     "./hooks/useConversationManager.js": {
       "import": {
-        "default": "./src/hooks/useConversationManager.js"
+        "default": "./src/hooks/useConversationManager.js",
+        "types": "./src/hooks/useConversationManager.js"
       }
     },
     ".": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./index": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./index.js": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./utils/object": {
       "import": {
-        "default": "./src/utils/object.js"
+        "default": "./src/utils/object.js",
+        "types": "./src/utils/object.js"
       }
     },
     "./utils/object.js": {
       "import": {
-        "default": "./src/utils/object.js"
+        "default": "./src/utils/object.js",
+        "types": "./src/utils/object.js"
       }
     },
     "./utils/string": {
       "import": {
-        "default": "./src/utils/string.js"
+        "default": "./src/utils/string.js",
+        "types": "./src/utils/string.js"
       }
     },
     "./utils/string.js": {
       "import": {
-        "default": "./src/utils/string.js"
+        "default": "./src/utils/string.js",
+        "types": "./src/utils/string.js"
       }
     }
   },
@@ -108,6 +121,7 @@
     "prepack": "node ../../scripts/create-dist-exports.js",
     "test": "true"
   },
+  "types": "./src/index.js",
   "dependencies": {
     "@chatbotkit/sdk": "*"
   },

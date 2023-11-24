@@ -25,17 +25,20 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./index": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     },
     "./index.js": {
       "import": {
-        "default": "./src/index.js"
+        "default": "./src/index.js",
+        "types": "./src/index.js"
       }
     }
   },
@@ -55,6 +58,7 @@
     "prepack": "node ../../scripts/create-dist-exports.js",
     "test": "true"
   },
+  "types": "./src/index.js",
   "dependencies": {
     "node-fetch-native": "^1.2.0"
   },
