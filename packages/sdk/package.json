@@ -528,6 +528,8 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
     "check": "tsc --noEmit",
+    "clean": "run-s clean:*",
+    "clean:dists": "rimraf dist",
     "export": "node ../../scripts/create-exports.js",
     "generate:api-types": "openapi-typescript src/types/api/v1.json --output ./src/types/api/v1.d.ts",
     "lint": "eslint .",

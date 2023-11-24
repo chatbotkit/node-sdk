@@ -48,6 +48,8 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/build-exports.js",
     "check": "tsc --noEmit",
+    "clean": "run-s clean:*",
+    "clean:dists": "rimraf dist",
     "export": "node ../../scripts/create-exports.js",
     "lint": "eslint .",
     "postpublish": "npm run export",
