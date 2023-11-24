@@ -10,7 +10,9 @@
   "ignore": [
     "@examples/sdk-cjs",
     "@examples/sdk-esm",
+    "@examples/sdk-ts",
     "@examples/nextjs-basic-chat",
+    "@examples/nextjs-stateless-chat",
     "@examples/cloudflare-gpt4-stream"
   ]
 }
