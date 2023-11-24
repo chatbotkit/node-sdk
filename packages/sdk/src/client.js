@@ -206,9 +206,7 @@ export class ChatBotKitClient {
   clientFetch(path, options) {
     let method = 'GET'
 
-    const url = new URL(this.url)
-
-    url.pathname = path
+    const url = new URL(path, this.url)
 
     if (
       url.hostname === 'api.chatbotkit.com' &&
@@ -234,8 +232,10 @@ export class ChatBotKitClient {
     }
 
     /** @type {Record<string,string>} */
-    const headers = {
-      Authorization: `Bearer ${this.secret}`,
+    const headers = {}
+
+    if (this.secret) {
+      headers.Authorization = `Bearer ${this.secret}`
     }
 
     let data
