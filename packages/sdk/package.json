@@ -540,9 +540,8 @@
     "@chatbotkit/fetch": "*"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.2",
+    "@system/typescript": "*",
     "npm-run-all": "^4.1.5",
-    "openapi-typescript": "^6.7.1",
-    "typescript": "^5.0.4"
+    "openapi-typescript": "^6.7.1"
   }
 }

@@ -11,6 +11,7 @@
     "packages/sdk",
     "packages/react",
     "packages/next",
+    "system/*",
     "examples/sdk/*",
     "examples/nextjs/*",
     "examples/cloudflare/*"

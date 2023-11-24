@@ -1,0 +1,8 @@
+{
+  "name": "@system/typescript",
+  "private": true,
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "typescript": "^5.0.4"
+  }
+}
