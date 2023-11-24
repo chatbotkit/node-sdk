@@ -6,7 +6,8 @@ import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 // field.
 //
 // The useConversationManager hook is a React hook that manages the conversation
-// state including the messages and the input text.
+// state including the messages, the input text and all calls to the ChatBotKit
+// API endpoint.
 //
 // The AutoTextarea component is a simple textarea that automatically
 // resizes itself based on the content.
@@ -26,7 +27,7 @@ export default function Home() {
 
     thinking,
 
-    interact,
+    submit,
   } = useConversationManager({ stream: true })
 
   /**
@@ -54,10 +55,9 @@ export default function Home() {
     if (event.keyCode === 13) {
       event.preventDefault()
 
-      // Call the interact method to exchange the message between the user and
-      // the bot.
+      // Call the submit to exchange the message between the user and the bot.
 
-      interact()
+      submit()
     }
   }
 

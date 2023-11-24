@@ -4,6 +4,10 @@ import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 // Next.js application. We use the AutoTextarea component to render the user
 // input field.
 //
+// The useConversationManager hook is a React hook that manages the conversation
+// state including the messages, the input text and all calls to the local API
+// endpoint.
+//
 // The AutoTextarea component is a simple textarea that automatically
 // resizes itself based on the content.
 
@@ -20,6 +24,8 @@ export default function Home() {
 
     if (event.keyCode === 13) {
       event.preventDefault()
+
+      // Call the submit to exchange the message between the user and the bot.
 
       submit()
     }
