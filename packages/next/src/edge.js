@@ -31,7 +31,8 @@ export function stream(source) {
 
         controller.close()
       },
-    })
+    }),
+    { headers: { 'Content-Type': 'application/jsonl' } }
   )
 }
 
