@@ -57,6 +57,7 @@ async function main() {
   packageStruct.exports = exports
 
   packageStruct.main = './src/index.js'
+  packageStruct.types = undefined
 
   await fs.writeFile(
     'package.json',
