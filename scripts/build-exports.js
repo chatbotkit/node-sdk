@@ -12,7 +12,7 @@ async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
     const ext = '.d.ts'
 
     if (file.isDirectory()) {
-      await gatherExports(filePath, exports, level + 1)
+      await gatherExports(filePath, exports, level + 1, rootDir)
     } else if (filePath.endsWith(ext)) {
       const baseName = path.basename(filePath, ext)
       const fileName = path.join(dirPath, baseName)
