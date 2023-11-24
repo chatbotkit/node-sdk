@@ -175,7 +175,8 @@ export class ResponsePromise {
  * @typedef {{
  *   secret: string,
  *   host?: string,
- *   protocol?: 'http:'|'https'
+ *   protocol?: 'http:'|'https',
+ *   endpoints?: Record<string,string>
  * }} ChatBotKitClientOptions
  */
 
@@ -195,6 +196,8 @@ export class ChatBotKitClient {
     if (options.protocol) {
       this.url.protocol = options.protocol
     }
+
+    this.endpoints = options.endpoints || {}
   }
 
   /**
@@ -206,7 +209,7 @@ export class ChatBotKitClient {
   clientFetch(path, options) {
     let method = 'GET'
 
-    const url = new URL(path, this.url)
+    const url = new URL(this.endpoints[path] || path, this.url)
 
     if (
       url.hostname === 'api.chatbotkit.com' &&
