@@ -62,6 +62,7 @@ async function main() {
   packageStruct.exports = exports
 
   packageStruct.main = './dist/esm/index.js'
+  packageStruct.types = './dist/esm/index.d.ts'
 
   await fs.writeFile(
     'package.json',
