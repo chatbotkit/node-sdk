@@ -1,0 +1,14 @@
+{
+  "plugin": ["typedoc-plugin-markdown"],
+  "exclude": ["**/node_modules/**/*", "**/dist/**/*", "**/types/**/*"],
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "excludeExternals": true,
+  "skipErrorChecking": true,
+  "visibilityFilters": {
+    "protected": true,
+    "private": false,
+    "inherited": true,
+    "external": true
+  }
+}

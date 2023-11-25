@@ -63,6 +63,23 @@ async function main() {
     'package.json',
     JSON.stringify(packageStruct, null, 2) + '\n'
   )
+
+  const typedocFile = await fs.readFile('typedoc.json')
+
+  const typedocStruct = JSON.parse(typedocFile.toString())
+
+  typedocStruct.entryPoints = Array.from(
+    new Set(
+      Object.values(exports)
+        .map(({ ['import']: _import }) => _import)
+        .filter((i) => !!i)
+    )
+  )
+
+  await fs.writeFile(
+    'typedoc.json',
+    JSON.stringify(typedocStruct, null, 2) + '\n'
+  )
 }
 
 main()

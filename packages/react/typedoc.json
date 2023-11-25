@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "../../typedoc.json"
+  ],
+  "entryPoints": [
+    "./src/components/AutoScroller.js",
+    "./src/components/AutoTextarea.js",
+    "./src/hooks/useConversationManager.js",
+    "./src/index.js",
+    "./src/utils/object.js",
+    "./src/utils/string.js"
+  ],
+  "out": "docs",
+  "readme": "README.md"
+}

@@ -5,7 +5,7 @@
       "cache": false
     },
     "build": {
-      "outputs": ["dist/**"],
+      "outputs": ["dist/**", "docs/**"],
       "dependsOn": ["^build"]
     },
     "lint": {},

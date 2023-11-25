@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "../../typedoc.json"
+  ],
+  "entryPoints": [
+    "./src/index.js"
+  ],
+  "out": "docs",
+  "readme": "README.md"
+}

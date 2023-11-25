@@ -24,7 +24,8 @@ const standardErrors = {
 }
 
 /**
- * @template T,U
+ * @template T
+ * @template U
  */
 export class ResponsePromise {
   /**
@@ -201,7 +202,8 @@ export class ChatBotKitClient {
   }
 
   /**
-   * @template T,U
+   * @template T
+   * @template U
    * @param {string} path
    * @param {{query?: Record<string,any>, data?: Record<string,any>, file?: { name?: string, type?: string, data: string|ArrayBuffer }}} [options]
    * @returns {ResponsePromise<T,U>}
