@@ -77,7 +77,8 @@
     "./utils/string.js": {
       "types": "./types/utils/string.d.ts",
       "import": "./src/utils/string.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist/**"
@@ -95,7 +96,7 @@
     "clean": "run-s clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",
-    "clean:exports": "npm run build:exports",
+    "clean:exports": "run-s build:exports",
     "clean:node_modules": "rimraf node_modules",
     "clean:types": "rimraf types",
     "lint": "eslint .",

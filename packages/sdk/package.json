@@ -419,7 +419,8 @@
     "./usage/v1.js": {
       "types": "./types/usage/v1.d.ts",
       "import": "./src/usage/v1.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist/**"
@@ -437,7 +438,7 @@
     "clean": "run-s clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",
-    "clean:exports": "npm run build:exports",
+    "clean:exports": "run-s build:exports",
     "clean:node_modules": "rimraf node_modules",
     "clean:types": "rimraf types",
     "generate:api-types": "openapi-typescript src/types/api/v1.json --output ./src/types/api/v1.d.ts",
