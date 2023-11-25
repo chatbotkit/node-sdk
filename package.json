@@ -6,7 +6,6 @@
     "node": ">=18.16.0",
     "pnpm": ">=8.6.0"
   },
-  "packageManager": "pnpm@8.6.0",
   "type": "module",
   "scripts": {
     "build": "run-s build:*",
@@ -25,6 +24,7 @@
     "publish-changes": "turbo run lint check build test && changeset version && changeset publish",
     "test": "turbo run test"
   },
+  "packageManager": "pnpm@8.6.0",
   "dependencies": {
     "dotenv": "^16.0.3",
     "rimraf": "^5.0.5",
