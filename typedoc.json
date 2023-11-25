@@ -5,6 +5,7 @@
   "excludeInternal": true,
   "excludeExternals": true,
   "skipErrorChecking": true,
+  "gitRevision": "main",
   "visibilityFilters": {
     "protected": true,
     "private": false,
