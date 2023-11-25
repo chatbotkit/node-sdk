@@ -1,4 +1,5 @@
 /**
+ * @internal
  * @template T
  * @param {T} object
  * @param {object} extension

@@ -31,7 +31,7 @@ export const TIMEOUT_ERROR_NAME = 'TimeoutError'
  * @param {AbortSignal[]} signals
  * @returns {AbortSignal}
  */
-export function anySignal(signals) {
+function anySignal(signals) {
   const controller = new AbortController()
 
   for (const signal of signals) {

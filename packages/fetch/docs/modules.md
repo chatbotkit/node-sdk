@@ -16,7 +16,6 @@
 
 ### Functions
 
-- [anySignal](modules.md#anysignal)
 - [jsonl](modules.md#jsonl)
 - [withRetry](modules.md#withretry)
 - [withTimeout](modules.md#withtimeout)
@@ -83,26 +82,6 @@ ___
 [index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L82)
 
 ## Functions
-
-### anySignal
-
-▸ **anySignal**(`signals`): `AbortSignal`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `signals` | `AbortSignal`[] |
-
-#### Returns
-
-`AbortSignal`
-
-#### Defined in
-
-[index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L34)
-
-___
 
 ### jsonl
 

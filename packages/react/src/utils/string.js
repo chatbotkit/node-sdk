@@ -1,4 +1,5 @@
 /**
+ * @internal
  * @param {string} [prefix]
  * @returns {string}
  */
@@ -7,6 +8,7 @@ export function getRandomId(prefix) {
 }
 
 /**
+ * @internal
  * @param {string} input
  * @param {number} begin
  * @param {number} end
@@ -18,6 +20,7 @@ export function replaceBetween(input, begin, end, replacement) {
 }
 
 /**
+ * @internal
  * @param {string} input
  * @param {[string, string][]} replacements
  * @returns {({begin: number, end: number, input: string, output: string}|string)[]}
