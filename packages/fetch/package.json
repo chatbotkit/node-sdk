@@ -21,6 +21,7 @@
     "FormData"
   ],
   "type": "module",
+  "main": "./src/index.js",
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
@@ -59,6 +60,7 @@
     "prepack": "node ../../scripts/create-dist-exports.js",
     "test": "true"
   },
+  "types": "./types/index.d.ts",
   "dependencies": {
     "node-fetch-native": "^1.2.0"
   }

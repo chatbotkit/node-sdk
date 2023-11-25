@@ -26,6 +26,7 @@
     "edge"
   ],
   "type": "module",
+  "main": "./src/index.js",
   "exports": {
     "./bot": {
       "types": "./types/bot/index.d.ts",
@@ -446,6 +447,7 @@
     "test": "true",
     "update:api-types": "node scripts/export-api.js https://api.chatbotkit.com/v1/spec.json src/types/api/v1.json"
   },
+  "types": "./types/index.d.ts",
   "dependencies": {
     "@chatbotkit/fetch": "*"
   },
