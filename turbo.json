@@ -6,10 +6,6 @@
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
-    "export": {
-      "outputs": ["package.json"],
-      "cache": false
-    },
     "lint": {},
     "check": {},
     "test": {},
