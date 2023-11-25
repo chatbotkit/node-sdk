@@ -31,7 +31,7 @@ Renames and re-exports [AutoScroller](components_AutoScroller.md#autoscroller)
 
 #### Defined in
 
-[components/AutoScroller.js:3](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/react/src/components/AutoScroller.js#L3)
+[components/AutoScroller.js:3](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoScroller.js#L3)
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 #### Defined in
 
-[components/AutoScroller.js:17](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/react/src/components/AutoScroller.js#L17)
+[components/AutoScroller.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoScroller.js#L17)

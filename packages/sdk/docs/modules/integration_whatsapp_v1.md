@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[integration/whatsapp/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L23)
+[integration/whatsapp/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L23)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L14)
+[integration/whatsapp/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L14)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L25)
+[integration/whatsapp/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L25)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L2)
+[integration/whatsapp/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L2)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L8)
+[integration/whatsapp/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L8)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L88)
+[integration/whatsapp/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L88)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L92)
+[integration/whatsapp/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L92)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L137)
+[integration/whatsapp/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L137)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L72)
+[integration/whatsapp/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L72)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L40)
+[integration/whatsapp/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L40)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L44)
+[integration/whatsapp/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L44)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L46)
+[integration/whatsapp/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L46)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L51)
+[integration/whatsapp/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L51)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L53)
+[integration/whatsapp/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L53)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L34)
+[integration/whatsapp/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L34)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L158)
+[integration/whatsapp/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L158)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L111)
+[integration/whatsapp/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L111)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:115](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L115)
+[integration/whatsapp/v1.js:115](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L115)
 
 ## Functions
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L98)
+[integration/whatsapp/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L98)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L143)
+[integration/whatsapp/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L143)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L78)
+[integration/whatsapp/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L78)
 
 ___
 
@@ -365,7 +365,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L59)
+[integration/whatsapp/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L59)
 
 ___
 
@@ -386,7 +386,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L164)
+[integration/whatsapp/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L164)
 
 ___
 
@@ -408,4 +408,4 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/integration/whatsapp/v1.js#L122)
+[integration/whatsapp/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L122)

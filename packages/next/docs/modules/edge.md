@@ -30,7 +30,7 @@ Renames and re-exports [stream](edge.md#stream)
 
 #### Defined in
 
-[edge.js:2](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/next/src/edge.js#L2)
+[edge.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L2)
 
 ## Functions
 
@@ -50,4 +50,4 @@ Renames and re-exports [stream](edge.md#stream)
 
 #### Defined in
 
-[edge.js:7](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/next/src/edge.js#L7)
+[edge.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L7)

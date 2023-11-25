@@ -49,7 +49,7 @@
 
 #### Defined in
 
-[index.js:76](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L76)
+[index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L76)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[index.js:139](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L139)
+[index.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L139)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[index.js:82](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L82)
+[index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L82)
 
 ## Variables
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[index.js:27](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L27)
+[index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L27)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[index.js:28](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L28)
+[index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L28)
 
 ## Functions
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[index.js:34](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L34)
+[index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L34)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[index.js:221](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L221)
+[index.js:221](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L221)
 
 ___
 
@@ -170,7 +170,7 @@ move to @chatbotkit/fetch sdk
 
 #### Defined in
 
-[index.js:146](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L146)
+[index.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L146)
 
 ___
 
@@ -191,4 +191,4 @@ ___
 
 #### Defined in
 
-[index.js:88](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L88)
+[index.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L88)

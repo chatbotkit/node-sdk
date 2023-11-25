@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[partner/user/token/index.js:18](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/index.js#L18)
+[partner/user/token/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L18)
 
 ## Properties
 
@@ -69,7 +69,7 @@
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L201)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L191)
+[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[client.js:211](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L211)
+[client.js:211](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L211)
 
 ___
 
@@ -158,7 +158,7 @@ Creates a new user token.
 
 #### Defined in
 
-[partner/user/token/index.js:40](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/index.js#L40)
+[partner/user/token/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L40)
 
 ___
 
@@ -181,7 +181,7 @@ Deletes the user.
 
 #### Defined in
 
-[partner/user/token/index.js:51](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/index.js#L51)
+[partner/user/token/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L51)
 
 ___
 
@@ -204,4 +204,4 @@ Retrieves a list of all user tokens.
 
 #### Defined in
 
-[partner/user/token/index.js:29](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/index.js#L29)
+[partner/user/token/index.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L29)

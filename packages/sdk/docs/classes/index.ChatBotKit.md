@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[index.js:25](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L25)
+[index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L25)
 
 ## Properties
 
@@ -66,7 +66,7 @@
 
 #### Defined in
 
-[index.js:28](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L28)
+[index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L28)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[index.js:35](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L35)
+[index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L35)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[index.js:32](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L32)
+[index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L32)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L201)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[index.js:29](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L29)
+[index.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L29)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[index.js:34](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L34)
+[index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L34)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[index.js:30](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L30)
+[index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L30)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[index.js:31](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L31)
+[index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L31)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[index.js:33](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/index.js#L33)
+[index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L33)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L191)
+[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 
@@ -216,4 +216,4 @@ ___
 
 #### Defined in
 
-[client.js:211](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L211)
+[client.js:211](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L211)

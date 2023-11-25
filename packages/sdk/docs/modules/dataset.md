@@ -37,4 +37,4 @@ Renames and re-exports [DatasetClient](../classes/dataset.DatasetClient.md)
 
 #### Defined in
 
-[dataset/index.js:16](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/dataset/index.js#L16)
+[dataset/index.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L16)

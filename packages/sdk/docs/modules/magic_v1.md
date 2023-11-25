@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[magic/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/magic/v1.js#L2)
+[magic/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L2)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[magic/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/magic/v1.js#L14)
+[magic/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L14)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[magic/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/magic/v1.js#L19)
+[magic/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L19)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[magic/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/magic/v1.js#L24)
+[magic/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L24)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[magic/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/magic/v1.js#L26)
+[magic/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L26)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[magic/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/magic/v1.js#L8)
+[magic/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L8)
 
 ## Functions
 
@@ -125,4 +125,4 @@ ___
 
 #### Defined in
 
-[magic/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/magic/v1.js#L33)
+[magic/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L33)

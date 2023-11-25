@@ -37,4 +37,4 @@ Renames and re-exports [MagicClient](../classes/magic.MagicClient.md)
 
 #### Defined in
 
-[magic/index.js:7](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/magic/index.js#L7)
+[magic/index.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/index.js#L7)

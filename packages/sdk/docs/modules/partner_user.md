@@ -37,4 +37,4 @@ Renames and re-exports [PartnerUserClient](../classes/partner_user.PartnerUserCl
 
 #### Defined in
 
-[partner/user/index.js:14](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/index.js#L14)
+[partner/user/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L14)

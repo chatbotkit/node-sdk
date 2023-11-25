@@ -37,4 +37,4 @@ Renames and re-exports [ConversationMessageClient](../classes/conversation_messa
 
 #### Defined in
 
-[conversation/message/index.js:13](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/conversation/message/index.js#L13)
+[conversation/message/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L13)

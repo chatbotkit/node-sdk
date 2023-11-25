@@ -44,7 +44,7 @@ Renames and re-exports [AutoTextarea](components_AutoTextarea.md#autotextarea)
 
 #### Defined in
 
-[components/AutoTextarea.js:4](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/react/src/components/AutoTextarea.js#L4)
+[components/AutoTextarea.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoTextarea.js#L4)
 
 ## Functions
 
@@ -65,4 +65,4 @@ Renames and re-exports [AutoTextarea](components_AutoTextarea.md#autotextarea)
 
 #### Defined in
 
-[components/AutoTextarea.js:11](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/react/src/components/AutoTextarea.js#L11)
+[components/AutoTextarea.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoTextarea.js#L11)

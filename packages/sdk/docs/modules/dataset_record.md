@@ -37,4 +37,4 @@ Renames and re-exports [DatasetRecordClient](../classes/dataset_record.DatasetRe
 
 #### Defined in
 
-[dataset/record/index.js:13](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/dataset/record/index.js#L13)
+[dataset/record/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L13)

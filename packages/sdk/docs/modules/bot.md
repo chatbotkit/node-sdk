@@ -37,4 +37,4 @@ Renames and re-exports [BotClient](../classes/bot.BotClient.md)
 
 #### Defined in
 
-[bot/index.js:8](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/bot/index.js#L8)
+[bot/index.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L8)

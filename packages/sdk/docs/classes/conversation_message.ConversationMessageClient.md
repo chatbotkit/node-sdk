@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[conversation/message/index.js:20](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/conversation/message/index.js#L20)
+[conversation/message/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L20)
 
 ## Properties
 
@@ -71,7 +71,7 @@
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L201)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L191)
+[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[client.js:211](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L211)
+[client.js:211](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L211)
 
 ___
 
@@ -160,7 +160,7 @@ Creates a new message.
 
 #### Defined in
 
-[conversation/message/index.js:53](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/conversation/message/index.js#L53)
+[conversation/message/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L53)
 
 ___
 
@@ -183,7 +183,7 @@ Deletes the message.
 
 #### Defined in
 
-[conversation/message/index.js:76](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/conversation/message/index.js#L76)
+[conversation/message/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L76)
 
 ___
 
@@ -206,7 +206,7 @@ Fetches a message.
 
 #### Defined in
 
-[conversation/message/index.js:42](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/conversation/message/index.js#L42)
+[conversation/message/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L42)
 
 ___
 
@@ -229,7 +229,7 @@ Retrieves a list of all messages.
 
 #### Defined in
 
-[conversation/message/index.js:31](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/conversation/message/index.js#L31)
+[conversation/message/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L31)
 
 ___
 
@@ -253,4 +253,4 @@ Updates a message.
 
 #### Defined in
 
-[conversation/message/index.js:65](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/conversation/message/index.js#L65)
+[conversation/message/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L65)

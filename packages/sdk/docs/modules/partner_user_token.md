@@ -37,4 +37,4 @@ Renames and re-exports [PartnerUserTokenClient](../classes/partner_user_token.Pa
 
 #### Defined in
 
-[partner/user/token/index.js:11](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/index.js#L11)
+[partner/user/token/index.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L11)

@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[client.js:181](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L181)
+[client.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L181)

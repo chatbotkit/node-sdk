@@ -55,7 +55,7 @@ Error.constructor
 
 #### Defined in
 
-[index.js:64](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L64)
+[index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L64)
 
 ## Properties
 
@@ -65,7 +65,7 @@ Error.constructor
 
 #### Defined in
 
-[index.js:67](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L67)
+[index.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L67)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[index.js:70](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L70)
+[index.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L70)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[index.js:71](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L71)
+[index.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L71)
 
 ___
 
@@ -95,4 +95,4 @@ ___
 
 #### Defined in
 
-[index.js:69](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/fetch/src/index.js#L69)
+[index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L69)

@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[skillset/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L2)
+[skillset/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L2)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L8)
+[skillset/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L8)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L71)
+[skillset/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L71)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L75)
+[skillset/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L75)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L121)
+[skillset/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L121)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L54)
+[skillset/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L54)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L22)
+[skillset/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L22)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L26)
+[skillset/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L26)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L28)
+[skillset/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L28)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L33)
+[skillset/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L33)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L35)
+[skillset/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L35)
 
 ___
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L16)
+[skillset/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L16)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L95)
+[skillset/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L95)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L99)
+[skillset/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L99)
 
 ## Functions
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L81)
+[skillset/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L81)
 
 ___
 
@@ -263,7 +263,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L127)
+[skillset/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L127)
 
 ___
 
@@ -284,7 +284,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L60)
+[skillset/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L60)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L41)
+[skillset/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L41)
 
 ___
 
@@ -327,4 +327,4 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/v1.js#L106)
+[skillset/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L106)

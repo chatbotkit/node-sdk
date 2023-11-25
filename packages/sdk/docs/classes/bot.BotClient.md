@@ -58,7 +58,7 @@
 
 #### Defined in
 
-[bot/index.js:15](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/bot/index.js#L15)
+[bot/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L15)
 
 ## Properties
 
@@ -72,7 +72,7 @@
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L201)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[bot/index.js:18](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/bot/index.js#L18)
+[bot/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L18)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L191)
+[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[client.js:211](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L211)
+[client.js:211](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L211)
 
 ___
 
@@ -170,7 +170,7 @@ Creates a new bot.
 
 #### Defined in
 
-[bot/index.js:47](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/bot/index.js#L47)
+[bot/index.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L47)
 
 ___
 
@@ -192,7 +192,7 @@ Deletes the bot.
 
 #### Defined in
 
-[bot/index.js:68](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/bot/index.js#L68)
+[bot/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L68)
 
 ___
 
@@ -214,7 +214,7 @@ Fetches a bot.
 
 #### Defined in
 
-[bot/index.js:37](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/bot/index.js#L37)
+[bot/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L37)
 
 ___
 
@@ -236,7 +236,7 @@ Retrieves a list of all bots.
 
 #### Defined in
 
-[bot/index.js:27](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/bot/index.js#L27)
+[bot/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L27)
 
 ___
 
@@ -259,4 +259,4 @@ Updates a bot.
 
 #### Defined in
 
-[bot/index.js:58](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/bot/index.js#L58)
+[bot/index.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L58)

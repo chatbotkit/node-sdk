@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[dataset/file/index.js:8](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/dataset/file/index.js#L8)
+[dataset/file/index.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L8)
 
 ## Properties
 
@@ -65,7 +65,7 @@
 
 #### Defined in
 
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L201)
+[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L189)
+[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L191)
+[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 
@@ -117,7 +117,7 @@ Attaches a file.
 
 #### Defined in
 
-[dataset/file/index.js:20](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/dataset/file/index.js#L20)
+[dataset/file/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L20)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[client.js:211](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/client.js#L211)
+[client.js:211](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L211)
 
 ___
 
@@ -179,7 +179,7 @@ Detach a file.
 
 #### Defined in
 
-[dataset/file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/dataset/file/index.js#L32)
+[dataset/file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L32)
 
 ___
 
@@ -203,4 +203,4 @@ Sync a file.
 
 #### Defined in
 
-[dataset/file/index.js:44](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/dataset/file/index.js#L44)
+[dataset/file/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L44)

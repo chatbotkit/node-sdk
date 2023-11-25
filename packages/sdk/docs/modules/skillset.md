@@ -37,4 +37,4 @@ Renames and re-exports [SkillsetClient](../classes/skillset.SkillsetClient.md)
 
 #### Defined in
 
-[skillset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/skillset/index.js#L14)
+[skillset/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L14)

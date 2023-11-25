@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[utils/string.js:5](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/react/src/utils/string.js#L5)
+[utils/string.js:5](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/string.js#L5)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[utils/string.js:16](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/react/src/utils/string.js#L16)
+[utils/string.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/string.js#L16)
 
 ___
 
@@ -72,4 +72,4 @@ ___
 
 #### Defined in
 
-[utils/string.js:25](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/react/src/utils/string.js#L25)
+[utils/string.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/string.js#L25)

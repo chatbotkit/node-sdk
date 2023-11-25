@@ -33,4 +33,4 @@
 
 #### Defined in
 
-[utils/object.js:7](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/react/src/utils/object.js#L7)
+[utils/object.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/object.js#L7)

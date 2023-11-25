@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[partner/user/token/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L2)
+[partner/user/token/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L2)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:52](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L52)
+[partner/user/token/v1.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L52)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L58)
+[partner/user/token/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L58)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L80)
+[partner/user/token/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L80)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L19)
+[partner/user/token/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L19)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L23)
+[partner/user/token/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L23)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L25)
+[partner/user/token/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L25)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L30)
+[partner/user/token/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L30)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L32)
+[partner/user/token/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L32)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L13)
+[partner/user/token/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L13)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L8)
+[partner/user/token/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L8)
 
 ## Functions
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L65)
+[partner/user/token/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L65)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L87)
+[partner/user/token/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L87)
 
 ___
 
@@ -240,4 +240,4 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/1a40caa/packages/sdk/src/partner/user/token/v1.js#L39)
+[partner/user/token/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L39)
