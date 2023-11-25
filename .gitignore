@@ -132,3 +132,6 @@ dist.*
 
 # turbo
 .turbo
+
+# packages types
+packages/*/types
