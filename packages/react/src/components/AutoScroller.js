@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 
-export function AutoScrollAnchor() {
-  return <div className="auto-scroll-anchor ![height:1px]" />
+function AutoScrollAnchor() {
+  return <div className="auto-scroll-anchor" style={{ height: '1px' }} />
 }
 
 /**
