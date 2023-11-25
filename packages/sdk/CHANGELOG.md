@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.1.3
+
+### Patch Changes
+
+- b657b9a: Fixes previous release (broken cjs exports).
+
 ## 1.1.2
 
 ### Patch Changes
