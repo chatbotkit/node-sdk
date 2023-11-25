@@ -1,4 +1,5 @@
 docs
 dist
 dist.*
+types
 .next

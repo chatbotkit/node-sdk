@@ -15,5 +15,5 @@
     "browser": true,
     "node": true
   },
-  "ignorePatterns": ["node_modules/", "dist/"]
+  "ignorePatterns": ["node_modules/", "dist/", "types/"]
 }
