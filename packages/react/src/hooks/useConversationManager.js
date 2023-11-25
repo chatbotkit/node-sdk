@@ -6,7 +6,7 @@ import { ConversationClient } from '@chatbotkit/sdk'
 import { cloneAndExtend } from '../utils/object.js'
 
 /**
- * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
+ * @typedef {import('@chatbotkit/sdk/conversation/v1.js').Message} Message
  */
 
 /**
