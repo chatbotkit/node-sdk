@@ -1,8 +1,7 @@
 {
   "extends": "@system/toolchain/tsconfig.build.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist"
+    "rootDir": "./src"
   },
   "include": ["src/**/*.ts", "src/**/*.js"],
   "exclude": ["dist", "dist.esm", "dist.cjs"],
