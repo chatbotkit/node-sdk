@@ -23,7 +23,7 @@
     "prepare": "husky install",
     "prepare-changes": "changeset",
     "preinstall": "npx only-allow pnpm",
-    "publish-changes": "turbo run lint check build test && changeset version && changeset publish && npm install",
+    "publish-changes": "turbo run lint check build test && changeset version && changeset publish",
     "test": "turbo run test"
   },
   "dependencies": {
