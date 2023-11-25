@@ -57,7 +57,7 @@ for await (const { type, data } of client
 
 ## Examples
 
-You can find a wide-range of examples at [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
+You can find a wide-range of examples [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
 
 ## Documentation
 
