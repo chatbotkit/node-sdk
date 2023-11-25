@@ -3,5 +3,10 @@
   "entryPoints": ["packages/fech", "packages/sdk", "packages/react", "packages/next"],
   "entryPointStrategy": "packages",
   "includeVersion": false,
+  "navigationLinks": {
+    "ChatBotKit": "https://chatbotkit.com",
+    "GitHub Repo": "https://github.com/chatbotkit/node-sdk",
+    "GitHub Org": "https://github.com/chatbotkit"
+  },
   "out": "./docs"
 }
