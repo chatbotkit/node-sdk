@@ -1,4 +1,10 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "editor.rulers": [80]
+  "editor.tabSize": 2,
+  "editor.rulers": [80],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
