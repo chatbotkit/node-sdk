@@ -26,7 +26,6 @@
     "docs": "run-s docs:*",
     "docs:react": "typedoc --plugin typedoc-plugin-markdown --out ./docs/react --tsconfig ./packages/react/tsconfig.json",
     "docs:sdk": "typedoc --plugin typedoc-plugin-markdown --out ./docs/sdk --tsconfig ./packages/sdk/tsconfig.json",
-    "export": "turbo run export",
     "format": "run-s format:*",
     "format:pkg": "format-package -w",
     "format:src": "prettier -w .",
@@ -37,6 +36,8 @@
     "test": "turbo run test"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "rimraf": "^5.0.5",
     "eslint": "^8.38.0",
     "typescript": "^5.0.4",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
