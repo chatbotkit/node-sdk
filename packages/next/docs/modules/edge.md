@@ -38,6 +38,10 @@ Renames and re-exports [stream](edge.md#stream)
 
 ▸ **stream**(`source`): `Response`
 
+This function can be used to stream any ChatBotKit streaming response to the
+client. It will automatically encode the response as JSONL and it is fully
+compatible with the @chatbotkit/react useConversationManager hook.
+
 #### Parameters
 
 | Name | Type |
@@ -48,6 +52,27 @@ Renames and re-exports [stream](edge.md#stream)
 
 `Response`
 
+**`Example`**
+
+```js
+import { ChatBotKit } from '@chatbotkit/sdk'
+import { stream } from '@chatbotkit/next/edge'
+
+const cbk = new ChatBotKit({
+ secret: process.env.CHATBOTKIT_API_SECRET,
+})
+
+export default async function handler(req) {
+ const { messages } = await req.json()
+
+ return stream(cbk.conversation.complete(null, { messages }))
+}
+
+export const config = {
+ runtime: 'edge',
+}
+```
+
 #### Defined in
 
-[edge.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L7)
+[edge.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L33)
