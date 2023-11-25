@@ -16,12 +16,6 @@
 
 - [constructor](bot_session.BotSessionClient.md#constructor)
 
-### Properties
-
-- [endpoints](bot_session.BotSessionClient.md#endpoints)
-- [secret](bot_session.BotSessionClient.md#secret)
-- [url](bot_session.BotSessionClient.md#url)
-
 ### Methods
 
 - [clientFetch](bot_session.BotSessionClient.md#clientfetch)
@@ -50,48 +44,6 @@
 #### Defined in
 
 [bot/session/index.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/index.js#L8)
-
-## Properties
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[endpoints](client.ChatBotKitClient.md#endpoints)
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[secret](client.ChatBotKitClient.md#secret)
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[url](client.ChatBotKitClient.md#url)
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 

@@ -20,14 +20,6 @@
 
 - [constructor](conversation.ConversationClient.md#constructor)
 
-### Properties
-
-- [endpoints](conversation.ConversationClient.md#endpoints)
-- [message](conversation.ConversationClient.md#message)
-- [secret](conversation.ConversationClient.md#secret)
-- [session](conversation.ConversationClient.md#session)
-- [url](conversation.ConversationClient.md#url)
-
 ### Methods
 
 - [clientFetch](conversation.ConversationClient.md#clientfetch)
@@ -63,68 +55,6 @@
 #### Defined in
 
 [conversation/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L26)
-
-## Properties
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[endpoints](client.ChatBotKitClient.md#endpoints)
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### message
-
-• **message**: [`ConversationMessageClient`](conversation_message.ConversationMessageClient.md)
-
-#### Defined in
-
-[conversation/index.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L29)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[secret](client.ChatBotKitClient.md#secret)
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### session
-
-• **session**: [`ConversationSessionClient`](conversation_session.ConversationSessionClient.md)
-
-#### Defined in
-
-[conversation/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L30)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[url](client.ChatBotKitClient.md#url)
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 

@@ -20,13 +20,6 @@
 
 - [constructor](skillset.SkillsetClient.md#constructor)
 
-### Properties
-
-- [ability](skillset.SkillsetClient.md#ability)
-- [endpoints](skillset.SkillsetClient.md#endpoints)
-- [secret](skillset.SkillsetClient.md#secret)
-- [url](skillset.SkillsetClient.md#url)
-
 ### Methods
 
 - [clientFetch](skillset.SkillsetClient.md#clientfetch)
@@ -59,58 +52,6 @@
 #### Defined in
 
 [skillset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L21)
-
-## Properties
-
-### ability
-
-• **ability**: [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
-
-#### Defined in
-
-[skillset/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L24)
-
-___
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[endpoints](client.ChatBotKitClient.md#endpoints)
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[secret](client.ChatBotKitClient.md#secret)
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[url](client.ChatBotKitClient.md#url)
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 

@@ -54,12 +54,6 @@
 
 - [constructor](client.ChatBotKitClient.md#constructor)
 
-### Properties
-
-- [endpoints](client.ChatBotKitClient.md#endpoints)
-- [secret](client.ChatBotKitClient.md#secret)
-- [url](client.ChatBotKitClient.md#url)
-
 ### Methods
 
 - [clientFetch](client.ChatBotKitClient.md#clientfetch)
@@ -83,36 +77,6 @@
 #### Defined in
 
 [client.js:188](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L188)
-
-## Properties
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 

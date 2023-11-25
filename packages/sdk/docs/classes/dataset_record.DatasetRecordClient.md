@@ -20,12 +20,6 @@
 
 - [constructor](dataset_record.DatasetRecordClient.md#constructor)
 
-### Properties
-
-- [endpoints](dataset_record.DatasetRecordClient.md#endpoints)
-- [secret](dataset_record.DatasetRecordClient.md#secret)
-- [url](dataset_record.DatasetRecordClient.md#url)
-
 ### Methods
 
 - [clientFetch](dataset_record.DatasetRecordClient.md#clientfetch)
@@ -58,48 +52,6 @@
 #### Defined in
 
 [dataset/record/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L20)
-
-## Properties
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[endpoints](client.ChatBotKitClient.md#endpoints)
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[secret](client.ChatBotKitClient.md#secret)
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[url](client.ChatBotKitClient.md#url)
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 

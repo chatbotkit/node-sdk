@@ -20,12 +20,6 @@
 
 - [constructor](file.FileClient.md#constructor)
 
-### Properties
-
-- [endpoints](file.FileClient.md#endpoints)
-- [secret](file.FileClient.md#secret)
-- [url](file.FileClient.md#url)
-
 ### Methods
 
 - [clientFetch](file.FileClient.md#clientfetch)
@@ -60,48 +54,6 @@
 #### Defined in
 
 [file/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L22)
-
-## Properties
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[endpoints](client.ChatBotKitClient.md#endpoints)
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[secret](client.ChatBotKitClient.md#secret)
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[url](client.ChatBotKitClient.md#url)
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 

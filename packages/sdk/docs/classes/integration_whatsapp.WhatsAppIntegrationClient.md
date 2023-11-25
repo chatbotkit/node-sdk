@@ -20,12 +20,6 @@
 
 - [constructor](integration_whatsapp.WhatsAppIntegrationClient.md#constructor)
 
-### Properties
-
-- [endpoints](integration_whatsapp.WhatsAppIntegrationClient.md#endpoints)
-- [secret](integration_whatsapp.WhatsAppIntegrationClient.md#secret)
-- [url](integration_whatsapp.WhatsAppIntegrationClient.md#url)
-
 ### Methods
 
 - [clientFetch](integration_whatsapp.WhatsAppIntegrationClient.md#clientfetch)
@@ -59,48 +53,6 @@
 #### Defined in
 
 [integration/whatsapp/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/index.js#L21)
-
-## Properties
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[endpoints](client.ChatBotKitClient.md#endpoints)
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[secret](client.ChatBotKitClient.md#secret)
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[url](client.ChatBotKitClient.md#url)
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 

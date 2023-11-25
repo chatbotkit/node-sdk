@@ -20,13 +20,6 @@
 
 - [constructor](partner_user.PartnerUserClient.md#constructor)
 
-### Properties
-
-- [endpoints](partner_user.PartnerUserClient.md#endpoints)
-- [secret](partner_user.PartnerUserClient.md#secret)
-- [token](partner_user.PartnerUserClient.md#token)
-- [url](partner_user.PartnerUserClient.md#url)
-
 ### Methods
 
 - [clientFetch](partner_user.PartnerUserClient.md#clientfetch)
@@ -59,58 +52,6 @@
 #### Defined in
 
 [partner/user/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L21)
-
-## Properties
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[endpoints](client.ChatBotKitClient.md#endpoints)
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[secret](client.ChatBotKitClient.md#secret)
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### token
-
-• **token**: [`PartnerUserTokenClient`](partner_user_token.PartnerUserTokenClient.md)
-
-#### Defined in
-
-[partner/user/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L24)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[url](client.ChatBotKitClient.md#url)
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 

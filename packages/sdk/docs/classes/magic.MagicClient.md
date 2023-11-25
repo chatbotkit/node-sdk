@@ -20,12 +20,6 @@
 
 - [constructor](magic.MagicClient.md#constructor)
 
-### Properties
-
-- [endpoints](magic.MagicClient.md#endpoints)
-- [secret](magic.MagicClient.md#secret)
-- [url](magic.MagicClient.md#url)
-
 ### Methods
 
 - [clientFetch](magic.MagicClient.md#clientfetch)
@@ -54,48 +48,6 @@
 #### Defined in
 
 [magic/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/index.js#L14)
-
-## Properties
-
-### endpoints
-
-• **endpoints**: `Record`\<`string`, `string`\>
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[endpoints](client.ChatBotKitClient.md#endpoints)
-
-#### Defined in
-
-[client.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L201)
-
-___
-
-### secret
-
-• **secret**: `string`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[secret](client.ChatBotKitClient.md#secret)
-
-#### Defined in
-
-[client.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L189)
-
-___
-
-### url
-
-• **url**: `URL`
-
-#### Inherited from
-
-[ChatBotKitClient](client.ChatBotKitClient.md).[url](client.ChatBotKitClient.md#url)
-
-#### Defined in
-
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
 
 ## Methods
 
