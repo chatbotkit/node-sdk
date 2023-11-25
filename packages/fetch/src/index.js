@@ -50,8 +50,6 @@ function anySignal(signals) {
 }
 
 /**
- * @todo add definition
- * @todo move to @chatbotkit/fetch sdk
  */
 export class FetchError extends Error {
   /**
@@ -80,6 +78,8 @@ export class FetchError extends Error {
  * @typedef {{
  *   timeout?: number
  * }} withTimeoutOptions
+ *
+ * Add timeout capabilities to any fetch implementation.
  *
  * @param {FetchFn} fetch
  * @param {withTimeoutOptions} [defaultOptions]
@@ -138,7 +138,8 @@ export function withTimeout(fetch, defaultOptions) {
  *   retryStatuses?: number[]
  * }} withRetryOptions
  *
- * @todo move to @chatbotkit/fetch sdk
+ * Add retry capabilities to any fetch implementation.
+ *
  * @param {FetchFn} fetch
  * @param {withRetryOptions} [defaultOptions]
  * @returns {FetchFn}
@@ -215,6 +216,8 @@ export function withRetry(fetch, defaultOptions) {
 }
 
 /**
+ * Expose a JSONL stream as an async iterable.
+ *
  * @param {ReadableStream<Uint8Array> & {[Symbol.asyncIterator](): AsyncIterator<Uint8Array>}} body
  * @returns {AsyncGenerator<Record<string,any>>}
  */

@@ -2,14 +2,6 @@
 
 # Class: FetchError
 
-**`Todo`**
-
-add definition
-
-**`Todo`**
-
-move to @chatbotkit/fetch sdk
-
 ## Hierarchy
 
 - `Error`
@@ -48,4 +40,4 @@ Error.constructor
 
 #### Defined in
 
-[index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L64)
+[index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L62)

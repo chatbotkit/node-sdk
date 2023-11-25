@@ -43,13 +43,15 @@
 
 #### Defined in
 
-[index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L76)
+[index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L74)
 
 ___
 
 ### withRetryOptions
 
 Ƭ **withRetryOptions**\<\>: `Object`
+
+Add retry capabilities to any fetch implementation.
 
 #### Type declaration
 
@@ -71,6 +73,8 @@ ___
 
 Ƭ **withTimeoutOptions**\<\>: `Object`
 
+Add timeout capabilities to any fetch implementation.
+
 #### Type declaration
 
 | Name | Type |
@@ -79,13 +83,15 @@ ___
 
 #### Defined in
 
-[index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L82)
+[index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L80)
 
 ## Functions
 
 ### jsonl
 
 ▸ **jsonl**(`body`): `AsyncGenerator`\<`Record`\<`string`, `any`\>, `any`, `any`\>
+
+Expose a JSONL stream as an async iterable.
 
 #### Parameters
 
@@ -99,7 +105,7 @@ ___
 
 #### Defined in
 
-[index.js:221](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L221)
+[index.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L224)
 
 ___
 
@@ -118,13 +124,9 @@ ___
 
 [`FetchFn`](modules.md#fetchfn)
 
-**`Todo`**
-
-move to @chatbotkit/fetch sdk
-
 #### Defined in
 
-[index.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L146)
+[index.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L147)
 
 ___
 
