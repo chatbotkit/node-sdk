@@ -135,3 +135,6 @@ dist.*
 
 # packages types
 packages/*/types
+
+# main docs
+/docs
