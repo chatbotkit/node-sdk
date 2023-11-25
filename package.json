@@ -32,7 +32,7 @@
     "lint": "turbo run lint",
     "prepare": "husky install",
     "prepare-packages": "changeset",
-    "publish-packages": "turbo run build test && changeset version && changeset publish",
+    "publish-packages": "turbo run lint check build test && changeset version && changeset publish",
     "test": "turbo run test"
   },
   "dependencies": {
