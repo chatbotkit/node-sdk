@@ -54,6 +54,7 @@ async function main() {
   const packageStruct = JSON.parse(packageFile.toString())
 
   packageStruct.exports = exports
+  packageStruct.exports['./package.json'] = './package.json'
 
   packageStruct.main = './src/index.js'
   packageStruct.types = './types/index.d.ts'
