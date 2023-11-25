@@ -10,6 +10,7 @@
     "moduleResolution": "nodenext",
     "allowJs": true,
     "checkJs": true,
+    "maxNodeModuleJsDepth": 2,
     "noFallthroughCasesInSwitch": true,
     "preserveConstEnums": true,
     "removeComments": true,
