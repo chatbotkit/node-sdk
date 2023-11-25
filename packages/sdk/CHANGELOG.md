@@ -1,5 +1,12 @@
 # @chatbotkit/sdk
 
+## 1.1.4
+
+### Patch Changes
+
+- a1fd368: Use the correct @chatbotkit/fetch version.
+- 72ce393: Use specific fetch version.
+
 ## 1.1.3
 
 ### Patch Changes
