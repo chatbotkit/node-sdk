@@ -6,16 +6,6 @@
     "node": ">=18.16.0"
   },
   "type": "module",
-  "workspaces": [
-    "packages/fetch",
-    "packages/sdk",
-    "packages/react",
-    "packages/next",
-    "system/*",
-    "examples/sdk/*",
-    "examples/nextjs/*",
-    "examples/cloudflare/*"
-  ],
   "scripts": {
     "build": "run-s build:*",
     "build:all": "turbo run build",
@@ -32,6 +22,7 @@
     "lint": "turbo run lint",
     "prepare": "husky install",
     "prepare-changes": "changeset",
+    "preinstall": "npx only-allow pnpm",
     "publish-changes": "turbo run lint check build test && changeset version && changeset publish && npm install",
     "test": "turbo run test"
   },

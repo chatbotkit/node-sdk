@@ -106,7 +106,7 @@
   },
   "types": "./types/index.d.ts",
   "dependencies": {
-    "@chatbotkit/sdk": "*"
+    "@chatbotkit/sdk": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.2.0",

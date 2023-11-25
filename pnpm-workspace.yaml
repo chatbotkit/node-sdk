@@ -1,0 +1,8 @@
+packages:
+  - 'packages/fetch'
+  - 'packages/sdk'
+  - 'packages/react'
+  - 'packages/next'
+  - 'examples/sdk/*'
+  - 'examples/nextjs/*'
+  - 'examples/cloudflare/*'

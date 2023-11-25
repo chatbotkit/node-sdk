@@ -8,7 +8,7 @@
     "start": "wrangler dev"
   },
   "dependencies": {
-    "@chatbotkit/sdk": "*"
+    "@chatbotkit/sdk": "workspace:*"
   },
   "devDependencies": {
     "wrangler": "2.15.1"

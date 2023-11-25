@@ -9,7 +9,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@chatbotkit/sdk": "*",
+    "@chatbotkit/sdk": "workspace:*",
     "dotenv": "^16.0.3"
   }
 }
