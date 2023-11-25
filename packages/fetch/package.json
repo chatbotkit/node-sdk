@@ -21,27 +21,23 @@
     "FormData"
   ],
   "type": "module",
-  "main": "./src/index.js",
   "exports": {
     ".": {
-      "import": {
-        "default": "./src/index.js",
-        "types": "./src/index.js"
-      }
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
     },
     "./index": {
-      "import": {
-        "default": "./src/index.js",
-        "types": "./src/index.js"
-      }
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
     },
     "./index.js": {
-      "import": {
-        "default": "./src/index.js",
-        "types": "./src/index.js"
-      }
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
     }
   },
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "run-s build:*",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -49,20 +45,21 @@
     "build:cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
     "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "check": "tsc --noEmit",
+    "build:exports": "node ../../scripts/create-standard-exports.js",
+    "build:types": "tsc -p tsconfig.types.json",
+    "check": "tsc -p tsconfig.check.json",
     "clean": "run-s clean:*",
+    "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",
-    "export": "node ../../scripts/create-standard-exports.js",
+    "clean:exports": "npm run build:exports",
+    "clean:node_modules": "rimraf node_modules",
+    "clean:types": "rimraf types",
     "lint": "eslint .",
     "postpack": "node ../../scripts/create-standard-exports.js",
     "prepack": "node ../../scripts/create-dist-exports.js",
     "test": "true"
   },
-  "types": "./src/index.js",
   "dependencies": {
     "node-fetch-native": "^1.2.0"
-  },
-  "devDependencies": {
-    "@system/toolchain": "*"
   }
 }
