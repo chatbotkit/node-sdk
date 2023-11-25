@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](integration_whatsapp.md#default)
-
 ### Classes
 
 - [WhatsAppIntegrationClient](../classes/integration_whatsapp.WhatsAppIntegrationClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](integration_whatsapp.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [WhatsAppIntegrationClient](../classes/integration_whatsapp.WhatsAppIntegrationClient.md)
 
 ## Type Aliases
 

@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](integration_sitemap.md#default)
-
 ### Classes
 
 - [SitemapIntegrationClient](../classes/integration_sitemap.SitemapIntegrationClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](integration_sitemap.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [SitemapIntegrationClient](../classes/integration_sitemap.SitemapIntegrationClient.md)
 
 ## Type Aliases
 

@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](skillset_ability.md#default)
-
 ### Classes
 
 - [SkillsetAbilityClient](../classes/skillset_ability.SkillsetAbilityClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](skillset_ability.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [SkillsetAbilityClient](../classes/skillset_ability.SkillsetAbilityClient.md)
 
 ## Type Aliases
 

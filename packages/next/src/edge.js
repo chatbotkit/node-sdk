@@ -61,5 +61,3 @@ export function stream(source) {
     { headers: { 'Content-Type': 'application/jsonl' } }
   )
 }
-
-export default stream

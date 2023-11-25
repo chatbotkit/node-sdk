@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](components_AutoTextarea.md#default)
-
 ### Type Aliases
 
 - [onInputFn](components_AutoTextarea.md#oninputfn)
@@ -15,12 +11,6 @@
 ### Functions
 
 - [AutoTextarea](components_AutoTextarea.md#autotextarea)
-
-## References
-
-### default
-
-Renames and re-exports [AutoTextarea](components_AutoTextarea.md#autotextarea)
 
 ## Type Aliases
 

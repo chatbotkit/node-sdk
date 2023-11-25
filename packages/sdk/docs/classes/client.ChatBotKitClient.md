@@ -10,15 +10,9 @@
 
   ↳ [`BotClient`](bot.BotClient.md)
 
-  ↳ [`BotSessionClient`](bot_session.BotSessionClient.md)
-
   ↳ [`ConversationClient`](conversation.ConversationClient.md)
 
   ↳ [`ConversationMessageClient`](conversation_message.ConversationMessageClient.md)
-
-  ↳ [`ConversationSessionClient`](conversation_session.ConversationSessionClient.md)
-
-  ↳ [`DatasetFileClient`](dataset_file.DatasetFileClient.md)
 
   ↳ [`DatasetClient`](dataset.DatasetClient.md)
 
@@ -26,17 +20,11 @@
 
   ↳ [`FileClient`](file.FileClient.md)
 
-  ↳ [`ChatBotKit`](index.ChatBotKit.md)
-
-  ↳ [`IntegrationClient`](integration.IntegrationClient.md)
-
   ↳ [`SitemapIntegrationClient`](integration_sitemap.SitemapIntegrationClient.md)
 
   ↳ [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
 
   ↳ [`MagicClient`](magic.MagicClient.md)
-
-  ↳ [`PartnerClient`](partner.PartnerClient.md)
 
   ↳ [`PartnerUserClient`](partner_user.PartnerUserClient.md)
 
@@ -45,8 +33,6 @@
   ↳ [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
 
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
-
-  ↳ [`UsageClient`](usage.UsageClient.md)
 
 ## Table of contents
 

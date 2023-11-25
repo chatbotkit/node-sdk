@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](hooks_useConversationManager.md#default)
-
 ### Type Aliases
 
 - [Message](hooks_useConversationManager.md#message)
@@ -15,12 +11,6 @@
 ### Functions
 
 - [useConversationManager](hooks_useConversationManager.md#useconversationmanager)
-
-## References
-
-### default
-
-Renames and re-exports [useConversationManager](hooks_useConversationManager.md#useconversationmanager)
 
 ## Type Aliases
 

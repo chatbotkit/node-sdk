@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](file.md#default)
-
 ### Classes
 
 - [FileClient](../classes/file.FileClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](file.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [FileClient](../classes/file.FileClient.md)
 
 ## Type Aliases
 

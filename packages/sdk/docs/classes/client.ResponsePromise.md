@@ -17,17 +17,11 @@
 
 - [constructor](client.ResponsePromise.md#constructor)
 
-### Accessors
-
-- [[toStringTag]](client.ResponsePromise.md#[tostringtag])
-
 ### Methods
 
 - [catch](client.ResponsePromise.md#catch)
 - [finally](client.ResponsePromise.md#finally)
-- [getFetchPromise](client.ResponsePromise.md#getfetchpromise)
 - [getRequest](client.ResponsePromise.md#getrequest)
-- [getStreamPromise](client.ResponsePromise.md#getstreampromise)
 - [stream](client.ResponsePromise.md#stream)
 - [then](client.ResponsePromise.md#then)
 
@@ -61,20 +55,6 @@
 #### Defined in
 
 [client.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L39)
-
-## Accessors
-
-### [toStringTag]
-
-• `get` **[toStringTag]**(): `string`
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[client.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L49)
 
 ## Methods
 
@@ -118,20 +98,6 @@ ___
 
 ___
 
-### getFetchPromise
-
-▸ **getFetchPromise**(): `Promise`\<`Response`\>
-
-#### Returns
-
-`Promise`\<`Response`\>
-
-#### Defined in
-
-[client.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L107)
-
-___
-
 ### getRequest
 
 ▸ **getRequest**(`params?`): `Promise`\<`Response`\>
@@ -151,20 +117,6 @@ ___
 #### Defined in
 
 [client.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L56)
-
-___
-
-### getStreamPromise
-
-▸ **getStreamPromise**(): `Promise`\<`Response`\>
-
-#### Returns
-
-`Promise`\<`Response`\>
-
-#### Defined in
-
-[client.js:115](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L115)
 
 ___
 

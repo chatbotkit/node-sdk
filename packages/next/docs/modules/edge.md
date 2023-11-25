@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](edge.md#default)
-
 ### Type Aliases
 
 - [IterableObject](edge.md#iterableobject)
@@ -15,12 +11,6 @@
 ### Functions
 
 - [stream](edge.md#stream)
-
-## References
-
-### default
-
-Renames and re-exports [stream](edge.md#stream)
 
 ## Type Aliases
 

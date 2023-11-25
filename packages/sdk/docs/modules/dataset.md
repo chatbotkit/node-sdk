@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](dataset.md#default)
-
 ### Classes
 
 - [DatasetClient](../classes/dataset.DatasetClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](dataset.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [DatasetClient](../classes/dataset.DatasetClient.md)
 
 ## Type Aliases
 

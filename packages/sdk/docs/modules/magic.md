@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](magic.md#default)
-
 ### Classes
 
 - [MagicClient](../classes/magic.MagicClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](magic.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [MagicClient](../classes/magic.MagicClient.md)
 
 ## Type Aliases
 

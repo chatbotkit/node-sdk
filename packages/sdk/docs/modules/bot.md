@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](bot.md#default)
-
 ### Classes
 
 - [BotClient](../classes/bot.BotClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](bot.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [BotClient](../classes/bot.BotClient.md)
 
 ## Type Aliases
 

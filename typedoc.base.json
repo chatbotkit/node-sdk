@@ -5,7 +5,6 @@
   "excludeInternal": true,
   "excludeExternals": true,
   "excludeNotDocumented": true,
-  "excludeNotDocumentedKinds": ["Property", "Interface", "TypeAlias"],
   "includeVersion": false,
   "skipErrorChecking": true,
   "gitRevision": "main",

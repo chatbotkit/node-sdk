@@ -14,11 +14,6 @@
 - [withRetryOptions](modules.md#withretryoptions)
 - [withTimeoutOptions](modules.md#withtimeoutoptions)
 
-### Variables
-
-- [ABORT\_ERROR\_NAME](modules.md#abort_error_name)
-- [TIMEOUT\_ERROR\_NAME](modules.md#timeout_error_name)
-
 ### Functions
 
 - [anySignal](modules.md#anysignal)
@@ -86,26 +81,6 @@ ___
 #### Defined in
 
 [index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L82)
-
-## Variables
-
-### ABORT\_ERROR\_NAME
-
-• `Const` **ABORT\_ERROR\_NAME**: ``"AbortError"``
-
-#### Defined in
-
-[index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L27)
-
-___
-
-### TIMEOUT\_ERROR\_NAME
-
-• `Const` **TIMEOUT\_ERROR\_NAME**: ``"TimeoutError"``
-
-#### Defined in
-
-[index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L28)
 
 ## Functions
 

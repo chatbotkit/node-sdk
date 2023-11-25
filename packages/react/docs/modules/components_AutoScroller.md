@@ -4,36 +4,11 @@
 
 ## Table of contents
 
-### References
-
-- [default](components_AutoScroller.md#default)
-
 ### Functions
 
-- [AutoScrollAnchor](components_AutoScroller.md#autoscrollanchor)
 - [AutoScroller](components_AutoScroller.md#autoscroller)
 
-## References
-
-### default
-
-Renames and re-exports [AutoScroller](components_AutoScroller.md#autoscroller)
-
 ## Functions
-
-### AutoScrollAnchor
-
-▸ **AutoScrollAnchor**(): `Element`
-
-#### Returns
-
-`Element`
-
-#### Defined in
-
-[components/AutoScroller.js:3](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoScroller.js#L3)
-
-___
 
 ### AutoScroller
 

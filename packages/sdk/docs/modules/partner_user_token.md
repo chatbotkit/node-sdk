@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](partner_user_token.md#default)
-
 ### Classes
 
 - [PartnerUserTokenClient](../classes/partner_user_token.PartnerUserTokenClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](partner_user_token.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [PartnerUserTokenClient](../classes/partner_user_token.PartnerUserTokenClient.md)
 
 ## Type Aliases
 

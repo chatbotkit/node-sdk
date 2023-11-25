@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](partner_user.md#default)
-
 ### Classes
 
 - [PartnerUserClient](../classes/partner_user.PartnerUserClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](partner_user.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [PartnerUserClient](../classes/partner_user.PartnerUserClient.md)
 
 ## Type Aliases
 

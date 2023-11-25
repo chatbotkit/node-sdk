@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### References
-
-- [default](conversation_message.md#default)
-
 ### Classes
 
 - [ConversationMessageClient](../classes/conversation_message.ConversationMessageClient.md)
@@ -15,12 +11,6 @@
 ### Type Aliases
 
 - [ResponsePromise](conversation_message.md#responsepromise)
-
-## References
-
-### default
-
-Renames and re-exports [ConversationMessageClient](../classes/conversation_message.ConversationMessageClient.md)
 
 ## Type Aliases
 
