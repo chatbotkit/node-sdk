@@ -9,6 +9,8 @@
  *
  * @example
  * ```js
+ * // on the server
+ *
  * import { ChatBotKit } from '@chatbotkit/sdk'
  * import { stream } from '@chatbotkit/next/edge'
  *
@@ -25,6 +27,13 @@
  * export const config = {
  *  runtime: 'edge',
  * }
+ *
+ * // on the client
+ * import { useConversationManager } from '@chatbotkit/react'
+ *
+ * const { thinking, text, setText, messages, submit } = useConversationManager({
+ *   endpoint: '/api/conversation/complete',
+ * })
  * ```
  *
  * @param {IterableObject|{stream: () => IterableObject}} source
