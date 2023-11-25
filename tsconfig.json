@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "incremental": true,
+    "lib": ["es2015", "dom"],
+    "target": "es5",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "allowJs": true,
+    "checkJs": true,
+    "noFallthroughCasesInSwitch": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "useUnknownInCatchVariables": false,
+    "jsx": "react-jsx",
+    "noEmit": true
+  },
+  "include": ["packages/"],
+  "exclude": [
+    "node_modules/",
+    "dist/",
+    "**/*.spec.ts",
+    "**/*.spec.js",
+    "**/*.test.ts",
+    "**/*.test.js"
+  ]
+}
