@@ -31,8 +31,8 @@
     "format:src": "prettier -w .",
     "lint": "turbo run lint",
     "prepare": "husky install",
-    "prepare-packages": "changeset",
-    "publish-packages": "turbo run lint check build test && changeset version && changeset publish",
+    "prepare-changes": "changeset",
+    "publish-changes": "turbo run lint check build test && changeset version && changeset publish",
     "test": "turbo run test"
   },
   "dependencies": {
