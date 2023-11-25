@@ -1,6 +1,6 @@
 {
   "extends": [
-    "../../typedoc.json"
+    "../../typedoc.base.json"
   ],
   "entryPoints": [
     "./src/bot/index.js",
@@ -43,6 +43,5 @@
     "./src/usage/index.js",
     "./src/usage/v1.js"
   ],
-  "out": "docs",
   "readme": "README.md"
 }

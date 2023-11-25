@@ -1,15 +1,7 @@
 {
-  "plugin": ["typedoc-plugin-markdown"],
-  "exclude": ["**/node_modules/**/*", "**/dist/**/*", "**/types/**/*"],
-  "excludePrivate": true,
-  "excludeInternal": true,
-  "excludeExternals": true,
-  "skipErrorChecking": true,
-  "gitRevision": "main",
-  "visibilityFilters": {
-    "protected": true,
-    "private": false,
-    "inherited": true,
-    "external": true
-  }
+  "name": "ChatBotKit For Node.js",
+  "entryPoints": ["packages/*"],
+  "entryPointStrategy": "packages",
+  "includeVersion": false,
+  "out": "./docs"
 }

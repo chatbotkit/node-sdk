@@ -1,6 +1,6 @@
 {
   "extends": [
-    "../../typedoc.json"
+    "../../typedoc.base.json"
   ],
   "entryPoints": [
     "./src/components/AutoScroller.js",
@@ -10,6 +10,5 @@
     "./src/utils/object.js",
     "./src/utils/string.js"
   ],
-  "out": "docs",
   "readme": "README.md"
 }

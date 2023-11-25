@@ -1,11 +1,10 @@
 {
   "extends": [
-    "../../typedoc.json"
+    "../../typedoc.base.json"
   ],
   "entryPoints": [
     "./src/edge.js",
     "./src/index.js"
   ],
-  "out": "docs",
   "readme": "README.md"
 }
