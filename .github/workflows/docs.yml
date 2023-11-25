@@ -27,7 +27,7 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 8.6.0
-      - run: pnpm docs
+      - run: npx typedoc
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
