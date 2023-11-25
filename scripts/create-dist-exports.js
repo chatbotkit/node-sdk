@@ -36,13 +36,13 @@ async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
         }
 
         exports[exportPoint] = {
-          require: {
-            types: './' + fileName.replace('dist/esm', 'dist/cjs') + '.d.ts',
-            default: './' + fileName.replace('dist/esm', 'dist/cjs') + '.cjs',
-          },
           import: {
             types: './' + fileName + '.d.ts',
             default: './' + fileName + '.js',
+          },
+          require: {
+            types: './' + fileName.replace('dist/esm', 'dist/cjs') + '.d.ts',
+            default: './' + fileName.replace('dist/esm', 'dist/cjs') + '.cjs',
           },
         }
       }

@@ -36,10 +36,8 @@ async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
         }
 
         exports[exportPoint] = {
-          import: {
-            default: './' + fileName + '.js',
-            types: './' + fileName + '.js',
-          },
+          default: './' + fileName + '.js',
+          types: './' + fileName.replace(rootDir, 'types') + '.d.ts',
         }
       }
     }
@@ -58,7 +56,7 @@ async function main() {
   packageStruct.exports = exports
 
   packageStruct.main = './src/index.js'
-  packageStruct.types = './src/index.js'
+  packageStruct.types = './types/index.d.js'
 
   await fs.writeFile(
     'package.json',
