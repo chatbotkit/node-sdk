@@ -29,6 +29,7 @@
  * }
  *
  * // on the client
+ *
  * import { useConversationManager } from '@chatbotkit/react'
  *
  * const { thinking, text, setText, messages, submit } = useConversationManager({

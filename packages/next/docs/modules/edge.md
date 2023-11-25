@@ -45,6 +45,8 @@ compatible with the @chatbotkit/react useConversationManager hook.
 **`Example`**
 
 ```js
+// on the server
+
 import { ChatBotKit } from '@chatbotkit/sdk'
 import { stream } from '@chatbotkit/next/edge'
 
@@ -61,8 +63,16 @@ export default async function handler(req) {
 export const config = {
  runtime: 'edge',
 }
+
+// on the client
+
+import { useConversationManager } from '@chatbotkit/react'
+
+const { thinking, text, setText, messages, submit } = useConversationManager({
+  endpoint: '/api/conversation/complete',
+})
 ```
 
 #### Defined in
 
-[edge.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L33)
+[edge.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L43)
