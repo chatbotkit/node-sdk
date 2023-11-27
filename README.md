@@ -57,6 +57,75 @@ for await (const { type, data } of client
 }
 ```
 
+### Next.js Example
+
+This quick example demonstrates how to use the SDK in a Next.js project:
+
+```javascript
+// file: ./pages/api/conversation/complete.js
+import { ChatBotKit } from '@chatbotkit/sdk'
+import { stream } from '@chatbotkit/next/edge'
+
+const cbk = new ChatBotKit({
+  secret: process.env.CHATBOTKIT_API_SECRET,
+})
+
+export default async function handler(req) {
+  const { messages } = await req.json()
+
+  return stream(cbk.conversation.complete(null, { messages }))
+}
+
+export const config = {
+  runtime: 'edge',
+}
+
+// file: ./pages/index.js
+import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
+
+export default function Index() {
+  const { thinking, text, setText, messages, submit } = useConversationManager({
+    endpoint: '/api/conversation/complete',
+  })
+
+  function handleOnKeyDown(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+
+      submit()
+    }
+  }
+
+  return (
+    <div style={{ fontFamily: 'monospace', padding: '10px' }}>
+      {messages.map(({ id, type, text }) => (
+        <div key={id}>
+          <strong>{type}:</strong> {text}
+        </div>
+      ))}
+      {thinking && (
+        <div key="thinking">
+          <strong>bot:</strong> thinking...
+        </div>
+      )}
+      <AutoTextarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        onKeyDown={handleOnKeyDown}
+        placeholder="Type something..."
+        style={{
+          border: 0,
+          outline: 'none',
+          resize: 'none',
+          width: '100%',
+          marginTop: '10px',
+        }}
+      />
+    </div>
+  )
+}
+```
+
 ## Examples
 
 Explore a range of examples [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
