@@ -66,13 +66,65 @@ export const config = {
 
 // on the client
 
-import { useConversationManager } from '@chatbotkit/react'
+import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
-const { thinking, text, setText, messages, submit } = useConversationManager({
-  endpoint: '/api/conversation/complete',
-})
+export default function Index() {
+  const { thinking, text, setText, messages, submit } = useConversationManager({
+    endpoint: '/api/conversation/complete',
+  })
+
+  function handleOnKeyDown(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+
+      submit()
+    }
+  }
+
+  return (
+    <div style={{ fontFamily: 'monospace', padding: '10px' }}>
+      <div>
+        {messages.map(({ id, type, text }) => {
+          switch (type) {
+            case 'user':
+              return (
+                <div key={id}>
+                  <strong>user:</strong> {text}
+                </div>
+              )
+
+            case 'bot':
+              return (
+                <div key={id}>
+                  <strong>bot:</strong> {text}
+                </div>
+              )
+          }
+        })}
+        {thinking ? (
+          <div key="thinking">
+            <strong>bot:</strong> thinking...
+          </div>
+        ) : null}
+      </div>
+      <AutoTextarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        onKeyDown={handleOnKeyDown}
+        placeholder="Type something..."
+        style={{
+          border: 0,
+          outline: 'none',
+          resize: 'none',
+          width: '100%',
+          marginTop: '10px',
+        }}
+      />
+    </div>
+  )
+}
 ```
 
 #### Defined in
 
-[edge.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L43)
+[edge.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L95)

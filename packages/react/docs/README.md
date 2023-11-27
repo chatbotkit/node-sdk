@@ -6,67 +6,39 @@
 
 # ChatBotKit React SDK
 
-Welcome to the ChatBotKit React SDK. This SDK is a React solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy chatbots that can interact with users in natural language.
-
-## React SDK Features
-
-- **Easy setup** - The ChatBotKit React SDK is easy to install and set up. You can have your first chatbot up and running in minutes.
-- **No styles** - ChatBotKit React SDK does not enforce any styles. You can easily style your applications just the way you want them.
-- **Modern** - A modern SDK with built-in support for CommonJS, ECMAScript Modules, async/await, streams and much more.
-- **Customizable** - You can easily customize the chatbot's behavior and responses to fit your specific use case.
-
-## ChatBotKit Features
-
-- 🗨 **Chat History**: Easily review and reference previous conversations with your bots, ensuring that it has all the information it needs.
-- 💾 **Custom Datasets**: Manage and organize the data that your chat bots use to respond to user input with bespoke datasets.
-- 💾 **Custom Skillset**: Create special skills for your chatbot, such as the ability to generate images or fetch web pages.
-- 🎬 **Document File Importing**: Import PDF, CSV, JSON, MD and many other document files directly into your your chatbot datasets
-- 🎬 **Media File Importing**: Import MP3, MP4, MPEG, WAV and many other media files directly into your your chatbot datasets
-- 🌐 **Widget Integration**: Embed ChatBotKit chatbots directly on any website using advanced customization options and theming.
-- 💬 **Slack Bot Integration**: Create and deploy wide-range of Slack bot integrations with just a few click.
-- 🎮 **Discord Bot Integration**: Create and deploy wide-range of Discord chat bot with just a few click.
-- 📱 **WhatsApp Bot Integration**: Connect with your audience instantly on the world’s most popular AI bot platform.
-- 🗺 **Sitemap Integration**: Automatically ingest website content into a searchable knowledge base for your chatbot to reference.
-- 🗺 **Suppoert Integration**: Automatically send conversation summaries to your prefered support system and follow up with users off-session.
-- 🤖 **GPT-3.5 Support**: State-of-the-art language models to power your conversations.
-- 🚀 **GPT-4 Support**: The latest and best language model now can power all chatbots.
-- 🎥 **Streaming**: You can turn on and off streaming capabilities for your chatbots.
-- 🎨 **Widget Themes**: Customize the appearance of your chatbot widget with different themes to match your website branding or personal preferences.
-- 🔒 **Data Security**: Ensuring the security of user data, with robust measures in place to protect against unauthorized access.
-- 🕵 **Focus on Privacy**: Get strong privacy controls out of the box. Privide confindence that your customers' data is being handled responsibly.
-- 🚫 **Content Moderation**: All messages are automatically scanned for abusive content and automatically flagged by the system.
-- 💵 **Simple Pricing**: Our pricing is straightforward and easy to understand, with no hidden fees or surprises.
+Welcome to the ChatBotKit React SDK! This SDK is your go-to React solution for creating conversational AI chatbots with ease. Leveraging the power of [ChatBotKit](https://chatbotkit.com), this SDK enables the rapid development and deployment of chatbots capable of natural language interactions.
 
 ## Getting Started
 
-To get started with ChatBotKit, follow these simple steps:
+Embark on your ChatBotKit journey with these easy steps:
 
-1. Install the SDK using npm: `npm install @chatbotkit/react`.
-2. Use the SDK to setup or interact with your chatbot.
+1. **Installation**: Add the SDK to your React project:
+   ```bash
+   npm install @chatbotkit/react
+   ```
+2. **Implementation**: Utilize the SDK to build or manage your chatbot.
 
-Here is a simple example for the next.js framework. Within the body of our component we invoke the `useConversationManager` React Hook which setups a simple utility to manage the conversation flow.
+### A Basic Example for Next.js
 
-```js
+Here's a straightforward example using the `useConversationManager` React Hook to manage conversation flow within a Next.js application:
+
+```javascript
 import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
-export default function Home() {
+export default function Index() {
   const {
     conversationId,
     setConversationId,
-
     token,
     setToken,
-
     text,
     setText,
-
     messages,
-
     thinking,
-
     submit,
   } = useConversationManager({ stream: true })
 
+  // Function to create a new chat session
   async function createSession() {
     const response = await fetch(`/api/session/create`)
 
@@ -80,6 +52,7 @@ export default function Home() {
     setToken(token)
   }
 
+  // Handle text submission
   function handleOnKeyDown(event) {
     if (event.keyCode === 13) {
       event.preventDefault()
@@ -88,46 +61,49 @@ export default function Home() {
     }
   }
 
+  // Render chat interface
   return (
-    <div>
+    <div style={{ fontFamily: 'monospace', padding: '10px' }}>
       {conversationId && token ? (
         <>
-          <div>
-            {messages.map(({ id, type, text }) => {
-              switch (type) {
-                case 'user':
-                  return <div key={id}>user: {text}</div>
-
-                case 'bot':
-                  return <div key={id}>bot: {text}</div>
-              }
-            })}
-            {thinking ? <div key="thinking">bot: thinking...</div> : null}
-          </div>
+          {messages.map(({ id, type, text }) => (
+            <div key={id}>
+              <strong>{type}:</strong> {text}
+            </div>
+          ))}
+          {thinking && (
+            <div key="thinking">
+              <strong>bot:</strong> thinking...
+            </div>
+          )}
           <AutoTextarea
             value={text}
-            onChange={(e) => setText(event.target.value)}
+            onChange={(e) => setText(e.target.value)}
             onKeyDown={handleOnKeyDown}
+            placeholder="Type something..."
+            style={{
+              border: 0,
+              outline: 'none',
+              resize: 'none',
+              width: '100%',
+              marginTop: '10px',
+            }}
           />
         </>
       ) : (
-        <button onClick={() => createSession()}>Start Chat</button>
+        <button onClick={createSession}>Start Chat</button>
       )}
     </div>
   )
 }
 ```
 
-## Examples
-
-You can find a wide-range of examples at [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
+Discover a complete example with advanced features [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/basic-chat).
 
 ## Documentation
 
-For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/blob/main/docs/react/modules.md).
-
-Checkout the [ChatBotKit Documentation](https://chatbotkit.com/docs/react-sdk) for more information about the platform.
+For a comprehensive understanding of the ChatBotKit React SDK, including detailed insights into its capabilities and configuration for various environments, please visit our [official documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.html).
 
 ## Contributing
 
-If you find a bug or would like to contribute to the ChatBotKit SDK, please open an issue or submit a pull request on the [official GitHub repository](https://github.com/chatbotkit/node-sdk).
+Found a bug or wish to contribute? We welcome your input! Please open an issue or submit a pull request on our [official GitHub repository](https://github.com/chatbotkit/node-sdk).
