@@ -11,7 +11,7 @@ import { buildParamString } from '../param.js'
  *   region?: 'us'|'eu'
  * }} ModelConfig
  *
- * @typedef {string|{name: string, config: ModelConfig}} Model
+ * @typedef {string|{name: string, config?: ModelConfig}} Model
  *
  * @param {Model} model
  * @returns {string}

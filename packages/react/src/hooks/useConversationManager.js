@@ -17,7 +17,7 @@ import { cloneAndExtend } from '../utils/object.js'
  *   region?: 'us'|'eu'
  * }} ModelConfig
  *
- * @typedef {string|{name: string, config: ModelConfig}} Model
+ * @typedef {string|{name: string, config?: ModelConfig}} Model
  */
 
 /**

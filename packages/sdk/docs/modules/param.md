@@ -12,14 +12,14 @@
 
 ### buildParamString
 
-▸ **buildParamString**(`name`, `params`, `defaultParams?`): `string`
+▸ **buildParamString**(`name`, `params?`, `defaultParams?`): `string`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `name` | `string` |
-| `params` | `Record`\<`string`, `any`\> |
+| `params?` | `Record`\<`string`, `any`\> |
 | `defaultParams?` | `Record`\<`string`, `any`\> |
 
 #### Returns

@@ -9,7 +9,7 @@
  *   region?: 'us'|'eu'
  * }} ModelConfig
  *
- * @typedef {string|{name: string, config: ModelConfig}} Model
+ * @typedef {string|{name: string, config?: ModelConfig}} Model
  */
 /**
  * @typedef {{
@@ -78,7 +78,7 @@ export type ModelConfig = {
 };
 export type Model = string | {
     name: string;
-    config: ModelConfig;
+    config?: ModelConfig;
 };
 export type Message = {
     id: string;

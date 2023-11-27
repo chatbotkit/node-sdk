@@ -36,7 +36,7 @@ ___
 
 ### Model
 
-Ƭ **Model**\<\>: `string` \| \{ `config`: [`ModelConfig`](hooks_useConversationManager.md#modelconfig) ; `name`: `string`  }
+Ƭ **Model**\<\>: `string` \| \{ `config?`: [`ModelConfig`](hooks_useConversationManager.md#modelconfig) ; `name`: `string`  }
 
 #### Defined in
 

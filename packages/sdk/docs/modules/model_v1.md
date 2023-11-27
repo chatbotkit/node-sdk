@@ -17,7 +17,7 @@
 
 ### Model
 
-Ƭ **Model**\<\>: `string` \| \{ `config`: [`ModelConfig`](model_v1.md#modelconfig) ; `name`: `string`  }
+Ƭ **Model**\<\>: `string` \| \{ `config?`: [`ModelConfig`](model_v1.md#modelconfig) ; `name`: `string`  }
 
 #### Defined in
 
