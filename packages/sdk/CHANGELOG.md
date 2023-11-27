@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.1.7
+
+### Patch Changes
+
+- 0a7d912: Added dataset file list endpoint.
+
 ## 1.1.5
 
 ### Patch Changes
