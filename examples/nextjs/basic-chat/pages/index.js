@@ -1,4 +1,4 @@
-import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
+import { ChatInput, useConversationManager } from '@chatbotkit/react'
 
 // This is a basic example of how to use the ChatbotKit React components in a
 // Next.js application. We use the useConversationManager and AutoTextarea
@@ -8,8 +8,9 @@ import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 // state including the messages, the input text and all calls to the ChatBotKit
 // API endpoint.
 //
-// The AutoTextarea component is a simple textarea that automatically
-// resizes itself based on the content.
+// The ChatInput component is a textarea that automatically that automatically
+// resizes to fit the content and also handles the enter key to submit the
+// message.
 
 export default function Index() {
   const {
@@ -45,21 +46,6 @@ export default function Index() {
     setToken(token)
   }
 
-  /**
-   * Handle the user input field key down event.
-   */
-  function handleOnKeyDown(event) {
-    // Detect the enter key.
-
-    if (event.keyCode === 13) {
-      event.preventDefault()
-
-      // Call the submit to exchange the message between the user and the bot.
-
-      submit()
-    }
-  }
-
   // Our renderer is quite basic. We simply iterate over the messages and render
   // them accordingly. We also use our own AutoTextarea for the user input.
 
@@ -91,10 +77,10 @@ export default function Index() {
               </div>
             ) : null}
           </div>
-          <AutoTextarea
+          <ChatInput
             value={text}
             onChange={(e) => setText(e.target.value)}
-            onKeyDown={handleOnKeyDown}
+            onSubmit={submit}
             placeholder="Type something..."
             style={{
               border: 0,
