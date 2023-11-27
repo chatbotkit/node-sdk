@@ -1,5 +1,11 @@
 # @chatbotkit/fetch
 
+## 1.1.5
+
+### Patch Changes
+
+- c2e6ac6: Updated docs.
+
 ## 1.0.0
 
 ### Major Changes
