@@ -133,8 +133,5 @@ dist.*
 # turbo
 .turbo
 
-# packages types
-packages/*/types
-
 # main docs
 /docs
