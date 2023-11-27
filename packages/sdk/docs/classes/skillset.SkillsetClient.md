@@ -4,9 +4,7 @@
 
 [skillset](../modules/skillset.md).SkillsetClient
 
-**`Template`**
-
-**`Template`**
+Skillset client.
 
 ## Hierarchy
 
@@ -19,6 +17,10 @@
 ### Constructors
 
 - [constructor](skillset.SkillsetClient.md#constructor)
+
+### Properties
+
+- [ability](skillset.SkillsetClient.md#ability)
 
 ### Methods
 
@@ -51,7 +53,17 @@
 
 #### Defined in
 
-[skillset/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L21)
+[skillset/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L24)
+
+## Properties
+
+### ability
+
+• **ability**: [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
+
+#### Defined in
+
+[skillset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L30)
 
 ## Methods
 
@@ -111,7 +123,7 @@ Creates a new skillset.
 
 #### Defined in
 
-[skillset/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L53)
+[skillset/index.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L59)
 
 ___
 
@@ -133,7 +145,7 @@ Deletes the skillset.
 
 #### Defined in
 
-[skillset/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L74)
+[skillset/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L80)
 
 ___
 
@@ -155,7 +167,7 @@ Fetches a skillset.
 
 #### Defined in
 
-[skillset/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L43)
+[skillset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L49)
 
 ___
 
@@ -177,7 +189,7 @@ Retrieves a list of all skillsets.
 
 #### Defined in
 
-[skillset/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L33)
+[skillset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L39)
 
 ___
 
@@ -200,4 +212,4 @@ Updates a skillset.
 
 #### Defined in
 
-[skillset/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L64)
+[skillset/index.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/index.js#L70)

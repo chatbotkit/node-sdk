@@ -15,6 +15,9 @@ import {
  * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * File client.
+ */
 export class FileClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options

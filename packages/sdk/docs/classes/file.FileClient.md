@@ -4,9 +4,7 @@
 
 [file](../modules/file.md).FileClient
 
-**`Template`**
-
-**`Template`**
+File client.
 
 ## Hierarchy
 
@@ -53,7 +51,7 @@
 
 #### Defined in
 
-[file/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L22)
+[file/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L25)
 
 ## Methods
 
@@ -113,7 +111,7 @@ Creates a new file.
 
 #### Defined in
 
-[file/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L52)
+[file/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L55)
 
 ___
 
@@ -135,7 +133,7 @@ Deletes the file.
 
 #### Defined in
 
-[file/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L73)
+[file/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L76)
 
 ___
 
@@ -157,7 +155,7 @@ Download file data.
 
 #### Defined in
 
-[file/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L94)
+[file/index.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L97)
 
 ___
 
@@ -179,7 +177,7 @@ Fetches a file.
 
 #### Defined in
 
-[file/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L42)
+[file/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L45)
 
 ___
 
@@ -201,7 +199,7 @@ Retrieves a list of all files.
 
 #### Defined in
 
-[file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L32)
+[file/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L35)
 
 ___
 
@@ -224,7 +222,7 @@ Updates a file.
 
 #### Defined in
 
-[file/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L63)
+[file/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L66)
 
 ___
 
@@ -247,4 +245,4 @@ Upload file data.
 
 #### Defined in
 
-[file/index.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L84)
+[file/index.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L87)

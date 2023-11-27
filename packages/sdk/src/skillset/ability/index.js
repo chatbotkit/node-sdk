@@ -13,6 +13,9 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * Skillset ability client.
+ */
 export class SkillsetAbilityClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options

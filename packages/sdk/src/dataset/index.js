@@ -16,6 +16,9 @@ import {
  * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * Dataset client.
+ */
 export class DatasetClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
@@ -23,7 +26,14 @@ export class DatasetClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
+    /**
+     * @type {DatasetFileClient} file client
+     */
     this.file = new DatasetFileClient(options)
+
+    /**
+     * @type {DatasetRecordClient} record client
+     */
     this.record = new DatasetRecordClient(options)
   }
 

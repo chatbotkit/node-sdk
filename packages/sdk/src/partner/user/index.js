@@ -14,6 +14,9 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * Partner user client.
+ */
 export class PartnerUserClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options
@@ -21,6 +24,9 @@ export class PartnerUserClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
+    /**
+     * @type {PartnerUserTokenClient} token client
+     */
     this.token = new PartnerUserTokenClient(options)
   }
 

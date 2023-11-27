@@ -7,6 +7,9 @@ import { generateMagic } from './v1.js'
  * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * Magic client.
+ */
 export class MagicClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options

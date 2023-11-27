@@ -11,6 +11,9 @@ import {
  * @typedef {import('../../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * Partner user token client.
+ */
 export class PartnerUserTokenClient extends ChatBotKitClient {
   /**
    * @param {import('../../../client.js').ChatBotKitClientOptions} options

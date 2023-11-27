@@ -13,6 +13,9 @@ import {
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * Dataset record client.
+ */
 export class DatasetRecordClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options

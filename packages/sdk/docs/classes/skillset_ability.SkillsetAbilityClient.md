@@ -4,9 +4,7 @@
 
 [skillset/ability](../modules/skillset_ability.md).SkillsetAbilityClient
 
-**`Template`**
-
-**`Template`**
+Skillset ability client.
 
 ## Hierarchy
 
@@ -51,7 +49,7 @@
 
 #### Defined in
 
-[skillset/ability/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L20)
+[skillset/ability/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L23)
 
 ## Methods
 
@@ -112,7 +110,7 @@ Creates a new ability.
 
 #### Defined in
 
-[skillset/ability/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L53)
+[skillset/ability/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L56)
 
 ___
 
@@ -135,7 +133,7 @@ Deletes the ability.
 
 #### Defined in
 
-[skillset/ability/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L76)
+[skillset/ability/index.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L79)
 
 ___
 
@@ -158,7 +156,7 @@ Fetches a ability.
 
 #### Defined in
 
-[skillset/ability/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L42)
+[skillset/ability/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L45)
 
 ___
 
@@ -181,7 +179,7 @@ Retrieves a list of all abilitys.
 
 #### Defined in
 
-[skillset/ability/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L31)
+[skillset/ability/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L34)
 
 ___
 
@@ -205,4 +203,4 @@ Updates an ability.
 
 #### Defined in
 
-[skillset/ability/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L65)
+[skillset/ability/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L68)

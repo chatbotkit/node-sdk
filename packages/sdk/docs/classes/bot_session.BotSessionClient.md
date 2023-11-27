@@ -1,33 +1,33 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [magic](../modules/magic.md) / MagicClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [bot/session](../modules/bot_session.md) / BotSessionClient
 
-# Class: MagicClient
+# Class: BotSessionClient
 
-[magic](../modules/magic.md).MagicClient
+[bot/session](../modules/bot_session.md).BotSessionClient
 
-Magic client.
+Bot session client.
 
 ## Hierarchy
 
 - [`ChatBotKitClient`](client.ChatBotKitClient.md)
 
-  ↳ **`MagicClient`**
+  ↳ **`BotSessionClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](magic.MagicClient.md#constructor)
+- [constructor](bot_session.BotSessionClient.md#constructor)
 
 ### Methods
 
-- [clientFetch](magic.MagicClient.md#clientfetch)
-- [generate](magic.MagicClient.md#generate)
+- [clientFetch](bot_session.BotSessionClient.md#clientfetch)
+- [create](bot_session.BotSessionClient.md#create)
 
 ## Constructors
 
 ### constructor
 
-• **new MagicClient**(`options`): [`MagicClient`](magic.MagicClient.md)
+• **new BotSessionClient**(`options`): [`BotSessionClient`](bot_session.BotSessionClient.md)
 
 #### Parameters
 
@@ -37,7 +37,7 @@ Magic client.
 
 #### Returns
 
-[`MagicClient`](magic.MagicClient.md)
+[`BotSessionClient`](bot_session.BotSessionClient.md)
 
 #### Overrides
 
@@ -45,7 +45,7 @@ Magic client.
 
 #### Defined in
 
-[magic/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/index.js#L17)
+[bot/session/index.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/index.js#L11)
 
 ## Methods
 
@@ -87,23 +87,23 @@ Magic client.
 
 ___
 
-### generate
+### create
 
-▸ **generate**(`magicId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<[`MagicGenerateResponse`](../modules/magic_v1.md#magicgenerateresponse), [`MagicGenerateStreamResult`](../modules/magic_v1.md#magicgeneratestreamresult)\>
+▸ **create**(`botId`, `request`): `Promise`\<[`BotSessionCreateResponse`](../modules/bot_session_v1.md#botsessioncreateresponse)\>
 
-Generates magic.
+Creates a new session.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `magicId` | `string` |
-| `request` | [`MagicGenerateRequest`](../modules/magic_v1.md#magicgeneraterequest) |
+| `botId` | `string` |
+| `request` | [`BotSessionCreateRequest`](../modules/bot_session_v1.md#botsessioncreaterequest) |
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`MagicGenerateResponse`](../modules/magic_v1.md#magicgenerateresponse), [`MagicGenerateStreamResult`](../modules/magic_v1.md#magicgeneratestreamresult)\>
+`Promise`\<[`BotSessionCreateResponse`](../modules/bot_session_v1.md#botsessioncreateresponse)\>
 
 #### Defined in
 
-[magic/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/index.js#L28)
+[bot/session/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/index.js#L22)

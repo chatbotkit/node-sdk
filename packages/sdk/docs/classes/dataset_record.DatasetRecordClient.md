@@ -4,9 +4,7 @@
 
 [dataset/record](../modules/dataset_record.md).DatasetRecordClient
 
-**`Template`**
-
-**`Template`**
+Dataset record client.
 
 ## Hierarchy
 
@@ -51,7 +49,7 @@
 
 #### Defined in
 
-[dataset/record/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L20)
+[dataset/record/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L23)
 
 ## Methods
 
@@ -112,7 +110,7 @@ Creates a new record.
 
 #### Defined in
 
-[dataset/record/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L53)
+[dataset/record/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L56)
 
 ___
 
@@ -135,7 +133,7 @@ Deletes the record.
 
 #### Defined in
 
-[dataset/record/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L76)
+[dataset/record/index.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L79)
 
 ___
 
@@ -158,7 +156,7 @@ Fetches a record.
 
 #### Defined in
 
-[dataset/record/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L42)
+[dataset/record/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L45)
 
 ___
 
@@ -181,7 +179,7 @@ Retrieves a list of all records.
 
 #### Defined in
 
-[dataset/record/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L31)
+[dataset/record/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L34)
 
 ___
 
@@ -205,4 +203,4 @@ Updates a record.
 
 #### Defined in
 
-[dataset/record/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L65)
+[dataset/record/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L68)

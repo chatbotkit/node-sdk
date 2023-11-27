@@ -9,7 +9,14 @@ export class IntegrationClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
+    /**
+     * @type {SitemapIntegrationClient} sitemap client
+     */
     this.sitemap = new SitemapIntegrationClient(options)
+
+    /**
+     * @type {WhatsAppIntegrationClient} whatsapp client
+     */
     this.whatsapp = new WhatsAppIntegrationClient(options)
   }
 }

@@ -19,6 +19,9 @@ import {
  * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * Conversation client.
+ */
 export class ConversationClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
@@ -26,7 +29,14 @@ export class ConversationClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
+    /**
+     * @type {ConversationMessageClient} message client
+     */
     this.message = new ConversationMessageClient(options)
+
+    /**
+     * @type {ConversationSessionClient} session client
+     */
     this.session = new ConversationSessionClient(options)
   }
 

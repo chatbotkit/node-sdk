@@ -4,9 +4,7 @@
 
 [bot](../modules/bot.md).BotClient
 
-**`Template`**
-
-**`Template`**
+Bot client.
 
 ## Hierarchy
 
@@ -19,6 +17,10 @@
 ### Constructors
 
 - [constructor](bot.BotClient.md#constructor)
+
+### Properties
+
+- [session](bot.BotClient.md#session)
 
 ### Methods
 
@@ -51,7 +53,17 @@
 
 #### Defined in
 
-[bot/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L15)
+[bot/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L18)
+
+## Properties
+
+### session
+
+• **session**: [`BotSessionClient`](bot_session.BotSessionClient.md)
+
+#### Defined in
+
+[bot/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L24)
 
 ## Methods
 
@@ -111,7 +123,7 @@ Creates a new bot.
 
 #### Defined in
 
-[bot/index.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L47)
+[bot/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L53)
 
 ___
 
@@ -133,7 +145,7 @@ Deletes the bot.
 
 #### Defined in
 
-[bot/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L68)
+[bot/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L74)
 
 ___
 
@@ -155,7 +167,7 @@ Fetches a bot.
 
 #### Defined in
 
-[bot/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L37)
+[bot/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L43)
 
 ___
 
@@ -177,7 +189,7 @@ Retrieves a list of all bots.
 
 #### Defined in
 
-[bot/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L27)
+[bot/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L33)
 
 ___
 
@@ -200,4 +212,4 @@ Updates a bot.
 
 #### Defined in
 
-[bot/index.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L58)
+[bot/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L64)

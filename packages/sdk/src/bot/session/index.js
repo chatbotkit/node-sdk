@@ -1,6 +1,9 @@
 import { createBotSession } from './v1.js'
 import { ChatBotKitClient } from '../../client.js'
 
+/**
+ * Bot session client.
+ */
 export class BotSessionClient extends ChatBotKitClient {
   /**
    * @param {import('../../client.js').ChatBotKitClientOptions} options

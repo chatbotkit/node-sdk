@@ -4,9 +4,7 @@
 
 [partner/user](../modules/partner_user.md).PartnerUserClient
 
-**`Template`**
-
-**`Template`**
+Partner user client.
 
 ## Hierarchy
 
@@ -19,6 +17,10 @@
 ### Constructors
 
 - [constructor](partner_user.PartnerUserClient.md#constructor)
+
+### Properties
+
+- [token](partner_user.PartnerUserClient.md#token)
 
 ### Methods
 
@@ -51,7 +53,17 @@
 
 #### Defined in
 
-[partner/user/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L21)
+[partner/user/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L24)
+
+## Properties
+
+### token
+
+• **token**: [`PartnerUserTokenClient`](partner_user_token.PartnerUserTokenClient.md)
+
+#### Defined in
+
+[partner/user/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L30)
 
 ## Methods
 
@@ -111,7 +123,7 @@ Creates a new user.
 
 #### Defined in
 
-[partner/user/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L53)
+[partner/user/index.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L59)
 
 ___
 
@@ -133,7 +145,7 @@ Deletes the user.
 
 #### Defined in
 
-[partner/user/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L74)
+[partner/user/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L80)
 
 ___
 
@@ -155,7 +167,7 @@ Fetches a user.
 
 #### Defined in
 
-[partner/user/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L43)
+[partner/user/index.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L49)
 
 ___
 
@@ -177,7 +189,7 @@ Retrieves a list of all users.
 
 #### Defined in
 
-[partner/user/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L33)
+[partner/user/index.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L39)
 
 ___
 
@@ -200,4 +212,4 @@ Updates the user.
 
 #### Defined in
 
-[partner/user/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L64)
+[partner/user/index.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L70)

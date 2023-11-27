@@ -4,9 +4,7 @@
 
 [partner/user/token](../modules/partner_user_token.md).PartnerUserTokenClient
 
-**`Template`**
-
-**`Template`**
+Partner user token client.
 
 ## Hierarchy
 
@@ -49,7 +47,7 @@
 
 #### Defined in
 
-[partner/user/token/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L18)
+[partner/user/token/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L21)
 
 ## Methods
 
@@ -110,7 +108,7 @@ Creates a new user token.
 
 #### Defined in
 
-[partner/user/token/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L40)
+[partner/user/token/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L43)
 
 ___
 
@@ -133,7 +131,7 @@ Deletes the user.
 
 #### Defined in
 
-[partner/user/token/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L51)
+[partner/user/token/index.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L54)
 
 ___
 
@@ -156,4 +154,4 @@ Retrieves a list of all user tokens.
 
 #### Defined in
 
-[partner/user/token/index.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L29)
+[partner/user/token/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L32)

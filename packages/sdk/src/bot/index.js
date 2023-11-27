@@ -8,6 +8,9 @@ import { listBots, fetchBot, createBot, updateBot, deleteBot } from './v1.js'
  * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 
+/**
+ * Bot client.
+ */
 export class BotClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
@@ -15,6 +18,9 @@ export class BotClient extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
+    /**
+     * @type {BotSessionClient} session client
+     */
     this.session = new BotSessionClient(options)
   }
 
