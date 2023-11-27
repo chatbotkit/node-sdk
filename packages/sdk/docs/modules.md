@@ -31,6 +31,8 @@
 - [integration/whatsapp/v1](modules/integration_whatsapp_v1.md)
 - [magic](modules/magic.md)
 - [magic/v1](modules/magic_v1.md)
+- [model/v1](modules/model_v1.md)
+- [param](modules/param.md)
 - [partner](modules/partner.md)
 - [partner/user](modules/partner_user.md)
 - [partner/user/token](modules/partner_user_token.md)

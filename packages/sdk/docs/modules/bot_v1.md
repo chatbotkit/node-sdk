@@ -33,7 +33,7 @@
 
 ### BotCreateRequest
 
-Ƭ **BotCreateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `model?`: `Model`  }
+Ƭ **BotCreateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
 
 #### Defined in
 
@@ -178,7 +178,7 @@ ___
 
 ### BotUpdateRequest
 
-Ƭ **BotUpdateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `model?`: `Model`  }
+Ƭ **BotUpdateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
 
 #### Defined in
 
