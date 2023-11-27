@@ -22,12 +22,13 @@
 
 | Name | Type |
 | :------ | :------ |
+| `id` | `string` |
 | `text` | `string` |
 | `type` | ``"bot"`` \| ``"user"`` |
 
 #### Defined in
 
-[hooks/useConversationManager.js:9](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L9)
+[hooks/useConversationManager.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L14)
 
 ## Functions
 
@@ -81,4 +82,4 @@
 
 #### Defined in
 
-[hooks/useConversationManager.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L25)
+[hooks/useConversationManager.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L30)
