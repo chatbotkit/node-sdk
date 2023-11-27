@@ -1,5 +1,5 @@
 {
-  "name": "ChatBotKit For Node.js",
+  "name": "ChatBotKit Node SDK",
   "entryPoints": ["packages/fetch", "packages/sdk", "packages/react", "packages/next"],
   "entryPointStrategy": "packages",
   "includeVersion": false,
