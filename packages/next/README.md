@@ -4,7 +4,7 @@
 
 # ChatBotKit Next.js SDK
 
-The ChatBotKit SDK for Next.js is crafted to integrate chatbot functionalities seamlessly into Next.js applications, specifically optimized for Next.js Edge runtime environments.
+The [ChatBotKit](https://chatbotkit.com) SDK for Next.js is crafted to integrate chatbot functionalities seamlessly into Next.js applications, specifically optimized for Next.js Edge runtime environments.
 
 ## Getting Started
 

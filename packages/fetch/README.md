@@ -4,7 +4,7 @@
 
 # ChatBotKit Fetch SDK
 
-The ChatBotKit SDK for Fetch offers an isomorphic implementation of the standard fetch browser function, enriched with several helper methods. This versatile SDK is compatible with various environments, including AWS Lambda, Vercel Serverless and Edge, Cloudflare Workers, standard web browsers, and more, making it a flexible choice for diverse projects.
+The [ChatBotKit](https://chatbotkit.com) SDK for Fetch offers an isomorphic implementation of the standard fetch browser function, enriched with several helper methods. This versatile SDK is compatible with various environments, including AWS Lambda, Vercel Serverless and Edge, Cloudflare Workers, standard web browsers, and more, making it a flexible choice for diverse projects.
 
 ## Getting Started
 
