@@ -1,5 +1,13 @@
 # @chatbotkit/react
 
+## 1.1.8
+
+### Patch Changes
+
+- 406580b: Added customisable model.
+- Updated dependencies [406580b]
+  - @chatbotkit/sdk@1.1.8
+
 ## 1.1.7
 
 ### Patch Changes

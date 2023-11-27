@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.1.8
+
+### Patch Changes
+
+- 406580b: Added customisable model.
+
 ## 1.1.7
 
 ### Patch Changes
