@@ -5,14 +5,23 @@ The most important files in this project are:
 - [pages/api/conversation/complete.js](pages/api/conversation/complete.js) - used for completing the conversation
 - [pages/index.js](pages/index.js) - used for rendering a basic UI
 
+# This is how it works:
+
+1. We create a dedicated endpoint to handle incoming messages via the [pages/api/conversation/complete.js](pages/api/conversation/complete.js) route. The route automatically streams the response back to the client.
+2. In the [pages/index.js](pages/index.js) we build a basic chat interface to interact with the endpoint.
+
 ## Getting Started
 
-First, run the development server:
+From the root of the ChatBotKit Node SDK monorepo:
+
+```bash
+pnpm -F @examples/nextjs-stateless-chat dev
+```
+
+As a standalone application:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

@@ -12,12 +12,16 @@ This is how it works:
 
 ## Getting Started
 
-First, run the development server:
+From the root of the ChatBotKit Node SDK monorepo:
+
+```bash
+pnpm -F @examples/nextjs-stateless-chat dev
+```
+
+As a standalone application:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
