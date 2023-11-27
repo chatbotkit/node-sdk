@@ -90,7 +90,9 @@ export async function createSitemapIntegration(client, request) {
   /** @type {import('../../types/api/v1.js').operations['createSitemapIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['createSitemapIntegration']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -114,7 +116,9 @@ export async function updateSitemapIntegration(client, sitemapId, request) {
   /** @type {import('../../types/api/v1.js').operations['updateSitemapIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['updateSitemapIntegration']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response

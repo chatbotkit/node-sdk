@@ -92,7 +92,9 @@ export async function createDataset(client, request) {
   /** @type {import('../types/api/v1.js').operations['createDataset']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['createDataset']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -117,7 +119,9 @@ export async function updateDataset(client, datasetId, request) {
   /** @type {import('../types/api/v1.js').operations['updateDataset']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['updateDataset']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response

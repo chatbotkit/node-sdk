@@ -88,7 +88,9 @@ export async function createBot(client, request) {
   /** @type {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -113,7 +115,9 @@ export async function updateBot(client, botId, request) {
   /** @type {import('../types/api/v1.js').operations['updateBot']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['updateBot']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response

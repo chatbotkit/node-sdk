@@ -82,7 +82,9 @@ export async function createFile(client, request) {
   /** @type {import('../types/api/v1.js').operations['createFile']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['createFile']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -106,7 +108,9 @@ export async function updateFile(client, fileId, request) {
   /** @type {import('../types/api/v1.js').operations['updateFile']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['updateFile']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response

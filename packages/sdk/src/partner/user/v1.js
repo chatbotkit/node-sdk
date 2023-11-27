@@ -84,7 +84,9 @@ export async function createPartnerUser(client, request) {
   /** @type {import('../../types/api/v1.js').operations['createPartnerUser']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['createPartnerUser']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -109,7 +111,9 @@ export async function updatePartnerUser(client, userId, request) {
   /** @type {import('../../types/api/v1.js').operations['updatePartnerUser']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['updatePartnerUser']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response

@@ -106,7 +106,9 @@ export async function createConversation(client, request) {
   /** @type {import('../types/api/v1.js').operations['createConversation']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['createConversation']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -130,7 +132,9 @@ export async function updateConversation(client, conversationId, request) {
   /** @type {import('../types/api/v1.js').operations['updateConversation']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['updateConversation']['requestBody']['content']['application/json']} */
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -196,7 +200,9 @@ export function completeConversation(client, request) {
   /** @typedef {import('../types/api/v1.js').operations['completeConversation']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -240,7 +246,9 @@ export function completeConversationMessage(client, conversationId, request) {
   /** @typedef {import('../types/api/v1.js').operations['completeConversationMessage']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -276,7 +284,9 @@ export function sendConversationMessage(client, conversationId, request) {
   /** @typedef {import('../types/api/v1.js').operations['sendConversationMessage']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
@@ -318,7 +328,9 @@ export function receiveConversationMessage(client, conversationId, request) {
   /** @typedef {import('../types/api/v1.js').operations['receiveConversationMessage']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
-    data: request,
+    data: {
+      ...request,
+    },
   })
 
   return response
