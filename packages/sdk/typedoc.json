@@ -45,5 +45,9 @@
     "./src/usage/index.js",
     "./src/usage/v1.js"
   ],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
   "readme": "README.md"
 }

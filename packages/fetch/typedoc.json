@@ -5,5 +5,9 @@
   "entryPoints": [
     "./src/index.js"
   ],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
   "readme": "README.md"
 }
