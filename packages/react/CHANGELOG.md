@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.1.6
+
+### Patch Changes
+
+- 87ea01d: Expose the message id.
+
 ## 1.1.5
 
 ### Patch Changes
