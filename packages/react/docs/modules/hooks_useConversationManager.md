@@ -106,13 +106,13 @@ ___
 | `setText` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
 | `setThinking` | `Dispatch`\<`SetStateAction`\<`boolean`\>\> |
 | `setToken` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
-| `setWriting` | `Dispatch`\<`SetStateAction`\<`boolean`\>\> |
+| `setTyping` | `Dispatch`\<`SetStateAction`\<`boolean`\>\> |
 | `skillsetId` | `string` |
 | `submit` | () => `Promise`\<`void`\> |
 | `text` | `string` |
 | `thinking` | `boolean` |
 | `token` | `string` |
-| `writing` | `boolean` |
+| `typing` | `boolean` |
 
 #### Defined in
 

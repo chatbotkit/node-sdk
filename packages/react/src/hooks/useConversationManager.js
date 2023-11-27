@@ -106,7 +106,7 @@ export function useConversationManager(options) {
   const [messages, setMessages] = useState(/** @type { Message[]} */ ([]))
 
   const [thinking, setThinking] = useState(false)
-  const [writing, setWriting] = useState(false)
+  const [typing, setTyping] = useState(false)
 
   const [error, setError] = useState(/** @type {any} */ (null))
 
@@ -175,7 +175,7 @@ export function useConversationManager(options) {
             setMessages(newMessages)
 
             setThinking(false)
-            setWriting(true)
+            setTyping(true)
           }
 
           botMessage.text += event.data.token
@@ -186,7 +186,7 @@ export function useConversationManager(options) {
     } catch (e) {
       setError(e)
     } finally {
-      setWriting(false)
+      setTyping(false)
     }
   }
 
@@ -218,8 +218,8 @@ export function useConversationManager(options) {
     thinking,
     setThinking,
 
-    writing,
-    setWriting,
+    typing,
+    setTyping,
 
     error,
     setError,

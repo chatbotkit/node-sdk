@@ -60,8 +60,8 @@ export function useConversationManager(options: {
     setMessages: import("react").Dispatch<import("react").SetStateAction<Message[]>>;
     thinking: boolean;
     setThinking: import("react").Dispatch<import("react").SetStateAction<boolean>>;
-    writing: boolean;
-    setWriting: import("react").Dispatch<import("react").SetStateAction<boolean>>;
+    typing: boolean;
+    setTyping: import("react").Dispatch<import("react").SetStateAction<boolean>>;
     error: any;
     setError: import("react").Dispatch<any>;
     submit: () => Promise<void>;
