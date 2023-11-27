@@ -7,6 +7,8 @@
 ### Type Aliases
 
 - [Message](hooks_useConversationManager.md#message)
+- [Model](hooks_useConversationManager.md#model)
+- [ModelConfig](hooks_useConversationManager.md#modelconfig)
 
 ### Functions
 
@@ -28,7 +30,39 @@
 
 #### Defined in
 
-[hooks/useConversationManager.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L14)
+[hooks/useConversationManager.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L28)
+
+___
+
+### Model
+
+Ƭ **Model**\<\>: `string` \| \{ `config`: [`ModelConfig`](hooks_useConversationManager.md#modelconfig) ; `name`: `string`  }
+
+#### Defined in
+
+[hooks/useConversationManager.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L20)
+
+___
+
+### ModelConfig
+
+Ƭ **ModelConfig**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `frequencyPenalty?` | `number` |
+| `interactionMaxMessages?` | `number` |
+| `maxTokens?` | `number` |
+| `presencePenalty?` | `number` |
+| `region?` | ``"us"`` \| ``"eu"`` |
+| `seed?` | `number` |
+| `temperature?` | `number` |
+
+#### Defined in
+
+[hooks/useConversationManager.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L18)
 
 ## Functions
 
@@ -41,12 +75,12 @@
 | Name | Type |
 | :------ | :------ |
 | `options` | `Object` |
+| `options.Model?` | `string` |
 | `options.backstory?` | `string` |
 | `options.client?` | `ConversationClient` |
 | `options.conversationId?` | `string` |
 | `options.datasetId?` | `string` |
 | `options.endpoint?` | `string` |
-| `options.model?` | `string` |
 | `options.skillsetId?` | `string` |
 | `options.token?` | `string` |
 
@@ -61,13 +95,13 @@
 | `datasetId` | `string` |
 | `error` | `any` |
 | `messages` | [`Message`](hooks_useConversationManager.md#message)[] |
-| `model` | `string` |
+| `model` | `any` |
 | `setBackstory` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
 | `setConversationId` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
 | `setDatasetId` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
 | `setError` | `Dispatch`\<`any`\> |
 | `setMessages` | `Dispatch`\<`SetStateAction`\<[`Message`](hooks_useConversationManager.md#message)[]\>\> |
-| `setModel` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
+| `setModel` | `Dispatch`\<`any`\> |
 | `setSkillsetId` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
 | `setText` | `Dispatch`\<`SetStateAction`\<`string`\>\> |
 | `setThinking` | `Dispatch`\<`SetStateAction`\<`boolean`\>\> |
@@ -82,4 +116,4 @@
 
 #### Defined in
 
-[hooks/useConversationManager.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L30)
+[hooks/useConversationManager.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L44)

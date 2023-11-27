@@ -1,5 +1,18 @@
 /**
  * @typedef {{
+ *   maxTokens?: number,
+ *   temperature?: number,
+ *   frequencyPenalty?: number,
+ *   presencePenalty?: number,
+ *   seed?: number,
+ *   interactionMaxMessages?: number,
+ *   region?: 'us'|'eu'
+ * }} ModelConfig
+ *
+ * @typedef {string|{name: string, config: ModelConfig}} Model
+ */
+/**
+ * @typedef {{
  *   id: string,
  *   type: 'bot'|'user',
  *   text: string
@@ -12,7 +25,7 @@
  *   token?: string,
  *   conversationId?: string,
  *   backstory?: string,
- *   model?: string,
+ *   Model?: string,
  *   datasetId?: string,
  *   skillsetId?: string,
  *   [key: string]: any
@@ -25,7 +38,7 @@ export function useConversationManager(options: {
     token?: string | undefined;
     conversationId?: string | undefined;
     backstory?: string | undefined;
-    model?: string | undefined;
+    Model?: string | undefined;
     datasetId?: string | undefined;
     skillsetId?: string | undefined;
 }): {
@@ -35,8 +48,8 @@ export function useConversationManager(options: {
     setConversationId: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
     backstory: string | undefined;
     setBackstory: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
-    model: string | undefined;
-    setModel: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
+    model: any;
+    setModel: import("react").Dispatch<any>;
     datasetId: string | undefined;
     setDatasetId: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
     skillsetId: string | undefined;
@@ -54,6 +67,19 @@ export function useConversationManager(options: {
     submit: () => Promise<void>;
 };
 export default useConversationManager;
+export type ModelConfig = {
+    maxTokens?: number;
+    temperature?: number;
+    frequencyPenalty?: number;
+    presencePenalty?: number;
+    seed?: number;
+    interactionMaxMessages?: number;
+    region?: 'us' | 'eu';
+};
+export type Model = string | {
+    name: string;
+    config: ModelConfig;
+};
 export type Message = {
     id: string;
     type: 'bot' | 'user';

@@ -8,6 +8,20 @@ import { cloneAndExtend } from '../utils/object.js'
 
 /**
  * @typedef {{
+ *   maxTokens?: number,
+ *   temperature?: number,
+ *   frequencyPenalty?: number,
+ *   presencePenalty?: number,
+ *   seed?: number,
+ *   interactionMaxMessages?: number,
+ *   region?: 'us'|'eu'
+ * }} ModelConfig
+ *
+ * @typedef {string|{name: string, config: ModelConfig}} Model
+ */
+
+/**
+ * @typedef {{
  *   id: string,
  *   type: 'bot'|'user',
  *   text: string
@@ -21,7 +35,7 @@ import { cloneAndExtend } from '../utils/object.js'
  *   token?: string,
  *   conversationId?: string,
  *   backstory?: string,
- *   model?: string,
+ *   Model?: string,
  *   datasetId?: string,
  *   skillsetId?: string,
  *   [key: string]: any
