@@ -65,7 +65,8 @@ export function fetchSitemapIntegration(client: ChatBotKitClient, sitemapId: str
  */
 export function createSitemapIntegration(client: ChatBotKitClient, request: SitemapIntegrationCreateRequest): Promise<SitemapIntegrationCreateResponse>;
 /**
- * @typedef {SitemapIntegrationOptions & {}} SitemapIntegrationUpdateRequest
+ * @typedef {SitemapIntegrationOptions & {
+ * }} SitemapIntegrationUpdateRequest
  *
  * @typedef {{
  *   id: string

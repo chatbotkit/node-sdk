@@ -64,7 +64,9 @@ export function listWhatsAppIntegrations(client: ChatBotKitClient, request?: Wha
  */
 export function fetchWhatsAppIntegration(client: ChatBotKitClient, whatsappId: string): Promise<WhatsAppIntegrationFetchResponse>;
 /**
- * @typedef {WhatsAppIntegrationOptions & {}} WhatsAppIntegrationCreateRequest
+ * @typedef {WhatsAppIntegrationOptions & {
+ *   model?: import('../../model/v1.js').Model
+ * }} WhatsAppIntegrationCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -76,7 +78,9 @@ export function fetchWhatsAppIntegration(client: ChatBotKitClient, whatsappId: s
  */
 export function createWhatsAppIntegration(client: ChatBotKitClient, request: WhatsAppIntegrationCreateRequest): Promise<WhatsAppIntegrationCreateResponse>;
 /**
- * @typedef {WhatsAppIntegrationOptions & {}} WhatsAppIntegrationUpdateRequest
+ * @typedef {WhatsAppIntegrationOptions & {
+ *   model?: import('../../model/v1.js').Model
+ * }} WhatsAppIntegrationUpdateRequest
  *
  * @typedef {{
  *   id: string
@@ -149,11 +153,15 @@ export type WhatsAppIntegrationListStreamItem = {
 };
 export type WhatsAppIntegrationListStreamType = WhatsAppIntegrationListStreamItem;
 export type WhatsAppIntegrationFetchResponse = WhatsAppIntegrationInstance & {};
-export type WhatsAppIntegrationCreateRequest = WhatsAppIntegrationOptions & {};
+export type WhatsAppIntegrationCreateRequest = WhatsAppIntegrationOptions & {
+    model?: import('../../model/v1.js').Model;
+};
 export type WhatsAppIntegrationCreateResponse = {
     id: string;
 };
-export type WhatsAppIntegrationUpdateRequest = WhatsAppIntegrationOptions & {};
+export type WhatsAppIntegrationUpdateRequest = WhatsAppIntegrationOptions & {
+    model?: import('../../model/v1.js').Model;
+};
 export type WhatsAppIntegrationUpdateResponse = {
     id: string;
 };

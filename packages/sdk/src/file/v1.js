@@ -66,7 +66,8 @@ export async function fetchFile(client, fileId) {
 }
 
 /**
- * @typedef {FileOptions & {}} FileCreateRequest
+ * @typedef {FileOptions & {
+ * }} FileCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -91,7 +92,8 @@ export async function createFile(client, request) {
 }
 
 /**
- * @typedef {FileOptions & {}} FileUpdateRequest
+ * @typedef {FileOptions & {
+ * }} FileUpdateRequest
  *
  * @typedef {{
  *   id: string

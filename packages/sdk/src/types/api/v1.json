@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 04c7)"
+    "version": "v1 (build 2f9e)"
   },
   "servers": [
     {
@@ -3566,6 +3566,34 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "botId": {
+                    "description": "The bot id assigned to this conversation",
+                    "type": "string"
+                  },
+                  "backstory": {
+                    "description": "The backstory for the conversation",
+                    "type": "string"
+                  },
+                  "model": {
+                    "description": "The model to use for the conversation",
+                    "type": "string"
+                  },
+                  "datasetId": {
+                    "description": "The ID of the dataset to use for the conversation",
+                    "type": "string"
+                  },
+                  "skillsetId": {
+                    "description": "The ID of the skillset to use for the conversation",
+                    "type": "string"
+                  },
+                  "privacy": {
+                    "description": "Turn conversation privacy features on",
+                    "type": "boolean"
+                  },
+                  "moderation": {
+                    "description": "Turn conversation moderation features on",
+                    "type": "boolean"
+                  },
                   "meta": {
                     "type": "object",
                     "description": "Meta data information",
@@ -3965,6 +3993,12 @@
                   "moderation": {
                     "description": "Turn conversation moderation features on",
                     "type": "boolean"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
                   },
                   "messages": {
                     "description": "An array of messages to be added to the conversation",

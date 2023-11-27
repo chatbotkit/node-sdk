@@ -99,7 +99,8 @@ export async function createSitemapIntegration(client, request) {
 }
 
 /**
- * @typedef {SitemapIntegrationOptions & {}} SitemapIntegrationUpdateRequest
+ * @typedef {SitemapIntegrationOptions & {
+ * }} SitemapIntegrationUpdateRequest
  *
  * @typedef {{
  *   id: string

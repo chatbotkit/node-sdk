@@ -45,7 +45,8 @@ export function listFiles(client: ChatBotKitClient, request?: FileListRequest | 
  */
 export function fetchFile(client: ChatBotKitClient, fileId: string): Promise<FileFetchResponse>;
 /**
- * @typedef {FileOptions & {}} FileCreateRequest
+ * @typedef {FileOptions & {
+ * }} FileCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -57,7 +58,8 @@ export function fetchFile(client: ChatBotKitClient, fileId: string): Promise<Fil
  */
 export function createFile(client: ChatBotKitClient, request: FileCreateRequest): Promise<FileCreateResponse>;
 /**
- * @typedef {FileOptions & {}} FileUpdateRequest
+ * @typedef {FileOptions & {
+ * }} FileUpdateRequest
  *
  * @typedef {{
  *   id: string

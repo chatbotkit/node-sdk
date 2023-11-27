@@ -33,11 +33,11 @@
 
 ### BotCreateRequest
 
-Ƭ **BotCreateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & {}
+Ƭ **BotCreateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `model?`: `Model`  }
 
 #### Defined in
 
-[bot/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L75)
+[bot/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L78)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L79)
+[bot/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L82)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L125)
+[bot/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L137)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L58)
+[bot/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L60)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L26)
+[bot/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L28)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L30)
+[bot/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L32)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L32)
+[bot/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L34)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L37)
+[bot/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L39)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L39)
+[bot/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L41)
 
 ___
 
@@ -172,17 +172,17 @@ ___
 
 #### Defined in
 
-[bot/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L20)
+[bot/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L22)
 
 ___
 
 ### BotUpdateRequest
 
-Ƭ **BotUpdateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & {}
+Ƭ **BotUpdateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `model?`: `Model`  }
 
 #### Defined in
 
-[bot/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L99)
+[bot/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L107)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L103)
+[bot/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L111)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L2)
+[bot/v1.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L4)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L8)
+[bot/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L10)
 
 ## Functions
 
@@ -238,7 +238,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`BotOptions`](bot_v1.md#botoptions) |
+| `request` | [`BotCreateRequest`](bot_v1.md#botcreaterequest) |
 
 #### Returns
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L85)
+[bot/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L88)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:131](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L131)
+[bot/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L143)
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L64)
+[bot/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L66)
 
 ___
 
@@ -309,7 +309,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L45)
+[bot/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L47)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `botId` | `string` |
-| `request` | [`BotOptions`](bot_v1.md#botoptions) |
+| `request` | [`BotUpdateRequest`](bot_v1.md#botupdaterequest) |
 
 #### Returns
 
@@ -331,4 +331,4 @@ ___
 
 #### Defined in
 
-[bot/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L110)
+[bot/v1.js:118](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L118)

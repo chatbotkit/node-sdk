@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L80)
+[partner/user/token/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L82)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[partner/user/token/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L87)
+[partner/user/token/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L89)
 
 ___
 

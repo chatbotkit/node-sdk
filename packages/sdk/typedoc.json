@@ -30,6 +30,8 @@
     "./src/integration/whatsapp/v1.js",
     "./src/magic/index.js",
     "./src/magic/v1.js",
+    "./src/model/v1.js",
+    "./src/param.js",
     "./src/partner/index.js",
     "./src/partner/user/index.js",
     "./src/partner/user/token/index.js",

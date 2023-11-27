@@ -1,3 +1,5 @@
+import { buildModelString } from '../../model/v1.js'
+
 /**
  * @typedef {import('../../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -85,7 +87,9 @@ export async function fetchWhatsAppIntegration(client, whatsappId) {
 }
 
 /**
- * @typedef {WhatsAppIntegrationOptions & {}} WhatsAppIntegrationCreateRequest
+ * @typedef {WhatsAppIntegrationOptions & {
+ *   model?: import('../../model/v1.js').Model
+ * }} WhatsAppIntegrationCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -103,6 +107,8 @@ export async function createWhatsAppIntegration(client, request) {
     /** @type {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['requestBody']['content']['application/json']} */
     data: {
       ...request,
+
+      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -110,7 +116,9 @@ export async function createWhatsAppIntegration(client, request) {
 }
 
 /**
- * @typedef {WhatsAppIntegrationOptions & {}} WhatsAppIntegrationUpdateRequest
+ * @typedef {WhatsAppIntegrationOptions & {
+ *   model?: import('../../model/v1.js').Model
+ * }} WhatsAppIntegrationUpdateRequest
  *
  * @typedef {{
  *   id: string
@@ -129,6 +137,8 @@ export async function updateWhatsAppIntegration(client, whatsappId, request) {
     /** @type {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['requestBody']['content']['application/json']} */
     data: {
       ...request,
+
+      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 

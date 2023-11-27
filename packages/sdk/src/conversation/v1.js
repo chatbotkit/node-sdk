@@ -1,3 +1,5 @@
+import { buildModelString } from '../model/v1.js'
+
 /**
  * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -90,6 +92,7 @@ export async function fetchConversation(client, conversationId) {
 
 /**
  * @typedef {ConversationOptions & {
+ *   model?: import('../model/v1.js').Model
  * }} ConversationCreateRequest
  *
  * @typedef {{
@@ -108,6 +111,8 @@ export async function createConversation(client, request) {
     /** @type {import('../types/api/v1.js').operations['createConversation']['requestBody']['content']['application/json']} */
     data: {
       ...request,
+
+      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -115,7 +120,9 @@ export async function createConversation(client, request) {
 }
 
 /**
- * @typedef {ConversationOptions & {}} ConversationUpdateRequest
+ * @typedef {ConversationOptions & {
+ *   model?: import('../model/v1.js').Model
+ * }} ConversationUpdateRequest
  *
  * @typedef {{
  *   id: string
@@ -134,6 +141,8 @@ export async function updateConversation(client, conversationId, request) {
     /** @type {import('../types/api/v1.js').operations['updateConversation']['requestBody']['content']['application/json']} */
     data: {
       ...request,
+
+      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -164,7 +173,7 @@ export async function deleteConversation(client, conversationId) {
 /**
  * @typedef {{
  *   backstory?: string,
- *   model?: string,
+ *   model?: import('../model/v1.js').Model,
  *   messages?: Message[],
  *   datasetId?: string,
  *   skillsetId?: string,
@@ -202,6 +211,8 @@ export function completeConversation(client, request) {
   const response = client.clientFetch(url, {
     data: {
       ...request,
+
+      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 

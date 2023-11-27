@@ -115,7 +115,7 @@ Creates a new bot.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`BotOptions`](../modules/bot_v1.md#botoptions) |
+| `request` | [`BotCreateRequest`](../modules/bot_v1.md#botcreaterequest) |
 
 #### Returns
 
@@ -204,7 +204,7 @@ Updates a bot.
 | Name | Type |
 | :------ | :------ |
 | `botId` | `string` |
-| `request` | [`BotOptions`](../modules/bot_v1.md#botoptions) |
+| `request` | [`BotUpdateRequest`](../modules/bot_v1.md#botupdaterequest) |
 
 #### Returns
 

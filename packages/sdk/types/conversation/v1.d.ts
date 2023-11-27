@@ -69,6 +69,7 @@ export function listConversations(client: ChatBotKitClient, request?: Conversati
 export function fetchConversation(client: ChatBotKitClient, conversationId: string): Promise<ConversationFetchResponse>;
 /**
  * @typedef {ConversationOptions & {
+ *   model?: import('../model/v1.js').Model
  * }} ConversationCreateRequest
  *
  * @typedef {{
@@ -81,7 +82,9 @@ export function fetchConversation(client: ChatBotKitClient, conversationId: stri
  */
 export function createConversation(client: ChatBotKitClient, request: ConversationCreateRequest): Promise<ConversationCreateResponse>;
 /**
- * @typedef {ConversationOptions & {}} ConversationUpdateRequest
+ * @typedef {ConversationOptions & {
+ *   model?: import('../model/v1.js').Model
+ * }} ConversationUpdateRequest
  *
  * @typedef {{
  *   id: string
@@ -106,7 +109,7 @@ export function deleteConversation(client: ChatBotKitClient, conversationId: str
 /**
  * @typedef {{
  *   backstory?: string,
- *   model?: string,
+ *   model?: import('../model/v1.js').Model,
  *   messages?: Message[],
  *   datasetId?: string,
  *   skillsetId?: string,
@@ -267,11 +270,15 @@ export type ConversationListStreamItem = {
 };
 export type ConversationListStreamType = ConversationListStreamItem;
 export type ConversationFetchResponse = ConversationInstance & {};
-export type ConversationCreateRequest = ConversationOptions & {};
+export type ConversationCreateRequest = ConversationOptions & {
+    model?: import('../model/v1.js').Model;
+};
 export type ConversationCreateResponse = {
     id: string;
 };
-export type ConversationUpdateRequest = ConversationOptions & {};
+export type ConversationUpdateRequest = ConversationOptions & {
+    model?: import('../model/v1.js').Model;
+};
 export type ConversationUpdateResponse = {
     id: string;
 };
@@ -280,7 +287,7 @@ export type ConversationDeleteResponse = {
 };
 export type ConversationCompleteRequest = {
     backstory?: string;
-    model?: string;
+    model?: import('../model/v1.js').Model;
     messages?: Message[];
     datasetId?: string;
     skillsetId?: string;

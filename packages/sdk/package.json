@@ -300,6 +300,22 @@
       "types": "./types/magic/v1.d.ts",
       "import": "./src/magic/v1.js"
     },
+    "./model/v1": {
+      "types": "./types/model/v1.d.ts",
+      "import": "./src/model/v1.js"
+    },
+    "./model/v1.js": {
+      "types": "./types/model/v1.d.ts",
+      "import": "./src/model/v1.js"
+    },
+    "./param": {
+      "types": "./types/param.d.ts",
+      "import": "./src/param.js"
+    },
+    "./param.js": {
+      "types": "./types/param.d.ts",
+      "import": "./src/param.js"
+    },
     "./partner": {
       "types": "./types/partner/index.d.ts",
       "import": "./src/partner/index.js"

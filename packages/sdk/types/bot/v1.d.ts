@@ -51,6 +51,7 @@ export function listBots(client: ChatBotKitClient, request?: BotListRequest | un
 export function fetchBot(client: ChatBotKitClient, botId: string): Promise<BotFetchResponse>;
 /**
  * @typedef {BotOptions & {
+ *   model?: import('../model/v1.js').Model,
  * }} BotCreateRequest
  *
  * @typedef {{
@@ -64,6 +65,7 @@ export function fetchBot(client: ChatBotKitClient, botId: string): Promise<BotFe
 export function createBot(client: ChatBotKitClient, request: BotCreateRequest): Promise<BotCreateResponse>;
 /**
  * @typedef {BotOptions & {
+ *   model?: import('../model/v1.js').Model,
  * }} BotUpdateRequest
  *
  * @typedef {{
@@ -116,11 +118,15 @@ export type BotListStreamItemType = {
 };
 export type BotListStreamType = BotListStreamItemType;
 export type BotFetchResponse = BotInstance & {};
-export type BotCreateRequest = BotOptions & {};
+export type BotCreateRequest = BotOptions & {
+    model?: import('../model/v1.js').Model;
+};
 export type BotCreateResponse = {
     id: string;
 };
-export type BotUpdateRequest = BotOptions & {};
+export type BotUpdateRequest = BotOptions & {
+    model?: import('../model/v1.js').Model;
+};
 export type BotUpdateResponse = {
     id: string;
 };

@@ -167,7 +167,7 @@ Creates a new conversation.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ConversationOptions`](../modules/conversation_v1.md#conversationoptions) |
+| `request` | [`ConversationCreateRequest`](../modules/conversation_v1.md#conversationcreaterequest) |
 
 #### Returns
 
@@ -302,7 +302,7 @@ Updates a conversation.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`ConversationOptions`](../modules/conversation_v1.md#conversationoptions) |
+| `request` | [`ConversationUpdateRequest`](../modules/conversation_v1.md#conversationupdaterequest) |
 
 #### Returns
 

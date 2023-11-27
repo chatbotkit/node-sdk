@@ -1,3 +1,5 @@
+import { buildModelString } from '../model/v1.js'
+
 /**
  * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -72,6 +74,7 @@ export async function fetchBot(client, botId) {
 
 /**
  * @typedef {BotOptions & {
+ *   model?: import('../model/v1.js').Model,
  * }} BotCreateRequest
  *
  * @typedef {{
@@ -90,6 +93,8 @@ export async function createBot(client, request) {
     /** @type {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} */
     data: {
       ...request,
+
+      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -98,6 +103,7 @@ export async function createBot(client, request) {
 
 /**
  * @typedef {BotOptions & {
+ *   model?: import('../model/v1.js').Model,
  * }} BotUpdateRequest
  *
  * @typedef {{
@@ -117,6 +123,8 @@ export async function updateBot(client, botId, request) {
     /** @type {import('../types/api/v1.js').operations['updateBot']['requestBody']['content']['application/json']} */
     data: {
       ...request,
+
+      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 

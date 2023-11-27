@@ -3148,6 +3148,20 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The bot id assigned to this conversation */
+                    botId?: string;
+                    /** @description The backstory for the conversation */
+                    backstory?: string;
+                    /** @description The model to use for the conversation */
+                    model?: string;
+                    /** @description The ID of the dataset to use for the conversation */
+                    datasetId?: string;
+                    /** @description The ID of the skillset to use for the conversation */
+                    skillsetId?: string;
+                    /** @description Turn conversation privacy features on */
+                    privacy?: boolean;
+                    /** @description Turn conversation moderation features on */
+                    moderation?: boolean;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
@@ -3354,6 +3368,10 @@ export interface operations {
                     privacy?: boolean;
                     /** @description Turn conversation moderation features on */
                     moderation?: boolean;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                     /** @description An array of messages to be added to the conversation */
                     messages?: {
                         /**
