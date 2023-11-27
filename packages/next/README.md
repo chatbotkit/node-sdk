@@ -62,6 +62,7 @@ export default function Index() {
   function handleOnKeyDown(event) {
     if (event.keyCode === 13) {
       event.preventDefault()
+
       submit()
     }
   }
