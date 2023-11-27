@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.1.9
+
+### Patch Changes
+
+- e6fc843: Fixed model call conventions.
+
 ## 1.1.8
 
 ### Patch Changes
