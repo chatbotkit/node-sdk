@@ -102,3 +102,7 @@ Explore a full example with additional features [here](https://github.com/chatbo
 ## Documentation
 
 For a detailed exploration of the ChatBotKit Next SDK, including its capabilities and configurations tailored for Next.js Edge runtime, visit our [official documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_next.html).
+
+## Contributing
+
+If you find a bug or would like to contribute to the ChatBotKit SDK, please open an issue or submit a pull request on the [official GitHub repository](https://github.com/chatbotkit/node-sdk).
