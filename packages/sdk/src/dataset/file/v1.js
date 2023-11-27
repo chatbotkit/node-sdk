@@ -3,6 +3,43 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
+ * @typedef {import('../../file/v1.js').FileInstance} DatasetFileInstance
+ */
+
+/**
+ * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} DatasetFileListRequest
+ * @typedef {{items: DatasetFileInstance[]}} DatasetFileListResponse
+ *
+ * @typedef {{
+ *   type: 'item',
+ *   data: DatasetFileInstance
+ * }} DatasetFileListStreamItemType
+ *
+ * @typedef {DatasetFileListStreamItemType} DatasetFileListStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} datasetId
+ * @param {DatasetFileListRequest} [request]
+ * @returns {ResponsePromise<DatasetFileListResponse,DatasetFileListStreamType>}
+ */
+export function listDatasetFiles(client, datasetId, request) {
+  let url = `/api/v1/dataset/${datasetId}/file/list`
+
+  /** @typedef {import('../../types/api/v1.js').operations['listDatasetFiles']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../../types/api/v1.js').operations['listDatasetFiles']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
+  const response = client.clientFetch(url, { query: request })
+
+  return response
+}
+
+/**
  * @typedef {{
  *   type: 'source'
  * }} DatasetFileAttachRequest

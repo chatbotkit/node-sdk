@@ -1,7 +1,19 @@
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+/**
  * Dataset file client.
  */
 export class DatasetFileClient extends ChatBotKitClient {
+    /**
+     *
+     * @param {string} datasetId
+     * @param {import('./v1.js').DatasetFileListRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').DatasetFileListResponse,import('./v1.js').DatasetFileListStreamType>}
+     */
+    list(datasetId: string, request?: import("./v1.js").DatasetFileListRequest | undefined): ResponsePromise<import('./v1.js').DatasetFileListResponse, import('./v1.js').DatasetFileListStreamType>;
     /**
      * Attaches a file.
      *
@@ -31,4 +43,5 @@ export class DatasetFileClient extends ChatBotKitClient {
     sync(datasetId: string, fileId: string, request: import('./v1.js').DatasetFileSyncRequest): Promise<import('./v1.js').DatasetFileSyncResponse>;
 }
 export default DatasetFileClient;
+export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../client.js';

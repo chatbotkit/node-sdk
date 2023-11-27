@@ -454,6 +454,7 @@
     "@chatbotkit/fetch": "workspace:*"
   },
   "devDependencies": {
-    "openapi-typescript": "7.0.0-next.4"
+    "openapi-typescript": "7.0.0-next.4",
+    "swagger-client": "^3.24.5"
   }
 }

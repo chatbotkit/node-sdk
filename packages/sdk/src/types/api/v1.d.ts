@@ -467,6 +467,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/dataset/{datasetId}/file/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of files attached to the dataset */
+        get: operations["listDatasetFiles"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/dataset/{datasetId}/record/{recordId}/delete": {
         parameters: {
             query?: never;
@@ -3919,6 +3936,96 @@ export interface operations {
             };
             /** @description The specified resource was not found */
             404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listDatasetFiles: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                take?: number;
+            };
+            header?: never;
+            path: {
+                datasetId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of files was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description An array of files */
+                        items: {
+                            /** @description The ID of the file */
+                            id: string;
+                            /** @description The name of the file */
+                            name?: string;
+                            /** @description The description of the file */
+                            description?: string;
+                            /**
+                             * @description The file visibility
+                             * @enum {string}
+                             */
+                            visibility: "private" | "public";
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The timestamp when the file was created */
+                            createdAt: number;
+                            /** @description The timestamp when the file was last updated */
+                            updatedAt: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        data: {
+                            /** @description The ID of the file */
+                            id: string;
+                            /** @description The name of the file */
+                            name?: string;
+                            /** @description The description of the file */
+                            description?: string;
+                            /**
+                             * @description The file visibility
+                             * @enum {string}
+                             */
+                            visibility: "private" | "public";
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The timestamp when the file was created */
+                            createdAt: number;
+                            /** @description The timestamp when the file was last updated */
+                            updatedAt: number;
+                        };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
                 headers: {
                     [name: string]: unknown;
                 };

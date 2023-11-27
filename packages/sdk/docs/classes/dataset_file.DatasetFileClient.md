@@ -23,6 +23,7 @@ Dataset file client.
 - [attach](dataset_file.DatasetFileClient.md#attach)
 - [clientFetch](dataset_file.DatasetFileClient.md#clientfetch)
 - [detach](dataset_file.DatasetFileClient.md#detach)
+- [list](dataset_file.DatasetFileClient.md#list)
 - [sync](dataset_file.DatasetFileClient.md#sync)
 
 ## Constructors
@@ -47,7 +48,7 @@ Dataset file client.
 
 #### Defined in
 
-[dataset/file/index.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L11)
+[dataset/file/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L22)
 
 ## Methods
 
@@ -71,7 +72,7 @@ Attaches a file.
 
 #### Defined in
 
-[dataset/file/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L23)
+[dataset/file/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L44)
 
 ___
 
@@ -133,7 +134,28 @@ Detach a file.
 
 #### Defined in
 
-[dataset/file/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L35)
+[dataset/file/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L56)
+
+___
+
+### list
+
+▸ **list**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetFileListResponse`](../modules/dataset_file_v1.md#datasetfilelistresponse), [`DatasetFileListStreamItemType`](../modules/dataset_file_v1.md#datasetfileliststreamitemtype)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `datasetId` | `string` |
+| `request?` | [`DatasetFileListRequest`](../modules/dataset_file_v1.md#datasetfilelistrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetFileListResponse`](../modules/dataset_file_v1.md#datasetfilelistresponse), [`DatasetFileListStreamItemType`](../modules/dataset_file_v1.md#datasetfileliststreamitemtype)\>
+
+#### Defined in
+
+[dataset/file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L32)
 
 ___
 
@@ -157,4 +179,4 @@ Sync a file.
 
 #### Defined in
 
-[dataset/file/index.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L47)
+[dataset/file/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/index.js#L68)

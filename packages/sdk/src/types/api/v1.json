@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build e243)"
+    "version": "v1 (build 04c7)"
   },
   "servers": [
     {
@@ -5167,6 +5167,206 @@
           }
         },
         "__originalOperationId": "syncDatasetFile",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/dataset/{datasetId}/file/list": {
+      "get": {
+        "operationId": "listDatasetFiles",
+        "summary": "Retrieve a list of files attached to the dataset",
+        "tags": [
+          "Dataset File"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "datasetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the dataset",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of files was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of files",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the file",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the file",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the file",
+                            "type": "string"
+                          },
+                          "visibility": {
+                            "type": "string",
+                            "description": "The file visibility",
+                            "enum": [
+                              "private",
+                              "public"
+                            ],
+                            "$$ref": "#/components/schemas/FileVisibility"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "createdAt": {
+                            "description": "The timestamp when the file was created",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp when the file was last updated",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "visibility",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The ID of the file",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "The name of the file",
+                              "type": "string"
+                            },
+                            "description": {
+                              "description": "The description of the file",
+                              "type": "string"
+                            },
+                            "visibility": {
+                              "type": "string",
+                              "description": "The file visibility",
+                              "enum": [
+                                "private",
+                                "public"
+                              ],
+                              "$$ref": "#/components/schemas/FileVisibility"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "createdAt": {
+                              "description": "The timestamp when the file was created",
+                              "type": "number"
+                            },
+                            "updatedAt": {
+                              "description": "The timestamp when the file was last updated",
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "visibility",
+                            "createdAt",
+                            "updatedAt"
+                          ],
+                          "$$ref": "#/paths/~1file~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listDatasetFiles",
         "security": [
           {
             "BearerAuth": []

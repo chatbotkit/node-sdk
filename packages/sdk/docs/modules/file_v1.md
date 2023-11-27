@@ -4,6 +4,10 @@
 
 ## Table of contents
 
+### References
+
+- [FileInstance](file_v1.md#fileinstance)
+
 ### Type Aliases
 
 - [ChatBotKitClient](file_v1.md#chatbotkitclient)
@@ -12,7 +16,6 @@
 - [FileDeleteResponse](file_v1.md#filedeleteresponse)
 - [FileDownloadResponse](file_v1.md#filedownloadresponse)
 - [FileFetchResponse](file_v1.md#filefetchresponse)
-- [FileInstance](file_v1.md#fileinstance)
 - [FileListRequest](file_v1.md#filelistrequest)
 - [FileListResponse](file_v1.md#filelistresponse)
 - [FileListStreamItemType](file_v1.md#fileliststreamitemtype)
@@ -33,6 +36,12 @@
 - [listFiles](file_v1.md#listfiles)
 - [updateFile](file_v1.md#updatefile)
 - [uploadFile](file_v1.md#uploadfile)
+
+## References
+
+### FileInstance
+
+Renames and re-exports [DatasetFileInstance](dataset_file_v1.md#datasetfileinstance)
 
 ## Type Aliases
 
@@ -106,21 +115,11 @@ ___
 
 ### FileFetchResponse
 
-Ƭ **FileFetchResponse**\<\>: [`FileInstance`](file_v1.md#fileinstance) & {}
+Ƭ **FileFetchResponse**\<\>: [`DatasetFileInstance`](dataset_file_v1.md#datasetfileinstance) & {}
 
 #### Defined in
 
 [file/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L53)
-
-___
-
-### FileInstance
-
-Ƭ **FileInstance**\<\>: [`FileOptions`](file_v1.md#fileoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[file/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L22)
 
 ___
 
@@ -150,7 +149,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `items` | [`FileInstance`](file_v1.md#fileinstance)[] |
+| `items` | [`DatasetFileInstance`](dataset_file_v1.md#datasetfileinstance)[] |
 
 #### Defined in
 
@@ -166,7 +165,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [`FileInstance`](file_v1.md#fileinstance) |
+| `data` | [`DatasetFileInstance`](dataset_file_v1.md#datasetfileinstance) |
 | `type` | ``"item"`` |
 
 #### Defined in

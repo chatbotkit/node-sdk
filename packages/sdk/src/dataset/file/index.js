@@ -1,5 +1,16 @@
 import { ChatBotKitClient } from '../../client.js'
-import { attachDatasetFile, detachDatasetFile, syncDatasetFile } from './v1.js'
+import {
+  listDatasetFiles,
+  attachDatasetFile,
+  detachDatasetFile,
+  syncDatasetFile,
+} from './v1.js'
+
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
 
 /**
  * Dataset file client.
@@ -10,6 +21,16 @@ export class DatasetFileClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+  }
+
+  /**
+   *
+   * @param {string} datasetId
+   * @param {import('./v1.js').DatasetFileListRequest} [request]
+   * @returns {ResponsePromise<import('./v1.js').DatasetFileListResponse,import('./v1.js').DatasetFileListStreamType>}
+   */
+  list(datasetId, request) {
+    return listDatasetFiles(this, datasetId, request)
   }
 
   /**
