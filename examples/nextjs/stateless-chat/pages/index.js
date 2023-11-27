@@ -11,7 +11,7 @@ import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 // The AutoTextarea component is a simple textarea that automatically
 // resizes itself based on the content.
 
-export default function Home() {
+export default function Index() {
   const { thinking, text, setText, messages, submit } = useConversationManager({
     endpoint: '/api/conversation/complete',
   })
