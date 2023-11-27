@@ -4,3 +4,5 @@ dist.*
 types
 .next
 typedoc.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
