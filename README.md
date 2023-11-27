@@ -3,48 +3,50 @@
 
 # ChatBotKit Node SDK
 
-Welcome to the ChatBotKit SDK. This SDK is a node-based solution for building conversational AI chatbots with ease. With [ChatBotKit](https://chatbotkit.com), you can quickly develop and deploy AI bots that can interact with users in natural language.
+Welcome to the ChatBotKit Node SDK. This SDK offers a Node.js-based platform for effortlessly building conversational AI chatbots. With [ChatBotKit](https://chatbotkit.com), you can swiftly develop and deploy AI bots capable of natural language interactions.
 
 ## SDK Features
 
-- **Easy setup** - The ChatBotKit SDK is easy to install and set up. You can have your first chatbot up and running in minutes.
-- **Serverless** - ChatBotKit SDK is compatible with the latest and greatest runtime environments such as Serverless and Edge with automatic support for Vercel, Netlify, Cloudflare Workerss, Deno, AWS Lambda and more.
-- **Modern** - A modern SDK with built-in support for CommonJS, ECMAScript Modules, async/await, streams and much more.
-- **Customizable** - You can easily customize the chatbot's behavior and responses to fit your specific use case.
+- **Easy Setup**: Quick and straightforward installation process.
+- **Serverless Compatibility**: Works seamlessly with modern runtime environments like Serverless, Edge, Vercel, Netlify, Cloudflare Workers, Deno, AWS Lambda, and more.
+- **Modern Framework Support**: Built-in support for CommonJS, ECMAScript Modules, async/await, streams, etc.
+- **Customizability**: Tailor the chatbot’s behavior and responses to fit specific use cases.
 
-## ChatBotKit Features
+## ChatBotKit Capabilities
 
-- 🗨 **Chat History**: Easily review and reference previous conversations with your bots, ensuring that it has all the information it needs.
-- 💾 **Custom Datasets**: Manage and organize the data that your chat bots use to respond to user input with bespoke datasets.
-- 💾 **Custom Skillset**: Create special skills for your chatbot, such as the ability to generate images or fetch web pages.
-- 🎬 **Document File Importing**: Import PDF, CSV, JSON, MD and many other document files directly into your your chatbot datasets
-- 🎬 **Media File Importing**: Import MP3, MP4, MPEG, WAV and many other media files directly into your your chatbot datasets
-- 🌐 **Widget Integration**: Embed ChatBotKit chatbots directly on any website using advanced customization options and theming.
-- 💬 **Slack Bot Integration**: Create and deploy wide-range of Slack bot integrations with just a few click.
-- 🎮 **Discord Bot Integration**: Create and deploy wide-range of Discord chat bot with just a few click.
-- 📱 **WhatsApp Bot Integration**: Connect with your audience instantly on the world’s most popular AI bot platform.
-- 🗺 **Sitemap Integration**: Automatically ingest website content into a searchable knowledge base for your chatbot to reference.
-- 🗺 **Suppoert Integration**: Automatically send conversation summaries to your prefered support system and follow up with users off-session.
-- 🤖 **GPT-3.5 Support**: State-of-the-art language models to power your conversations.
-- 🚀 **GPT-4 Support**: The latest and best language model now can power all chatbots.
-- 🎥 **Streaming**: You can turn on and off streaming capabilities for your chatbots.
-- 🎨 **Widget Themes**: Customize the appearance of your chatbot widget with different themes to match your website branding or personal preferences.
-- 🔒 **Data Security**: Ensuring the security of user data, with robust measures in place to protect against unauthorized access.
-- 🕵 **Focus on Privacy**: Get strong privacy controls out of the box. Privide confindence that your customers' data is being handled responsibly.
-- 🚫 **Content Moderation**: All messages are automatically scanned for abusive content and automatically flagged by the system.
-- 💵 **Simple Pricing**: Our pricing is straightforward and easy to understand, with no hidden fees or surprises.
+- 🗨 **Chat History**: Review and reference past conversations.
+- 💾 **Custom Datasets**: Organize data for bot responses.
+- 💡 **Custom Skillset**: Equip chatbots with unique abilities like image generation or web fetching.
+- 📄 **Document File Importing**: Import various document file types into chatbot datasets.
+- 🎵 **Media File Importing**: Import a range of media file formats into chatbot datasets.
+- 🌐 **Widget Integration**: Seamlessly embed chatbots on websites with customizable options.
+- 💬 **Slack, Discord, WhatsApp Bot Integrations**: Easy integration with popular messaging platforms.
+- 🗺 **Sitemap Integration**: Ingest website content into a searchable knowledge base.
+- 🤖 **Multi-vendor Model Support**: Utilize advanced language models for conversation.
+- 🎥 **Streaming**: Enable/disable streaming capabilities.
+- 🔒 **Data Security**: Robust measures to protect user data.
+- 🕵 **Privacy Focus**: Strong privacy controls to ensure responsible data handling.
+- 🚫 **Content Moderation**: Automatic scanning and flagging of abusive content.
+- 💵 **Simple Pricing**: Transparent and straightforward pricing.
 
 ## Getting Started
 
-To get started with ChatBotKit, follow these simple steps:
+Follow these steps to start with ChatBotKit:
 
-1. Install the SDK using npm: `npm install @chatbotkit/sdk`.
-2. Use the SDK to setup or interact with your chatbot.
+1. **Installation**:
+   ```bash
+   npm install @chatbotkit/sdk
+   ```
+2. **Usage**: Implement the SDK in your chatbot project.
 
-Here is a simple streaming example that works in Edge and Serverless environments:
+### Streaming Example
 
-```js
+This example demonstrates streaming capabilities in Edge and Serverless environments:
+
+```javascript
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+
+const client = new ConversationClient(/* configuration */)
 
 for await (const { type, data } of client
   .complete(null, { model: 'gpt-4', messages })
@@ -57,14 +59,14 @@ for await (const { type, data } of client
 
 ## Examples
 
-You can find a wide-range of examples [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
+Explore a range of examples [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
 
 ## Documentation
 
-For detailed documentation on available types, please refer to the [type documentation](https://github.com/chatbotkit/node-sdk/tree/main/docs).
-
-Checkout the [ChatBotKit Documentation](https://chatbotkit.com/docs) for more information about the platform.
+- **Type Documentation**: Detailed information on available types [here](https://github.com/chatbotkit/node-sdk/tree/main/docs).
+- **Platform Documentation**: Comprehensive guide to ChatBotKit [here](https://chatbotkit.com/docs).
+- **SDK Documentation**: In-depth SDK documentation [here](https://chatbotkit.github.io/node-sdk/).
 
 ## Contributing
 
-If you find a bug or would like to contribute to the ChatBotKit SDK, please open an issue or submit a pull request on the [official GitHub repository](https://github.com/chatbotkit/node-sdk).
+Encounter a bug or want to contribute? Open an issue or submit a pull request on our [official GitHub repository](https://github.com/chatbotkit/node-sdk).
