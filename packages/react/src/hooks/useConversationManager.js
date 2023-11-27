@@ -3,10 +3,15 @@
 import { useMemo, useState } from 'react'
 import { ConversationClient } from '@chatbotkit/sdk'
 
+import { getRandomId } from '../utils/string.js'
 import { cloneAndExtend } from '../utils/object.js'
 
 /**
- * @typedef {{type: 'bot'|'user', text: string}} Message
+ * @typedef {{
+ *   id: string,
+ *   type: 'bot'|'user',
+ *   text: string
+ * }} Message
  */
 
 /**
@@ -100,6 +105,7 @@ export function useConversationManager(options) {
 
     /** @type {Message} */
     const userMessage = {
+      id: getRandomId('message-'),
       type: 'user',
       text: text,
     }
@@ -137,6 +143,7 @@ export function useConversationManager(options) {
 
     /** @type {Message} */
     const botMessage = {
+      id: getRandomId('message-'),
       type: 'bot',
       text: '',
     }
