@@ -1,38 +1,52 @@
 # ChatBotKit Next.js SDK
 
-This is the ChatBotKit SDK for Next.js. ...
+The ChatBotKit SDK for Next.js is crafted to integrate chatbot functionalities seamlessly into Next.js applications, specifically optimized for Next.js Edge runtime environments.
 
 ## Getting Started
 
-To get started with ChatBotKit, follow these simple steps:
+Begin your journey with ChatBotKit using these steps:
 
-1. Install the SDK using npm: `npm install @chatbotkit/next @chatbotkit/react @chatbotkit/sdk`.
-2. Use the SDK to setup or interact with your chatbot.
+1. **Installation**: Add the SDK to your project by running the npm command:
+   ```
+   npm install @chatbotkit/next @chatbotkit/react @chatbotkit/sdk
+   ```
+2. **Integration**: Utilize the SDK to create and manage chatbot interactions in your Next.js application.
 
-Here is a simple streaming example that works in Edge:
+### Streaming Example for Next.js Edge Runtime
+
+The following example showcases how to implement a chatbot in a Next.js application using the Edge runtime environment.
+
+#### Server-Side Code
 
 ```js
-// on the server
-
+// file: ./pages/api/conversation/complete.js
+// Import ChatBotKit and Edge streaming utilities
 import { ChatBotKit } from '@chatbotkit/sdk'
 import { stream } from '@chatbotkit/next/edge'
 
+// Initialize ChatBotKit with API secret
 const cbk = new ChatBotKit({
- secret: process.env.CHATBOTKIT_API_SECRET,
+  secret: process.env.CHATBOTKIT_API_SECRET,
 })
 
+// Define an API handler for streaming messages
 export default async function handler(req) {
- const { messages } = await req.json()
+  const { messages } = await req.json()
 
- return stream(cbk.conversation.complete(null, { messages }))
+  return stream(cbk.conversation.complete(null, { messages }))
 }
 
+// Configure Edge runtime
 export const config = {
- runtime: 'edge',
+  runtime: 'edge',
 }
+```
 
-// on the client
+#### Client-Side Code
 
+```js
+// file: ./pages/index.js
+// Utilize components and hooks from ChatBotKit's React package
 import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
 export default function Index() {
@@ -40,40 +54,27 @@ export default function Index() {
     endpoint: '/api/conversation/complete',
   })
 
+  // Handle text submission on Enter key press
   function handleOnKeyDown(event) {
     if (event.keyCode === 13) {
       event.preventDefault()
-
       submit()
     }
   }
 
+  // Render chat interface
   return (
     <div style={{ fontFamily: 'monospace', padding: '10px' }}>
-      <div>
-        {messages.map(({ id, type, text }) => {
-          switch (type) {
-            case 'user':
-              return (
-                <div key={id}>
-                  <strong>user:</strong> {text}
-                </div>
-              )
-
-            case 'bot':
-              return (
-                <div key={id}>
-                  <strong>bot:</strong> {text}
-                </div>
-              )
-          }
-        })}
-        {thinking ? (
-          <div key="thinking">
-            <strong>bot:</strong> thinking...
-          </div>
-        ) : null}
-      </div>
+      {messages.map(({ id, type, text }) => (
+        <div key={id}>
+          <strong>{type}:</strong> {text}
+        </div>
+      ))}
+      {thinking && (
+        <div key="thinking">
+          <strong>bot:</strong> thinking...
+        </div>
+      )}
       <AutoTextarea
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -92,4 +93,8 @@ export default function Index() {
 }
 ```
 
-A complete example can be found [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/stateless-chat).
+Explore a full example with additional features [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/stateless-chat).
+
+## Documentation
+
+For a detailed exploration of the ChatBotKit SDK, including its capabilities and configurations tailored for Next.js Edge runtime, visit our [official documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_next.html).
