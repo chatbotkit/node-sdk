@@ -6,6 +6,13 @@
 
 Welcome to the ChatBotKit React SDK! This SDK is your go-to React solution for creating conversational AI chatbots with ease. Leveraging the power of [ChatBotKit](https://chatbotkit.com), this SDK enables the rapid development and deployment of chatbots capable of natural language interactions.
 
+## What's Included
+
+The ChatBotKit React SDK offers a comprehensive set of features and capabilities, including:
+
+- **[userConversationManager](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.hooks_useConversationManager.html)**: A React Hook for managing conversation flow. Handles all the heavy lifting of sending and receiving messages, as well as thinking and typing indicators.
+- **[AutoTextarea](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.components_AutoTextarea.html)**: A React component that automatically resizes the textarea to fit the content. Useful for chat interfaces to allow users to type messages.
+
 ## Getting Started
 
 Embark on your ChatBotKit journey with these easy steps:
