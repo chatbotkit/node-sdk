@@ -145,12 +145,12 @@ Some examples include:
 
 The ChatBotKit Node SDK is comprised of the following packages:
 
-| Package                                                                              | Description                                    |
-| ------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| [@chatbotkit/sdk](https://github.com/chatbotkit/node-sdk/tree/main/packages/sdk)     | The ChatBotKit API SDK.                        |
-| [@chatbotkit/react](https://github.com/chatbotkit/node-sdk/tree/main/packages/react) | The ChatBotKit React SDK.                      |
-| [@chatbotkit/next](https://github.com/chatbotkit/node-sdk/tree/main/packages/next)   | The ChatBotKit Next.js SDK.                    |
-| [@chatbotkit/fetch](https://github.com/chatbotkit/node-sdk/tree/main/packages/fetch) | The ChatBotKit isometric fetch implementation. |
+| Package                                                                              | Version                                                                                                       | Description                                    |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| [@chatbotkit/sdk](https://github.com/chatbotkit/node-sdk/tree/main/packages/sdk)     | [![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)   | The ChatBotKit API SDK.                        |
+| [@chatbotkit/react](https://github.com/chatbotkit/node-sdk/tree/main/packages/react) | [![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/react) | The ChatBotKit React SDK.                      |
+| [@chatbotkit/next](https://github.com/chatbotkit/node-sdk/tree/main/packages/next)   | [![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/next)  | The ChatBotKit Next.js SDK.                    |
+| [@chatbotkit/fetch](https://github.com/chatbotkit/node-sdk/tree/main/packages/fetch) | [![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/fetch) | The ChatBotKit isometric fetch implementation. |
 
 ## Documentation
 
