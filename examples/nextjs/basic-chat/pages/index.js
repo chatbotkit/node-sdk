@@ -66,14 +66,14 @@ export default function Index() {
                 case 'bot':
                   return (
                     <div key={id}>
-                      <strong>bot</strong>: {text}
+                      <strong>bot:</strong> {text}
                     </div>
                   )
               }
             })}
             {thinking ? (
               <div key="thinking">
-                <strong>bot</strong>: thinking...
+                <strong>bot:</strong> thinking...
               </div>
             ) : null}
           </div>
