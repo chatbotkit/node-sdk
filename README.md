@@ -11,6 +11,8 @@ Welcome to the ChatBotKit Node SDK. This SDK offers a Node.js-based platform for
 - **Serverless Compatibility**: Works seamlessly with modern runtime environments like Serverless, Edge, Vercel, Netlify, Cloudflare Workers, Deno, AWS Lambda, and more.
 - **Modern Framework Support**: Built-in support for CommonJS, ECMAScript Modules, async/await, streams, etc.
 - **Customizability**: Tailor the chatbot’s behavior and responses to fit specific use cases.
+- **Multi-Platform**: Deploy chatbots on websites, mobile apps, and messaging platforms like Slack, Discord, and WhatsApp.
+- **Multi-Model**: Support for a wide range of language models, including GPT-3, GPT-4, Claude, and more.
 
 ## ChatBotKit Capabilities
 
