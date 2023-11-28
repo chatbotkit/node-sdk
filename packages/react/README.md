@@ -109,7 +109,7 @@ Discover a complete example with advanced features [here](https://github.com/cha
 
 ## Documentation
 
-For a comprehensive understanding of the ChatBotKit React SDK, including detailed insights into its capabilities and configuration for various environments, please visit our [official documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.html).
+For a comprehensive understanding of the ChatBotKit React SDK, including detailed insights into its capabilities and configuration for various environments, please visit our [type documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.html).
 
 ## Contributing
 

@@ -44,7 +44,7 @@ Explore a detailed example with more advanced features [here](https://github.com
 
 ## Documentation
 
-For an in-depth exploration of the ChatBotKit Node SDK, including insights into its capabilities and configurations for different environments, visit our [official documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_sdk.html).
+For an in-depth exploration of the ChatBotKit Node SDK, including insights into its capabilities and configurations for different environments, visit our [type documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_sdk.html).
 
 ## Contributing
 

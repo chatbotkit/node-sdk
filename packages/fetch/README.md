@@ -40,7 +40,7 @@ To begin using the ChatBotKit Fetch SDK, follow these steps:
 
 ## Documentation
 
-For comprehensive information about the ChatBotKit Fetch SDK, including detailed documentation on its functionalities, helper methods, and configuration options, please visit our [official documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_fetch.html).
+For comprehensive information about the ChatBotKit Fetch SDK, including detailed documentation on its functionalities, helper methods, and configuration options, please visit our [type documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_fetch.html).
 
 ## Contributing
 
