@@ -141,9 +141,9 @@ Some examples include:
 
 ## Documentation
 
-- **Type Documentation**: Detailed information on available types [here](https://github.com/chatbotkit/node-sdk/tree/main/docs).
+- **Type Documentation**: Detailed information on available types [here](https://chatbotkit.github.io/node-sdk/).
 - **Platform Documentation**: Comprehensive guide to ChatBotKit [here](https://chatbotkit.com/docs).
-- **SDK Documentation**: In-depth SDK documentation [here](https://chatbotkit.github.io/node-sdk/).
+- **Platform Tutorials**: Step-by-step tutorials for ChatBotKit [here](https://chatbotkit.com/tutorials).
 
 ## Contributing
 
