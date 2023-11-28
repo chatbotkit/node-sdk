@@ -1,4 +1,9 @@
-import { ChatInput, useConversationManager } from '@chatbotkit/react'
+import {
+  ChatInput,
+  ChatMessage,
+  ChatMessages,
+  useConversationManager,
+} from '@chatbotkit/react'
 import { AutoScroller } from '@chatbotkit/react/components/AutoScroller.js'
 
 import { useState, useMemo, createContext, useContext } from 'react'
@@ -68,6 +73,8 @@ function WidgetFrame(props) {
   const style = useMemo(() => {
     return {
       overflow: 'hidden',
+
+      flex: 1,
 
       display: 'flex',
       flexDirection: 'column',
@@ -140,6 +147,10 @@ function WidgetContent(props) {
   return <AutoScroller {...rest} style={style} />
 }
 
+function WidgetMessages(props) {
+  return <ChatMessages {...props} />
+}
+
 function WidgetInput(props) {
   const { style: defaultStyle, ...rest } = props || {}
 
@@ -179,40 +190,48 @@ export default function Index() {
 
   return (
     <div>
-      <Widget className="space-y-2 w-full max-w-xl p-2" position="bottom-right">
+      <Widget
+        className="w-full max-w-[500px] h-screen p-2 max-h-[600px] space-y-2"
+        position="bottom-right"
+      >
         <WidgetFrame className="rounded-xl border border-indigo-500 scale-0 data-[open=true]:scale-100 transition-all ease-in-out">
           <WidgetBar className="bg-indigo-500 text-white p-2">
             Super Widget
             <WidgetCloseButton>×</WidgetCloseButton>
           </WidgetBar>
           <WidgetContent className="p-2">
-            <div>Hi there</div>
-            <div>
+            <WidgetMessages className="space-y-2 flex flex-col">
               {messages.map(({ id, type, text }) => {
                 switch (type) {
                   case 'user':
                     return (
-                      <div key={id}>
-                        <strong>user:</strong> {text}
-                      </div>
+                      <ChatMessage
+                        className="self-end rounded-xl bg-indigo-100 text-gray-900 p-2"
+                        key={id}
+                        text={text}
+                      />
                     )
 
                   case 'bot':
                     return (
-                      <div key={id}>
-                        <strong>bot:</strong> {text}
-                      </div>
+                      <ChatMessage
+                        className="self-start rounded-xl bg-gray-100 text-gray-900 p-2"
+                        key={id}
+                        text={text}
+                      />
                     )
                 }
               })}
               {thinking ? (
-                <div key="thinking">
-                  <strong>bot:</strong> thinking...
-                </div>
+                <ChatMessage
+                  className="self-start rounded-xl bg-gray-100 text-gray-900 p-2"
+                  key="thinking"
+                  text={`...`}
+                />
               ) : null}
-            </div>
+            </WidgetMessages>
             <WidgetInput
-              className="rounded-xl border border-gray-300 p-2"
+              className="w-full rounded-xl border border-gray-300 p-2"
               value={text}
               onChange={(event) => setText(event.target.value)}
               onSubmit={submit}
