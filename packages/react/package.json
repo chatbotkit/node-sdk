@@ -107,7 +107,8 @@
   },
   "types": "./types/index.d.ts",
   "dependencies": {
-    "@chatbotkit/sdk": "workspace:*"
+    "@chatbotkit/sdk": "workspace:*",
+    "react-markdown": "^9.0.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",
