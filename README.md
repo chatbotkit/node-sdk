@@ -141,6 +141,17 @@ Some examples include:
 | Node               | [GPT4 Streaming AI chatbot](https://github.com/chatbotkit/node-sdk/tree/main/examples/sdk/esm/gpt4-chatbot-stream.js) | A simple streaming AI chatbot example.                                        |
 | Cloudflare Workers | [GPT4 AI chatbot](https://github.com/chatbotkit/node-sdk/tree/main/examples/cloudflare/gpt4-stream)                   | A streaming AI chatbot example for Cloudflare Workers.                        |
 
+## Packages
+
+The ChatBotKit Node SDK is comprised of the following packages:
+
+| Package                                                                              | Description                                    |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| [@chatbotkit/sdk](https://github.com/chatbotkit/node-sdk/tree/main/packages/sdk)     | The ChatBotKit API SDK.                        |
+| [@chatbotkit/react](https://github.com/chatbotkit/node-sdk/tree/main/packages/react) | The ChatBotKit React SDK.                      |
+| [@chatbotkit/next](https://github.com/chatbotkit/node-sdk/tree/main/packages/next)   | The ChatBotKit Next.js SDK.                    |
+| [@chatbotkit/fetch](https://github.com/chatbotkit/node-sdk/tree/main/packages/fetch) | The ChatBotKit isometric fetch implementation. |
+
 ## Documentation
 
 - **Type Documentation**: Detailed information on available types [here](https://chatbotkit.github.io/node-sdk/).
