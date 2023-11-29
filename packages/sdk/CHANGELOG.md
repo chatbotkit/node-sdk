@@ -1,5 +1,13 @@
 # @chatbotkit/sdk
 
+## 1.1.10
+
+### Patch Changes
+
+- 6c2f553: Fixed CJS path corruption issue.
+- Updated dependencies [6c2f553]
+  - @chatbotkit/fetch@1.1.10
+
 ## 1.1.9
 
 ### Patch Changes
