@@ -26,8 +26,8 @@ async function main() {
 
     const content = await fs.readFile(file, 'utf-8')
     const newContent = content
-      .replace(/require\("(.*).js"\)/g, 'require("$1.cjs")')
-      .replace(/import\('(.*)\.js'\)/g, "import('$1.cjs')")
+      .replace(/require\("\.(.*)\.js"\)/g, 'require(".$1.cjs")')
+      .replace(/import\('\.(.*)\.js'\)/g, "import('.$1.cjs')")
 
     await fs.writeFile(file, newContent)
   }
