@@ -42,6 +42,30 @@
       "types": "./types/components/AutoTextarea.d.ts",
       "import": "./src/components/AutoTextarea.js"
     },
+    "./components/ChatInput": {
+      "types": "./types/components/ChatInput.d.ts",
+      "import": "./src/components/ChatInput.js"
+    },
+    "./components/ChatInput.js": {
+      "types": "./types/components/ChatInput.d.ts",
+      "import": "./src/components/ChatInput.js"
+    },
+    "./components/ChatMessage": {
+      "types": "./types/components/ChatMessage.d.ts",
+      "import": "./src/components/ChatMessage.js"
+    },
+    "./components/ChatMessage.js": {
+      "types": "./types/components/ChatMessage.d.ts",
+      "import": "./src/components/ChatMessage.js"
+    },
+    "./components/ChatMessages": {
+      "types": "./types/components/ChatMessages.d.ts",
+      "import": "./src/components/ChatMessages.js"
+    },
+    "./components/ChatMessages.js": {
+      "types": "./types/components/ChatMessages.d.ts",
+      "import": "./src/components/ChatMessages.js"
+    },
     "./hooks/useConversationManager": {
       "types": "./types/hooks/useConversationManager.d.ts",
       "import": "./src/hooks/useConversationManager.js"

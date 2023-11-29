@@ -15,6 +15,9 @@ import AutoTextarea from './AutoTextarea.js'
 export function ChatInput(props) {
   const { onSubmit, modifierKey = false, ...rest } = props || {}
 
+  /**
+   * @param {import('react').KeyboardEvent<HTMLTextAreaElement>} event
+   */
   function handleOnKeyDown(event) {
     if (
       !event.shiftKey &&

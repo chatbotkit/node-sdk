@@ -5,6 +5,9 @@
   "entryPoints": [
     "./src/components/AutoScroller.js",
     "./src/components/AutoTextarea.js",
+    "./src/components/ChatInput.js",
+    "./src/components/ChatMessage.js",
+    "./src/components/ChatMessages.js",
     "./src/hooks/useConversationManager.js",
     "./src/index.js",
     "./src/utils/object.js",

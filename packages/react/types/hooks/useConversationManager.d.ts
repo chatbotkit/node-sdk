@@ -19,6 +19,11 @@
  * }} Message
  */
 /**
+ * The useConversationManager hook is a React hook that manages the conversation
+ * state including the messages, the input text and all calls to the ChatBotKit
+ * API endpoint. It automatically handles the conversation state and other
+ * details like the token and conversation ID.
+ *
  * @param {{
  *   client?: ConversationClient,
  *   endpoint?: string,

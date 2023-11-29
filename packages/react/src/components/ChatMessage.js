@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import Markdown from 'react-markdown'
 
 const defaultComponents = {
+  // @ts-ignore
   a: ({ href, children }) => {
     const isExternal = /^https?:\/\//.test(href)
 
@@ -15,6 +16,7 @@ const defaultComponents = {
     )
   },
 
+  // @ts-ignore
   code: ({ inline, className, children }) => {
     const language = className ? className.replace(/language-/, '') : null
 
@@ -32,6 +34,11 @@ const defaultComponents = {
   },
 }
 
+/**
+ * @param {{
+ *   [name: string]: any
+ * }} props 
+ */
 export function ChatMessage(props) {
   const {
     text,

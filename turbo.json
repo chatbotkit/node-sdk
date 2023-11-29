@@ -5,7 +5,7 @@
       "cache": false
     },
     "build": {
-      "outputs": ["dist/**", "docs/**"],
+      "outputs": ["package.json", "typedoc.json", "dist/**", "docs/**"],
       "dependsOn": ["^build"]
     },
     "lint": {},
