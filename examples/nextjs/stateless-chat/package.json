@@ -6,7 +6,8 @@
     "build": "true",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "@chatbotkit/react": "workspace:*",
