@@ -50,7 +50,7 @@ export default function Index() {
   // them accordingly. We also use our own AutoTextarea for the user input.
 
   return (
-    <div style={{ fontFamily: 'monospace', padding: '10px' }}>
+    <div>
       {conversationId && token ? (
         <>
           <div>
