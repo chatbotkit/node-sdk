@@ -6,7 +6,7 @@ const nextConfig = {
   transpilePackages: [
     '@chatbotkit/sdk',
     '@chatbotkit/next',
-    '@chatbokit/react',
+    '@chatbotkit/react',
   ],
 }
 

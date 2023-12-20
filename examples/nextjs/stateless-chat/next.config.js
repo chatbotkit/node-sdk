@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
 
   transpilePackages: [
-    '@chatbokit/react',
+    '@chatbotkit/react',
     '@chatbotkit/sdk',
     '@chatbotkit/next',
   ],

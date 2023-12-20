@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  transpilePackages: ['@chatbokit/react', '@chatbotkit/sdk'],
+  transpilePackages: ['@chatbotkit/react', '@chatbotkit/sdk'],
 }
 
 module.exports = nextConfig
