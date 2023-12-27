@@ -45,7 +45,7 @@ export class PartnerUserTokenClient extends ChatBotKitClient {
   }
 
   /**
-   * Deletes the user.
+   * Deletes the user token.
    *
    * @param {string} userId
    * @param {string} tokenId
