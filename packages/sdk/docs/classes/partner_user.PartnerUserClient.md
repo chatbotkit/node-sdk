@@ -41,7 +41,7 @@ Partner user client.
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ChatBotKitClientOptions`](../modules/client.md#chatbotkitclientoptions) |
+| `options` | [`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md) |
 
 #### Returns
 
@@ -101,7 +101,7 @@ Partner user client.
 
 #### Defined in
 
-[client.js:211](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L211)
+[client.js:213](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L213)
 
 ___
 

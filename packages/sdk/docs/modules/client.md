@@ -9,25 +9,6 @@
 - [ChatBotKitClient](../classes/client.ChatBotKitClient.md)
 - [ResponsePromise](../classes/client.ResponsePromise.md)
 
-### Type Aliases
+### Interfaces
 
-- [ChatBotKitClientOptions](client.md#chatbotkitclientoptions)
-
-## Type Aliases
-
-### ChatBotKitClientOptions
-
-Ƭ **ChatBotKitClientOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `endpoints?` | `Record`\<`string`, `string`\> |
-| `host?` | `string` |
-| `protocol?` | ``"http:"`` \| ``"https"`` |
-| `secret` | `string` |
-
-#### Defined in
-
-[client.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L181)
+- [ChatBotKitClientOptions](../interfaces/client.ChatBotKitClientOptions.md)
