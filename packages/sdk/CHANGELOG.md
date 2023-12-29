@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.2.0
+
+### Minor Changes
+
+- c657abb: Added a runAsUserId option to assume child account in a parent-child account relationship configuration.
+
 ## 1.1.10
 
 ### Patch Changes
