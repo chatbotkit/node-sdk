@@ -24,7 +24,7 @@ export class PartnerUserTokenClient extends ChatBotKitClient {
      */
     create(userId: string, request: import('./v1.js').PartnerUserTokenCreateRequest): Promise<import('./v1.js').PartnerUserTokenCreateResponse>;
     /**
-     * Deletes the user.
+     * Deletes the user token.
      *
      * @param {string} userId
      * @param {string} tokenId
