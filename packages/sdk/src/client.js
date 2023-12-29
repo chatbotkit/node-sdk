@@ -173,12 +173,12 @@ export class ResponsePromise {
 }
 
 /**
- * @typedef {{
- *   secret: string,
- *   host?: string,
- *   protocol?: 'http:'|'https',
- *   endpoints?: Record<string,string>
- * }} ChatBotKitClientOptions
+ * @typedef {Object} ChatBotKitClientOptions
+ * @property {string} secret A token to authenticate with the API
+ * @property {string} [host] An optional hostname to use for the API
+ * @property {'http:'|'https'} [protocol] An optional protocol to use for the API
+ * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
+ * @property {string} [runAsUserId] An optional user ID to run as
  */
 
 export class ChatBotKitClient {
@@ -199,6 +199,8 @@ export class ChatBotKitClient {
     }
 
     this.endpoints = options.endpoints || {}
+
+    this.runAsUserId = options.runAsUserId
   }
 
   /**
@@ -240,7 +242,11 @@ export class ChatBotKitClient {
     const headers = {}
 
     if (this.secret) {
-      headers.Authorization = `Bearer ${this.secret}`
+      headers['Authorization'] = `Bearer ${this.secret}`
+    }
+
+    if (this.runAsUserId) {
+      headers['X-RunAs-UserId'] = this.runAsUserId
     }
 
     let data

@@ -55,12 +55,12 @@ export class ResponsePromise<T, U> {
     get [Symbol.toStringTag](): string;
 }
 /**
- * @typedef {{
- *   secret: string,
- *   host?: string,
- *   protocol?: 'http:'|'https',
- *   endpoints?: Record<string,string>
- * }} ChatBotKitClientOptions
+ * @typedef {Object} ChatBotKitClientOptions
+ * @property {string} secret A token to authenticate with the API
+ * @property {string} [host] An optional hostname to use for the API
+ * @property {'http:'|'https'} [protocol] An optional protocol to use for the API
+ * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
+ * @property {string} [runAsUserId] An optional user ID to run as
  */
 export class ChatBotKitClient {
     /**
@@ -70,6 +70,7 @@ export class ChatBotKitClient {
     secret: string;
     url: URL;
     endpoints: Record<string, string>;
+    runAsUserId: string | undefined;
     /**
      * @template T
      * @template U
@@ -88,8 +89,24 @@ export class ChatBotKitClient {
     } | undefined): ResponsePromise<T, U>;
 }
 export type ChatBotKitClientOptions = {
+    /**
+     * A token to authenticate with the API
+     */
     secret: string;
-    host?: string;
-    protocol?: 'http:' | 'https';
-    endpoints?: Record<string, string>;
+    /**
+     * An optional hostname to use for the API
+     */
+    host?: string | undefined;
+    /**
+     * An optional protocol to use for the API
+     */
+    protocol?: "http:" | "https" | undefined;
+    /**
+     * An optional map of endpoints to override
+     */
+    endpoints?: Record<string, string> | undefined;
+    /**
+     * An optional user ID to run as
+     */
+    runAsUserId?: string | undefined;
 };
