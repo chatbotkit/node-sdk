@@ -116,7 +116,7 @@ ___
 
 ▸ **delete**(`userId`, `tokenId`): `Promise`\<[`PartnerUserTokenDeleteResponse`](../modules/partner_user_token_v1.md#partnerusertokendeleteresponse)\>
 
-Deletes the user.
+Deletes the user token.
 
 #### Parameters
 
