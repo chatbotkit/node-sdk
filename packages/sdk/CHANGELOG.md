@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.3.0
+
+### Minor Changes
+
+- 630e627: Improved file upload support and included upvote/downvote API endpoints.
+
 ## 1.2.0
 
 ### Minor Changes
