@@ -21,6 +21,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/bot/{botId}/downvote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Downvote a bot */
+        post: operations["downvoteBot"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/bot/{botId}/fetch": {
         parameters: {
             query?: never;
@@ -66,6 +83,23 @@ export interface paths {
         put?: never;
         /** Update the specified bot */
         post: operations["updateBot"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/bot/{botId}/upvote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Upvote a bot */
+        post: operations["upvoteBot"];
         delete?: never;
         options?: never;
         head?: never;
@@ -140,6 +174,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/conversation/{conversationId}/downvote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Downvote a conversation */
+        post: operations["downvoteConversation"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/conversation/{conversationId}/fetch": {
         parameters: {
             query?: never;
@@ -174,6 +225,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/conversation/{conversationId}/message/{messageId}/downvote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Downvote a conversation message */
+        post: operations["downvoteConversationMessage"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/conversation/{conversationId}/message/{messageId}/fetch": {
         parameters: {
             query?: never;
@@ -202,6 +270,23 @@ export interface paths {
         put?: never;
         /** Update a conversation message */
         post: operations["updateConversationMessage"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/conversation/{conversationId}/message/{messageId}/upvote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Upvote a conversation message */
+        post: operations["upvoteConversationMessage"];
         delete?: never;
         options?: never;
         head?: never;
@@ -308,6 +393,23 @@ export interface paths {
         put?: never;
         /** Update the specified conversation */
         post: operations["updateConversation"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/conversation/{conversationId}/upvote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Upvote a conversation */
+        post: operations["upvoteConversation"];
         delete?: never;
         options?: never;
         head?: never;
@@ -790,6 +892,210 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/discord/{discordIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Discord integration */
+        post: operations["deleteDiscordIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/discord/{discordIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a discordIntegration */
+        get: operations["fetchDiscordIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/discord/{discordIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup Discord integration */
+        post: operations["setupDiscordIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/discord/{discordIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Discord integration */
+        post: operations["updateDiscordIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/discord/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create a new Discord integration */
+        post: operations["createDiscordIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/discord/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Discord integrations */
+        get: operations["listDiscordIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/notion/{notionIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Notion integration */
+        post: operations["deleteNotionIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/notion/{notionIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a notionIntegration */
+        get: operations["fetchNotionIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/notion/{notionIntegrationId}/sync": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Sync Notion integration */
+        post: operations["syncNotionIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/notion/{notionIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Notion integration */
+        post: operations["updateNotionIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/notion/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create a new Notion integration */
+        post: operations["createNotionIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/notion/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Notion integrations */
+        get: operations["listNotionIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/sitemap/{sitemapIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -892,6 +1198,193 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/slack/{slackIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Slack integration */
+        post: operations["deleteSlackIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/slack/{slackIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a slackIntegration */
+        get: operations["fetchSlackIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/slack/{slackIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup Slack integration */
+        post: operations["setupSlackIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/slack/{slackIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Slack integration */
+        post: operations["updateSlackIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/slack/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create a new Slack integration */
+        post: operations["createSlackIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/slack/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Slack integrations */
+        get: operations["listSlackIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/support/{supportIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Support integration */
+        post: operations["deleteSupportIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/support/{supportIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a supportIntegration */
+        get: operations["fetchSupportIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/support/{supportIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Support integration */
+        post: operations["updateSupportIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/support/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create a new Support integration */
+        post: operations["createSupportIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/support/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Support integrations */
+        get: operations["listSupportIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/whatsapp/{whatsappIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -986,6 +1479,91 @@ export interface paths {
         };
         /** List WhatsApp integrations */
         get: operations["listWhatsAppIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/widget/{widgetIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Widget integration */
+        post: operations["deleteWidgetIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/widget/{widgetIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a widgetIntegration */
+        get: operations["fetchWidgetIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/widget/{widgetIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Widget integration */
+        post: operations["updateWidgetIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/widget/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create a new Widget integration */
+        post: operations["createWidgetIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/widget/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Widget integrations */
+        get: operations["listWidgetIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1413,6 +1991,8 @@ export interface components {
         Meta: {
             [key: string]: unknown;
         };
+        /** @description A model definition */
+        Model: string;
         /** @description A bot configuration that can be applied without a dedicated bot instance. */
         BotRef: {
             /** @description The ID of the bot this configuration is using */
@@ -1420,7 +2000,7 @@ export interface components {
         };
         /** @description A bot configuration that can be applied without a dedicated bot instance. */
         BotConfig: {
-            /** @description The model this configuration is using */
+            /** @description A model definition */
             model?: string;
             /** @description The backstory this configuration is using */
             backstory?: string;
@@ -1437,7 +2017,7 @@ export interface components {
             /** @description The ID of the bot this configuration is using */
             botId?: string;
         } | {
-            /** @description The model this configuration is using */
+            /** @description A model definition */
             model?: string;
             /** @description The backstory this configuration is using */
             backstory?: string;
@@ -1449,6 +2029,34 @@ export interface components {
             privacy?: boolean;
             /** @description The moderation flag for this configuration */
             moderation?: boolean;
+        };
+        /** @description Instance properties */
+        InstanceCrudProps: {
+            /** @description The associated name */
+            name?: string;
+            /** @description The associated description */
+            description?: string;
+            /** @description Meta data information */
+            meta?: {
+                [key: string]: unknown;
+            };
+        };
+        /** @description Instance properties */
+        InstanceListProps: {
+            /** @description The associated name */
+            name?: string;
+            /** @description The associated description */
+            description?: string;
+            /** @description Meta data information */
+            meta?: {
+                [key: string]: unknown;
+            };
+            /** @description The instance ID */
+            id: string;
+            /** @description The creation date */
+            createdAt: number;
+            /** @description The last update date */
+            updatedAt: number;
         };
         ErrorResponse: {
             /** @description The error message */
@@ -1565,6 +2173,97 @@ export interface operations {
             };
             /** @description The specified resource was not found */
             404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    downvoteBot: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                botId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description The value of the downvote
+                     * @default -100
+                     */
+                    value: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The message was downvoted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The bot ID of the downvoted bot */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -1816,6 +2515,97 @@ export interface operations {
                 content: {
                     "application/json": {
                         /** @description The ID of the updated bot */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    upvoteBot: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                botId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description The value of the upvote
+                     * @default 100
+                     */
+                    value: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The bot was upvoted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the upvoted bot */
                         id: string;
                     };
                 };
@@ -2259,6 +3049,97 @@ export interface operations {
             };
         };
     };
+    downvoteConversation: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                conversationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description The value of the downvote
+                     * @default -100
+                     */
+                    value: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The message was downvoted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The conversation ID of the downvoted conversation */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
     fetchConversation: {
         parameters: {
             query?: never;
@@ -2386,6 +3267,98 @@ export interface operations {
             };
         };
     };
+    downvoteConversationMessage: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                conversationId: string;
+                messageId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description The value of the downvote
+                     * @default -100
+                     */
+                    value: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The message was downvoted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the downvoted message */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
     fetchConversationMessage: {
         parameters: {
             query?: never;
@@ -2482,6 +3455,98 @@ export interface operations {
                 content: {
                     "application/json": {
                         /** @description The ID of the updated message */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    upvoteConversationMessage: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                conversationId: string;
+                messageId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description The value of the upvote
+                     * @default 100
+                     */
+                    value: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The message was upvoted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the upvoted message */
                         id: string;
                     };
                 };
@@ -3240,6 +4305,97 @@ export interface operations {
             };
         };
     };
+    upvoteConversation: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                conversationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description The value of the upvote
+                     * @default 100
+                     */
+                    value: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The conversation was upvoted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the upvoted conversation */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
     completeConversation: {
         parameters: {
             query?: never;
@@ -3250,6 +4406,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The backstory to use for the conversation */
+                    backstory?: string;
                     /** @description The model to use for the conversation */
                     model?: string;
                     /** @description An array of messages to be added to the conversation */
@@ -5221,6 +6379,20 @@ export interface operations {
         };
         requestBody: {
             content: {
+                "application/json": {
+                    /** @description The file to upload either as http: or data: URL */
+                    file: string;
+                } | {
+                    /** @description The file definition to upload */
+                    file: {
+                        /** @description The file type */
+                        type: string;
+                        /** @description The file size */
+                        size: number;
+                        /** @description The file name */
+                        name?: string;
+                    };
+                };
                 "multipart/form-data": {
                     /**
                      * Format: binary
@@ -5228,18 +6400,28 @@ export interface operations {
                      */
                     file: string;
                 };
+                "*/*": string;
             };
         };
         responses: {
-            /** @description The file was uploadd successfully */
+            /** @description The file was upload successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the uploadd file */
+                        /** @description The ID of the upload file */
                         id: string;
+                        /** @description The request required to upload the file */
+                        uploadRequest?: {
+                            /** @description The HTTP method to use */
+                            method: string;
+                            /** @description The HTTP url to use */
+                            url: string;
+                            /** @description The HTTP url to use */
+                            headers: Record<string, never>;
+                        };
                     };
                 };
             };
@@ -5444,6 +6626,1078 @@ export interface operations {
             };
         };
     };
+    deleteDiscordIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                discordIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Discord integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Discord integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchDiscordIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                discordIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Discord integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The Discord application ID */
+                        appId?: string;
+                        /** @description The Discord command handle */
+                        handle?: string;
+                        /** @description The chat session duration */
+                        sessionDuration?: number;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /** @description A model definition */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    setupDiscordIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                discordIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Discord integration was setup successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the setuped Discord integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateDiscordIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                discordIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The Discord application ID */
+                    appId?: string;
+                    /** @description The Discord bot token */
+                    botToken?: string;
+                    /** @description The Discord public key */
+                    publicKey?: string;
+                    /** @description The Discord command handle */
+                    handle?: string;
+                    /** @description The chat session duration */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /** @description A model definition */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Discord integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Discord Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createDiscordIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The Discord application ID */
+                    appId?: string;
+                    /** @description The Discord bot token */
+                    botToken?: string;
+                    /** @description The Discord public key */
+                    publicKey?: string;
+                    /** @description The Discord command handle */
+                    handle?: string;
+                    /** @description The chat session duration */
+                    sessionDuration?: string;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /** @description A model definition */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Discord integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Discord Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listDiscordIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Discord integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The Discord application ID */
+                            appId?: string;
+                            /** @description The Discord command handle */
+                            handle?: string;
+                            /** @description The chat session duration */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /** @description A model definition */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The Discord application ID */
+                            appId?: string;
+                            /** @description The Discord command handle */
+                            handle?: string;
+                            /** @description The chat session duration */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /** @description A model definition */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteNotionIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                notionIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Notion integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Notion integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchNotionIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                notionIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Notion integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The ID of the dataset to sync into */
+                        datasetId?: string;
+                        /** @description The Notion API token */
+                        token?: string;
+                        /** @description The sync schedule */
+                        syncSchedule?: string;
+                        /** @description The time in milliseconds until records expire */
+                        expiresIn?: number;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    syncNotionIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                notionIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Notion integration was synced successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the syneced Notion integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateNotionIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                notionIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the dataset to sync into */
+                    datasetId?: string;
+                    /** @description The Notion API token */
+                    token?: string;
+                    /** @description The sync schedule */
+                    syncSchedule?: string;
+                    /** @description The time in milliseconds until records expire */
+                    expiresIn?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The Notion integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Notion Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createNotionIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the dataset to sync into */
+                    datasetId?: string;
+                    /** @description The Notion API token */
+                    token?: string;
+                    /** @description The sync schedule */
+                    syncSchedule?: string;
+                    /** @description The time in milliseconds until records expire */
+                    expiresIn?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The Notion integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Notion Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listNotionIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Notion integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The ID of the dataset to sync into */
+                            datasetId?: string;
+                            /** @description The Notion API token */
+                            token?: string;
+                            /** @description The sync schedule */
+                            syncSchedule?: string;
+                            /** @description The time in milliseconds until records expire */
+                            expiresIn?: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The ID of the dataset to sync into */
+                            datasetId?: string;
+                            /** @description The Notion API token */
+                            token?: string;
+                            /** @description The sync schedule */
+                            syncSchedule?: string;
+                            /** @description The time in milliseconds until records expire */
+                            expiresIn?: number;
+                        };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
     deleteSitemapIntegration: {
         parameters: {
             query?: never;
@@ -5533,14 +7787,22 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the Sitemap integration */
-                        id: string;
-                        /** @description The name of the Sitemap integration */
+                        /** @description The associated name */
                         name?: string;
-                        /** @description The description of the Sitemap integration */
+                        /** @description The associated description */
                         description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
                         /** @description The ID of the dataset used in the Sitemap integration */
-                        datasetId?: string;
+                        datasetId: string;
                         /** @description The URL to use for this Sitemap integration */
                         url?: string;
                         /** @description The glob rules to use for this Sitemap integration */
@@ -5553,14 +7815,6 @@ export interface operations {
                         syncSchedule?: string;
                         /** @description Record expiry in milliseconds */
                         expiresIn?: number;
-                        /** @description Meta data information */
-                        meta?: {
-                            [key: string]: unknown;
-                        };
-                        /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
-                        createdAt: number;
-                        /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
-                        updatedAt: number;
                     };
                 };
             };
@@ -5691,10 +7945,14 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name for this Sitemap integration */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The description for this Sitemap integration */
+                    /** @description The associated description */
                     description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                     /** @description The ID of the dataset to use for this Sitemap integration */
                     datasetId?: string;
                     /** @description The URL to use for this Sitemap integration */
@@ -5709,10 +7967,6 @@ export interface operations {
                     syncSchedule?: string;
                     /** @description Record expiry in milliseconds */
                     expiresIn?: number;
-                    /** @description Meta data information */
-                    meta?: {
-                        [key: string]: unknown;
-                    };
                 };
             };
         };
@@ -5797,10 +8051,14 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name for this Sitemap integration */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The description for this Sitemap integration */
+                    /** @description The associated description */
                     description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                     /** @description The ID of the dataset to use for this Sitemap integration */
                     datasetId: string;
                     /** @description The URL to use for this Sitemap integration */
@@ -5815,10 +8073,6 @@ export interface operations {
                     syncSchedule?: string;
                     /** @description Record expiry in milliseconds */
                     expiresIn?: number;
-                    /** @description Meta data information */
-                    meta?: {
-                        [key: string]: unknown;
-                    };
                 };
             };
         };
@@ -5899,24 +8153,34 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
-                            /** @description The ID of the Sitemap integration */
-                            id: string;
-                            /** @description The name of the Sitemap integration */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the Sitemap integration */
+                            /** @description The associated description */
                             description?: string;
-                            /** @description The ID of the dataset used by the Sitemap integration */
-                            datasetId?: string;
-                            /** @description The sync schedule to use for this Sitemap integration */
-                            syncSchedule: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /** @description The ID of the dataset used in the Sitemap integration */
+                            datasetId: string;
+                            /** @description The URL to use for this Sitemap integration */
+                            url?: string;
+                            /** @description The glob rules to use for this Sitemap integration */
+                            glob?: string;
+                            /** @description The selector rules to use for this Sitemap integration */
+                            selectors?: string;
+                            /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
+                            javascript?: boolean;
+                            /** @description The sync schedule to use for this Sitemap integration */
+                            syncSchedule?: string;
+                            /** @description Record expiry in milliseconds */
+                            expiresIn?: number;
                         }[];
                     };
                     "application/jsonl": {
@@ -5925,25 +8189,997 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance properties */
                         data: {
-                            /** @description The ID of the Sitemap integration */
-                            id: string;
-                            /** @description The name of the Sitemap integration */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the Sitemap integration */
+                            /** @description The associated description */
                             description?: string;
-                            /** @description The ID of the dataset used by the Sitemap integration */
-                            datasetId?: string;
-                            /** @description The sync schedule to use for this Sitemap integration */
-                            syncSchedule: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /** @description The ID of the dataset used in the Sitemap integration */
+                            datasetId: string;
+                            /** @description The URL to use for this Sitemap integration */
+                            url?: string;
+                            /** @description The glob rules to use for this Sitemap integration */
+                            glob?: string;
+                            /** @description The selector rules to use for this Sitemap integration */
+                            selectors?: string;
+                            /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
+                            javascript?: boolean;
+                            /** @description The sync schedule to use for this Sitemap integration */
+                            syncSchedule?: string;
+                            /** @description Record expiry in milliseconds */
+                            expiresIn?: number;
+                        };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteSlackIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slackIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Slack integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Slack integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchSlackIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slackIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Slack integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The session duration for the Slack integration */
+                        sessionDuration?: number;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /** @description A model definition */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    setupSlackIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slackIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Slack integration was setuped successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the setuped Slack integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateSlackIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slackIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The signing secret for the Slack integration */
+                    signingSecret?: string;
+                    /** @description The bot token for the Slack integration */
+                    botToken?: string;
+                    /** @description The session duration for the Slack integration */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /** @description A model definition */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Slack integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Slack Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createSlackIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The signing secret for the Slack integration */
+                    signingSecret?: string;
+                    /** @description The bot token for the Slack integration */
+                    botToken?: string;
+                    /** @description The session duration for the Slack integration */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /** @description A model definition */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Slack integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Slack Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listSlackIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Slack integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The session duration for the Slack integration */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /** @description A model definition */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The session duration for the Slack integration */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /** @description A model definition */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteSupportIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                supportIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Support integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Support integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchSupportIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                supportIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Support integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The ID of the Bot to use */
+                        botId: string;
+                        /** @description The email to use */
+                        email?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateSupportIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                supportIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the Bot to use */
+                    botId?: string;
+                    /** @description The email to use */
+                    email?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Support integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Support Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createSupportIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the Bot to use */
+                    botId: string;
+                    /** @description The email to use */
+                    email?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Support integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Support Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listSupportIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Support integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The ID of the Bot to use */
+                            botId: string;
+                            /** @description The email to use */
+                            email?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The ID of the Bot to use */
+                            botId: string;
+                            /** @description The email to use */
+                            email?: string;
                         };
                     };
                 };
@@ -6053,31 +9289,31 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the WhatsApp integration */
-                        id: string;
-                        /** @description The name of the WhatsApp integration */
+                        /** @description The associated name */
                         name?: string;
-                        /** @description The description of the WhatsApp integration */
+                        /** @description The associated description */
                         description?: string;
-                        /** @description The WhatsApp integration phone number ID */
-                        phoneNumberId?: string;
-                        /** @description The WhatsApp integration access token */
-                        accessToken?: string;
-                        /** @description The session duration (in milliseconds) */
-                        sessionDuration?: number;
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the Sitemap integration was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the Sitemap integration was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
+                        /** @description The WhatsApp integration verify token */
+                        verifyToken?: string;
+                        /** @description The WhatsApp integration phone number ID */
+                        phoneNumberId?: string;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
                     } & ({
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
                     } | {
-                        /** @description The model this configuration is using */
+                        /** @description A model definition */
                         model?: string;
                         /** @description The backstory this configuration is using */
                         backstory?: string;
@@ -6219,25 +9455,25 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name for this WhatsApp integration */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The description for this WhatsApp integration */
+                    /** @description The associated description */
                     description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                     /** @description The WhatsApp integration phone number ID */
                     phoneNumberId?: string;
                     /** @description The WhatsApp integration access token */
                     accessToken?: string;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
-                    /** @description Meta data information */
-                    meta?: {
-                        [key: string]: unknown;
-                    };
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description The model this configuration is using */
+                    /** @description A model definition */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -6333,25 +9569,25 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name for this WhatsApp integration */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The description for this WhatsApp integration */
+                    /** @description The associated description */
                     description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                     /** @description The WhatsApp integration phone number ID */
                     phoneNumberId?: string;
                     /** @description The WhatsApp integration access token */
                     accessToken?: string;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
-                    /** @description Meta data information */
-                    meta?: {
-                        [key: string]: unknown;
-                    };
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description The model this configuration is using */
+                    /** @description A model definition */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -6443,25 +9679,31 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: ({
-                            /** @description The ID of the WhatsApp integration */
-                            id: string;
-                            /** @description The name of the WhatsApp integration */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the WhatsApp integration */
+                            /** @description The associated description */
                             description?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the WhatsApp integration was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the WhatsApp integration was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /** @description The WhatsApp integration verify token */
+                            verifyToken?: string;
+                            /** @description The WhatsApp integration phone number ID */
+                            phoneNumberId?: string;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description The model this configuration is using */
+                            /** @description A model definition */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -6481,26 +9723,649 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance properties */
                         data: {
-                            /** @description The ID of the WhatsApp integration */
-                            id: string;
-                            /** @description The name of the WhatsApp integration */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the WhatsApp integration */
+                            /** @description The associated description */
                             description?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the WhatsApp integration was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the WhatsApp integration was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /** @description The WhatsApp integration verify token */
+                            verifyToken?: string;
+                            /** @description The WhatsApp integration phone number ID */
+                            phoneNumberId?: string;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description The model this configuration is using */
+                            /** @description A model definition */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteWidgetIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                widgetIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Widget integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Widget integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchWidgetIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                widgetIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Widget integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The theme of the Widget integration */
+                        theme?: string;
+                        /** @description The title of the Widget integration */
+                        title?: string;
+                        /** @description The intro of the Widget integration */
+                        intro?: string;
+                        /** @description The initial message of the Widget integration */
+                        initial?: string;
+                        /** @description The input placeholder of the Widget integration */
+                        placeholder?: string;
+                        /** @description The origin URLs of the Widget integration */
+                        origin?: string;
+                        /** @description The session duration of the Widget integration */
+                        sessionDuration?: number;
+                        /** @description Whether the Widget integration is streaming */
+                        stream?: boolean;
+                        /** @description Whether the Widget integration is verbose */
+                        verbose?: boolean;
+                        /** @description Whether the Widget integration has tools */
+                        tools?: boolean;
+                        /** @description Whether the Widget integration unfurls links */
+                        unfurl?: boolean;
+                        /** @description Whether the Widget integration auto scrolls */
+                        autoScroll?: boolean;
+                        /** @description Whether the Widget integration starts first */
+                        startFirst?: boolean;
+                        /** @description Whether the Widget integration collects contacts */
+                        contactCollection?: boolean;
+                        /** @description Whether the Widget integration displays powered by ChatBotKit */
+                        poweredBy?: boolean;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /** @description A model definition */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateWidgetIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                widgetIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The theme of the Widget integration */
+                    theme?: string;
+                    /** @description The title of the Widget integration */
+                    title?: string;
+                    /** @description The intro of the Widget integration */
+                    intro?: string;
+                    /** @description The initial message of the Widget integration */
+                    initial?: string;
+                    /** @description The input placeholder of the Widget integration */
+                    placeholder?: string;
+                    /** @description The origin URLs of the Widget integration */
+                    origin?: string;
+                    /** @description The session duration of the Widget integration */
+                    sessionDuration?: number;
+                    /** @description Whether the Widget integration is streaming */
+                    stream?: boolean;
+                    /** @description Whether the Widget integration is verbose */
+                    verbose?: boolean;
+                    /** @description Whether the Widget integration has tools */
+                    tools?: boolean;
+                    /** @description Whether the Widget integration unfurls links */
+                    unfurl?: boolean;
+                    /** @description Whether the Widget integration auto scrolls */
+                    autoScroll?: boolean;
+                    /** @description Whether the Widget integration starts first */
+                    startFirst?: boolean;
+                    /** @description Whether the Widget integration collects contacts */
+                    contactCollection?: boolean;
+                    /** @description Whether the Widget integration displays powered by ChatBotKit */
+                    poweredBy?: boolean;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /** @description A model definition */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Widget integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Widget Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createWidgetIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The theme of the Widget integration */
+                    theme?: string;
+                    /** @description The title of the Widget integration */
+                    title?: string;
+                    /** @description The intro of the Widget integration */
+                    intro?: string;
+                    /** @description The initial message of the Widget integration */
+                    initial?: string;
+                    /** @description The input placeholder of the Widget integration */
+                    placeholder?: string;
+                    /** @description The origin URLs of the Widget integration */
+                    origin?: string;
+                    /** @description The session duration of the Widget integration */
+                    sessionDuration?: number;
+                    /** @description Whether the Widget integration is streaming */
+                    stream?: boolean;
+                    /** @description Whether the Widget integration is verbose */
+                    verbose?: boolean;
+                    /** @description Whether the Widget integration has tools */
+                    tools?: boolean;
+                    /** @description Whether the Widget integration unfurls links */
+                    unfurl?: boolean;
+                    /** @description Whether the Widget integration auto scrolls */
+                    autoScroll?: boolean;
+                    /** @description Whether the Widget integration starts first */
+                    startFirst?: boolean;
+                    /** @description Whether the Widget integration collects contacts */
+                    contactCollection?: boolean;
+                    /** @description Whether the Widget integration displays powered by ChatBotKit */
+                    poweredBy?: boolean;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /** @description A model definition */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Widget integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Widget Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listWidgetIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Widget integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The theme of the Widget integration */
+                            theme?: string;
+                            /** @description The title of the Widget integration */
+                            title?: string;
+                            /** @description The intro of the Widget integration */
+                            intro?: string;
+                            /** @description The initial message of the Widget integration */
+                            initial?: string;
+                            /** @description The input placeholder of the Widget integration */
+                            placeholder?: string;
+                            /** @description The origin URLs of the Widget integration */
+                            origin?: string;
+                            /** @description The session duration of the Widget integration */
+                            sessionDuration?: number;
+                            /** @description Whether the Widget integration is streaming */
+                            stream?: boolean;
+                            /** @description Whether the Widget integration is verbose */
+                            verbose?: boolean;
+                            /** @description Whether the Widget integration has tools */
+                            tools?: boolean;
+                            /** @description Whether the Widget integration unfurls links */
+                            unfurl?: boolean;
+                            /** @description Whether the Widget integration auto scrolls */
+                            autoScroll?: boolean;
+                            /** @description Whether the Widget integration starts first */
+                            startFirst?: boolean;
+                            /** @description Whether the Widget integration collects contacts */
+                            contactCollection?: boolean;
+                            /** @description Whether the Widget integration displays powered by ChatBotKit */
+                            poweredBy?: boolean;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /** @description A model definition */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The theme of the Widget integration */
+                            theme?: string;
+                            /** @description The title of the Widget integration */
+                            title?: string;
+                            /** @description The intro of the Widget integration */
+                            intro?: string;
+                            /** @description The initial message of the Widget integration */
+                            initial?: string;
+                            /** @description The input placeholder of the Widget integration */
+                            placeholder?: string;
+                            /** @description The origin URLs of the Widget integration */
+                            origin?: string;
+                            /** @description The session duration of the Widget integration */
+                            sessionDuration?: number;
+                            /** @description Whether the Widget integration is streaming */
+                            stream?: boolean;
+                            /** @description Whether the Widget integration is verbose */
+                            verbose?: boolean;
+                            /** @description Whether the Widget integration has tools */
+                            tools?: boolean;
+                            /** @description Whether the Widget integration unfurls links */
+                            unfurl?: boolean;
+                            /** @description Whether the Widget integration auto scrolls */
+                            autoScroll?: boolean;
+                            /** @description Whether the Widget integration starts first */
+                            startFirst?: boolean;
+                            /** @description Whether the Widget integration collects contacts */
+                            contactCollection?: boolean;
+                            /** @description Whether the Widget integration displays powered by ChatBotKit */
+                            poweredBy?: boolean;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /** @description A model definition */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;

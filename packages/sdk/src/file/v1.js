@@ -1,3 +1,5 @@
+import { getBuffer } from '../buffer.js'
+
 /**
  * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -83,7 +85,7 @@ export async function createFile(client, request) {
   /** @type {import('../types/api/v1.js').operations['createFile']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['createFile']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -110,7 +112,7 @@ export async function updateFile(client, fileId, request) {
   /** @type {import('../types/api/v1.js').operations['updateFile']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['updateFile']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -133,7 +135,7 @@ export async function deleteFile(client, fileId) {
   /** @type {import('../types/api/v1.js').operations['deleteFile']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['deleteFile']['requestBody']['content']['application/json']} */
-    data: {},
+    record: {},
   })
 
   return response
@@ -141,9 +143,9 @@ export async function deleteFile(client, fileId) {
 
 /**
  * @typedef {{
- *   name?: string,
- *   type?: string,
  *   data: string|ArrayBuffer
+ *   type: string,
+ *   name?: string,
  * }} FileUploadRequest
  *
  * @typedef {{
@@ -158,12 +160,39 @@ export async function deleteFile(client, fileId) {
 export async function uploadFile(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/upload`
 
-  // @todo add api types
-  const response = client.clientFetch(url, {
-    file: request,
+  const buffer = getBuffer(request.data)
+
+  /** @type {import('../types/api/v1.js').operations['uploadFile']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['uploadFile']['requestBody']['content']['application/json']} */
+    record: {
+      file: {
+        size: buffer.byteLength,
+        type: request.type,
+        name: request.name,
+      },
+    },
   })
 
-  return response
+  const { uploadRequest } = response
+
+  if (!uploadRequest) {
+    throw new Error('Missing upload request')
+  }
+
+  await client.clientFetch(uploadRequest.url, {
+    method: uploadRequest.method,
+
+    headers: uploadRequest.headers,
+
+    buffer: buffer,
+
+    external: true,
+  })
+
+  return {
+    id: response.id,
+  }
 }
 
 /**

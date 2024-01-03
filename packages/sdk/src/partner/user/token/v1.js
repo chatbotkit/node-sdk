@@ -68,7 +68,7 @@ export async function createPartnerUserToken(client, userId, request) {
   /** @type {import('../../../types/api/v1.js').operations['createPartnerUserToken']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../../types/api/v1.js').operations['createPartnerUserToken']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -92,7 +92,7 @@ export async function deletePartnerUserToken(client, userId, tokenId) {
   /** @type {import('../../../types/api/v1.js').operations['deletePartnerUserToken']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../../types/api/v1.js').operations['deletePartnerUserToken']['requestBody']['content']['application/json']} */
-    data: {},
+    record: {},
   })
 
   return response

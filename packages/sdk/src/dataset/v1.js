@@ -92,7 +92,7 @@ export async function createDataset(client, request) {
   /** @type {import('../types/api/v1.js').operations['createDataset']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['createDataset']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -119,7 +119,7 @@ export async function updateDataset(client, datasetId, request) {
   /** @type {import('../types/api/v1.js').operations['updateDataset']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['updateDataset']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -142,7 +142,7 @@ export async function deleteDataset(client, datasetId) {
   /** @type {import('../types/api/v1.js').operations['deleteDataset']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['deleteDataset']['requestBody']['content']['application/json']} */
-    data: {},
+    record: {},
   })
 
   return response
@@ -164,7 +164,7 @@ export async function searchDataset(client, datasetId, search) {
   /** @type {import('../types/api/v1.js').operations['searchDataset']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['searchDataset']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       search,
     },
   })

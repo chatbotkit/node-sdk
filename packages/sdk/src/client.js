@@ -33,7 +33,7 @@ export class ResponsePromise {
    * @param {{
    *   method: string,
    *   headers: Record<string,any>,
-   *   data?: Record<string,any>
+   *   data?: any
    * }} request
    */
   constructor(url, request) {
@@ -51,7 +51,7 @@ export class ResponsePromise {
   }
 
   /**
-   * @param {{headers?: Record<string,any>, data?: Record<string,any>}} [params]
+   * @param {{method?: string, headers?: Record<string,any>, data?: any}} [params]
    */
   async getRequest(params) {
     let body
@@ -59,17 +59,13 @@ export class ResponsePromise {
     const { method, headers, data } = this.request
 
     if (data) {
-      if (data instanceof FormData) {
-        body = data
-      } else {
-        body = JSON.stringify({ ...data, ...params?.data })
-      }
+      body = params?.data || data
     }
 
     const url = this.url.toString()
 
     const response = await fetchPlusPlus(url, {
-      method,
+      method: params?.method || method,
 
       headers: {
         ...headers,
@@ -86,8 +82,10 @@ export class ResponsePromise {
       let message
       let code
 
+      const buffer = await response.arrayBuffer()
+
       try {
-        const data = await response.json()
+        const data = JSON.parse(new TextDecoder().decode(buffer))
 
         message = data.message
         code = data.code
@@ -207,11 +205,19 @@ export class ChatBotKitClient {
    * @template T
    * @template U
    * @param {string} path
-   * @param {{query?: Record<string,any>, data?: Record<string,any>, file?: { name?: string, type?: string, data: string|ArrayBuffer }}} [options]
+   * @param {{
+   *   method?: string,
+   *   headers?: Record<string,any>,
+   *   query?: Record<string,any>,
+   *   record?: Record<string,any>,
+   *   buffer?: ArrayBuffer,
+   *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
+   *   external?: boolean
+   * }} [options]
    * @returns {ResponsePromise<T,U>}
    */
   clientFetch(path, options) {
-    let method = 'GET'
+    let method = options?.method
 
     const url = new URL(this.endpoints[path] || path, this.url)
 
@@ -241,24 +247,34 @@ export class ChatBotKitClient {
     /** @type {Record<string,string>} */
     const headers = {}
 
-    if (this.secret) {
-      headers['Authorization'] = `Bearer ${this.secret}`
-    }
+    if (!options?.external) {
+      if (this.secret) {
+        headers['Authorization'] = `Bearer ${this.secret}`
+      }
 
-    if (this.runAsUserId) {
-      headers['X-RunAs-UserId'] = this.runAsUserId
+      if (this.runAsUserId) {
+        headers['X-RunAs-UserId'] = this.runAsUserId
+      }
     }
 
     let data
 
-    if (options?.data) {
-      method = 'POST'
+    if (options?.record) {
+      method = method || 'POST'
 
+      data = JSON.stringify(options.record)
+
+      headers['Content-Length'] = data.length.toString()
       headers['Content-Type'] = 'application/json'
+    } else if (options?.buffer) {
+      method = method || 'POST'
 
-      data = options.data
+      data = options.buffer
+
+      headers['Content-Length'] = data.byteLength.toString()
+      headers['Content-Type'] = 'application/octet-stream'
     } else if (options?.file) {
-      method = 'POST'
+      method = method || 'POST'
 
       data = new FormData()
 
@@ -267,6 +283,12 @@ export class ChatBotKitClient {
         new Blob([options.file.data], { type: options.file.type }),
         options.file.name
       )
+    } else {
+      method = method || 'GET'
+    }
+
+    if (options?.headers) {
+      Object.assign(headers, options.headers)
     }
 
     const request = {

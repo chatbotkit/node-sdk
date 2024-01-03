@@ -8,29 +8,30 @@ export class ResponsePromise<T, U> {
      * @param {{
      *   method: string,
      *   headers: Record<string,any>,
-     *   data?: Record<string,any>
+     *   data?: any
      * }} request
      */
     constructor(url: URL | string, request: {
         method: string;
         headers: Record<string, any>;
-        data?: Record<string, any>;
+        data?: any;
     });
     url: string | URL;
     request: {
         method: string;
         headers: Record<string, any>;
-        data?: Record<string, any> | undefined;
+        data?: any;
     };
     decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
     streamPromise: Promise<Response> | null;
     /**
-     * @param {{headers?: Record<string,any>, data?: Record<string,any>}} [params]
+     * @param {{method?: string, headers?: Record<string,any>, data?: any}} [params]
      */
     getRequest(params?: {
+        method?: string | undefined;
         headers?: Record<string, any> | undefined;
-        data?: Record<string, any> | undefined;
+        data?: any;
     } | undefined): Promise<Response>;
     getFetchPromise(): Promise<Response>;
     getStreamPromise(): Promise<Response>;
@@ -75,17 +76,29 @@ export class ChatBotKitClient {
      * @template T
      * @template U
      * @param {string} path
-     * @param {{query?: Record<string,any>, data?: Record<string,any>, file?: { name?: string, type?: string, data: string|ArrayBuffer }}} [options]
+     * @param {{
+     *   method?: string,
+     *   headers?: Record<string,any>,
+     *   query?: Record<string,any>,
+     *   record?: Record<string,any>,
+     *   buffer?: ArrayBuffer,
+     *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
+     *   external?: boolean
+     * }} [options]
      * @returns {ResponsePromise<T,U>}
      */
     clientFetch<T, U>(path: string, options?: {
+        method?: string | undefined;
+        headers?: Record<string, any> | undefined;
         query?: Record<string, any> | undefined;
-        data?: Record<string, any> | undefined;
+        record?: Record<string, any> | undefined;
+        buffer?: ArrayBuffer | undefined;
         file?: {
             name?: string | undefined;
             type?: string | undefined;
             data: string | ArrayBuffer;
         } | undefined;
+        external?: boolean | undefined;
     } | undefined): ResponsePromise<T, U>;
 }
 export type ChatBotKitClientOptions = {

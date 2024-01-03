@@ -83,9 +83,9 @@ export function updateFile(client: ChatBotKitClient, fileId: string, request: Fi
 export function deleteFile(client: ChatBotKitClient, fileId: string): Promise<FileDeleteResponse>;
 /**
  * @typedef {{
- *   name?: string,
- *   type?: string,
  *   data: string|ArrayBuffer
+ *   type: string,
+ *   name?: string,
  * }} FileUploadRequest
  *
  * @typedef {{
@@ -146,9 +146,9 @@ export type FileDeleteResponse = {
     id: string;
 };
 export type FileUploadRequest = {
-    name?: string;
-    type?: string;
     data: string | ArrayBuffer;
+    type: string;
+    name?: string;
 };
 export type FileUploadResponse = {
     id: string;

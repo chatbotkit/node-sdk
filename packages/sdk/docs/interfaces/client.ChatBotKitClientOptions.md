@@ -24,7 +24,7 @@ An optional map of endpoints to override
 
 #### Defined in
 
-[client.js:180](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L180)
+[client.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L178)
 
 ___
 
@@ -36,7 +36,7 @@ An optional hostname to use for the API
 
 #### Defined in
 
-[client.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L178)
+[client.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L176)
 
 ___
 
@@ -48,7 +48,7 @@ An optional protocol to use for the API
 
 #### Defined in
 
-[client.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L179)
+[client.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L177)
 
 ___
 
@@ -60,7 +60,7 @@ An optional user ID to run as
 
 #### Defined in
 
-[client.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L181)
+[client.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L179)
 
 ___
 
@@ -72,4 +72,4 @@ A token to authenticate with the API
 
 #### Defined in
 
-[client.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L177)
+[client.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L175)

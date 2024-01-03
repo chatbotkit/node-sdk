@@ -105,7 +105,7 @@ export async function createWhatsAppIntegration(client, request) {
   /** @type {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
 
       model: request.model ? buildModelString(request.model) : undefined,
@@ -135,7 +135,7 @@ export async function updateWhatsAppIntegration(client, whatsappId, request) {
   /** @type {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
 
       model: request.model ? buildModelString(request.model) : undefined,
@@ -160,7 +160,7 @@ export async function deleteWhatsAppIntegration(client, whatsappId) {
   /** @type {import('../../types/api/v1.js').operations['deleteWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['deleteWhatsAppIntegration']['requestBody']['content']['application/json']} */
-    data: {},
+    record: {},
   })
 
   return response
@@ -181,7 +181,7 @@ export async function setupWhatsAppIntegration(client, whatsappId) {
   /** @type {import('../../types/api/v1.js').operations['setupWhatsAppIntegration']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['setupWhatsAppIntegration']['requestBody']['content']['application/json']} */
-    data: {},
+    record: {},
   })
 
   return response

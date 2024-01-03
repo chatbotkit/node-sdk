@@ -88,7 +88,7 @@ export async function createSkillsetAbility(client, skillsetId, request) {
   /** @type {import('../../types/api/v1.js').operations['createSkillsetAbility']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['createSkillsetAbility']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -121,7 +121,7 @@ export async function updateSkillsetAbility(
   /** @type {import('../../types/api/v1.js').operations['updateSkillsetAbility']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['updateSkillsetAbility']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -145,7 +145,7 @@ export async function deleteSkillsetAbility(client, skillsetId, abilityId) {
   /** @type {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['requestBody']['content']['application/json']} */
-    data: {},
+    record: {},
   })
 
   return response

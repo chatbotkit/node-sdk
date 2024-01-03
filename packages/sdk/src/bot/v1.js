@@ -91,7 +91,7 @@ export async function createBot(client, request) {
   /** @type {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
 
       model: request.model ? buildModelString(request.model) : undefined,
@@ -121,7 +121,7 @@ export async function updateBot(client, botId, request) {
   /** @type {import('../types/api/v1.js').operations['updateBot']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['updateBot']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
 
       model: request.model ? buildModelString(request.model) : undefined,
@@ -146,7 +146,7 @@ export async function deleteBot(client, botId) {
   /** @type {import('../types/api/v1.js').operations['deleteBot']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['deleteBot']['requestBody']['content']['application/json']} */
-    data: {},
+    record: {},
   })
 
   return response

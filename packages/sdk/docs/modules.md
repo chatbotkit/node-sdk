@@ -10,6 +10,7 @@
 - [bot/session](modules/bot_session.md)
 - [bot/session/v1](modules/bot_session_v1.md)
 - [bot/v1](modules/bot_v1.md)
+- [buffer](modules/buffer.md)
 - [client](modules/client.md)
 - [conversation](modules/conversation.md)
 - [conversation/message](modules/conversation_message.md)

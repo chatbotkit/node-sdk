@@ -97,7 +97,7 @@ export async function createConversationMessage(
   /** @type {import('../../types/api/v1.js').operations['createConversationMessage']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['createConversationMessage']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -130,7 +130,7 @@ export async function updateConversationMessage(
   /** @type {import('../../types/api/v1.js').operations['updateConversationMessage']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['updateConversationMessage']['requestBody']['content']['application/json']} */
-    data: {
+    record: {
       ...request,
     },
   })
@@ -158,7 +158,7 @@ export async function deleteConversationMessage(
   /** @type {import('../../types/api/v1.js').operations['deleteConversationMessage']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['deleteConversationMessage']['requestBody']['content']['application/json']} */
-    data: {},
+    record: {},
   })
 
   return response

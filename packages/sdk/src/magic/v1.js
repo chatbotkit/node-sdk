@@ -37,7 +37,7 @@ export function generateMagic(client, magicId, request) {
   /** @typedef {import('../types/api/v1.js').operations['generateMagic']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
-    data: {
+    record: {
       ...request,
     },
   })

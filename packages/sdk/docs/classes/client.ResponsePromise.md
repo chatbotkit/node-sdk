@@ -44,7 +44,7 @@
 | :------ | :------ |
 | `url` | `string` \| `URL` |
 | `request` | `Object` |
-| `request.data?` | `Record`\<`string`, `any`\> |
+| `request.data?` | `any` |
 | `request.headers` | `Record`\<`string`, `any`\> |
 | `request.method` | `string` |
 
@@ -74,7 +74,7 @@
 
 #### Defined in
 
-[client.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L149)
+[client.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L147)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[client.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L156)
+[client.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L154)
 
 ___
 
@@ -107,8 +107,9 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `params?` | `Object` |
-| `params.data?` | `Record`\<`string`, `any`\> |
+| `params.data?` | `any` |
 | `params.headers?` | `Record`\<`string`, `any`\> |
+| `params.method?` | `string` |
 
 #### Returns
 
@@ -130,7 +131,7 @@ ___
 
 #### Defined in
 
-[client.js:163](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L163)
+[client.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L161)
 
 ___
 
@@ -151,4 +152,4 @@ ___
 
 #### Defined in
 
-[client.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L130)
+[client.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L128)

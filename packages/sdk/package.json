@@ -68,6 +68,14 @@
       "types": "./types/bot/v1.d.ts",
       "import": "./src/bot/v1.js"
     },
+    "./buffer": {
+      "types": "./types/buffer.d.ts",
+      "import": "./src/buffer.js"
+    },
+    "./buffer.js": {
+      "types": "./types/buffer.d.ts",
+      "import": "./src/buffer.js"
+    },
     "./client": {
       "types": "./types/client.d.ts",
       "import": "./src/client.js"

@@ -72,12 +72,16 @@ File client.
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.data?` | `Record`\<`string`, `any`\> |
+| `options.buffer?` | `ArrayBuffer` |
+| `options.external?` | `boolean` |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| `ArrayBuffer` |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
+| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.method?` | `string` |
 | `options.query?` | `Record`\<`string`, `any`\> |
+| `options.record?` | `Record`\<`string`, `any`\> |
 
 #### Returns
 
@@ -89,7 +93,7 @@ File client.
 
 #### Defined in
 
-[client.js:213](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L213)
+[client.js:219](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L219)
 
 ___
 
