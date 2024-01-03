@@ -29,11 +29,13 @@ Conversation client.
 - [complete](conversation.ConversationClient.md#complete)
 - [create](conversation.ConversationClient.md#create)
 - [delete](conversation.ConversationClient.md#delete)
+- [downvote](conversation.ConversationClient.md#downvote)
 - [fetch](conversation.ConversationClient.md#fetch)
 - [list](conversation.ConversationClient.md#list)
 - [receive](conversation.ConversationClient.md#receive)
 - [send](conversation.ConversationClient.md#send)
 - [update](conversation.ConversationClient.md#update)
+- [upvote](conversation.ConversationClient.md#upvote)
 
 ## Constructors
 
@@ -57,7 +59,7 @@ Conversation client.
 
 #### Defined in
 
-[conversation/index.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L29)
+[conversation/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L31)
 
 ## Properties
 
@@ -67,7 +69,7 @@ Conversation client.
 
 #### Defined in
 
-[conversation/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L35)
+[conversation/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L37)
 
 ___
 
@@ -77,7 +79,7 @@ ___
 
 #### Defined in
 
-[conversation/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L40)
+[conversation/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L42)
 
 ## Methods
 
@@ -140,7 +142,7 @@ ___
 
 #### Defined in
 
-[conversation/index.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L95)
+[conversation/index.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L97)
 
 ▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationCompleteMessageResponse`](../modules/conversation_v1.md#conversationcompletemessageresponse), [`ConversationCompleteMessageStreamType`](../modules/conversation_v1.md#conversationcompletemessagestreamtype)\>
 
@@ -157,7 +159,7 @@ ___
 
 #### Defined in
 
-[conversation/index.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L102)
+[conversation/index.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L104)
 
 ___
 
@@ -179,7 +181,7 @@ Creates a new conversation.
 
 #### Defined in
 
-[conversation/index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L69)
+[conversation/index.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L71)
 
 ___
 
@@ -201,7 +203,28 @@ Deletes the conversation.
 
 #### Defined in
 
-[conversation/index.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L90)
+[conversation/index.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L92)
+
+___
+
+### downvote
+
+▸ **downvote**(`conversationId`, `request`): `Promise`\<[`ConversationDownvoteResponse`](../modules/conversation_v1.md#conversationdownvoteresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `conversationId` | `string` |
+| `request` | [`ConversationDownvoteRequest`](../modules/conversation_v1.md#conversationdownvoterequest) |
+
+#### Returns
+
+`Promise`\<[`ConversationDownvoteResponse`](../modules/conversation_v1.md#conversationdownvoteresponse)\>
+
+#### Defined in
+
+[conversation/index.js:169](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L169)
 
 ___
 
@@ -223,7 +246,7 @@ Fetches a conversation.
 
 #### Defined in
 
-[conversation/index.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L59)
+[conversation/index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L61)
 
 ___
 
@@ -245,7 +268,7 @@ Retrieves a list of all conversations.
 
 #### Defined in
 
-[conversation/index.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L49)
+[conversation/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L51)
 
 ___
 
@@ -268,7 +291,7 @@ Receives a message from the conversation.
 
 #### Defined in
 
-[conversation/index.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L149)
+[conversation/index.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L151)
 
 ___
 
@@ -291,7 +314,7 @@ Sends a message to the conversation.
 
 #### Defined in
 
-[conversation/index.js:138](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L138)
+[conversation/index.js:140](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L140)
 
 ___
 
@@ -314,4 +337,25 @@ Updates a conversation.
 
 #### Defined in
 
-[conversation/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L80)
+[conversation/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L82)
+
+___
+
+### upvote
+
+▸ **upvote**(`conversationId`, `request`): `Promise`\<[`ConversationUpvoteResponse`](../modules/conversation_v1.md#conversationupvoteresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `conversationId` | `string` |
+| `request` | [`ConversationUpvoteRequest`](../modules/conversation_v1.md#conversationupvoterequest) |
+
+#### Returns
+
+`Promise`\<[`ConversationUpvoteResponse`](../modules/conversation_v1.md#conversationupvoteresponse)\>
+
+#### Defined in
+
+[conversation/index.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L160)

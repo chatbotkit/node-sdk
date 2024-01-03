@@ -88,6 +88,36 @@ export function updateBot(client: ChatBotKitClient, botId: string, request: BotU
  * @returns {Promise<BotDeleteResponse>}
  */
 export function deleteBot(client: ChatBotKitClient, botId: string): Promise<BotDeleteResponse>;
+/**
+ * @typedef {{
+ *   value?: number
+ * }} BotUpvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} BotUpvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} botId
+ * @param {BotUpvoteRequest} request
+ * @returns {Promise<BotUpvoteResponse>}
+ */
+export function upvoteBot(client: ChatBotKitClient, botId: string, request: BotUpvoteRequest): Promise<BotUpvoteResponse>;
+/**
+ * @typedef {{
+ *   value?: number
+ * }} BotDownvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} BotDownvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} botId
+ * @param {BotDownvoteRequest} request
+ * @returns {Promise<BotDownvoteResponse>}
+ */
+export function downvoteBot(client: ChatBotKitClient, botId: string, request: BotDownvoteRequest): Promise<BotDownvoteResponse>;
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 export type BotOptions = {
@@ -131,5 +161,17 @@ export type BotUpdateResponse = {
     id: string;
 };
 export type BotDeleteResponse = {
+    id: string;
+};
+export type BotUpvoteRequest = {
+    value?: number;
+};
+export type BotUpvoteResponse = {
+    id: string;
+};
+export type BotDownvoteRequest = {
+    value?: number;
+};
+export type BotDownvoteResponse = {
     id: string;
 };

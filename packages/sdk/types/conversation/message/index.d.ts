@@ -48,6 +48,20 @@ export class ConversationMessageClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').ConversationMessageDeleteResponse>}
      */
     delete(conversationId: string, messageId: string): Promise<import('./v1.js').ConversationMessageDeleteResponse>;
+    /**
+     * @param {string} conversationId
+     * @param {string} messageId
+     * @param {import('./v1.js').ConversationMessageUpvoteRequest} request
+     * @returns {Promise<import('./v1.js').ConversationMessageUpvoteResponse>}
+     */
+    upvote(conversationId: string, messageId: string, request: import('./v1.js').ConversationMessageUpvoteRequest): Promise<import('./v1.js').ConversationMessageUpvoteResponse>;
+    /**
+     * @param {string} conversationId
+     * @param {string} messageId
+     * @param {import('./v1.js').ConversationMessageDownvoteRequest} request
+     * @returns {Promise<import('./v1.js').ConversationMessageDownvoteResponse>}
+     */
+    downvote(conversationId: string, messageId: string, request: import('./v1.js').ConversationMessageDownvoteRequest): Promise<import('./v1.js').ConversationMessageDownvoteResponse>;
 }
 export default ConversationMessageClient;
 export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;

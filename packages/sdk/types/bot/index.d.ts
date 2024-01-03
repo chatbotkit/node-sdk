@@ -47,6 +47,18 @@ export class BotClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').BotDeleteResponse>}
      */
     delete(botId: string): Promise<import('./v1.js').BotDeleteResponse>;
+    /**
+     * @param {string} botId
+     * @param {import('./v1.js').BotUpvoteRequest} request
+     * @returns {Promise<import('./v1.js').BotUpvoteResponse>}
+     */
+    upvote(botId: string, request: import('./v1.js').BotUpvoteRequest): Promise<import('./v1.js').BotUpvoteResponse>;
+    /**
+     * @param {string} botId
+     * @param {import('./v1.js').BotDownvoteRequest} request
+     * @returns {Promise<import('./v1.js').BotDownvoteResponse>}
+     */
+    downvote(botId: string, request: import('./v1.js').BotDownvoteRequest): Promise<import('./v1.js').BotDownvoteResponse>;
 }
 export default BotClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;

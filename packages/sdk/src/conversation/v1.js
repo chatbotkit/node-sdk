@@ -346,3 +346,63 @@ export function receiveConversationMessage(client, conversationId, request) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   value?: number
+ * }} ConversationUpvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationUpvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationUpvoteRequest} request
+ * @returns {Promise<ConversationUpvoteResponse>}
+ */
+export async function upvoteConversation(client, conversationId, request) {
+  const url = `/api/v1/conversation/${conversationId}/upvote`
+
+  /** @type {import('../types/api/v1.js').operations['upvoteConversation']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['upvoteConversation']['requestBody']['content']['application/json']} */
+    record: {
+      value: 100, // @todo remove once the type is fixed
+
+      ...request,
+    },
+  })
+
+  return response
+}
+
+/**
+ * @typedef {{
+ *   value?: number
+ * }} ConversationDownvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationDownvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationDownvoteRequest} request
+ * @returns {Promise<ConversationDownvoteResponse>}
+ */
+export async function downvoteConversation(client, conversationId, request) {
+  const url = `/api/v1/conversation/${conversationId}/downvote`
+
+  /** @type {import('../types/api/v1.js').operations['downvoteConversation']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['downvoteConversation']['requestBody']['content']['application/json']} */
+    record: {
+      value: -100, // @todo remove once the type is fixed
+
+      ...request,
+    },
+  })
+
+  return response
+}

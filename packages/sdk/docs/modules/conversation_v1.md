@@ -20,6 +20,8 @@
 - [ConversationCreateRequest](conversation_v1.md#conversationcreaterequest)
 - [ConversationCreateResponse](conversation_v1.md#conversationcreateresponse)
 - [ConversationDeleteResponse](conversation_v1.md#conversationdeleteresponse)
+- [ConversationDownvoteRequest](conversation_v1.md#conversationdownvoterequest)
+- [ConversationDownvoteResponse](conversation_v1.md#conversationdownvoteresponse)
 - [ConversationFetchResponse](conversation_v1.md#conversationfetchresponse)
 - [ConversationInstance](conversation_v1.md#conversationinstance)
 - [ConversationListRequest](conversation_v1.md#conversationlistrequest)
@@ -38,6 +40,8 @@
 - [ConversationSendMessageStreamType](conversation_v1.md#conversationsendmessagestreamtype)
 - [ConversationUpdateRequest](conversation_v1.md#conversationupdaterequest)
 - [ConversationUpdateResponse](conversation_v1.md#conversationupdateresponse)
+- [ConversationUpvoteRequest](conversation_v1.md#conversationupvoterequest)
+- [ConversationUpvoteResponse](conversation_v1.md#conversationupvoteresponse)
 - [Entity](conversation_v1.md#entity)
 - [Message](conversation_v1.md#message)
 - [MessageType](conversation_v1.md#messagetype)
@@ -49,11 +53,13 @@
 - [completeConversationMessage](conversation_v1.md#completeconversationmessage)
 - [createConversation](conversation_v1.md#createconversation)
 - [deleteConversation](conversation_v1.md#deleteconversation)
+- [downvoteConversation](conversation_v1.md#downvoteconversation)
 - [fetchConversation](conversation_v1.md#fetchconversation)
 - [listConversations](conversation_v1.md#listconversations)
 - [receiveConversationMessage](conversation_v1.md#receiveconversationmessage)
 - [sendConversationMessage](conversation_v1.md#sendconversationmessage)
 - [updateConversation](conversation_v1.md#updateconversation)
+- [upvoteConversation](conversation_v1.md#upvoteconversation)
 
 ## Type Aliases
 
@@ -260,6 +266,38 @@ ___
 #### Defined in
 
 [conversation/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L155)
+
+___
+
+### ConversationDownvoteRequest
+
+Ƭ **ConversationDownvoteRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `value?` | `number` |
+
+#### Defined in
+
+[conversation/v1.js:383](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L383)
+
+___
+
+### ConversationDownvoteResponse
+
+Ƭ **ConversationDownvoteResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+#### Defined in
+
+[conversation/v1.js:387](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L387)
 
 ___
 
@@ -526,6 +564,38 @@ ___
 
 ___
 
+### ConversationUpvoteRequest
+
+Ƭ **ConversationUpvoteRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `value?` | `number` |
+
+#### Defined in
+
+[conversation/v1.js:353](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L353)
+
+___
+
+### ConversationUpvoteResponse
+
+Ƭ **ConversationUpvoteResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+#### Defined in
+
+[conversation/v1.js:357](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L357)
+
+___
+
 ### Entity
 
 Ƭ **Entity**\<\>: `Object`
@@ -678,6 +748,28 @@ ___
 
 ___
 
+### downvoteConversation
+
+▸ **downvoteConversation**(`client`, `conversationId`, `request`): `Promise`\<[`ConversationDownvoteResponse`](conversation_v1.md#conversationdownvoteresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `conversationId` | `string` |
+| `request` | [`ConversationDownvoteRequest`](conversation_v1.md#conversationdownvoterequest) |
+
+#### Returns
+
+`Promise`\<[`ConversationDownvoteResponse`](conversation_v1.md#conversationdownvoteresponse)\>
+
+#### Defined in
+
+[conversation/v1.js:394](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L394)
+
+___
+
 ### fetchConversation
 
 ▸ **fetchConversation**(`client`, `conversationId`): `Promise`\<[`ConversationFetchResponse`](conversation_v1.md#conversationfetchresponse)\>
@@ -783,3 +875,25 @@ ___
 #### Defined in
 
 [conversation/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L136)
+
+___
+
+### upvoteConversation
+
+▸ **upvoteConversation**(`client`, `conversationId`, `request`): `Promise`\<[`ConversationUpvoteResponse`](conversation_v1.md#conversationupvoteresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `conversationId` | `string` |
+| `request` | [`ConversationUpvoteRequest`](conversation_v1.md#conversationupvoterequest) |
+
+#### Returns
+
+`Promise`\<[`ConversationUpvoteResponse`](conversation_v1.md#conversationupvoteresponse)\>
+
+#### Defined in
+
+[conversation/v1.js:364](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L364)

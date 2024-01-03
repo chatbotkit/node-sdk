@@ -89,6 +89,38 @@ export function updateConversationMessage(client: ChatBotKitClient, conversation
  * @returns {Promise<ConversationMessageDeleteResponse>}
  */
 export function deleteConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string): Promise<ConversationMessageDeleteResponse>;
+/**
+ * @typedef {{
+ *   value?: number
+ * }} ConversationMessageUpvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationMessageUpvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {string} messageId
+ * @param {ConversationMessageUpvoteRequest} request
+ * @returns {Promise<ConversationMessageUpvoteResponse>}
+ */
+export function upvoteConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string, request: ConversationMessageUpvoteRequest): Promise<ConversationMessageUpvoteResponse>;
+/**
+ * @typedef {{
+ *   value?: number
+ * }} ConversationMessageDownvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationMessageDownvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {string} messageId
+ * @param {ConversationMessageDownvoteRequest} request
+ * @returns {Promise<ConversationMessageDownvoteResponse>}
+ */
+export function downvoteConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string, request: ConversationMessageDownvoteRequest): Promise<ConversationMessageDownvoteResponse>;
 export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
 export type ConversationMessageType = 'user' | 'bot' | 'context' | 'instruction' | 'backstory';
@@ -125,5 +157,17 @@ export type ConversationMessageUpdateResponse = {
     id: string;
 };
 export type ConversationMessageDeleteResponse = {
+    id: string;
+};
+export type ConversationMessageUpvoteRequest = {
+    value?: number;
+};
+export type ConversationMessageUpvoteResponse = {
+    id: string;
+};
+export type ConversationMessageDownvoteRequest = {
+    value?: number;
+};
+export type ConversationMessageDownvoteResponse = {
     id: string;
 };

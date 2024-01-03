@@ -225,6 +225,36 @@ export function sendConversationMessage(client: ChatBotKitClient, conversationId
  * @returns {ResponsePromise<ConversationReceiveMessageResponse,ConversationReceiveMessageStreamType>}
  */
 export function receiveConversationMessage(client: ChatBotKitClient, conversationId: string, request: ConversationReceiveMessageRequest): ResponsePromise<ConversationReceiveMessageResponse, ConversationReceiveMessageStreamType>;
+/**
+ * @typedef {{
+ *   value?: number
+ * }} ConversationUpvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationUpvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationUpvoteRequest} request
+ * @returns {Promise<ConversationUpvoteResponse>}
+ */
+export function upvoteConversation(client: ChatBotKitClient, conversationId: string, request: ConversationUpvoteRequest): Promise<ConversationUpvoteResponse>;
+/**
+ * @typedef {{
+ *   value?: number
+ * }} ConversationDownvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationDownvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationDownvoteRequest} request
+ * @returns {Promise<ConversationDownvoteResponse>}
+ */
+export function downvoteConversation(client: ChatBotKitClient, conversationId: string, request: ConversationDownvoteRequest): Promise<ConversationDownvoteResponse>;
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 export type ConversationOptions = {
@@ -367,3 +397,15 @@ export type ConversationReceiveMessageStreamToken = {
     };
 };
 export type ConversationReceiveMessageStreamType = ConversationReceiveMessageStreamResult | ConversationReceiveMessageStreamToken;
+export type ConversationUpvoteRequest = {
+    value?: number;
+};
+export type ConversationUpvoteResponse = {
+    id: string;
+};
+export type ConversationDownvoteRequest = {
+    value?: number;
+};
+export type ConversationDownvoteResponse = {
+    id: string;
+};

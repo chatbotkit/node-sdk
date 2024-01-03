@@ -11,6 +11,8 @@ import {
   completeConversationMessage,
   sendConversationMessage,
   receiveConversationMessage,
+  upvoteConversation,
+  downvoteConversation,
 } from './v1.js'
 
 /**
@@ -148,6 +150,24 @@ export class ConversationClient extends ChatBotKitClient {
    */
   receive(conversationId, request) {
     return receiveConversationMessage(this, conversationId, request)
+  }
+
+  /**
+   * @param {string} conversationId
+   * @param {import('./v1.js').ConversationUpvoteRequest} request
+   * @returns {Promise<import('./v1.js').ConversationUpvoteResponse>}
+   */
+  upvote(conversationId, request) {
+    return upvoteConversation(this, conversationId, request)
+  }
+
+  /**
+   * @param {string} conversationId
+   * @param {import('./v1.js').ConversationDownvoteRequest} request
+   * @returns {Promise<import('./v1.js').ConversationDownvoteResponse>}
+   */
+  downvote(conversationId, request) {
+    return downvoteConversation(this, conversationId, request)
   }
 }
 

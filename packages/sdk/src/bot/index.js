@@ -1,6 +1,14 @@
 import { ChatBotKitClient } from '../client.js'
 import { BotSessionClient } from './session/index.js'
-import { listBots, fetchBot, createBot, updateBot, deleteBot } from './v1.js'
+import {
+  listBots,
+  fetchBot,
+  createBot,
+  updateBot,
+  deleteBot,
+  upvoteBot,
+  downvoteBot,
+} from './v1.js'
 
 /**
  * @template T
@@ -73,6 +81,24 @@ export class BotClient extends ChatBotKitClient {
    */
   delete(botId) {
     return deleteBot(this, botId)
+  }
+
+  /**
+   * @param {string} botId
+   * @param {import('./v1.js').BotUpvoteRequest} request
+   * @returns {Promise<import('./v1.js').BotUpvoteResponse>}
+   */
+  upvote(botId, request) {
+    return upvoteBot(this, botId, request)
+  }
+
+  /**
+   * @param {string} botId
+   * @param {import('./v1.js').BotDownvoteRequest} request
+   * @returns {Promise<import('./v1.js').BotDownvoteResponse>}
+   */
+  downvote(botId, request) {
+    return downvoteBot(this, botId, request)
   }
 }
 

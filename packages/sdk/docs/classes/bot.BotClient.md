@@ -27,9 +27,11 @@ Bot client.
 - [clientFetch](bot.BotClient.md#clientfetch)
 - [create](bot.BotClient.md#create)
 - [delete](bot.BotClient.md#delete)
+- [downvote](bot.BotClient.md#downvote)
 - [fetch](bot.BotClient.md#fetch)
 - [list](bot.BotClient.md#list)
 - [update](bot.BotClient.md#update)
+- [upvote](bot.BotClient.md#upvote)
 
 ## Constructors
 
@@ -53,7 +55,7 @@ Bot client.
 
 #### Defined in
 
-[bot/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L18)
+[bot/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L26)
 
 ## Properties
 
@@ -63,7 +65,7 @@ Bot client.
 
 #### Defined in
 
-[bot/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L24)
+[bot/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L32)
 
 ## Methods
 
@@ -127,7 +129,7 @@ Creates a new bot.
 
 #### Defined in
 
-[bot/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L53)
+[bot/index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L61)
 
 ___
 
@@ -149,7 +151,28 @@ Deletes the bot.
 
 #### Defined in
 
-[bot/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L74)
+[bot/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L82)
+
+___
+
+### downvote
+
+▸ **downvote**(`botId`, `request`): `Promise`\<[`BotDownvoteResponse`](../modules/bot_v1.md#botdownvoteresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `botId` | `string` |
+| `request` | [`BotDownvoteRequest`](../modules/bot_v1.md#botdownvoterequest) |
+
+#### Returns
+
+`Promise`\<[`BotDownvoteResponse`](../modules/bot_v1.md#botdownvoteresponse)\>
+
+#### Defined in
+
+[bot/index.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L100)
 
 ___
 
@@ -171,7 +194,7 @@ Fetches a bot.
 
 #### Defined in
 
-[bot/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L43)
+[bot/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L51)
 
 ___
 
@@ -193,7 +216,7 @@ Retrieves a list of all bots.
 
 #### Defined in
 
-[bot/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L33)
+[bot/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L41)
 
 ___
 
@@ -216,4 +239,25 @@ Updates a bot.
 
 #### Defined in
 
-[bot/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L64)
+[bot/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L72)
+
+___
+
+### upvote
+
+▸ **upvote**(`botId`, `request`): `Promise`\<[`BotUpvoteResponse`](../modules/bot_v1.md#botupvoteresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `botId` | `string` |
+| `request` | [`BotUpvoteRequest`](../modules/bot_v1.md#botupvoterequest) |
+
+#### Returns
+
+`Promise`\<[`BotUpvoteResponse`](../modules/bot_v1.md#botupvoteresponse)\>
+
+#### Defined in
+
+[bot/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L91)

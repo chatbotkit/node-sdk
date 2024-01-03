@@ -151,3 +151,63 @@ export async function deleteBot(client, botId) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   value?: number
+ * }} BotUpvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} BotUpvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} botId
+ * @param {BotUpvoteRequest} request
+ * @returns {Promise<BotUpvoteResponse>}
+ */
+export async function upvoteBot(client, botId, request) {
+  const url = `/api/v1/bot/${botId}/upvote`
+
+  /** @type {import('../types/api/v1.js').operations['upvoteBot']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['upvoteBot']['requestBody']['content']['application/json']} */
+    record: {
+      value: 100, // @todo remove once the type is fixed
+
+      ...request,
+    },
+  })
+
+  return response
+}
+
+/**
+ * @typedef {{
+ *   value?: number
+ * }} BotDownvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} BotDownvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} botId
+ * @param {BotDownvoteRequest} request
+ * @returns {Promise<BotDownvoteResponse>}
+ */
+export async function downvoteBot(client, botId, request) {
+  const url = `/api/v1/bot/${botId}/downvote`
+
+  /** @type {import('../types/api/v1.js').operations['downvoteBot']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['downvoteBot']['requestBody']['content']['application/json']} */
+    record: {
+      value: -100, // @todo remove once the type is fixed
+
+      ...request,
+    },
+  })
+
+  return response
+}

@@ -5,6 +5,8 @@ import {
   createConversationMessage,
   updateConversationMessage,
   deleteConversationMessage,
+  upvoteConversationMessage,
+  downvoteConversationMessage
 } from './v1.js'
 
 /**
@@ -78,6 +80,26 @@ export class ConversationMessageClient extends ChatBotKitClient {
    */
   delete(conversationId, messageId) {
     return deleteConversationMessage(this, conversationId, messageId)
+  }
+
+  /**
+   * @param {string} conversationId
+   * @param {string} messageId
+   * @param {import('./v1.js').ConversationMessageUpvoteRequest} request
+   * @returns {Promise<import('./v1.js').ConversationMessageUpvoteResponse>}
+   */
+  upvote(conversationId, messageId, request) {
+    return upvoteConversationMessage(this, conversationId, messageId, request)
+  }
+
+  /**
+   * @param {string} conversationId
+   * @param {string} messageId
+   * @param {import('./v1.js').ConversationMessageDownvoteRequest} request
+   * @returns {Promise<import('./v1.js').ConversationMessageDownvoteResponse>}
+   */
+  downvote(conversationId, messageId, request) {
+    return downvoteConversationMessage(this, conversationId, messageId, request)
   }
 }
 

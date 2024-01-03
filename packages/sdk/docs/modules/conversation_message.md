@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[conversation/message/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L13)
+[conversation/message/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/index.js#L15)

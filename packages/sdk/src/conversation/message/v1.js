@@ -163,3 +163,75 @@ export async function deleteConversationMessage(
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   value?: number
+ * }} ConversationMessageUpvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationMessageUpvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {string} messageId
+ * @param {ConversationMessageUpvoteRequest} request
+ * @returns {Promise<ConversationMessageUpvoteResponse>}
+ */
+export async function upvoteConversationMessage(
+  client,
+  conversationId,
+  messageId,
+  request
+) {
+  const url = `/api/v1/conversation/${conversationId}/message/${messageId}/upvote`
+
+  /** @type {import('../../types/api/v1.js').operations['upvoteConversationMessage']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['upvoteConversationMessage']['requestBody']['content']['application/json']} */
+    record: {
+      value: 100, // @todo remove once the type is fixed
+
+      ...request,
+    },
+  })
+
+  return response
+}
+
+/**
+ * @typedef {{
+ *   value?: number
+ * }} ConversationMessageDownvoteRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationMessageDownvoteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {string} messageId
+ * @param {ConversationMessageDownvoteRequest} request
+ * @returns {Promise<ConversationMessageDownvoteResponse>}
+ */
+export async function downvoteConversationMessage(
+  client,
+  conversationId,
+  messageId,
+  request
+) {
+  const url = `/api/v1/conversation/${conversationId}/message/${messageId}/downvote`
+
+  /** @type {import('../../types/api/v1.js').operations['downvoteConversationMessage']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['downvoteConversationMessage']['requestBody']['content']['application/json']} */
+    record: {
+      value: -100, // @todo remove once the type is fixed
+
+      ...request,
+    },
+  })
+
+  return response
+}
