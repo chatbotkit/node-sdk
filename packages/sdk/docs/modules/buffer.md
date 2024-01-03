@@ -26,4 +26,4 @@
 
 #### Defined in
 
-buffer.js:5
+[buffer.js:5](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/buffer.js#L5)
