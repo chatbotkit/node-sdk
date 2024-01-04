@@ -4,7 +4,7 @@
 
 # ChatBotKit NextAuth SDK
 
-The [ChatBotKit](https://chatbotkit.com) SDK for NextAuth offers a simple way to integrate your Next.js application with the ChatBotKit platform.
+The [ChatBotKit](https://chatbotkit.com) SDK for NextAuth.js offers a simple way to integrate your Next.js application with the ChatBotKit platform.
 
 ## Getting Started
 
