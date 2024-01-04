@@ -24,29 +24,40 @@ To begin using the ChatBotKit NextAuth SDK, follow these steps:
      ChatBotKitEmailProvider,
      MemoryStore,
    } = require('@chatbotkit/nextauth')
+
    const nextAuthConfig = {
      adapter: ChatBotKitPartnerAdapter({
        secret: process.env.CHATBOTKIT_API_SECRET,
        store: new MemoryStore(),
      }),
+
      providers: [ChatBotKitEmailProvider({})],
+
      session: {
        strategy: 'jwt',
      },
+
      callbacks: {
        async session({ session, token }) {
          session.user = token.user
+
          return session
        },
+
        async jwt({ token, user }) {
-         if (user) token.user = user
+         if (user) {
+           token.user = user
+         }
+
          return token
        },
      },
+
      pages: {
        signIn: '/signin',
        verifyRequest: '/verify',
      },
+
      debug: !!process.env.DEBUG,
    }
    ```
