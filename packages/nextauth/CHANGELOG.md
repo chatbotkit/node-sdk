@@ -1,5 +1,11 @@
 # @chatbotkit/nextauth
 
+## 1.4.1
+
+### Patch Changes
+
+- 6b413c4: Updated readme.
+
 ## 1.4.0
 
 ### Minor Changes
