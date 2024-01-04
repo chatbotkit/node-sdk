@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.4.0
+
+### Patch Changes
+
+- b19977f: Added nextauth support plus bug fixes.
+
 ## 1.3.0
 
 ### Minor Changes
