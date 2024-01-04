@@ -2,47 +2,75 @@
 
 [![Follow on Twitter](https://img.shields.io/twitter/follow/chatbotkit.svg?logo=twitter)](https://twitter.com/chatbotkit)
 [![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
-[![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/fetch)
+[![NPM](https://img.shields.io/npm/v/@chatbotkit/nextauth.svg)](https://www.npmjs.com/package/@chatbotkit/nextauth)
 
-# ChatBotKit Fetch SDK
+# ChatBotKit NextAuth SDK
 
-The [ChatBotKit](https://chatbotkit.com) SDK for Fetch offers an isomorphic implementation of the standard fetch browser function, enriched with several helper methods. This versatile SDK is compatible with various environments, including AWS Lambda, Vercel Serverless and Edge, Cloudflare Workers, standard web browsers, and more, making it a flexible choice for diverse projects.
+The [ChatBotKit](https://chatbotkit.com) SDK for NextAuth.js offers a simple way to integrate your Next.js application with the ChatBotKit platform.
 
 ## Getting Started
 
-To begin using the ChatBotKit Fetch SDK, follow these steps:
+To begin using the ChatBotKit NextAuth SDK, follow these steps:
 
 1. **Installation**: Add the SDK to your project using npm:
 
    ```bash
-   npm install @chatbotkit/fetch
+   npm install @chatbotkit/nextauth
    ```
 
-2. **Usage**: The SDK can be used in any environment, ensuring a consistent fetch functionality across platforms. Here’s an example of how to use it:
+2. **Configuration**: Create nextauth.config.js file in your project root directory and add the following code:
 
    ```javascript
-   import fetch, { withTimeout, withRetry } from '@chatbotkit/fetch'
+   const {
+     ChatBotKitPartnerAdapter,
+     ChatBotKitEmailProvider,
+     MemoryStore,
+   } = require('@chatbotkit/nextauth')
 
-   // Enhance fetch with retry and timeout capabilities
-   const fetchPlusPlus = withRetry(withTimeout(fetch))
+   const nextAuthConfig = {
+     adapter: ChatBotKitPartnerAdapter({
+       secret: process.env.CHATBOTKIT_API_SECRET,
+       store: new MemoryStore(),
+     }),
 
-   async function doWork() {
-     const response = await fetchPlusPlus('https://your-api-url.com', {
-       timeout: 30000, // Timeout in milliseconds
-       retries: 5, // Number of retry attempts
-       retryDelay: 200, // Delay between retries in milliseconds
-     })
+     providers: [ChatBotKitEmailProvider({})],
 
-     // Handle the response
-     // ...
+     session: {
+       strategy: 'jwt',
+     },
+
+     callbacks: {
+       async session({ session, token }) {
+         session.user = token.user
+
+         return session
+       },
+
+       async jwt({ token, user }) {
+         if (user) {
+           token.user = user
+         }
+
+         return token
+       },
+     },
+
+     pages: {
+       signIn: '/signin',
+       verifyRequest: '/verify',
+     },
+
+     debug: !!process.env.DEBUG,
    }
    ```
 
-   This code snippet demonstrates how to import and use the enhanced fetch function, providing robust error handling and timeout management for network requests.
+3. **Usage**: Use the config file to initialize the nextauth routes as you normally would.
+
+A complete example of the ChatBotKit NextAuth SDK in use can be found in the [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/basic-auth).
 
 ## Documentation
 
-For comprehensive information about the ChatBotKit Fetch SDK, including detailed documentation on its functionalities, helper methods, and configuration options, please visit our [type documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_fetch.html).
+For comprehensive information about the ChatBotKit NextAuth SDK, including detailed documentation on its functionalities, helper methods, and configuration options, please visit our [type documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_nextauth.html).
 
 ## Contributing
 
