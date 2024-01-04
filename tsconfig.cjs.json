@@ -6,7 +6,10 @@
     "moduleResolution": "node",
     "noEmitHelpers": true,
     "declaration": true,
-    "strict": true,
-    "noEmit": false
+    "strict": false,
+    "noEmit": false,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
   }
 }

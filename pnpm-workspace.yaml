@@ -3,6 +3,7 @@ packages:
   - 'packages/sdk'
   - 'packages/react'
   - 'packages/next'
+  - 'packages/nextauth'
   - 'examples/sdk/*'
   - 'examples/nextjs/*'
   - 'examples/cloudflare/*'

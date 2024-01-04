@@ -1,0 +1,90 @@
+{
+  "name": "@chatbotkit/nextauth",
+  "version": "0.0.1",
+  "description": "ChatBotKit adapter for NextAuth.js to make conversational AI bots with authentication and authorization",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatbotkit/node-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chatbotkit/node-sdk/issues"
+  },
+  "homepage": "https://github.com/chatbotkit/node-sdk#readme",
+  "author": "",
+  "keywords": [
+    "next",
+    "auth",
+    "nextauth",
+    "chatbotkit"
+  ],
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    "./adapter": {
+      "types": "./types/adapter.d.ts",
+      "import": "./src/adapter.js"
+    },
+    "./adapter.js": {
+      "types": "./types/adapter.d.ts",
+      "import": "./src/adapter.js"
+    },
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./index": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./index.js": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./provider": {
+      "types": "./types/provider.d.ts",
+      "import": "./src/provider.js"
+    },
+    "./provider.js": {
+      "types": "./types/provider.d.ts",
+      "import": "./src/provider.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "run-s build:*",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs_rename": "node ../../scripts/rename-cjs.js",
+    "build:cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
+    "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
+    "build:docs": "typedoc",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:exports": "node ../../scripts/create-standard-exports.js",
+    "build:types": "tsc -p tsconfig.types.json",
+    "check": "tsc -p tsconfig.check.json",
+    "clean": "run-p clean:*",
+    "clean:buildinfo": "rimraf *.tsbuildinfo",
+    "clean:dists": "rimraf dist",
+    "clean:exports": "run-s build:exports",
+    "clean:node_modules": "rimraf node_modules",
+    "clean:types": "rimraf types",
+    "lint": "eslint .",
+    "postpack": "node ../../scripts/create-standard-exports.js",
+    "prepack": "node ../../scripts/create-dist-exports.js",
+    "test": "true"
+  },
+  "types": "./types/index.d.ts",
+  "dependencies": {
+    "@chatbotkit/sdk": "workspace:*"
+  },
+  "peerDependencies": {
+    "next-auth": ">=3.0.0",
+    "next": ">=13.0.0"
+  }
+}

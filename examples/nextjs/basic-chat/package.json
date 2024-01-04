@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "build": "true",
-    "clean": "rm -rf .next",
+    "clean": "run-p clean:*",
+    "clean:buildinfo": "rimraf *.tsbuildinfo",
+    "clean:next": "rimraf .next",
+    "clean:node_modules": "rimraf node_modules",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"

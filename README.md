@@ -138,6 +138,7 @@ Some examples include:
 | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | Next.js            | [Basic Chat](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/basic-chat)                             | A basic chatbot example, where the conversation is managed by ChatBotKit.     |
 | Next.js            | [Stateless Chat](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/stateless-chat)                     | A stateless chatbot example, where the conversation is managed by the client. |
+| Next.js            | [NextAuth Example](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/basic-auth)                       | Shows how to combine NextAuth and ChatBotKit                                  |
 | Node               | [GPT4 Streaming AI chatbot](https://github.com/chatbotkit/node-sdk/tree/main/examples/sdk/esm/gpt4-chatbot-stream.js) | A simple streaming AI chatbot example.                                        |
 | Cloudflare Workers | [GPT4 AI chatbot](https://github.com/chatbotkit/node-sdk/tree/main/examples/cloudflare/gpt4-stream)                   | A streaming AI chatbot example for Cloudflare Workers.                        |
 
@@ -145,12 +146,13 @@ Some examples include:
 
 The ChatBotKit Node SDK is comprised of the following packages:
 
-| Package                                                                              | Version                                                                                                       | Description                                    |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| [@chatbotkit/sdk](https://github.com/chatbotkit/node-sdk/tree/main/packages/sdk)     | [![NPM](https://img.shields.io/npm/v/@chatbotkit/sdk.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)     | The ChatBotKit API SDK.                        |
-| [@chatbotkit/react](https://github.com/chatbotkit/node-sdk/tree/main/packages/react) | [![NPM](https://img.shields.io/npm/v/@chatbotkit/react.svg)](https://www.npmjs.com/package/@chatbotkit/react) | The ChatBotKit React SDK.                      |
-| [@chatbotkit/next](https://github.com/chatbotkit/node-sdk/tree/main/packages/next)   | [![NPM](https://img.shields.io/npm/v/@chatbotkit/next.svg)](https://www.npmjs.com/package/@chatbotkit/next)   | The ChatBotKit Next.js SDK.                    |
-| [@chatbotkit/fetch](https://github.com/chatbotkit/node-sdk/tree/main/packages/fetch) | [![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/fetch) | The ChatBotKit isometric fetch implementation. |
+| Package                                                                                    | Version                                                                                                         | Description                                    |
+| ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| [@chatbotkit/sdk](https://github.com/chatbotkit/node-sdk/tree/main/packages/sdk)           | [![NPM](https://img.shields.io/npm/v/@chatbotkit/sdk.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)       | The ChatBotKit API SDK.                        |
+| [@chatbotkit/react](https://github.com/chatbotkit/node-sdk/tree/main/packages/react)       | [![NPM](https://img.shields.io/npm/v/@chatbotkit/react.svg)](https://www.npmjs.com/package/@chatbotkit/react)   | The ChatBotKit React SDK.                      |
+| [@chatbotkit/next](https://github.com/chatbotkit/node-sdk/tree/main/packages/next)         | [![NPM](https://img.shields.io/npm/v/@chatbotkit/next.svg)](https://www.npmjs.com/package/@chatbotkit/next)     | The ChatBotKit Next.js SDK.                    |
+| [@chatbotkit/nextauth](https://github.com/chatbotkit/node-sdk/tree/main/packages/nextauth) | [![NPM](https://img.shields.io/npm/v/@chatbotkit/nextauth.svg)](https://www.npmjs.com/package/@chatbotkit/nextauth) | The ChatBotKit NextAuth.js SDK.                |
+| [@chatbotkit/fetch](https://github.com/chatbotkit/node-sdk/tree/main/packages/fetch)       | [![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/fetch)   | The ChatBotKit isometric fetch implementation. |
 
 ## Documentation
 

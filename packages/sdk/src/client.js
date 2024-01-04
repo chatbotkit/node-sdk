@@ -264,14 +264,12 @@ export class ChatBotKitClient {
 
       data = JSON.stringify(options.record)
 
-      headers['Content-Length'] = data.length.toString()
       headers['Content-Type'] = 'application/json'
     } else if (options?.buffer) {
       method = method || 'POST'
 
       data = options.buffer
 
-      headers['Content-Length'] = data.byteLength.toString()
       headers['Content-Type'] = 'application/octet-stream'
     } else if (options?.file) {
       method = method || 'POST'
