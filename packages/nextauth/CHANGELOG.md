@@ -1,5 +1,11 @@
 # @chatbotkit/nextauth
 
+## 1.4.2
+
+### Patch Changes
+
+- 9b702bc: Fixed import helpers for cjs modules.
+
 ## 1.4.1
 
 ### Patch Changes
