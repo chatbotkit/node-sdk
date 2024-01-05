@@ -238,8 +238,15 @@ importers:
       node-fetch-native:
         specifier: ^1.2.0
         version: 1.2.0
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
 
-  packages/next: {}
+  packages/next:
+    dependencies:
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
 
   packages/nextauth:
     dependencies:
@@ -252,6 +259,9 @@ importers:
       next-auth:
         specifier: '>=3.0.0'
         version: 4.24.5(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
 
   packages/react:
     dependencies:
@@ -267,6 +277,9 @@ importers:
       react-markdown:
         specifier: ^9.0.1
         version: 9.0.1(@types/react@18.2.38)(react@18.2.0)
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
     devDependencies:
       '@types/react':
         specifier: ^18.2.0
@@ -277,6 +290,9 @@ importers:
       '@chatbotkit/fetch':
         specifier: workspace:*
         version: link:../fetch
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
     devDependencies:
       openapi-typescript:
         specifier: 7.0.0-next.4
@@ -1187,7 +1203,7 @@ packages:
       is-glob: 4.0.3
       open: 9.1.0
       picocolors: 1.0.0
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: true
 
   /@redocly/ajv@8.11.0:
@@ -1591,7 +1607,7 @@ packages:
   /@swc/helpers@0.5.2:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
     dependencies:
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: false
 
   /@tsconfig/recommended@1.0.2:
@@ -5996,7 +6012,7 @@ packages:
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@pkgr/utils': 2.4.0
-      tslib: 2.5.2
+      tslib: 2.6.2
     dev: true
 
   /tailwindcss@3.3.5:
@@ -6173,8 +6189,8 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tslib@2.5.2:
-    resolution: {integrity: sha512-5svOrSA2w3iGFDs1HibEVBGbDrAY82bFQ3HZ3ixB+88nsbsWQoKqDRb5UBYAUPEzbBn6dAp5gRNXglySbx1MlA==}
+  /tslib@2.6.2:
+    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
   /tsutils@3.21.0(typescript@5.3.2):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}

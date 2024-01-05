@@ -132,6 +132,7 @@
   "types": "./types/index.d.ts",
   "dependencies": {
     "@chatbotkit/sdk": "workspace:*",
+    "tslib": "^2.6.2",
     "react-markdown": "^9.0.1"
   },
   "peerDependencies": {
