@@ -32,9 +32,9 @@ export const datasetList = new Command()
 export const datasetFetch = new Command()
   .name('fetch')
   .description('Fetch dataset')
-  .argument('<id>', 'Dataset ID')
-  .action(async (id) => {
-    const dataset = await client.fetch(id)
+  .argument('<datasetId>', 'Dataset ID')
+  .action(async (datasetId) => {
+    const dataset = await client.fetch(datasetId)
 
     print(dataset)
   })
@@ -42,9 +42,9 @@ export const datasetFetch = new Command()
 export const datasetDelete = new Command()
   .name('delete')
   .description('Delete dataset')
-  .argument('<id>', 'Dataset ID')
-  .action(async (id) => {
-    await client.delete(id)
+  .argument('<datasetId>', 'Dataset ID')
+  .action(async (datasetId) => {
+    await client.delete(datasetId)
   })
 
 export const command = new Command()

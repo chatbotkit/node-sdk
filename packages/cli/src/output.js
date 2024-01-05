@@ -1,8 +1,9 @@
 import util from 'util'
+import jsYaml from 'js-yaml'
 
 export const config = {
-  /** @type {'text'|'json'|'jsonl'} */
-  output: 'text',
+  /** @type {'yaml'|'json'|'jsonl'} */
+  output: 'yaml',
 }
 
 /**
@@ -11,14 +12,12 @@ export const config = {
  */
 export function print(input) {
   switch (true) {
-    case config.output === 'text': {
-      Object.entries(input).forEach(([key, value]) => {
-        // eslint-disable-next-line no-console
-        console.log(`${key}: ${value}`)
-      })
+    case config.output === 'yaml': {
+      // eslint-disable-next-line no-console
+      console.log(jsYaml.dump(input, { noRefs: true }))
 
       // eslint-disable-next-line no-console
-      console.log('---')
+      console.log('# ---')
 
       break
     }

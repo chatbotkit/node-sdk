@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[output.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/output.js#L12)
+[output.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/output.js#L13)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 #### Defined in
 
-[output.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/output.js#L50)
+[output.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/output.js#L49)

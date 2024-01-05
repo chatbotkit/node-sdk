@@ -6,9 +6,24 @@
 
 ### Functions
 
+- [getRUNAS\_USERID](env.md#getrunas_userid)
 - [getSECRET](env.md#getsecret)
 
 ## Functions
+
+### getRUNAS\_USERID
+
+▸ **getRUNAS_USERID**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[env.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L16)
+
+___
 
 ### getSECRET
 
@@ -22,4 +37,4 @@
 
 #### Defined in
 
-env.js:5
+[env.js:5](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L5)

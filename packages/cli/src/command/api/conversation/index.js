@@ -33,9 +33,9 @@ export const conversationList = new Command()
 export const conversationFetch = new Command()
   .name('fetch')
   .description('Fetch conversation')
-  .argument('<id>', 'Conversation ID')
-  .action(async (id) => {
-    const conversation = await client.fetch(id)
+  .argument('<conversationId>', 'Conversation ID')
+  .action(async (conversationId) => {
+    const conversation = await client.fetch(conversationId)
 
     print(conversation)
   })
@@ -43,9 +43,9 @@ export const conversationFetch = new Command()
 export const conversationDelete = new Command()
   .name('delete')
   .description('Delete conversation')
-  .argument('<id>', 'Conversation ID')
-  .action(async (id) => {
-    await client.delete(id)
+  .argument('<conversationId>', 'Conversation ID')
+  .action(async (conversationId) => {
+    await client.delete(conversationId)
   })
 
 export const command = new Command()

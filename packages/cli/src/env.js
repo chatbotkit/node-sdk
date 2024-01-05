@@ -11,7 +11,7 @@ export function getSECRET() {
 }
 
 /**
- * @returns {string}
+ * @returns {string|undefined}
  */
 export function getRUNAS_USERID() {
   return process.env.CHATBOTKIT_API_RUNAS_USERID

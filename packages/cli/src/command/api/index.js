@@ -1,5 +1,6 @@
 import { Command, Option } from 'commander'
 
+import partner from './partner/index.js'
 import dataset from './dataset/index.js'
 import skillset from './skillset/index.js'
 import conversation from './conversation/index.js'
@@ -11,11 +12,12 @@ export const command = new Command()
   .addCommand(dataset)
   .addCommand(skillset)
   .addCommand(conversation)
+  .addCommand(partner)
 
 command
   .addOption(
     new Option('-o, --output <format>', 'Output format').choices([
-      'text',
+      'yaml',
       'json',
       'jsonl',
     ])

@@ -32,9 +32,9 @@ export const skillsetList = new Command()
 export const skillsetFetch = new Command()
   .name('fetch')
   .description('Fetch skillset')
-  .argument('<id>', 'Skillset ID')
-  .action(async (id) => {
-    const skillset = await client.fetch(id)
+  .argument('<skillsetId>', 'Skillset ID')
+  .action(async (skillsetId) => {
+    const skillset = await client.fetch(skillsetId)
 
     print(skillset)
   })
@@ -42,9 +42,9 @@ export const skillsetFetch = new Command()
 export const skillsetDelete = new Command()
   .name('delete')
   .description('Delete skillset')
-  .argument('<id>', 'Skillset ID')
-  .action(async (id) => {
-    await client.delete(id)
+  .argument('<skillsetId>', 'Skillset ID')
+  .action(async (skillsetId) => {
+    await client.delete(skillsetId)
   })
 
 export const command = new Command()

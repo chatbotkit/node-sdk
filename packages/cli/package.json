@@ -49,6 +49,18 @@
       "types": "./types/command/api/conversation/message/index.d.ts",
       "import": "./src/command/api/conversation/message/index.js"
     },
+    "./command/api/dataset": {
+      "types": "./types/command/api/dataset/index.d.ts",
+      "import": "./src/command/api/dataset/index.js"
+    },
+    "./command/api/dataset/index": {
+      "types": "./types/command/api/dataset/index.d.ts",
+      "import": "./src/command/api/dataset/index.js"
+    },
+    "./command/api/dataset/index.js": {
+      "types": "./types/command/api/dataset/index.d.ts",
+      "import": "./src/command/api/dataset/index.js"
+    },
     "./command/api": {
       "types": "./types/command/api/index.d.ts",
       "import": "./src/command/api/index.js"
@@ -60,6 +72,42 @@
     "./command/api/index.js": {
       "types": "./types/command/api/index.d.ts",
       "import": "./src/command/api/index.js"
+    },
+    "./command/api/partner": {
+      "types": "./types/command/api/partner/index.d.ts",
+      "import": "./src/command/api/partner/index.js"
+    },
+    "./command/api/partner/index": {
+      "types": "./types/command/api/partner/index.d.ts",
+      "import": "./src/command/api/partner/index.js"
+    },
+    "./command/api/partner/index.js": {
+      "types": "./types/command/api/partner/index.d.ts",
+      "import": "./src/command/api/partner/index.js"
+    },
+    "./command/api/partner/user": {
+      "types": "./types/command/api/partner/user/index.d.ts",
+      "import": "./src/command/api/partner/user/index.js"
+    },
+    "./command/api/partner/user/index": {
+      "types": "./types/command/api/partner/user/index.d.ts",
+      "import": "./src/command/api/partner/user/index.js"
+    },
+    "./command/api/partner/user/index.js": {
+      "types": "./types/command/api/partner/user/index.d.ts",
+      "import": "./src/command/api/partner/user/index.js"
+    },
+    "./command/api/skillset": {
+      "types": "./types/command/api/skillset/index.d.ts",
+      "import": "./src/command/api/skillset/index.js"
+    },
+    "./command/api/skillset/index": {
+      "types": "./types/command/api/skillset/index.d.ts",
+      "import": "./src/command/api/skillset/index.js"
+    },
+    "./command/api/skillset/index.js": {
+      "types": "./types/command/api/skillset/index.d.ts",
+      "import": "./src/command/api/skillset/index.js"
     },
     "./command/chat": {
       "types": "./types/command/chat/index.d.ts",
@@ -132,6 +180,10 @@
   "dependencies": {
     "@chatbotkit/sdk": "workspace:*",
     "commander": "^11.1.0",
+    "js-yaml": "^4.1.0",
     "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9"
   }
 }
