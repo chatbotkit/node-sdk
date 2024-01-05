@@ -233,6 +233,18 @@ importers:
         specifier: ^16.0.3
         version: 16.0.3
 
+  packages/cli:
+    dependencies:
+      '@chatbotkit/sdk':
+        specifier: workspace:*
+        version: link:../sdk
+      commander:
+        specifier: ^11.1.0
+        version: 11.1.0
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
+
   packages/fetch:
     dependencies:
       node-fetch-native:
@@ -2370,6 +2382,11 @@ packages:
 
   /comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
+    dev: false
+
+  /commander@11.1.0:
+    resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
+    engines: {node: '>=16'}
     dev: false
 
   /commander@4.1.1:

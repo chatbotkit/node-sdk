@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "../../typedoc.base.json"
+  ],
+  "entryPoints": [
+  ],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
+  "readme": "README.md"
+}
