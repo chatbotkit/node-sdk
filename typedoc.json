@@ -1,6 +1,6 @@
 {
   "name": "ChatBotKit Node SDK",
-  "entryPoints": ["packages/fetch", "packages/sdk", "packages/react", "packages/next", "packages/nextauth"],
+  "entryPoints": ["packages/fetch", "packages/sdk", "packages/react", "packages/next", "packages/nextauth", "packages/cli"],
   "entryPointStrategy": "packages",
   "includeVersion": false,
   "navigationLinks": {

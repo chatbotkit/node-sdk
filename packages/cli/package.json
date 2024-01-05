@@ -1,0 +1,189 @@
+{
+  "name": "@chatbotkit/cli",
+  "version": "1.5.0",
+  "description": "ChatBotKit command line tools",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatbotkit/node-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chatbotkit/node-sdk/issues"
+  },
+  "homepage": "https://github.com/chatbotkit/node-sdk#readme",
+  "author": "",
+  "keywords": [
+    "chatbotkit",
+    "cli"
+  ],
+  "bin": {
+    "cbk": "./bin/cbk.js"
+  },
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    "./command/api/conversation": {
+      "types": "./types/command/api/conversation/index.d.ts",
+      "import": "./src/command/api/conversation/index.js"
+    },
+    "./command/api/conversation/index": {
+      "types": "./types/command/api/conversation/index.d.ts",
+      "import": "./src/command/api/conversation/index.js"
+    },
+    "./command/api/conversation/index.js": {
+      "types": "./types/command/api/conversation/index.d.ts",
+      "import": "./src/command/api/conversation/index.js"
+    },
+    "./command/api/conversation/message": {
+      "types": "./types/command/api/conversation/message/index.d.ts",
+      "import": "./src/command/api/conversation/message/index.js"
+    },
+    "./command/api/conversation/message/index": {
+      "types": "./types/command/api/conversation/message/index.d.ts",
+      "import": "./src/command/api/conversation/message/index.js"
+    },
+    "./command/api/conversation/message/index.js": {
+      "types": "./types/command/api/conversation/message/index.d.ts",
+      "import": "./src/command/api/conversation/message/index.js"
+    },
+    "./command/api/dataset": {
+      "types": "./types/command/api/dataset/index.d.ts",
+      "import": "./src/command/api/dataset/index.js"
+    },
+    "./command/api/dataset/index": {
+      "types": "./types/command/api/dataset/index.d.ts",
+      "import": "./src/command/api/dataset/index.js"
+    },
+    "./command/api/dataset/index.js": {
+      "types": "./types/command/api/dataset/index.d.ts",
+      "import": "./src/command/api/dataset/index.js"
+    },
+    "./command/api": {
+      "types": "./types/command/api/index.d.ts",
+      "import": "./src/command/api/index.js"
+    },
+    "./command/api/index": {
+      "types": "./types/command/api/index.d.ts",
+      "import": "./src/command/api/index.js"
+    },
+    "./command/api/index.js": {
+      "types": "./types/command/api/index.d.ts",
+      "import": "./src/command/api/index.js"
+    },
+    "./command/api/partner": {
+      "types": "./types/command/api/partner/index.d.ts",
+      "import": "./src/command/api/partner/index.js"
+    },
+    "./command/api/partner/index": {
+      "types": "./types/command/api/partner/index.d.ts",
+      "import": "./src/command/api/partner/index.js"
+    },
+    "./command/api/partner/index.js": {
+      "types": "./types/command/api/partner/index.d.ts",
+      "import": "./src/command/api/partner/index.js"
+    },
+    "./command/api/partner/user": {
+      "types": "./types/command/api/partner/user/index.d.ts",
+      "import": "./src/command/api/partner/user/index.js"
+    },
+    "./command/api/partner/user/index": {
+      "types": "./types/command/api/partner/user/index.d.ts",
+      "import": "./src/command/api/partner/user/index.js"
+    },
+    "./command/api/partner/user/index.js": {
+      "types": "./types/command/api/partner/user/index.d.ts",
+      "import": "./src/command/api/partner/user/index.js"
+    },
+    "./command/api/skillset": {
+      "types": "./types/command/api/skillset/index.d.ts",
+      "import": "./src/command/api/skillset/index.js"
+    },
+    "./command/api/skillset/index": {
+      "types": "./types/command/api/skillset/index.d.ts",
+      "import": "./src/command/api/skillset/index.js"
+    },
+    "./command/api/skillset/index.js": {
+      "types": "./types/command/api/skillset/index.d.ts",
+      "import": "./src/command/api/skillset/index.js"
+    },
+    "./command/chat": {
+      "types": "./types/command/chat/index.d.ts",
+      "import": "./src/command/chat/index.js"
+    },
+    "./command/chat/index": {
+      "types": "./types/command/chat/index.d.ts",
+      "import": "./src/command/chat/index.js"
+    },
+    "./command/chat/index.js": {
+      "types": "./types/command/chat/index.d.ts",
+      "import": "./src/command/chat/index.js"
+    },
+    "./env": {
+      "types": "./types/env.d.ts",
+      "import": "./src/env.js"
+    },
+    "./env.js": {
+      "types": "./types/env.d.ts",
+      "import": "./src/env.js"
+    },
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./index": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./index.js": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./output": {
+      "types": "./types/output.d.ts",
+      "import": "./src/output.js"
+    },
+    "./output.js": {
+      "types": "./types/output.d.ts",
+      "import": "./src/output.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "run-s build:*",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs_rename": "node ../../scripts/rename-cjs.js",
+    "build:cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
+    "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
+    "build:docs": "typedoc",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:exports": "node ../../scripts/create-standard-exports.js",
+    "build:types": "tsc -p tsconfig.types.json",
+    "check": "tsc -p tsconfig.check.json",
+    "clean": "run-p clean:*",
+    "clean:buildinfo": "rimraf *.tsbuildinfo",
+    "clean:dists": "rimraf dist",
+    "clean:exports": "run-s build:exports",
+    "clean:node_modules": "rimraf node_modules",
+    "clean:types": "rimraf types",
+    "lint": "eslint .",
+    "postpack": "node ../../scripts/create-standard-exports.js",
+    "prepack": "node ../../scripts/create-dist-exports.js",
+    "test": "true"
+  },
+  "types": "./types/index.d.ts",
+  "dependencies": {
+    "@chatbotkit/sdk": "workspace:*",
+    "commander": "^11.1.0",
+    "js-yaml": "^4.1.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9"
+  }
+}

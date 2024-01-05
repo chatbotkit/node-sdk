@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "../../typedoc.base.json"
+  ],
+  "entryPoints": [
+    "./src/command/api/conversation/index.js",
+    "./src/command/api/conversation/message/index.js",
+    "./src/command/api/dataset/index.js",
+    "./src/command/api/index.js",
+    "./src/command/api/partner/index.js",
+    "./src/command/api/partner/user/index.js",
+    "./src/command/api/skillset/index.js",
+    "./src/command/chat/index.js",
+    "./src/env.js",
+    "./src/index.js",
+    "./src/output.js"
+  ],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
+  "readme": "README.md"
+}

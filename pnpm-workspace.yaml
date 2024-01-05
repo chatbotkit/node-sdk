@@ -1,6 +1,7 @@
 packages:
   - 'packages/fetch'
   - 'packages/sdk'
+  - 'packages/cli'
   - 'packages/react'
   - 'packages/next'
   - 'packages/nextauth'

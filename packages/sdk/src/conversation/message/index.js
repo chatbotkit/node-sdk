@@ -6,7 +6,7 @@ import {
   updateConversationMessage,
   deleteConversationMessage,
   upvoteConversationMessage,
-  downvoteConversationMessage
+  downvoteConversationMessage,
 } from './v1.js'
 
 /**
