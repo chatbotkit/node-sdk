@@ -9,3 +9,10 @@ export function getSECRET() {
 
   return process.env.CHATBOTKIT_API_SECRET
 }
+
+/**
+ * @returns {string}
+ */
+export function getRUNAS_USERID() {
+  return process.env.CHATBOTKIT_API_RUNAS_USERID
+}

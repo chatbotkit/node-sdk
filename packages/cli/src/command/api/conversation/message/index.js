@@ -2,10 +2,11 @@ import { Command } from 'commander'
 import { ConversationMessageClient } from '@chatbotkit/sdk/conversation/message/index.js'
 
 import { print } from '../../../../output.js'
-import { getSECRET } from '../../../../env.js'
+import { getSECRET, getRUNAS_USERID } from '../../../../env.js'
 
 const client = new ConversationMessageClient({
   secret: getSECRET(),
+  runAsUserId: getRUNAS_USERID(),
 })
 
 export const messageList = new Command()
