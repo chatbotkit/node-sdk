@@ -5,6 +5,10 @@ export const config = {
   output: 'text',
 }
 
+/**
+ * @param {any} input
+ * @returns {void}
+ */
 export function print(input) {
   switch (true) {
     case config.output === 'text': {
@@ -39,6 +43,10 @@ export function print(input) {
   }
 }
 
+/**
+ * @param {any} error
+ * @returns {void}
+ */
 export function printError(error) {
   // eslint-disable-next-line no-console
   console.error(error)

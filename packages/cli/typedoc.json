@@ -3,6 +3,13 @@
     "../../typedoc.base.json"
   ],
   "entryPoints": [
+    "./src/command/api/conversation/index.js",
+    "./src/command/api/conversation/message/index.js",
+    "./src/command/api/index.js",
+    "./src/command/chat/index.js",
+    "./src/env.js",
+    "./src/index.js",
+    "./src/output.js"
   ],
   "externalPattern": [
     "**/node_modules/**",

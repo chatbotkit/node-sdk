@@ -2,8 +2,10 @@ import readline from 'readline/promises'
 import { Command, Option } from 'commander'
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
+import { getSECRET } from '../../env.js'
+
 const client = new ConversationClient({
-  secret: process.env.CHATBOTKIT_API_SECRET,
+  secret: getSECRET(),
 })
 
 export const command = new Command()

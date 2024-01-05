@@ -24,7 +24,85 @@
   },
   "type": "module",
   "main": "./src/index.js",
-  "exports": {},
+  "exports": {
+    "./command/api/conversation": {
+      "types": "./types/command/api/conversation/index.d.ts",
+      "import": "./src/command/api/conversation/index.js"
+    },
+    "./command/api/conversation/index": {
+      "types": "./types/command/api/conversation/index.d.ts",
+      "import": "./src/command/api/conversation/index.js"
+    },
+    "./command/api/conversation/index.js": {
+      "types": "./types/command/api/conversation/index.d.ts",
+      "import": "./src/command/api/conversation/index.js"
+    },
+    "./command/api/conversation/message": {
+      "types": "./types/command/api/conversation/message/index.d.ts",
+      "import": "./src/command/api/conversation/message/index.js"
+    },
+    "./command/api/conversation/message/index": {
+      "types": "./types/command/api/conversation/message/index.d.ts",
+      "import": "./src/command/api/conversation/message/index.js"
+    },
+    "./command/api/conversation/message/index.js": {
+      "types": "./types/command/api/conversation/message/index.d.ts",
+      "import": "./src/command/api/conversation/message/index.js"
+    },
+    "./command/api": {
+      "types": "./types/command/api/index.d.ts",
+      "import": "./src/command/api/index.js"
+    },
+    "./command/api/index": {
+      "types": "./types/command/api/index.d.ts",
+      "import": "./src/command/api/index.js"
+    },
+    "./command/api/index.js": {
+      "types": "./types/command/api/index.d.ts",
+      "import": "./src/command/api/index.js"
+    },
+    "./command/chat": {
+      "types": "./types/command/chat/index.d.ts",
+      "import": "./src/command/chat/index.js"
+    },
+    "./command/chat/index": {
+      "types": "./types/command/chat/index.d.ts",
+      "import": "./src/command/chat/index.js"
+    },
+    "./command/chat/index.js": {
+      "types": "./types/command/chat/index.d.ts",
+      "import": "./src/command/chat/index.js"
+    },
+    "./env": {
+      "types": "./types/env.d.ts",
+      "import": "./src/env.js"
+    },
+    "./env.js": {
+      "types": "./types/env.d.ts",
+      "import": "./src/env.js"
+    },
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./index": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./index.js": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./output": {
+      "types": "./types/output.d.ts",
+      "import": "./src/output.js"
+    },
+    "./output.js": {
+      "types": "./types/output.d.ts",
+      "import": "./src/output.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist/**"
   ],

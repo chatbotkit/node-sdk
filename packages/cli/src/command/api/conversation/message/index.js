@@ -2,9 +2,10 @@ import { Command } from 'commander'
 import { ConversationMessageClient } from '@chatbotkit/sdk/conversation/message/index.js'
 
 import { print } from '../../../../output.js'
+import { getSECRET } from '../../../../env.js'
 
 const client = new ConversationMessageClient({
-  secret: process.env.CHATBOTKIT_API_SECRET,
+  secret: getSECRET(),
 })
 
 export const messageList = new Command()

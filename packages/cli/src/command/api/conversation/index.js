@@ -3,9 +3,10 @@ import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 import message from './message/index.js'
 import { print } from '../../../output.js'
+import { getSECRET } from '../../../env.js'
 
 const client = new ConversationClient({
-  secret: process.env.CHATBOTKIT_API_SECRET,
+  secret: getSECRET(),
 })
 
 export const conversationList = new Command()
