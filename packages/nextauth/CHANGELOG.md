@@ -1,5 +1,11 @@
 # @chatbotkit/nextauth
 
+## 1.5.1
+
+### Patch Changes
+
+- 6b3c6c4: Better compatability with vercel/kv library.
+
 ## 1.4.2
 
 ### Patch Changes
