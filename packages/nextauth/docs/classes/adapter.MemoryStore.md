@@ -79,7 +79,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `key` | `string` |
-| `value` | `string` |
+| `value` | `any` |
 
 #### Returns
 

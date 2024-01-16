@@ -24,16 +24,16 @@ export function ChatBotKitPartnerAdapter({ secret, store, autoCreateUser, autoUp
 export class Store {
     /**
      * @param {string} key
-     * @returns {Promise<null|string>}
+     * @returns {Promise<null|any>}
      */
-    get(key: string): Promise<null | string>;
+    get(key: string): Promise<null | any>;
     /**
      * @param {string} key
-     * @param {string} value
+     * @param {any} value
      * @param {{px?: number}} [options]
      * @returns {Promise<void>}
      */
-    set(key: string, value: string, options?: {
+    set(key: string, value: any, options?: {
         px?: number | undefined;
     } | undefined): Promise<void>;
     /**
@@ -50,12 +50,7 @@ export class MemoryStore extends Store {
     /**
      * @override
      * @param {string} key
+     * @param {any} value
      */
-    override get(key: string): Promise<any>;
-    /**
-     * @override
-     * @param {string} key
-     * @param {string} value
-     */
-    override set(key: string, value: string): Promise<void>;
+    override set(key: string, value: any): Promise<void>;
 }
