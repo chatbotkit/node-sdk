@@ -1,5 +1,11 @@
 # @chatbotkit/nextauth
 
+## 1.5.2
+
+### Patch Changes
+
+- 9b02511: Fixed a bug when updating user parameters.
+
 ## 1.5.1
 
 ### Patch Changes
