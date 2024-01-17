@@ -204,8 +204,10 @@ export function ChatBotKitPartnerAdapter({
         name: user.name != null ? user.name : undefined,
         image: user.image != null ? user.image : undefined,
         meta: {
-          email: user.email,
-          emailVerified: user.emailVerified && user.emailVerified.getTime(),
+          email: user.email ? user.email : undefined,
+          emailVerified: user.emailVerified
+            ? user.emailVerified.getTime()
+            : undefined,
         },
       })
 
@@ -237,8 +239,10 @@ export function ChatBotKitPartnerAdapter({
         meta: {
           ...userInstance.meta,
 
-          email: user.email,
-          emailVerified: user.emailVerified && user.emailVerified.getTime(),
+          email: user.email ? user.email : userInstance.meta.email,
+          emailVerified: user.emailVerified
+            ? user.emailVerified.getTime()
+            : userInstance.meta.emailVerified,
         },
       })
 
