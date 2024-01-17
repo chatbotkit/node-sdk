@@ -45,7 +45,7 @@ ___
 
 ### get
 
-▸ **get**(`key`): `Promise`\<`string`\>
+▸ **get**(`key`): `Promise`\<`any`\>
 
 #### Parameters
 
@@ -55,7 +55,7 @@ ___
 
 #### Returns
 
-`Promise`\<`string`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
@@ -72,7 +72,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `key` | `string` |
-| `value` | `string` |
+| `value` | `any` |
 | `options?` | `Object` |
 | `options.px?` | `number` |
 

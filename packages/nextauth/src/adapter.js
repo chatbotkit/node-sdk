@@ -18,7 +18,7 @@ function debug(...args) {
 export class Store {
   /**
    * @param {string} key
-   * @returns {Promise<null|string>}
+   * @returns {Promise<null|any>}
    */
   async get(key) {
     key
@@ -28,7 +28,7 @@ export class Store {
 
   /**
    * @param {string} key
-   * @param {string} value
+   * @param {any} value
    * @param {{px?: number}} [options]
    * @returns {Promise<void>}
    */
@@ -72,7 +72,7 @@ export class MemoryStore extends Store {
   /**
    * @override
    * @param {string} key
-   * @param {string} value
+   * @param {any} value
    */
   async set(key, value) {
     this.store.set(key, value)
@@ -204,8 +204,10 @@ export function ChatBotKitPartnerAdapter({
         name: user.name != null ? user.name : undefined,
         image: user.image != null ? user.image : undefined,
         meta: {
-          email: user.email,
-          emailVerified: user.emailVerified && user.emailVerified.getTime(),
+          email: user.email ? user.email : undefined,
+          emailVerified: user.emailVerified
+            ? user.emailVerified.getTime()
+            : undefined,
         },
       })
 
@@ -237,8 +239,10 @@ export function ChatBotKitPartnerAdapter({
         meta: {
           ...userInstance.meta,
 
-          email: user.email,
-          emailVerified: user.emailVerified && user.emailVerified.getTime(),
+          email: user.email ? user.email : userInstance.meta?.email,
+          emailVerified: user.emailVerified
+            ? user.emailVerified.getTime()
+            : userInstance.meta?.emailVerified,
         },
       })
 
@@ -308,7 +312,7 @@ export function ChatBotKitPartnerAdapter({
 
       await store.set(
         `verificationToken:${verificationToken.token}`,
-        JSON.stringify(verificationToken),
+        verificationToken,
         { px: Math.abs(verificationToken.expires.getTime() - Date.now()) }
       )
 
@@ -332,7 +336,7 @@ export function ChatBotKitPartnerAdapter({
 
       await store.del(`verificationToken:${verificationToken.token}`)
 
-      const { expires } = JSON.parse(value)
+      const { expires } = value
 
       const retToken = { ...verificationToken, expires: new Date(expires) }
 

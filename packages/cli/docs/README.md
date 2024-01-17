@@ -18,10 +18,24 @@ To begin using the ChatBotKit CLI, follow these steps:
    npm install --global @chatbotkit/cli
    ```
 
-2. **Usage**: Get help on the available commands:
+2. **Help**: Get help on the available commands:
 
    ```bash
    cbk --help
+   ```
+
+3. **Usage**: Use the CLI to interact with ChatBotKit:
+
+   Keep in mind that you will need to authenticate with your ChatBotKit token first.
+
+   ```bash
+   export CHATBOTKIT_API_TOKEN=<your token here>
+   ```
+
+   Then you can use the CLI to interact with ChatBotKit:
+
+   ```bash
+   cbk api conversation list
    ```
 
 ## Documentation
