@@ -239,10 +239,10 @@ export function ChatBotKitPartnerAdapter({
         meta: {
           ...userInstance.meta,
 
-          email: user.email ? user.email : userInstance.meta.email,
+          email: user.email ? user.email : userInstance.meta?.email,
           emailVerified: user.emailVerified
             ? user.emailVerified.getTime()
-            : userInstance.meta.emailVerified,
+            : userInstance.meta?.emailVerified,
         },
       })
 
