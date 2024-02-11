@@ -51,6 +51,9 @@ export function AutoTextarea(props) {
     }
   }
 
+  /**
+   * @param {React.ChangeEvent<HTMLTextAreaElement>} event
+   */
   function handleOnFocus(event) {
     if (adjustOnFocus) {
       handleEvent(event)
