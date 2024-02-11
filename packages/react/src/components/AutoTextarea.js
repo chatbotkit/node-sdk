@@ -10,11 +10,19 @@ import React from 'react'
  * @param {{
  *   onInput?: onInputFn?,
  *   onFocus?: onFocusFn?,
+ *   adjustOnInput?: boolean?,
+ *   adjustOnFocus?: boolean?,
  *   [name: string]: any
  * }} [props]
  */
 export function AutoTextarea(props) {
-  const { onInput, onFocus, ...rest } = props || {}
+  const {
+    onInput,
+    onFocus,
+    adjustOnInput = true,
+    adjustOnFocus = false,
+    ...rest
+  } = props || {}
 
   /**
    * @param {React.ChangeEvent<HTMLTextAreaElement>} event
@@ -34,7 +42,9 @@ export function AutoTextarea(props) {
    * @param {React.ChangeEvent<HTMLTextAreaElement>} event
    */
   function handleOnInput(event) {
-    handleEvent(event)
+    if (adjustOnInput) {
+      handleEvent(event)
+    }
 
     if (onInput) {
       onInput(event)
@@ -42,7 +52,9 @@ export function AutoTextarea(props) {
   }
 
   function handleOnFocus(event) {
-    handleEvent(event)
+    if (adjustOnFocus) {
+      handleEvent(event)
+    }
 
     if (onFocus) {
       onFocus(event)
