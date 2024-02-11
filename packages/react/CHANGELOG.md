@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.5.3
+
+### Patch Changes
+
+- 552bd6d: Added additional parameters and control over focus.
+
 ## 1.4.0
 
 ### Patch Changes
