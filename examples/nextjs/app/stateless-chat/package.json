@@ -1,0 +1,28 @@
+{
+  "name": "@examples/nextjs-app-router-stateless-chat",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "true",
+    "clean": "run-p clean:*",
+    "clean:buildinfo": "rimraf *.tsbuildinfo",
+    "clean:next": "rimraf .next",
+    "clean:node_modules": "rimraf node_modules",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@chatbotkit/react": "workspace:*",
+    "@chatbotkit/sdk": "workspace:*",
+    "@chatbotkit/next": "workspace:*",
+    "next": "^14.0.3",
+    "supports-color": "^8.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.3"
+  }
+}
