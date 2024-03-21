@@ -1,77 +1,55 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 /**
- * @typedef {(event: React.ChangeEvent<HTMLTextAreaElement>) => any} onInputFn
- * @typedef {(event: React.ChangeEvent<HTMLTextAreaElement>) => any} onFocusFn
- *
  * A textarea that automatically adjusts its height based on its content. The
  * height is adjusted on input and focus events.
  *
  * @param {{
- *   onInput?: onInputFn?,
- *   onFocus?: onFocusFn?,
- *   adjustOnInput?: boolean?,
- *   adjustOnFocus?: boolean?,
  *   [name: string]: any
  * }} [props]
  */
 export function AutoTextarea(props) {
-  const {
-    onInput,
-    onFocus,
-    adjustOnInput = true,
-    adjustOnFocus = false,
-    ...rest
-  } = props || {}
+  const ref = useRef(null)
 
-  /**
-   * @param {React.ChangeEvent<HTMLTextAreaElement>} event
-   */
-  function handleEvent(event) {
+  function recalibrate(textarea) {
     const adjustment = `calc(${
-      [event.target.style.paddingTop, event.target.style.paddingBottom]
+      [textarea.style.paddingTop, textarea.style.paddingBottom]
         .filter((f) => f)
         .join(' + ') || '0px'
     })`
 
-    event.target.style.height = 'auto'
-    event.target.style.height = `calc(${event.target.scrollHeight}px - ${adjustment})`
+    textarea.style.height = 'auto'
+    textarea.style.height = `calc(${textarea.scrollHeight}px - ${adjustment})`
   }
 
-  /**
-   * @param {React.ChangeEvent<HTMLTextAreaElement>} event
-   */
-  function handleOnInput(event) {
-    if (adjustOnInput) {
-      handleEvent(event)
-    }
+  useEffect(() => {
+    const textarea = ref.current
 
-    if (onInput) {
-      onInput(event)
-    }
-  }
+    if (textarea) {
+      recalibrate(textarea)
 
-  /**
-   * @param {React.ChangeEvent<HTMLTextAreaElement>} event
-   */
-  function handleOnFocus(event) {
-    if (adjustOnFocus) {
-      handleEvent(event)
-    }
+      const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (
+            mutation.type === 'childList' ||
+            mutation.type === 'characterData'
+          ) {
+            recalibrate(textarea)
+          }
+        }
+      })
 
-    if (onFocus) {
-      onFocus(event)
-    }
-  }
+      observer.observe(textarea, {
+        childList: true, // observe direct children
+        subtree: true, // and lower descendants too
+        characterData: true, // observe text changes
+      })
 
-  return (
-    <textarea
-      {...rest}
-      rows={1}
-      onInput={handleOnInput}
-      onFocus={handleOnFocus}
-    />
-  )
+      return () => observer.disconnect()
+    }
+  }, [])
+
+  return <textarea ref={ref} rows={1} {...props} />
 }
 
 export default AutoTextarea
