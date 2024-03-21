@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.6.0
+
+### Minor Changes
+
+- 51885a6: AutoTextarea bug fixes plus helper methods for server actions rendering.
+
 ## 1.5.3
 
 ### Patch Changes
