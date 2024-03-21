@@ -19,6 +19,9 @@
  * }} Message
  */
 /**
+ * @typedef {string} EndpointURL
+ * @typedef {(conversationId: any, request: any) => AsyncGenerator<any>} EndpointFunction
+ *
  * The useConversationManager hook is a React hook that manages the conversation
  * state including the messages, the input text and all calls to the ChatBotKit
  * API endpoint. It automatically handles the conversation state and other
@@ -26,7 +29,7 @@
  *
  * @param {{
  *   client?: ConversationClient,
- *   endpoint?: string,
+ *   endpoint?: EndpointURL|EndpointFunction,
  *   token?: string,
  *   conversationId?: string,
  *   backstory?: string,
@@ -39,7 +42,7 @@
 export function useConversationManager(options: {
     [key: string]: any;
     client?: ConversationClient | undefined;
-    endpoint?: string | undefined;
+    endpoint?: string | EndpointFunction | undefined;
     token?: string | undefined;
     conversationId?: string | undefined;
     backstory?: string | undefined;
@@ -90,4 +93,12 @@ export type Message = {
     type: 'bot' | 'user';
     text: string;
 };
+export type EndpointURL = string;
+/**
+ * The useConversationManager hook is a React hook that manages the conversation
+ * state including the messages, the input text and all calls to the ChatBotKit
+ * API endpoint. It automatically handles the conversation state and other
+ * details like the token and conversation ID.
+ */
+export type EndpointFunction = (conversationId: any, request: any) => AsyncGenerator<any>;
 import { ConversationClient } from '@chatbotkit/sdk';

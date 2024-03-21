@@ -11,6 +11,9 @@ import React, { useEffect, useRef } from 'react'
 export function AutoTextarea(props) {
   const ref = useRef(null)
 
+  /**
+   * @param {HTMLTextAreaElement} textarea
+   */
   function recalibrate(textarea) {
     const adjustment = `calc(${
       [textarea.style.paddingTop, textarea.style.paddingBottom]

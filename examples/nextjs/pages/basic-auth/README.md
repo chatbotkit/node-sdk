@@ -13,7 +13,7 @@ pnpm -F @examples/nextjs-pages-router-basic-auth dev
 As a standalone application:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

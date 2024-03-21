@@ -6,6 +6,8 @@
 
 ### Type Aliases
 
+- [EndpointFunction](hooks_useConversationManager.md#endpointfunction)
+- [EndpointURL](hooks_useConversationManager.md#endpointurl)
 - [Message](hooks_useConversationManager.md#message)
 - [Model](hooks_useConversationManager.md#model)
 - [ModelConfig](hooks_useConversationManager.md#modelconfig)
@@ -15,6 +17,46 @@
 - [useConversationManager](hooks_useConversationManager.md#useconversationmanager)
 
 ## Type Aliases
+
+### EndpointFunction
+
+Ƭ **EndpointFunction**\<\>: (`conversationId`: `any`, `request`: `any`) => `AsyncGenerator`\<`any`\>
+
+#### Type declaration
+
+▸ (`conversationId`, `request`): `AsyncGenerator`\<`any`\>
+
+The useConversationManager hook is a React hook that manages the conversation
+state including the messages, the input text and all calls to the ChatBotKit
+API endpoint. It automatically handles the conversation state and other
+details like the token and conversation ID.
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `conversationId` | `any` |
+| `request` | `any` |
+
+##### Returns
+
+`AsyncGenerator`\<`any`\>
+
+#### Defined in
+
+[hooks/useConversationManager.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L34)
+
+___
+
+### EndpointURL
+
+Ƭ **EndpointURL**\<\>: `string`
+
+#### Defined in
+
+[hooks/useConversationManager.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L33)
+
+___
 
 ### Message
 
@@ -30,7 +72,7 @@
 
 #### Defined in
 
-[hooks/useConversationManager.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L28)
+[hooks/useConversationManager.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L29)
 
 ___
 
@@ -40,7 +82,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L20)
+[hooks/useConversationManager.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L21)
 
 ___
 
@@ -62,18 +104,13 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L18)
+[hooks/useConversationManager.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L19)
 
 ## Functions
 
 ### useConversationManager
 
 ▸ **useConversationManager**(`options`): `Object`
-
-The useConversationManager hook is a React hook that manages the conversation
-state including the messages, the input text and all calls to the ChatBotKit
-API endpoint. It automatically handles the conversation state and other
-details like the token and conversation ID.
 
 #### Parameters
 
@@ -85,7 +122,7 @@ details like the token and conversation ID.
 | `options.client?` | `ConversationClient` |
 | `options.conversationId?` | `string` |
 | `options.datasetId?` | `string` |
-| `options.endpoint?` | `string` |
+| `options.endpoint?` | `string` \| [`EndpointFunction`](hooks_useConversationManager.md#endpointfunction) |
 | `options.skillsetId?` | `string` |
 | `options.token?` | `string` |
 
@@ -121,4 +158,4 @@ details like the token and conversation ID.
 
 #### Defined in
 
-[hooks/useConversationManager.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L49)
+[hooks/useConversationManager.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L53)

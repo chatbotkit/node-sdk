@@ -94,6 +94,14 @@
       "types": "./types/utils/object.d.ts",
       "import": "./src/utils/object.js"
     },
+    "./utils/stream": {
+      "types": "./types/utils/stream.d.ts",
+      "import": "./src/utils/stream.js"
+    },
+    "./utils/stream.js": {
+      "types": "./types/utils/stream.d.ts",
+      "import": "./src/utils/stream.js"
+    },
     "./utils/string": {
       "types": "./types/utils/string.d.ts",
       "import": "./src/utils/string.js"

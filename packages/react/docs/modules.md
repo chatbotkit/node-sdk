@@ -12,3 +12,4 @@
 - [components/ChatMessage](modules/components_ChatMessage.md)
 - [components/ChatMessages](modules/components_ChatMessages.md)
 - [hooks/useConversationManager](modules/hooks_useConversationManager.md)
+- [utils/stream](modules/utils_stream.md)

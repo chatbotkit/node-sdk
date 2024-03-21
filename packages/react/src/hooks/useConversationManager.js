@@ -5,6 +5,7 @@ import { ConversationClient } from '@chatbotkit/sdk'
 
 import { getRandomId } from '../utils/string.js'
 import { cloneAndExtend } from '../utils/object.js'
+import { consume } from '../utils/stream.js'
 
 /**
  * @typedef {{
@@ -29,6 +30,9 @@ import { cloneAndExtend } from '../utils/object.js'
  */
 
 /**
+ * @typedef {string} EndpointURL
+ * @typedef {(conversationId: any, request: any) => AsyncGenerator<any>} EndpointFunction
+ *
  * The useConversationManager hook is a React hook that manages the conversation
  * state including the messages, the input text and all calls to the ChatBotKit
  * API endpoint. It automatically handles the conversation state and other
@@ -36,7 +40,7 @@ import { cloneAndExtend } from '../utils/object.js'
  *
  * @param {{
  *   client?: ConversationClient,
- *   endpoint?: string,
+ *   endpoint?: EndpointURL|EndpointFunction,
  *   token?: string,
  *   conversationId?: string,
  *   backstory?: string,
@@ -79,13 +83,28 @@ export function useConversationManager(options) {
   const [skillsetId, setSkillsetId] = useState(_skillsetId)
 
   const client = useMemo(() => {
+    if (typeof endpoint === 'function') {
+      return {
+        complete(
+          /** @type {null|string} */ conversationId,
+          /** @type {any} */ options
+        ) {
+          return {
+            async *stream() {
+              yield* consume(endpoint(conversationId, options))
+            },
+          }
+        },
+      }
+    }
+
     const options = { ...rest, secret: token || '' }
 
     let thisClient = _client || new ConversationClient(options)
 
     const extension = {}
 
-    if (endpoint) {
+    if (typeof endpoint === 'string') {
       extension.url = new URL(
         globalThis.window?.location?.origin || 'about:blank'
       )
@@ -101,9 +120,9 @@ export function useConversationManager(options) {
 
     if (Object.keys(extension).length === 0) {
       return thisClient
+    } else {
+      return cloneAndExtend(thisClient, extension)
     }
-
-    return cloneAndExtend(thisClient, extension)
   }, [_client, endpoint, token])
 
   const [text, setText] = useState(/** @type {string} */ (''))
