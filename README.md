@@ -136,9 +136,9 @@ Some examples include:
 
 | Platform           | Example                                                                                                               | Description                                                                   |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Next.js            | [Basic Chat](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/basic-chat)                             | A basic chatbot example, where the conversation is managed by ChatBotKit.     |
-| Next.js            | [Stateless Chat](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/stateless-chat)                     | A stateless chatbot example, where the conversation is managed by the client. |
-| Next.js            | [NextAuth Example](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/basic-auth)                       | Shows how to combine NextAuth and ChatBotKit                                  |
+| Next.js            | [Basic Chat](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/pages/basic-chat)                       | A basic chatbot example, where the conversation is managed by ChatBotKit.     |
+| Next.js            | [Stateless Chat](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/pages/stateless-chat)               | A stateless chatbot example, where the conversation is managed by the client. |
+| Next.js            | [NextAuth Example](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/pages/basic-auth)                 | Shows how to combine NextAuth and ChatBotKit                                  |
 | Node               | [GPT4 Streaming AI chatbot](https://github.com/chatbotkit/node-sdk/tree/main/examples/sdk/esm/gpt4-chatbot-stream.js) | A simple streaming AI chatbot example.                                        |
 | Cloudflare Workers | [GPT4 AI chatbot](https://github.com/chatbotkit/node-sdk/tree/main/examples/cloudflare/gpt4-stream)                   | A streaming AI chatbot example for Cloudflare Workers.                        |
 

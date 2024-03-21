@@ -6,5 +6,6 @@ packages:
   - 'packages/next'
   - 'packages/nextauth'
   - 'examples/sdk/*'
-  - 'examples/nextjs/*'
+  - 'examples/nextjs/pages/*'
+  - 'examples/nextjs/app/*'
   - 'examples/cloudflare/*'

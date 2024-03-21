@@ -15,7 +15,7 @@ The most important files in this project are:
 From the root of the ChatBotKit Node SDK monorepo:
 
 ```bash
-pnpm -F @examples/nextjs-stateless-chat dev
+pnpm -F @examples/nextjs-pages-router-stateless-chat dev
 ```
 
 As a standalone application:
