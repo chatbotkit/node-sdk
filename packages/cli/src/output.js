@@ -1,5 +1,5 @@
-import util from 'util'
 import jsYaml from 'js-yaml'
+import util from 'util'
 
 export const config = {
   /** @type {'yaml'|'json'|'jsonl'} */

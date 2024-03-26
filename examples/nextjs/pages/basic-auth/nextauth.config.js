@@ -1,6 +1,6 @@
 import {
-  ChatBotKitPartnerAdapter,
   ChatBotKitEmailProvider,
+  ChatBotKitPartnerAdapter,
   MemoryStore,
 } from '@chatbotkit/nextauth'
 

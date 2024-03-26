@@ -13,7 +13,7 @@
  */
 
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} DatasetFileListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} DatasetFileListRequest
  * @typedef {{items: DatasetFileInstance[]}} DatasetFileListResponse
  *
  * @typedef {{

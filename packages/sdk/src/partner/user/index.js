@@ -1,11 +1,11 @@
-import { PartnerUserTokenClient } from './token/index.js'
 import { ChatBotKitClient } from '../../client.js'
+import { PartnerUserTokenClient } from './token/index.js'
 import {
-  listPartnerUsers,
-  fetchPartnerUser,
   createPartnerUser,
-  updatePartnerUser,
   deletePartnerUser,
+  fetchPartnerUser,
+  listPartnerUsers,
+  updatePartnerUser,
 } from './v1.js'
 
 /**

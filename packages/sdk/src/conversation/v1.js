@@ -26,11 +26,12 @@ import { buildModelString } from '../model/v1.js'
  *   updatedAt: number
  * }} ConversationInstance
  *
- * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'} MessageType
+ * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'|'activity'} MessageType
  *
  * @typedef {{
  *   type: MessageType,
- *   text: string
+ *   text: string,
+ *   meta?: Record<string,any>
  * }} Message
  *
  * @typedef {{
@@ -47,7 +48,7 @@ import { buildModelString } from '../model/v1.js'
  */
 
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} ConversationListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ConversationListRequest
  *
  * @typedef {{items: ConversationInstance[]}} ConversationListResponse
  *
@@ -177,6 +178,9 @@ export async function deleteConversation(client, conversationId) {
  *   messages?: Message[],
  *   datasetId?: string,
  *   skillsetId?: string,
+ *   unstable?: {
+ *     functions?: {name: string, description: string, parameters: any}[]
+ *   }
  * } & ({text: string}|{messages: Message[]})} ConversationCompleteRequest
  *
  * @typedef {{
@@ -196,7 +200,12 @@ export async function deleteConversation(client, conversationId) {
  *   }
  * }} ConversationCompleteStreamToken
  *
- * @typedef {ConversationCompleteStreamResult|ConversationCompleteStreamToken} ConversationCompleteStreamType
+ * @typedef {{
+ *   type: 'message',
+ *   data: Message
+ * }} ConversationCompleteMessage
+ *
+ * @typedef {ConversationCompleteStreamResult|ConversationCompleteStreamToken|ConversationCompleteMessage} ConversationCompleteStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {ConversationCompleteRequest} request

@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-
 import * as dotenv from 'dotenv'
 
-dotenv.config()
+import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 import fs from 'fs/promises'
-import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+
+dotenv.config()
 
 /**
  * Retrieves conversations and their messages from the Chatbotkit Conversation

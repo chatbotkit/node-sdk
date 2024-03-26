@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-
-import path from 'node:path'
 import fs from 'node:fs/promises'
+import path from 'node:path'
 
 async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
   const files = await fs.readdir(dirPath, { withFileTypes: true })

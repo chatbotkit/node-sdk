@@ -1,11 +1,11 @@
 import { ChatBotKitClient } from '../../client.js'
 import {
-  listSitemapIntegrations,
-  fetchSitemapIntegration,
   createSitemapIntegration,
-  updateSitemapIntegration,
   deleteSitemapIntegration,
+  fetchSitemapIntegration,
+  listSitemapIntegrations,
   syncSitemapIntegration,
+  updateSitemapIntegration,
 } from './v1.js'
 
 /**

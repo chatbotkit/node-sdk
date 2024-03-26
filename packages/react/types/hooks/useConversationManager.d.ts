@@ -13,21 +13,18 @@
  */
 /**
  * @typedef {{
- *   id: string,
- *   type: 'bot'|'user',
- *   text: string
+ *   id?: string,
+ *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
+ *   text: string,
+ *   meta?: Record<string,any>
  * }} Message
  */
 /**
  * @typedef {string} EndpointURL
  * @typedef {(conversationId: any, request: any) => AsyncGenerator<any>} EndpointFunction
- *
- * The useConversationManager hook is a React hook that manages the conversation
- * state including the messages, the input text and all calls to the ChatBotKit
- * API endpoint. It automatically handles the conversation state and other
- * details like the token and conversation ID.
- *
- * @param {{
+ */
+/**
+ * @typedef {{
  *   client?: ConversationClient,
  *   endpoint?: EndpointURL|EndpointFunction,
  *   token?: string,
@@ -37,43 +34,47 @@
  *   datasetId?: string,
  *   skillsetId?: string,
  *   [key: string]: any
- * }} options
+ * }} UseConversationManagerOptions
+ *
+ * @typedef {{
+ *   token?: string,
+ *   setToken: (token: string) => void,
+ *   conversationId?: string,
+ *   setConversationId: (conversationId: string) => void,
+ *   botId?: string,
+ *   setBotId: (botId: string) => void,
+ *   backstory?: string,
+ *   setBackstory: (backstory: string) => void,
+ *   model?: Model,
+ *   setModel: (model: Model) => void,
+ *   datasetId?: string,
+ *   setDatasetId: (datasetId: string) => void,
+ *   skillsetId?: string,
+ *   setSkillsetId: (skillsetId: string) => void,
+ *   text: string,
+ *   setText: (text: string) => void,
+ *   messages: Message[],
+ *   setMessages: (messages: Message[]) => void,
+ *   thinking: boolean,
+ *   setThinking: (thinking: boolean) => void,
+ *   typing: boolean,
+ *   setTyping: (typing: boolean) => void,
+ *   error: any,
+ *   setError: (error: any) => void,
+ *   submit: () => void
+ *   trigger: (name: string, ...args: any) => void
+ * }} UseConversationManagerResult
  */
-export function useConversationManager(options: {
-    [key: string]: any;
-    client?: ConversationClient | undefined;
-    endpoint?: string | EndpointFunction | undefined;
-    token?: string | undefined;
-    conversationId?: string | undefined;
-    backstory?: string | undefined;
-    Model?: string | undefined;
-    datasetId?: string | undefined;
-    skillsetId?: string | undefined;
-}): {
-    token: string | undefined;
-    setToken: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
-    conversationId: string | undefined;
-    setConversationId: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
-    backstory: string | undefined;
-    setBackstory: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
-    model: any;
-    setModel: import("react").Dispatch<any>;
-    datasetId: string | undefined;
-    setDatasetId: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
-    skillsetId: string | undefined;
-    setSkillsetId: import("react").Dispatch<import("react").SetStateAction<string | undefined>>;
-    text: string;
-    setText: import("react").Dispatch<import("react").SetStateAction<string>>;
-    messages: Message[];
-    setMessages: import("react").Dispatch<import("react").SetStateAction<Message[]>>;
-    thinking: boolean;
-    setThinking: import("react").Dispatch<import("react").SetStateAction<boolean>>;
-    typing: boolean;
-    setTyping: import("react").Dispatch<import("react").SetStateAction<boolean>>;
-    error: any;
-    setError: import("react").Dispatch<any>;
-    submit: () => Promise<void>;
-};
+/**
+ * The useConversationManager hook is a React hook that manages the conversation
+ * state including the messages, the input text and all calls to the ChatBotKit
+ * API endpoint. It automatically handles the conversation state and other
+ * details like the token and conversation ID.
+ *
+ * @param {UseConversationManagerOptions} options
+ * @returns {UseConversationManagerResult}
+ */
+export function useConversationManager(options: UseConversationManagerOptions): UseConversationManagerResult;
 export default useConversationManager;
 export type ModelConfig = {
     maxTokens?: number;
@@ -89,16 +90,50 @@ export type Model = string | {
     config?: ModelConfig;
 };
 export type Message = {
-    id: string;
-    type: 'bot' | 'user';
+    id?: string;
+    type: 'bot' | 'user' | 'context' | 'instruction' | 'backstory' | 'activity';
     text: string;
+    meta?: Record<string, any>;
 };
 export type EndpointURL = string;
-/**
- * The useConversationManager hook is a React hook that manages the conversation
- * state including the messages, the input text and all calls to the ChatBotKit
- * API endpoint. It automatically handles the conversation state and other
- * details like the token and conversation ID.
- */
 export type EndpointFunction = (conversationId: any, request: any) => AsyncGenerator<any>;
+export type UseConversationManagerOptions = {
+    [key: string]: any;
+    client?: ConversationClient | undefined;
+    endpoint?: string | EndpointFunction | undefined;
+    token?: string | undefined;
+    conversationId?: string | undefined;
+    backstory?: string | undefined;
+    Model?: string | undefined;
+    datasetId?: string | undefined;
+    skillsetId?: string | undefined;
+};
+export type UseConversationManagerResult = {
+    token?: string | undefined;
+    setToken: (token: string) => void;
+    conversationId?: string | undefined;
+    setConversationId: (conversationId: string) => void;
+    botId?: string | undefined;
+    setBotId: (botId: string) => void;
+    backstory?: string | undefined;
+    setBackstory: (backstory: string) => void;
+    model?: Model | undefined;
+    setModel: (model: Model) => void;
+    datasetId?: string | undefined;
+    setDatasetId: (datasetId: string) => void;
+    skillsetId?: string | undefined;
+    setSkillsetId: (skillsetId: string) => void;
+    text: string;
+    setText: (text: string) => void;
+    messages: Message[];
+    setMessages: (messages: Message[]) => void;
+    thinking: boolean;
+    setThinking: (thinking: boolean) => void;
+    typing: boolean;
+    setTyping: (typing: boolean) => void;
+    error: any;
+    setError: (error: any) => void;
+    submit: () => void;
+    trigger: (name: string, ...args: any) => void;
+};
 import { ConversationClient } from '@chatbotkit/sdk';

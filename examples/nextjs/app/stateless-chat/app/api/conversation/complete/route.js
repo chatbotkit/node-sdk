@@ -1,5 +1,5 @@
-import { ChatBotKit } from '@chatbotkit/sdk'
 import { stream } from '@chatbotkit/next/edge'
+import { ChatBotKit } from '@chatbotkit/sdk'
 
 // First, let's create a global instance of the ChatBotKit SDK client. You can
 // put it in a separate library file and reuse it elsewhere in your project.

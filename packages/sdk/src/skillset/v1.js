@@ -23,7 +23,7 @@
  */
 
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} SkillsetListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} SkillsetListRequest
  *
  * @typedef {{items: SkillsetInstance[]}} SkillsetListResponse
  *

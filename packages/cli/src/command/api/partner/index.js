@@ -1,6 +1,6 @@
-import { Command } from 'commander'
-
 import user from './user/index.js'
+
+import { Command } from 'commander'
 
 export const command = new Command()
   .name('partner')

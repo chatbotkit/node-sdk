@@ -1,9 +1,10 @@
 import * as dotenv from 'dotenv'
+
+import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+
 import readline from 'node:readline/promises'
 
 dotenv.config()
-
-import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 async function main() {
   const client = new ConversationClient({

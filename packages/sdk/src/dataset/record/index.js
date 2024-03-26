@@ -1,10 +1,10 @@
 import { ChatBotKitClient } from '../../client.js'
 import {
-  listDatasetRecords,
-  fetchDatasetRecord,
   createDatasetRecord,
-  updateDatasetRecord,
   deleteDatasetRecord,
+  fetchDatasetRecord,
+  listDatasetRecords,
+  updateDatasetRecord,
 } from './v1.js'
 
 /**

@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
-
 import * as dotenv from 'dotenv'
 
-dotenv.config()
-
 import { SkillsetAbilityClient } from '@chatbotkit/sdk/skillset/ability/index.js'
+
+dotenv.config()
 
 async function main() {
   if (!process.env.CHATBOTKIT_API_SECRET) {

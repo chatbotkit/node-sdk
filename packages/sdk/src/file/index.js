@@ -1,12 +1,12 @@
 import { ChatBotKitClient } from '../client.js'
 import {
-  listFiles,
-  fetchFile,
   createFile,
-  updateFile,
   deleteFile,
-  uploadFile,
   downloadFile,
+  fetchFile,
+  listFiles,
+  updateFile,
+  uploadFile,
 } from './v1.js'
 
 /**

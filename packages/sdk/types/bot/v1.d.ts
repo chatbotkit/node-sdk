@@ -24,7 +24,7 @@
  * }} BotInstance
  */
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} BotListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} BotListRequest
  *
  * @typedef {{items: BotInstance[]}} BotListResponse
  *
@@ -136,6 +136,7 @@ export type BotInstance = BotOptions & {
 };
 export type BotListRequest = {
     cursor?: string;
+    order?: 'desc' | 'asc';
     take?: number;
     meta?: Record<string, string>;
 };

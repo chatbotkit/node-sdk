@@ -1,11 +1,11 @@
 import { ChatBotKitClient } from '../../client.js'
 import {
-  listWhatsAppIntegrations,
-  fetchWhatsAppIntegration,
   createWhatsAppIntegration,
-  updateWhatsAppIntegration,
   deleteWhatsAppIntegration,
+  fetchWhatsAppIntegration,
+  listWhatsAppIntegrations,
   setupWhatsAppIntegration,
+  updateWhatsAppIntegration,
 } from './v1.js'
 
 /**

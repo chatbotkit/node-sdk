@@ -17,7 +17,7 @@
  * }} PartnerUserTokenInstance
  */
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} PartnerUserTokenListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PartnerUserTokenListRequest
  *
  * @typedef {{items: PartnerUserTokenInstance[]}} PartnerUserTokenListResponse
  *
@@ -71,6 +71,7 @@ export type PartnerUserTokenInstance = PartnerUserTokenOptions & {
 };
 export type PartnerUserTokenListRequest = {
     cursor?: string;
+    order?: 'desc' | 'asc';
     take?: number;
     meta?: Record<string, string>;
 };

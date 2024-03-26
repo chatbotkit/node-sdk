@@ -20,7 +20,7 @@
  * }} PartnerUserInstance
  */
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} PartnerUserListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PartnerUserListRequest
  *
  * @typedef {{items: PartnerUserInstance[]}} PartnerUserListResponse
  *
@@ -96,6 +96,7 @@ export type PartnerUserInstance = PartnerUserOptions & {
 };
 export type PartnerUserListRequest = {
     cursor?: string;
+    order?: 'desc' | 'asc';
     take?: number;
     meta?: Record<string, string>;
 };

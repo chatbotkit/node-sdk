@@ -19,7 +19,7 @@ To begin using the ChatBotKit Fetch SDK, follow these steps:
 2. **Usage**: The SDK can be used in any environment, ensuring a consistent fetch functionality across platforms. Here’s an example of how to use it:
 
    ```javascript
-   import fetch, { withTimeout, withRetry } from '@chatbotkit/fetch'
+   import fetch, { withRetry, withTimeout } from '@chatbotkit/fetch'
 
    // Enhance fetch with retry and timeout capabilities
    const fetchPlusPlus = withRetry(withTimeout(fetch))

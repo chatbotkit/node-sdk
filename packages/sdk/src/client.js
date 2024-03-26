@@ -1,11 +1,11 @@
 import {
-  fetch,
-  withTimeout,
-  withRetry,
-  FetchError,
-  jsonl,
   Blob,
+  FetchError,
   FormData,
+  fetch,
+  jsonl,
+  withRetry,
+  withTimeout,
 } from '@chatbotkit/fetch'
 
 const fetchPlusPlus = withRetry(withTimeout(fetch))

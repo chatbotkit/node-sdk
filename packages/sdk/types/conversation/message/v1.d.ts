@@ -22,7 +22,7 @@
  * }} ConversationMessageInstance
  */
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} ConversationMessageListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ConversationMessageListRequest
  *
  * @typedef {{items: ConversationMessageInstance[]}} ConversationMessageListResponse
  *
@@ -136,6 +136,7 @@ export type ConversationMessageInstance = ConversationMessageOptions & {
 };
 export type ConversationMessageListRequest = {
     cursor?: string;
+    order?: 'desc' | 'asc';
     take?: number;
     meta?: Record<string, string>;
 };

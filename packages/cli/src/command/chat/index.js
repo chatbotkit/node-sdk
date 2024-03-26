@@ -1,8 +1,9 @@
-import readline from 'readline/promises'
-import { Command, Option } from 'commander'
+import { getRUNAS_USERID, getSECRET } from '../../env.js'
+
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
-import { getSECRET, getRUNAS_USERID } from '../../env.js'
+import { Command, Option } from 'commander'
+import readline from 'readline/promises'
 
 const client = new ConversationClient({
   secret: getSECRET(),

@@ -10,10 +10,10 @@
  */
 export function AutoScroller(props?: {
     [name: string]: any;
-    anchor?: "bottom" | "top" | undefined;
+    anchor?: "top" | "bottom" | undefined;
     childList?: boolean | undefined;
     subtree?: boolean | undefined;
-    block?: "end" | "start" | undefined;
+    block?: "start" | "end" | undefined;
     delay?: number | undefined;
 } | undefined): import("react/jsx-runtime").JSX.Element;
 export default AutoScroller;

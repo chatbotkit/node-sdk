@@ -1,7 +1,8 @@
 'use client'
 
-import { ChatInput, useConversationManager } from '@chatbotkit/react'
 import { complete } from '../actions/conversation.js'
+
+import { ChatInput, useConversationManager } from '@chatbotkit/react'
 
 // This is a stateless example of how to use the ChatbotKit React components in
 // a Next.js application. We use the useConversationManager and AutoTextarea
@@ -14,9 +15,8 @@ import { complete } from '../actions/conversation.js'
 // messages and returning a stream response. The complete function is a server
 // action.
 //
-// The ChatInput component is a textarea that automatically that automatically
-// resizes to fit the content and also handles the enter key to submit the
-// message.
+// The ChatInput component is a textarea that automatically resizes to fit the
+// content and also handles the enter key to submit the message.
 
 export default function ChatArea() {
   const { thinking, text, setText, messages, submit } = useConversationManager({

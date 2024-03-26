@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
-
 import * as dotenv from 'dotenv'
 
-dotenv.config()
-
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+
+dotenv.config()
 
 /**
  * Retrieves a list of conversations from the Chatbotkit Conversation API using

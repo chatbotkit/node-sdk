@@ -106,7 +106,7 @@ export function stream(source) {
         } else if ('stream' in source && typeof source.stream === 'function') {
           it = source.stream()
         } else {
-          throw new Error('Invald source')
+          throw new Error('Invalid source')
         }
 
         try {

@@ -1,13 +1,13 @@
 import { ChatBotKitClient } from '../client.js'
 import { BotSessionClient } from './session/index.js'
 import {
-  listBots,
-  fetchBot,
   createBot,
-  updateBot,
   deleteBot,
-  upvoteBot,
   downvoteBot,
+  fetchBot,
+  listBots,
+  updateBot,
+  upvoteBot,
 } from './v1.js'
 
 /**

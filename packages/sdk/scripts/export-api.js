@@ -1,5 +1,5 @@
-import https from 'https'
 import fs from 'fs/promises'
+import https from 'https'
 import SwaggerClient from 'swagger-client'
 
 async function main() {

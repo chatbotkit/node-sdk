@@ -1,5 +1,4 @@
 // Import the ConversationClient class from the ChatBotKit SDK
-
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 export default {

@@ -1,8 +1,8 @@
 import { ChatBotKitClient } from '../../client.js'
 import {
-  listDatasetFiles,
   attachDatasetFile,
   detachDatasetFile,
+  listDatasetFiles,
   syncDatasetFile,
 } from './v1.js'
 

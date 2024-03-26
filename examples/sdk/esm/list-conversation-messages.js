@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
-
 import * as dotenv from 'dotenv'
 
-dotenv.config()
-
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+
+dotenv.config()
 
 async function main() {
   const client = new ConversationClient({

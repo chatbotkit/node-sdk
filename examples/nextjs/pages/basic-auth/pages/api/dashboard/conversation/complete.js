@@ -1,6 +1,7 @@
 import { getToken } from 'next-auth/jwt'
-import { ChatBotKit } from '@chatbotkit/sdk'
+
 import { stream } from '@chatbotkit/next/edge'
+import { ChatBotKit } from '@chatbotkit/sdk'
 
 export default async function handler(req) {
   const session = await getToken({ req })

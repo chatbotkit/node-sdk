@@ -1,8 +1,9 @@
-import { signOut } from 'next-auth/react'
 import { getServerSession } from 'next-auth/next'
-import { ChatInput, useConversationManager } from '@chatbotkit/react'
+import { signOut } from 'next-auth/react'
 
 import nextAuthConfig from '../../nextauth.config.js'
+
+import { ChatInput, useConversationManager } from '@chatbotkit/react'
 
 export default function Index() {
   const { thinking, text, setText, messages, submit } = useConversationManager({

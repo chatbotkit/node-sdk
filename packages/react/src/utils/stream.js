@@ -1,9 +1,13 @@
 /**
- * @todo come up with a better type for source
+ * @todo come up with a better type for source and result
  *
- * @param {any} source
+ * @typedef {any} StreamSource
+ * @typedef {any} StreamResult
+ *
+ * @param {StreamSource} source
+ * @returns {StreamResult}
  */
-export async function stream(source) {
+export function stream(source) {
   /** @type {Promise<any>} */
   let it
 
@@ -12,7 +16,7 @@ export async function stream(source) {
   } else if ('stream' in source && typeof source.stream === 'function') {
     return stream(source.stream())
   } else {
-    throw new Error('Invald source')
+    throw new Error('Invalid source')
   }
 
   return new Promise((resolve, reject) => {
@@ -29,9 +33,13 @@ export async function stream(source) {
 }
 
 /**
- * @todo come up with a better type for source
+ * @todo come up with a better type for source and result
  *
- * @param {any} source
+ * @typedef {any} ConsumeSource
+ * @typedef {any} ConsumeResult
+ *
+ * @param {ConsumeSource} source
+ * @returns {ConsumeResult}
  */
 export function consume(source) {
   return {

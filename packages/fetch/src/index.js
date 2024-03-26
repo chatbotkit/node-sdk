@@ -1,4 +1,4 @@
-import { fetch, Blob, FormData } from 'node-fetch-native'
+import { Blob, FormData, fetch } from 'node-fetch-native'
 
 export { fetch, Blob, FormData }
 

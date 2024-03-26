@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
-
 import * as dotenv from 'dotenv'
 
-dotenv.config()
-
 import { FileClient } from '@chatbotkit/sdk/file/index.js'
+
+dotenv.config()
 
 /**
  * The following method creates a file, uploads it and subsequently downloads it.

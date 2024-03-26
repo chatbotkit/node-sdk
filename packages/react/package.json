@@ -26,6 +26,14 @@
   "type": "module",
   "main": "./src/index.js",
   "exports": {
+    "./actions/complete": {
+      "types": "./types/actions/complete.d.ts",
+      "import": "./src/actions/complete.js"
+    },
+    "./actions/complete.js": {
+      "types": "./types/actions/complete.d.ts",
+      "import": "./src/actions/complete.js"
+    },
     "./components/AutoScroller": {
       "types": "./types/components/AutoScroller.d.ts",
       "import": "./src/components/AutoScroller.js"
@@ -65,6 +73,14 @@
     "./components/ChatMessages.js": {
       "types": "./types/components/ChatMessages.d.ts",
       "import": "./src/components/ChatMessages.js"
+    },
+    "./components/ConversationManager": {
+      "types": "./types/components/ConversationManager.d.ts",
+      "import": "./src/components/ConversationManager.js"
+    },
+    "./components/ConversationManager.js": {
+      "types": "./types/components/ConversationManager.d.ts",
+      "import": "./src/components/ConversationManager.js"
     },
     "./hooks/useConversationManager": {
       "types": "./types/hooks/useConversationManager.d.ts",

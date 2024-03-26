@@ -27,7 +27,7 @@
  * }} SitemapInegrationInstance
  */
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} SitemapIntegrationListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} SitemapIntegrationListRequest
  *
  * @typedef {{items: SitemapInegrationInstance[]}} SitemapIntegrationListResponse
  *
@@ -119,6 +119,7 @@ export type SitemapInegrationInstance = SitemapIntegrationOptions & {
 };
 export type SitemapIntegrationListRequest = {
     cursor?: string;
+    order?: 'desc' | 'asc';
     take?: number;
     meta?: Record<string, string>;
 };

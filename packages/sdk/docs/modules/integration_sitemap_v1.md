@@ -132,6 +132,7 @@ ___
 | :------ | :------ |
 | `cursor?` | `string` |
 | `meta?` | `Record`\<`string`, `string`\> |
+| `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
 #### Defined in

@@ -3,11 +3,13 @@
     "../../typedoc.base.json"
   ],
   "entryPoints": [
+    "./src/actions/complete.js",
     "./src/components/AutoScroller.js",
     "./src/components/AutoTextarea.js",
     "./src/components/ChatInput.js",
     "./src/components/ChatMessage.js",
     "./src/components/ChatMessages.js",
+    "./src/components/ConversationManager.js",
     "./src/hooks/useConversationManager.js",
     "./src/index.js",
     "./src/utils/object.js",

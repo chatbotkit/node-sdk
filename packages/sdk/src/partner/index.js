@@ -1,5 +1,5 @@
-import { PartnerUserClient } from './user/index.js'
 import { ChatBotKitClient } from '../client.js'
+import { PartnerUserClient } from './user/index.js'
 
 /**
  * Partner client.

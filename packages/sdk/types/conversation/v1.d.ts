@@ -22,11 +22,12 @@
  *   updatedAt: number
  * }} ConversationInstance
  *
- * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'} MessageType
+ * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'|'activity'} MessageType
  *
  * @typedef {{
  *   type: MessageType,
- *   text: string
+ *   text: string,
+ *   meta?: Record<string,any>
  * }} Message
  *
  * @typedef {{
@@ -42,7 +43,7 @@
  * }} Entity
  */
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} ConversationListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ConversationListRequest
  *
  * @typedef {{items: ConversationInstance[]}} ConversationListResponse
  *
@@ -113,6 +114,9 @@ export function deleteConversation(client: ChatBotKitClient, conversationId: str
  *   messages?: Message[],
  *   datasetId?: string,
  *   skillsetId?: string,
+ *   unstable?: {
+ *     functions?: {name: string, description: string, parameters: any}[]
+ *   }
  * } & ({text: string}|{messages: Message[]})} ConversationCompleteRequest
  *
  * @typedef {{
@@ -132,7 +136,12 @@ export function deleteConversation(client: ChatBotKitClient, conversationId: str
  *   }
  * }} ConversationCompleteStreamToken
  *
- * @typedef {ConversationCompleteStreamResult|ConversationCompleteStreamToken} ConversationCompleteStreamType
+ * @typedef {{
+ *   type: 'message',
+ *   data: Message
+ * }} ConversationCompleteMessage
+ *
+ * @typedef {ConversationCompleteStreamResult|ConversationCompleteStreamToken|ConversationCompleteMessage} ConversationCompleteStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {ConversationCompleteRequest} request
@@ -270,10 +279,11 @@ export type ConversationInstance = ConversationOptions & {
     createdAt: number;
     updatedAt: number;
 };
-export type MessageType = 'user' | 'bot' | 'context' | 'instruction' | 'backstory';
+export type MessageType = 'user' | 'bot' | 'context' | 'instruction' | 'backstory' | 'activity';
 export type Message = {
     type: MessageType;
     text: string;
+    meta?: Record<string, any>;
 };
 export type Entity = {
     type: string;
@@ -288,6 +298,7 @@ export type Entity = {
 };
 export type ConversationListRequest = {
     cursor?: string;
+    order?: 'desc' | 'asc';
     take?: number;
     meta?: Record<string, string>;
 };
@@ -321,6 +332,13 @@ export type ConversationCompleteRequest = {
     messages?: Message[];
     datasetId?: string;
     skillsetId?: string;
+    unstable?: {
+        functions?: {
+            name: string;
+            description: string;
+            parameters: any;
+        }[];
+    };
 } & ({
     text: string;
 } | {
@@ -342,7 +360,11 @@ export type ConversationCompleteStreamToken = {
         token: string;
     };
 };
-export type ConversationCompleteStreamType = ConversationCompleteStreamResult | ConversationCompleteStreamToken;
+export type ConversationCompleteMessage = {
+    type: 'message';
+    data: Message;
+};
+export type ConversationCompleteStreamType = ConversationCompleteStreamResult | ConversationCompleteStreamToken | ConversationCompleteMessage;
 export type ConversationCompleteMessageRequest = {
     text: string;
     entities?: Entity[];

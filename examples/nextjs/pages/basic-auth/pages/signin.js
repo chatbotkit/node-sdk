@@ -1,6 +1,7 @@
 import { useState } from 'react'
+
+import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import { useSession, signIn, signOut } from 'next-auth/react'
 
 import nextAuthConfig from '../nextauth.config.js'
 

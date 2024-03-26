@@ -2,17 +2,17 @@ import { ChatBotKitClient } from '../client.js'
 import { ConversationMessageClient } from './message/index.js'
 import { ConversationSessionClient } from './session/index.js'
 import {
-  listConversations,
-  fetchConversation,
-  createConversation,
-  updateConversation,
-  deleteConversation,
   completeConversation,
   completeConversationMessage,
-  sendConversationMessage,
-  receiveConversationMessage,
-  upvoteConversation,
+  createConversation,
+  deleteConversation,
   downvoteConversation,
+  fetchConversation,
+  listConversations,
+  receiveConversationMessage,
+  sendConversationMessage,
+  updateConversation,
+  upvoteConversation,
 } from './v1.js'
 
 /**

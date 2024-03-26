@@ -27,8 +27,8 @@ The following example showcases how to implement a chatbot in a Next.js applicat
 ```js
 // file: ./pages/api/conversation/complete.js
 // Import ChatBotKit and Edge streaming utilities
-import { ChatBotKit } from '@chatbotkit/sdk'
 import { stream } from '@chatbotkit/next/edge'
+import { ChatBotKit } from '@chatbotkit/sdk'
 
 // Initialize ChatBotKit with API secret
 const cbk = new ChatBotKit({

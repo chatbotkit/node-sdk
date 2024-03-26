@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
-
 import * as dotenv from 'dotenv'
 
-dotenv.config()
-
 import { PartnerUserClient } from '@chatbotkit/sdk/partner/user/index.js'
+
+dotenv.config()
 
 async function main() {
   if (!process.env.CHATBOTKIT_API_SECRET) {

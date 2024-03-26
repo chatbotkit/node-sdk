@@ -1,11 +1,11 @@
 import { ChatBotKitClient } from '../client.js'
 import { SkillsetAbilityClient } from './ability/index.js'
 import {
-  listSkillsets,
-  fetchSkillset,
   createSkillset,
-  updateSkillset,
   deleteSkillset,
+  fetchSkillset,
+  listSkillsets,
+  updateSkillset,
 } from './v1.js'
 
 /**

@@ -1,5 +1,5 @@
-import { fetchUsage } from './v1.js'
 import { ChatBotKitClient } from '../client.js'
+import { fetchUsage } from './v1.js'
 
 export class UsageClient extends ChatBotKitClient {
   /**

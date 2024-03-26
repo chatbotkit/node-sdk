@@ -1,8 +1,9 @@
-import { Command } from 'commander'
+import { getRUNAS_USERID, getSECRET } from '../../../../env.js'
+import { print } from '../../../../output.js'
+
 import { PartnerUserClient } from '@chatbotkit/sdk/partner/user/index.js'
 
-import { print } from '../../../../output.js'
-import { getSECRET, getRUNAS_USERID } from '../../../../env.js'
+import { Command } from 'commander'
 
 const client = new PartnerUserClient({
   secret: getSECRET(),

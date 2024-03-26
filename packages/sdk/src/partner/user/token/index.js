@@ -1,8 +1,8 @@
 import { ChatBotKitClient } from '../../../client.js'
 import {
-  listPartnerUserTokens,
   createPartnerUserToken,
   deletePartnerUserToken,
+  listPartnerUserTokens,
 } from './v1.js'
 
 /**

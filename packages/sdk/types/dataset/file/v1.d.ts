@@ -10,7 +10,7 @@
  * @typedef {import('../../file/v1.js').FileInstance} DatasetFileInstance
  */
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} DatasetFileListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} DatasetFileListRequest
  * @typedef {{items: DatasetFileInstance[]}} DatasetFileListResponse
  *
  * @typedef {{
@@ -75,6 +75,7 @@ export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T,
 export type DatasetFileInstance = import('../../file/v1.js').FileInstance;
 export type DatasetFileListRequest = {
     cursor?: string;
+    order?: 'desc' | 'asc';
     take?: number;
     meta?: Record<string, string>;
 };

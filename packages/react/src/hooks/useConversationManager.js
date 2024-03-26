@@ -1,11 +1,11 @@
 /* globals globalThis */
-
 import { useMemo, useState } from 'react'
-import { ConversationClient } from '@chatbotkit/sdk'
 
-import { getRandomId } from '../utils/string.js'
 import { cloneAndExtend } from '../utils/object.js'
 import { consume } from '../utils/stream.js'
+import { getRandomId } from '../utils/string.js'
+
+import { ConversationClient } from '@chatbotkit/sdk'
 
 /**
  * @typedef {{
@@ -23,22 +23,20 @@ import { consume } from '../utils/stream.js'
 
 /**
  * @typedef {{
- *   id: string,
- *   type: 'bot'|'user',
- *   text: string
+ *   id?: string,
+ *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
+ *   text: string,
+ *   meta?: Record<string,any>
  * }} Message
  */
 
 /**
  * @typedef {string} EndpointURL
  * @typedef {(conversationId: any, request: any) => AsyncGenerator<any>} EndpointFunction
- *
- * The useConversationManager hook is a React hook that manages the conversation
- * state including the messages, the input text and all calls to the ChatBotKit
- * API endpoint. It automatically handles the conversation state and other
- * details like the token and conversation ID.
- *
- * @param {{
+ */
+
+/**
+ * @typedef {{
  *   client?: ConversationClient,
  *   endpoint?: EndpointURL|EndpointFunction,
  *   token?: string,
@@ -48,7 +46,46 @@ import { consume } from '../utils/stream.js'
  *   datasetId?: string,
  *   skillsetId?: string,
  *   [key: string]: any
- * }} options
+ * }} UseConversationManagerOptions
+ *
+ * @typedef {{
+ *   token?: string,
+ *   setToken: (token: string) => void,
+ *   conversationId?: string,
+ *   setConversationId: (conversationId: string) => void,
+ *   botId?: string,
+ *   setBotId: (botId: string) => void,
+ *   backstory?: string,
+ *   setBackstory: (backstory: string) => void,
+ *   model?: Model,
+ *   setModel: (model: Model) => void,
+ *   datasetId?: string,
+ *   setDatasetId: (datasetId: string) => void,
+ *   skillsetId?: string,
+ *   setSkillsetId: (skillsetId: string) => void,
+ *   text: string,
+ *   setText: (text: string) => void,
+ *   messages: Message[],
+ *   setMessages: (messages: Message[]) => void,
+ *   thinking: boolean,
+ *   setThinking: (thinking: boolean) => void,
+ *   typing: boolean,
+ *   setTyping: (typing: boolean) => void,
+ *   error: any,
+ *   setError: (error: any) => void,
+ *   submit: () => void
+ *   trigger: (name: string, ...args: any) => void
+ * }} UseConversationManagerResult
+ */
+
+/**
+ * The useConversationManager hook is a React hook that manages the conversation
+ * state including the messages, the input text and all calls to the ChatBotKit
+ * API endpoint. It automatically handles the conversation state and other
+ * details like the token and conversation ID.
+ *
+ * @param {UseConversationManagerOptions} options
+ * @returns {UseConversationManagerResult}
  */
 export function useConversationManager(options) {
   const {
@@ -59,6 +96,8 @@ export function useConversationManager(options) {
     token: _token,
 
     conversationId: _conversationId,
+
+    botId: _botId,
 
     backstory: _backstory,
 
@@ -73,6 +112,8 @@ export function useConversationManager(options) {
   const [token, setToken] = useState(_token)
 
   const [conversationId, setConversationId] = useState(_conversationId)
+
+  const [botId, setBotId] = useState(_botId)
 
   const [backstory, setBackstory] = useState(_backstory)
 
@@ -134,27 +175,10 @@ export function useConversationManager(options) {
 
   const [error, setError] = useState(/** @type {any} */ (null))
 
-  async function submit() {
-    if (!text) {
-      return
-    }
-
-    setText('')
-
-    /** @type {Message} */
-    const userMessage = {
-      id: getRandomId('message-'),
-      type: 'user',
-      text: text,
-    }
-
-    /** @type {Message[]} */
-    let newMessages = messages.slice(0)
-
-    newMessages = [...newMessages, userMessage]
-
-    setMessages([...newMessages])
-
+  /**
+   * @param {Message[]} newMessages
+   */
+  async function stream(newMessages) {
     setThinking(true)
 
     let it
@@ -164,11 +188,15 @@ export function useConversationManager(options) {
         it = client.complete(conversationId, { text })
       } else {
         it = client.complete(null, {
+          // @todo uncomment once supported
+          // botId: botId,
           backstory: backstory,
           model: model,
           datasetId: datasetId,
           skillsetId: skillsetId,
-          messages: newMessages.slice(-100),
+          messages: newMessages
+            .slice(-100)
+            .map(({ type, text, meta }) => ({ type, text, meta })),
         })
       }
     } catch (e) {
@@ -190,21 +218,55 @@ export function useConversationManager(options) {
 
     try {
       for await (const event of it.stream()) {
-        if (event.type === 'token') {
-          if (!alreadyStreaming) {
-            alreadyStreaming = true
+        switch (event.type) {
+          case 'token': {
+            if (!alreadyStreaming) {
+              alreadyStreaming = true
 
-            newMessages = [...newMessages, botMessage]
+              newMessages = [...newMessages, botMessage]
 
-            setMessages(newMessages)
+              setMessages(newMessages)
 
-            setThinking(false)
-            setTyping(true)
+              setThinking(false)
+              setTyping(true)
+            }
+
+            botMessage.text += event.data.token
+
+            setMessages([...newMessages])
+
+            break
           }
 
-          botMessage.text += event.data.token
+          case 'message': {
+            /** @type {Message & { children?: import('react').ReactElement }} */
+            const message = event.data
 
-          setMessages([...newMessages])
+            if (
+              botMessage.text !== message.text ||
+              message.type === 'activity' ||
+              typeof message.children !== 'undefined'
+            ) {
+              const newMessage = {
+                // streamed messages do not have an id so we generate one here
+
+                id: getRandomId('message-'),
+
+                ...event.data,
+              }
+
+              newMessages = [...newMessages, newMessage]
+
+              setMessages([...newMessages])
+            }
+
+            break
+          }
+
+          case 'result': {
+            setThinking(false)
+            setTyping(false)
+          }
         }
       }
     } catch (e) {
@@ -214,12 +276,72 @@ export function useConversationManager(options) {
     }
   }
 
+  /**
+   * @returns {Promise<void>}
+   */
+  async function submit() {
+    if (!text) {
+      return
+    }
+
+    setText('')
+
+    /** @type {Message} */
+    const userMessage = {
+      id: getRandomId('message-'),
+      type: 'user',
+      text: text,
+    }
+
+    /** @type {Message[]} */
+    let newMessages = messages.slice(0)
+
+    newMessages = [...newMessages, userMessage]
+
+    setMessages([...newMessages])
+
+    await stream(newMessages)
+  }
+
+  /**
+   * @param {string} name
+   * @param  {...any} args
+   * @returns {Promise<void>}
+   */
+  async function trigger(name, ...args) {
+    const newMessages = [
+      ...messages,
+
+      /** @type {Message} */ ({
+        type: 'activity',
+        text: '',
+        meta: {
+          activity: {
+            type: 'trigger',
+            function: {
+              name: name,
+              arguments: args,
+            },
+          },
+        },
+      }),
+    ]
+
+    // @note here for information only, we are deliberately not adding this to the messages
+    // setMessages(newMessages)
+
+    await stream(newMessages)
+  }
+
   return {
     token,
     setToken,
 
     conversationId,
     setConversationId,
+
+    botId,
+    setBotId,
 
     backstory,
     setBackstory,
@@ -249,6 +371,8 @@ export function useConversationManager(options) {
     setError,
 
     submit,
+
+    trigger,
   }
 }
 

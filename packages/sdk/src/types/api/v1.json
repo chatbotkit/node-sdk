@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1704300993863)"
+    "version": "v1 (build 1711460103607)"
   },
   "servers": [
     {
@@ -75,7 +75,8 @@
           "bot",
           "context",
           "instruction",
-          "backstory"
+          "backstory",
+          "activity"
         ]
       },
       "BotVisibility": {
@@ -140,7 +141,8 @@
       "Model": {
         "type": "string",
         "description": "A model definition",
-        "pattern": "\\w+(?:\\/\\w+=\\w+)*"
+        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+        "example": "gpt-4-turbo/temperature=0.7"
       },
       "BotRef": {
         "type": "object",
@@ -160,6 +162,7 @@
             "type": "string",
             "description": "A model definition",
             "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+            "example": "gpt-4-turbo/temperature=0.7",
             "$$ref": "#/components/schemas/Model"
           },
           "backstory": {
@@ -185,6 +188,7 @@
         }
       },
       "BotRefOrConfig": {
+        "description": "A bot configuration or reference",
         "oneOf": [
           {
             "type": "object",
@@ -205,6 +209,7 @@
                 "type": "string",
                 "description": "A model definition",
                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                "example": "gpt-4-turbo/temperature=0.7",
                 "$$ref": "#/components/schemas/Model"
               },
               "backstory": {
@@ -234,7 +239,7 @@
       },
       "InstanceCrudProps": {
         "type": "object",
-        "description": "Instance properties",
+        "description": "Instance crud properties",
         "properties": {
           "name": {
             "type": "string",
@@ -254,7 +259,7 @@
       },
       "InstanceListProps": {
         "type": "object",
-        "description": "Instance properties",
+        "description": "Instance list properties",
         "properties": {
           "name": {
             "type": "string",
@@ -664,7 +669,7 @@
             "name": "botId",
             "required": true,
             "schema": {
-              "description": "The ID of the bot to fetch",
+              "description": "The ID of the bot to retrieve",
               "type": "string"
             }
           }
@@ -807,7 +812,7 @@
             "name": "botId",
             "required": true,
             "schema": {
-              "description": "The ID of the bot to delete",
+              "description": "The ID of the bot for this session",
               "type": "string"
             }
           }
@@ -837,7 +842,8 @@
                             "bot",
                             "context",
                             "instruction",
-                            "backstory"
+                            "backstory",
+                            "activity"
                           ],
                           "$$ref": "#/components/schemas/MessageType"
                         },
@@ -851,6 +857,12 @@
                         "text"
                       ]
                     }
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
                   }
                 }
               }
@@ -895,7 +907,8 @@
                               "bot",
                               "context",
                               "instruction",
-                              "backstory"
+                              "backstory",
+                              "activity"
                             ],
                             "$$ref": "#/components/schemas/MessageType"
                           },
@@ -1021,7 +1034,7 @@
     "/bot/{botId}/update": {
       "post": {
         "operationId": "updateBot",
-        "summary": "Update the specified bot",
+        "summary": "Update bot",
         "tags": [
           "Bot"
         ],
@@ -1362,7 +1375,7 @@
     "/bot/create": {
       "post": {
         "operationId": "createBot",
-        "summary": "Create a new bot",
+        "summary": "Create bot",
         "tags": [
           "Bot"
         ],
@@ -1495,7 +1508,7 @@
     "/bot/list": {
       "get": {
         "operationId": "listBots",
-        "summary": "Retrieve a list of bots belonging to the current user",
+        "summary": "Retrieve a list of bots",
         "tags": [
           "Bot"
         ],
@@ -1506,6 +1519,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -2035,7 +2061,7 @@
     "/conversation/{conversationId}/delete": {
       "post": {
         "operationId": "deleteConversation",
-        "summary": "Delete a conversation",
+        "summary": "Delete conversation",
         "tags": [
           "Conversation"
         ],
@@ -2136,7 +2162,7 @@
     "/conversation/{conversationId}/downvote": {
       "post": {
         "operationId": "downvoteConversation",
-        "summary": "Downvote a conversation",
+        "summary": "Downvote conversation",
         "tags": [
           "Conversation"
         ],
@@ -2290,7 +2316,7 @@
     "/conversation/{conversationId}/fetch": {
       "get": {
         "operationId": "fetchConversation",
-        "summary": "Fetch a conversation",
+        "summary": "Fetch conversation",
         "tags": [
           "Conversation"
         ],
@@ -2300,7 +2326,7 @@
             "name": "conversationId",
             "required": true,
             "schema": {
-              "description": "The ID of the conversation to fetch",
+              "description": "The ID of the conversation to retrieve",
               "type": "string"
             }
           }
@@ -2413,7 +2439,7 @@
     "/conversation/{conversationId}/message/{messageId}/delete": {
       "post": {
         "operationId": "deleteConversationMessage",
-        "summary": "Delete a message from a conversation",
+        "summary": "Delete a message",
         "tags": [
           "Conversation Message"
         ],
@@ -2523,7 +2549,7 @@
     "/conversation/{conversationId}/message/{messageId}/downvote": {
       "post": {
         "operationId": "downvoteConversationMessage",
-        "summary": "Downvote a conversation message",
+        "summary": "Downvote conversation message",
         "tags": [
           "Conversation Message"
         ],
@@ -2686,7 +2712,7 @@
     "/conversation/{conversationId}/message/{messageId}/fetch": {
       "get": {
         "operationId": "fetchConversationMessage",
-        "summary": "Fetch a conversation message",
+        "summary": "Fetch conversation message",
         "tags": [
           "Conversation Message"
         ],
@@ -2705,7 +2731,7 @@
             "name": "messageId",
             "required": true,
             "schema": {
-              "description": "The ID of the message to fetch",
+              "description": "The ID of the message to retrieve",
               "type": "string"
             }
           }
@@ -2730,7 +2756,8 @@
                         "bot",
                         "context",
                         "instruction",
-                        "backstory"
+                        "backstory",
+                        "activity"
                       ],
                       "$$ref": "#/components/schemas/MessageType"
                     },
@@ -2814,7 +2841,7 @@
     "/conversation/{conversationId}/message/{messageId}/update": {
       "post": {
         "operationId": "updateConversationMessage",
-        "summary": "Update a conversation message",
+        "summary": "Update conversation message",
         "tags": [
           "Conversation Message"
         ],
@@ -2980,7 +3007,7 @@
     "/conversation/{conversationId}/message/{messageId}/upvote": {
       "post": {
         "operationId": "upvoteConversationMessage",
-        "summary": "Upvote a conversation message",
+        "summary": "Upvote conversation message",
         "tags": [
           "Conversation Message"
         ],
@@ -3143,7 +3170,7 @@
     "/conversation/{conversationId}/message/create": {
       "post": {
         "operationId": "createConversationMessage",
-        "summary": "Create a new message",
+        "summary": "Create message",
         "tags": [
           "Conversation Message"
         ],
@@ -3173,7 +3200,8 @@
                       "bot",
                       "context",
                       "instruction",
-                      "backstory"
+                      "backstory",
+                      "activity"
                     ],
                     "$$ref": "#/components/schemas/MessageType"
                   },
@@ -3421,7 +3449,7 @@
     "/conversation/{conversationId}/message/list": {
       "get": {
         "operationId": "listConversationMessages",
-        "summary": "List messages in a conversation",
+        "summary": "List conversation messages",
         "tags": [
           "Conversation Message"
         ],
@@ -3441,6 +3469,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -3478,7 +3519,8 @@
                               "bot",
                               "context",
                               "instruction",
-                              "backstory"
+                              "backstory",
+                              "activity"
                             ],
                             "$$ref": "#/components/schemas/MessageType"
                           },
@@ -3538,7 +3580,8 @@
                                 "bot",
                                 "context",
                                 "instruction",
-                                "backstory"
+                                "backstory",
+                                "activity"
                               ],
                               "$$ref": "#/components/schemas/MessageType"
                             },
@@ -4237,7 +4280,7 @@
     "/conversation/{conversationId}/session/create": {
       "post": {
         "operationId": "createConversationSession",
-        "summary": "Create a new session",
+        "summary": "Create conversation session",
         "description": "Conversation tokens allow client-side applications to create a unique, authenticated credential for each conversation. This token can be used to interact with the conversation/{conversationId}/send, conversation/{conversationId}/receive, and conversation/{conversationId}/message/create routes on api.chatbotkit.com. By creating an individual token for each conversation, a client-side application is able to directly access and manipulate the conversation through these routes. Without conversation tokens, a client-side application would need to authenticate and access ChatBotKit conversation routes through a server-side application, which can be more complex and require additional infrastructure. By providing a way for client-side applications to authenticate and access the conversation routes directly, the token route simplifies the process of integrating with api.chatbotkit.com and makes it more convenient for developers to build chatbot applications.\n",
         "tags": [
           "Conversation Session"
@@ -4399,7 +4442,7 @@
     "/conversation/{conversationId}/update": {
       "post": {
         "operationId": "updateConversation",
-        "summary": "Update the specified conversation",
+        "summary": "Update conversation",
         "tags": [
           "Conversation"
         ],
@@ -4579,7 +4622,7 @@
     "/conversation/{conversationId}/upvote": {
       "post": {
         "operationId": "upvoteConversation",
-        "summary": "Upvote a conversation",
+        "summary": "Upvote conversation",
         "tags": [
           "Conversation"
         ],
@@ -4766,7 +4809,8 @@
                             "bot",
                             "context",
                             "instruction",
-                            "backstory"
+                            "backstory",
+                            "activity"
                           ],
                           "$$ref": "#/components/schemas/MessageType"
                         },
@@ -4968,6 +5012,7 @@
       "post": {
         "operationId": "createConversation",
         "summary": "Create a new conversation",
+        "description": "Create a new conversation with the given parameters and optional\nmessages. The conversation will be initialized with the the backstory,\nmodel, dataset, skillset and other configuration options of the bot.\nAlternatively the conversation can be initialized directly with the\nbackstory, model, dataset, skillset and other configuration options.\n\nAn array of messages can be included in the request body to add to the\nconversation.\n",
         "tags": [
           "Conversation"
         ],
@@ -4977,34 +5022,15 @@
             "application/json": {
               "schema": {
                 "type": "object",
+                "description": "A bot configuration or reference",
                 "properties": {
-                  "botId": {
-                    "description": "The bot id assigned to this conversation",
-                    "type": "string"
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
                   },
-                  "backstory": {
-                    "description": "The backstory for the conversation",
-                    "type": "string"
-                  },
-                  "model": {
-                    "description": "The model to use for the conversation",
-                    "type": "string"
-                  },
-                  "datasetId": {
-                    "description": "The ID of the dataset to use for the conversation",
-                    "type": "string"
-                  },
-                  "skillsetId": {
-                    "description": "The ID of the skillset to use for the conversation",
-                    "type": "string"
-                  },
-                  "privacy": {
-                    "description": "Turn conversation privacy features on",
-                    "type": "boolean"
-                  },
-                  "moderation": {
-                    "description": "Turn conversation moderation features on",
-                    "type": "boolean"
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
                   },
                   "meta": {
                     "type": "object",
@@ -5026,7 +5052,8 @@
                             "bot",
                             "context",
                             "instruction",
-                            "backstory"
+                            "backstory",
+                            "activity"
                           ],
                           "$$ref": "#/components/schemas/MessageType"
                         },
@@ -5041,7 +5068,54 @@
                       ]
                     }
                   }
-                }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
               }
             }
           }
@@ -5072,7 +5146,8 @@
                               "bot",
                               "context",
                               "instruction",
-                              "backstory"
+                              "backstory",
+                              "activity"
                             ],
                             "$$ref": "#/components/schemas/MessageType"
                           },
@@ -5166,6 +5241,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -5242,7 +5330,8 @@
                                     "bot",
                                     "context",
                                     "instruction",
-                                    "backstory"
+                                    "backstory",
+                                    "activity"
                                   ],
                                   "$$ref": "#/components/schemas/MessageType"
                                 },
@@ -5354,7 +5443,8 @@
                                       "bot",
                                       "context",
                                       "instruction",
-                                      "backstory"
+                                      "backstory",
+                                      "activity"
                                     ],
                                     "$$ref": "#/components/schemas/MessageType"
                                   },
@@ -5449,6 +5539,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -5743,7 +5846,7 @@
             "name": "datasetId",
             "required": true,
             "schema": {
-              "description": "The ID of the dataset to fetch",
+              "description": "The ID of the dataset to retrieve",
               "type": "string"
             }
           }
@@ -6223,7 +6326,7 @@
     "/dataset/{datasetId}/file/list": {
       "get": {
         "operationId": "listDatasetFiles",
-        "summary": "Retrieve a list of files attached to the dataset",
+        "summary": "Retrieve a list of dataset files",
         "tags": [
           "Dataset File"
         ],
@@ -6243,6 +6346,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -6552,7 +6668,7 @@
             "name": "recordId",
             "required": true,
             "schema": {
-              "description": "The ID of the record to delete",
+              "description": "The ID of the record to retrieve",
               "type": "string"
             }
           }
@@ -6818,7 +6934,7 @@
     "/dataset/{datasetId}/record/create": {
       "post": {
         "operationId": "createDatasetRecord",
-        "summary": "Create a new record",
+        "summary": "Create record",
         "tags": [
           "Dataset Record"
         ],
@@ -7001,6 +7117,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -7141,7 +7270,7 @@
     "/dataset/{datasetId}/record/list": {
       "get": {
         "operationId": "listDatasetRecords",
-        "summary": "Retrieve a list of records for a dataset",
+        "summary": "Retrieve a list of dataset records",
         "tags": [
           "Dataset Record"
         ],
@@ -7161,6 +7290,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -7496,7 +7638,7 @@
     "/dataset/{datasetId}/update": {
       "post": {
         "operationId": "updateDataset",
-        "summary": "Update the specified dataset",
+        "summary": "Update dataset",
         "tags": [
           "Dataset"
         ],
@@ -7685,7 +7827,7 @@
     "/dataset/create": {
       "post": {
         "operationId": "createDataset",
-        "summary": "Create a new dataset",
+        "summary": "Create dataset",
         "tags": [
           "Dataset"
         ],
@@ -7824,7 +7966,7 @@
     "/dataset/list": {
       "get": {
         "operationId": "listDatasets",
-        "summary": "Retrieve a list of datasets belonging to the current user",
+        "summary": "Retrieve a list of datasets",
         "tags": [
           "Dataset"
         ],
@@ -7835,6 +7977,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -8127,6 +8282,7 @@
       "get": {
         "operationId": "downloadFile",
         "summary": "Download a file",
+        "description": "Download a file. If the file is not public, the user must be\nauthenticated.\n",
         "tags": [
           "File"
         ],
@@ -8219,7 +8375,7 @@
             "name": "fileId",
             "required": true,
             "schema": {
-              "description": "The ID of the file to fetch",
+              "description": "The ID of the file to retrieve",
               "type": "string"
             }
           }
@@ -8435,7 +8591,7 @@
     "/file/{fileId}/update": {
       "post": {
         "operationId": "updateFile",
-        "summary": "Update the specified file",
+        "summary": "Update file",
         "tags": [
           "File"
         ],
@@ -8605,6 +8761,7 @@
       "post": {
         "operationId": "uploadFile",
         "summary": "Upload the specified file",
+        "description": "Upload the specified file to the file storage service. The file can be\nspecified either as a HTTP URL, a data URL, a multipart/form-data, or\nas a raw file stream. There is currently a limit of 4.5MB for files\nuploaded via all available methods except for direct-to-source uploads\nwhen using application/json request body with a file object.\n",
         "tags": [
           "File"
         ],
@@ -8810,7 +8967,7 @@
     "/file/create": {
       "post": {
         "operationId": "createFile",
-        "summary": "Create a new file",
+        "summary": "Create file",
         "tags": [
           "File"
         ],
@@ -8925,7 +9082,7 @@
     "/file/list": {
       "get": {
         "operationId": "listFiles",
-        "summary": "Retrieve a list of files belonging to the current user",
+        "summary": "Retrieve a list of files",
         "tags": [
           "File"
         ],
@@ -8936,6 +9093,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -9249,7 +9419,7 @@
             "name": "discordIntegrationId",
             "required": true,
             "schema": {
-              "description": "The ID of the Discord integration to fetch",
+              "description": "The ID of the Discord integration to retrieve",
               "type": "string"
             }
           }
@@ -9261,7 +9431,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance properties",
+                  "description": "A bot configuration or reference",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -9327,6 +9497,7 @@
                           "type": "string",
                           "description": "A model definition",
                           "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
                           "$$ref": "#/components/schemas/Model"
                         },
                         "backstory": {
@@ -9557,7 +9728,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "A bot configuration or reference",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -9614,6 +9785,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -9764,7 +9936,7 @@
     "/integration/discord/create": {
       "post": {
         "operationId": "createDiscordIntegration",
-        "summary": "Create a new Discord integration",
+        "summary": "Create Discord integration",
         "tags": [
           "Discord Integration"
         ],
@@ -9774,7 +9946,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "A bot configuration or reference",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -9831,6 +10003,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -9974,6 +10147,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -9993,7 +10179,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance properties",
+                        "description": "A bot configuration or reference",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -10059,6 +10245,7 @@
                                 "type": "string",
                                 "description": "A model definition",
                                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
                                 "$$ref": "#/components/schemas/Model"
                               },
                               "backstory": {
@@ -10108,7 +10295,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance properties",
+                          "description": "A bot configuration or reference",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -10175,6 +10362,7 @@
                                   "type": "string",
                                   "description": "A model definition",
                                   "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
                                   "$$ref": "#/components/schemas/Model"
                                 },
                                 "backstory": {
@@ -10237,6 +10425,767 @@
           }
         },
         "__originalOperationId": "listDiscordIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/extract/{extractIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteExtractIntegration",
+        "summary": "Delete Extract integration",
+        "tags": [
+          "Extract Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extractIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Extract integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Extract integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Extract integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "deleteExtractIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/extract/{extractIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchExtractIntegration",
+        "summary": "Fetch a extractIntegration",
+        "tags": [
+          "Extract Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extractIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Extract integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Extract integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Instance list properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The creation date"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The last update date"
+                    },
+                    "botId": {
+                      "description": "The ID of the Bot to use",
+                      "type": "string"
+                    },
+                    "schema": {
+                      "description": "The configured extraction schema",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "botId"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "fetchExtractIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/extract/{extractIntegrationId}/update": {
+      "post": {
+        "operationId": "updateExtractIntegration",
+        "summary": "Update a Extract integration",
+        "tags": [
+          "Extract Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extractIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Extract integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "botId": {
+                    "description": "The ID of the Bot to use",
+                    "type": "string"
+                  },
+                  "schema": {
+                    "description": "The configured extraction schema",
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Extract integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Extract Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "updateExtractIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/extract/create": {
+      "post": {
+        "operationId": "createExtractIntegration",
+        "summary": "Create Extract integration",
+        "tags": [
+          "Extract Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "botId": {
+                    "description": "The ID of the Bot to use",
+                    "type": "string"
+                  },
+                  "schema": {
+                    "description": "The configured extraction schema",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "botId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Extract integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Extract Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "createExtractIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/extract/list": {
+      "get": {
+        "operationId": "listExtractIntegrations",
+        "summary": "List Extract integrations",
+        "tags": [
+          "Extract Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Extract integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "botId": {
+                            "description": "The ID of the Bot to use",
+                            "type": "string"
+                          },
+                          "schema": {
+                            "description": "The configured extraction schema",
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "botId"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "botId": {
+                              "description": "The ID of the Bot to use",
+                              "type": "string"
+                            },
+                            "schema": {
+                              "description": "The configured extraction schema",
+                              "type": "object"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1extract~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "botId"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listExtractIntegrations",
         "security": [
           {
             "BearerAuth": []
@@ -10380,7 +11329,7 @@
             "name": "notionIntegrationId",
             "required": true,
             "schema": {
-              "description": "The ID of the Notion integration to fetch",
+              "description": "The ID of the Notion integration to retrieve",
               "type": "string"
             }
           }
@@ -10392,7 +11341,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance properties",
+                  "description": "Instance list properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -10649,7 +11598,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "Instance crud properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -10806,7 +11755,7 @@
     "/integration/notion/create": {
       "post": {
         "operationId": "createNotionIntegration",
-        "summary": "Create a new Notion integration",
+        "summary": "Create Notion integration",
         "tags": [
           "Notion Integration"
         ],
@@ -10816,7 +11765,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "Instance crud properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -10969,6 +11918,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -10988,7 +11950,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance properties",
+                        "description": "Instance list properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -11064,7 +12026,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance properties",
+                          "description": "Instance list properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -11297,7 +12259,7 @@
             "name": "sitemapIntegrationId",
             "required": true,
             "schema": {
-              "description": "The ID of the Sitemap integration to fetch",
+              "description": "The ID of the Sitemap integration to retrieve",
               "type": "string"
             }
           }
@@ -11309,7 +12271,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance properties",
+                  "description": "Instance list properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -11598,7 +12560,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "Instance crud properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -11767,7 +12729,7 @@
     "/integration/sitemap/create": {
       "post": {
         "operationId": "createSitemapIntegration",
-        "summary": "Create a new Sitemap integration",
+        "summary": "Create Sitemap integration",
         "tags": [
           "Sitemap Integration"
         ],
@@ -11777,7 +12739,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "Instance crud properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -11942,6 +12904,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -11961,7 +12936,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance properties",
+                        "description": "Instance list properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -12047,7 +13022,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance properties",
+                          "description": "Instance list properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -12290,7 +13265,7 @@
             "name": "slackIntegrationId",
             "required": true,
             "schema": {
-              "description": "The ID of the Slack integration to fetch",
+              "description": "The ID of the Slack integration to retrieve",
               "type": "string"
             }
           }
@@ -12302,7 +13277,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance properties",
+                  "description": "A bot configuration or reference",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -12333,6 +13308,10 @@
                     "sessionDuration": {
                       "description": "The session duration for the Slack integration",
                       "type": "number"
+                    },
+                    "visibleMessages": {
+                      "description": "The number of visible messages outside of the new thread",
+                      "type": "number"
                     }
                   },
                   "required": [
@@ -12360,6 +13339,7 @@
                           "type": "string",
                           "description": "A model definition",
                           "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
                           "$$ref": "#/components/schemas/Model"
                         },
                         "backstory": {
@@ -12590,7 +13570,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "A bot configuration or reference",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -12617,6 +13597,10 @@
                   "sessionDuration": {
                     "description": "The session duration for the Slack integration",
                     "type": "number"
+                  },
+                  "visibleMessages": {
+                    "description": "The number of visible messages outside of the new thread",
+                    "type": "number"
                   }
                 },
                 "oneOf": [
@@ -12639,6 +13623,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -12789,7 +13774,7 @@
     "/integration/slack/create": {
       "post": {
         "operationId": "createSlackIntegration",
-        "summary": "Create a new Slack integration",
+        "summary": "Create Slack integration",
         "tags": [
           "Slack Integration"
         ],
@@ -12799,7 +13784,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "A bot configuration or reference",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -12826,6 +13811,10 @@
                   "sessionDuration": {
                     "description": "The session duration for the Slack integration",
                     "type": "number"
+                  },
+                  "visibleMessages": {
+                    "description": "The number of visible messages outside of the new thread",
+                    "type": "number"
                   }
                 },
                 "oneOf": [
@@ -12848,6 +13837,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -12991,6 +13981,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -13010,7 +14013,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance properties",
+                        "description": "A bot configuration or reference",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -13041,6 +14044,10 @@
                           "sessionDuration": {
                             "description": "The session duration for the Slack integration",
                             "type": "number"
+                          },
+                          "visibleMessages": {
+                            "description": "The number of visible messages outside of the new thread",
+                            "type": "number"
                           }
                         },
                         "required": [
@@ -13068,6 +14075,7 @@
                                 "type": "string",
                                 "description": "A model definition",
                                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
                                 "$$ref": "#/components/schemas/Model"
                               },
                               "backstory": {
@@ -13117,7 +14125,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance properties",
+                          "description": "A bot configuration or reference",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -13148,6 +14156,10 @@
                             "sessionDuration": {
                               "description": "The session duration for the Slack integration",
                               "type": "number"
+                            },
+                            "visibleMessages": {
+                              "description": "The number of visible messages outside of the new thread",
+                              "type": "number"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1slack~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -13176,6 +14188,7 @@
                                   "type": "string",
                                   "description": "A model definition",
                                   "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
                                   "$$ref": "#/components/schemas/Model"
                                 },
                                 "backstory": {
@@ -13381,7 +14394,7 @@
             "name": "supportIntegrationId",
             "required": true,
             "schema": {
-              "description": "The ID of the Support integration to fetch",
+              "description": "The ID of the Support integration to retrieve",
               "type": "string"
             }
           }
@@ -13393,7 +14406,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance properties",
+                  "description": "Instance list properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -13517,7 +14530,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "Instance crud properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -13666,7 +14679,7 @@
     "/integration/support/create": {
       "post": {
         "operationId": "createSupportIntegration",
-        "summary": "Create a new Support integration",
+        "summary": "Create Support integration",
         "tags": [
           "Support Integration"
         ],
@@ -13676,7 +14689,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "Instance crud properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -13821,6 +14834,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -13840,7 +14866,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance properties",
+                        "description": "Instance list properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -13906,7 +14932,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance properties",
+                          "description": "Instance list properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -14129,7 +15155,7 @@
             "name": "whatsappIntegrationId",
             "required": true,
             "schema": {
-              "description": "The ID of the WhatsApp integration to fetch",
+              "description": "The ID of the WhatsApp integration to retrieve",
               "type": "string"
             }
           }
@@ -14141,7 +15167,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance properties",
+                  "description": "A bot configuration or reference",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -14207,6 +15233,7 @@
                           "type": "string",
                           "description": "A model definition",
                           "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
                           "$$ref": "#/components/schemas/Model"
                         },
                         "backstory": {
@@ -14459,7 +15486,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "A bot configuration or reference",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -14508,6 +15535,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -14658,7 +15686,7 @@
     "/integration/whatsapp/create": {
       "post": {
         "operationId": "createWhatsAppIntegration",
-        "summary": "Create a new WhatsApp integration",
+        "summary": "Create WhatsApp integration",
         "tags": [
           "WhatsApp Integration"
         ],
@@ -14668,7 +15696,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "A bot configuration or reference",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -14717,6 +15745,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -14860,6 +15889,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -14879,7 +15921,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance properties",
+                        "description": "A bot configuration or reference",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -14945,6 +15987,7 @@
                                 "type": "string",
                                 "description": "A model definition",
                                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
                                 "$$ref": "#/components/schemas/Model"
                               },
                               "backstory": {
@@ -14994,7 +16037,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance properties",
+                          "description": "A bot configuration or reference",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -15061,6 +16104,7 @@
                                   "type": "string",
                                   "description": "A model definition",
                                   "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
                                   "$$ref": "#/components/schemas/Model"
                                 },
                                 "backstory": {
@@ -15266,7 +16310,7 @@
             "name": "widgetIntegrationId",
             "required": true,
             "schema": {
-              "description": "The ID of the Widget integration to fetch",
+              "description": "The ID of the Widget integration to retrieve",
               "type": "string"
             }
           }
@@ -15278,7 +16322,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance properties",
+                  "description": "A bot configuration or reference",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -15310,6 +16354,10 @@
                       "description": "The theme of the Widget integration",
                       "type": "string"
                     },
+                    "layout": {
+                      "description": "The default layout of the Widget integration",
+                      "type": "string"
+                    },
                     "title": {
                       "description": "The title of the Widget integration",
                       "type": "string"
@@ -15333,6 +16381,10 @@
                     "sessionDuration": {
                       "description": "The session duration of the Widget integration",
                       "type": "number"
+                    },
+                    "language": {
+                      "description": "The language of the Widget integration",
+                      "type": "string"
                     },
                     "stream": {
                       "description": "Whether the Widget integration is streaming",
@@ -15360,6 +16412,22 @@
                     },
                     "contactCollection": {
                       "description": "Whether the Widget integration collects contacts",
+                      "type": "boolean"
+                    },
+                    "exportConversation": {
+                      "description": "Controls whether the Widget allows exporting the current conversation",
+                      "type": "boolean"
+                    },
+                    "restartConversation": {
+                      "description": "Controls whether the Widget allows restarting the conversation",
+                      "type": "boolean"
+                    },
+                    "maximize": {
+                      "description": "Controls whether the Widget allows maximizing the conversation",
+                      "type": "boolean"
+                    },
+                    "messagePeek": {
+                      "description": "Controls whether the Widget allows peeking at the initial messages",
                       "type": "boolean"
                     },
                     "poweredBy": {
@@ -15392,6 +16460,7 @@
                           "type": "string",
                           "description": "A model definition",
                           "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
                           "$$ref": "#/components/schemas/Model"
                         },
                         "backstory": {
@@ -15475,6 +16544,129 @@
         ]
       }
     },
+    "/integration/widget/{widgetIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupWidgetIntegration",
+        "summary": "Setup Widget integration",
+        "tags": [
+          "Widget Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "widgetIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Widget integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Widget integration was setup successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the setuped Widget integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "setupWidgetIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/integration/widget/{widgetIntegrationId}/update": {
       "post": {
         "operationId": "updateWidgetIntegration",
@@ -15499,7 +16691,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "A bot configuration or reference",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -15517,6 +16709,10 @@
                   },
                   "theme": {
                     "description": "The theme of the Widget integration",
+                    "type": "string"
+                  },
+                  "layout": {
+                    "description": "The default layout of the Widget integration",
                     "type": "string"
                   },
                   "title": {
@@ -15542,6 +16738,10 @@
                   "sessionDuration": {
                     "description": "The session duration of the Widget integration",
                     "type": "number"
+                  },
+                  "language": {
+                    "description": "The language of the Widget integration",
+                    "type": "string"
                   },
                   "stream": {
                     "description": "Whether the Widget integration is streaming",
@@ -15571,6 +16771,22 @@
                     "description": "Whether the Widget integration collects contacts",
                     "type": "boolean"
                   },
+                  "exportConversation": {
+                    "description": "Controls whether the Widget allows exporting the current conversation",
+                    "type": "boolean"
+                  },
+                  "restartConversation": {
+                    "description": "Controls whether the Widget allows restarting the conversation",
+                    "type": "boolean"
+                  },
+                  "maximize": {
+                    "description": "Controls whether the Widget allows maximizing the conversation",
+                    "type": "boolean"
+                  },
+                  "messagePeek": {
+                    "description": "Controls whether the Widget allows peeking at the initial messages",
+                    "type": "boolean"
+                  },
                   "poweredBy": {
                     "description": "Whether the Widget integration displays powered by ChatBotKit",
                     "type": "boolean"
@@ -15596,6 +16812,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -15746,7 +16963,7 @@
     "/integration/widget/create": {
       "post": {
         "operationId": "createWidgetIntegration",
-        "summary": "Create a new Widget integration",
+        "summary": "Create Widget integration",
         "tags": [
           "Widget Integration"
         ],
@@ -15756,7 +16973,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance properties",
+                "description": "A bot configuration or reference",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -15774,6 +16991,10 @@
                   },
                   "theme": {
                     "description": "The theme of the Widget integration",
+                    "type": "string"
+                  },
+                  "layout": {
+                    "description": "The default layout of the Widget integration",
                     "type": "string"
                   },
                   "title": {
@@ -15799,6 +17020,10 @@
                   "sessionDuration": {
                     "description": "The session duration of the Widget integration",
                     "type": "number"
+                  },
+                  "language": {
+                    "description": "The language of the Widget integration",
+                    "type": "string"
                   },
                   "stream": {
                     "description": "Whether the Widget integration is streaming",
@@ -15828,6 +17053,22 @@
                     "description": "Whether the Widget integration collects contacts",
                     "type": "boolean"
                   },
+                  "exportConversation": {
+                    "description": "Controls whether the Widget allows exporting the current conversation",
+                    "type": "boolean"
+                  },
+                  "maximize": {
+                    "description": "Controls whether the Widget allows maximizing the conversation",
+                    "type": "boolean"
+                  },
+                  "messagePeek": {
+                    "description": "Controls whether the Widget allows peeking at the initial messages",
+                    "type": "boolean"
+                  },
+                  "restartConversation": {
+                    "description": "Controls whether the Widget allows restarting the conversation",
+                    "type": "boolean"
+                  },
                   "poweredBy": {
                     "description": "Whether the Widget integration displays powered by ChatBotKit",
                     "type": "boolean"
@@ -15853,6 +17094,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -15996,6 +17238,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -16015,7 +17270,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance properties",
+                        "description": "A bot configuration or reference",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -16047,6 +17302,10 @@
                             "description": "The theme of the Widget integration",
                             "type": "string"
                           },
+                          "layout": {
+                            "description": "The default layout of the Widget integration",
+                            "type": "string"
+                          },
                           "title": {
                             "description": "The title of the Widget integration",
                             "type": "string"
@@ -16070,6 +17329,10 @@
                           "sessionDuration": {
                             "description": "The session duration of the Widget integration",
                             "type": "number"
+                          },
+                          "language": {
+                            "description": "The language of the Widget integration",
+                            "type": "string"
                           },
                           "stream": {
                             "description": "Whether the Widget integration is streaming",
@@ -16097,6 +17360,22 @@
                           },
                           "contactCollection": {
                             "description": "Whether the Widget integration collects contacts",
+                            "type": "boolean"
+                          },
+                          "exportConversation": {
+                            "description": "Controls whether the Widget allows exporting the current conversation",
+                            "type": "boolean"
+                          },
+                          "restartConversation": {
+                            "description": "Controls whether the Widget allows restarting the conversation",
+                            "type": "boolean"
+                          },
+                          "maximize": {
+                            "description": "Controls whether the Widget allows maximizing the conversation",
+                            "type": "boolean"
+                          },
+                          "messagePeek": {
+                            "description": "Controls whether the Widget allows peeking at the initial messages",
                             "type": "boolean"
                           },
                           "poweredBy": {
@@ -16129,6 +17408,7 @@
                                 "type": "string",
                                 "description": "A model definition",
                                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
                                 "$$ref": "#/components/schemas/Model"
                               },
                               "backstory": {
@@ -16178,7 +17458,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance properties",
+                          "description": "A bot configuration or reference",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -16210,6 +17490,10 @@
                               "description": "The theme of the Widget integration",
                               "type": "string"
                             },
+                            "layout": {
+                              "description": "The default layout of the Widget integration",
+                              "type": "string"
+                            },
                             "title": {
                               "description": "The title of the Widget integration",
                               "type": "string"
@@ -16233,6 +17517,10 @@
                             "sessionDuration": {
                               "description": "The session duration of the Widget integration",
                               "type": "number"
+                            },
+                            "language": {
+                              "description": "The language of the Widget integration",
+                              "type": "string"
                             },
                             "stream": {
                               "description": "Whether the Widget integration is streaming",
@@ -16260,6 +17548,22 @@
                             },
                             "contactCollection": {
                               "description": "Whether the Widget integration collects contacts",
+                              "type": "boolean"
+                            },
+                            "exportConversation": {
+                              "description": "Controls whether the Widget allows exporting the current conversation",
+                              "type": "boolean"
+                            },
+                            "restartConversation": {
+                              "description": "Controls whether the Widget allows restarting the conversation",
+                              "type": "boolean"
+                            },
+                            "maximize": {
+                              "description": "Controls whether the Widget allows maximizing the conversation",
+                              "type": "boolean"
+                            },
+                            "messagePeek": {
+                              "description": "Controls whether the Widget allows peeking at the initial messages",
                               "type": "boolean"
                             },
                             "poweredBy": {
@@ -16293,6 +17597,7 @@
                                   "type": "string",
                                   "description": "A model definition",
                                   "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
                                   "$$ref": "#/components/schemas/Model"
                                 },
                                 "backstory": {
@@ -16640,7 +17945,7 @@
             "name": "userId",
             "required": true,
             "schema": {
-              "description": "The ID of the partner user to fetch",
+              "description": "The ID of the partner user to retrieve",
               "type": "string"
             }
           }
@@ -16855,7 +18160,7 @@
     "/partner/user/{userId}/token/create": {
       "post": {
         "operationId": "createPartnerUserToken",
-        "summary": "Create a new partner user token",
+        "summary": "Create partner user token",
         "tags": [
           "Partner"
         ],
@@ -16986,6 +18291,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -17278,7 +18596,7 @@
     "/partner/user/create": {
       "post": {
         "operationId": "createPartnerUser",
-        "summary": "Create a new partner user",
+        "summary": "Create partner user",
         "tags": [
           "Partner"
         ],
@@ -17395,6 +18713,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -17551,6 +18882,202 @@
         ]
       }
     },
+    "/platform/model/list": {
+      "get": {
+        "operationId": "listPlatformModels",
+        "summary": "Retrieve a list of platform models",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of models was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of models",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the model",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the model",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "description": "The backstory of the model",
+                            "type": "string"
+                          },
+                          "family": {
+                            "description": "The model of the model",
+                            "type": "string"
+                          },
+                          "maxTokens": {
+                            "description": "The maximum number of tokens the model can use",
+                            "type": "number"
+                          },
+                          "maxInputTokens": {
+                            "description": "The maximum number of tokens the model can accept",
+                            "type": "number"
+                          },
+                          "maxOutputTokens": {
+                            "description": "The maximum number of tokens the model can generate",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "description",
+                          "provider",
+                          "family",
+                          "maxTokens",
+                          "maxInputTokens",
+                          "maxOutputTokens"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The ID of the model",
+                              "type": "string"
+                            },
+                            "description": {
+                              "description": "The description of the model",
+                              "type": "string"
+                            },
+                            "provider": {
+                              "description": "The backstory of the model",
+                              "type": "string"
+                            },
+                            "family": {
+                              "description": "The model of the model",
+                              "type": "string"
+                            },
+                            "maxTokens": {
+                              "description": "The maximum number of tokens the model can use",
+                              "type": "number"
+                            },
+                            "maxInputTokens": {
+                              "description": "The maximum number of tokens the model can accept",
+                              "type": "number"
+                            },
+                            "maxOutputTokens": {
+                              "description": "The maximum number of tokens the model can generate",
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "description",
+                            "provider",
+                            "family",
+                            "maxTokens",
+                            "maxInputTokens",
+                            "maxOutputTokens"
+                          ],
+                          "$$ref": "#/paths/~1platform~1model~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listPlatformModels",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/skillset/{skillsetId}/ability/{abilityId}/delete": {
       "post": {
         "operationId": "deleteSkillsetAbility",
@@ -17683,7 +19210,7 @@
             "name": "abilityId",
             "required": true,
             "schema": {
-              "description": "The ID of the ability to delete",
+              "description": "The ID of the ability to retrieve",
               "type": "string"
             }
           }
@@ -17967,7 +19494,7 @@
     "/skillset/{skillsetId}/ability/create": {
       "post": {
         "operationId": "createSkillsetAbility",
-        "summary": "Create a new ability",
+        "summary": "Create ability",
         "tags": [
           "Skillset Ability"
         ],
@@ -18160,6 +19687,19 @@
           },
           {
             "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
             "name": "take",
             "schema": {
               "description": "The number of items to retrieve",
@@ -18316,7 +19856,7 @@
     "/skillset/{skillsetId}/ability/list": {
       "get": {
         "operationId": "listSkillsetAbilities",
-        "summary": "Retrieve a list of abilities for a skillset",
+        "summary": "Retrieve a list of skillset abilities",
         "tags": [
           "Skillset Ability"
         ],
@@ -18336,6 +19876,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {
@@ -18624,7 +20177,7 @@
             "name": "skillsetId",
             "required": true,
             "schema": {
-              "description": "The ID of the skillset to fetch",
+              "description": "The ID of the skillset to retrieve",
               "type": "string"
             }
           }
@@ -18739,7 +20292,7 @@
     "/skillset/{skillsetId}/update": {
       "post": {
         "operationId": "updateSkillset",
-        "summary": "Update the specified skillset",
+        "summary": "Update skillset",
         "tags": [
           "Skillset"
         ],
@@ -18908,7 +20461,7 @@
     "/skillset/create": {
       "post": {
         "operationId": "createSkillset",
-        "summary": "Create a new skillset",
+        "summary": "Create skillset",
         "tags": [
           "Skillset"
         ],
@@ -19023,7 +20576,7 @@
     "/skillset/list": {
       "get": {
         "operationId": "listSkillsets",
-        "summary": "Retrieve a list of skillsets belonging to the current user",
+        "summary": "Retrieve a list of skillsets",
         "tags": [
           "Skillset"
         ],
@@ -19034,6 +20587,19 @@
             "schema": {
               "description": "The cursor to use for pagination",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
             }
           },
           {

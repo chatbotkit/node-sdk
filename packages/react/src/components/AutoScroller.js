@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 function AutoScrollAnchor() {
   return <div className="auto-scroll-anchor" style={{ height: '1px' }} />

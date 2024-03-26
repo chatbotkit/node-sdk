@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-
 import * as dotenv from 'dotenv'
+
+import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+
 import readline from 'node:readline/promises'
 
 dotenv.config()
-
-import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 /**
  * The main() function creates a new ConversationClient object, which uses a

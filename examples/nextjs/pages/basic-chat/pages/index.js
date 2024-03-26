@@ -8,9 +8,8 @@ import { ChatInput, useConversationManager } from '@chatbotkit/react'
 // state including the messages, the input text and all calls to the ChatBotKit
 // API endpoint.
 //
-// The ChatInput component is a textarea that automatically that automatically
-// resizes to fit the content and also handles the enter key to submit the
-// message.
+// The ChatInput component is a textarea that automatically resizes to fit the
+// content and also handles the enter key to submit the message.
 
 export default function Index() {
   const {

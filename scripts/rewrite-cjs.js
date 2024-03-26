@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-
-import path from 'path'
 import fs from 'fs/promises'
+import path from 'path'
 
 async function* readDirFiles(dirPath, ext = '.cjs') {
   const files = await fs.readdir(dirPath)

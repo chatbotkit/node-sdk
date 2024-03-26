@@ -1,10 +1,18 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": false,
   "editor.tabSize": 2,
   "editor.rulers": [80],
-  "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "terminal.integrated.scrollback": 100000,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
+  },
+  "githubPullRequests.remotes": ["origin"],
+  "files.autoSave": "off",
+  "files.associations": {
+    "*.xml": "html",
+    "*.svg": "html"
   }
 }

@@ -21,7 +21,7 @@
  * }} SkillsetAbilityInstance
  */
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} SkillsetAbilityListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} SkillsetAbilityListRequest
  *
  * @typedef {{items: SkillsetAbilityInstance[]}} SkillsetAbilityListResponse
  *
@@ -103,6 +103,7 @@ export type SkillsetAbilityInstance = SkillsetAbilityOptions & {
 };
 export type SkillsetAbilityListRequest = {
     cursor?: string;
+    order?: 'desc' | 'asc';
     take?: number;
     meta?: Record<string, string>;
 };

@@ -1,5 +1,5 @@
-import { createBotSession } from './v1.js'
 import { ChatBotKitClient } from '../../client.js'
+import { createBotSession } from './v1.js'
 
 /**
  * Bot session client.

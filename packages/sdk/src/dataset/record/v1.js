@@ -22,7 +22,7 @@
  */
 
 /**
- * @typedef {{cursor?: string, take?: number, meta?: Record<string,string>}} DatasetRecordListRequest
+ * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} DatasetRecordListRequest
  *
  * @typedef {{items: DatasetRecordInstance[]}} DatasetRecordListResponse
  *

@@ -1,10 +1,10 @@
-import { Command, Option } from 'commander'
-
-import partner from './partner/index.js'
-import dataset from './dataset/index.js'
-import skillset from './skillset/index.js'
-import conversation from './conversation/index.js'
 import { config as printConfig } from '../../output.js'
+import conversation from './conversation/index.js'
+import dataset from './dataset/index.js'
+import partner from './partner/index.js'
+import skillset from './skillset/index.js'
+
+import { Command, Option } from 'commander'
 
 export const command = new Command()
   .name('api')

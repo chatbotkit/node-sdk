@@ -1,9 +1,10 @@
 import * as dotenv from 'dotenv'
+
+import { MagicClient } from '@chatbotkit/sdk/magic/index.js'
+
 import readline from 'node:readline/promises'
 
 dotenv.config()
-
-import { MagicClient } from '@chatbotkit/sdk/magic/index.js'
 
 async function main() {
   const client = new MagicClient({
