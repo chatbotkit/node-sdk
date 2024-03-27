@@ -72,16 +72,16 @@ File client.
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -99,7 +99,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): `Promise`\<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
 
 Creates a new file.
 
@@ -111,7 +111,7 @@ Creates a new file.
 
 #### Returns
 
-`Promise`\<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
 
 #### Defined in
 
@@ -121,7 +121,7 @@ ___
 
 ### delete
 
-▸ **delete**(`fileId`): `Promise`\<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
+▸ **delete**(`fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
 
 Deletes the file.
 
@@ -133,7 +133,7 @@ Deletes the file.
 
 #### Returns
 
-`Promise`\<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
 
 #### Defined in
 
@@ -143,7 +143,7 @@ ___
 
 ### download
 
-▸ **download**(`fileId`): `Promise`\<[`FileDownloadResponse`](../modules/file_v1.md#filedownloadresponse)\>
+▸ **download**(`fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileDownloadResponse`](../modules/file_v1.md#filedownloadresponse)\>
 
 Download file data.
 
@@ -155,7 +155,7 @@ Download file data.
 
 #### Returns
 
-`Promise`\<[`FileDownloadResponse`](../modules/file_v1.md#filedownloadresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileDownloadResponse`](../modules/file_v1.md#filedownloadresponse)\>
 
 #### Defined in
 
@@ -165,7 +165,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`fileId`): `Promise`\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse)\>
+▸ **fetch**(`fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse)\>
 
 Fetches a file.
 
@@ -177,7 +177,7 @@ Fetches a file.
 
 #### Returns
 
-`Promise`\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse)\>
 
 #### Defined in
 
@@ -209,7 +209,7 @@ ___
 
 ### update
 
-▸ **update**(`fileId`, `request`): `Promise`\<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
+▸ **update**(`fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
 
 Updates a file.
 
@@ -222,7 +222,7 @@ Updates a file.
 
 #### Returns
 
-`Promise`\<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
 
 #### Defined in
 
@@ -232,7 +232,7 @@ ___
 
 ### upload
 
-▸ **upload**(`fileId`, `request`): `Promise`\<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
+▸ **upload**(`fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
 
 Upload file data.
 
@@ -245,7 +245,7 @@ Upload file data.
 
 #### Returns
 
-`Promise`\<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
 
 #### Defined in
 

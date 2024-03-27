@@ -66,16 +66,16 @@ Bot session client.
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -93,7 +93,7 @@ ___
 
 ### create
 
-▸ **create**(`botId`, `request`): `Promise`\<[`BotSessionCreateResponse`](../modules/bot_session_v1.md#botsessioncreateresponse)\>
+▸ **create**(`botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotSessionCreateResponse`](../modules/bot_session_v1.md#botsessioncreateresponse)\>
 
 Creates a new session.
 
@@ -106,7 +106,7 @@ Creates a new session.
 
 #### Returns
 
-`Promise`\<[`BotSessionCreateResponse`](../modules/bot_session_v1.md#botsessioncreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotSessionCreateResponse`](../modules/bot_session_v1.md#botsessioncreateresponse)\>
 
 #### Defined in
 

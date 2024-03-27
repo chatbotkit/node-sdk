@@ -24,11 +24,11 @@
 
 ### FetchFn
 
-Ƭ **FetchFn**\<\>: (`url`: `string`, `options?`: `RequestInit`) => `Promise`\<`Response`\>
+Ƭ **FetchFn**\<\>: (`url`: `string`, `options?`: `RequestInit`) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 #### Type declaration
 
-▸ (`url`, `options?`): `Promise`\<`Response`\>
+▸ (`url`, `options?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 ##### Parameters
 
@@ -39,7 +39,7 @@
 
 ##### Returns
 
-`Promise`\<`Response`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 #### Defined in
 
@@ -89,7 +89,7 @@ Add timeout capabilities to any fetch implementation.
 
 ### jsonl
 
-▸ **jsonl**(`body`): `AsyncGenerator`\<`Record`\<`string`, `any`\>, `any`, `any`\>
+▸ **jsonl**(`body`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<[`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\>, `any`, `any`\>
 
 Expose a JSONL stream as an async iterable.
 
@@ -97,11 +97,11 @@ Expose a JSONL stream as an async iterable.
 
 | Name | Type |
 | :------ | :------ |
-| `body` | `ReadableStream`\<`Uint8Array`\> & \{ `[asyncIterator]`: () => `AsyncIterator`\<`Uint8Array`, `any`, `undefined`\>  } |
+| `body` | [`ReadableStream`]( https://developer.mozilla.org/docs/Web/API/ReadableStream )\<[`Uint8Array`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array )\> & \{ `[asyncIterator]`: () => [`AsyncIterator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator )\<[`Uint8Array`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array ), `any`, `undefined`\>  } |
 
 #### Returns
 
-`AsyncGenerator`\<`Record`\<`string`, `any`\>, `any`, `any`\>
+[`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<[`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\>, `any`, `any`\>
 
 #### Defined in
 

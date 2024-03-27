@@ -112,7 +112,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
-| `meta?` | `Record`\<`string`, `string`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
@@ -173,7 +173,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `meta?` | `Record`\<`string`, `any`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `text` | `string` |
 
 #### Defined in
@@ -227,7 +227,7 @@ ___
 
 ### createDatasetRecord
 
-▸ **createDatasetRecord**(`client`, `datasetId`, `request`): `Promise`\<[`DatasetRecordCreateResponse`](dataset_record_v1.md#datasetrecordcreateresponse)\>
+▸ **createDatasetRecord**(`client`, `datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordCreateResponse`](dataset_record_v1.md#datasetrecordcreateresponse)\>
 
 #### Parameters
 
@@ -239,7 +239,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetRecordCreateResponse`](dataset_record_v1.md#datasetrecordcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordCreateResponse`](dataset_record_v1.md#datasetrecordcreateresponse)\>
 
 #### Defined in
 
@@ -249,7 +249,7 @@ ___
 
 ### deleteDatasetRecord
 
-▸ **deleteDatasetRecord**(`client`, `datasetId`, `recordId`): `Promise`\<[`DatasetRecordDeleteResponse`](dataset_record_v1.md#datasetrecorddeleteresponse)\>
+▸ **deleteDatasetRecord**(`client`, `datasetId`, `recordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordDeleteResponse`](dataset_record_v1.md#datasetrecorddeleteresponse)\>
 
 #### Parameters
 
@@ -261,7 +261,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetRecordDeleteResponse`](dataset_record_v1.md#datasetrecorddeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordDeleteResponse`](dataset_record_v1.md#datasetrecorddeleteresponse)\>
 
 #### Defined in
 
@@ -271,7 +271,7 @@ ___
 
 ### fetchDatasetRecord
 
-▸ **fetchDatasetRecord**(`client`, `datasetId`, `recordId`): `Promise`\<[`DatasetRecordFetchResponse`](dataset_record_v1.md#datasetrecordfetchresponse)\>
+▸ **fetchDatasetRecord**(`client`, `datasetId`, `recordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordFetchResponse`](dataset_record_v1.md#datasetrecordfetchresponse)\>
 
 #### Parameters
 
@@ -283,7 +283,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetRecordFetchResponse`](dataset_record_v1.md#datasetrecordfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordFetchResponse`](dataset_record_v1.md#datasetrecordfetchresponse)\>
 
 #### Defined in
 
@@ -315,7 +315,7 @@ ___
 
 ### updateDatasetRecord
 
-▸ **updateDatasetRecord**(`client`, `datasetId`, `recordId`, `request`): `Promise`\<[`DatasetRecordUpdateResponse`](dataset_record_v1.md#datasetrecordupdateresponse)\>
+▸ **updateDatasetRecord**(`client`, `datasetId`, `recordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordUpdateResponse`](dataset_record_v1.md#datasetrecordupdateresponse)\>
 
 #### Parameters
 
@@ -328,7 +328,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetRecordUpdateResponse`](dataset_record_v1.md#datasetrecordupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordUpdateResponse`](dataset_record_v1.md#datasetrecordupdateresponse)\>
 
 #### Defined in
 

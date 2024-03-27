@@ -22,11 +22,11 @@
 
 ### EndpointFunction
 
-Ƭ **EndpointFunction**\<\>: (`conversationId`: `any`, `request`: `any`) => `AsyncGenerator`\<`any`\>
+Ƭ **EndpointFunction**\<\>: (`conversationId`: `any`, `request`: `any`) => [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`any`\>
 
 #### Type declaration
 
-▸ (`conversationId`, `request`): `AsyncGenerator`\<`any`\>
+▸ (`conversationId`, `request`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`any`\>
 
 ##### Parameters
 
@@ -37,7 +37,7 @@
 
 ##### Returns
 
-`AsyncGenerator`\<`any`\>
+[`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`any`\>
 
 #### Defined in
 
@@ -64,7 +64,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `id?` | `string` |
-| `meta?` | `Record`\<`string`, `any`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `text` | `string` |
 | `type` | ``"bot"`` \| ``"user"`` \| ``"context"`` \| ``"instruction"`` \| ``"backstory"`` \| ``"activity"`` |
 

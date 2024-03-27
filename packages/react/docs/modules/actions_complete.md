@@ -26,9 +26,9 @@
 | Name | Type |
 | :------ | :------ |
 | `description` | `string` |
-| `handler?` | (`args`: `any`) => `Promise`\<`string` \| `ReactElement` \| \{ `children?`: `ReactElement` ; `result?`: `any` ; `text?`: `string`  }\> |
+| `handler?` | (`args`: `any`) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`string` \| `ReactElement` \| \{ `children?`: `ReactElement` ; `result?`: `any` ; `text?`: `string`  }\> |
 | `name` | `string` |
-| `parameters` | `Record`\<`string`, `any`\> |
+| `parameters` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Defined in
 
@@ -44,7 +44,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `meta?` | `Record`\<`string`, `any`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `text` | `string` |
 | `type` | ``"bot"`` \| ``"user"`` \| ``"context"`` \| ``"instruction"`` \| ``"backstory"`` \| ``"activity"`` |
 
@@ -56,7 +56,7 @@ ___
 
 ### Options
 
-Ƭ **Options**\<\>: `Omit`\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: [`InputFunction`](actions_complete.md#inputfunction)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[]  }
+Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: [`InputFunction`](actions_complete.md#inputfunction)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[]  }
 
 #### Defined in
 

@@ -84,16 +84,16 @@ Skillset client.
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -111,7 +111,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): `Promise`\<[`SkillsetCreateResponse`](../modules/skillset_v1.md#skillsetcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetCreateResponse`](../modules/skillset_v1.md#skillsetcreateresponse)\>
 
 Creates a new skillset.
 
@@ -123,7 +123,7 @@ Creates a new skillset.
 
 #### Returns
 
-`Promise`\<[`SkillsetCreateResponse`](../modules/skillset_v1.md#skillsetcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetCreateResponse`](../modules/skillset_v1.md#skillsetcreateresponse)\>
 
 #### Defined in
 
@@ -133,7 +133,7 @@ ___
 
 ### delete
 
-▸ **delete**(`skillsetId`): `Promise`\<[`SkillsetDeleteResponse`](../modules/skillset_v1.md#skillsetdeleteresponse)\>
+▸ **delete**(`skillsetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetDeleteResponse`](../modules/skillset_v1.md#skillsetdeleteresponse)\>
 
 Deletes the skillset.
 
@@ -145,7 +145,7 @@ Deletes the skillset.
 
 #### Returns
 
-`Promise`\<[`SkillsetDeleteResponse`](../modules/skillset_v1.md#skillsetdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetDeleteResponse`](../modules/skillset_v1.md#skillsetdeleteresponse)\>
 
 #### Defined in
 
@@ -155,7 +155,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`skillsetId`): `Promise`\<[`SkillsetFetchResponse`](../modules/skillset_v1.md#skillsetfetchresponse)\>
+▸ **fetch**(`skillsetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetFetchResponse`](../modules/skillset_v1.md#skillsetfetchresponse)\>
 
 Fetches a skillset.
 
@@ -167,7 +167,7 @@ Fetches a skillset.
 
 #### Returns
 
-`Promise`\<[`SkillsetFetchResponse`](../modules/skillset_v1.md#skillsetfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetFetchResponse`](../modules/skillset_v1.md#skillsetfetchresponse)\>
 
 #### Defined in
 
@@ -199,7 +199,7 @@ ___
 
 ### update
 
-▸ **update**(`skillsetId`, `request`): `Promise`\<[`SkillsetUpdateResponse`](../modules/skillset_v1.md#skillsetupdateresponse)\>
+▸ **update**(`skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetUpdateResponse`](../modules/skillset_v1.md#skillsetupdateresponse)\>
 
 Updates a skillset.
 
@@ -212,7 +212,7 @@ Updates a skillset.
 
 #### Returns
 
-`Promise`\<[`SkillsetUpdateResponse`](../modules/skillset_v1.md#skillsetupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetUpdateResponse`](../modules/skillset_v1.md#skillsetupdateresponse)\>
 
 #### Defined in
 

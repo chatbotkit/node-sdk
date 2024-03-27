@@ -66,7 +66,7 @@ ___
 
 ### fetchUsage
 
-▸ **fetchUsage**(`client`): `Promise`\<[`UsageOptions`](usage_v1.md#usageoptions)\>
+▸ **fetchUsage**(`client`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`UsageOptions`](usage_v1.md#usageoptions)\>
 
 #### Parameters
 
@@ -76,7 +76,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`UsageOptions`](usage_v1.md#usageoptions)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`UsageOptions`](usage_v1.md#usageoptions)\>
 
 #### Defined in
 

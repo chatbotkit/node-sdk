@@ -1,5 +1,5 @@
 {
-  "plugin": ["typedoc-plugin-markdown"],
+  "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-mdn-links"],
   "exclude": ["**/node_modules/**/*", "**/dist/**/*", "**/types/**/*"],
   "excludePrivate": true,
   "excludeInternal": true,

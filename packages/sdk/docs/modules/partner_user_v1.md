@@ -112,7 +112,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
-| `meta?` | `Record`\<`string`, `string`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
@@ -174,7 +174,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `image?` | `string` |
-| `meta?` | `Record`\<`string`, `any`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `name?` | `string` |
 
 #### Defined in
@@ -228,7 +228,7 @@ ___
 
 ### createPartnerUser
 
-▸ **createPartnerUser**(`client`, `request`): `Promise`\<[`PartnerUserCreateResponse`](partner_user_v1.md#partnerusercreateresponse)\>
+▸ **createPartnerUser**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserCreateResponse`](partner_user_v1.md#partnerusercreateresponse)\>
 
 #### Parameters
 
@@ -239,7 +239,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`PartnerUserCreateResponse`](partner_user_v1.md#partnerusercreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserCreateResponse`](partner_user_v1.md#partnerusercreateresponse)\>
 
 #### Defined in
 
@@ -249,7 +249,7 @@ ___
 
 ### deletePartnerUser
 
-▸ **deletePartnerUser**(`client`, `userId`): `Promise`\<[`PartnerUserDeleteResponse`](partner_user_v1.md#partneruserdeleteresponse)\>
+▸ **deletePartnerUser**(`client`, `userId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserDeleteResponse`](partner_user_v1.md#partneruserdeleteresponse)\>
 
 #### Parameters
 
@@ -260,7 +260,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`PartnerUserDeleteResponse`](partner_user_v1.md#partneruserdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserDeleteResponse`](partner_user_v1.md#partneruserdeleteresponse)\>
 
 #### Defined in
 
@@ -270,7 +270,7 @@ ___
 
 ### fetchPartnerUser
 
-▸ **fetchPartnerUser**(`client`, `userId`): `Promise`\<[`PartnerUserFetchResponse`](partner_user_v1.md#partneruserfetchresponse)\>
+▸ **fetchPartnerUser**(`client`, `userId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserFetchResponse`](partner_user_v1.md#partneruserfetchresponse)\>
 
 #### Parameters
 
@@ -281,7 +281,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`PartnerUserFetchResponse`](partner_user_v1.md#partneruserfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserFetchResponse`](partner_user_v1.md#partneruserfetchresponse)\>
 
 #### Defined in
 
@@ -312,7 +312,7 @@ ___
 
 ### updatePartnerUser
 
-▸ **updatePartnerUser**(`client`, `userId`, `request`): `Promise`\<[`PartnerUserUpdateResponse`](partner_user_v1.md#partneruserupdateresponse)\>
+▸ **updatePartnerUser**(`client`, `userId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserUpdateResponse`](partner_user_v1.md#partneruserupdateresponse)\>
 
 #### Parameters
 
@@ -324,7 +324,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`PartnerUserUpdateResponse`](partner_user_v1.md#partneruserupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserUpdateResponse`](partner_user_v1.md#partneruserupdateresponse)\>
 
 #### Defined in
 

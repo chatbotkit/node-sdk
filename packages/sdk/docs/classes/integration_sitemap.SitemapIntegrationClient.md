@@ -73,16 +73,16 @@
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -100,7 +100,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): `Promise`\<[`SitemapIntegrationCreateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationCreateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationcreateresponse)\>
 
 Creates a new sitemap integration.
 
@@ -112,7 +112,7 @@ Creates a new sitemap integration.
 
 #### Returns
 
-`Promise`\<[`SitemapIntegrationCreateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationCreateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationcreateresponse)\>
 
 #### Defined in
 
@@ -122,7 +122,7 @@ ___
 
 ### delete
 
-▸ **delete**(`sitemapId`): `Promise`\<[`SitemapIntegrationDeleteResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationdeleteresponse)\>
+▸ **delete**(`sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationDeleteResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationdeleteresponse)\>
 
 Deletes a sitemap integration.
 
@@ -134,7 +134,7 @@ Deletes a sitemap integration.
 
 #### Returns
 
-`Promise`\<[`SitemapIntegrationDeleteResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationDeleteResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationdeleteresponse)\>
 
 #### Defined in
 
@@ -144,7 +144,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`sitemapId`): `Promise`\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse)\>
+▸ **fetch**(`sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse)\>
 
 Fetches a sitemap integration.
 
@@ -156,7 +156,7 @@ Fetches a sitemap integration.
 
 #### Returns
 
-`Promise`\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse)\>
 
 #### Defined in
 
@@ -188,7 +188,7 @@ ___
 
 ### sync
 
-▸ **sync**(`sitemapId`): `Promise`\<[`SitemapIntegrationSyncResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationsyncresponse)\>
+▸ **sync**(`sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationSyncResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationsyncresponse)\>
 
 Syncs a sitemap integration.
 
@@ -200,7 +200,7 @@ Syncs a sitemap integration.
 
 #### Returns
 
-`Promise`\<[`SitemapIntegrationSyncResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationsyncresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationSyncResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationsyncresponse)\>
 
 #### Defined in
 
@@ -210,7 +210,7 @@ ___
 
 ### update
 
-▸ **update**(`sitemapId`, `request`): `Promise`\<[`SitemapIntegrationUpdateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationupdateresponse)\>
+▸ **update**(`sitemapId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationUpdateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationupdateresponse)\>
 
 Updates a sitemap integration.
 
@@ -223,7 +223,7 @@ Updates a sitemap integration.
 
 #### Returns
 
-`Promise`\<[`SitemapIntegrationUpdateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationUpdateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationupdateresponse)\>
 
 #### Defined in
 

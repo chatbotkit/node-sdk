@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- `Error`
+- [`Error`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error )
 
   ↳ **`FetchError`**
 
@@ -28,7 +28,7 @@
 | `code` | `string` \| `number` |
 | `url` | `string` |
 | `request` | `RequestInit` & [`withTimeoutOptions`](../modules.md#withtimeoutoptions) & [`withRetryOptions`](../modules.md#withretryoptions) |
-| `response` | `Response` |
+| `response` | [`Response`]( https://developer.mozilla.org/docs/Web/API/Response ) |
 
 #### Returns
 

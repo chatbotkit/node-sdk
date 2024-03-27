@@ -59,6 +59,9 @@ importers:
       typedoc-plugin-markdown:
         specifier: ^3.17.1
         version: 3.17.1(typedoc@0.25.3)
+      typedoc-plugin-mdn-links:
+        specifier: ^3.1.18
+        version: 3.1.18(typedoc@0.25.3)
       typescript:
         specifier: ^5.0.4
         version: 5.2.2
@@ -7164,6 +7167,14 @@ packages:
       typedoc: '>=0.24.0'
     dependencies:
       handlebars: 4.7.7
+      typedoc: 0.25.3(typescript@5.2.2)
+    dev: false
+
+  /typedoc-plugin-mdn-links@3.1.18(typedoc@0.25.3):
+    resolution: {integrity: sha512-BGzSUEHT15o3g2Q1q/5tBQufAM+yqJNwU1aUmYZC9qbfCS1I5qyEkmoxZ9ks2Z3TwPTZ8PMfIKd2vq5/0nmLnw==}
+    peerDependencies:
+      typedoc: '>= 0.23.14 || 0.24.x || 0.25.x'
+    dependencies:
       typedoc: 0.25.3(typescript@5.2.2)
     dev: false
 

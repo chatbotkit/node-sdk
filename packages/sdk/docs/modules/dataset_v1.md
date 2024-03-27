@@ -114,7 +114,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
-| `meta?` | `Record`\<`string`, `string`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
@@ -177,7 +177,7 @@ ___
 | :------ | :------ |
 | `description?` | `string` |
 | `matchInstruction?` | `string` |
-| `meta?` | `Record`\<`string`, `any`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `mismatchInstruction?` | `string` |
 | `name?` | `string` |
 | `recordMaxTokens?` | `number` |
@@ -252,7 +252,7 @@ ___
 
 ### createDataset
 
-▸ **createDataset**(`client`, `request`): `Promise`\<[`DatasetCreateResponse`](dataset_v1.md#datasetcreateresponse)\>
+▸ **createDataset**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetCreateResponse`](dataset_v1.md#datasetcreateresponse)\>
 
 #### Parameters
 
@@ -263,7 +263,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetCreateResponse`](dataset_v1.md#datasetcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetCreateResponse`](dataset_v1.md#datasetcreateresponse)\>
 
 #### Defined in
 
@@ -273,7 +273,7 @@ ___
 
 ### deleteDataset
 
-▸ **deleteDataset**(`client`, `datasetId`): `Promise`\<[`DatasetDeleteResponse`](dataset_v1.md#datasetdeleteresponse)\>
+▸ **deleteDataset**(`client`, `datasetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetDeleteResponse`](dataset_v1.md#datasetdeleteresponse)\>
 
 #### Parameters
 
@@ -284,7 +284,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetDeleteResponse`](dataset_v1.md#datasetdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetDeleteResponse`](dataset_v1.md#datasetdeleteresponse)\>
 
 #### Defined in
 
@@ -294,7 +294,7 @@ ___
 
 ### fetchDataset
 
-▸ **fetchDataset**(`client`, `datasetId`): `Promise`\<[`DatasetFetchResponse`](dataset_v1.md#datasetfetchresponse)\>
+▸ **fetchDataset**(`client`, `datasetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFetchResponse`](dataset_v1.md#datasetfetchresponse)\>
 
 #### Parameters
 
@@ -305,7 +305,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetFetchResponse`](dataset_v1.md#datasetfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFetchResponse`](dataset_v1.md#datasetfetchresponse)\>
 
 #### Defined in
 
@@ -336,7 +336,7 @@ ___
 
 ### searchDataset
 
-▸ **searchDataset**(`client`, `datasetId`, `search`): `Promise`\<[`DatasetSearchResponse`](dataset_v1.md#datasetsearchresponse)\>
+▸ **searchDataset**(`client`, `datasetId`, `search`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetSearchResponse`](dataset_v1.md#datasetsearchresponse)\>
 
 #### Parameters
 
@@ -348,7 +348,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetSearchResponse`](dataset_v1.md#datasetsearchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetSearchResponse`](dataset_v1.md#datasetsearchresponse)\>
 
 #### Defined in
 
@@ -358,7 +358,7 @@ ___
 
 ### updateDataset
 
-▸ **updateDataset**(`client`, `datasetId`, `request`): `Promise`\<[`DatasetUpdateResponse`](dataset_v1.md#datasetupdateresponse)\>
+▸ **updateDataset**(`client`, `datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetUpdateResponse`](dataset_v1.md#datasetupdateresponse)\>
 
 #### Parameters
 
@@ -370,7 +370,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetUpdateResponse`](dataset_v1.md#datasetupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetUpdateResponse`](dataset_v1.md#datasetupdateresponse)\>
 
 #### Defined in
 

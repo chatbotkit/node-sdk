@@ -99,7 +99,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
-| `meta?` | `Record`\<`string`, `string`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
@@ -181,7 +181,7 @@ ___
 
 ### createPartnerUserToken
 
-▸ **createPartnerUserToken**(`client`, `userId`, `request`): `Promise`\<[`PartnerUserTokenCreateResponse`](partner_user_token_v1.md#partnerusertokencreateresponse)\>
+▸ **createPartnerUserToken**(`client`, `userId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserTokenCreateResponse`](partner_user_token_v1.md#partnerusertokencreateresponse)\>
 
 #### Parameters
 
@@ -193,7 +193,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`PartnerUserTokenCreateResponse`](partner_user_token_v1.md#partnerusertokencreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserTokenCreateResponse`](partner_user_token_v1.md#partnerusertokencreateresponse)\>
 
 #### Defined in
 
@@ -203,7 +203,7 @@ ___
 
 ### deletePartnerUserToken
 
-▸ **deletePartnerUserToken**(`client`, `userId`, `tokenId`): `Promise`\<[`PartnerUserTokenDeleteResponse`](partner_user_token_v1.md#partnerusertokendeleteresponse)\>
+▸ **deletePartnerUserToken**(`client`, `userId`, `tokenId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserTokenDeleteResponse`](partner_user_token_v1.md#partnerusertokendeleteresponse)\>
 
 #### Parameters
 
@@ -215,7 +215,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`PartnerUserTokenDeleteResponse`](partner_user_token_v1.md#partnerusertokendeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserTokenDeleteResponse`](partner_user_token_v1.md#partnerusertokendeleteresponse)\>
 
 #### Defined in
 

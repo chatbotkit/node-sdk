@@ -16,7 +16,7 @@
 
 ### IterableObject
 
-Ƭ **IterableObject**\<\>: `Generator`\<`object`\> \| `AsyncGenerator`\<`object`\>
+Ƭ **IterableObject**\<\>: [`Generator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Generator )\<`object`\> \| [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`object`\>
 
 #### Defined in
 
@@ -26,7 +26,7 @@
 
 ### stream
 
-▸ **stream**(`source`): `Response`
+▸ **stream**(`source`): [`Response`]( https://developer.mozilla.org/docs/Web/API/Response )
 
 This function can be used to stream any ChatBotKit streaming response to the
 client. It will automatically encode the response as JSONL and it is fully
@@ -40,7 +40,7 @@ compatible with the @chatbotkit/react useConversationManager hook.
 
 #### Returns
 
-`Response`
+[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )
 
 **`Example`**
 

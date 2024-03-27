@@ -70,16 +70,16 @@ Skillset ability client.
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -97,7 +97,7 @@ ___
 
 ### create
 
-▸ **create**(`skillsetId`, `request`): `Promise`\<[`SkillsetAbilityCreateResponse`](../modules/skillset_ability_v1.md#skillsetabilitycreateresponse)\>
+▸ **create**(`skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityCreateResponse`](../modules/skillset_ability_v1.md#skillsetabilitycreateresponse)\>
 
 Creates a new ability.
 
@@ -110,7 +110,7 @@ Creates a new ability.
 
 #### Returns
 
-`Promise`\<[`SkillsetAbilityCreateResponse`](../modules/skillset_ability_v1.md#skillsetabilitycreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityCreateResponse`](../modules/skillset_ability_v1.md#skillsetabilitycreateresponse)\>
 
 #### Defined in
 
@@ -120,7 +120,7 @@ ___
 
 ### delete
 
-▸ **delete**(`skillsetId`, `abilityId`): `Promise`\<[`SkillsetAbilityDeleteResponse`](../modules/skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
+▸ **delete**(`skillsetId`, `abilityId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityDeleteResponse`](../modules/skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
 
 Deletes the ability.
 
@@ -133,7 +133,7 @@ Deletes the ability.
 
 #### Returns
 
-`Promise`\<[`SkillsetAbilityDeleteResponse`](../modules/skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityDeleteResponse`](../modules/skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
 
 #### Defined in
 
@@ -143,7 +143,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`skillsetId`, `abilityId`): `Promise`\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse)\>
+▸ **fetch**(`skillsetId`, `abilityId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse)\>
 
 Fetches a ability.
 
@@ -156,7 +156,7 @@ Fetches a ability.
 
 #### Returns
 
-`Promise`\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse)\>
 
 #### Defined in
 
@@ -189,7 +189,7 @@ ___
 
 ### update
 
-▸ **update**(`skillsetId`, `abilityId`, `request`): `Promise`\<[`SkillsetAbilityUpdateResponse`](../modules/skillset_ability_v1.md#skillsetabilityupdateresponse)\>
+▸ **update**(`skillsetId`, `abilityId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityUpdateResponse`](../modules/skillset_ability_v1.md#skillsetabilityupdateresponse)\>
 
 Updates an ability.
 
@@ -203,7 +203,7 @@ Updates an ability.
 
 #### Returns
 
-`Promise`\<[`SkillsetAbilityUpdateResponse`](../modules/skillset_ability_v1.md#skillsetabilityupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityUpdateResponse`](../modules/skillset_ability_v1.md#skillsetabilityupdateresponse)\>
 
 #### Defined in
 

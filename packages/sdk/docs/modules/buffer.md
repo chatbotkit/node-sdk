@@ -12,17 +12,17 @@
 
 ### getBuffer
 
-▸ **getBuffer**(`buffer`): `ArrayBuffer`
+▸ **getBuffer**(`buffer`): [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer )
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `buffer` | `string` \| `ArrayBuffer` |
+| `buffer` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 
 #### Returns
 
-`ArrayBuffer`
+[`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer )
 
 #### Defined in
 

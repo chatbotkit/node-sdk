@@ -61,7 +61,7 @@ ___
 
 ### createConversationSession
 
-▸ **createConversationSession**(`client`, `conversationId`, `request`): `Promise`\<[`ConversationSessionCreateResponse`](conversation_session_v1.md#conversationsessioncreateresponse)\>
+▸ **createConversationSession**(`client`, `conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationSessionCreateResponse`](conversation_session_v1.md#conversationsessioncreateresponse)\>
 
 #### Parameters
 
@@ -73,7 +73,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationSessionCreateResponse`](conversation_session_v1.md#conversationsessioncreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationSessionCreateResponse`](conversation_session_v1.md#conversationsessioncreateresponse)\>
 
 #### Defined in
 

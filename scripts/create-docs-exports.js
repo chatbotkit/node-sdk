@@ -62,7 +62,7 @@ async function main() {
   console.log('* generating docs')
 
   await exec(
-    `npx typedoc --plugin typedoc-plugin-markdown --out ${tmpDir} --hideBreadcrumbs --hideInPageTOC --publicPath docs://`
+    `npx typedoc --plugin typedoc-plugin-markdown --plugin typedoc-plugin-mdn-links --out ${tmpDir} --hideBreadcrumbs --hideInPageTOC --publicPath docs://`
   )
 
   console.log('* generating json')

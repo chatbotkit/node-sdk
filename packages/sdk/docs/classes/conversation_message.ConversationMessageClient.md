@@ -72,16 +72,16 @@ Conversation message client.
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -99,7 +99,7 @@ ___
 
 ### create
 
-▸ **create**(`conversationId`, `request`): `Promise`\<[`ConversationMessageCreateResponse`](../modules/conversation_message_v1.md#conversationmessagecreateresponse)\>
+▸ **create**(`conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageCreateResponse`](../modules/conversation_message_v1.md#conversationmessagecreateresponse)\>
 
 Creates a new message.
 
@@ -112,7 +112,7 @@ Creates a new message.
 
 #### Returns
 
-`Promise`\<[`ConversationMessageCreateResponse`](../modules/conversation_message_v1.md#conversationmessagecreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageCreateResponse`](../modules/conversation_message_v1.md#conversationmessagecreateresponse)\>
 
 #### Defined in
 
@@ -122,7 +122,7 @@ ___
 
 ### delete
 
-▸ **delete**(`conversationId`, `messageId`): `Promise`\<[`ConversationMessageDeleteResponse`](../modules/conversation_message_v1.md#conversationmessagedeleteresponse)\>
+▸ **delete**(`conversationId`, `messageId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageDeleteResponse`](../modules/conversation_message_v1.md#conversationmessagedeleteresponse)\>
 
 Deletes the message.
 
@@ -135,7 +135,7 @@ Deletes the message.
 
 #### Returns
 
-`Promise`\<[`ConversationMessageDeleteResponse`](../modules/conversation_message_v1.md#conversationmessagedeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageDeleteResponse`](../modules/conversation_message_v1.md#conversationmessagedeleteresponse)\>
 
 #### Defined in
 
@@ -145,7 +145,7 @@ ___
 
 ### downvote
 
-▸ **downvote**(`conversationId`, `messageId`, `request`): `Promise`\<[`ConversationMessageDownvoteResponse`](../modules/conversation_message_v1.md#conversationmessagedownvoteresponse)\>
+▸ **downvote**(`conversationId`, `messageId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageDownvoteResponse`](../modules/conversation_message_v1.md#conversationmessagedownvoteresponse)\>
 
 #### Parameters
 
@@ -157,7 +157,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationMessageDownvoteResponse`](../modules/conversation_message_v1.md#conversationmessagedownvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageDownvoteResponse`](../modules/conversation_message_v1.md#conversationmessagedownvoteresponse)\>
 
 #### Defined in
 
@@ -167,7 +167,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`conversationId`, `messageId`): `Promise`\<[`ConversationMessageFetchResponse`](../modules/conversation_message_v1.md#conversationmessagefetchresponse)\>
+▸ **fetch**(`conversationId`, `messageId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageFetchResponse`](../modules/conversation_message_v1.md#conversationmessagefetchresponse)\>
 
 Fetches a message.
 
@@ -180,7 +180,7 @@ Fetches a message.
 
 #### Returns
 
-`Promise`\<[`ConversationMessageFetchResponse`](../modules/conversation_message_v1.md#conversationmessagefetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageFetchResponse`](../modules/conversation_message_v1.md#conversationmessagefetchresponse)\>
 
 #### Defined in
 
@@ -213,7 +213,7 @@ ___
 
 ### update
 
-▸ **update**(`conversationId`, `messageId`, `request`): `Promise`\<[`ConversationMessageUpdateResponse`](../modules/conversation_message_v1.md#conversationmessageupdateresponse)\>
+▸ **update**(`conversationId`, `messageId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageUpdateResponse`](../modules/conversation_message_v1.md#conversationmessageupdateresponse)\>
 
 Updates a message.
 
@@ -227,7 +227,7 @@ Updates a message.
 
 #### Returns
 
-`Promise`\<[`ConversationMessageUpdateResponse`](../modules/conversation_message_v1.md#conversationmessageupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageUpdateResponse`](../modules/conversation_message_v1.md#conversationmessageupdateresponse)\>
 
 #### Defined in
 
@@ -237,7 +237,7 @@ ___
 
 ### upvote
 
-▸ **upvote**(`conversationId`, `messageId`, `request`): `Promise`\<[`ConversationMessageUpvoteResponse`](../modules/conversation_message_v1.md#conversationmessageupvoteresponse)\>
+▸ **upvote**(`conversationId`, `messageId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageUpvoteResponse`](../modules/conversation_message_v1.md#conversationmessageupvoteresponse)\>
 
 #### Parameters
 
@@ -249,7 +249,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationMessageUpvoteResponse`](../modules/conversation_message_v1.md#conversationmessageupvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageUpvoteResponse`](../modules/conversation_message_v1.md#conversationmessageupvoteresponse)\>
 
 #### Defined in
 
