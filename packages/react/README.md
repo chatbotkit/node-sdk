@@ -28,11 +28,172 @@ Embark on your ChatBotKit journey with these easy steps:
    ```
 2. **Implementation**: Utilize the SDK to build or manage your chatbot.
 
+### A NextGen Example for Next.js
+
+This example showcases how to build advanced conversational AI with streaming, function calls, server-side rendering and much more in a Next.js project:
+
+```javascript
+// file: ./app/page.jsx
+import ChatArea from '../components/ChatArea.jsx'
+
+export default function Page() {
+  return <ChatArea />
+}
+
+// file: ./components/ChatArea.jsx
+'use client'
+
+import { useContext } from 'react'
+
+import { complete } from '../actions/conversation.js'
+
+import { ChatInput, ConversationContext } from '@chatbotkit/react'
+import ConversationManager from '@chatbotkit/react/components/ConversationManager'
+
+export function ChatMessages() {
+  const {
+    thinking,
+
+    text,
+    setText,
+
+    messages,
+
+    submit,
+  } = useContext(ConversationContext)
+
+  return (
+    <div>
+      <div>
+        {messages.map(({ id, type, text, children }) => {
+          switch (type) {
+            case 'user':
+              return (
+                <div key={id}>
+                  <div>
+                    <strong>user:</strong> {text}
+                  </div>
+                </div>
+              )
+
+            case 'bot':
+              return (
+                <div key={id}>
+                  <div>
+                    <strong>bot:</strong> {text}
+                  </div>
+                  {children ? <div>{children}</div> : null}
+                </div>
+              )
+          }
+        })}
+        {thinking ? (
+          <div key="thinking">
+            <strong>bot:</strong> thinking...
+          </div>
+        ) : null}
+      </div>
+      <ChatInput
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        onSubmit={submit}
+        placeholder="Type something..."
+        style={{
+          border: 0,
+          outline: 'none',
+          resize: 'none',
+          width: '100%',
+          marginTop: '10px',
+        }}
+      />
+    </div>
+  )
+}
+
+export default function ChatArea() {
+  return (
+    <ConversationManager endpoint={complete}>
+      <ChatMessages />
+    </ConversationManager>
+  )
+}
+
+// file: ./actions/conversation.js
+'use server'
+
+import CalendarEvents from '../components/CalendarEvents.jsx'
+
+import { streamComplete } from '@chatbotkit/react/actions/complete'
+import { ChatBotKit } from '@chatbotkit/sdk'
+
+const cbk = new ChatBotKit({
+  secret: process.env.CHATBOTKIT_API_SECRET,
+})
+
+export async function complete(_, { messages }) {
+  return streamComplete({
+    client: cbk.conversation,
+
+    messages,
+
+    functions: [
+      {
+        name: 'getUserName',
+        description: 'Get the authenticated user name',
+        parameters: {},
+        handler: async () => {
+          return 'John Doe'
+        },
+      },
+
+      {
+        name: 'getCalendarEvents',
+        description: 'Get a list of calendar events',
+        parameters: {},
+        handler: async () => {
+          const events = [
+            { id: 1, title: 'Meeting with Jane Doe' },
+            { id: 2, title: 'Meeting with Jill Doe' },
+          ]
+
+          return {
+            children: <CalendarEvents events={events} />,
+
+            result: {
+              events,
+            },
+          }
+        },
+      },
+
+      {
+        name: 'declineCalendarEvent',
+        description: 'Decline a calendar event',
+        parameters: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'number',
+              description: 'The ID of the event to decline',
+            },
+          },
+          required: ['id'],
+        },
+        handler: async ({ id }) => {
+          return `You have declined the event with ID ${id}`
+        },
+      },
+    ],
+  })
+}
+```
+
 ### A Basic Example for Next.js
 
 Here's a straightforward example using the `useConversationManager` React Hook to manage conversation flow within a Next.js application:
 
 ```javascript
+// file: ./pages/index.jsx
 import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
 export default function Index() {
@@ -48,7 +209,6 @@ export default function Index() {
     submit,
   } = useConversationManager({ stream: true })
 
-  // Function to create a new chat session
   async function createSession() {
     const response = await fetch(`/api/session/create`)
 
@@ -62,7 +222,6 @@ export default function Index() {
     setToken(token)
   }
 
-  // Handle text submission
   function handleOnKeyDown(event) {
     if (event.keyCode === 13) {
       event.preventDefault()
@@ -71,7 +230,6 @@ export default function Index() {
     }
   }
 
-  // Render chat interface
   return (
     <div style={{ fontFamily: 'monospace', padding: '10px' }}>
       {conversationId && token ? (
@@ -106,9 +264,27 @@ export default function Index() {
     </div>
   )
 }
+
+// file: ./pages/api/conversation/complete.js
+import { ChatBotKit } from '@chatbotkit/sdk'
+import { stream } from '@chatbotkit/next/edge'
+
+const cbk = new ChatBotKit({
+  secret: process.env.CHATBOTKIT_API_SECRET,
+})
+
+export default async function handler(req) {
+  const { messages } = await req.json()
+
+  return stream(cbk.conversation.complete(null, { messages }))
+}
+
+export const config = {
+  runtime: 'edge',
+}
 ```
 
-Discover a complete example with advanced features [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/basic-chat).
+Discover more examples [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs).
 
 ## Documentation
 

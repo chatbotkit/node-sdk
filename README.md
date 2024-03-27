@@ -74,7 +74,7 @@ for await (const { type, data } of client
 }
 ```
 
-### NextGen Next.js Example
+### A NextGen Example for Next.js
 
 This example showcases how to build advanced conversational AI with streaming,
 function calls, server-side rendering and much more in a Next.js project:
@@ -240,24 +240,6 @@ export async function complete(_, { messages }) {
 This quick example demonstrates how to use the SDK in a Next.js project:
 
 ```javascript
-// file: ./pages/api/conversation/complete.js
-import { ChatBotKit } from '@chatbotkit/sdk'
-import { stream } from '@chatbotkit/next/edge'
-
-const cbk = new ChatBotKit({
-  secret: process.env.CHATBOTKIT_API_SECRET,
-})
-
-export default async function handler(req) {
-  const { messages } = await req.json()
-
-  return stream(cbk.conversation.complete(null, { messages }))
-}
-
-export const config = {
-  runtime: 'edge',
-}
-
 // file: ./pages/index.js
 import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
@@ -301,6 +283,24 @@ export default function Index() {
       />
     </div>
   )
+}
+
+// file: ./pages/api/conversation/complete.js
+import { ChatBotKit } from '@chatbotkit/sdk'
+import { stream } from '@chatbotkit/next/edge'
+
+const cbk = new ChatBotKit({
+  secret: process.env.CHATBOTKIT_API_SECRET,
+})
+
+export default async function handler(req) {
+  const { messages } = await req.json()
+
+  return stream(cbk.conversation.complete(null, { messages }))
+}
+
+export const config = {
+  runtime: 'edge',
 }
 ```
 
