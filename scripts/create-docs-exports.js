@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import childProcess from 'child_process'
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 
 async function exec(command) {
@@ -21,30 +21,33 @@ async function exec(command) {
 async function createJsonFromMarkdown(docsPath) {
   const filesJson = []
 
-  function readDirectory(directory) {
-    fs.readdirSync(directory).forEach((file) => {
+  async function readDirectory(directory) {
+    const files = await fs.readdir(directory) // Now async
+    for (const file of files) {
       const fullPath = path.join(directory, file)
 
       const ext = path.extname(fullPath)
 
       if (ext !== '.md') {
-        return
+        continue
       }
 
-      if (fs.statSync(fullPath).isDirectory()) {
-        readDirectory(fullPath)
+      const stats = await fs.stat(fullPath)
+
+      if (stats.isDirectory()) {
+        await readDirectory(fullPath)
       } else {
-        const content = fs.readFileSync(fullPath, 'utf8')
+        const content = await fs.readFile(fullPath, 'utf8')
 
         filesJson.push({
           path: fullPath,
           content: content,
         })
       }
-    })
+    }
   }
 
-  readDirectory(docsPath)
+  await readDirectory(docsPath)
 
   return filesJson
 }
@@ -52,7 +55,7 @@ async function createJsonFromMarkdown(docsPath) {
 async function main() {
   console.log('* reading config')
 
-  const { out } = JSON.parse(await fs.promises.readFile('typedoc.json', 'utf8'))
+  const { out } = JSON.parse(await fs.readFile('typedoc.json', 'utf8'))
 
   const tmpDir = Math.random().toString(32).slice(2)
 
@@ -66,7 +69,7 @@ async function main() {
 
   const json = await createJsonFromMarkdown(tmpDir)
 
-  await fs.promises.writeFile(path.join(out, 'docs.json'), JSON.stringify(json))
+  await fs.writeFile(path.join(out, 'docs.json'), JSON.stringify(json))
 
   console.log('* cleaning up')
 
