@@ -12,6 +12,16 @@ const cbk = new ChatBotKit({
   secret: process.env.CHATBOTKIT_API_SECRET,
 })
 
+// Define a list of calendar events. This is just a simple example to show how
+// you can use the conversational AI capabilities of ChatBotKit to interact with
+// the user and get the conversation state. This setup here only work with the
+// development server, as the events are not stored in a database.
+
+const events = [
+  { id: 1, title: 'Meeting with Jane Doe' },
+  { id: 2, title: 'Meeting with Jill Doe' },
+]
+
 // Now let's define a server action that will be called by the client to
 // complete the conversation. We only accept the messages parameter, which is
 // the state of the conversation. We can accept also other parameters if needed.
@@ -59,11 +69,6 @@ export async function complete(_, { messages }) {
         description: 'Get a list of calendar events',
         parameters: {},
         handler: async () => {
-          const events = [
-            { id: 1, title: 'Meeting with Jane Doe' },
-            { id: 2, title: 'Meeting with Jill Doe' },
-          ]
-
           return {
             children: <CalendarEvents events={events} />,
 
@@ -97,7 +102,15 @@ export async function complete(_, { messages }) {
           required: ['id'],
         },
         handler: async ({ id }) => {
-          return `You have declined the event with ID ${id}`
+          const eventIndex = events.findIndex((event) => event.id === id)
+
+          if (eventIndex < 0) {
+            return `The event with ID ${id} was not found`
+          }
+
+          events.splice(eventIndex, 1)
+
+          return `The event with ID ${id} was declined`
         },
       },
     ],
