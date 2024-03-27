@@ -56,7 +56,7 @@ ___
 
 ### Options
 
-Ƭ **Options**\<\>: `Omit`\<`ConversationCompleteRequest`, ``"messages"`` \| ``"unstable"``\> & \{ `client`: `ConversationClient` ; `functions?`: [`InputFunction`](actions_complete.md#inputfunction)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[]  }
+Ƭ **Options**\<\>: `Omit`\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: [`InputFunction`](actions_complete.md#inputfunction)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[]  }
 
 #### Defined in
 
