@@ -62,7 +62,8 @@
  *   error: any,
  *   setError: (error: any) => void,
  *   submit: () => void
- *   trigger: (name: string, ...args: any) => void
+ *   trigger: (name: string) => void
+ *   request: (name: string, ...args: any) => void
  * }} UseConversationManagerResult
  */
 /**
@@ -134,6 +135,7 @@ export type UseConversationManagerResult = {
     error: any;
     setError: (error: any) => void;
     submit: () => void;
-    trigger: (name: string, ...args: any) => void;
+    trigger: (name: string) => void;
+    request: (name: string, ...args: any) => void;
 };
 import { ConversationClient } from '@chatbotkit/sdk';

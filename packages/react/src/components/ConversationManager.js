@@ -25,6 +25,12 @@ export const ConversationContext = createContext(
     skillsetId: undefined,
     setSkillsetId: () => {},
 
+    privacy: undefined,
+    setPrivacy: () => {},
+
+    moderation: undefined,
+    setModeration: () => {},
+
     text: '',
     setText: () => {},
 
@@ -43,6 +49,8 @@ export const ConversationContext = createContext(
     submit: () => {},
 
     trigger: () => {},
+
+    request: () => {},
   })
 )
 
