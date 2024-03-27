@@ -51,6 +51,10 @@
  *   setDatasetId: (datasetId: string) => void,
  *   skillsetId?: string,
  *   setSkillsetId: (skillsetId: string) => void,
+ *   privacy?: string,
+ *   setPrivacy: (privacy: string) => void,
+ *   moderation?: string,
+ *   setModeration: (moderation: string) => void,
  *   text: string,
  *   setText: (text: string) => void,
  *   messages: Message[],
@@ -124,6 +128,10 @@ export type UseConversationManagerResult = {
     setDatasetId: (datasetId: string) => void;
     skillsetId?: string | undefined;
     setSkillsetId: (skillsetId: string) => void;
+    privacy?: string | undefined;
+    setPrivacy: (privacy: string) => void;
+    moderation?: string | undefined;
+    setModeration: (moderation: string) => void;
     text: string;
     setText: (text: string) => void;
     messages: Message[];

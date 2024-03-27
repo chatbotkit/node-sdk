@@ -30,4 +30,4 @@ The rendered component.
 
 #### Defined in
 
-[components/ConversationManager.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ConversationManager.js#L57)
+[components/ConversationManager.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ConversationManager.js#L63)

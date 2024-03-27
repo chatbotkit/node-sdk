@@ -148,6 +148,8 @@ ___
 | `error` | `any` |
 | `messages` | [`Message`](hooks_useConversationManager.md#message)[] |
 | `model?` | [`Model`](hooks_useConversationManager.md#model) |
+| `moderation?` | `string` |
+| `privacy?` | `string` |
 | `request` | (`name`: `string`, ...`args`: `any`) => `void` |
 | `setBackstory` | (`backstory`: `string`) => `void` |
 | `setBotId` | (`botId`: `string`) => `void` |
@@ -156,6 +158,8 @@ ___
 | `setError` | (`error`: `any`) => `void` |
 | `setMessages` | (`messages`: [`Message`](hooks_useConversationManager.md#message)[]) => `void` |
 | `setModel` | (`model`: [`Model`](hooks_useConversationManager.md#model)) => `void` |
+| `setModeration` | (`moderation`: `string`) => `void` |
+| `setPrivacy` | (`privacy`: `string`) => `void` |
 | `setSkillsetId` | (`skillsetId`: `string`) => `void` |
 | `setText` | (`text`: `string`) => `void` |
 | `setThinking` | (`thinking`: `boolean`) => `void` |
@@ -171,7 +175,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L79)
+[hooks/useConversationManager.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L83)
 
 ## Functions
 
@@ -196,4 +200,4 @@ details like the token and conversation ID.
 
 #### Defined in
 
-[hooks/useConversationManager.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L91)
+[hooks/useConversationManager.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L95)

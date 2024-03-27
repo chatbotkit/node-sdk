@@ -216,8 +216,8 @@ export function useConversationManager(options) {
         })
       }
 
-      /** @type {Message} */
-      let botMessage
+      /** @type {Message?} */
+      let botMessage = null
 
       for await (const item of it.stream()) {
         switch (item.type) {
@@ -275,7 +275,7 @@ export function useConversationManager(options) {
             setThinking(false)
             setTyping(false)
 
-            botMessage = undefined
+            botMessage = null
           }
         }
       }
