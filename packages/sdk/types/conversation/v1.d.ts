@@ -114,6 +114,8 @@ export function deleteConversation(client: ChatBotKitClient, conversationId: str
  *   messages?: Message[],
  *   datasetId?: string,
  *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
  *   functions?: {name: string, description: string, parameters: any}[]
  * } & ({text: string}|{messages: Message[]})} ConversationCompleteRequest
  *
@@ -330,6 +332,8 @@ export type ConversationCompleteRequest = {
     messages?: Message[];
     datasetId?: string;
     skillsetId?: string;
+    privacy?: boolean;
+    moderation?: boolean;
     functions?: {
         name: string;
         description: string;
