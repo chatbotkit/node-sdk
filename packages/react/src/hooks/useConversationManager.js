@@ -303,12 +303,12 @@ export function useConversationManager(options) {
    * @returns {Promise<void>}
    */
   async function submit() {
-    if (!text) {
-      return
-    }
-
     if (thinking || typing) {
       return // @todo handle submit pipelining
+    }
+
+    if (!text) {
+      return
     }
 
     setText('')
@@ -338,6 +338,10 @@ export function useConversationManager(options) {
    * @returns {Promise<void>}
    */
   async function trigger(name) {
+    if (thinking || typing) {
+      return // @todo handle submit pipelining
+    }
+
     /** @type {Message} */
     const activityMessage = {
       type: 'activity',
@@ -371,6 +375,10 @@ export function useConversationManager(options) {
    * @returns {Promise<void>}
    */
   async function request(name, ...args) {
+    if (thinking || typing) {
+      return // @todo handle submit pipelining
+    }
+
     /** @type {Message} */
     const activityMessage = {
       type: 'activity',
