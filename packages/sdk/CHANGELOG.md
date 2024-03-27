@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.7.0
+
+### Minor Changes
+
+- 6ff38ba: Support for list orders and function calling.
+
 ## 1.4.0
 
 ### Patch Changes

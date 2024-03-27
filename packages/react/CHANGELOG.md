@@ -1,5 +1,16 @@
 # @chatbotkit/react
 
+## 1.7.0
+
+### Minor Changes
+
+- 6ff38ba: Support for list orders and function calling.
+
+### Patch Changes
+
+- Updated dependencies [6ff38ba]
+  - @chatbotkit/sdk@1.7.0
+
 ## 1.6.0
 
 ### Minor Changes
