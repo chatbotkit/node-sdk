@@ -114,9 +114,7 @@ export function deleteConversation(client: ChatBotKitClient, conversationId: str
  *   messages?: Message[],
  *   datasetId?: string,
  *   skillsetId?: string,
- *   unstable?: {
- *     functions?: {name: string, description: string, parameters: any}[]
- *   }
+ *   functions?: {name: string, description: string, parameters: any}[]
  * } & ({text: string}|{messages: Message[]})} ConversationCompleteRequest
  *
  * @typedef {{
@@ -332,13 +330,11 @@ export type ConversationCompleteRequest = {
     messages?: Message[];
     datasetId?: string;
     skillsetId?: string;
-    unstable?: {
-        functions?: {
-            name: string;
-            description: string;
-            parameters: any;
-        }[];
-    };
+    functions?: {
+        name: string;
+        description: string;
+        parameters: any;
+    }[];
 } & ({
     text: string;
 } | {

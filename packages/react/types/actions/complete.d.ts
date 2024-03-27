@@ -23,7 +23,7 @@ export type InputFunction = {
         result?: any;
     }>) | undefined;
 };
-export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest, 'messages' | 'unstable'> & {
+export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest, 'messages' | 'functions'> & {
     client: import('@chatbotkit/sdk').ConversationClient;
     messages: InputMessage[];
     functions?: InputFunction[];
@@ -43,7 +43,7 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  *   handler?: (args: any) => Promise<string|import('react').ReactElement|{text?: string, children?: import('react').ReactElement, result?: any}>
  * }} InputFunction
  *
- * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'unstable'> & {
+ * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
  *   functions?: InputFunction[],

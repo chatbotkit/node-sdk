@@ -16,7 +16,7 @@ import { stream } from '../utils/stream.js'
  *   handler?: (args: any) => Promise<string|import('react').ReactElement|{text?: string, children?: import('react').ReactElement, result?: any}>
  * }} InputFunction
  *
- * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'unstable'> & {
+ * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
  *   functions?: InputFunction[],
@@ -68,19 +68,15 @@ async function* complete({
         }
       }),
 
-      // For now function calling is unstable
+      // Ensure that all functions are simple objects
 
-      unstable: {
-        // Ensure that all functions are simple objects
-
-        functions: functions?.map(({ name, description, parameters }) => {
-          return {
-            name,
-            description,
-            parameters,
-          }
-        }),
-      },
+      functions: functions?.map(({ name, description, parameters }) => {
+        return {
+          name,
+          description,
+          parameters,
+        }
+      }),
     })
     .stream()
 
@@ -202,7 +198,7 @@ async function* complete({
  * A wrapper around the complete function that will return a generator that will
  * yield various events. Similarly to the complete function it will handle the
  * current message state as well as correctly handling function calls.
- * 
+ *
  * @param {Options} options
  * @returns {import('../utils/stream.js').StreamResult}
  */
