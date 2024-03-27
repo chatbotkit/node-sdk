@@ -26,21 +26,21 @@ async function createJsonFromMarkdown(docsPath) {
     for (const file of files) {
       const fullPath = path.join(directory, file)
 
-      const ext = path.extname(fullPath)
-
-      if (ext !== '.md') {
-        continue
-      }
-
       const stats = await fs.stat(fullPath)
 
       if (stats.isDirectory()) {
         await readDirectory(fullPath)
       } else {
+        const ext = path.extname(fullPath)
+
+        if (ext !== '.md') {
+          continue
+        }
+
         const content = await fs.readFile(fullPath, 'utf8')
 
         filesJson.push({
-          path: fullPath,
+          path: fullPath.split('/').slice(1).join('/'),
           content: content,
         })
       }
@@ -62,14 +62,14 @@ async function main() {
   console.log('* generating docs')
 
   await exec(
-    `npx typedoc --plugin typedoc-plugin-markdown --plugin typedoc-plugin-mdn-links --out ${tmpDir} --hideBreadcrumbs --hideInPageTOC --publicPath docs://`
+    `npx typedoc --options typedoc.json --plugin typedoc-plugin-markdown --out ${tmpDir} --hideBreadcrumbs --hideInPageTOC --publicPath docs://`
   )
 
   console.log('* generating json')
 
   const json = await createJsonFromMarkdown(tmpDir)
 
-  await fs.writeFile(path.join(out, 'docs.json'), JSON.stringify(json))
+  await fs.writeFile(path.join(out, 'docs.json'), JSON.stringify(json, null, 2))
 
   console.log('* cleaning up')
 
