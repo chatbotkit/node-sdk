@@ -381,6 +381,8 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
 
+  packages/placeholder: {}
+
   packages/react:
     dependencies:
       '@chatbotkit/sdk':
@@ -418,6 +420,15 @@ importers:
       swagger-client:
         specifier: ^3.24.5
         version: 3.24.5
+
+  tools/create-cbk-app:
+    dependencies:
+      commander:
+        specifier: ^11.1.0
+        version: 11.1.0
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
 
 packages:
 
