@@ -52,33 +52,61 @@ async function* complete({
 
   messages = messages.slice(0)
 
-  // Create a new conversation client instance and start the stream.
+  // Define a reference to the stream iterator.
 
-  const it = client
-    .complete(null, {
-      ...options,
+  let it
 
-      // Ensure that all messages are simple objects
+  // If the iterator is undefined then we check if we have an activity request.
 
-      messages: messages.map(({ type, text, meta }) => {
-        return {
-          type,
-          text,
-          meta,
+  if (!it) {
+    const lastMessage = messages[messages.length - 1]
+
+    if (lastMessage) {
+      if (lastMessage.type === 'activity') {
+        if (lastMessage.meta?.activity?.type === 'request') {
+          messages.pop()
+
+          it = [{ type: 'message', data: lastMessage }]
         }
-      }),
+      }
+    }
+  }
 
-      // Ensure that all functions are simple objects
+  // If the iterator is undefined then we create a new completion stream.
 
-      functions: functions?.map(({ name, description, parameters }) => {
-        return {
-          name,
-          description,
-          parameters,
-        }
-      }),
-    })
-    .stream()
+  if (!it) {
+    it = client
+      .complete(null, {
+        ...options,
+
+        // Ensure that all messages are simple objects
+
+        messages: messages.map(({ type, text, meta }) => {
+          return {
+            type,
+            text,
+            meta,
+          }
+        }),
+
+        // Ensure that all functions are simple objects
+
+        functions: functions?.map(({ name, description, parameters }) => {
+          return {
+            name,
+            description,
+            parameters,
+          }
+        }),
+      })
+      .stream()
+  }
+
+  // Hard bail if we don't have a stream iterator.
+
+  if (!it) {
+    throw new Error('No stream iterator')
+  }
 
   // Iterate over the stream and handle each item.
 
