@@ -34,17 +34,13 @@ export const ConversationContext = createContext(
     text: '',
     setText: () => {},
 
+    message: null,
     messages: [],
-    setMessages: () => {},
 
     thinking: false,
-    setThinking: () => {},
-
     typing: false,
-    setTyping: () => {},
 
     error: null,
-    setError: () => {},
 
     submit: () => {},
 
