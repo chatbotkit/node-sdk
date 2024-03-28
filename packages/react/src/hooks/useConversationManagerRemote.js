@@ -138,7 +138,16 @@ export function useConversationManagerRemote({
         }
       )
     }
-  }, [client])
+  }, [
+    client,
+    conversationId,
+    backstory,
+    model,
+    datasetId,
+    skillsetId,
+    privacy,
+    moderation,
+  ])
 
   return remote
 }
