@@ -7,26 +7,9 @@ import { consume } from '../utils/stream.js'
 import { ConversationClient } from '@chatbotkit/sdk'
 
 /**
- * @typedef {{
- *   maxTokens?: number,
- *   temperature?: number,
- *   frequencyPenalty?: number,
- *   presencePenalty?: number,
- *   seed?: number,
- *   interactionMaxMessages?: number,
- *   region?: 'us'|'eu'
- * }} ModelConfig
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  *
- * @typedef {string|{name: string, config?: ModelConfig}} Model
- */
-
-/**
- * @typedef {{
- *   id?: string,
- *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
- *   text: string,
- *   meta?: Record<string,any>
- * }} Message
+ * @typedef {import('@chatbotkit/sdk/model/v1').Model} Model
  */
 
 /**
@@ -38,8 +21,8 @@ import { ConversationClient } from '@chatbotkit/sdk'
  * @typedef {{
  *   client?: ConversationClient,
  *   endpoint?: EndpointURL|EndpointFunction,
- *   token?: string,
  *   conversationId?: string,
+ *   token?: string,
  *   backstory?: string,
  *   model?: Model,
  *   datasetId?: string,
@@ -52,20 +35,28 @@ import { ConversationClient } from '@chatbotkit/sdk'
  */
 
 /**
+ * This hook is used to create a remote function that can be used to complete
+ * a conversation.
+ *
  * @param {UseConversationManagerRemoteOptions} options
  * @returns {UseConversationManagerRemoteResult}
+ * @todo requires refactoring
  */
 export function useConversationManagerRemote({
   client: _client,
+
   endpoint,
+
   conversationId,
+  token,
+
   backstory,
   model,
   datasetId,
   skillsetId,
   privacy,
   moderation,
-  token,
+
   ...rest
 }) {
   const client = useMemo(() => {
@@ -115,9 +106,9 @@ export function useConversationManagerRemote({
     if (conversationId) {
       return /** @type {UseConversationManagerRemoteResult} */ (
         async function* (messages) {
-          const lastUserMessage = messages.findLast(
-            (message) => message.type === 'user'
-          )
+          const lastUserMessage = [...messages]
+            .reverse()
+            .find((message) => message.type === 'user')
 
           if (!lastUserMessage) {
             throw new Error('No user message found')
