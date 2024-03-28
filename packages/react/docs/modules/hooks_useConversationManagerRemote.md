@@ -28,18 +28,17 @@ Re-exports [UseConversationManagerRemoteOptions](hooks_useConversationManager.md
 
 ### EndpointFunction
 
-Ƭ **EndpointFunction**\<\>: (`conversationId`: `any`, `request`: `any`) => [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`any`\>
+Ƭ **EndpointFunction**\<\>: (`options`: `any`) => [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`any`\>
 
 #### Type declaration
 
-▸ (`conversationId`, `request`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`any`\>
+▸ (`options`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`any`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `conversationId` | `any` |
-| `request` | `any` |
+| `options` | `any` |
 
 ##### Returns
 

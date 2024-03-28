@@ -14,7 +14,7 @@ import { ConversationClient } from '@chatbotkit/sdk'
 
 /**
  * @typedef {string} EndpointURL
- * @typedef {(conversationId: any, request: any) => AsyncGenerator<any>} EndpointFunction
+ * @typedef {(options: any) => AsyncGenerator<any>} EndpointFunction
  */
 
 /**
@@ -68,7 +68,7 @@ export function useConversationManagerRemote({
         ) {
           return {
             async *stream() {
-              yield* consume(endpoint(conversationId, options))
+              yield* consume(endpoint(options))
             },
           }
         },

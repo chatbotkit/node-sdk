@@ -5,7 +5,7 @@
  */
 /**
  * @typedef {string} EndpointURL
- * @typedef {(conversationId: any, request: any) => AsyncGenerator<any>} EndpointFunction
+ * @typedef {(options: any) => AsyncGenerator<any>} EndpointFunction
  */
 /**
  * @typedef {{
@@ -36,7 +36,7 @@ export default useConversationManagerRemote;
 export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
 export type Model = import('@chatbotkit/sdk/model/v1').Model;
 export type EndpointURL = string;
-export type EndpointFunction = (conversationId: any, request: any) => AsyncGenerator<any>;
+export type EndpointFunction = (options: any) => AsyncGenerator<any>;
 export type UseConversationManagerRemoteOptions = {
     client?: ConversationClient;
     endpoint?: EndpointURL | EndpointFunction;
