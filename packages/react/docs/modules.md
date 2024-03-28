@@ -14,4 +14,7 @@
 - [components/ChatMessages](modules/components_ChatMessages.md)
 - [components/ConversationManager](modules/components_ConversationManager.md)
 - [hooks/useConversationManager](modules/hooks_useConversationManager.md)
+- [hooks/useConversationManagerRemote](modules/hooks_useConversationManagerRemote.md)
+- [hooks/useConversationManagerState](modules/hooks_useConversationManagerState.md)
+- [hooks/useConversationManagerStateReducer](modules/hooks_useConversationManagerStateReducer.md)
 - [utils/stream](modules/utils_stream.md)

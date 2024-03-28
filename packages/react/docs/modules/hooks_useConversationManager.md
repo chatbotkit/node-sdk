@@ -38,7 +38,7 @@ ___
 | `client?` | `ConversationClient` |
 | `conversationId?` | `string` |
 | `datasetId?` | `string` |
-| `endpoint?` | `EndpointURL` \| `EndpointFunction` |
+| `endpoint?` | [`EndpointURL`](hooks_useConversationManagerRemote.md#endpointurl) \| [`EndpointFunction`](hooks_useConversationManagerRemote.md#endpointfunction) |
 | `model?` | `Model` |
 | `moderation?` | `boolean` |
 | `privacy?` | `boolean` |
