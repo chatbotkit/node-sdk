@@ -23,14 +23,14 @@
 
 | Name | Type |
 | :------ | :------ |
-| `message` | [`Message`](hooks_useConversationManagerStateReducer.md#message) \| ``null`` |
-| `messages` | [`Message`](hooks_useConversationManagerStateReducer.md#message)[] |
+| `message` | [`MessageWithId`](hooks_useConversationManagerStateReducer.md#messagewithid) \| ``null`` |
+| `messages` | [`MessageWithId`](hooks_useConversationManagerStateReducer.md#messagewithid)[] |
 | `thinking` | `boolean` |
 | `typing` | `boolean` |
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L19)
+[hooks/useConversationManagerStateReducer.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L18)
 
 ___
 

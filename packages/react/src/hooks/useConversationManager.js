@@ -67,14 +67,19 @@ export function useConversationManager({
    * @param {Message[]} [newMessages]
    */
   async function stream(newMessages) {
-    const allMessages = messages
-      .concat(newMessages || [])
-      .slice(-100) // @todo make configurable
-      .map((/** @type {Message} */ { type, text, meta }) => ({
+    const allMessages = [
+      ...messages.map(({ type, text, meta }) => ({
         type,
         text,
         meta,
-      }))
+      })),
+
+      ...(newMessages || []).map(({ type, text, meta }) => ({
+        type,
+        text,
+        meta,
+      })),
+    ].slice(-100) // @todo make configurable
 
     try {
       setThinking(true)

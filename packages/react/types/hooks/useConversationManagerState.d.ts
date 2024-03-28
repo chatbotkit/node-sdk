@@ -18,7 +18,7 @@
  * @param {Partial<State>} [state]
  * @returns {[State, StateFunctions]}
  */
-export function useConversationManagerState(state?: Partial<any> | undefined): [State, StateFunctions];
+export function useConversationManagerState(state?: Partial<import("./useConversationManagerStateReducer.js").State> | undefined): [State, StateFunctions];
 export default useConversationManagerState;
 export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
 export type State = import('./useConversationManagerStateReducer.js').State;
