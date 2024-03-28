@@ -1,5 +1,5 @@
 {
-  "name": "@examples/nextjs-app-router-stateless-chat-rsc-functions-trigger",
+  "name": "@examples/nextjs-app-router-stateless-chat-rsc-functions-request",
   "version": "0.0.0",
   "private": true,
   "scripts": {
