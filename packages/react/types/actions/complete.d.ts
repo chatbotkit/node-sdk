@@ -8,6 +8,8 @@
  */
 export function streamComplete(options: Options): import('../utils/stream.js').StreamResult;
 export default complete;
+export type ReactElement = import('react').ReactElement;
+export type ReactNode = import('react').ReactNode;
 export type BasicParametersSchema = Record<string, any>;
 export type ValidatingParametersSchema = {
     schema: BasicParametersSchema;
@@ -21,15 +23,19 @@ export type InputMessage = {
     text: string;
     meta?: Record<string, any>;
 };
+export type RenderFunction = () => AsyncGenerator<ReactNode> | ReactNode | Promise<ReactNode>;
+export type HandlerArgs = any;
+export type HandlerResult = string | ReactElement | {
+    text?: string;
+    children?: ReactNode;
+    render: RenderFunction;
+    result?: any;
+};
 export type InputFunction = {
     name: string;
     description: string;
     parameters: BasicParametersSchema | ValidatingParametersSchema;
-    handler?: ((args: any) => Promise<string | import('react').ReactElement | {
-        text?: string;
-        children?: import('react').ReactElement;
-        result?: any;
-    }>) | undefined;
+    handler?: ((args: HandlerArgs) => Promise<HandlerResult>) | undefined;
 };
 export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest, 'messages' | 'functions'> & {
     client: import('@chatbotkit/sdk').ConversationClient;
@@ -37,6 +43,10 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
     functions?: (InputFunction | (() => InputFunction))[];
     maxRecusion?: number;
 };
+/**
+ * @typedef {import('react').ReactElement} ReactElement
+ * @typedef {import('react').ReactNode} ReactNode
+ */
 /**
  * @typedef {Record<string,any>} BasicParametersSchema
  *
@@ -51,11 +61,16 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  *   meta?: Record<string,any>
  * }} InputMessage
  *
+ * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
+ *
+ * @typedef {any} HandlerArgs
+ * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render: RenderFunction, result?: any}} HandlerResult
+ *
  * @typedef {{
  *   name: string,
  *   description: string,
  *   parameters: BasicParametersSchema|ValidatingParametersSchema,
- *   handler?: (args: any) => Promise<string|import('react').ReactElement|{text?: string, children?: import('react').ReactElement, result?: any}>
+ *   handler?: (args: HandlerArgs) => Promise<HandlerResult>
  * }} InputFunction
  *
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {

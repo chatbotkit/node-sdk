@@ -126,6 +126,14 @@
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
     },
+    "./utils/it": {
+      "types": "./types/utils/it.d.ts",
+      "import": "./src/utils/it.js"
+    },
+    "./utils/it.js": {
+      "types": "./types/utils/it.d.ts",
+      "import": "./src/utils/it.js"
+    },
     "./utils/object": {
       "types": "./types/utils/object.d.ts",
       "import": "./src/utils/object.js"

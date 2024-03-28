@@ -11,11 +11,6 @@
 - [StreamResult](utils_stream.md#streamresult)
 - [StreamSource](utils_stream.md#streamsource)
 
-### Functions
-
-- [consume](utils_stream.md#consume)
-- [stream](utils_stream.md#stream)
-
 ## Type Aliases
 
 ### ConsumeResult
@@ -24,7 +19,7 @@
 
 #### Defined in
 
-[utils/stream.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L39)
+[utils/stream.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L40)
 
 ___
 
@@ -34,7 +29,7 @@ ___
 
 #### Defined in
 
-[utils/stream.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L38)
+[utils/stream.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L39)
 
 ___
 
@@ -55,51 +50,3 @@ ___
 #### Defined in
 
 [utils/stream.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L4)
-
-## Functions
-
-### consume
-
-▸ **consume**(`source`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `source` | `any` |
-
-#### Returns
-
-`any`
-
-**`Todo`**
-
-come up with a better type for source and result
-
-#### Defined in
-
-[utils/stream.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L44)
-
-___
-
-### stream
-
-▸ **stream**(`source`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `source` | `any` |
-
-#### Returns
-
-`any`
-
-**`Todo`**
-
-come up with a better type for source and result
-
-#### Defined in
-
-[utils/stream.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L10)

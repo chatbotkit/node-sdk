@@ -1,6 +1,13 @@
 import { isValidElement } from 'react'
 
+import { isAsyncGenerator } from '../utils/it.js'
 import { stream } from '../utils/stream.js'
+import { getRandomId } from '../utils/string.js'
+
+/**
+ * @typedef {import('react').ReactElement} ReactElement
+ * @typedef {import('react').ReactNode} ReactNode
+ */
 
 /**
  * @typedef {Record<string,any>} BasicParametersSchema
@@ -16,11 +23,16 @@ import { stream } from '../utils/stream.js'
  *   meta?: Record<string,any>
  * }} InputMessage
  *
+ * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
+ *
+ * @typedef {any} HandlerArgs
+ * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render: RenderFunction, result?: any}} HandlerResult
+ *
  * @typedef {{
  *   name: string,
  *   description: string,
  *   parameters: BasicParametersSchema|ValidatingParametersSchema,
- *   handler?: (args: any) => Promise<string|import('react').ReactElement|{text?: string, children?: import('react').ReactElement, result?: any}>
+ *   handler?: (args: HandlerArgs) => Promise<HandlerResult>
  * }} InputFunction
  *
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
@@ -175,14 +187,17 @@ async function* complete({
           let text
           let children
           let result
+          let render
 
           if (typeof output === 'string') {
             text = undefined
             children = undefined
+            render = undefined
             result = output
           } else if (isValidElement(output)) {
             text = ''
             children = output
+            render = undefined
             result = undefined
           } else {
             if (typeof output?.text === 'string') {
@@ -191,6 +206,10 @@ async function* complete({
 
             if (isValidElement(output?.children)) {
               children = output.children
+            }
+
+            if (typeof output?.render === 'function') {
+              render = output.render
             }
 
             if (output?.result) {
@@ -208,6 +227,35 @@ async function* complete({
                 text: text ? text : '',
                 children: children ? <>{children}</> : undefined,
               },
+            }
+          } else if (text || render) {
+            const result = await render?.()
+
+            if (isAsyncGenerator(result)) {
+              const id = getRandomId('tmp-')
+
+              for await (const item of /** @type {AsyncGenerator<ReactNode>} */ (
+                result
+              )) {
+                yield {
+                  type: 'message',
+                  data: {
+                    id: id,
+                    type: 'bot',
+                    text: text ? text : '',
+                    children: item,
+                  },
+                }
+              }
+            } else {
+              yield {
+                type: 'message',
+                data: {
+                  type: 'bot',
+                  text: text ? text : '',
+                  children: <>{result}</>,
+                },
+              }
             }
           }
 
