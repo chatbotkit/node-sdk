@@ -105,7 +105,14 @@ export function conversationManagerStateReducer(state, action) {
 
         ...extra,
 
-        messages: [...messages, message],
+        messages: [
+          ...messages,
+          {
+            ...message,
+
+            id: message.id || getRandomId('tmp-'),
+          },
+        ],
       }
     }
 
