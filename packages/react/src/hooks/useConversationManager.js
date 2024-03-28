@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { cloneAndExtend } from '../utils/object.js'
 import { consume } from '../utils/stream.js'
 import { getRandomId } from '../utils/string.js'
+import { useConversationManagerState } from './useConversationManagerState.js'
 
 import { ConversationClient } from '@chatbotkit/sdk'
 
@@ -42,7 +43,7 @@ import { ConversationClient } from '@chatbotkit/sdk'
  *   token?: string,
  *   conversationId?: string,
  *   backstory?: string,
- *   Model?: string,
+ *   model?: Model,
  *   datasetId?: string,
  *   skillsetId?: string,
  *   [key: string]: any
@@ -69,14 +70,11 @@ import { ConversationClient } from '@chatbotkit/sdk'
  *   setModeration: (moderation: string) => void,
  *   text: string,
  *   setText: (text: string) => void,
+ *   message: Message?,
  *   messages: Message[],
- *   setMessages: (messages: Message[]) => void,
  *   thinking: boolean,
- *   setThinking: (thinking: boolean) => void,
  *   typing: boolean,
- *   setTyping: (typing: boolean) => void,
  *   error: any,
- *   setError: (error: any) => void,
  *   submit: () => void
  *   trigger: (name: string) => void
  *   request: (name: string, ...args: any) => void
@@ -178,104 +176,87 @@ export function useConversationManager(options) {
     }
   }, [_client, endpoint, token])
 
+  const remote = useMemo(() => {
+    if (conversationId) {
+      return async function* (messages) {
+        const lastUserMessage = messages.findLast(
+          (message) => message.type === 'user'
+        )
+
+        if (!lastUserMessage) {
+          throw new Error('No user message found')
+        }
+
+        yield* client
+          .complete(conversationId, { text: lastUserMessage.text })
+          .stream()
+      }
+    } else {
+      return async function* (messages) {
+        yield* client
+          .complete(null, {
+            // @todo uncomment once supported
+            // botId: botId,
+            backstory: backstory,
+            model: model,
+            datasetId: datasetId,
+            skillsetId: skillsetId,
+            privacy: privacy,
+            moderation: moderation,
+            messages: messages,
+          })
+          .stream()
+      }
+    }
+  }, [client])
+
+  const [
+    {
+      thinking,
+      typing,
+
+      message,
+      messages,
+    },
+    {
+      setThinking,
+      setTyping,
+
+      appendText,
+      appendMessage,
+    },
+  ] = useConversationManagerState()
+
   const [text, setText] = useState(/** @type {string} */ (''))
-
-  const [messages, setMessages] = useState(/** @type { Message[]} */ ([]))
-
-  const [thinking, setThinking] = useState(false)
-  const [typing, setTyping] = useState(false)
 
   const [error, setError] = useState(/** @type {any} */ (null))
 
   /**
-   * @param {Message[]} newMessages
+   * @param {Message[]} [newMessages]
    */
   async function stream(newMessages) {
+    const allMessages = messages
+      .concat(newMessages || [])
+      .slice(-100) // @todo make configurable
+      .map(({ type, text, meta }) => ({ type, text, meta }))
+
     try {
       setThinking(true)
 
       setError(null)
 
-      let it
-
-      if (conversationId) {
-        it = client.complete(conversationId, { text })
-      } else {
-        it = client.complete(null, {
-          // @todo uncomment once supported
-          // botId: botId,
-          backstory: backstory,
-          model: model,
-          datasetId: datasetId,
-          skillsetId: skillsetId,
-          privacy: privacy,
-          moderation: moderation,
-          messages: newMessages
-            .slice(-100)
-            .map(({ type, text, meta }) => ({ type, text, meta })),
-        })
-      }
-
-      /** @type {Message?} */
-      let botMessage = null
-
-      for await (const item of it.stream()) {
+      for await (const item of remote(allMessages)) {
         switch (item.type) {
           case 'token': {
-            if (!botMessage) {
-              botMessage = {
-                id: getRandomId('tmp-'),
-                type: 'bot',
-                text: '',
-              }
-
-              newMessages = [...newMessages, botMessage]
-
-              setMessages(newMessages)
-
-              setThinking(false)
-              setTyping(true)
-            }
-
-            botMessage.text += item.data.token
-
-            newMessages = [...newMessages]
-
-            setMessages(newMessages)
+            appendText(item.data.token)
 
             break
           }
 
           case 'message': {
-            /** @type {Message & {children?: import('react').ReactElement}} */
-            const message = item.data
-
-            if (
-              message.type === 'activity' ||
-              message.text !== botMessage?.text ||
-              typeof message.children !== 'undefined'
-            ) {
-              const newMessage = {
-                // streamed messages do not have an id so we generate one here
-
-                id: getRandomId('tmp-'),
-
-                ...item.data,
-              }
-
-              newMessages = [...newMessages, newMessage]
-
-              setMessages(newMessages)
-            }
+            appendMessage(item.data)
 
             break
-          }
-
-          case 'result': {
-            setThinking(false)
-            setTyping(false)
-
-            botMessage = null
           }
         }
       }
@@ -296,41 +277,43 @@ export function useConversationManager(options) {
   }
 
   /**
-   * This function submits the current text input to the bot. It will add the
-   * user message to the messages list and then call the stream function to
-   * start the conversation with the bot and complete the conversation.
+   * This function submits the current text input to the bot. You can also pass
+   * a text string to this function to submit a specific text instead of the
+   * current text input. This takes precedence over the current text input.
    *
+   * @param {string} [thisText]
    * @returns {Promise<void>}
    */
-  async function submit() {
+  async function submit(thisText) {
     if (thinking || typing) {
       return // @todo handle submit pipelining
     }
 
-    if (!text) {
-      return
-    }
+    if (!thisText) {
+      if (!text) {
+        return
+      }
 
-    setText('')
+      thisText = text
+
+      setText('')
+    }
 
     /** @type {Message} */
     const userMessage = {
       id: getRandomId('tmp-'),
       type: 'user',
-      text: text,
+      text: thisText,
     }
 
-    /** @type {Message[]} */
-    const newMessages = [...messages, userMessage]
+    appendMessage(userMessage)
 
-    setMessages(newMessages)
-
-    await stream(newMessages)
+    await stream([userMessage])
   }
 
   /**
    * This function triggers an activity in the bot. This is a special type of a
-   * message that is used to trigger a specific activity in the bot such as a
+   * message that is used to trigger a specific operation in the bot such as a
    * function. For function triggers you cannot pass arguments to the function
    * as they are inferred from the context of the conversation.
    *
@@ -356,19 +339,14 @@ export function useConversationManager(options) {
       },
     }
 
-    /** @type {Message[]} */
-    const newMessages = [...messages, activityMessage]
-
-    // @note we do not update the messages on purpose
-
-    await stream(newMessages)
+    await stream([activityMessage])
   }
 
   /**
    * This function requests a function in the bot. This is a special type of a
-   * message that is used to request a specific function in the bot. For
-   * function requests you can pass arguments to the function as they are
-   * explicitly defined.
+   * message that is used to request a specific operation in the bot such as a
+   * function. For function requests you can pass arguments to the function as
+   * they are not inferred from the context of the conversation.
    *
    * @param {string} name
    * @param  {...any} args
@@ -394,12 +372,7 @@ export function useConversationManager(options) {
       },
     }
 
-    /** @type {Message[]} */
-    const newMessages = [...messages, activityMessage]
-
-    // @note we do not update the messages on purpose
-
-    await stream(newMessages)
+    await stream([activityMessage])
   }
 
   return {
@@ -433,17 +406,13 @@ export function useConversationManager(options) {
     text,
     setText,
 
+    message,
     messages,
-    setMessages,
 
     thinking,
-    setThinking,
-
     typing,
-    setTyping,
 
     error,
-    setError,
 
     submit,
 
