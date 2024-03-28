@@ -71,13 +71,13 @@ import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 export default function Index() {
   const {
     thinking,
-    
+
     text,
     setText,
-    
+
     messages,
-    
-    submit,
+
+    submit
   } = useConversationManager({
     endpoint: '/api/conversation/complete',
   })
@@ -136,4 +136,4 @@ export default function Index() {
 
 #### Defined in
 
-[edge.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L95)
+[edge.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L104)
