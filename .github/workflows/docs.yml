@@ -38,7 +38,7 @@ jobs:
 
       - run: pnpm install
       - run: npx typedoc
-      - run: npx typedoc --json index.json
+      - run: npx typedoc --json docs/index.json
       - run: node scripts/create-docs-exports.js
 
       - name: Setup Pages
