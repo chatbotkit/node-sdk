@@ -17,11 +17,20 @@
 
 ### State
 
-Ƭ **State**\<\>: `any`
+Ƭ **State**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `message` | [`Message`](hooks_useConversationManagerStateReducer.md#message) \| ``null`` |
+| `messages` | [`Message`](hooks_useConversationManagerStateReducer.md#message)[] |
+| `thinking` | `boolean` |
+| `typing` | `boolean` |
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L8)
+[hooks/useConversationManagerStateReducer.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L19)
 
 ___
 
@@ -46,7 +55,7 @@ ___
 
 ### useConversationManagerState
 
-▸ **useConversationManagerState**(`state?`): [`any`, [`StateFunctions`](hooks_useConversationManagerState.md#statefunctions)]
+▸ **useConversationManagerState**(`state?`): [[`State`](hooks_useConversationManagerState.md#state), [`StateFunctions`](hooks_useConversationManagerState.md#statefunctions)]
 
 This is a hook that creates a conversation manager reducer and initializes
 the state of the conversation manager to the given state or to the default
@@ -56,11 +65,11 @@ state if no state is given.
 
 | Name | Type |
 | :------ | :------ |
-| `state?` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<`any`\> |
+| `state?` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`State`](hooks_useConversationManagerState.md#state)\> |
 
 #### Returns
 
-[`any`, [`StateFunctions`](hooks_useConversationManagerState.md#statefunctions)]
+[[`State`](hooks_useConversationManagerState.md#state), [`StateFunctions`](hooks_useConversationManagerState.md#statefunctions)]
 
 #### Defined in
 

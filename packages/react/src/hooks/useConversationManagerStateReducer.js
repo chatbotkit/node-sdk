@@ -3,10 +3,48 @@ import { useReducer } from 'react'
 import { getRandomId } from '../utils/string.js'
 
 /**
- * @todo define better types for State and Action
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').Message & {
+ *   id: string,
+ * }} Message
+ */
+
+/**
+ * @typedef {{
+ *   thinking: boolean,
+ *   typing: boolean,
+ *   message: Message | null,
+ *   messages: Message[],
+ * }} State
  *
- * @typedef {any} State
- * @typedef {any} Action
+ * @typedef {{
+ *   type: 'setThinking',
+ *   data: {
+ *    thinking: boolean,
+ *   }
+ * }} SetThinkingAction
+ *
+ * @typedef {{
+ *   type: 'setTyping',
+ *   data: {
+ *     typing: boolean,
+ *   }
+ * }} SetTypingAction
+ *
+ * @typedef {{
+ *   type: 'appendText',
+ *   data: {
+ *     text: string,
+ *   }
+ * }} AppendTextAction
+ *
+ * @typedef {{
+ *   type: 'appendMessage',
+ *   data: {
+ *     message: {id?: string} & Message,
+ *   }
+ * }} AppendMessageAction
+ *
+ * @typedef {SetThinkingAction|SetTypingAction|AppendTextAction|AppendMessageAction} Action
  */
 
 /**
@@ -14,7 +52,7 @@ import { getRandomId } from '../utils/string.js'
  * state of the conversation manager and updates the state based on the actions
  * that are dispatched to it.
  *
- * @param {Partial<State>} state
+ * @param {State} state
  * @param {Action} action
  * @returns {State}
  */
@@ -69,22 +107,22 @@ export function conversationManagerStateReducer(state, action) {
         typing: true,
       }
 
-      const message = state.message || {
-        id: getRandomId('tmp-'),
-        type: 'bot',
-        text: '',
-      }
+      const message = state.message
+        ? /** @type {Message} */ ({ ...state.message })
+        : /** @type {Message} */ ({
+            id: getRandomId('tmp-'),
+            type: 'bot',
+            text: '',
+          })
+
+      message.text += text
 
       return {
         ...state,
 
         ...extra,
 
-        message: {
-          ...message,
-
-          text: message.text + text,
-        },
+        message,
       }
     }
 
@@ -102,42 +140,37 @@ export function conversationManagerStateReducer(state, action) {
         }
       }
 
-      const messages = state.messages || []
+      const messages = state.messages.slice(0)
+
+      if (message.id) {
+        const index = messages.findIndex(
+          (/** @type {Message} */ m) => m.id === message.id
+        )
+
+        if (index !== -1) {
+          messages[index] = message
+        } else {
+          messages.push(message)
+        }
+      } else {
+        messages.push({
+          ...message,
+
+          id: getRandomId('tmp-'),
+        })
+      }
 
       return {
         ...state,
 
         ...extra,
 
-        messages: [
-          ...messages,
-          {
-            ...message,
-
-            id: message.id || getRandomId('tmp-'),
-          },
-        ],
-      }
-    }
-
-    case 'clearMessage': {
-      return {
-        ...state,
-
-        message: null,
-      }
-    }
-
-    case 'clearMessages': {
-      return {
-        ...state,
-
-        messages: [],
+        messages,
       }
     }
 
     default: {
-      throw new Error(`Unhandled action type: ${action.type}`)
+      throw new Error(`Unhandled action`)
     }
   }
 }
