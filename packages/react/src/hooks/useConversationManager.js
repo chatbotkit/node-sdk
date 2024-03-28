@@ -184,10 +184,10 @@ export function useConversationManager({
    * they are not inferred from the context of the conversation.
    *
    * @param {string} name
-   * @param  {...any} args
+   * @param  {any} args
    * @returns {Promise<void>}
    */
-  async function request(name, ...args) {
+  async function request(name, args) {
     if (thinking || typing) {
       return // @todo handle submit pipelining
     }
