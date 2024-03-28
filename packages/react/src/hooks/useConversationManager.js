@@ -68,17 +68,21 @@ export function useConversationManager({
    */
   async function stream(newMessages) {
     const allMessages = [
-      ...messages.map(({ type, text, meta }) => ({
-        type,
-        text,
-        meta,
-      })),
+      ...messages.map(({ type, text, meta }) => {
+        return {
+          type,
+          text,
+          meta,
+        }
+      }),
 
-      ...(newMessages || []).map(({ type, text, meta }) => ({
-        type,
-        text,
-        meta,
-      })),
+      ...(newMessages || []).map(({ type, text, meta }) => {
+        return {
+          type,
+          text,
+          meta,
+        }
+      }),
     ].slice(-100) // @todo make configurable
 
     try {
