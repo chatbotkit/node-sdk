@@ -24,7 +24,7 @@ import { useConversationManagerState } from './useConversationManagerState.js'
  *   setError: (error: any) => void,
  *   submit: () => void
  *   trigger: (name: string) => void
- *   request: (name: string, ...args: any) => void
+ *   request: (name: string, args: any) => void
  * }} UseConversationManagerResult
  */
 

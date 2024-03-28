@@ -62,7 +62,7 @@ ___
 | `error` | `any` |
 | `message` | `Message` \| ``null`` |
 | `messages` | `Message`[] |
-| `request` | (`name`: `string`, ...`args`: `any`) => `void` |
+| `request` | (`name`: `string`, `args`: `any`) => `void` |
 | `setError` | (`error`: `any`) => `void` |
 | `setText` | (`text`: `string`) => `void` |
 | `submit` | () => `void` |
