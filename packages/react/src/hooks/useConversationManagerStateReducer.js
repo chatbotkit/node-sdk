@@ -23,6 +23,7 @@ export function conversationManagerStateReducer(state, action) {
     case 'setThinking': {
       const { thinking } = action.data
 
+      /** @type {Partial<State>} */
       const extra = {}
 
       if (thinking) {
@@ -42,6 +43,7 @@ export function conversationManagerStateReducer(state, action) {
     case 'setTyping': {
       const { typing } = action.data
 
+      /** @type {Partial<State>} */
       const extra = {}
 
       if (typing) {
@@ -61,6 +63,7 @@ export function conversationManagerStateReducer(state, action) {
     case 'appendText': {
       const { text } = action.data
 
+      /** @type {Partial<State>} */
       const extra = {
         thinking: false,
         typing: true,
@@ -88,6 +91,7 @@ export function conversationManagerStateReducer(state, action) {
     case 'appendMessage': {
       const { message } = action.data
 
+      /** @type {Partial<State>} */
       const extra = {}
 
       if (message.type === 'bot') {

@@ -27,28 +27,28 @@ export function useConversationManagerState(state) {
   const [_, dispatch] = useConversationManagerStateReducer(state)
 
   const setThinking = useCallback(
-    (thinking) => {
+    (/** @type {boolean} */ thinking) => {
       dispatch({ type: 'setThinking', data: { thinking } })
     },
     [dispatch]
   )
 
   const setTyping = useCallback(
-    (typing) => {
+    (/** @type {boolean} */ typing) => {
       dispatch({ type: 'setTyping', data: { typing } })
     },
     [dispatch]
   )
 
   const appendText = useCallback(
-    (text) => {
+    (/** @type {string} */ text) => {
       dispatch({ type: 'appendText', data: { text } })
     },
     [dispatch]
   )
 
   const appendMessage = useCallback(
-    (message) => {
+    (/** @type {Message} */ message) => {
       dispatch({ type: 'appendMessage', data: { message } })
     },
     [dispatch]

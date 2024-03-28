@@ -102,6 +102,7 @@ export function useConversationManagerRemote({
     }
   }, [_client, endpoint, token])
 
+  /** @type {UseConversationManagerRemoteResult} */
   const remote = useMemo(() => {
     if (conversationId) {
       return /** @type {UseConversationManagerRemoteResult} */ (

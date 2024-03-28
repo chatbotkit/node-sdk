@@ -70,7 +70,11 @@ export function useConversationManager({
     const allMessages = messages
       .concat(newMessages || [])
       .slice(-100) // @todo make configurable
-      .map(({ type, text, meta }) => ({ type, text, meta }))
+      .map((/** @type {Message} */ { type, text, meta }) => ({
+        type,
+        text,
+        meta,
+      }))
 
     try {
       setThinking(true)
