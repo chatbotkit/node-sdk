@@ -38,6 +38,8 @@ export async function complete(_, { messages }) {
     // You can pass any botId or a combination between backstory, model,
     // datasetId and skillsetId parameters here.
 
+    model: 'gpt-4-turbo',
+
     messages,
 
     // In this example we define two functions that can be called by the bot to
