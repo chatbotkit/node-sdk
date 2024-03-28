@@ -174,7 +174,7 @@ ___
 
 ### ConversationCompleteRequest
 
-Ƭ **ConversationCompleteRequest**\<\>: \{ `backstory?`: `string` ; `datasetId?`: `string` ; `messages?`: [`Message`](conversation_v1.md#message)[] ; `model?`: [`model/v1`](model_v1.md) ; `skillsetId?`: `string` ; `unstable?`: \{ `functions?`: \{ `description`: `string` ; `name`: `string` ; `parameters`: `any`  }[]  }  } & \{ `text`: `string`  } \| \{ `messages`: [`Message`](conversation_v1.md#message)[]  }
+Ƭ **ConversationCompleteRequest**\<\>: \{ `backstory?`: `string` ; `datasetId?`: `string` ; `functions?`: \{ `description`: `string` ; `name`: `string` ; `parameters`: `any`  }[] ; `messages?`: [`Message`](conversation_v1.md#message)[] ; `model?`: [`model/v1`](model_v1.md) ; `moderation?`: `boolean` ; `privacy?`: `boolean` ; `skillsetId?`: `string`  } & \{ `text`: `string`  } \| \{ `messages`: [`Message`](conversation_v1.md#message)[]  }
 
 #### Defined in
 
@@ -348,7 +348,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
-| `meta?` | `Record`\<`string`, `string`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
@@ -412,7 +412,7 @@ ___
 | `backstory?` | `string` |
 | `botId?` | `string` |
 | `datasetId?` | `string` |
-| `meta?` | `Record`\<`string`, `any`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `model?` | `string` |
 | `skillsetId?` | `string` |
 
@@ -646,7 +646,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `meta?` | `Record`\<`string`, `any`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `text` | `string` |
 | `type` | [`MessageType`](conversation_v1.md#messagetype) |
 
@@ -728,7 +728,7 @@ ___
 
 ### createConversation
 
-▸ **createConversation**(`client`, `request`): `Promise`\<[`ConversationCreateResponse`](conversation_v1.md#conversationcreateresponse)\>
+▸ **createConversation**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationCreateResponse`](conversation_v1.md#conversationcreateresponse)\>
 
 #### Parameters
 
@@ -739,7 +739,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationCreateResponse`](conversation_v1.md#conversationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationCreateResponse`](conversation_v1.md#conversationcreateresponse)\>
 
 #### Defined in
 
@@ -749,7 +749,7 @@ ___
 
 ### deleteConversation
 
-▸ **deleteConversation**(`client`, `conversationId`): `Promise`\<[`ConversationDeleteResponse`](conversation_v1.md#conversationdeleteresponse)\>
+▸ **deleteConversation**(`client`, `conversationId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationDeleteResponse`](conversation_v1.md#conversationdeleteresponse)\>
 
 #### Parameters
 
@@ -760,7 +760,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationDeleteResponse`](conversation_v1.md#conversationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationDeleteResponse`](conversation_v1.md#conversationdeleteresponse)\>
 
 #### Defined in
 
@@ -770,7 +770,7 @@ ___
 
 ### downvoteConversation
 
-▸ **downvoteConversation**(`client`, `conversationId`, `request`): `Promise`\<[`ConversationDownvoteResponse`](conversation_v1.md#conversationdownvoteresponse)\>
+▸ **downvoteConversation**(`client`, `conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationDownvoteResponse`](conversation_v1.md#conversationdownvoteresponse)\>
 
 #### Parameters
 
@@ -782,7 +782,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationDownvoteResponse`](conversation_v1.md#conversationdownvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationDownvoteResponse`](conversation_v1.md#conversationdownvoteresponse)\>
 
 #### Defined in
 
@@ -792,7 +792,7 @@ ___
 
 ### fetchConversation
 
-▸ **fetchConversation**(`client`, `conversationId`): `Promise`\<[`ConversationFetchResponse`](conversation_v1.md#conversationfetchresponse)\>
+▸ **fetchConversation**(`client`, `conversationId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationFetchResponse`](conversation_v1.md#conversationfetchresponse)\>
 
 #### Parameters
 
@@ -803,7 +803,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationFetchResponse`](conversation_v1.md#conversationfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationFetchResponse`](conversation_v1.md#conversationfetchresponse)\>
 
 #### Defined in
 
@@ -878,7 +878,7 @@ ___
 
 ### updateConversation
 
-▸ **updateConversation**(`client`, `conversationId`, `request`): `Promise`\<[`ConversationUpdateResponse`](conversation_v1.md#conversationupdateresponse)\>
+▸ **updateConversation**(`client`, `conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationUpdateResponse`](conversation_v1.md#conversationupdateresponse)\>
 
 #### Parameters
 
@@ -890,7 +890,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationUpdateResponse`](conversation_v1.md#conversationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationUpdateResponse`](conversation_v1.md#conversationupdateresponse)\>
 
 #### Defined in
 
@@ -900,7 +900,7 @@ ___
 
 ### upvoteConversation
 
-▸ **upvoteConversation**(`client`, `conversationId`, `request`): `Promise`\<[`ConversationUpvoteResponse`](conversation_v1.md#conversationupvoteresponse)\>
+▸ **upvoteConversation**(`client`, `conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationUpvoteResponse`](conversation_v1.md#conversationupvoteresponse)\>
 
 #### Parameters
 
@@ -912,7 +912,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ConversationUpvoteResponse`](conversation_v1.md#conversationupvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationUpvoteResponse`](conversation_v1.md#conversationupvoteresponse)\>
 
 #### Defined in
 

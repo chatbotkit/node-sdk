@@ -20,7 +20,7 @@ The most important files in this project are:
 From the root of the ChatBotKit Node SDK monorepo:
 
 ```bash
-pnpm -F @examples/nextjs-app-router-stateless-chat-rsc-functions-trigger dev
+pnpm -F @examples/nextjs-app-router-stateless-chat-rsc-functions-request dev
 ```
 
 As a standalone application:

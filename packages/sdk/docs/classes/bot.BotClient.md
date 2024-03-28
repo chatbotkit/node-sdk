@@ -86,16 +86,16 @@ Bot client.
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -113,7 +113,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): `Promise`\<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
 
 Creates a new bot.
 
@@ -125,7 +125,7 @@ Creates a new bot.
 
 #### Returns
 
-`Promise`\<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
 
 #### Defined in
 
@@ -135,7 +135,7 @@ ___
 
 ### delete
 
-▸ **delete**(`botId`): `Promise`\<[`BotDeleteResponse`](../modules/bot_v1.md#botdeleteresponse)\>
+▸ **delete**(`botId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotDeleteResponse`](../modules/bot_v1.md#botdeleteresponse)\>
 
 Deletes the bot.
 
@@ -147,7 +147,7 @@ Deletes the bot.
 
 #### Returns
 
-`Promise`\<[`BotDeleteResponse`](../modules/bot_v1.md#botdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotDeleteResponse`](../modules/bot_v1.md#botdeleteresponse)\>
 
 #### Defined in
 
@@ -157,7 +157,7 @@ ___
 
 ### downvote
 
-▸ **downvote**(`botId`, `request`): `Promise`\<[`BotDownvoteResponse`](../modules/bot_v1.md#botdownvoteresponse)\>
+▸ **downvote**(`botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotDownvoteResponse`](../modules/bot_v1.md#botdownvoteresponse)\>
 
 #### Parameters
 
@@ -168,7 +168,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`BotDownvoteResponse`](../modules/bot_v1.md#botdownvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotDownvoteResponse`](../modules/bot_v1.md#botdownvoteresponse)\>
 
 #### Defined in
 
@@ -178,7 +178,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`botId`): `Promise`\<[`BotFetchResponse`](../modules/bot_v1.md#botfetchresponse)\>
+▸ **fetch**(`botId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotFetchResponse`](../modules/bot_v1.md#botfetchresponse)\>
 
 Fetches a bot.
 
@@ -190,7 +190,7 @@ Fetches a bot.
 
 #### Returns
 
-`Promise`\<[`BotFetchResponse`](../modules/bot_v1.md#botfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotFetchResponse`](../modules/bot_v1.md#botfetchresponse)\>
 
 #### Defined in
 
@@ -222,7 +222,7 @@ ___
 
 ### update
 
-▸ **update**(`botId`, `request`): `Promise`\<[`BotUpdateResponse`](../modules/bot_v1.md#botupdateresponse)\>
+▸ **update**(`botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotUpdateResponse`](../modules/bot_v1.md#botupdateresponse)\>
 
 Updates a bot.
 
@@ -235,7 +235,7 @@ Updates a bot.
 
 #### Returns
 
-`Promise`\<[`BotUpdateResponse`](../modules/bot_v1.md#botupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotUpdateResponse`](../modules/bot_v1.md#botupdateresponse)\>
 
 #### Defined in
 
@@ -245,7 +245,7 @@ ___
 
 ### upvote
 
-▸ **upvote**(`botId`, `request`): `Promise`\<[`BotUpvoteResponse`](../modules/bot_v1.md#botupvoteresponse)\>
+▸ **upvote**(`botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotUpvoteResponse`](../modules/bot_v1.md#botupvoteresponse)\>
 
 #### Parameters
 
@@ -256,7 +256,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`BotUpvoteResponse`](../modules/bot_v1.md#botupvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotUpvoteResponse`](../modules/bot_v1.md#botupvoteresponse)\>
 
 #### Defined in
 

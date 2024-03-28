@@ -12,11 +12,21 @@ const cbk = new ChatBotKit({
   secret: process.env.CHATBOTKIT_API_SECRET,
 })
 
+// Define a list of calendar events. This is just a simple example to show how
+// you can use the conversational AI capabilities of ChatBotKit to interact with
+// the user and get the conversation state. This setup here only work with the
+// development server, as the events are not stored in a database.
+
+const events = [
+  { id: 1, title: 'Meeting with Jane Doe' },
+  { id: 2, title: 'Meeting with Jill Doe' },
+]
+
 // Now let's define a server action that will be called by the client to
 // complete the conversation. We only accept the messages parameter, which is
 // the state of the conversation. We can accept also other parameters if needed.
 
-export async function complete(_, { messages }) {
+export async function complete({ messages }) {
   // You can do any kind of processing here, like calling external APIs, saving
   // data to a database, checking for authentication and authorization, etc.
 
@@ -27,6 +37,8 @@ export async function complete(_, { messages }) {
 
     // You can pass any botId or a combination between backstory, model,
     // datasetId and skillsetId parameters here.
+
+    model: 'gpt-4-turbo',
 
     messages,
 
@@ -40,13 +52,17 @@ export async function complete(_, { messages }) {
     functions: [
       // This is a simple function that return a result. The result will be
       // taken into account by the bot.
-      {
-        name: 'getUserName',
-        description: 'Get the authenticated user name',
-        parameters: {},
-        handler: async () => {
-          return 'John Doe'
-        },
+      function () {
+        const parameters = {}
+
+        return {
+          name: 'getUserName',
+          description: 'Get the authenticated user name',
+          parameters: parameters,
+          handler: async () => {
+            return 'John Doe'
+          },
+        }
       },
 
       // This is a more advanced function that returns a React element and a
@@ -54,24 +70,23 @@ export async function complete(_, { messages }) {
       // element will be rendered in the chat window. Notice that we are also
       // returning a client component, which will handle any interactions from
       // the user.
-      {
-        name: 'getCalendarEvents',
-        description: 'Get a list of calendar events',
-        parameters: {},
-        handler: async () => {
-          const events = [
-            { id: 1, title: 'Meeting with Jane Doe' },
-            { id: 2, title: 'Meeting with Jill Doe' },
-          ]
+      function () {
+        const parameters = {}
 
-          return {
-            children: <CalendarEvents events={events} />,
+        return {
+          name: 'getCalendarEvents',
+          description: 'Get a list of calendar events',
+          parameters: parameters,
+          handler: async () => {
+            return {
+              children: <CalendarEvents events={events} />,
 
-            result: {
-              events,
-            },
-          }
-        },
+              result: {
+                events,
+              },
+            }
+          },
+        }
       },
 
       // This is where we define the function that the client can use to decline
@@ -83,10 +98,8 @@ export async function complete(_, { messages }) {
       // from the client. This is just a way to keep all conversational AI
       // capabilities in one place and available to both the client and the
       // conversational AI bot.
-      {
-        name: 'declineCalendarEvent',
-        description: 'Decline a calendar event',
-        parameters: {
+      function () {
+        const parameters = {
           type: 'object',
           properties: {
             id: {
@@ -95,10 +108,24 @@ export async function complete(_, { messages }) {
             },
           },
           required: ['id'],
-        },
-        handler: async ({ id }) => {
-          return `You have declined the event with ID ${id}`
-        },
+        }
+
+        return {
+          name: 'declineCalendarEvent',
+          description: 'Decline a calendar event',
+          parameters: parameters,
+          handler: async ({ id }) => {
+            const eventIndex = events.findIndex((event) => event.id === id)
+
+            if (eventIndex < 0) {
+              return `The event with ID ${id} was not found`
+            }
+
+            events.splice(eventIndex, 1)
+
+            return `The event with ID ${id} was declined`
+          },
+        }
       },
     ],
   })

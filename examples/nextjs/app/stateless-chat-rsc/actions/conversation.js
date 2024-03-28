@@ -15,7 +15,7 @@ const cbk = new ChatBotKit({
 // further configuration of the conversation. Finally the response is streamed
 // back to the client.
 
-export async function complete(_, { messages }) {
+export async function complete({ messages }) {
   return stream(
     cbk.conversation.complete(null, {
       // You can pass any botId or a combination between backstory, model,

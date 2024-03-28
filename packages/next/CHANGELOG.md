@@ -1,5 +1,11 @@
 # @chatbotkit/next
 
+## 1.8.0
+
+### Minor Changes
+
+- ae511e0: Bug fixes, react components improvements, streaming server actions.
+
 ## 1.1.10
 
 ### Patch Changes

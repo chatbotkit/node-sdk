@@ -4,38 +4,14 @@ import useConversationManager from '../hooks/useConversationManager.js'
 
 export const ConversationContext = createContext(
   /** @type {import('../hooks/useConversationManager.js').UseConversationManagerResult} */ ({
-    token: undefined,
-    setToken: () => {},
+    message: null,
+    messages: [],
 
-    conversationId: undefined,
-    setConversationId: () => {},
-
-    botId: undefined,
-    setBotId: () => {},
-
-    backstory: undefined,
-    setBackstory: () => {},
-
-    model: undefined,
-    setModel: () => {},
-
-    datasetId: undefined,
-    setDatasetId: () => {},
-
-    skillsetId: undefined,
-    setSkillsetId: () => {},
+    thinking: false,
+    typing: false,
 
     text: '',
     setText: () => {},
-
-    messages: [],
-    setMessages: () => {},
-
-    thinking: false,
-    setThinking: () => {},
-
-    typing: false,
-    setTyping: () => {},
 
     error: null,
     setError: () => {},
@@ -43,6 +19,8 @@ export const ConversationContext = createContext(
     submit: () => {},
 
     trigger: () => {},
+
+    request: () => {},
   })
 )
 

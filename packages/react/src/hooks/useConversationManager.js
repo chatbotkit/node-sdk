@@ -1,80 +1,30 @@
-/* globals globalThis */
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
-import { cloneAndExtend } from '../utils/object.js'
-import { consume } from '../utils/stream.js'
-import { getRandomId } from '../utils/string.js'
-
-import { ConversationClient } from '@chatbotkit/sdk'
+import useConversationManagerRemote from './useConversationManagerRemote.js'
+import { useConversationManagerState } from './useConversationManagerState.js'
 
 /**
- * @typedef {{
- *   maxTokens?: number,
- *   temperature?: number,
- *   frequencyPenalty?: number,
- *   presencePenalty?: number,
- *   seed?: number,
- *   interactionMaxMessages?: number,
- *   region?: 'us'|'eu'
- * }} ModelConfig
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  *
- * @typedef {string|{name: string, config?: ModelConfig}} Model
+ * @typedef {import('./useConversationManagerRemote.js').UseConversationManagerRemoteOptions} UseConversationManagerRemoteOptions
  */
 
 /**
- * @typedef {{
- *   id?: string,
- *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
- *   text: string,
- *   meta?: Record<string,any>
- * }} Message
- */
-
-/**
- * @typedef {string} EndpointURL
- * @typedef {(conversationId: any, request: any) => AsyncGenerator<any>} EndpointFunction
- */
-
-/**
- * @typedef {{
- *   client?: ConversationClient,
- *   endpoint?: EndpointURL|EndpointFunction,
- *   token?: string,
- *   conversationId?: string,
- *   backstory?: string,
- *   Model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   [key: string]: any
+ * @typedef {UseConversationManagerRemoteOptions & {
  * }} UseConversationManagerOptions
  *
  * @typedef {{
- *   token?: string,
- *   setToken: (token: string) => void,
- *   conversationId?: string,
- *   setConversationId: (conversationId: string) => void,
- *   botId?: string,
- *   setBotId: (botId: string) => void,
- *   backstory?: string,
- *   setBackstory: (backstory: string) => void,
- *   model?: Model,
- *   setModel: (model: Model) => void,
- *   datasetId?: string,
- *   setDatasetId: (datasetId: string) => void,
- *   skillsetId?: string,
- *   setSkillsetId: (skillsetId: string) => void,
+ *   message: Message?,
+ *   messages: Message[],
+ *   thinking: boolean,
+ *   typing: boolean,
  *   text: string,
  *   setText: (text: string) => void,
- *   messages: Message[],
- *   setMessages: (messages: Message[]) => void,
- *   thinking: boolean,
- *   setThinking: (thinking: boolean) => void,
- *   typing: boolean,
- *   setTyping: (typing: boolean) => void,
  *   error: any,
  *   setError: (error: any) => void,
  *   submit: () => void
- *   trigger: (name: string, ...args: any) => void
+ *   trigger: (name: string) => void
+ *   request: (name: string, args: any) => void
  * }} UseConversationManagerResult
  */
 
@@ -87,285 +37,197 @@ import { ConversationClient } from '@chatbotkit/sdk'
  * @param {UseConversationManagerOptions} options
  * @returns {UseConversationManagerResult}
  */
-export function useConversationManager(options) {
-  const {
-    client: _client,
+export function useConversationManager({
+  ...conversationManagerRemoteOptions
+}) {
+  const remote = useConversationManagerRemote(conversationManagerRemoteOptions)
 
-    endpoint,
+  const [
+    {
+      thinking,
+      typing,
 
-    token: _token,
+      message,
+      messages,
+    },
+    {
+      setThinking,
+      setTyping,
 
-    conversationId: _conversationId,
-
-    botId: _botId,
-
-    backstory: _backstory,
-
-    model: _model,
-
-    datasetId: _datasetId,
-    skillsetId: _skillsetId,
-
-    ...rest
-  } = options
-
-  const [token, setToken] = useState(_token)
-
-  const [conversationId, setConversationId] = useState(_conversationId)
-
-  const [botId, setBotId] = useState(_botId)
-
-  const [backstory, setBackstory] = useState(_backstory)
-
-  const [model, setModel] = useState(_model)
-
-  const [datasetId, setDatasetId] = useState(_datasetId)
-
-  const [skillsetId, setSkillsetId] = useState(_skillsetId)
-
-  const client = useMemo(() => {
-    if (typeof endpoint === 'function') {
-      return {
-        complete(
-          /** @type {null|string} */ conversationId,
-          /** @type {any} */ options
-        ) {
-          return {
-            async *stream() {
-              yield* consume(endpoint(conversationId, options))
-            },
-          }
-        },
-      }
-    }
-
-    const options = { ...rest, secret: token || '' }
-
-    let thisClient = _client || new ConversationClient(options)
-
-    const extension = {}
-
-    if (typeof endpoint === 'string') {
-      extension.url = new URL(
-        globalThis.window?.location?.origin || 'about:blank'
-      )
-
-      extension.endpoints = {
-        '/api/v1/conversation/complete': endpoint,
-      }
-    }
-
-    if (token) {
-      extension.secret = token
-    }
-
-    if (Object.keys(extension).length === 0) {
-      return thisClient
-    } else {
-      return cloneAndExtend(thisClient, extension)
-    }
-  }, [_client, endpoint, token])
+      appendText,
+      appendMessage,
+    },
+  ] = useConversationManagerState()
 
   const [text, setText] = useState(/** @type {string} */ (''))
-
-  const [messages, setMessages] = useState(/** @type { Message[]} */ ([]))
-
-  const [thinking, setThinking] = useState(false)
-  const [typing, setTyping] = useState(false)
 
   const [error, setError] = useState(/** @type {any} */ (null))
 
   /**
-   * @param {Message[]} newMessages
+   * @param {Message[]} [newMessages]
    */
   async function stream(newMessages) {
-    setThinking(true)
+    const allMessages = [
+      ...messages.map(({ type, text, meta }) => {
+        return {
+          type,
+          text,
+          meta,
+        }
+      }),
 
-    let it
-
-    try {
-      if (conversationId) {
-        it = client.complete(conversationId, { text })
-      } else {
-        it = client.complete(null, {
-          // @todo uncomment once supported
-          // botId: botId,
-          backstory: backstory,
-          model: model,
-          datasetId: datasetId,
-          skillsetId: skillsetId,
-          messages: newMessages
-            .slice(-100)
-            .map(({ type, text, meta }) => ({ type, text, meta })),
-        })
-      }
-    } catch (e) {
-      setThinking(false)
-
-      setError(e)
-
-      return
-    }
-
-    /** @type {Message} */
-    const botMessage = {
-      id: getRandomId('message-'),
-      type: 'bot',
-      text: '',
-    }
-
-    let alreadyStreaming = false
+      ...(newMessages?.map(({ type, text, meta }) => {
+        return {
+          type,
+          text,
+          meta,
+        }
+      }) || []),
+    ].slice(-100) // @todo make configurable
 
     try {
-      for await (const event of it.stream()) {
-        switch (event.type) {
+      setThinking(true)
+
+      setError(null)
+
+      for await (const item of remote(allMessages)) {
+        switch (item.type) {
           case 'token': {
-            if (!alreadyStreaming) {
-              alreadyStreaming = true
-
-              newMessages = [...newMessages, botMessage]
-
-              setMessages(newMessages)
-
-              setThinking(false)
-              setTyping(true)
-            }
-
-            botMessage.text += event.data.token
-
-            setMessages([...newMessages])
+            appendText(item.data.token)
 
             break
           }
 
           case 'message': {
-            /** @type {Message & { children?: import('react').ReactElement }} */
-            const message = event.data
-
-            if (
-              botMessage.text !== message.text ||
-              message.type === 'activity' ||
-              typeof message.children !== 'undefined'
-            ) {
-              const newMessage = {
-                // streamed messages do not have an id so we generate one here
-
-                id: getRandomId('message-'),
-
-                ...event.data,
-              }
-
-              newMessages = [...newMessages, newMessage]
-
-              setMessages([...newMessages])
-            }
+            appendMessage(item.data)
 
             break
-          }
-
-          case 'result': {
-            setThinking(false)
-            setTyping(false)
           }
         }
       }
     } catch (e) {
       setError(e)
+
+      if (
+        typeof process !== 'undefined' &&
+        process.env.NODE_ENV === 'development'
+      ) {
+        // eslint-disable-next-line no-console
+        console.error(e)
+      }
     } finally {
+      setThinking(false)
       setTyping(false)
     }
   }
 
   /**
+   * This function submits the current text input to the bot. You can also pass
+   * a text string to this function to submit a specific text instead of the
+   * current text input. This takes precedence over the current text input.
+   *
+   * @param {string} [thisText]
    * @returns {Promise<void>}
    */
-  async function submit() {
-    if (!text) {
-      return
+  async function submit(thisText) {
+    if (thinking || typing) {
+      return // @todo handle submit pipelining
     }
 
-    setText('')
+    if (!thisText) {
+      if (!text) {
+        return
+      }
+
+      thisText = text
+
+      setText('')
+    }
 
     /** @type {Message} */
     const userMessage = {
-      id: getRandomId('message-'),
       type: 'user',
-      text: text,
+      text: thisText,
     }
 
-    /** @type {Message[]} */
-    let newMessages = messages.slice(0)
+    appendMessage(userMessage)
 
-    newMessages = [...newMessages, userMessage]
-
-    setMessages([...newMessages])
-
-    await stream(newMessages)
+    await stream([userMessage])
   }
 
   /**
+   * This function triggers an activity in the bot. This is a special type of a
+   * message that is used to trigger a specific operation in the bot such as a
+   * function. For function triggers you cannot pass arguments to the function
+   * as they are inferred from the context of the conversation.
+   *
    * @param {string} name
-   * @param  {...any} args
    * @returns {Promise<void>}
    */
-  async function trigger(name, ...args) {
-    const newMessages = [
-      ...messages,
+  async function trigger(name) {
+    if (thinking || typing) {
+      return // @todo handle submit pipelining
+    }
 
-      /** @type {Message} */ ({
-        type: 'activity',
-        text: '',
-        meta: {
-          activity: {
-            type: 'trigger',
-            function: {
-              name: name,
-              arguments: args,
-            },
+    /** @type {Message} */
+    const activityMessage = {
+      type: 'activity',
+      text: '',
+      meta: {
+        activity: {
+          type: 'trigger',
+          function: {
+            name: name,
           },
         },
-      }),
-    ]
+      },
+    }
 
-    // @note here for information only, we are deliberately not adding this to the messages
-    // setMessages(newMessages)
+    await stream([activityMessage])
+  }
 
-    await stream(newMessages)
+  /**
+   * This function requests a function in the bot. This is a special type of a
+   * message that is used to request a specific operation in the bot such as a
+   * function. For function requests you can pass arguments to the function as
+   * they are not inferred from the context of the conversation.
+   *
+   * @param {string} name
+   * @param  {any} args
+   * @returns {Promise<void>}
+   */
+  async function request(name, args) {
+    if (thinking || typing) {
+      return // @todo handle submit pipelining
+    }
+
+    /** @type {Message} */
+    const activityMessage = {
+      type: 'activity',
+      text: '',
+      meta: {
+        activity: {
+          type: 'request',
+          function: {
+            name: name,
+            arguments: args,
+          },
+        },
+      },
+    }
+
+    await stream([activityMessage])
   }
 
   return {
-    token,
-    setToken,
+    message,
+    messages,
 
-    conversationId,
-    setConversationId,
-
-    botId,
-    setBotId,
-
-    backstory,
-    setBackstory,
-
-    model,
-    setModel,
-
-    datasetId,
-    setDatasetId,
-
-    skillsetId,
-    setSkillsetId,
+    thinking,
+    typing,
 
     text,
     setText,
-
-    messages,
-    setMessages,
-
-    thinking,
-    setThinking,
-
-    typing,
-    setTyping,
 
     error,
     setError,
@@ -373,6 +235,8 @@ export function useConversationManager(options) {
     submit,
 
     trigger,
+
+    request,
   }
 }
 

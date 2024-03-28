@@ -73,16 +73,16 @@
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -100,7 +100,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): `Promise`\<[`WhatsAppIntegrationCreateResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationCreateResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationcreateresponse)\>
 
 Creates a new whatsapp integration.
 
@@ -112,7 +112,7 @@ Creates a new whatsapp integration.
 
 #### Returns
 
-`Promise`\<[`WhatsAppIntegrationCreateResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationCreateResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationcreateresponse)\>
 
 #### Defined in
 
@@ -122,7 +122,7 @@ ___
 
 ### delete
 
-▸ **delete**(`whatsappId`): `Promise`\<[`WhatsAppIntegrationDeleteResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationdeleteresponse)\>
+▸ **delete**(`whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationDeleteResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationdeleteresponse)\>
 
 Deletes a whatsapp integration.
 
@@ -134,7 +134,7 @@ Deletes a whatsapp integration.
 
 #### Returns
 
-`Promise`\<[`WhatsAppIntegrationDeleteResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationDeleteResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationdeleteresponse)\>
 
 #### Defined in
 
@@ -144,7 +144,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`whatsappId`): `Promise`\<[`WhatsAppIntegrationFetchResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationfetchresponse)\>
+▸ **fetch**(`whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationFetchResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationfetchresponse)\>
 
 Fetches a whatsapp integration.
 
@@ -156,7 +156,7 @@ Fetches a whatsapp integration.
 
 #### Returns
 
-`Promise`\<[`WhatsAppIntegrationFetchResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationFetchResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationfetchresponse)\>
 
 #### Defined in
 
@@ -188,7 +188,7 @@ ___
 
 ### setup
 
-▸ **setup**(`whatsappId`): `Promise`\<[`WhatsAppIntegrationSetupResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationsetupresponse)\>
+▸ **setup**(`whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationSetupResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationsetupresponse)\>
 
 Setups a whatsapp integration.
 
@@ -200,7 +200,7 @@ Setups a whatsapp integration.
 
 #### Returns
 
-`Promise`\<[`WhatsAppIntegrationSetupResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationSetupResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationsetupresponse)\>
 
 #### Defined in
 
@@ -210,7 +210,7 @@ ___
 
 ### update
 
-▸ **update**(`whatsappId`, `request`): `Promise`\<[`WhatsAppIntegrationUpdateResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationupdateresponse)\>
+▸ **update**(`whatsappId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationUpdateResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationupdateresponse)\>
 
 Updates a whatsapp integration.
 
@@ -223,7 +223,7 @@ Updates a whatsapp integration.
 
 #### Returns
 
-`Promise`\<[`WhatsAppIntegrationUpdateResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationUpdateResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationupdateresponse)\>
 
 #### Defined in
 

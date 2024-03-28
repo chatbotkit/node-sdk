@@ -24,7 +24,7 @@ A store that uses memory. Do not use in production.
 
 ### del
 
-▸ **del**(`key`): `Promise`\<`void`\>
+▸ **del**(`key`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`void`\>
 
 #### Parameters
 
@@ -34,7 +34,7 @@ A store that uses memory. Do not use in production.
 
 #### Returns
 
-`Promise`\<`void`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`void`\>
 
 #### Overrides
 
@@ -48,7 +48,7 @@ ___
 
 ### get
 
-▸ **get**(`key`): `Promise`\<`any`\>
+▸ **get**(`key`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
 
 #### Parameters
 
@@ -58,7 +58,7 @@ ___
 
 #### Returns
 
-`Promise`\<`any`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
 
 #### Overrides
 
@@ -72,7 +72,7 @@ ___
 
 ### set
 
-▸ **set**(`key`, `value`): `Promise`\<`void`\>
+▸ **set**(`key`, `value`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`void`\>
 
 #### Parameters
 
@@ -83,7 +83,7 @@ ___
 
 #### Returns
 
-`Promise`\<`void`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`void`\>
 
 #### Overrides
 

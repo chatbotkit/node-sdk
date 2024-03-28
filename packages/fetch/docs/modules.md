@@ -24,11 +24,11 @@
 
 ### FetchFn
 
-Ƭ **FetchFn**\<\>: (`url`: `string`, `options?`: `RequestInit`) => `Promise`\<`Response`\>
+Ƭ **FetchFn**\<\>: (`url`: `string`, `options?`: `RequestInit`) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 #### Type declaration
 
-▸ (`url`, `options?`): `Promise`\<`Response`\>
+▸ (`url`, `options?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 ##### Parameters
 
@@ -39,11 +39,11 @@
 
 ##### Returns
 
-`Promise`\<`Response`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 #### Defined in
 
-[index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L74)
+[index.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L75)
 
 ___
 
@@ -51,21 +51,18 @@ ___
 
 Ƭ **withRetryOptions**\<\>: `Object`
 
-Add retry capabilities to any fetch implementation.
-
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
 | `retries?` | `number` |
-| `retryAbort?` | `boolean` |
 | `retryDelay?` | `number` |
 | `retryStatuses?` | `number`[] |
 | `retryTimeout?` | `boolean` |
 
 #### Defined in
 
-[index.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L139)
+[index.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L160)
 
 ___
 
@@ -83,13 +80,13 @@ Add timeout capabilities to any fetch implementation.
 
 #### Defined in
 
-[index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L80)
+[index.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L81)
 
 ## Functions
 
 ### jsonl
 
-▸ **jsonl**(`body`): `AsyncGenerator`\<`Record`\<`string`, `any`\>, `any`, `any`\>
+▸ **jsonl**(`body`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<[`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\>, `any`, `any`\>
 
 Expose a JSONL stream as an async iterable.
 
@@ -97,15 +94,15 @@ Expose a JSONL stream as an async iterable.
 
 | Name | Type |
 | :------ | :------ |
-| `body` | `ReadableStream`\<`Uint8Array`\> & \{ `[asyncIterator]`: () => `AsyncIterator`\<`Uint8Array`, `any`, `undefined`\>  } |
+| `body` | [`ReadableStream`]( https://developer.mozilla.org/docs/Web/API/ReadableStream )\<[`Uint8Array`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array )\> & \{ `[asyncIterator]`: () => [`AsyncIterator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator )\<[`Uint8Array`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array ), `any`, `undefined`\>  } |
 
 #### Returns
 
-`AsyncGenerator`\<`Record`\<`string`, `any`\>, `any`, `any`\>
+[`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<[`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\>, `any`, `any`\>
 
 #### Defined in
 
-[index.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L224)
+[index.js:234](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L234)
 
 ___
 
@@ -126,7 +123,7 @@ ___
 
 #### Defined in
 
-[index.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L147)
+[index.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L166)
 
 ___
 
@@ -147,4 +144,4 @@ ___
 
 #### Defined in
 
-[index.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L88)
+[index.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L89)

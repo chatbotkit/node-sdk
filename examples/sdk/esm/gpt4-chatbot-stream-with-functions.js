@@ -63,15 +63,13 @@ async function main() {
         .complete(null, {
           model: 'gpt-4',
           messages,
-          unstable: {
-            functions: functions.map(({ name, description, parameters }) => {
-              return {
-                name,
-                description,
-                parameters,
-              }
-            }),
-          },
+          functions: functions.map(({ name, description, parameters }) => {
+            return {
+              name,
+              description,
+              parameters,
+            }
+          }),
         })
         .stream()) {
         if (type === 'token') {

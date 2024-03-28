@@ -6,7 +6,17 @@ import nextAuthConfig from '../../nextauth.config.js'
 import { ChatInput, useConversationManager } from '@chatbotkit/react'
 
 export default function Index() {
-  const { thinking, text, setText, messages, submit } = useConversationManager({
+  const {
+    thinking,
+
+    text,
+    setText,
+
+    message,
+    messages,
+
+    submit,
+  } = useConversationManager({
     endpoint: '/api/dashboard/conversation/complete',
   })
 
@@ -32,6 +42,11 @@ export default function Index() {
                 )
             }
           })}
+          {message ? (
+            <div key={message.id}>
+              <strong>bot:</strong> {message.text}
+            </div>
+          ) : null}
           {thinking ? (
             <div key="thinking">
               <strong>bot:</strong> thinking...

@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/react",
-  "version": "1.6.0",
+  "version": "1.8.0",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
@@ -90,6 +90,30 @@
       "types": "./types/hooks/useConversationManager.d.ts",
       "import": "./src/hooks/useConversationManager.js"
     },
+    "./hooks/useConversationManagerRemote": {
+      "types": "./types/hooks/useConversationManagerRemote.d.ts",
+      "import": "./src/hooks/useConversationManagerRemote.js"
+    },
+    "./hooks/useConversationManagerRemote.js": {
+      "types": "./types/hooks/useConversationManagerRemote.d.ts",
+      "import": "./src/hooks/useConversationManagerRemote.js"
+    },
+    "./hooks/useConversationManagerState": {
+      "types": "./types/hooks/useConversationManagerState.d.ts",
+      "import": "./src/hooks/useConversationManagerState.js"
+    },
+    "./hooks/useConversationManagerState.js": {
+      "types": "./types/hooks/useConversationManagerState.d.ts",
+      "import": "./src/hooks/useConversationManagerState.js"
+    },
+    "./hooks/useConversationManagerStateReducer": {
+      "types": "./types/hooks/useConversationManagerStateReducer.d.ts",
+      "import": "./src/hooks/useConversationManagerStateReducer.js"
+    },
+    "./hooks/useConversationManagerStateReducer.js": {
+      "types": "./types/hooks/useConversationManagerStateReducer.d.ts",
+      "import": "./src/hooks/useConversationManagerStateReducer.js"
+    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
@@ -101,6 +125,14 @@
     "./index.js": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
+    },
+    "./utils/it": {
+      "types": "./types/utils/it.d.ts",
+      "import": "./src/utils/it.js"
+    },
+    "./utils/it.js": {
+      "types": "./types/utils/it.d.ts",
+      "import": "./src/utils/it.js"
     },
     "./utils/object": {
       "types": "./types/utils/object.d.ts",

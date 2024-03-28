@@ -1,10 +1,6 @@
 packages:
-  - 'packages/fetch'
-  - 'packages/sdk'
-  - 'packages/cli'
-  - 'packages/react'
-  - 'packages/next'
-  - 'packages/nextauth'
+  - 'packages/*'
+  - 'tools/*'
   - 'examples/sdk/*'
   - 'examples/nextjs/pages/*'
   - 'examples/nextjs/app/*'

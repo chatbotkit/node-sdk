@@ -18,7 +18,7 @@
 
 ### endpoints
 
-• **endpoints**: `Record`\<`string`, `string`\>
+• **endpoints**: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\>
 
 An optional map of endpoints to override
 

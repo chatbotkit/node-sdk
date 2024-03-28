@@ -19,8 +19,8 @@
 | Name | Type |
 | :------ | :------ |
 | `name` | `string` |
-| `params?` | `Record`\<`string`, `any`\> |
-| `defaultParams?` | `Record`\<`string`, `any`\> |
+| `params?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `defaultParams?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 

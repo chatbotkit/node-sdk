@@ -24,23 +24,19 @@ The following example showcases how to implement a chatbot in a Next.js applicat
 
 ```js
 // file: ./pages/api/conversation/complete.js
-// Import ChatBotKit and Edge streaming utilities
 import { stream } from '@chatbotkit/next/edge'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
-// Initialize ChatBotKit with API secret
 const cbk = new ChatBotKit({
   secret: process.env.CHATBOTKIT_API_SECRET,
 })
 
-// Define an API handler for streaming messages
 export default async function handler(req) {
   const { messages } = await req.json()
 
   return stream(cbk.conversation.complete(null, { messages }))
 }
 
-// Configure Edge runtime
 export const config = {
   runtime: 'edge',
 }
@@ -50,15 +46,22 @@ export const config = {
 
 ```js
 // file: ./pages/index.js
-// Utilize components and hooks from ChatBotKit's React package
 import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
 export default function Index() {
-  const { thinking, text, setText, messages, submit } = useConversationManager({
+  const {
+    thinking,
+
+    text,
+    setText,
+
+    messages,
+
+    submit,
+  } = useConversationManager({
     endpoint: '/api/conversation/complete',
   })
 
-  // Handle text submission on Enter key press
   function handleOnKeyDown(event) {
     if (event.keyCode === 13) {
       event.preventDefault()
@@ -67,7 +70,6 @@ export default function Index() {
     }
   }
 
-  // Render chat interface
   return (
     <div style={{ fontFamily: 'monospace', padding: '10px' }}>
       {messages.map(({ id, type, text }) => (

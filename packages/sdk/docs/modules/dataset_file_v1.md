@@ -116,7 +116,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
-| `meta?` | `Record`\<`string`, `string`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
@@ -214,7 +214,7 @@ ___
 
 ### attachDatasetFile
 
-▸ **attachDatasetFile**(`client`, `datasetId`, `fileId`, `request`): `Promise`\<[`DatasetFileAttachResponse`](dataset_file_v1.md#datasetfileattachresponse)\>
+▸ **attachDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileAttachResponse`](dataset_file_v1.md#datasetfileattachresponse)\>
 
 #### Parameters
 
@@ -227,7 +227,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetFileAttachResponse`](dataset_file_v1.md#datasetfileattachresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileAttachResponse`](dataset_file_v1.md#datasetfileattachresponse)\>
 
 #### Defined in
 
@@ -237,7 +237,7 @@ ___
 
 ### detachDatasetFile
 
-▸ **detachDatasetFile**(`client`, `datasetId`, `fileId`, `request`): `Promise`\<[`DatasetFileDetachResponse`](dataset_file_v1.md#datasetfiledetachresponse)\>
+▸ **detachDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileDetachResponse`](dataset_file_v1.md#datasetfiledetachresponse)\>
 
 #### Parameters
 
@@ -250,7 +250,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetFileDetachResponse`](dataset_file_v1.md#datasetfiledetachresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileDetachResponse`](dataset_file_v1.md#datasetfiledetachresponse)\>
 
 #### Defined in
 
@@ -282,7 +282,7 @@ ___
 
 ### syncDatasetFile
 
-▸ **syncDatasetFile**(`client`, `datasetId`, `fileId`, `request`): `Promise`\<[`DatasetFileSyncResponse`](dataset_file_v1.md#datasetfilesyncresponse)\>
+▸ **syncDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileSyncResponse`](dataset_file_v1.md#datasetfilesyncresponse)\>
 
 #### Parameters
 
@@ -295,7 +295,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`DatasetFileSyncResponse`](dataset_file_v1.md#datasetfilesyncresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileSyncResponse`](dataset_file_v1.md#datasetfilesyncresponse)\>
 
 #### Defined in
 

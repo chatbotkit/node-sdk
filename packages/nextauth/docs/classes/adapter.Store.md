@@ -25,7 +25,7 @@ Implement your own if you want to use a different storage.
 
 ### del
 
-▸ **del**(`key`): `Promise`\<`void`\>
+▸ **del**(`key`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`void`\>
 
 #### Parameters
 
@@ -35,7 +35,7 @@ Implement your own if you want to use a different storage.
 
 #### Returns
 
-`Promise`\<`void`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`void`\>
 
 #### Defined in
 
@@ -45,7 +45,7 @@ ___
 
 ### get
 
-▸ **get**(`key`): `Promise`\<`any`\>
+▸ **get**(`key`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
 
 #### Parameters
 
@@ -55,7 +55,7 @@ ___
 
 #### Returns
 
-`Promise`\<`any`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
 
 #### Defined in
 
@@ -65,7 +65,7 @@ ___
 
 ### set
 
-▸ **set**(`key`, `value`, `options?`): `Promise`\<`void`\>
+▸ **set**(`key`, `value`, `options?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`void`\>
 
 #### Parameters
 
@@ -78,7 +78,7 @@ ___
 
 #### Returns
 
-`Promise`\<`void`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`void`\>
 
 #### Defined in
 

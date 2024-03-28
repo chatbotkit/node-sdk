@@ -10,10 +10,10 @@ import { ConversationContext } from '@chatbotkit/react'
 // conversation from any component in the tree.
 
 export default function CalendarEvents({ events }) {
-  const { trigger } = useContext(ConversationContext)
+  const { request } = useContext(ConversationContext)
 
   function handleDecline(id) {
-    // This is where we trigger the declineCalendarEvent function. The first
+    // This is where we request the declineCalendarEvent function. The first
     // parameter is the name of the function and the second parameter is the
     // ID of the event to decline.
     //
@@ -22,7 +22,7 @@ export default function CalendarEvents({ events }) {
     // capabilities in one place and available to both the client and the
     // conversational AI bot.
 
-    trigger('declineCalendarEvent', { id })
+    request('declineCalendarEvent', { id })
   }
 
   return (

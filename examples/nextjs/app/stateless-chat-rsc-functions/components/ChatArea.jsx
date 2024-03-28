@@ -29,6 +29,7 @@ export default function ChatArea() {
     text,
     setText,
 
+    message,
     messages,
 
     submit,
@@ -62,6 +63,11 @@ export default function ChatArea() {
               )
           }
         })}
+        {message ? (
+          <div key={message.id}>
+            <strong>bot:</strong> {message.text}
+          </div>
+        ) : null}
         {thinking ? (
           <div key="thinking">
             <strong>bot:</strong> thinking...

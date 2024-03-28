@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { ChatInput, useConversationManager } from '@chatbotkit/react'
 
 // This is a basic example of how to use the ChatbotKit React components in a
@@ -12,22 +14,20 @@ import { ChatInput, useConversationManager } from '@chatbotkit/react'
 // content and also handles the enter key to submit the message.
 
 export default function Index() {
+  const [conversationId, setConversationId] = useState(null)
+  const [token, setToken] = useState(null)
+
   const {
-    conversationId,
-    setConversationId,
-
-    token,
-    setToken,
-
     text,
     setText,
 
+    message,
     messages,
 
     thinking,
 
     submit,
-  } = useConversationManager({ stream: true })
+  } = useConversationManager({ conversationId, token })
 
   /**
    * Create a new ChatBotKit conversation session
@@ -70,6 +70,11 @@ export default function Index() {
                   )
               }
             })}
+            {message ? (
+              <div key={message.id}>
+                <strong>bot:</strong> {message.text}
+              </div>
+            ) : null}
             {thinking ? (
               <div key="thinking">
                 <strong>bot:</strong> thinking...

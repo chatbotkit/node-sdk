@@ -14,7 +14,7 @@ const cbk = new ChatBotKit({
 // complete the conversation. We only accept the messages parameter, which is
 // the state of the conversation. We can accept also other parameters if needed.
 
-export async function complete(_, { messages }) {
+export async function complete({ messages }) {
   // You can do any kind of processing here, like calling external APIs, saving
   // data to a database, checking for authentication and authorization, etc.
 

@@ -129,7 +129,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
-| `meta?` | `Record`\<`string`, `string`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
@@ -191,7 +191,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `description?` | `string` |
-| `meta?` | `Record`\<`string`, `any`\> |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `name?` | `string` |
 
 #### Defined in
@@ -228,7 +228,7 @@ ___
 
 ### createSkillset
 
-▸ **createSkillset**(`client`, `request`): `Promise`\<[`SkillsetCreateResponse`](skillset_v1.md#skillsetcreateresponse)\>
+▸ **createSkillset**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetCreateResponse`](skillset_v1.md#skillsetcreateresponse)\>
 
 #### Parameters
 
@@ -239,7 +239,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`SkillsetCreateResponse`](skillset_v1.md#skillsetcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetCreateResponse`](skillset_v1.md#skillsetcreateresponse)\>
 
 #### Defined in
 
@@ -249,7 +249,7 @@ ___
 
 ### deleteSkillset
 
-▸ **deleteSkillset**(`client`, `skillsetId`): `Promise`\<[`SkillsetDeleteResponse`](skillset_v1.md#skillsetdeleteresponse)\>
+▸ **deleteSkillset**(`client`, `skillsetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetDeleteResponse`](skillset_v1.md#skillsetdeleteresponse)\>
 
 #### Parameters
 
@@ -260,7 +260,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`SkillsetDeleteResponse`](skillset_v1.md#skillsetdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetDeleteResponse`](skillset_v1.md#skillsetdeleteresponse)\>
 
 #### Defined in
 
@@ -270,7 +270,7 @@ ___
 
 ### fetchSkillset
 
-▸ **fetchSkillset**(`client`, `skillsetId`): `Promise`\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse)\>
+▸ **fetchSkillset**(`client`, `skillsetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse)\>
 
 #### Parameters
 
@@ -281,7 +281,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse)\>
 
 #### Defined in
 
@@ -312,7 +312,7 @@ ___
 
 ### updateSkillset
 
-▸ **updateSkillset**(`client`, `skillsetId`, `request`): `Promise`\<[`SkillsetUpdateResponse`](skillset_v1.md#skillsetupdateresponse)\>
+▸ **updateSkillset**(`client`, `skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetUpdateResponse`](skillset_v1.md#skillsetupdateresponse)\>
 
 #### Parameters
 
@@ -324,7 +324,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`SkillsetUpdateResponse`](skillset_v1.md#skillsetupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetUpdateResponse`](skillset_v1.md#skillsetupdateresponse)\>
 
 #### Defined in
 

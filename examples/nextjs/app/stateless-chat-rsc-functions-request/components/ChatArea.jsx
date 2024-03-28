@@ -32,6 +32,7 @@ export function ChatMessages() {
     text,
     setText,
 
+    message,
     messages,
 
     submit,
@@ -43,11 +44,11 @@ export function ChatMessages() {
   return (
     <div>
       <div>
-        {messages.map(({ id, type, text, children }) => {
+        {messages.map(({ id, type, text, children }, index) => {
           switch (type) {
             case 'user':
               return (
-                <div key={id}>
+                <div key={id || index}>
                   <div>
                     <strong>user:</strong> {text}
                   </div>
@@ -56,7 +57,7 @@ export function ChatMessages() {
 
             case 'bot':
               return (
-                <div key={id}>
+                <div key={id || index}>
                   <div>
                     <strong>bot:</strong> {text}
                   </div>
@@ -65,6 +66,11 @@ export function ChatMessages() {
               )
           }
         })}
+        {message ? (
+          <div key={message.id}>
+            <strong>bot:</strong> {message.text}
+          </div>
+        ) : null}
         {thinking ? (
           <div key="thinking">
             <strong>bot:</strong> thinking...

@@ -84,16 +84,16 @@ Partner user client.
 | :------ | :------ |
 | `path` | `string` |
 | `options?` | `Object` |
-| `options.buffer?` | `ArrayBuffer` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
-| `options.file.data` | `string` \| `ArrayBuffer` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
 | `options.file.type?` | `string` |
-| `options.headers?` | `Record`\<`string`, `any`\> |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.method?` | `string` |
-| `options.query?` | `Record`\<`string`, `any`\> |
-| `options.record?` | `Record`\<`string`, `any`\> |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Returns
 
@@ -111,7 +111,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): `Promise`\<[`PartnerUserCreateResponse`](../modules/partner_user_v1.md#partnerusercreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserCreateResponse`](../modules/partner_user_v1.md#partnerusercreateresponse)\>
 
 Creates a new user.
 
@@ -123,7 +123,7 @@ Creates a new user.
 
 #### Returns
 
-`Promise`\<[`PartnerUserCreateResponse`](../modules/partner_user_v1.md#partnerusercreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserCreateResponse`](../modules/partner_user_v1.md#partnerusercreateresponse)\>
 
 #### Defined in
 
@@ -133,7 +133,7 @@ ___
 
 ### delete
 
-▸ **delete**(`userId`): `Promise`\<[`PartnerUserDeleteResponse`](../modules/partner_user_v1.md#partneruserdeleteresponse)\>
+▸ **delete**(`userId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserDeleteResponse`](../modules/partner_user_v1.md#partneruserdeleteresponse)\>
 
 Deletes the user.
 
@@ -145,7 +145,7 @@ Deletes the user.
 
 #### Returns
 
-`Promise`\<[`PartnerUserDeleteResponse`](../modules/partner_user_v1.md#partneruserdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserDeleteResponse`](../modules/partner_user_v1.md#partneruserdeleteresponse)\>
 
 #### Defined in
 
@@ -155,7 +155,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`userId`): `Promise`\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse)\>
+▸ **fetch**(`userId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse)\>
 
 Fetches a user.
 
@@ -167,7 +167,7 @@ Fetches a user.
 
 #### Returns
 
-`Promise`\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse)\>
 
 #### Defined in
 
@@ -199,7 +199,7 @@ ___
 
 ### update
 
-▸ **update**(`userId`, `request`): `Promise`\<[`PartnerUserUpdateResponse`](../modules/partner_user_v1.md#partneruserupdateresponse)\>
+▸ **update**(`userId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserUpdateResponse`](../modules/partner_user_v1.md#partneruserupdateresponse)\>
 
 Updates the user.
 
@@ -212,7 +212,7 @@ Updates the user.
 
 #### Returns
 
-`Promise`\<[`PartnerUserUpdateResponse`](../modules/partner_user_v1.md#partneruserupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserUpdateResponse`](../modules/partner_user_v1.md#partneruserupdateresponse)\>
 
 #### Defined in
 

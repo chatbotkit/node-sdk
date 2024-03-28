@@ -4,6 +4,7 @@
  * @typedef {any} StreamSource
  * @typedef {any} StreamResult
  *
+ * @internal
  * @param {StreamSource} source
  * @returns {StreamResult}
  */
@@ -38,6 +39,7 @@ export function stream(source) {
  * @typedef {any} ConsumeSource
  * @typedef {any} ConsumeResult
  *
+ * @internal
  * @param {ConsumeSource} source
  * @returns {ConsumeResult}
  */

@@ -1,25 +1,44 @@
 import { isValidElement } from 'react'
 
+import { isAsyncGenerator } from '../utils/it.js'
 import { stream } from '../utils/stream.js'
+import { getRandomId } from '../utils/string.js'
 
 /**
+ * @typedef {import('react').ReactElement} ReactElement
+ * @typedef {import('react').ReactNode} ReactNode
+ */
+
+/**
+ * @typedef {Record<string,any>} BasicParametersSchema
+ *
+ * @typedef {{
+ *   schema: BasicParametersSchema,
+ *   validate(value: any): Promise<{valid: boolean, error?: Error}>
+ * }} ValidatingParametersSchema
+ *
  * @typedef {{
  *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
  *   text: string,
  *   meta?: Record<string,any>
  * }} InputMessage
  *
+ * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
+ *
+ * @typedef {any} HandlerArgs
+ * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render: RenderFunction, result?: any}} HandlerResult
+ *
  * @typedef {{
  *   name: string,
  *   description: string,
- *   parameters: Record<string,any>,
- *   handler?: (args: any) => Promise<string|import('react').ReactElement|{text?: string, children?: import('react').ReactElement, result?: any}>
+ *   parameters: BasicParametersSchema|ValidatingParametersSchema,
+ *   handler?: (args: HandlerArgs) => Promise<HandlerResult>
  * }} InputFunction
  *
- * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'unstable'> & {
+ * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
- *   functions?: InputFunction[],
+ *   functions?: (InputFunction|(() => InputFunction))[],
  *   maxRecusion?: number
  * }} Options
  */
@@ -52,37 +71,75 @@ async function* complete({
 
   messages = messages.slice(0)
 
-  // Create a new conversation client instance and start the stream.
+  // Convert all functions to objects if they are functions.
 
-  const it = client
-    .complete(null, {
-      ...options,
+  /** @type {InputFunction[]|undefined} */
+  const functionDefinitions = functions?.map((fn) => {
+    if (typeof fn === 'function') {
+      return fn()
+    } else {
+      return fn
+    }
+  })
 
-      // Ensure that all messages are simple objects
+  // Define a reference to the stream iterator.
 
-      messages: messages.map(({ type, text, meta }) => {
-        return {
-          type,
-          text,
-          meta,
+  let it
+
+  // If the iterator is undefined then we check if we have an activity request.
+
+  if (!it) {
+    const lastMessage = messages[messages.length - 1]
+
+    if (lastMessage) {
+      if (lastMessage.type === 'activity') {
+        if (lastMessage.meta?.activity?.type === 'request') {
+          messages.pop()
+
+          it = [{ type: 'message', data: lastMessage }]
         }
-      }),
+      }
+    }
+  }
 
-      // For now function calling is unstable
+  // If the iterator is undefined then we create a new completion stream.
 
-      unstable: {
-        // Ensure that all functions are simple objects
+  if (!it) {
+    it = client
+      .complete(null, {
+        ...options,
 
-        functions: functions?.map(({ name, description, parameters }) => {
+        // Ensure that all messages are simple objects
+
+        messages: messages.map(({ type, text, meta }) => {
           return {
-            name,
-            description,
-            parameters,
+            type,
+            text,
+            meta,
           }
         }),
-      },
-    })
-    .stream()
+
+        // Ensure that all functions are simple objects
+
+        functions: functionDefinitions?.map(
+          ({ name, description, parameters }) => {
+            return {
+              name,
+              description,
+
+              parameters: parameters.schema ? parameters.schema : parameters,
+            }
+          }
+        ),
+      })
+      .stream()
+  }
+
+  // Hard bail if we don't have a stream iterator.
+
+  if (!it) {
+    throw new Error('No stream iterator')
+  }
 
   // Iterate over the stream and handle each item.
 
@@ -110,9 +167,19 @@ async function* complete({
         const name = message.meta.activity.function?.name
         const args = message.meta.activity.function?.arguments
 
-        const fn = functions?.find((fn) => fn.name === name)
+        const fn = functionDefinitions?.find((fn) => fn.name === name)
 
         if (fn && typeof fn.handler === 'function') {
+          // If the function has a validating schema then use it
+
+          if (fn.parameters.validate) {
+            const { valid, error } = await fn.parameters.validate(args)
+
+            if (!valid) {
+              throw error || new Error('Invalid arguments')
+            }
+          }
+
           // Call the function and handle the output.
 
           const output = await fn.handler(args)
@@ -120,14 +187,17 @@ async function* complete({
           let text
           let children
           let result
+          let render
 
           if (typeof output === 'string') {
             text = undefined
             children = undefined
+            render = undefined
             result = output
           } else if (isValidElement(output)) {
             text = ''
             children = output
+            render = undefined
             result = undefined
           } else {
             if (typeof output?.text === 'string') {
@@ -136,6 +206,10 @@ async function* complete({
 
             if (isValidElement(output?.children)) {
               children = output.children
+            }
+
+            if (typeof output?.render === 'function') {
+              render = output.render
             }
 
             if (output?.result) {
@@ -153,6 +227,35 @@ async function* complete({
                 text: text ? text : '',
                 children: children ? <>{children}</> : undefined,
               },
+            }
+          } else if (text || render) {
+            const result = await render?.()
+
+            if (isAsyncGenerator(result)) {
+              const id = getRandomId('tmp-')
+
+              for await (const item of /** @type {AsyncGenerator<ReactNode>} */ (
+                result
+              )) {
+                yield {
+                  type: 'message',
+                  data: {
+                    id: id,
+                    type: 'bot',
+                    text: text ? text : '',
+                    children: item,
+                  },
+                }
+              }
+            } else {
+              yield {
+                type: 'message',
+                data: {
+                  type: 'bot',
+                  text: text ? text : '',
+                  children: <>{result}</>,
+                },
+              }
             }
           }
 
@@ -202,7 +305,7 @@ async function* complete({
  * A wrapper around the complete function that will return a generator that will
  * yield various events. Similarly to the complete function it will handle the
  * current message state as well as correctly handling function calls.
- * 
+ *
  * @param {Options} options
  * @returns {import('../utils/stream.js').StreamResult}
  */

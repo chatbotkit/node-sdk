@@ -62,7 +62,7 @@ ___
 
 ### createBotSession
 
-▸ **createBotSession**(`client`, `botId`, `request`): `Promise`\<[`BotSessionCreateResponse`](bot_session_v1.md#botsessioncreateresponse)\>
+▸ **createBotSession**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotSessionCreateResponse`](bot_session_v1.md#botsessioncreateresponse)\>
 
 #### Parameters
 
@@ -74,7 +74,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`BotSessionCreateResponse`](bot_session_v1.md#botsessioncreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotSessionCreateResponse`](bot_session_v1.md#botsessioncreateresponse)\>
 
 #### Defined in
 

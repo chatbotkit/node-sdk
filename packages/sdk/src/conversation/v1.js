@@ -178,9 +178,9 @@ export async function deleteConversation(client, conversationId) {
  *   messages?: Message[],
  *   datasetId?: string,
  *   skillsetId?: string,
- *   unstable?: {
- *     functions?: {name: string, description: string, parameters: any}[]
- *   }
+ *   privacy?: boolean,
+ *   moderation?: boolean,
+ *   functions?: {name: string, description: string, parameters: any}[]
  * } & ({text: string}|{messages: Message[]})} ConversationCompleteRequest
  *
  * @typedef {{

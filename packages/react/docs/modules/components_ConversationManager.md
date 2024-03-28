@@ -20,7 +20,7 @@ Creates a conversation manager instance and context.
 
 | Name | Type |
 | :------ | :------ |
-| `props` | [`UseConversationManagerOptions`](hooks_useConversationManager.md#useconversationmanageroptions) & \{ `children`: `ReactNode`  } |
+| `props` | [`UseConversationManagerRemoteOptions`](hooks_useConversationManager.md#useconversationmanagerremoteoptions) & \{ `children`: `ReactNode`  } |
 
 #### Returns
 
@@ -30,4 +30,4 @@ The rendered component.
 
 #### Defined in
 
-[components/ConversationManager.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ConversationManager.js#L55)
+[components/ConversationManager.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ConversationManager.js#L33)

@@ -42,10 +42,10 @@
 
 | Name | Type |
 | :------ | :------ |
-| `url` | `string` \| `URL` |
+| `url` | `string` \| [`URL`]( https://developer.mozilla.org/docs/Web/API/URL ) |
 | `request` | `Object` |
 | `request.data?` | `any` |
-| `request.headers` | `Record`\<`string`, `any`\> |
+| `request.headers` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `request.method` | `string` |
 
 #### Returns
@@ -60,7 +60,7 @@
 
 ### catch
 
-▸ **catch**(`fn`): `Promise`\<`any`\>
+▸ **catch**(`fn`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
 
 #### Parameters
 
@@ -70,7 +70,7 @@
 
 #### Returns
 
-`Promise`\<`any`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
 
 #### Defined in
 
@@ -80,7 +80,7 @@ ___
 
 ### finally
 
-▸ **finally**(`fn`): `Promise`\<`Response`\>
+▸ **finally**(`fn`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 #### Parameters
 
@@ -90,7 +90,7 @@ ___
 
 #### Returns
 
-`Promise`\<`Response`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 #### Defined in
 
@@ -100,7 +100,7 @@ ___
 
 ### getRequest
 
-▸ **getRequest**(`params?`): `Promise`\<`Response`\>
+▸ **getRequest**(`params?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 #### Parameters
 
@@ -108,12 +108,12 @@ ___
 | :------ | :------ |
 | `params?` | `Object` |
 | `params.data?` | `any` |
-| `params.headers?` | `Record`\<`string`, `any`\> |
+| `params.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `params.method?` | `string` |
 
 #### Returns
 
-`Promise`\<`Response`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
 
 #### Defined in
 
@@ -123,11 +123,11 @@ ___
 
 ### stream
 
-▸ **stream**(): `AsyncGenerator`\<`U`, `any`, `any`\>
+▸ **stream**(): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`U`, `any`, `any`\>
 
 #### Returns
 
-`AsyncGenerator`\<`U`, `any`, `any`\>
+[`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<`U`, `any`, `any`\>
 
 #### Defined in
 
@@ -137,7 +137,7 @@ ___
 
 ### then
 
-▸ **then**(`onSuccess`, `onFail`): `Promise`\<`T`\>
+▸ **then**(`onSuccess`, `onFail`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>
 
 #### Parameters
 
@@ -148,7 +148,7 @@ ___
 
 #### Returns
 
-`Promise`\<`T`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>
 
 #### Defined in
 
