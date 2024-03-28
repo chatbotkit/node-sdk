@@ -151,7 +151,7 @@ async function* complete({
             const { valid, error } = await fn.parameters.validate(args)
 
             if (!valid) {
-              throw error
+              throw error || new Error('Invalid arguments')
             }
           }
 
