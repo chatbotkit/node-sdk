@@ -12,9 +12,17 @@ import { ChatInput, useConversationManager } from '@chatbotkit/react'
 // content and also handles the enter key to submit the message.
 
 export default function Index() {
-  const { thinking, text, setText, messages, submit } = useConversationManager({
-    endpoint: '/api/conversation/complete',
-  })
+  const {
+    thinking,
+
+    text,
+    setText,
+
+    message,
+    messages,
+
+    submit,
+  } = useConversationManager({ endpoint: '/api/conversation/complete' })
 
   // Our renderer is quite basic. We simply iterate over the messages and render
   // them accordingly. We also use our own AutoTextarea for the user input.
@@ -39,6 +47,11 @@ export default function Index() {
               )
           }
         })}
+        {message ? (
+          <div key={message.id}>
+            <strong>bot:</strong> {message.text}
+          </div>
+        ) : null}
         {thinking ? (
           <div key="thinking">
             <strong>bot:</strong> thinking...
