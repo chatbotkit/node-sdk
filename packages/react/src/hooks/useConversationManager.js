@@ -76,13 +76,13 @@ export function useConversationManager({
         }
       }),
 
-      ...(newMessages || []).map(({ type, text, meta }) => {
+      ...(newMessages?.map(({ type, text, meta }) => {
         return {
           type,
           text,
           meta,
         }
-      }),
+      }) || []),
     ].slice(-100) // @todo make configurable
 
     try {
