@@ -17,12 +17,9 @@ export function withTimeout(fetch: FetchFn, defaultOptions?: withTimeoutOptions 
  * @typedef {{
  *   retries?: number,
  *   retryDelay?: number,
- *   retryAbort?: boolean,
- *   retryTimeout?: boolean,
+ *   retryTimeout?: boolean
  *   retryStatuses?: number[]
  * }} withRetryOptions
- *
- * Add retry capabilities to any fetch implementation.
  *
  * @param {FetchFn} fetch
  * @param {withRetryOptions} [defaultOptions]
@@ -63,13 +60,9 @@ export type FetchFn = (url: string, options?: RequestInit) => Promise<Response>;
 export type withTimeoutOptions = {
     timeout?: number;
 };
-/**
- * Add retry capabilities to any fetch implementation.
- */
 export type withRetryOptions = {
     retries?: number;
     retryDelay?: number;
-    retryAbort?: boolean;
     retryTimeout?: boolean;
     retryStatuses?: number[];
 };

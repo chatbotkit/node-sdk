@@ -98,14 +98,22 @@ export function withTimeout(fetch, defaultOptions) {
     let signal
     let handler
 
+    let isTimeOutAbort = false
+
     if (timeout > 0 && timeout !== Infinity) {
       const abortController = new AbortController()
 
-      // @todo use AbortSignal.timeout(n) when widely supported
+      // @todo use AbortSignal.timeout(n) when widely supported, right now there
+      // in fact little to no support with known bugs in Chrome
 
       handler = setTimeout(() => {
+        isTimeOutAbort = true
+
         abortController.abort(TIMEOUT_ERROR_NAME)
       }, timeout)
+
+      // @todo use AbortSignal.any([]) when widely supported, right now most
+      // implementation simply do not have it
 
       signal = options?.signal
         ? anySignal([abortController.signal, options.signal])
@@ -122,6 +130,19 @@ export function withTimeout(fetch, defaultOptions) {
 
         signal,
       })
+    } catch (error) {
+      // @note we have a problem because some implementation (Chrome) do not
+      // corretly transfer the real reason for the abort i.e. the timeout error,
+      // so we need to check if we have raised a timeout above and if so we need
+      // to throw the correct error
+
+      if ([error.name, error.message].includes(ABORT_ERROR_NAME)) {
+        if (isTimeOutAbort) {
+          throw new Error(TIMEOUT_ERROR_NAME)
+        }
+      }
+
+      throw error
     } finally {
       clearTimeout(handler)
     }
@@ -134,12 +155,9 @@ export function withTimeout(fetch, defaultOptions) {
  * @typedef {{
  *   retries?: number,
  *   retryDelay?: number,
- *   retryAbort?: boolean,
- *   retryTimeout?: boolean,
+ *   retryTimeout?: boolean
  *   retryStatuses?: number[]
  * }} withRetryOptions
- *
- * Add retry capabilities to any fetch implementation.
  *
  * @param {FetchFn} fetch
  * @param {withRetryOptions} [defaultOptions]
@@ -154,8 +172,6 @@ export function withRetry(fetch, defaultOptions) {
   return async function fetchWithRetry(url, options) {
     const retries = options?.retries ?? defaultOptions?.retries ?? 5
     const retryDelay = options?.retryDelay ?? defaultOptions?.retryDelay ?? 250
-    const retryAbort =
-      options?.retryAbort ?? defaultOptions?.retryAbort ?? false
     const retryTimeout =
       options?.retryTimeout ?? defaultOptions?.retryTimeout ?? false
     const retryStatuses = options?.retryStatuses ??
@@ -183,14 +199,7 @@ export function withRetry(fetch, defaultOptions) {
       return response
     } catch (error) {
       switch (true) {
-        case error instanceof Error &&
-          error.name === ABORT_ERROR_NAME &&
-          !retryAbort: {
-          throw error
-        }
-
-        case error instanceof Error &&
-          error.name === TIMEOUT_ERROR_NAME &&
+        case [error.name, error.message].includes(TIMEOUT_ERROR_NAME) &&
           !retryTimeout: {
           throw error
         }

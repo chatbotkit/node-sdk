@@ -40,4 +40,4 @@ Error.constructor
 
 #### Defined in
 
-[index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L62)
+[index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L63)
