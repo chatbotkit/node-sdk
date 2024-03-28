@@ -68,7 +68,7 @@ ___
 
 ### Options
 
-Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: [`InputFunction`](actions_complete.md#inputfunction)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[]  }
+Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: ([`InputFunction`](actions_complete.md#inputfunction) \| () => [`InputFunction`](actions_complete.md#inputfunction))[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[]  }
 
 #### Defined in
 
@@ -137,4 +137,4 @@ current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[actions/complete.js:251](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L251)
+[actions/complete.js:264](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L264)

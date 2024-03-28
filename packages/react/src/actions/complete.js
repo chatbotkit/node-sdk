@@ -26,7 +26,7 @@ import { stream } from '../utils/stream.js'
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
- *   functions?: InputFunction[],
+ *   functions?: (InputFunction|(() => InputFunction))[],
  *   maxRecusion?: number
  * }} Options
  */
@@ -58,6 +58,17 @@ async function* complete({
   // Clone the messages array to ensure that we don't mutate the original array.
 
   messages = messages.slice(0)
+
+  // Convert all functions to objects if they are functions.
+
+  /** @type {InputFunction[]|undefined} */
+  const functionDefinitions = functions?.map((fn) => {
+    if (typeof fn === 'function') {
+      return fn()
+    } else {
+      return fn
+    }
+  })
 
   // Define a reference to the stream iterator.
 
@@ -98,14 +109,16 @@ async function* complete({
 
         // Ensure that all functions are simple objects
 
-        functions: functions?.map(({ name, description, parameters }) => {
-          return {
-            name,
-            description,
+        functions: functionDefinitions?.map(
+          ({ name, description, parameters }) => {
+            return {
+              name,
+              description,
 
-            parameters: parameters.schema ? parameters.schema : parameters,
+              parameters: parameters.schema ? parameters.schema : parameters,
+            }
           }
-        }),
+        ),
       })
       .stream()
   }
@@ -142,7 +155,7 @@ async function* complete({
         const name = message.meta.activity.function?.name
         const args = message.meta.activity.function?.arguments
 
-        const fn = functions?.find((fn) => fn.name === name)
+        const fn = functionDefinitions?.find((fn) => fn.name === name)
 
         if (fn && typeof fn.handler === 'function') {
           // If the function has a validating schema then use it

@@ -34,7 +34,7 @@ export type InputFunction = {
 export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest, 'messages' | 'functions'> & {
     client: import('@chatbotkit/sdk').ConversationClient;
     messages: InputMessage[];
-    functions?: InputFunction[];
+    functions?: (InputFunction | (() => InputFunction))[];
     maxRecusion?: number;
 };
 /**
@@ -61,7 +61,7 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
- *   functions?: InputFunction[],
+ *   functions?: (InputFunction|(() => InputFunction))[],
  *   maxRecusion?: number
  * }} Options
  */
