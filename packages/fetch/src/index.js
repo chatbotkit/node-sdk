@@ -28,6 +28,7 @@ export const ABORT_ERROR_NAME = 'AbortError'
 export const TIMEOUT_ERROR_NAME = 'TimeoutError'
 
 /**
+ * @internal
  * @param {AbortSignal[]} signals
  * @returns {AbortSignal}
  */
