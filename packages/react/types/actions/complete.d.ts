@@ -8,6 +8,14 @@
  */
 export function streamComplete(options: Options): import('../utils/stream.js').StreamResult;
 export default complete;
+export type BasicParametersSchema = Record<string, any>;
+export type ValidatingParametersSchema = {
+    schema: BasicParametersSchema;
+    validate(value: any): Promise<{
+        valid: boolean;
+        error?: Error;
+    }>;
+};
 export type InputMessage = {
     type: 'bot' | 'user' | 'context' | 'instruction' | 'backstory' | 'activity';
     text: string;
@@ -16,7 +24,7 @@ export type InputMessage = {
 export type InputFunction = {
     name: string;
     description: string;
-    parameters: Record<string, any>;
+    parameters: BasicParametersSchema | ValidatingParametersSchema;
     handler?: ((args: any) => Promise<string | import('react').ReactElement | {
         text?: string;
         children?: import('react').ReactElement;
@@ -30,6 +38,13 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
     maxRecusion?: number;
 };
 /**
+ * @typedef {Record<string,any>} BasicParametersSchema
+ *
+ * @typedef {{
+ *   schema: BasicParametersSchema,
+ *   validate(value: any): Promise<{valid: boolean, error?: Error}>
+ * }} ValidatingParametersSchema
+ *
  * @typedef {{
  *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
  *   text: string,
@@ -39,7 +54,7 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  * @typedef {{
  *   name: string,
  *   description: string,
- *   parameters: Record<string,any>,
+ *   parameters: BasicParametersSchema|ValidatingParametersSchema,
  *   handler?: (args: any) => Promise<string|import('react').ReactElement|{text?: string, children?: import('react').ReactElement, result?: any}>
  * }} InputFunction
  *

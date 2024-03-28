@@ -3,6 +3,13 @@ import { isValidElement } from 'react'
 import { stream } from '../utils/stream.js'
 
 /**
+ * @typedef {Record<string,any>} BasicParametersSchema
+ *
+ * @typedef {{
+ *   schema: BasicParametersSchema,
+ *   validate(value: any): Promise<{valid: boolean, error?: Error}>
+ * }} ValidatingParametersSchema
+ *
  * @typedef {{
  *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
  *   text: string,
@@ -12,7 +19,7 @@ import { stream } from '../utils/stream.js'
  * @typedef {{
  *   name: string,
  *   description: string,
- *   parameters: Record<string,any>,
+ *   parameters: BasicParametersSchema|ValidatingParametersSchema,
  *   handler?: (args: any) => Promise<string|import('react').ReactElement|{text?: string, children?: import('react').ReactElement, result?: any}>
  * }} InputFunction
  *
@@ -95,7 +102,8 @@ async function* complete({
           return {
             name,
             description,
-            parameters,
+
+            parameters: parameters.schema ? parameters.schema : parameters,
           }
         }),
       })
@@ -137,6 +145,16 @@ async function* complete({
         const fn = functions?.find((fn) => fn.name === name)
 
         if (fn && typeof fn.handler === 'function') {
+          // If the function has a validating schema then use it
+
+          if (fn.parameters.validate) {
+            const { valid, error } = await fn.parameters.validate(args)
+
+            if (!valid) {
+              throw error
+            }
+          }
+
           // Call the function and handle the output.
 
           const output = await fn.handler(args)
