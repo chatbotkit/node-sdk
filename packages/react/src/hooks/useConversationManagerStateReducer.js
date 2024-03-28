@@ -3,17 +3,18 @@ import { useReducer } from 'react'
 import { getRandomId } from '../utils/string.js'
 
 /**
- * @typedef {import('@chatbotkit/sdk/conversation/v1').Message & {
- *   id: string,
- * }} Message
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
+ *
+ * @typedef {{id: string} & Message} MessageWithId
+ * @typedef {{id?: string} & Message} MessageWithOptionalId
  */
 
 /**
  * @typedef {{
  *   thinking: boolean,
  *   typing: boolean,
- *   message: Message | null,
- *   messages: Message[],
+ *   message: MessageWithId | null,
+ *   messages: MessageWithId[],
  * }} State
  *
  * @typedef {{
@@ -40,7 +41,7 @@ import { getRandomId } from '../utils/string.js'
  * @typedef {{
  *   type: 'appendMessage',
  *   data: {
- *     message: {id?: string} & Message,
+ *     message: MessageWithOptionalId,
  *   }
  * }} AppendMessageAction
  *
@@ -108,8 +109,8 @@ export function conversationManagerStateReducer(state, action) {
       }
 
       const message = state.message
-        ? /** @type {Message} */ ({ ...state.message })
-        : /** @type {Message} */ ({
+        ? /** @type {MessageWithId} */ ({ ...state.message })
+        : /** @type {MessageWithId} */ ({
             id: getRandomId('tmp-'),
             type: 'bot',
             text: '',
@@ -143,14 +144,19 @@ export function conversationManagerStateReducer(state, action) {
       const messages = state.messages.slice(0)
 
       if (message.id) {
-        const index = messages.findIndex(
-          (/** @type {Message} */ m) => m.id === message.id
-        )
+        const index = messages.findIndex((m) => m.id === message.id)
 
         if (index !== -1) {
-          messages[index] = message
+          messages[index] = {
+            ...messages[index],
+            ...message,
+          }
         } else {
-          messages.push(message)
+          messages.push({
+            ...message,
+
+            id: message.id || getRandomId('tmp-'),
+          })
         }
       } else {
         messages.push({
