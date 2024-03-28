@@ -1,80 +1,27 @@
-/* globals globalThis */
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
-import { cloneAndExtend } from '../utils/object.js'
-import { consume } from '../utils/stream.js'
-import { getRandomId } from '../utils/string.js'
+import useConversationManagerRemote from './useConversationManagerRemote.js'
 import { useConversationManagerState } from './useConversationManagerState.js'
 
-import { ConversationClient } from '@chatbotkit/sdk'
-
 /**
- * @typedef {{
- *   maxTokens?: number,
- *   temperature?: number,
- *   frequencyPenalty?: number,
- *   presencePenalty?: number,
- *   seed?: number,
- *   interactionMaxMessages?: number,
- *   region?: 'us'|'eu'
- * }} ModelConfig
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  *
- * @typedef {string|{name: string, config?: ModelConfig}} Model
+ * @typedef {import('./useConversationManagerRemote.js').UseConversationManagerRemoteOptions} UseConversationManagerRemoteOptions
  */
 
 /**
- * @typedef {{
- *   id?: string,
- *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
- *   text: string,
- *   meta?: Record<string,any>
- * }} Message
- */
-
-/**
- * @typedef {string} EndpointURL
- * @typedef {(conversationId: any, request: any) => AsyncGenerator<any>} EndpointFunction
- */
-
-/**
- * @typedef {{
- *   client?: ConversationClient,
- *   endpoint?: EndpointURL|EndpointFunction,
- *   token?: string,
- *   conversationId?: string,
- *   backstory?: string,
- *   model?: Model,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   [key: string]: any
+ * @typedef {UseConversationManagerRemoteOptions & {
  * }} UseConversationManagerOptions
  *
  * @typedef {{
- *   token?: string,
- *   setToken: (token: string) => void,
- *   conversationId?: string,
- *   setConversationId: (conversationId: string) => void,
- *   botId?: string,
- *   setBotId: (botId: string) => void,
- *   backstory?: string,
- *   setBackstory: (backstory: string) => void,
- *   model?: Model,
- *   setModel: (model: Model) => void,
- *   datasetId?: string,
- *   setDatasetId: (datasetId: string) => void,
- *   skillsetId?: string,
- *   setSkillsetId: (skillsetId: string) => void,
- *   privacy?: string,
- *   setPrivacy: (privacy: string) => void,
- *   moderation?: string,
- *   setModeration: (moderation: string) => void,
- *   text: string,
- *   setText: (text: string) => void,
  *   message: Message?,
  *   messages: Message[],
  *   thinking: boolean,
  *   typing: boolean,
+ *   text: string,
+ *   setText: (text: string) => void,
  *   error: any,
+ *   setError: (error: any) => void,
  *   submit: () => void
  *   trigger: (name: string) => void
  *   request: (name: string, ...args: any) => void
@@ -90,125 +37,10 @@ import { ConversationClient } from '@chatbotkit/sdk'
  * @param {UseConversationManagerOptions} options
  * @returns {UseConversationManagerResult}
  */
-export function useConversationManager(options) {
-  const {
-    client: _client,
-
-    endpoint,
-
-    token: _token,
-
-    conversationId: _conversationId,
-
-    botId: _botId,
-
-    backstory: _backstory,
-
-    model: _model,
-
-    datasetId: _datasetId,
-    skillsetId: _skillsetId,
-
-    privacy: _privacy,
-    moderation: _moderation,
-
-    ...rest
-  } = options
-
-  const [token, setToken] = useState(_token)
-
-  const [conversationId, setConversationId] = useState(_conversationId)
-
-  const [botId, setBotId] = useState(_botId)
-
-  const [backstory, setBackstory] = useState(_backstory)
-
-  const [model, setModel] = useState(_model)
-
-  const [datasetId, setDatasetId] = useState(_datasetId)
-
-  const [skillsetId, setSkillsetId] = useState(_skillsetId)
-
-  const [privacy, setPrivacy] = useState(_privacy)
-
-  const [moderation, setModeration] = useState(_moderation)
-
-  const client = useMemo(() => {
-    if (typeof endpoint === 'function') {
-      return {
-        complete(
-          /** @type {null|string} */ conversationId,
-          /** @type {any} */ options
-        ) {
-          return {
-            async *stream() {
-              yield* consume(endpoint(conversationId, options))
-            },
-          }
-        },
-      }
-    }
-
-    const options = { ...rest, secret: token || '' }
-
-    let thisClient = _client || new ConversationClient(options)
-
-    const extension = {}
-
-    if (typeof endpoint === 'string') {
-      extension.url = new URL(
-        globalThis.window?.location?.origin || 'about:blank'
-      )
-
-      extension.endpoints = {
-        '/api/v1/conversation/complete': endpoint,
-      }
-    }
-
-    if (token) {
-      extension.secret = token
-    }
-
-    if (Object.keys(extension).length === 0) {
-      return thisClient
-    } else {
-      return cloneAndExtend(thisClient, extension)
-    }
-  }, [_client, endpoint, token])
-
-  const remote = useMemo(() => {
-    if (conversationId) {
-      return async function* (messages) {
-        const lastUserMessage = messages.findLast(
-          (message) => message.type === 'user'
-        )
-
-        if (!lastUserMessage) {
-          throw new Error('No user message found')
-        }
-
-        yield* client
-          .complete(conversationId, { text: lastUserMessage.text })
-          .stream()
-      }
-    } else {
-      return async function* (messages) {
-        yield* client
-          .complete(null, {
-            // @todo uncomment once supported
-            // botId: botId,
-            backstory: backstory,
-            model: model,
-            datasetId: datasetId,
-            skillsetId: skillsetId,
-            privacy: privacy,
-            moderation: moderation,
-            messages: messages,
-          })
-          .stream()
-      }
-    }
-  }, [client])
+export function useConversationManager({
+  ...conversationManagerRemoteOptions
+}) {
+  const remote = useConversationManagerRemote(conversationManagerRemoteOptions)
 
   const [
     {
@@ -301,7 +133,6 @@ export function useConversationManager(options) {
 
     /** @type {Message} */
     const userMessage = {
-      id: getRandomId('tmp-'),
       type: 'user',
       text: thisText,
     }
@@ -376,43 +207,17 @@ export function useConversationManager(options) {
   }
 
   return {
-    token,
-    setToken,
-
-    conversationId,
-    setConversationId,
-
-    botId,
-    setBotId,
-
-    backstory,
-    setBackstory,
-
-    model,
-    setModel,
-
-    datasetId,
-    setDatasetId,
-
-    skillsetId,
-    setSkillsetId,
-
-    privacy,
-    setPrivacy,
-
-    moderation,
-    setModeration,
-
-    text,
-    setText,
-
     message,
     messages,
 
     thinking,
     typing,
 
+    text,
+    setText,
+
     error,
+    setError,
 
     submit,
 
