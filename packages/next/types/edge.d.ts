@@ -32,7 +32,16 @@
  * import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
  *
  * export default function Index() {
- *   const { thinking, text, setText, messages, submit } = useConversationManager({
+ *   const {
+ *     thinking,
+ * 
+ *     text,
+ *     setText,
+ * 
+ *     messages,
+ * 
+ *     submit
+ *   } = useConversationManager({
  *     endpoint: '/api/conversation/complete',
  *   })
  *
