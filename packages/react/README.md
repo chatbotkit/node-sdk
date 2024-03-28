@@ -194,20 +194,25 @@ Here's a straightforward example using the `useConversationManager` React Hook t
 
 ```javascript
 // file: ./pages/index.jsx
+import { useState } from 'react'
+
 import { AutoTextarea, useConversationManager } from '@chatbotkit/react'
 
 export default function Index() {
+  const [conversationId, setConversationId] = useState(null)
+  const [token, setToken] = useState(null)
+
   const {
-    conversationId,
-    setConversationId,
-    token,
-    setToken,
     text,
     setText,
+
+    message,
     messages,
+
     thinking,
+
     submit,
-  } = useConversationManager({ stream: true })
+  } = useConversationManager({ conversationId, token })
 
   async function createSession() {
     const response = await fetch(`/api/session/create`)
@@ -239,6 +244,11 @@ export default function Index() {
               <strong>{type}:</strong> {text}
             </div>
           ))}
+          {message ? (
+            <div key={message.id}>
+              <strong>bot:</strong> {message.text}
+            </div>
+          ) : null}
           {thinking && (
             <div key="thinking">
               <strong>bot:</strong> thinking...
