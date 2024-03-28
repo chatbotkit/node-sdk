@@ -31,7 +31,7 @@ import { ConversationClient } from '@chatbotkit/sdk'
  *   moderation?: boolean
  * }} UseConversationManagerRemoteOptions
  *
- * @typedef {(messages: Message[]) => AsyncGenerator<any,null,any>} UseConversationManagerRemoteResult
+ * @typedef {(messages: Message[]) => AsyncGenerator<any,void,any>} UseConversationManagerRemoteResult
  */
 
 /**
