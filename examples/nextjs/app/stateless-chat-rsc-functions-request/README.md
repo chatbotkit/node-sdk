@@ -4,16 +4,16 @@ Welcome to this stateless chat example project that showcases the integration of
 
 The most important files in this project are:
 
-- [actions/conversation.js](actions/conversation.js) - the server side actions that handle the conversation
+- [actions/conversation.jsx](actions/conversation.jsx) - the server side actions that handle the conversation
 - [app/page.jsx](app/page.jsx) - the main page where the chat interface is rendered
 - [components/ChatArea.jsx](components/ChatArea.jsx) - the client-side chat area component
-- [components/CalendarEvents.jsx](components/CalendarEvents.jsx) - the client-side calendar event with interactive buttons
+- [components/functions/CalendarEvents.jsx](components/functions/CalendarEvents.jsx) - the client-side calendar event with interactive buttons
 
 # This is how it works:
 
-1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/conversation.js](actions/conversation.js) file.
+1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/conversation.js](actions/conversation.jsx) file.
 2. In the [components/ChatArea.jsx](components/ChatArea.jsx) we build a basic chat interface to interact with the action.
-3. We also create a [components/CalendarEvents.jsx](components/CalendarEvents.jsx) component that will be used to display the calendar events with interactive buttons.
+3. We also create a [components/functions/CalendarEvents.jsx](components/functions/CalendarEvents.jsx) component that will be used to display the calendar events with interactive buttons.
 
 ## Getting Started
 
