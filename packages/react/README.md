@@ -11,9 +11,9 @@ Welcome to the ChatBotKit React SDK! This SDK is your go-to React solution for c
 
 The ChatBotKit React SDK offers a comprehensive set of features and capabilities, including:
 
-- **[streamComplete](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.actions_streamComplete.html#streamcomplete)**: A server-side reaction which allow for function calling and React component streaming.
-- **[userConversationManager](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.hooks_useConversationManager.html)**: A React Hook for managing conversation flow. Handles all the heavy lifting of sending and receiving messages, as well as thinking and typing indicators.
-- **[ConvesationManager](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.components_ConversationManager.html)**: A React component that provides a conversation manager interface. Useful for chat interfaces to manage conversation flow.
+- **[streamComplete](https://chatbotkit.github.io/node-sdk/functions/_chatbotkit_react.actions_complete.streamComplete.html)**: A server-side reaction which allow for function calling and React component streaming.
+- **[userConversationManager](https://chatbotkit.github.io/node-sdk/functions/_chatbotkit_react.hooks_useConversationManager.useConversationManager.html)**: A React Hook for managing conversation flow. Handles all the heavy lifting of sending and receiving messages, as well as thinking and typing indicators.
+- **[ConvesationManager](https://chatbotkit.github.io/node-sdk/functions/_chatbotkit_react.components_ConversationManager.ConversationManager.html)**: A React component that provides a conversation manager interface. Useful for chat interfaces to manage conversation flow.
 - **[AutoTextarea](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.components_AutoTextarea.html)**: A React component that automatically resizes the textarea to fit the content. Useful for chat interfaces to allow users to type messages.
 - **[ChatInput](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.components_ChatInput.html)**: A React component that provides a chat input interface. Useful for chat interfaces to allow users to type messages. It automatically handles modifiers such as ctrl, cmd and shift.
 - **[ChatMessage](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_react.components_ChatMessage.html)**: A React component that provides a chat message interface. Useful for chat interfaces to display messages with rich formatting.
