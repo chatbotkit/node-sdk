@@ -31,4 +31,4 @@
 
 #### Defined in
 
-[components/AutoScroller.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoScroller.js#L17)
+[components/AutoScroller.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoScroller.js#L19)

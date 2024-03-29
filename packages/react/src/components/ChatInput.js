@@ -1,3 +1,5 @@
+'use client'
+
 import AutoTextarea from './AutoTextarea.js'
 
 /**

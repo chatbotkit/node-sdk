@@ -29,4 +29,4 @@ height is adjusted on input and focus events.
 
 #### Defined in
 
-[components/AutoTextarea.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoTextarea.js#L11)
+[components/AutoTextarea.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoTextarea.js#L13)

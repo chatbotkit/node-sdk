@@ -1,6 +1,16 @@
 /**
  * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  *
+ * @typedef {Message & {
+ *   id: string
+ * }} SimpleMessage
+ *
+ * @typedef {Message & {
+ *   id: string,
+ *   children?: import('react').ReactNode
+ * }} ComplexMessage
+ */
+/**
  * @typedef {import('./useConversationManagerRemote.js').UseConversationManagerRemoteOptions} UseConversationManagerRemoteOptions
  */
 /**
@@ -8,17 +18,17 @@
  * }} UseConversationManagerOptions
  *
  * @typedef {{
- *   message: Message?,
- *   messages: Message[],
+ *   message: SimpleMessage?,
+ *   messages: ComplexMessage[],
  *   thinking: boolean,
  *   typing: boolean,
  *   text: string,
  *   setText: (text: string) => void,
  *   error: any,
  *   setError: (error: any) => void,
- *   submit: () => void
- *   trigger: (name: string) => void
- *   request: (name: string, args: any) => void
+ *   submit: () => Promise<boolean>
+ *   trigger: (name: string) => Promise<boolean>
+ *   request: (name: string, args: any) => Promise<boolean>
  * }} UseConversationManagerResult
  */
 /**
@@ -33,18 +43,25 @@
 export function useConversationManager({ ...conversationManagerRemoteOptions }: UseConversationManagerOptions): UseConversationManagerResult;
 export default useConversationManager;
 export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
+export type SimpleMessage = Message & {
+    id: string;
+};
+export type ComplexMessage = Message & {
+    id: string;
+    children?: import('react').ReactNode;
+};
 export type UseConversationManagerRemoteOptions = import('./useConversationManagerRemote.js').UseConversationManagerRemoteOptions;
 export type UseConversationManagerOptions = UseConversationManagerRemoteOptions & {};
 export type UseConversationManagerResult = {
-    message: Message | null;
-    messages: Message[];
+    message: SimpleMessage | null;
+    messages: ComplexMessage[];
     thinking: boolean;
     typing: boolean;
     text: string;
     setText: (text: string) => void;
     error: any;
     setError: (error: any) => void;
-    submit: () => void;
-    trigger: (name: string) => void;
-    request: (name: string, args: any) => void;
+    submit: () => Promise<boolean>;
+    trigger: (name: string) => Promise<boolean>;
+    request: (name: string, args: any) => Promise<boolean>;
 };

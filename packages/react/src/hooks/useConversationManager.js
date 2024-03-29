@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 
 import useConversationManagerRemote from './useConversationManagerRemote.js'
@@ -6,6 +8,17 @@ import { useConversationManagerState } from './useConversationManagerState.js'
 /**
  * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  *
+ * @typedef {Message & {
+ *   id: string
+ * }} SimpleMessage
+ *
+ * @typedef {Message & {
+ *   id: string,
+ *   children?: import('react').ReactNode
+ * }} ComplexMessage
+ */
+
+/**
  * @typedef {import('./useConversationManagerRemote.js').UseConversationManagerRemoteOptions} UseConversationManagerRemoteOptions
  */
 
@@ -14,17 +27,17 @@ import { useConversationManagerState } from './useConversationManagerState.js'
  * }} UseConversationManagerOptions
  *
  * @typedef {{
- *   message: Message?,
- *   messages: Message[],
+ *   message: SimpleMessage?,
+ *   messages: ComplexMessage[],
  *   thinking: boolean,
  *   typing: boolean,
  *   text: string,
  *   setText: (text: string) => void,
  *   error: any,
  *   setError: (error: any) => void,
- *   submit: () => void
- *   trigger: (name: string) => void
- *   request: (name: string, args: any) => void
+ *   submit: () => Promise<boolean>
+ *   trigger: (name: string) => Promise<boolean>
+ *   request: (name: string, args: any) => Promise<boolean>
  * }} UseConversationManagerResult
  */
 
@@ -127,16 +140,16 @@ export function useConversationManager({
    * current text input. This takes precedence over the current text input.
    *
    * @param {string} [thisText]
-   * @returns {Promise<void>}
+   * @returns {Promise<boolean>}
    */
   async function submit(thisText) {
     if (thinking || typing) {
-      return // @todo handle submit pipelining
+      return false // @todo handle submit pipelining
     }
 
     if (!thisText) {
       if (!text) {
-        return
+        return false
       }
 
       thisText = text
@@ -153,6 +166,8 @@ export function useConversationManager({
     appendMessage(userMessage)
 
     await stream([userMessage])
+
+    return true
   }
 
   /**
@@ -162,11 +177,11 @@ export function useConversationManager({
    * as they are inferred from the context of the conversation.
    *
    * @param {string} name
-   * @returns {Promise<void>}
+   * @returns {Promise<boolean>}
    */
   async function trigger(name) {
     if (thinking || typing) {
-      return // @todo handle submit pipelining
+      return false // @todo handle submit pipelining
     }
 
     /** @type {Message} */
@@ -184,6 +199,8 @@ export function useConversationManager({
     }
 
     await stream([activityMessage])
+
+    return true
   }
 
   /**
@@ -194,11 +211,11 @@ export function useConversationManager({
    *
    * @param {string} name
    * @param  {any} args
-   * @returns {Promise<void>}
+   * @returns {Promise<boolean>}
    */
   async function request(name, args) {
     if (thinking || typing) {
-      return // @todo handle submit pipelining
+      return false // @todo handle submit pipelining
     }
 
     /** @type {Message} */
@@ -217,6 +234,8 @@ export function useConversationManager({
     }
 
     await stream([activityMessage])
+
+    return true
   }
 
   return {

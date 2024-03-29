@@ -54,13 +54,15 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  *   schema: BasicParametersSchema,
  *   validate(value: any): Promise<{valid: boolean, error?: Error}>
  * }} ValidatingParametersSchema
- *
+ */
+/**
  * @typedef {{
  *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
  *   text: string,
  *   meta?: Record<string,any>
  * }} InputMessage
- *
+ */
+/**
  * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
  *
  * @typedef {any} HandlerArgs

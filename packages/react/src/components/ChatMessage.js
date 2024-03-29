@@ -1,3 +1,5 @@
+'use any'
+
 import { useMemo } from 'react'
 import Markdown from 'react-markdown'
 

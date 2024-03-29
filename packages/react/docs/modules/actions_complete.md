@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L28)
+[actions/complete.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L32)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L29)
+[actions/complete.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L33)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L36)
+[actions/complete.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L40)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L24)
+[actions/complete.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L26)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L43)
+[actions/complete.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L47)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L26)
+[actions/complete.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L30)
 
 ___
 
@@ -165,7 +165,7 @@ the current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[actions/complete.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L54)
+[actions/complete.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L58)
 
 ___
 
@@ -189,4 +189,4 @@ current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[actions/complete.js:312](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L312)
+[actions/complete.js:316](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L316)

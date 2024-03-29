@@ -38,7 +38,7 @@ Re-exports [State](hooks_useConversationManagerState.md#state)
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L48)
+[hooks/useConversationManagerStateReducer.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L50)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L46)
+[hooks/useConversationManagerStateReducer.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L48)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L39)
+[hooks/useConversationManagerStateReducer.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L41)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L8)
+[hooks/useConversationManagerStateReducer.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L10)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:9](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L9)
+[hooks/useConversationManagerStateReducer.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L11)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L25)
+[hooks/useConversationManagerStateReducer.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L27)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L32)
+[hooks/useConversationManagerStateReducer.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L34)
 
 ## Functions
 
@@ -154,7 +154,7 @@ default state if no state is given.
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:192](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L192)
+[hooks/useConversationManagerStateReducer.js:194](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L194)
 
 ___
 
@@ -179,7 +179,7 @@ that are dispatched to it.
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:60](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L60)
+[hooks/useConversationManagerStateReducer.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L62)
 
 ___
 
@@ -203,4 +203,4 @@ state if no state is given.
 
 #### Defined in
 
-[hooks/useConversationManagerStateReducer.js:211](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L211)
+[hooks/useConversationManagerStateReducer.js:213](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L213)

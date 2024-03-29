@@ -1,10 +1,13 @@
-/* globals globalThis */
+'use any'
+
 import { useMemo } from 'react'
 
 import { cloneAndExtend } from '../utils/object.js'
 import { consume } from '../utils/stream.js'
 
 import { ConversationClient } from '@chatbotkit/sdk'
+
+/* globals globalThis */
 
 /**
  * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message

@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext } from 'react'
 
 import useConversationManager from '../hooks/useConversationManager.js'
@@ -16,11 +18,11 @@ export const ConversationContext = createContext(
     error: null,
     setError: () => {},
 
-    submit: () => {},
+    submit: async () => false,
 
-    trigger: () => {},
+    trigger: async () => false,
 
-    request: () => {},
+    request: async () => false,
   })
 )
 
