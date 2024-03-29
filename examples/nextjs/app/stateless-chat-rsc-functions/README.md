@@ -10,7 +10,7 @@ The most important files in this project are:
 
 # This is how it works:
 
-1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/conversation.js](actions/conversation.jsx) file.
+1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/conversation.jsx](actions/conversation.jsx) file.
 2. In the [components/ChatArea.jsx](components/ChatArea.jsx) we build a basic chat interface to interact with the action.
 
 ## Getting Started

@@ -45,7 +45,7 @@ export default function Page() {
 
 import { useContext } from 'react'
 
-import { complete } from '../actions/conversation.js'
+import { complete } from '../actions/conversation.jsx'
 
 import { ChatInput, ConversationContext } from '@chatbotkit/react'
 import ConversationManager from '@chatbotkit/react/components/ConversationManager'
@@ -118,7 +118,7 @@ export default function ChatArea() {
   )
 }
 
-// file: ./actions/conversation.js
+// file: ./actions/conversation.jsx
 'use server'
 
 import CalendarEvents from '../components/CalendarEvents.jsx'
@@ -130,7 +130,7 @@ const cbk = new ChatBotKit({
   secret: process.env.CHATBOTKIT_API_SECRET,
 })
 
-export async function complete(_, { messages }) {
+export async function complete({ messages }) {
   return streamComplete({
     client: cbk.conversation,
 

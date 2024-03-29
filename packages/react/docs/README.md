@@ -132,7 +132,7 @@ const cbk = new ChatBotKit({
   secret: process.env.CHATBOTKIT_API_SECRET,
 })
 
-export async function complete(_, { messages }) {
+export async function complete({ messages }) {
   return streamComplete({
     client: cbk.conversation,
 

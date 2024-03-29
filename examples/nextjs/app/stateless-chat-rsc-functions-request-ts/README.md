@@ -9,13 +9,13 @@ The most important files in this project are:
 - [actions/conversation.tsx](actions/conversation.tsx) - the server side actions that handle the conversation
 - [app/page.tsx](app/page.tsx) - the main page where the chat interface is rendered
 - [components/ChatArea.tsx](components/ChatArea.tsx) - the client-side chat area component
-- [components/functions/CalendarEvents.tsx](components/functions/CalendarEvents.tsx) - the client-side calendar event with interactive buttons
+- [components/functions/CalendarEvents.tsx](components/functions/CalendarEvents.tsx) - the client-side calendar component with interactive buttons
 
 # This is how it works:
 
-1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/conversation.js](actions/conversation.js) file.
-2. In the [components/ChatArea.jsx](components/ChatArea.jsx) we build a basic chat interface to interact with the action.
-3. We also create a [components/functions/CalendarEvents.jsx](components/functions/CalendarEvents.jsx) component that will be used to display the calendar events with interactive buttons.
+1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/conversation.tsx](actions/conversation.tsx) file.
+2. In the [components/ChatArea.tsx](components/ChatArea.tsx) we build a basic chat interface to interact with the action.
+3. We also create a [components/functions/CalendarEvents.tsx](components/functions/CalendarEvents.tsx) component that will be used to display the calendar events with interactive buttons.
 
 ## Getting Started
 
