@@ -1,6 +1,6 @@
 'use server'
 
-import CalendarEvents from '../components/CalendarEvents.jsx'
+import CalendarEvents from '@/components/functions/CalendarEvents'
 
 import { streamComplete } from '@chatbotkit/react/actions/complete'
 import { ChatBotKit } from '@chatbotkit/sdk'

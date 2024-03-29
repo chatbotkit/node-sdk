@@ -2,7 +2,7 @@
 
 import { useContext } from 'react'
 
-import { complete } from '../actions/conversation.js'
+import { complete } from '@/actions/conversation'
 
 import { ChatInput, ConversationContext } from '@chatbotkit/react'
 import ConversationManager from '@chatbotkit/react/components/ConversationManager'
