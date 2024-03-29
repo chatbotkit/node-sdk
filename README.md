@@ -87,7 +87,7 @@ for await (const { type, data } of client
 }
 ```
 
-### A NextGen Example for Next.js
+### NextGen Example for Next.js
 
 This example showcases how to build advanced conversational AI with streaming,
 function calls, server-side rendering and much more in a Next.js project:
