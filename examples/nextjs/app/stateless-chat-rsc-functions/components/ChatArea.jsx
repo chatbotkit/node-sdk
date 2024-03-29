@@ -1,6 +1,6 @@
 'use client'
 
-import { complete } from '../actions/conversation.js'
+import { complete } from '../actions/conversation.jsx'
 
 import { ChatInput, useConversationManager } from '@chatbotkit/react'
 

@@ -4,13 +4,13 @@ Welcome to this stateless chat example project that showcases the integration of
 
 The most important files in this project are:
 
-- [actions/conversation.js](actions/conversation.js) - the server side actions that handle the conversation
+- [actions/conversation.jsx](actions/conversation.jsx) - the server side actions that handle the conversation
 - [app/page.jsx](app/page.jsx) - the main page where the chat interface is rendered
 - [components/ChatArea.jsx](components/ChatArea.jsx) - the client-side chat area component
 
 # This is how it works:
 
-1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/conversation.js](actions/conversation.js) file.
+1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/conversation.js](actions/conversation.jsx) file.
 2. In the [components/ChatArea.jsx](components/ChatArea.jsx) we build a basic chat interface to interact with the action.
 
 ## Getting Started
