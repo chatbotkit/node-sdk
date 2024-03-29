@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.8.1
+
+### Patch Changes
+
+- 604418c: Improved types.
+
 ## 1.8.0
 
 ### Minor Changes
