@@ -42,7 +42,7 @@ The ChatBotKit Node SDK is comprised of the following packages:
 
 ## ChatBotKit Capabilities
 
-- 🔄 **Multi-modal Support**: Support various language and image models from all vendors such as OpenAI, Anthropic, Mistral, and AWS.
+- 🔄 **Multi-modal Support**: Support various language and image models from all vendors such as OpenAI, Anthropic, Mistral, AWS, Google and others.
 - 🌍 **Multi-language Support**: Allowing for easy customization and use in diverse linguistic contexts.
 - 💬 **Conversation Management**: Manage complex conversation flaws with ease.
 - 🗨 **Chat History**: Review and reference past conversations.
