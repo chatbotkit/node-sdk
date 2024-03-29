@@ -45,7 +45,7 @@ ___
 
 ### HandlerResult
 
-Ƭ **HandlerResult**\<\>: `string` \| [`ReactElement`](actions_complete.md#reactelement) \| \{ `children?`: `ReactNode` ; `render`: [`RenderFunction`](actions_complete.md#renderfunction) ; `result?`: `any` ; `text?`: `string`  }
+Ƭ **HandlerResult**\<\>: `string` \| [`ReactElement`](actions_complete.md#reactelement) \| \{ `children?`: `ReactNode` ; `render?`: [`RenderFunction`](actions_complete.md#renderfunction) ; `result?`: `any` ; `text?`: `string`  }
 
 #### Defined in
 

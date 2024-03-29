@@ -28,7 +28,7 @@ export type HandlerArgs = any;
 export type HandlerResult = string | ReactElement | {
     text?: string;
     children?: ReactNode;
-    render: RenderFunction;
+    render?: RenderFunction;
     result?: any;
 };
 export type InputFunction = {
@@ -64,7 +64,7 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
  *
  * @typedef {any} HandlerArgs
- * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render: RenderFunction, result?: any}} HandlerResult
+ * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render?: RenderFunction, result?: any}} HandlerResult
  *
  * @typedef {{
  *   name: string,

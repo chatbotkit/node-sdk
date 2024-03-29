@@ -16,17 +16,21 @@ import { getRandomId } from '../utils/string.js'
  *   schema: BasicParametersSchema,
  *   validate(value: any): Promise<{valid: boolean, error?: Error}>
  * }} ValidatingParametersSchema
- *
+ */
+
+/**
  * @typedef {{
  *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
  *   text: string,
  *   meta?: Record<string,any>
  * }} InputMessage
- *
+ */
+
+/**
  * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
  *
  * @typedef {any} HandlerArgs
- * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render: RenderFunction, result?: any}} HandlerResult
+ * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render?: RenderFunction, result?: any}} HandlerResult
  *
  * @typedef {{
  *   name: string,
