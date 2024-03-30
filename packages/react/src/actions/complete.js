@@ -30,13 +30,14 @@ import { getRandomId } from '../utils/string.js'
  * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
  *
  * @typedef {any} HandlerArgs
+ * @typedef {{controller: AbortController}} HandlerOptions
  * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render?: RenderFunction, result?: any}} HandlerResult
  *
  * @typedef {{
  *   name: string,
  *   description: string,
  *   parameters: BasicParametersSchema|ValidatingParametersSchema,
- *   handler?: (args: HandlerArgs) => Promise<HandlerResult>
+ *   handler?: (args: HandlerArgs, HandlerOptions) => Promise<HandlerResult>
  * }} InputFunction
  *
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
@@ -184,9 +185,13 @@ async function* complete({
             }
           }
 
+          // Create an abort controller to handle when we need to stop
+
+          const controller = new AbortController()
+
           // Call the function and handle the output.
 
-          const output = await fn.handler(args)
+          const output = await fn.handler(args, { controller })
 
           let text
           let children
@@ -288,16 +293,18 @@ async function* complete({
 
             // Recursively call the complete function to handle the response.
 
-            yield* complete({
-              ...options,
+            if (controller.signal.aborted === false) {
+              yield* complete({
+                ...options,
 
-              client,
+                client,
 
-              messages,
-              functions,
+                messages,
+                functions,
 
-              maxRecusion: maxRecusion - 1,
-            })
+                maxRecusion: maxRecusion - 1,
+              })
+            }
           }
         }
       }
