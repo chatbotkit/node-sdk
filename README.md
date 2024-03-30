@@ -345,6 +345,10 @@ Some notable examples include:
 | Node               | [GPT4 Streaming AI chatbot](https://github.com/chatbotkit/node-sdk/tree/main/examples/sdk/esm/gpt4-chatbot-stream.js)                                                         | A simple streaming AI chatbot example.                                                                                                                                                                                                                                                                      |
 | Cloudflare Workers | [GPT4 AI chatbot](https://github.com/chatbotkit/node-sdk/tree/main/examples/cloudflare/gpt4-stream)                                                                           | A streaming AI chatbot example for Cloudflare Workers.                                                                                                                                                                                                                                                      |
 
+## Stability
+
+All SDK features are considered unstable unless explicitly marked as stable. Stability is indicated by the presence of a `@stable` tag in the documentation.
+
 ## Documentation
 
 - **Type Documentation**: Detailed information on available types [here](https://chatbotkit.github.io/node-sdk/).
