@@ -1,8 +1,8 @@
 /**
  * @param {{
- *   [name: string]: any
- * }} props
+ *   text: string,
+ * } & Pick<import('react-markdown').Options,'remarkPlugins'|'rehypePlugins'|'components'> & import('react').HTMLProps<HTMLDivElement>} props
  */
 export function ChatMessage(props: {
-    [name: string]: any;
-}): import("react/jsx-runtime").JSX.Element;
+    text: string;
+} & Pick<import("../../node_modules/react-markdown/lib/index.js").Options, "remarkPlugins" | "rehypePlugins" | "components"> & import("react").HTMLProps<HTMLDivElement>): import("react/jsx-runtime").JSX.Element;

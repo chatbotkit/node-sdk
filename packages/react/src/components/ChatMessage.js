@@ -3,10 +3,12 @@
 import { useMemo } from 'react'
 import Markdown from 'react-markdown'
 
+/**
+ * @type {import('react-markdown').Components}
+ */
 const defaultComponents = {
-  // @ts-expect-error todo
   a: ({ href, children }) => {
-    const isExternal = /^https?:\/\//.test(href)
+    const isExternal = /^https?:\/\//.test(href || '')
 
     return (
       <a
@@ -17,35 +19,20 @@ const defaultComponents = {
       </a>
     )
   },
-
-  // @ts-expect-error todo
-  code: ({ inline, className, children }) => {
-    const language = className ? className.replace(/language-/, '') : null
-
-    if (inline) {
-      return <code className="className">{children}</code>
-    } else {
-      return (
-        <pre>
-          <code className={className} data-language={language}>
-            {children}
-          </code>
-        </pre>
-      )
-    }
-  },
 }
 
 /**
  * @param {{
- *   [name: string]: any
- * }} props
+ *   text: string,
+ * } & Pick<import('react-markdown').Options,'remarkPlugins'|'rehypePlugins'|'components'> & import('react').HTMLProps<HTMLDivElement>} props
  */
 export function ChatMessage(props) {
   const {
     text,
 
-    style: customStyle,
+    remarkPlugins,
+    rehypePlugins,
+
     components: customComponents,
 
     children,
@@ -60,18 +47,15 @@ export function ChatMessage(props) {
     }
   }, [customComponents])
 
-  /** @type {import('react').CSSProperties} */
-  const style = useMemo(() => {
-    return {
-      whiteSpace: 'pre-wrap',
-
-      ...customStyle,
-    }
-  }, [customStyle])
-
   return (
-    <div {...rest} style={style}>
-      <Markdown components={components}>{text}</Markdown>
+    <div {...rest}>
+      <Markdown
+        remarkPlugins={remarkPlugins}
+        rehypePlugins={rehypePlugins}
+        components={components}
+      >
+        {text}
+      </Markdown>
       {children}
     </div>
   )
