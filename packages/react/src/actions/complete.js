@@ -228,8 +228,8 @@ async function* complete({
               type: 'message',
               data: {
                 type: 'bot',
-                text: text ? text : '',
-                children: children ? <>{children}</> : undefined,
+                text: text || '',
+                children: children || undefined,
               },
             }
           } else if (text || render) {
@@ -246,8 +246,8 @@ async function* complete({
                   data: {
                     id: id,
                     type: 'bot',
-                    text: text ? text : '',
-                    children: item,
+                    text: text || '',
+                    children: item || undefined,
                   },
                 }
               }
@@ -256,8 +256,8 @@ async function* complete({
                 type: 'message',
                 data: {
                   type: 'bot',
-                  text: text ? text : '',
-                  children: <>{result}</>,
+                  text: text || '',
+                  children: result || undefined,
                 },
               }
             }
