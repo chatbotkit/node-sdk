@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.8.2
+
+### Patch Changes
+
+- ea35662: Added more properties to control generation of components.
+
 ## 1.8.1
 
 ### Patch Changes
