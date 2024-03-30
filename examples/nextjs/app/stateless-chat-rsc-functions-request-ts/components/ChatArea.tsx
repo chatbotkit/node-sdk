@@ -44,11 +44,11 @@ export function ChatMessages(): JSX.Element {
   return (
     <div>
       <div>
-        {messages.map(({ id, type, text, children }, index) => {
+        {messages.map(({ id, type, text, children }) => {
           switch (type) {
             case 'user':
               return (
-                <div key={id || index}>
+                <div key={id}>
                   <div>
                     <strong>user:</strong> {text}
                   </div>
@@ -57,7 +57,7 @@ export function ChatMessages(): JSX.Element {
 
             case 'bot':
               return (
-                <div key={id || index}>
+                <div key={id}>
                   <div>
                     <strong>bot:</strong> {text}
                   </div>
