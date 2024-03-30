@@ -82,7 +82,13 @@ export async function complete({ messages }: { messages: InputMessage[] }) {
           description: 'Get a list of calendar events',
           parameters: parameters,
 
-          handler: async () => {
+          handler: async (_, { controllers }) => {
+            // We want to stop the conversation here and wait for the user to
+            // interact with the client component. This is done by calling the
+            // abort method of the continuation controller.
+
+            controllers.continuation.abort()
+
             return {
               children: <CalendarEvents events={events} />,
 
