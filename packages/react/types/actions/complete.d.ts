@@ -25,6 +25,16 @@ export type InputMessage = {
 };
 export type RenderFunction = () => AsyncGenerator<ReactNode> | ReactNode | Promise<ReactNode>;
 export type HandlerArgs = any;
+export type HandlerOptions = {
+    messages: InputMessage[];
+    functions?: InputFunction[];
+    controllers: {
+        continuation: AbortController;
+    };
+    signals: {
+        abort: AbortSignal;
+    };
+};
 export type HandlerResult = string | ReactElement | {
     text?: string;
     children?: ReactNode;
@@ -35,12 +45,12 @@ export type InputFunction = {
     name: string;
     description: string;
     parameters: BasicParametersSchema | ValidatingParametersSchema;
-    handler?: ((args: HandlerArgs) => Promise<HandlerResult>) | undefined;
+    handler?: ((args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>) | undefined;
 };
 export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest, 'messages' | 'functions'> & {
     client: import('@chatbotkit/sdk').ConversationClient;
     messages: InputMessage[];
-    functions?: (InputFunction | (() => InputFunction))[];
+    functions?: (InputFunction | (() => InputFunction | Promise<InputFunction>))[];
     maxRecusion?: number;
 };
 /**
@@ -66,19 +76,29 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
  *
  * @typedef {any} HandlerArgs
+ * @typedef {{
+ *   messages: InputMessage[],
+ *   functions?: InputFunction[],
+ *   controllers: {
+ *     continuation: AbortController
+ *   },
+ *   signals: {
+ *     abort: AbortSignal
+ *   }
+ * }} HandlerOptions
  * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render?: RenderFunction, result?: any}} HandlerResult
  *
  * @typedef {{
  *   name: string,
  *   description: string,
  *   parameters: BasicParametersSchema|ValidatingParametersSchema,
- *   handler?: (args: HandlerArgs) => Promise<HandlerResult>
+ *   handler?: (args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>
  * }} InputFunction
  *
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
- *   functions?: (InputFunction|(() => InputFunction))[],
+ *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
  *   maxRecusion?: number
  * }} Options
  */

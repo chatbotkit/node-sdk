@@ -30,20 +30,29 @@ import { getRandomId } from '../utils/string.js'
  * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
  *
  * @typedef {any} HandlerArgs
- * @typedef {{controller: AbortController}} HandlerOptions
+ * @typedef {{
+ *   messages: InputMessage[],
+ *   functions?: InputFunction[],
+ *   controllers: {
+ *     continuation: AbortController
+ *   },
+ *   signals: {
+ *     abort: AbortSignal
+ *   }
+ * }} HandlerOptions
  * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render?: RenderFunction, result?: any}} HandlerResult
  *
  * @typedef {{
  *   name: string,
  *   description: string,
  *   parameters: BasicParametersSchema|ValidatingParametersSchema,
- *   handler?: (args: HandlerArgs, HandlerOptions) => Promise<HandlerResult>
+ *   handler?: (args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>
  * }} InputFunction
  *
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
- *   functions?: (InputFunction|(() => InputFunction))[],
+ *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
  *   maxRecusion?: number
  * }} Options
  */
@@ -79,13 +88,17 @@ async function* complete({
   // Convert all functions to objects if they are functions.
 
   /** @type {InputFunction[]|undefined} */
-  const functionDefinitions = functions?.map((fn) => {
-    if (typeof fn === 'function') {
-      return fn()
-    } else {
-      return fn
-    }
-  })
+  const functionDefinitions = functions
+    ? await Promise.all(
+        functions.map(async (fn) => {
+          if (typeof fn === 'function') {
+            return await fn()
+          } else {
+            return fn
+          }
+        })
+      )
+    : undefined
 
   // Define a reference to the stream iterator.
 
@@ -185,13 +198,27 @@ async function* complete({
             }
           }
 
-          // Create an abort controller to handle when we need to stop
+          // Create an abort controller to pass to the function.
 
-          const controller = new AbortController()
+          const abortController = new AbortController()
+
+          // Create a number of controllers to pass to the function.
+
+          const continuationController = new AbortController()
 
           // Call the function and handle the output.
 
-          const output = await fn.handler(args, { controller })
+          const output = await fn.handler(args, {
+            messages: messages,
+            functions: functionDefinitions,
+
+            controllers: {
+              continuation: continuationController,
+            },
+            signals: {
+              abort: abortController.signal,
+            },
+          })
 
           let text
           let children
@@ -293,7 +320,7 @@ async function* complete({
 
             // Recursively call the complete function to handle the response.
 
-            if (controller.signal.aborted === false) {
+            if (continuationController.signal.aborted === false) {
               yield* complete({
                 ...options,
 

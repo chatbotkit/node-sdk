@@ -8,6 +8,7 @@
 
 - [BasicParametersSchema](actions_complete.md#basicparametersschema)
 - [HandlerArgs](actions_complete.md#handlerargs)
+- [HandlerOptions](actions_complete.md#handleroptions)
 - [HandlerResult](actions_complete.md#handlerresult)
 - [InputFunction](actions_complete.md#inputfunction)
 - [InputMessage](actions_complete.md#inputmessage)
@@ -43,13 +44,34 @@ ___
 
 ___
 
+### HandlerOptions
+
+Ƭ **HandlerOptions**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `controllers` | \{ `continuation`: [`AbortController`]( https://developer.mozilla.org/docs/Web/API/AbortController )  } |
+| `controllers.continuation` | [`AbortController`]( https://developer.mozilla.org/docs/Web/API/AbortController ) |
+| `functions?` | [`InputFunction`](actions_complete.md#inputfunction)[] |
+| `messages` | [`InputMessage`](actions_complete.md#inputmessage)[] |
+| `signals` | \{ `abort`: [`AbortSignal`]( https://developer.mozilla.org/docs/Web/API/AbortSignal )  } |
+| `signals.abort` | [`AbortSignal`]( https://developer.mozilla.org/docs/Web/API/AbortSignal ) |
+
+#### Defined in
+
+[actions/complete.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L42)
+
+___
+
 ### HandlerResult
 
 Ƭ **HandlerResult**\<\>: `string` \| [`ReactElement`](actions_complete.md#reactelement) \| \{ `children?`: `ReactNode` ; `render?`: [`RenderFunction`](actions_complete.md#renderfunction) ; `result?`: `any` ; `text?`: `string`  }
 
 #### Defined in
 
-[actions/complete.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L33)
+[actions/complete.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L43)
 
 ___
 
@@ -62,13 +84,13 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `description` | `string` |
-| `handler?` | (`args`: [`HandlerArgs`](actions_complete.md#handlerargs)) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`HandlerResult`](actions_complete.md#handlerresult)\> |
+| `handler?` | (`args`: [`HandlerArgs`](actions_complete.md#handlerargs), `options`: [`HandlerOptions`](actions_complete.md#handleroptions)) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`HandlerResult`](actions_complete.md#handlerresult)\> |
 | `name` | `string` |
 | `parameters` | [`BasicParametersSchema`](actions_complete.md#basicparametersschema) \| [`ValidatingParametersSchema`](actions_complete.md#validatingparametersschema) |
 
 #### Defined in
 
-[actions/complete.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L40)
+[actions/complete.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L50)
 
 ___
 
@@ -92,11 +114,11 @@ ___
 
 ### Options
 
-Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: ([`InputFunction`](actions_complete.md#inputfunction) \| () => [`InputFunction`](actions_complete.md#inputfunction))[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[]  }
+Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: ([`InputFunction`](actions_complete.md#inputfunction) \| () => [`InputFunction`](actions_complete.md#inputfunction) \| [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`InputFunction`](actions_complete.md#inputfunction)\>)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[]  }
 
 #### Defined in
 
-[actions/complete.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L47)
+[actions/complete.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L57)
 
 ___
 
@@ -165,7 +187,7 @@ the current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[actions/complete.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L58)
+[actions/complete.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L68)
 
 ___
 
@@ -189,4 +211,4 @@ current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[actions/complete.js:316](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L316)
+[actions/complete.js:350](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L350)
