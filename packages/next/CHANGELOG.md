@@ -1,5 +1,11 @@
 # @chatbotkit/next
 
+## 1.9.0
+
+### Minor Changes
+
+- cc2c186: Added ChatBotKit solutions.
+
 ## 1.8.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.9.0
+
+### Minor Changes
+
+- cc2c186: Added ChatBotKit solutions.
+
 ## 1.8.2
 
 ### Patch Changes
