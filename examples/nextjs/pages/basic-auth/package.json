@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "true",
+    "build": "run-s build:*",
+    "build:next": "true",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:next": "rimraf .next",

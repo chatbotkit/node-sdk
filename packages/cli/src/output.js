@@ -1,12 +1,25 @@
 import jsYaml from 'js-yaml'
 import util from 'util'
 
+/**
+ * A configuration object for the output module.
+ *
+ * @internal
+ */
 export const config = {
   /** @type {'yaml'|'json'|'jsonl'} */
   output: 'yaml',
 }
 
 /**
+ * The error class for command errors which should be printed to the user.
+ *
+ * @internal
+ */
+export class CommandError extends Error {}
+
+/**
+ * @internal
  * @param {any} input
  * @returns {void}
  */
@@ -43,10 +56,16 @@ export function print(input) {
 }
 
 /**
+ * @internal
  * @param {any} error
  * @returns {void}
  */
 export function printError(error) {
-  // eslint-disable-next-line no-console
-  console.error(error)
+  if (error instanceof CommandError) {
+    // eslint-disable-next-line no-console
+    console.error(error.message)
+  } else {
+    // eslint-disable-next-line no-console
+    console.error(error)
+  }
 }

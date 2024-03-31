@@ -5,10 +5,12 @@ import { SkillsetClient } from '@chatbotkit/sdk/skillset/index.js'
 
 import { Command } from 'commander'
 
-const client = new SkillsetClient({
-  secret: getSECRET(),
-  runAsUserId: getRUNAS_USERID(),
-})
+function getClient() {
+  return new SkillsetClient({
+    secret: getSECRET(),
+    runAsUserId: getRUNAS_USERID(),
+  })
+}
 
 export const skillsetList = new Command()
   .name('list')
@@ -16,6 +18,8 @@ export const skillsetList = new Command()
   .option('-s, --stream', 'Stream skillsets')
   .action(async (str, options) => {
     const { stream } = options
+
+    const client = getClient()
 
     if (stream) {
       for await (const skillset of client.list().stream()) {
@@ -35,6 +39,8 @@ export const skillsetFetch = new Command()
   .description('Fetch skillset')
   .argument('<skillsetId>', 'Skillset ID')
   .action(async (skillsetId) => {
+    const client = getClient()
+
     const skillset = await client.fetch(skillsetId)
 
     print(skillset)
@@ -45,6 +51,8 @@ export const skillsetDelete = new Command()
   .description('Delete skillset')
   .argument('<skillsetId>', 'Skillset ID')
   .action(async (skillsetId) => {
+    const client = getClient()
+
     await client.delete(skillsetId)
   })
 

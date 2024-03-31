@@ -288,6 +288,26 @@
       "types": "./types/integration/whatsapp/v1.d.ts",
       "import": "./src/integration/whatsapp/v1.js"
     },
+    "./integration/widget": {
+      "types": "./types/integration/widget/index.d.ts",
+      "import": "./src/integration/widget/index.js"
+    },
+    "./integration/widget/index": {
+      "types": "./types/integration/widget/index.d.ts",
+      "import": "./src/integration/widget/index.js"
+    },
+    "./integration/widget/index.js": {
+      "types": "./types/integration/widget/index.d.ts",
+      "import": "./src/integration/widget/index.js"
+    },
+    "./integration/widget/v1": {
+      "types": "./types/integration/widget/v1.d.ts",
+      "import": "./src/integration/widget/v1.js"
+    },
+    "./integration/widget/v1.js": {
+      "types": "./types/integration/widget/v1.d.ts",
+      "import": "./src/integration/widget/v1.js"
+    },
     "./magic": {
       "types": "./types/magic/index.d.ts",
       "import": "./src/magic/index.js"

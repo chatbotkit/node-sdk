@@ -7,4 +7,6 @@
 ### Modules
 
 - [env](modules/env.md)
-- [output](modules/output.md)
+- [index](modules/index.md)
+- [input](modules/input.md)
+- [solution](modules/solution.md)

@@ -5,10 +5,12 @@ import { DatasetClient } from '@chatbotkit/sdk/dataset/index.js'
 
 import { Command } from 'commander'
 
-const client = new DatasetClient({
-  secret: getSECRET(),
-  runAsUserId: getRUNAS_USERID(),
-})
+function getClient() {
+  return new DatasetClient({
+    secret: getSECRET(),
+    runAsUserId: getRUNAS_USERID(),
+  })
+}
 
 export const datasetList = new Command()
   .name('list')
@@ -16,6 +18,8 @@ export const datasetList = new Command()
   .option('-s, --stream', 'Stream datasets')
   .action(async (str, options) => {
     const { stream } = options
+
+    const client = getClient()
 
     if (stream) {
       for await (const dataset of client.list().stream()) {
@@ -35,6 +39,8 @@ export const datasetFetch = new Command()
   .description('Fetch dataset')
   .argument('<datasetId>', 'Dataset ID')
   .action(async (datasetId) => {
+    const client = getClient()
+
     const dataset = await client.fetch(datasetId)
 
     print(dataset)
@@ -45,6 +51,8 @@ export const datasetDelete = new Command()
   .description('Delete dataset')
   .argument('<datasetId>', 'Dataset ID')
   .action(async (datasetId) => {
+    const client = getClient()
+
     await client.delete(datasetId)
   })
 

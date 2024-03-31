@@ -30,6 +30,8 @@
 
   ↳ [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
 
+  ↳ [`WidgetIntegrationClient`](integration_widget.WidgetIntegrationClient.md)
+
   ↳ [`MagicClient`](magic.MagicClient.md)
 
   ↳ [`PartnerClient`](partner.PartnerClient.md)

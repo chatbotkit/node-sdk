@@ -5,10 +5,12 @@ import { ConversationMessageClient } from '@chatbotkit/sdk/conversation/message/
 
 import { Command } from 'commander'
 
-const client = new ConversationMessageClient({
-  secret: getSECRET(),
-  runAsUserId: getRUNAS_USERID(),
-})
+function getClient() {
+  return new ConversationMessageClient({
+    secret: getSECRET(),
+    runAsUserId: getRUNAS_USERID(),
+  })
+}
 
 export const messageList = new Command()
   .name('list')
@@ -17,6 +19,8 @@ export const messageList = new Command()
   .argument('<conversationId>', 'Conversation ID')
   .action(async (conversationId, options) => {
     const { stream } = options
+
+    const client = getClient()
 
     if (stream) {
       for await (const message of client.list(conversationId).stream()) {
@@ -37,6 +41,8 @@ export const messageFetch = new Command()
   .argument('<conversationId>', 'Conversation ID')
   .argument('<messageId>', 'Message ID')
   .action(async (conversationId, messageId) => {
+    const client = getClient()
+
     const message = await client.fetch(conversationId, messageId)
 
     print(message)
@@ -48,6 +54,8 @@ export const messageDelete = new Command()
   .argument('<conversationId>', 'Conversation ID')
   .argument('<messageId>', 'Message ID')
   .action(async (conversationId, messageId) => {
+    const client = getClient()
+
     await client.delete(conversationId, messageId)
   })
 

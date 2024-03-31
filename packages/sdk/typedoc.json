@@ -29,6 +29,8 @@
     "./src/integration/sitemap/v1.js",
     "./src/integration/whatsapp/index.js",
     "./src/integration/whatsapp/v1.js",
+    "./src/integration/widget/index.js",
+    "./src/integration/widget/v1.js",
     "./src/magic/index.js",
     "./src/magic/v1.js",
     "./src/model/v1.js",

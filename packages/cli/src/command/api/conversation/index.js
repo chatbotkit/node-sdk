@@ -6,10 +6,12 @@ import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
 import { Command } from 'commander'
 
-const client = new ConversationClient({
-  secret: getSECRET(),
-  runAsUserId: getRUNAS_USERID(),
-})
+function getClient() {
+  return new ConversationClient({
+    secret: getSECRET(),
+    runAsUserId: getRUNAS_USERID(),
+  })
+}
 
 export const conversationList = new Command()
   .name('list')
@@ -17,6 +19,8 @@ export const conversationList = new Command()
   .option('-s, --stream', 'Stream conversations')
   .action(async (str, options) => {
     const { stream } = options
+
+    const client = getClient()
 
     if (stream) {
       for await (const conversation of client.list().stream()) {
@@ -36,6 +40,8 @@ export const conversationFetch = new Command()
   .description('Fetch conversation')
   .argument('<conversationId>', 'Conversation ID')
   .action(async (conversationId) => {
+    const client = getClient()
+
     const conversation = await client.fetch(conversationId)
 
     print(conversation)
@@ -46,6 +52,8 @@ export const conversationDelete = new Command()
   .description('Delete conversation')
   .argument('<conversationId>', 'Conversation ID')
   .action(async (conversationId) => {
+    const client = getClient()
+
     await client.delete(conversationId)
   })
 

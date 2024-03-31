@@ -15,19 +15,23 @@
 
 ▸ **getRUNAS_USERID**(): `string`
 
+Get the ChatBotKit RunAs-UserID.
+
 #### Returns
 
 `string`
 
 #### Defined in
 
-[env.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L16)
+[packages/cli/src/env.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L20)
 
 ___
 
 ### getSECRET
 
 ▸ **getSECRET**(): `string`
+
+Get the ChatbotKit Secret.
 
 #### Returns
 
@@ -37,4 +41,4 @@ ___
 
 #### Defined in
 
-[env.js:5](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L5)
+[packages/cli/src/env.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L7)

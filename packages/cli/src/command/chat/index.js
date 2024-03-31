@@ -5,16 +5,20 @@ import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 import { Command, Option } from 'commander'
 import readline from 'readline/promises'
 
-const client = new ConversationClient({
-  secret: getSECRET(),
-  runAsUserId: getRUNAS_USERID(),
-})
+function getClient() {
+  return new ConversationClient({
+    secret: getSECRET(),
+    runAsUserId: getRUNAS_USERID(),
+  })
+}
 
 export const command = new Command()
   .name('chat')
   .description('Start a chat session')
   .addOption(new Option('-m, --model <model>', 'Model name').default('gpt-4'))
   .action(async (_arg, options) => {
+    const client = getClient()
+
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,

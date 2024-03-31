@@ -5,10 +5,12 @@ import { PartnerUserClient } from '@chatbotkit/sdk/partner/user/index.js'
 
 import { Command } from 'commander'
 
-const client = new PartnerUserClient({
-  secret: getSECRET(),
-  runAsUserId: getRUNAS_USERID(),
-})
+function getClient() {
+  return new PartnerUserClient({
+    secret: getSECRET(),
+    runAsUserId: getRUNAS_USERID(),
+  })
+}
 
 export const userList = new Command()
   .name('list')
@@ -16,6 +18,8 @@ export const userList = new Command()
   .option('-s, --stream', 'Stream users')
   .action(async (_arg, options) => {
     const { stream } = options
+
+    const client = getClient()
 
     if (stream) {
       for await (const user of client.list().stream()) {
@@ -35,6 +39,8 @@ export const userFetch = new Command()
   .description('Fetch user')
   .argument('User ID')
   .action(async (userId) => {
+    const client = getClient()
+
     const user = await client.fetch(userId)
 
     print(user)
@@ -45,6 +51,8 @@ export const userDelete = new Command()
   .description('Delete user')
   .argument('<userId>', 'User ID')
   .action(async (userId) => {
+    const client = getClient()
+
     await client.delete(userId)
   })
 

@@ -121,6 +121,30 @@
       "types": "./types/command/chat/index.d.ts",
       "import": "./src/command/chat/index.js"
     },
+    "./command/solution": {
+      "types": "./types/command/solution/index.d.ts",
+      "import": "./src/command/solution/index.js"
+    },
+    "./command/solution/index": {
+      "types": "./types/command/solution/index.d.ts",
+      "import": "./src/command/solution/index.js"
+    },
+    "./command/solution/index.js": {
+      "types": "./types/command/solution/index.d.ts",
+      "import": "./src/command/solution/index.js"
+    },
+    "./command/solution/resource": {
+      "types": "./types/command/solution/resource/index.d.ts",
+      "import": "./src/command/solution/resource/index.js"
+    },
+    "./command/solution/resource/index": {
+      "types": "./types/command/solution/resource/index.d.ts",
+      "import": "./src/command/solution/resource/index.js"
+    },
+    "./command/solution/resource/index.js": {
+      "types": "./types/command/solution/resource/index.d.ts",
+      "import": "./src/command/solution/resource/index.js"
+    },
     "./env": {
       "types": "./types/env.d.ts",
       "import": "./src/env.js"
@@ -141,6 +165,14 @@
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
     },
+    "./input": {
+      "types": "./types/input.d.ts",
+      "import": "./src/input.js"
+    },
+    "./input.js": {
+      "types": "./types/input.d.ts",
+      "import": "./src/input.js"
+    },
     "./output": {
       "types": "./types/output.d.ts",
       "import": "./src/output.js"
@@ -148,6 +180,18 @@
     "./output.js": {
       "types": "./types/output.d.ts",
       "import": "./src/output.js"
+    },
+    "./solution": {
+      "types": "./types/solution/index.d.ts",
+      "import": "./src/solution/index.js"
+    },
+    "./solution/index": {
+      "types": "./types/solution/index.d.ts",
+      "import": "./src/solution/index.js"
+    },
+    "./solution/index.js": {
+      "types": "./types/solution/index.d.ts",
+      "import": "./src/solution/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -164,6 +208,7 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/create-standard-exports.js",
     "build:types": "tsc -p tsconfig.types.json",
+    "cbk": "node bin/cbk.js",
     "check": "tsc -p tsconfig.check.json",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
@@ -180,8 +225,10 @@
   "dependencies": {
     "@chatbotkit/sdk": "workspace:*",
     "commander": "^11.1.0",
+    "dotenv": "^16.4.5",
     "js-yaml": "^4.1.0",
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9"

@@ -11,9 +11,13 @@
     "./src/command/api/partner/user/index.js",
     "./src/command/api/skillset/index.js",
     "./src/command/chat/index.js",
+    "./src/command/solution/index.js",
+    "./src/command/solution/resource/index.js",
     "./src/env.js",
     "./src/index.js",
-    "./src/output.js"
+    "./src/input.js",
+    "./src/output.js",
+    "./src/solution/index.js"
   ],
   "externalPattern": [
     "**/node_modules/**",
