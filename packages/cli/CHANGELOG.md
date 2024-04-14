@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.9.3
+
+### Patch Changes
+
+- 08e568f: Corrected bugs in the CLI setup.
+
 ## 1.9.2
 
 ### Patch Changes
