@@ -69,6 +69,7 @@
   },
   "types": "./types/index.d.ts",
   "dependencies": {
+    "@chatbotkit/cli": "workspace:*",
     "commander": "^11.1.0",
     "tslib": "^2.6.2"
   },

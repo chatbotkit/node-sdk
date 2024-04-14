@@ -506,6 +506,9 @@ importers:
 
   tools/create-cbk-app:
     dependencies:
+      '@chatbotkit/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
       commander:
         specifier: ^11.1.0
         version: 11.1.0
