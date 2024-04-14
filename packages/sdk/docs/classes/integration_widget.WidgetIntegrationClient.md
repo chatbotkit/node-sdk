@@ -107,7 +107,7 @@ Creates a new widget integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`WidgetIntegrationCreateRequest`](../modules/integration_widget_v1.md#widgetintegrationcreaterequest) |
+| `request` | [`WidgetIntegrationOptions`](../modules/integration_widget_v1.md#widgetintegrationoptions) |
 
 #### Returns
 
