@@ -1,5 +1,13 @@
 # create-cbk-app
 
+## 1.9.4
+
+### Patch Changes
+
+- 757240e: Correctly reference itself.
+- Updated dependencies [757240e]
+  - @chatbotkit/cli@1.9.4
+
 ## 1.9.3
 
 ### Patch Changes

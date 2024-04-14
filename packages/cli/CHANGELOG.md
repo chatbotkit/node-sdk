@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.9.4
+
+### Patch Changes
+
+- 757240e: Correctly reference itself.
+
 ## 1.9.3
 
 ### Patch Changes
