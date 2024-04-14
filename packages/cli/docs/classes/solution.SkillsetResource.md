@@ -90,7 +90,7 @@ Resource.client
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:263](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L263)
+[packages/cli/src/solution/index.js:277](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L277)
 
 ___
 
@@ -200,4 +200,4 @@ Sync the resource.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:219](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L219)
+[packages/cli/src/solution/index.js:222](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L222)

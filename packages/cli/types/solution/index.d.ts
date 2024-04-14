@@ -38,23 +38,23 @@ export function getArrayBackedObject<T>(array: T[]): {
 export const BasicResourceConfigSchema: z.ZodObject<{
     type: z.ZodString;
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     properties: z.ZodRecord<z.ZodString, z.ZodUnknown>;
 }, "strip", z.ZodTypeAny, {
     type: string;
-    id: string;
     name: string;
     properties: Record<string, unknown>;
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: string;
-    id: string;
     name: string;
     properties: Record<string, unknown>;
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>;
 /**
@@ -62,7 +62,7 @@ export const BasicResourceConfigSchema: z.ZodObject<{
  */
 export const BotResourceConfigSchema: z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"bot">;
@@ -90,7 +90,6 @@ export const BotResourceConfigSchema: z.ZodObject<{
     }>;
 }, "strip", z.ZodTypeAny, {
     type: "bot";
-    id: string;
     name: string;
     properties: {
         model?: string | undefined;
@@ -101,10 +100,10 @@ export const BotResourceConfigSchema: z.ZodObject<{
         privacy?: boolean | undefined;
     };
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "bot";
-    id: string;
     name: string;
     properties: {
         model?: string | undefined;
@@ -115,6 +114,7 @@ export const BotResourceConfigSchema: z.ZodObject<{
         privacy?: boolean | undefined;
     };
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>;
 /**
@@ -122,24 +122,24 @@ export const BotResourceConfigSchema: z.ZodObject<{
  */
 export const DatasetResourceConfigSchema: z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"dataset">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
     type: "dataset";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "dataset";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>;
 /**
@@ -147,24 +147,24 @@ export const DatasetResourceConfigSchema: z.ZodObject<{
  */
 export const SkillsetResourceConfigSchema: z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"skillset">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
     type: "skillset";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "skillset";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>;
 /**
@@ -172,24 +172,24 @@ export const SkillsetResourceConfigSchema: z.ZodObject<{
  */
 export const WidgetIntegrationResourceConfigSchema: z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"widgetIntegration">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
     type: "widgetIntegration";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "widgetIntegration";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>;
 /**
@@ -197,7 +197,7 @@ export const WidgetIntegrationResourceConfigSchema: z.ZodObject<{
  */
 export const SitemapIntegrationResourceConfigSchema: z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"sitemapIntegration">;
@@ -213,23 +213,23 @@ export const SitemapIntegrationResourceConfigSchema: z.ZodObject<{
     }>;
 }, "strip", z.ZodTypeAny, {
     type: "sitemapIntegration";
-    id: string;
     name: string;
     properties: {
         datasetId: string;
         url: string;
     };
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "sitemapIntegration";
-    id: string;
     name: string;
     properties: {
         datasetId: string;
         url: string;
     };
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>;
 /**
@@ -237,7 +237,7 @@ export const SitemapIntegrationResourceConfigSchema: z.ZodObject<{
  */
 export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"bot">;
@@ -265,7 +265,6 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     }>;
 }, "strip", z.ZodTypeAny, {
     type: "bot";
-    id: string;
     name: string;
     properties: {
         model?: string | undefined;
@@ -276,10 +275,10 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
         privacy?: boolean | undefined;
     };
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "bot";
-    id: string;
     name: string;
     properties: {
         model?: string | undefined;
@@ -290,73 +289,74 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
         privacy?: boolean | undefined;
     };
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>, z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"dataset">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
     type: "dataset";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "dataset";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>, z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"skillset">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
     type: "skillset";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "skillset";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>, z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"widgetIntegration">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
     type: "widgetIntegration";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "widgetIntegration";
-    id: string;
     name: string;
     properties: {};
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>, z.ZodObject<{
     slug: z.ZodOptional<z.ZodString>;
-    id: z.ZodString;
+    id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     type: z.ZodLiteral<"sitemapIntegration">;
@@ -372,23 +372,23 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     }>;
 }, "strip", z.ZodTypeAny, {
     type: "sitemapIntegration";
-    id: string;
     name: string;
     properties: {
         datasetId: string;
         url: string;
     };
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }, {
     type: "sitemapIntegration";
-    id: string;
     name: string;
     properties: {
         datasetId: string;
         url: string;
     };
     slug?: string | undefined;
+    id?: string | undefined;
     description?: string | undefined;
 }>]>;
 /**
@@ -398,7 +398,7 @@ export const SolutionConfigSchema: z.ZodObject<{
     version: z.ZodLiteral<1>;
     resources: z.ZodArray<z.ZodUnion<[z.ZodObject<{
         slug: z.ZodOptional<z.ZodString>;
-        id: z.ZodString;
+        id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
         type: z.ZodLiteral<"bot">;
@@ -426,7 +426,6 @@ export const SolutionConfigSchema: z.ZodObject<{
         }>;
     }, "strip", z.ZodTypeAny, {
         type: "bot";
-        id: string;
         name: string;
         properties: {
             model?: string | undefined;
@@ -437,10 +436,10 @@ export const SolutionConfigSchema: z.ZodObject<{
             privacy?: boolean | undefined;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }, {
         type: "bot";
-        id: string;
         name: string;
         properties: {
             model?: string | undefined;
@@ -451,73 +450,74 @@ export const SolutionConfigSchema: z.ZodObject<{
             privacy?: boolean | undefined;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }>, z.ZodObject<{
         slug: z.ZodOptional<z.ZodString>;
-        id: z.ZodString;
+        id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
         type: z.ZodLiteral<"dataset">;
         properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
     }, "strip", z.ZodTypeAny, {
         type: "dataset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }, {
         type: "dataset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }>, z.ZodObject<{
         slug: z.ZodOptional<z.ZodString>;
-        id: z.ZodString;
+        id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
         type: z.ZodLiteral<"skillset">;
         properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
     }, "strip", z.ZodTypeAny, {
         type: "skillset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }, {
         type: "skillset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }>, z.ZodObject<{
         slug: z.ZodOptional<z.ZodString>;
-        id: z.ZodString;
+        id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
         type: z.ZodLiteral<"widgetIntegration">;
         properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
     }, "strip", z.ZodTypeAny, {
         type: "widgetIntegration";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }, {
         type: "widgetIntegration";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }>, z.ZodObject<{
         slug: z.ZodOptional<z.ZodString>;
-        id: z.ZodString;
+        id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
         type: z.ZodLiteral<"sitemapIntegration">;
@@ -533,30 +533,29 @@ export const SolutionConfigSchema: z.ZodObject<{
         }>;
     }, "strip", z.ZodTypeAny, {
         type: "sitemapIntegration";
-        id: string;
         name: string;
         properties: {
             datasetId: string;
             url: string;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }, {
         type: "sitemapIntegration";
-        id: string;
         name: string;
         properties: {
             datasetId: string;
             url: string;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     }>]>, "many">;
 }, "strip", z.ZodTypeAny, {
     version: 1;
     resources: ({
         type: "bot";
-        id: string;
         name: string;
         properties: {
             model?: string | undefined;
@@ -567,44 +566,44 @@ export const SolutionConfigSchema: z.ZodObject<{
             privacy?: boolean | undefined;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "dataset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "skillset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "widgetIntegration";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "sitemapIntegration";
-        id: string;
         name: string;
         properties: {
             datasetId: string;
             url: string;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     })[];
 }, {
     version: 1;
     resources: ({
         type: "bot";
-        id: string;
         name: string;
         properties: {
             model?: string | undefined;
@@ -615,37 +614,38 @@ export const SolutionConfigSchema: z.ZodObject<{
             privacy?: boolean | undefined;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "dataset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "skillset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "widgetIntegration";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "sitemapIntegration";
-        id: string;
         name: string;
         properties: {
             datasetId: string;
             url: string;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     })[];
 }>;
@@ -663,7 +663,6 @@ export class Resource {
     constructor(config: ResourceConfig);
     config: {
         type: "bot";
-        id: string;
         name: string;
         properties: {
             model?: string | undefined;
@@ -674,37 +673,38 @@ export class Resource {
             privacy?: boolean | undefined;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "dataset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "skillset";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "widgetIntegration";
-        id: string;
         name: string;
         properties: {};
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     } | {
         type: "sitemapIntegration";
-        id: string;
         name: string;
         properties: {
             datasetId: string;
             url: string;
         };
         slug?: string | undefined;
+        id?: string | undefined;
         description?: string | undefined;
     };
     /**
@@ -716,9 +716,9 @@ export class Resource {
      */
     get slug(): string;
     /**
-     * @returns {string}
+     * @returns {string|undefined}
      */
-    get id(): string;
+    get id(): string | undefined;
     /**
      * @returns {string}
      */
@@ -734,10 +734,18 @@ export class Resource {
     /**
      * Get the resource client.
      *
-     * @returns {{update: (id: string, properties: Record<string, unknown>) => void}}
+     * @returns {{
+     *   create: (properties: Record<string,any>) => Promise<{id: string}>,
+     *   update: (id: string, properties: Record<string,any>) => Promise<{id: string}>
+     * }}
      */
     get client(): {
-        update: (id: string, properties: Record<string, unknown>) => void;
+        create: (properties: Record<string, any>) => Promise<{
+            id: string;
+        }>;
+        update: (id: string, properties: Record<string, any>) => Promise<{
+            id: string;
+        }>;
     };
     /**
      * Sync the resource.
@@ -791,10 +799,9 @@ export class WidgetIntegrationResource extends Resource {
  */
 export class SitemapIntegrationResource extends Resource {
     /**
-     * @override
      * @returns {import('@chatbotkit/sdk/integration/sitemap').SitemapIntegrationClient}
      */
-    override get client(): import("@chatbotkit/sdk/integration/sitemap").SitemapIntegrationClient;
+    get client(): import("@chatbotkit/sdk/integration/sitemap").SitemapIntegrationClient;
 }
 /**
  * Represents a solution.
@@ -808,7 +815,6 @@ export class Solution {
         version: 1;
         resources: ({
             type: "bot";
-            id: string;
             name: string;
             properties: {
                 model?: string | undefined;
@@ -819,37 +825,38 @@ export class Solution {
                 privacy?: boolean | undefined;
             };
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         } | {
             type: "dataset";
-            id: string;
             name: string;
             properties: {};
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         } | {
             type: "skillset";
-            id: string;
             name: string;
             properties: {};
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         } | {
             type: "widgetIntegration";
-            id: string;
             name: string;
             properties: {};
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         } | {
             type: "sitemapIntegration";
-            id: string;
             name: string;
             properties: {
                 datasetId: string;
                 url: string;
             };
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         })[];
     };
@@ -952,7 +959,6 @@ export namespace Solution {
         version: 1;
         resources: ({
             type: "bot";
-            id: string;
             name: string;
             properties: {
                 model?: string | undefined;
@@ -963,40 +969,49 @@ export namespace Solution {
                 privacy?: boolean | undefined;
             };
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         } | {
             type: "dataset";
-            id: string;
             name: string;
             properties: {};
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         } | {
             type: "skillset";
-            id: string;
             name: string;
             properties: {};
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         } | {
             type: "widgetIntegration";
-            id: string;
             name: string;
             properties: {};
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         } | {
             type: "sitemapIntegration";
-            id: string;
             name: string;
             properties: {
                 datasetId: string;
                 url: string;
             };
             slug?: string | undefined;
+            id?: string | undefined;
             description?: string | undefined;
         })[];
     }): Promise<Solution>;
+    /**
+     * Saves a solution to a file.
+     *
+     * @param {string} name
+     * @param {Solution} solution
+     * @returns {Promise<void>}
+     */
+    export function save(name: string, solution: Solution): Promise<void>;
 }
 /**
  * @internal

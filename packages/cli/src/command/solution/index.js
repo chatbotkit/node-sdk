@@ -46,6 +46,8 @@ export const solutionSync = new Command()
     const solution = await Solution.load(name)
 
     await solution.sync()
+
+    await Solution.save(name, solution)
   })
 
 export const command = new Command()

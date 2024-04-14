@@ -88,11 +88,12 @@ Get the resource client.
 
 | Name | Type |
 | :------ | :------ |
-| `update` | (`id`: `string`, `properties`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `unknown`\>) => `void` |
+| `create` | (`properties`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\>) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<\{ `id`: `string`  }\> |
+| `update` | (`id`: `string`, `properties`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\>) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<\{ `id`: `string`  }\> |
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:210](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L210)
+[packages/cli/src/solution/index.js:213](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L213)
 
 ___
 
@@ -178,4 +179,4 @@ Sync the resource.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:219](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L219)
+[packages/cli/src/solution/index.js:222](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L222)

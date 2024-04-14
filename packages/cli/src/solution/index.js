@@ -59,7 +59,7 @@ export function getSolutionFileNameAndPath(name) {
 export const BasicResourceConfigSchema = z.object({
   type: z.string(),
   slug: z.string().optional(),
-  id: z.string(),
+  id: z.string().optional(),
   name: z.string(),
   description: z.string().optional(),
   properties: z.record(z.unknown()),
@@ -170,7 +170,7 @@ export class Resource {
   }
 
   /**
-   * @returns {string}
+   * @returns {string|undefined}
    */
   get id() {
     return this.config.id
@@ -205,7 +205,10 @@ export class Resource {
   /**
    * Get the resource client.
    *
-   * @returns {{update: (id: string, properties: Record<string, unknown>) => void}}
+   * @returns {{
+   *   create: (properties: Record<string,any>) => Promise<{id: string}>,
+   *   update: (id: string, properties: Record<string,any>) => Promise<{id: string}>
+   * }}
    */
   get client() {
     throw new Error('Not implemented')
@@ -217,12 +220,23 @@ export class Resource {
    * @returns {Promise<void>}
    */
   async sync() {
-    this.client.update(this.config.id, {
-      ...this.config.properties,
+    if (this.config.id) {
+      await this.client.update(this.config.id, {
+        ...this.config.properties,
 
-      name: this.config.name,
-      description: this.config.description,
-    })
+        name: this.config.name,
+        description: this.config.description,
+      })
+    } else {
+      const { id } = await this.client.create({
+        ...this.config.properties,
+
+        name: this.config.name,
+        description: this.config.description,
+      })
+
+      this.config.id = id
+    }
   }
 }
 
@@ -283,9 +297,9 @@ export class WidgetIntegrationResource extends Resource {
  */
 export class SitemapIntegrationResource extends Resource {
   /**
-   * @override
    * @returns {import('@chatbotkit/sdk/integration/sitemap').SitemapIntegrationClient}
    */
+  // @ts-expect-error expected
   get client() {
     return this.baseClient.integration.sitemap
   }
@@ -523,6 +537,19 @@ Solution.load = async function (config) {
   }
 
   return new Solution(parsedConfig.data)
+}
+
+/**
+ * Saves a solution to a file.
+ *
+ * @param {string} name
+ * @param {Solution} solution
+ * @returns {Promise<void>}
+ */
+Solution.save = async function (name, solution) {
+  const filePath = getSolutionFilePath(name)
+
+  await fs.writeFile(filePath, JSON.stringify(solution.config, null, 2))
 }
 
 /**
