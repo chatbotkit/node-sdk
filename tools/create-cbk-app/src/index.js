@@ -5,6 +5,10 @@ import childProcess from 'child_process'
 import { Command } from 'commander'
 import fs from 'fs/promises'
 
+/**
+ * @param {string} command
+ * @returns {Promise<{ stdout: string, stderr: string }>}
+ */
 async function exec(command) {
   return new Promise((resolve, reject) => {
     const child = childProcess.exec(command, (error, stdout, stderr) => {
@@ -15,11 +19,14 @@ async function exec(command) {
       }
     })
 
-    child.stdout.pipe(process.stdout)
-    child.stderr.pipe(process.stderr)
+    child.stdout?.pipe(process.stdout)
+    child.stderr?.pipe(process.stderr)
   })
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 export default async function cbk() {
   const program = new Command()
 
@@ -34,7 +41,7 @@ export default async function cbk() {
 
       appName = appName
         .toLowerCase()
-        .replace(/[\s\W-]+/g, (match) => {
+        .replace(/[\s\W-]+/g, (/** @type {string} */ match) => {
           return match.includes('@') || match.includes('/') ? match : '-'
         })
         .trim()
