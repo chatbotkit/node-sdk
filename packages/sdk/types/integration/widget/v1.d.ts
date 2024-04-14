@@ -46,7 +46,8 @@ export function listWidgetIntegrations(client: ChatBotKitClient, request?: Widge
  */
 export function fetchWidgetIntegration(client: ChatBotKitClient, widgetId: string): Promise<WidgetIntegrationFetchResponse>;
 /**
- * @typedef {WidgetIntegrationOptions & {datasetId: string}} WidgetIntegrationCreateRequest
+ * @typedef {WidgetIntegrationOptions & {
+ * }} WidgetIntegrationCreateRequest
  *
  * @typedef {{
  *   id: string
@@ -108,9 +109,7 @@ export type WidgetIntegrationListStreamItem = {
 };
 export type WidgetIntegrationListStreamType = WidgetIntegrationListStreamItem;
 export type WidgetIntegrationFetchResponse = WidgetInegrationInstance & {};
-export type WidgetIntegrationCreateRequest = WidgetIntegrationOptions & {
-    datasetId: string;
-};
+export type WidgetIntegrationCreateRequest = WidgetIntegrationOptions & {};
 export type WidgetIntegrationCreateResponse = {
     id: string;
 };

@@ -70,11 +70,11 @@ ___
 
 ### WidgetIntegrationCreateRequest
 
-Ƭ **WidgetIntegrationCreateRequest**\<\>: [`WidgetIntegrationOptions`](integration_widget_v1.md#widgetintegrationoptions) & \{ `datasetId`: `string`  }
+Ƭ **WidgetIntegrationCreateRequest**\<\>: [`WidgetIntegrationOptions`](integration_widget_v1.md#widgetintegrationoptions) & {}
 
 #### Defined in
 
-[integration/widget/v1.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L70)
+[integration/widget/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L71)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L74)
+[integration/widget/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L75)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L124)
+[integration/widget/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L125)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L96)
+[integration/widget/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L97)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L100)
+[integration/widget/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L101)
 
 ## Functions
 
@@ -235,7 +235,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`WidgetIntegrationCreateRequest`](integration_widget_v1.md#widgetintegrationcreaterequest) |
+| `request` | [`WidgetIntegrationOptions`](integration_widget_v1.md#widgetintegrationoptions) |
 
 #### Returns
 
@@ -243,7 +243,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L80)
+[integration/widget/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L81)
 
 ___
 
@@ -264,7 +264,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L130)
+[integration/widget/v1.js:131](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L131)
 
 ___
 
@@ -328,4 +328,4 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L107)
+[integration/widget/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L108)

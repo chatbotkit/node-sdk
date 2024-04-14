@@ -67,7 +67,8 @@ export async function fetchWidgetIntegration(client, widgetId) {
 }
 
 /**
- * @typedef {WidgetIntegrationOptions & {datasetId: string}} WidgetIntegrationCreateRequest
+ * @typedef {WidgetIntegrationOptions & {
+ * }} WidgetIntegrationCreateRequest
  *
  * @typedef {{
  *   id: string
