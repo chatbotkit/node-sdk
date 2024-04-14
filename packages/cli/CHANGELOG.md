@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.9.2
+
+### Patch Changes
+
+- 6eb0a5c: Added the first template.
+
 ## 1.9.1
 
 ### Patch Changes
