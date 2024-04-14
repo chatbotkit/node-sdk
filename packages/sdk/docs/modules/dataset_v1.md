@@ -45,7 +45,7 @@ ___
 
 ### DatasetCreateRequest
 
-Ƭ **DatasetCreateRequest**\<\>: [`DatasetOptions`](dataset_v1.md#datasetoptions) & \{ `store`: `string`  }
+Ƭ **DatasetCreateRequest**\<\>: [`DatasetOptions`](dataset_v1.md#datasetoptions) & \{ `store?`: `string`  }
 
 #### Defined in
 
