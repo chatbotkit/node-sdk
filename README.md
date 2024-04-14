@@ -32,6 +32,14 @@ The ChatBotKit Node SDK is comprised of the following packages:
 | [@chatbotkit/nextauth](https://github.com/chatbotkit/node-sdk/tree/main/packages/nextauth) | [![NPM](https://img.shields.io/npm/v/@chatbotkit/nextauth.svg)](https://www.npmjs.com/package/@chatbotkit/nextauth) | The ChatBotKit NextAuth.js SDK.                |
 | [@chatbotkit/fetch](https://github.com/chatbotkit/node-sdk/tree/main/packages/fetch)       | [![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/fetch)       | The ChatBotKit isometric fetch implementation. |
 
+## Other Tools
+
+This repository also contains the following tools:
+
+| Package                                                                                 | Version                                                                                                 | Description                                   |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| [create-cbk-app](https://github.com/chatbotkit/node-sdk/tree/main/tools/create-cbk-app) | [![NPM](https://img.shields.io/npm/v/create-cbk-app.svg)](https://www.npmjs.com/package/create-cbk-app) | A quick tool to create a new CBK application. |
+
 ## SDK Features
 
 - **Easy Setup**: Quick and straightforward installation process.
