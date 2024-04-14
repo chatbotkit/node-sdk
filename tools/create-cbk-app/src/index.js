@@ -34,7 +34,9 @@ export default async function cbk() {
 
       appName = appName
         .toLowerCase()
-        .replace(/[\s\W-]+/g, '-')
+        .replace(/[\s\W-]+/g, (match) => {
+          return match.includes('@') || match.includes('/') ? match : '-'
+        })
         .trim()
 
       if (!appName) {
@@ -42,6 +44,8 @@ export default async function cbk() {
 
         process.exit(1)
       }
+
+      const appDir = appName.split('/').pop()
 
       const templates = {
         nextjs: 'chatbotkit/template-nextjs-generative-ui-js',
@@ -51,29 +55,29 @@ export default async function cbk() {
 
       // Download the template
       {
-        const tmp = Math.random().toString(32).slice(2)
+        const tmpDir = Math.random().toString(32).slice(2)
 
         await exec(
-          `wget -qO ${tmp}.zip https://github.com/${repo}/archive/refs/heads/main.zip && unzip ${tmp}.zip -d ${tmp} && rm ${tmp}.zip && mv ${tmp}/* ${appName} && rm -rf ${tmp}`
+          `wget -qO ${tmpDir}.zip https://github.com/${repo}/archive/refs/heads/main.zip && unzip ${tmpDir}.zip -d ${tmpDir} && rm ${tmpDir}.zip && mv ${tmpDir}/* ${appDir} && rm -rf ${tmpDir}`
         )
       }
 
       // Move .env.example file to .env.local
       {
-        await exec(`mv ${appName}/.env.example ${appName}/.env.local`)
+        await exec(`mv ${appDir}/.env.example ${appDir}/.env.local`)
       }
 
       // Change the package name and version
       {
         const packageJson = JSON.parse(
-          await fs.readFile(`${appName}/package.json`, 'utf8')
+          await fs.readFile(`${appDir}/package.json`, 'utf8')
         )
 
         packageJson.name = appName
         packageJson.version = '0.1.0'
 
         await fs.writeFile(
-          `${appName}/package.json`,
+          `${appDir}/package.json`,
           JSON.stringify(packageJson, null, 2)
         )
       }
