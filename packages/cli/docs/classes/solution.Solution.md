@@ -56,7 +56,7 @@ Represents a solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:315](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L315)
+[packages/cli/src/solution/index.js:350](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L350)
 
 ## Accessors
 
@@ -70,7 +70,7 @@ Represents a solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:322](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L322)
+[packages/cli/src/solution/index.js:357](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L357)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:367](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L367)
+[packages/cli/src/solution/index.js:402](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L402)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:358](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L358)
+[packages/cli/src/solution/index.js:393](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L393)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:383](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L383)
+[packages/cli/src/solution/index.js:418](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L418)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:374](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L374)
+[packages/cli/src/solution/index.js:409](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L409)
 
 ___
 
@@ -142,7 +142,7 @@ Get the resources.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:336](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L336)
+[packages/cli/src/solution/index.js:371](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L371)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:435](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L435)
+[packages/cli/src/solution/index.js:470](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L470)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:424](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L424)
+[packages/cli/src/solution/index.js:459](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L459)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:399](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L399)
+[packages/cli/src/solution/index.js:434](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L434)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L390)
+[packages/cli/src/solution/index.js:425](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L425)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:417](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L417)
+[packages/cli/src/solution/index.js:452](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L452)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:406](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L406)
+[packages/cli/src/solution/index.js:441](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L441)
 
 ## Methods
 
@@ -242,7 +242,7 @@ Sync the solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:444](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L444)
+[packages/cli/src/solution/index.js:479](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L479)
 
 ___
 
@@ -264,7 +264,7 @@ Creates a new solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:470](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L470)
+[packages/cli/src/solution/index.js:505](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L505)
 
 ___
 
@@ -286,7 +286,7 @@ Deletes a solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:495](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L495)
+[packages/cli/src/solution/index.js:530](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L530)
 
 ___
 
@@ -302,7 +302,7 @@ Lists solutions.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:454](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L454)
+[packages/cli/src/solution/index.js:489](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L489)
 
 ___
 
@@ -324,7 +324,7 @@ Loads a solution from a configuration object or a file.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:512](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L512)
+[packages/cli/src/solution/index.js:547](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L547)
 
 ___
 
@@ -347,4 +347,4 @@ Saves a solution to a file.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:549](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L549)
+[packages/cli/src/solution/index.js:586](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L586)

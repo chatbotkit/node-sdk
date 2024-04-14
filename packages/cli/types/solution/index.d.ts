@@ -25,6 +25,12 @@ export function getSolutionFileNameAndPath(name: string): {
     filePath: string;
 };
 /**
+ * @internal
+ * @param {any} value
+ * @returns {any}
+ */
+export function replaceEnvVars(value: any): any;
+/**
  * @template T
  * @param {T[]} array
  * @returns {{[key: string]: T|undefined}}

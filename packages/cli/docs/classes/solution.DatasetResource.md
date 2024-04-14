@@ -54,7 +54,7 @@ Represents a dataset resource.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L151)
+[packages/cli/src/solution/index.js:186](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L186)
 
 ## Accessors
 
@@ -72,7 +72,7 @@ Resource.baseClient
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:196](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L196)
+[packages/cli/src/solution/index.js:231](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L231)
 
 ___
 
@@ -90,7 +90,7 @@ Resource.client
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:264](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L264)
+[packages/cli/src/solution/index.js:299](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L299)
 
 ___
 
@@ -108,7 +108,7 @@ Resource.description
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L189)
+[packages/cli/src/solution/index.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L224)
 
 ___
 
@@ -126,7 +126,7 @@ Resource.id
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L175)
+[packages/cli/src/solution/index.js:210](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L210)
 
 ___
 
@@ -144,7 +144,7 @@ Resource.name
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:182](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L182)
+[packages/cli/src/solution/index.js:217](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L217)
 
 ___
 
@@ -162,7 +162,7 @@ Resource.slug
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:165](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L165)
+[packages/cli/src/solution/index.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L200)
 
 ___
 
@@ -180,7 +180,7 @@ Resource.type
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L158)
+[packages/cli/src/solution/index.js:193](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L193)
 
 ## Methods
 
@@ -200,4 +200,4 @@ Sync the resource.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:222](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L222)
+[packages/cli/src/solution/index.js:257](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L257)
