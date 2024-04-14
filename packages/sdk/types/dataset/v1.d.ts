@@ -54,7 +54,7 @@ export function listDatasets(client: ChatBotKitClient, request?: DatasetListRequ
 export function fetchDataset(client: ChatBotKitClient, datasetId: string): Promise<DatasetFetchResponse>;
 /**
  * @typedef {DatasetOptions & {
- *   store: string
+ *   store?: string
  * }} DatasetCreateRequest
  *
  * @typedef {{
@@ -136,7 +136,7 @@ export type DatasetListStreamItemType = {
 export type DatasetListStreamType = DatasetListStreamItemType;
 export type DatasetFetchResponse = DatasetInstance & {};
 export type DatasetCreateRequest = DatasetOptions & {
-    store: string;
+    store?: string;
 };
 export type DatasetCreateResponse = {
     id: string;
