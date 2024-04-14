@@ -22,7 +22,7 @@
     "app"
   ],
   "bin": {
-    "cbk": "./bin/create-cbk-app.js"
+    "create-cbk-app": "./bin/create-cbk-app.js"
   },
   "type": "module",
   "main": "./src/index.js",

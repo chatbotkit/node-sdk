@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import cbk from '../src/index.js'
 
 cbk().catch((error) => {
