@@ -216,6 +216,7 @@
     "clean:exports": "run-s build:exports",
     "clean:node_modules": "rimraf node_modules",
     "clean:types": "rimraf types",
+    "dev": "node bin/cbk.js",
     "lint": "eslint .",
     "postpack": "node ../../scripts/create-standard-exports.js",
     "prepack": "node ../../scripts/create-dist-exports.js",
