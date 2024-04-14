@@ -75,7 +75,7 @@ export async function fetchDataset(client, datasetId) {
 
 /**
  * @typedef {DatasetOptions & {
- *   store: string
+ *   store?: string
  * }} DatasetCreateRequest
  *
  * @typedef {{
