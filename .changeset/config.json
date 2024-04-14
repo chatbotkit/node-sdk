@@ -3,7 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": true,
   "fixed": [],
-  "linked": [["@chatbotkit/*"]],
+  "linked": [["@chatbotkit/*", "create-cbk-app"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
