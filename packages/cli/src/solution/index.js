@@ -54,6 +54,41 @@ export function getSolutionFileNameAndPath(name) {
 }
 
 /**
+ * @internal
+ * @param {any} value
+ * @returns {any}
+ */
+export function replaceEnvVars(value) {
+  if (!value) {
+    return value
+  }
+
+  if (typeof value === 'string') {
+    return value.replace(/\${env\.([A-Z_]+)}/g, (_, name) => {
+      const envValue = process.env[name]
+
+      if (envValue === undefined) {
+        throw new CommandError(`Environment variable ${name} is not set`)
+      }
+
+      return envValue
+    })
+  }
+
+  if (Array.isArray(value)) {
+    return value.map(replaceEnvVars)
+  }
+
+  if (typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, value]) => [key, replaceEnvVars(value)])
+    )
+  }
+
+  return value
+}
+
+/**
  * The schema for a basic resource configuration.
  */
 export const BasicResourceConfigSchema = z.object({
@@ -535,6 +570,8 @@ Solution.load = async function (config) {
   if (!parsedConfig.success) {
     throw new CommandError(`Invalid solution configuration`)
   }
+
+  parsedConfig.data = replaceEnvVars(parsedConfig.data)
 
   return new Solution(parsedConfig.data)
 }
