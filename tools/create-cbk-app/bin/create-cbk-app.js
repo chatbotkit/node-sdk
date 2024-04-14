@@ -1,9 +1,6 @@
 #!/usr/bin/env node
-import cbk from '../src/index.js'
+import { printError } from '@chatbotkit/cli/output'
 
-cbk().catch((error) => {
-  // eslint-disable-next-line no-console
-  console.error(error)
+import cli from 'create-cbk-app'
 
-  process.exit(1)
-})
+cli().catch(printError)
