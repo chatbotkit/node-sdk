@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.9.1
+
+### Patch Changes
+
+- fa14815: CLI Solutions save/restore and environment replacement features.
+
 ## 1.8.0
 
 ### Minor Changes
