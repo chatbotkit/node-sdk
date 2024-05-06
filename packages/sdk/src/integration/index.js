@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
+import { MessengerIntegrationClient } from './messenger/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
 import { WhatsAppIntegrationClient } from './whatsapp/index.js'
 import { WidgetIntegrationClient } from './widget/index.js'
@@ -24,6 +25,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {WhatsAppIntegrationClient} whatsapp client
      */
     this.whatsapp = new WhatsAppIntegrationClient(options)
+
+    /**
+     * @type {MessengerIntegrationClient} messenger client
+     */
+    this.messenger = new MessengerIntegrationClient(options)
   }
 }
 
