@@ -7563,7 +7563,7 @@ export interface operations {
                     /** @description The Discord command handle */
                     handle?: string;
                     /** @description The chat session duration */
-                    sessionDuration?: string;
+                    sessionDuration?: number;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;

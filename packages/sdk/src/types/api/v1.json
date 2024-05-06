@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1714991621035)"
+    "version": "v1 (build 1714993890650)"
   },
   "servers": [
     {
@@ -10142,7 +10142,7 @@
                   },
                   "sessionDuration": {
                     "description": "The chat session duration",
-                    "type": "string"
+                    "type": "number"
                   }
                 },
                 "oneOf": [
