@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
+import { DiscordIntegrationClient } from './discord/index.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
 import { SlackIntegrationClient } from './slack/index.js'
@@ -22,6 +23,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {SlackIntegrationClient} slack client
      */
     this.slack = new SlackIntegrationClient(options)
+
+    /**
+     * @type {DiscordIntegrationClient} discord client
+     */
+    this.discord = new DiscordIntegrationClient(options)
 
     /**
      * @type {WhatsAppIntegrationClient} whatsapp client
