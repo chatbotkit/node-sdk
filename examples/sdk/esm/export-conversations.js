@@ -3,7 +3,7 @@ import * as dotenv from 'dotenv'
 
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
-import fs from 'fs/promises'
+import fs from 'node:fs/promises'
 
 dotenv.config()
 
