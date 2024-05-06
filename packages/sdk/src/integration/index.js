@@ -1,6 +1,7 @@
 import { ChatBotKitClient } from '../client.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
+import { SlackIntegrationClient } from './slack/index.js'
 import { WhatsAppIntegrationClient } from './whatsapp/index.js'
 import { WidgetIntegrationClient } from './widget/index.js'
 
@@ -17,9 +18,9 @@ export class IntegrationClient extends ChatBotKitClient {
     this.widget = new WidgetIntegrationClient(options)
 
     /**
-     * @type {SitemapIntegrationClient} sitemap client
+     * @type {SlackIntegrationClient} slack client
      */
-    this.sitemap = new SitemapIntegrationClient(options)
+    this.slack = new SlackIntegrationClient(options)
 
     /**
      * @type {WhatsAppIntegrationClient} whatsapp client
@@ -30,6 +31,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {MessengerIntegrationClient} messenger client
      */
     this.messenger = new MessengerIntegrationClient(options)
+
+    /**
+     * @type {SitemapIntegrationClient} sitemap client
+     */
+    this.sitemap = new SitemapIntegrationClient(options)
   }
 }
 
