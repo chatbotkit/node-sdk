@@ -1103,6 +1103,108 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/messenger/{messengerIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Messenger integration */
+        post: operations["deleteMessengerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/messenger/{messengerIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a messengerIntegration */
+        get: operations["fetchMessengerIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/messenger/{messengerIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup a Messenger integration */
+        post: operations["setupMessengerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/messenger/{messengerIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Messenger integration */
+        post: operations["updateMessengerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/messenger/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Messenger integration */
+        post: operations["createMessengerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/messenger/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Messenger integrations */
+        get: operations["listMessengerIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/notion/{notionIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -1494,6 +1596,108 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/telegram/{telegramIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Telegram integration */
+        post: operations["deleteTelegramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/telegram/{telegramIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a telegramIntegration */
+        get: operations["fetchTelegramIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/telegram/{telegramIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup a Telegram integration */
+        post: operations["setupTelegramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/telegram/{telegramIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Telegram integration */
+        post: operations["updateTelegramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/telegram/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Telegram integration */
+        post: operations["createTelegramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/telegram/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Telegram integrations */
+        get: operations["listTelegramIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/whatsapp/{whatsappIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -1868,6 +2072,91 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/secret/{secretId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete a secret */
+        post: operations["deleteSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/secret/{secretId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a secret */
+        get: operations["fetchSecret"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/secret/{secretId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update secret */
+        post: operations["updateSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/secret/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create secret */
+        post: operations["createSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/secret/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of secrets */
+        get: operations["listSecrets"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/skillset/{skillsetId}/ability/{abilityId}/delete": {
         parameters: {
             query?: never;
@@ -2072,10 +2361,41 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/usage/series/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch usage series */
+        get: operations["fetchUsageSeries"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** @description A message in the conversation */
+        Message: {
+            /**
+             * @description The type of the message
+             * @enum {string}
+             */
+            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+            /** @description The text of the message */
+            text: string;
+            /** @description Meta data information */
+            meta?: {
+                [key: string]: unknown;
+            };
+        };
         /** @description Extracted entity from the message */
         Entity: {
             /** @description The entity type */
@@ -2125,6 +2445,11 @@ export interface components {
          * @enum {string}
          */
         FileVisibility: "private" | "public";
+        /**
+         * @description The type of the secret
+         * @enum {string}
+         */
+        SecretType: "bearer" | "plain" | "basic";
         /** @description Usage information */
         Usage: {
             /** @description The tokens used in this exchange */
@@ -4565,10 +4890,6 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The backstory to use for the conversation */
-                    backstory?: string;
-                    /** @description The model to use for the conversation */
-                    model?: string;
                     /** @description An array of messages to be added to the conversation */
                     messages: {
                         /**
@@ -4578,12 +4899,31 @@ export interface operations {
                         type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
                     }[];
-                    /** @description The id of the dataset to use */
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
                     datasetId?: string;
-                    /** @description The id of the skillset to use */
+                    /** @description The id of the skillset this configuration is using */
                     skillsetId?: string;
-                };
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
             };
         };
         responses: {
@@ -5062,6 +5402,8 @@ export interface operations {
                         store: string;
                         /** @description The total number of tokens for each record */
                         recordMaxTokens?: number;
+                        /** @description The minimum score to filter search results by */
+                        searchMinScore?: number;
                         /** @description The total number of records to return during search */
                         searchMaxRecords?: number;
                         /** @description The total number of tokens to use during search */
@@ -5070,6 +5412,8 @@ export interface operations {
                         matchInstruction?: string;
                         /** @description An instruction to include if no records where found */
                         mismatchInstruction?: string;
+                        /** @description A list of separators to use when tokenizing text */
+                        separators?: string;
                         /**
                          * @description The dataset visibility
                          * @enum {string}
@@ -5944,6 +6288,8 @@ export interface operations {
                     description?: string;
                     /** @description The total number of tokens to for each record */
                     recordMaxTokens?: number;
+                    /** @description The minimum score to filter search results by */
+                    searchMinScore?: number;
                     /** @description The total number of records to return during search */
                     searchMaxRecords?: number;
                     /** @description The total number of tokens to use during search */
@@ -5952,6 +6298,8 @@ export interface operations {
                     matchInstruction?: string;
                     /** @description An instruction to include if no records where found */
                     mismatchInstruction?: string;
+                    /** @description A list of separators to use when tokenizing text */
+                    separators?: string;
                     /**
                      * @description The dataset visibility
                      * @enum {string}
@@ -6053,6 +6401,8 @@ export interface operations {
                     store?: string;
                     /** @description The total number of tokens for each record */
                     recordMaxTokens?: number;
+                    /** @description The minimum score to filter search results by */
+                    searchMinScore?: number;
                     /** @description The total number of records to return during search */
                     searchMaxRecords?: number;
                     /** @description The total number of tokens to use during search */
@@ -6061,6 +6411,8 @@ export interface operations {
                     matchInstruction?: string;
                     /** @description An instruction to include if no records where found */
                     mismatchInstruction?: string;
+                    /** @description A list of separators to use when tokenizing text */
+                    separators?: string;
                     /**
                      * @description The dataset visibility
                      * @enum {string}
@@ -6146,6 +6498,20 @@ export interface operations {
                             description?: string;
                             /** @description The store for the dataset */
                             store: string;
+                            /** @description The total number of tokens for each record */
+                            recordMaxTokens?: number;
+                            /** @description The minimum score to filter search results by */
+                            searchMinScore?: number;
+                            /** @description The total number of records to return during search */
+                            searchMaxRecords?: number;
+                            /** @description The total number of tokens to use during search */
+                            searchMaxTokens?: number;
+                            /** @description An instruction to include before found records */
+                            matchInstruction?: string;
+                            /** @description An instruction to include if no records where found */
+                            mismatchInstruction?: string;
+                            /** @description A list of separators to use when tokenizing text */
+                            separators?: string;
                             /**
                              * @description The dataset visibility
                              * @enum {string}
@@ -6176,6 +6542,20 @@ export interface operations {
                             description?: string;
                             /** @description The store for the dataset */
                             store: string;
+                            /** @description The total number of tokens for each record */
+                            recordMaxTokens?: number;
+                            /** @description The minimum score to filter search results by */
+                            searchMinScore?: number;
+                            /** @description The total number of records to return during search */
+                            searchMaxRecords?: number;
+                            /** @description The total number of tokens to use during search */
+                            searchMaxTokens?: number;
+                            /** @description An instruction to include before found records */
+                            matchInstruction?: string;
+                            /** @description An instruction to include if no records where found */
+                            mismatchInstruction?: string;
+                            /** @description A list of separators to use when tokenizing text */
+                            separators?: string;
                             /**
                              * @description The dataset visibility
                              * @enum {string}
@@ -7780,6 +8160,593 @@ export interface operations {
                             /** @description The configured extraction schema */
                             schema?: Record<string, never>;
                         };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteMessengerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                messengerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Messenger integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Messenger integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchMessengerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                messengerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Messenger integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The Messenger integration verify token */
+                        verifyToken?: string;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    setupMessengerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                messengerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Messenger integration was successfully setup */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Messenger Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateMessengerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                messengerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The Messenger integration access token */
+                    accessToken?: string;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Messenger integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Messenger Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createMessengerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The Messenger integration access token */
+                    accessToken?: string;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Messenger integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Messenger Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listMessengerIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Messenger integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The Messenger integration verify token */
+                            verifyToken?: string;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description A bot configuration or reference */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The Messenger integration verify token */
+                            verifyToken?: string;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
                     };
                 };
             };
@@ -9808,6 +10775,587 @@ export interface operations {
                             /** @description The email to use */
                             email?: string;
                         };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteTelegramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                telegramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Telegram integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Telegram integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchTelegramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                telegramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Telegram integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    setupTelegramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                telegramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Telegram integration was successfully setup */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Telegram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateTelegramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                telegramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The Telegram integration bot token */
+                    botToken?: string;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Telegram integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Telegram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createTelegramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The Telegram integration bot token */
+                    botToken?: string;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Telegram integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Telegram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listTelegramIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Telegram integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description A bot configuration or reference */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
                     };
                 };
             };
@@ -11886,6 +13434,394 @@ export interface operations {
             };
         };
     };
+    deleteSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The secret was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted secret */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The secret was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the secret */
+                        id: string;
+                        /** @description The name of the secret */
+                        name?: string;
+                        /** @description The description of the secret */
+                        description?: string;
+                        /**
+                         * @description The type of the secret
+                         * @enum {string}
+                         */
+                        type: "bearer" | "plain" | "basic";
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The timestamp for when the secret was created (in milliseconds) */
+                        createdAt: number;
+                        /** @description The timestamp for when the secret was last updated (in milliseconds) */
+                        updatedAt: number;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The new name for the secret */
+                    name?: string;
+                    /** @description The new description for the secret */
+                    description?: string;
+                    /**
+                     * @description The type of the secret
+                     * @enum {string}
+                     */
+                    type?: "bearer" | "plain" | "basic";
+                    /** @description The value of the secret */
+                    value?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description The secret was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated secret */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The name of the secret */
+                    name?: string;
+                    /** @description A description of the secret */
+                    description?: string;
+                    /**
+                     * @description The type of the secret
+                     * @enum {string}
+                     */
+                    type?: "bearer" | "plain" | "basic";
+                    /** @description The value of the secret */
+                    value?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description The secret was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created secret */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listSecrets: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of secrets was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description An array of secrets */
+                        items: {
+                            /** @description The ID of the secret */
+                            id: string;
+                            /** @description The name of the secret */
+                            name?: string;
+                            /** @description The description of the secret */
+                            description?: string;
+                            /**
+                             * @description The type of the secret
+                             * @enum {string}
+                             */
+                            type: "bearer" | "plain" | "basic";
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The timestamp when the secret was created */
+                            createdAt: number;
+                            /** @description The timestamp when the secret was last updated */
+                            updatedAt: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        data: {
+                            /** @description The ID of the secret */
+                            id: string;
+                            /** @description The name of the secret */
+                            name?: string;
+                            /** @description The description of the secret */
+                            description?: string;
+                            /**
+                             * @description The type of the secret
+                             * @enum {string}
+                             */
+                            type: "bearer" | "plain" | "basic";
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The timestamp when the secret was created */
+                            createdAt: number;
+                            /** @description The timestamp when the secret was last updated */
+                            updatedAt: number;
+                        };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
     deleteSkillsetAbility: {
         parameters: {
             query?: never;
@@ -12437,7 +14373,7 @@ export interface operations {
                          * @description The skillset visibility
                          * @enum {string}
                          */
-                        visibility?: "private" | "public";
+                        visibility: "private" | "public";
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
@@ -12756,6 +14692,64 @@ export interface operations {
                         tokens: number;
                         /** @description The number of conversations the user has created */
                         conversations: number;
+                        /** @description The number of messages the user has sent */
+                        messages: number;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchUsageSeries: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The usage series information was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The number of tokens the user has used */
+                        tokens: {
+                            /** @description The date of the data point */
+                            date: number;
+                            /** @description The total number of tokens the user has used */
+                            total: number;
+                        }[];
+                        /** @description The number of conversations the user has created */
+                        conversations: {
+                            /** @description The date of the data point */
+                            date: number;
+                            /** @description The total number of conversations the user has used */
+                            total: number;
+                        }[];
+                        /** @description The number of messages the user has created */
+                        messages: {
+                            /** @description The date of the data point */
+                            date: number;
+                            /** @description The total number of messages the user has used */
+                            total: number;
+                        }[];
                     };
                 };
             };
