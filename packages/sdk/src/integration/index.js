@@ -1,6 +1,7 @@
 import { ChatBotKitClient } from '../client.js'
 import { DiscordIntegrationClient } from './discord/index.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
+import { NotionIntegrationClient } from './notion/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
 import { SlackIntegrationClient } from './slack/index.js'
 import { TelegramIntegrationClient } from './telegram/index.js'
@@ -48,6 +49,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {SitemapIntegrationClient} sitemap client
      */
     this.sitemap = new SitemapIntegrationClient(options)
+
+    /**
+     * @type {NotionIntegrationClient} notion client
+     */
+    this.notion = new NotionIntegrationClient(options)
   }
 }
 
