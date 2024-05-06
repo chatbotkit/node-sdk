@@ -81,7 +81,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Update the specified bot */
+        /** Update bot */
         post: operations["updateBot"];
         delete?: never;
         options?: never;
@@ -115,7 +115,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new bot */
+        /** Create bot */
         post: operations["createBot"];
         delete?: never;
         options?: never;
@@ -130,7 +130,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Retrieve a list of bots belonging to the current user */
+        /** Retrieve a list of bots */
         get: operations["listBots"];
         put?: never;
         post?: never;
@@ -166,7 +166,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Delete a conversation */
+        /** Delete conversation */
         post: operations["deleteConversation"];
         delete?: never;
         options?: never;
@@ -183,7 +183,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Downvote a conversation */
+        /** Downvote conversation */
         post: operations["downvoteConversation"];
         delete?: never;
         options?: never;
@@ -198,7 +198,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Fetch a conversation */
+        /** Fetch conversation */
         get: operations["fetchConversation"];
         put?: never;
         post?: never;
@@ -217,7 +217,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Delete a message from a conversation */
+        /** Delete a message */
         post: operations["deleteConversationMessage"];
         delete?: never;
         options?: never;
@@ -234,7 +234,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Downvote a conversation message */
+        /** Downvote conversation message */
         post: operations["downvoteConversationMessage"];
         delete?: never;
         options?: never;
@@ -249,7 +249,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Fetch a conversation message */
+        /** Fetch conversation message */
         get: operations["fetchConversationMessage"];
         put?: never;
         post?: never;
@@ -268,7 +268,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Update a conversation message */
+        /** Update conversation message */
         post: operations["updateConversationMessage"];
         delete?: never;
         options?: never;
@@ -285,7 +285,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Upvote a conversation message */
+        /** Upvote conversation message */
         post: operations["upvoteConversationMessage"];
         delete?: never;
         options?: never;
@@ -302,7 +302,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new message */
+        /** Create message */
         post: operations["createConversationMessage"];
         delete?: never;
         options?: never;
@@ -317,7 +317,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** List messages in a conversation */
+        /** List conversation messages */
         get: operations["listConversationMessages"];
         put?: never;
         post?: never;
@@ -371,7 +371,7 @@ export interface paths {
         get?: never;
         put?: never;
         /**
-         * Create a new session
+         * Create conversation session
          * @description Conversation tokens allow client-side applications to create a unique, authenticated credential for each conversation. This token can be used to interact with the conversation/{conversationId}/send, conversation/{conversationId}/receive, and conversation/{conversationId}/message/create routes on api.chatbotkit.com. By creating an individual token for each conversation, a client-side application is able to directly access and manipulate the conversation through these routes. Without conversation tokens, a client-side application would need to authenticate and access ChatBotKit conversation routes through a server-side application, which can be more complex and require additional infrastructure. By providing a way for client-side applications to authenticate and access the conversation routes directly, the token route simplifies the process of integrating with api.chatbotkit.com and makes it more convenient for developers to build chatbot applications.
          *
          */
@@ -391,7 +391,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Update the specified conversation */
+        /** Update conversation */
         post: operations["updateConversation"];
         delete?: never;
         options?: never;
@@ -408,7 +408,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Upvote a conversation */
+        /** Upvote conversation */
         post: operations["upvoteConversation"];
         delete?: never;
         options?: never;
@@ -442,7 +442,18 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new conversation */
+        /**
+         * Create a new conversation
+         * @description Create a new conversation with the given parameters and optional
+         *     messages. The conversation will be initialized with the the backstory,
+         *     model, dataset, skillset and other configuration options of the bot.
+         *     Alternatively the conversation can be initialized directly with the
+         *     backstory, model, dataset, skillset and other configuration options.
+         *
+         *     An array of messages can be included in the request body to add to the
+         *     conversation.
+         *
+         */
         post: operations["createConversation"];
         delete?: never;
         options?: never;
@@ -576,7 +587,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Retrieve a list of files attached to the dataset */
+        /** Retrieve a list of dataset files */
         get: operations["listDatasetFiles"];
         put?: never;
         post?: never;
@@ -646,7 +657,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new record */
+        /** Create record */
         post: operations["createDatasetRecord"];
         delete?: never;
         options?: never;
@@ -678,7 +689,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Retrieve a list of records for a dataset */
+        /** Retrieve a list of dataset records */
         get: operations["listDatasetRecords"];
         put?: never;
         post?: never;
@@ -714,7 +725,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Update the specified dataset */
+        /** Update dataset */
         post: operations["updateDataset"];
         delete?: never;
         options?: never;
@@ -731,7 +742,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new dataset */
+        /** Create dataset */
         post: operations["createDataset"];
         delete?: never;
         options?: never;
@@ -746,7 +757,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Retrieve a list of datasets belonging to the current user */
+        /** Retrieve a list of datasets */
         get: operations["listDatasets"];
         put?: never;
         post?: never;
@@ -780,7 +791,12 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Download a file */
+        /**
+         * Download a file
+         * @description Download a file. If the file is not public, the user must be
+         *     authenticated.
+         *
+         */
         get: operations["downloadFile"];
         put?: never;
         post?: never;
@@ -833,7 +849,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Update the specified file */
+        /** Update file */
         post: operations["updateFile"];
         delete?: never;
         options?: never;
@@ -850,7 +866,15 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Upload the specified file */
+        /**
+         * Upload the specified file
+         * @description Upload the specified file to the file storage service. The file can be
+         *     specified either as a HTTP URL, a data URL, a multipart/form-data, or
+         *     as a raw file stream. There is currently a limit of 4.5MB for files
+         *     uploaded via all available methods except for direct-to-source uploads
+         *     when using application/json request body with a file object.
+         *
+         */
         post: operations["uploadFile"];
         delete?: never;
         options?: never;
@@ -867,7 +891,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new file */
+        /** Create file */
         post: operations["createFile"];
         delete?: never;
         options?: never;
@@ -882,7 +906,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Retrieve a list of files belonging to the current user */
+        /** Retrieve a list of files */
         get: operations["listFiles"];
         put?: never;
         post?: never;
@@ -969,7 +993,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new Discord integration */
+        /** Create Discord integration */
         post: operations["createDiscordIntegration"];
         delete?: never;
         options?: never;
@@ -986,6 +1010,91 @@ export interface paths {
         };
         /** List Discord integrations */
         get: operations["listDiscordIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/extract/{extractIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Extract integration */
+        post: operations["deleteExtractIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/extract/{extractIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a extractIntegration */
+        get: operations["fetchExtractIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/extract/{extractIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Extract integration */
+        post: operations["updateExtractIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/extract/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Extract integration */
+        post: operations["createExtractIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/extract/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Extract integrations */
+        get: operations["listExtractIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1071,7 +1180,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new Notion integration */
+        /** Create Notion integration */
         post: operations["createNotionIntegration"];
         delete?: never;
         options?: never;
@@ -1173,7 +1282,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new Sitemap integration */
+        /** Create Sitemap integration */
         post: operations["createSitemapIntegration"];
         delete?: never;
         options?: never;
@@ -1275,7 +1384,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new Slack integration */
+        /** Create Slack integration */
         post: operations["createSlackIntegration"];
         delete?: never;
         options?: never;
@@ -1360,7 +1469,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new Support integration */
+        /** Create Support integration */
         post: operations["createSupportIntegration"];
         delete?: never;
         options?: never;
@@ -1462,7 +1571,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new WhatsApp integration */
+        /** Create WhatsApp integration */
         post: operations["createWhatsAppIntegration"];
         delete?: never;
         options?: never;
@@ -1521,6 +1630,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/widget/{widgetIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup Widget integration */
+        post: operations["setupWidgetIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/widget/{widgetIntegrationId}/update": {
         parameters: {
             query?: never;
@@ -1547,7 +1673,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new Widget integration */
+        /** Create Widget integration */
         post: operations["createWidgetIntegration"];
         delete?: never;
         options?: never;
@@ -1649,7 +1775,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new partner user token */
+        /** Create partner user token */
         post: operations["createPartnerUserToken"];
         delete?: never;
         options?: never;
@@ -1700,7 +1826,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new partner user */
+        /** Create partner user */
         post: operations["createPartnerUser"];
         delete?: never;
         options?: never;
@@ -1717,6 +1843,23 @@ export interface paths {
         };
         /** List partner users */
         get: operations["listPartnerUsers"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/model/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of platform models */
+        get: operations["listPlatformModels"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1785,7 +1928,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new ability */
+        /** Create ability */
         post: operations["createSkillsetAbility"];
         delete?: never;
         options?: never;
@@ -1817,7 +1960,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Retrieve a list of abilities for a skillset */
+        /** Retrieve a list of skillset abilities */
         get: operations["listSkillsetAbilities"];
         put?: never;
         post?: never;
@@ -1870,7 +2013,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Update the specified skillset */
+        /** Update skillset */
         post: operations["updateSkillset"];
         delete?: never;
         options?: never;
@@ -1887,7 +2030,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Create a new skillset */
+        /** Create skillset */
         post: operations["createSkillset"];
         delete?: never;
         options?: never;
@@ -1902,7 +2045,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Retrieve a list of skillsets belonging to the current user */
+        /** Retrieve a list of skillsets */
         get: operations["listSkillsets"];
         put?: never;
         post?: never;
@@ -1956,7 +2099,7 @@ export interface components {
          * @description The type of the message
          * @enum {string}
          */
-        MessageType: "user" | "bot" | "context" | "instruction" | "backstory";
+        MessageType: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
         /**
          * @description The bot visibility
          * @enum {string}
@@ -1991,7 +2134,10 @@ export interface components {
         Meta: {
             [key: string]: unknown;
         };
-        /** @description A model definition */
+        /**
+         * @description A model definition
+         * @example gpt-4-turbo/temperature=0.7
+         */
         Model: string;
         /** @description A bot configuration that can be applied without a dedicated bot instance. */
         BotRef: {
@@ -2000,7 +2146,10 @@ export interface components {
         };
         /** @description A bot configuration that can be applied without a dedicated bot instance. */
         BotConfig: {
-            /** @description A model definition */
+            /**
+             * @description A model definition
+             * @example gpt-4-turbo/temperature=0.7
+             */
             model?: string;
             /** @description The backstory this configuration is using */
             backstory?: string;
@@ -2013,11 +2162,15 @@ export interface components {
             /** @description The moderation flag for this configuration */
             moderation?: boolean;
         };
+        /** @description A bot configuration or reference */
         BotRefOrConfig: {
             /** @description The ID of the bot this configuration is using */
             botId?: string;
         } | {
-            /** @description A model definition */
+            /**
+             * @description A model definition
+             * @example gpt-4-turbo/temperature=0.7
+             */
             model?: string;
             /** @description The backstory this configuration is using */
             backstory?: string;
@@ -2030,7 +2183,7 @@ export interface components {
             /** @description The moderation flag for this configuration */
             moderation?: boolean;
         };
-        /** @description Instance properties */
+        /** @description Instance crud properties */
         InstanceCrudProps: {
             /** @description The associated name */
             name?: string;
@@ -2041,7 +2194,7 @@ export interface components {
                 [key: string]: unknown;
             };
         };
-        /** @description Instance properties */
+        /** @description Instance list properties */
         InstanceListProps: {
             /** @description The associated name */
             name?: string;
@@ -2376,10 +2529,14 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "context" | "instruction" | "backstory";
+                        type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
                     }[];
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -2405,7 +2562,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory";
+                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                         }[];
@@ -2749,6 +2906,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -3384,7 +3542,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "context" | "instruction" | "backstory";
+                        type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the fetched message */
                         text: string;
                         /** @description The date and time when the message was created (in milliseconds) */
@@ -3625,7 +3783,7 @@ export interface operations {
                      * @description The type of the message
                      * @enum {string}
                      */
-                    type: "user" | "bot" | "context" | "instruction" | "backstory";
+                    type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                     /** @description The text of the message */
                     text: string;
                     /** @description Known entities */
@@ -3744,6 +3902,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -3769,7 +3928,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory";
+                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                             /** @description The timestamp of when the message was created (in milliseconds) */
@@ -3791,7 +3950,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory";
+                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                             /** @description The timestamp of when the message was created (in milliseconds) */
@@ -4416,7 +4575,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "context" | "instruction" | "backstory";
+                        type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
                     }[];
@@ -4512,20 +4671,10 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The bot id assigned to this conversation */
-                    botId?: string;
-                    /** @description The backstory for the conversation */
-                    backstory?: string;
-                    /** @description The model to use for the conversation */
-                    model?: string;
-                    /** @description The ID of the dataset to use for the conversation */
-                    datasetId?: string;
-                    /** @description The ID of the skillset to use for the conversation */
-                    skillsetId?: string;
-                    /** @description Turn conversation privacy features on */
-                    privacy?: boolean;
-                    /** @description Turn conversation moderation features on */
-                    moderation?: boolean;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
@@ -4536,11 +4685,30 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "context" | "instruction" | "backstory";
+                        type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
                     }[];
-                };
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
             };
         };
         responses: {
@@ -4559,7 +4727,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory";
+                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                         }[];
@@ -4600,6 +4768,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -4644,7 +4813,7 @@ export interface operations {
                                  * @description The type of the message
                                  * @enum {string}
                                  */
-                                type: "user" | "bot" | "context" | "instruction" | "backstory";
+                                type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                                 /** @description The text of the message */
                                 text: string;
                                 /** @description The timestamp of when the message was created (in milliseconds) */
@@ -4689,7 +4858,7 @@ export interface operations {
                                  * @description The type of the message
                                  * @enum {string}
                                  */
-                                type: "user" | "bot" | "context" | "instruction" | "backstory";
+                                type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                                 /** @description The text of the message */
                                 text: string;
                                 /** @description The timestamp of when the message was created (in milliseconds) */
@@ -4722,6 +4891,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -5130,6 +5300,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -5527,6 +5698,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -5589,6 +5761,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -5947,6 +6120,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -6542,6 +6716,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -6739,7 +6914,10 @@ export interface operations {
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
                     } | {
-                        /** @description A model definition */
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
                         model?: string;
                         /** @description The backstory this configuration is using */
                         backstory?: string;
@@ -6889,7 +7067,10 @@ export interface operations {
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description A model definition */
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -7007,7 +7188,10 @@ export interface operations {
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description A model definition */
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -7083,6 +7267,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -7123,7 +7308,10 @@ export interface operations {
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description A model definition */
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -7143,7 +7331,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance properties */
+                        /** @description A bot configuration or reference */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -7169,7 +7357,10 @@ export interface operations {
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description A model definition */
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -7182,6 +7373,413 @@ export interface operations {
                             /** @description The moderation flag for this configuration */
                             moderation?: boolean;
                         });
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteExtractIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                extractIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Extract integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Extract integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchExtractIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                extractIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Extract integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The ID of the Bot to use */
+                        botId: string;
+                        /** @description The configured extraction schema */
+                        schema?: Record<string, never>;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateExtractIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                extractIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the Bot to use */
+                    botId?: string;
+                    /** @description The configured extraction schema */
+                    schema?: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description The Extract integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Extract Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createExtractIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the Bot to use */
+                    botId: string;
+                    /** @description The configured extraction schema */
+                    schema?: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description The Extract integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Extract Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listExtractIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Extract integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The ID of the Bot to use */
+                            botId: string;
+                            /** @description The configured extraction schema */
+                            schema?: Record<string, never>;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The ID of the Bot to use */
+                            botId: string;
+                            /** @description The configured extraction schema */
+                            schema?: Record<string, never>;
+                        };
                     };
                 };
             };
@@ -7608,6 +8206,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -7654,7 +8253,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance properties */
+                        /** @description Instance list properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -8137,6 +8736,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -8189,7 +8789,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance properties */
+                        /** @description Instance list properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -8344,11 +8944,16 @@ export interface operations {
                         updatedAt: number;
                         /** @description The session duration for the Slack integration */
                         sessionDuration?: number;
+                        /** @description The number of visible messages outside of the new thread */
+                        visibleMessages?: number;
                     } & ({
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
                     } | {
-                        /** @description A model definition */
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
                         model?: string;
                         /** @description The backstory this configuration is using */
                         backstory?: string;
@@ -8490,11 +9095,16 @@ export interface operations {
                     botToken?: string;
                     /** @description The session duration for the Slack integration */
                     sessionDuration?: number;
+                    /** @description The number of visible messages outside of the new thread */
+                    visibleMessages?: number;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description A model definition */
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -8604,11 +9214,16 @@ export interface operations {
                     botToken?: string;
                     /** @description The session duration for the Slack integration */
                     sessionDuration?: number;
+                    /** @description The number of visible messages outside of the new thread */
+                    visibleMessages?: number;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description A model definition */
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -8684,6 +9299,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -8716,11 +9332,16 @@ export interface operations {
                             updatedAt: number;
                             /** @description The session duration for the Slack integration */
                             sessionDuration?: number;
+                            /** @description The number of visible messages outside of the new thread */
+                            visibleMessages?: number;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description A model definition */
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -8740,7 +9361,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance properties */
+                        /** @description A bot configuration or reference */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -8758,11 +9379,16 @@ export interface operations {
                             updatedAt: number;
                             /** @description The session duration for the Slack integration */
                             sessionDuration?: number;
+                            /** @description The number of visible messages outside of the new thread */
+                            visibleMessages?: number;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description A model definition */
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -9118,6 +9744,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -9160,7 +9787,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance properties */
+                        /** @description Instance list properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -9313,7 +9940,10 @@ export interface operations {
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
                     } | {
-                        /** @description A model definition */
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
                         model?: string;
                         /** @description The backstory this configuration is using */
                         backstory?: string;
@@ -9473,7 +10103,10 @@ export interface operations {
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description A model definition */
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -9587,7 +10220,10 @@ export interface operations {
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description A model definition */
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -9663,6 +10299,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -9703,7 +10340,10 @@ export interface operations {
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description A model definition */
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -9723,7 +10363,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance properties */
+                        /** @description A bot configuration or reference */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -9749,7 +10389,10 @@ export interface operations {
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description A model definition */
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -9886,6 +10529,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The theme of the Widget integration */
                         theme?: string;
+                        /** @description The default layout of the Widget integration */
+                        layout?: string;
                         /** @description The title of the Widget integration */
                         title?: string;
                         /** @description The intro of the Widget integration */
@@ -9898,6 +10543,8 @@ export interface operations {
                         origin?: string;
                         /** @description The session duration of the Widget integration */
                         sessionDuration?: number;
+                        /** @description The language of the Widget integration */
+                        language?: string;
                         /** @description Whether the Widget integration is streaming */
                         stream?: boolean;
                         /** @description Whether the Widget integration is verbose */
@@ -9912,13 +10559,24 @@ export interface operations {
                         startFirst?: boolean;
                         /** @description Whether the Widget integration collects contacts */
                         contactCollection?: boolean;
+                        /** @description Controls whether the Widget allows exporting the current conversation */
+                        exportConversation?: boolean;
+                        /** @description Controls whether the Widget allows restarting the conversation */
+                        restartConversation?: boolean;
+                        /** @description Controls whether the Widget allows maximizing the conversation */
+                        maximize?: boolean;
+                        /** @description Controls whether the Widget allows peeking at the initial messages */
+                        messagePeek?: boolean;
                         /** @description Whether the Widget integration displays powered by ChatBotKit */
                         poweredBy?: boolean;
                     } & ({
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
                     } | {
-                        /** @description A model definition */
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
                         model?: string;
                         /** @description The backstory this configuration is using */
                         backstory?: string;
@@ -9931,6 +10589,77 @@ export interface operations {
                         /** @description The moderation flag for this configuration */
                         moderation?: boolean;
                     });
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    setupWidgetIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                widgetIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Widget integration was setup successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the setuped Widget integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
                 };
             };
             /** @description The user is not authorized to access the requested resource */
@@ -9985,6 +10714,8 @@ export interface operations {
                     };
                     /** @description The theme of the Widget integration */
                     theme?: string;
+                    /** @description The default layout of the Widget integration */
+                    layout?: string;
                     /** @description The title of the Widget integration */
                     title?: string;
                     /** @description The intro of the Widget integration */
@@ -9997,6 +10728,8 @@ export interface operations {
                     origin?: string;
                     /** @description The session duration of the Widget integration */
                     sessionDuration?: number;
+                    /** @description The language of the Widget integration */
+                    language?: string;
                     /** @description Whether the Widget integration is streaming */
                     stream?: boolean;
                     /** @description Whether the Widget integration is verbose */
@@ -10011,13 +10744,24 @@ export interface operations {
                     startFirst?: boolean;
                     /** @description Whether the Widget integration collects contacts */
                     contactCollection?: boolean;
+                    /** @description Controls whether the Widget allows exporting the current conversation */
+                    exportConversation?: boolean;
+                    /** @description Controls whether the Widget allows restarting the conversation */
+                    restartConversation?: boolean;
+                    /** @description Controls whether the Widget allows maximizing the conversation */
+                    maximize?: boolean;
+                    /** @description Controls whether the Widget allows peeking at the initial messages */
+                    messagePeek?: boolean;
                     /** @description Whether the Widget integration displays powered by ChatBotKit */
                     poweredBy?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description A model definition */
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -10123,6 +10867,8 @@ export interface operations {
                     };
                     /** @description The theme of the Widget integration */
                     theme?: string;
+                    /** @description The default layout of the Widget integration */
+                    layout?: string;
                     /** @description The title of the Widget integration */
                     title?: string;
                     /** @description The intro of the Widget integration */
@@ -10135,6 +10881,8 @@ export interface operations {
                     origin?: string;
                     /** @description The session duration of the Widget integration */
                     sessionDuration?: number;
+                    /** @description The language of the Widget integration */
+                    language?: string;
                     /** @description Whether the Widget integration is streaming */
                     stream?: boolean;
                     /** @description Whether the Widget integration is verbose */
@@ -10149,13 +10897,24 @@ export interface operations {
                     startFirst?: boolean;
                     /** @description Whether the Widget integration collects contacts */
                     contactCollection?: boolean;
+                    /** @description Controls whether the Widget allows exporting the current conversation */
+                    exportConversation?: boolean;
+                    /** @description Controls whether the Widget allows maximizing the conversation */
+                    maximize?: boolean;
+                    /** @description Controls whether the Widget allows peeking at the initial messages */
+                    messagePeek?: boolean;
+                    /** @description Controls whether the Widget allows restarting the conversation */
+                    restartConversation?: boolean;
                     /** @description Whether the Widget integration displays powered by ChatBotKit */
                     poweredBy?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                 } | {
-                    /** @description A model definition */
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
                     model?: string;
                     /** @description The backstory this configuration is using */
                     backstory?: string;
@@ -10231,6 +10990,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -10263,6 +11023,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The theme of the Widget integration */
                             theme?: string;
+                            /** @description The default layout of the Widget integration */
+                            layout?: string;
                             /** @description The title of the Widget integration */
                             title?: string;
                             /** @description The intro of the Widget integration */
@@ -10275,6 +11037,8 @@ export interface operations {
                             origin?: string;
                             /** @description The session duration of the Widget integration */
                             sessionDuration?: number;
+                            /** @description The language of the Widget integration */
+                            language?: string;
                             /** @description Whether the Widget integration is streaming */
                             stream?: boolean;
                             /** @description Whether the Widget integration is verbose */
@@ -10289,13 +11053,24 @@ export interface operations {
                             startFirst?: boolean;
                             /** @description Whether the Widget integration collects contacts */
                             contactCollection?: boolean;
+                            /** @description Controls whether the Widget allows exporting the current conversation */
+                            exportConversation?: boolean;
+                            /** @description Controls whether the Widget allows restarting the conversation */
+                            restartConversation?: boolean;
+                            /** @description Controls whether the Widget allows maximizing the conversation */
+                            maximize?: boolean;
+                            /** @description Controls whether the Widget allows peeking at the initial messages */
+                            messagePeek?: boolean;
                             /** @description Whether the Widget integration displays powered by ChatBotKit */
                             poweredBy?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description A model definition */
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -10315,7 +11090,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance properties */
+                        /** @description A bot configuration or reference */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -10333,6 +11108,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The theme of the Widget integration */
                             theme?: string;
+                            /** @description The default layout of the Widget integration */
+                            layout?: string;
                             /** @description The title of the Widget integration */
                             title?: string;
                             /** @description The intro of the Widget integration */
@@ -10345,6 +11122,8 @@ export interface operations {
                             origin?: string;
                             /** @description The session duration of the Widget integration */
                             sessionDuration?: number;
+                            /** @description The language of the Widget integration */
+                            language?: string;
                             /** @description Whether the Widget integration is streaming */
                             stream?: boolean;
                             /** @description Whether the Widget integration is verbose */
@@ -10359,13 +11138,24 @@ export interface operations {
                             startFirst?: boolean;
                             /** @description Whether the Widget integration collects contacts */
                             contactCollection?: boolean;
+                            /** @description Controls whether the Widget allows exporting the current conversation */
+                            exportConversation?: boolean;
+                            /** @description Controls whether the Widget allows restarting the conversation */
+                            restartConversation?: boolean;
+                            /** @description Controls whether the Widget allows maximizing the conversation */
+                            maximize?: boolean;
+                            /** @description Controls whether the Widget allows peeking at the initial messages */
+                            messagePeek?: boolean;
                             /** @description Whether the Widget integration displays powered by ChatBotKit */
                             poweredBy?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                         } | {
-                            /** @description A model definition */
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
                             model?: string;
                             /** @description The backstory this configuration is using */
                             backstory?: string;
@@ -10721,6 +11511,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -10942,6 +11733,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -10995,6 +11787,85 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp for when the user was last updated (in milliseconds) */
                             updatedAt: number;
+                        };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listPlatformModels: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of models was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description An array of models */
+                        items: {
+                            /** @description The ID of the model */
+                            id: string;
+                            /** @description The description of the model */
+                            description: string;
+                            /** @description The backstory of the model */
+                            provider: string;
+                            /** @description The model of the model */
+                            family: string;
+                            /** @description The maximum number of tokens the model can use */
+                            maxTokens: number;
+                            /** @description The maximum number of tokens the model can accept */
+                            maxInputTokens: number;
+                            /** @description The maximum number of tokens the model can generate */
+                            maxOutputTokens: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        data: {
+                            /** @description The ID of the model */
+                            id: string;
+                            /** @description The description of the model */
+                            description: string;
+                            /** @description The backstory of the model */
+                            provider: string;
+                            /** @description The model of the model */
+                            family: string;
+                            /** @description The maximum number of tokens the model can use */
+                            maxTokens: number;
+                            /** @description The maximum number of tokens the model can accept */
+                            maxInputTokens: number;
+                            /** @description The maximum number of tokens the model can generate */
+                            maxOutputTokens: number;
                         };
                     };
                 };
@@ -11338,6 +12209,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -11404,6 +12276,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
@@ -11778,6 +12651,7 @@ export interface operations {
         parameters: {
             query?: {
                 cursor?: string;
+                order?: "asc" | "desc";
                 take?: number;
             };
             header?: never;
