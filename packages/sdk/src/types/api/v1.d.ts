@@ -7878,7 +7878,9 @@ export interface operations {
                         /** @description The ID of the Bot to use */
                         botId: string;
                         /** @description The configured extraction schema */
-                        schema?: Record<string, never>;
+                        schema?: {
+                            [key: string]: unknown;
+                        };
                     };
                 };
             };
@@ -7935,7 +7937,9 @@ export interface operations {
                     /** @description The ID of the Bot to use */
                     botId?: string;
                     /** @description The configured extraction schema */
-                    schema?: Record<string, never>;
+                    schema?: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -8031,7 +8035,9 @@ export interface operations {
                     /** @description The ID of the Bot to use */
                     botId: string;
                     /** @description The configured extraction schema */
-                    schema?: Record<string, never>;
+                    schema?: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -8130,7 +8136,9 @@ export interface operations {
                             /** @description The ID of the Bot to use */
                             botId: string;
                             /** @description The configured extraction schema */
-                            schema?: Record<string, never>;
+                            schema?: {
+                                [key: string]: unknown;
+                            };
                         }[];
                     };
                     "application/jsonl": {
@@ -8158,7 +8166,9 @@ export interface operations {
                             /** @description The ID of the Bot to use */
                             botId: string;
                             /** @description The configured extraction schema */
-                            schema?: Record<string, never>;
+                            schema?: {
+                                [key: string]: unknown;
+                            };
                         };
                     };
                 };

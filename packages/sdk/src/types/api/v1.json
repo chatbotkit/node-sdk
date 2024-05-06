@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1714993890650)"
+    "version": "v1 (build 1714995584678)"
   },
   "servers": [
     {
@@ -10776,7 +10776,8 @@
                     },
                     "schema": {
                       "description": "The configured extraction schema",
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": true
                     }
                   },
                   "required": [
@@ -10888,7 +10889,8 @@
                   },
                   "schema": {
                     "description": "The configured extraction schema",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -11047,7 +11049,8 @@
                   },
                   "schema": {
                     "description": "The configured extraction schema",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 },
                 "required": [
@@ -11236,7 +11239,8 @@
                           },
                           "schema": {
                             "description": "The configured extraction schema",
-                            "type": "object"
+                            "type": "object",
+                            "additionalProperties": true
                           }
                         },
                         "required": [
@@ -11302,7 +11306,8 @@
                             },
                             "schema": {
                               "description": "The configured extraction schema",
-                              "type": "object"
+                              "type": "object",
+                              "additionalProperties": true
                             }
                           },
                           "$$ref": "#/paths/~1integration~1extract~1list/get/responses/200/content/application~1json/schema/properties/items/items",
