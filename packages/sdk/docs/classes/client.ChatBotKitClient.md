@@ -26,11 +26,21 @@
 
   ↳ [`FileClient`](file.FileClient.md)
 
+  ↳ [`DiscordIntegrationClient`](integration_discord.DiscordIntegrationClient.md)
+
+  ↳ [`ExtractIntegrationClient`](integration_extract.ExtractIntegrationClient.md)
+
   ↳ [`MessengerIntegrationClient`](integration_messenger.MessengerIntegrationClient.md)
+
+  ↳ [`NotionIntegrationClient`](integration_notion.NotionIntegrationClient.md)
 
   ↳ [`SitemapIntegrationClient`](integration_sitemap.SitemapIntegrationClient.md)
 
   ↳ [`SlackIntegrationClient`](integration_slack.SlackIntegrationClient.md)
+
+  ↳ [`SupportIntegrationClient`](integration_support.SupportIntegrationClient.md)
+
+  ↳ [`TelegramIntegrationClient`](integration_telegram.TelegramIntegrationClient.md)
 
   ↳ [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
 
