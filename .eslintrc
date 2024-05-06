@@ -6,7 +6,8 @@
   "rules": {
     "no-console": "error",
     "newline-before-return": "error",
-    "curly": ["error", "all"]
+    "curly": ["error", "all"],
+    "yoda": "error"
   },
   "env": {
     "browser": true,
