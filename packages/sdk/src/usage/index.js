@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
+import { UsageSeriesClient } from './series/index.js'
 import { fetchUsage } from './v1.js'
 
 export class UsageClient extends ChatBotKitClient {
@@ -7,6 +8,11 @@ export class UsageClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    /**
+     * @type {UsageSeriesClient} series client
+     */
+    this.series = new UsageSeriesClient(options)
   }
 
   /**

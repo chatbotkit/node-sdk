@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L92)
+[integration/whatsapp/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L93)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L96)
+[integration/whatsapp/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L97)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L151)
+[integration/whatsapp/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L152)
 
 ___
 
@@ -158,17 +158,17 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L74)
+[integration/whatsapp/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L75)
 
 ___
 
 ### WhatsAppIntegrationInstance
 
-Ƭ **WhatsAppIntegrationInstance**\<\>: [`WhatsAppIntegrationOptions`](integration_whatsapp_v1.md#whatsappintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **WhatsAppIntegrationInstance**\<\>: [`WhatsAppIntegrationOptions`](integration_whatsapp_v1.md#whatsappintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number` ; `verifyToken`: `string`  }
 
 #### Defined in
 
-[integration/whatsapp/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L42)
+[integration/whatsapp/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L43)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L46)
+[integration/whatsapp/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L47)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L48)
+[integration/whatsapp/v1.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L49)
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L53)
+[integration/whatsapp/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L54)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L55)
+[integration/whatsapp/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L56)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:172](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L172)
+[integration/whatsapp/v1.js:173](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L173)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L121)
+[integration/whatsapp/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L122)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L125)
+[integration/whatsapp/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L126)
 
 ## Functions
 
@@ -303,7 +303,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L102)
+[integration/whatsapp/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L103)
 
 ___
 
@@ -324,7 +324,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L157)
+[integration/whatsapp/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L158)
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L80)
+[integration/whatsapp/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L81)
 
 ___
 
@@ -366,7 +366,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L61)
+[integration/whatsapp/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L62)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L178)
+[integration/whatsapp/v1.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L179)
 
 ___
 
@@ -409,4 +409,4 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L132)
+[integration/whatsapp/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L133)

@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.10.0
+
+### Minor Changes
+
+- 75c16af: Added missing resources.
+
 ## 1.9.1
 
 ### Patch Changes

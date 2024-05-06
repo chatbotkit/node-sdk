@@ -9,7 +9,7 @@
  */
 
 /**
- * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'} ConversationMessageType
+ * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'|'activity'} ConversationMessageType
  *
  * @typedef {{
  *   type: ConversationMessageType,

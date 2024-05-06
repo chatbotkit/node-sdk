@@ -18,6 +18,7 @@ import { buildModelString } from '../model/v1.js'
  *   model?: string,
  *   datasetId?: string,
  *   skillsetId?: string,
+ *   visibility?: 'public'|'private'|'restrictedAccessChat'|'unrestrictedAccessChat',
  *   meta?: Record<string,any>
  * }} BotOptions
  *

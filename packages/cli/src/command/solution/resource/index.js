@@ -3,8 +3,8 @@ import { CommandError } from '../../../output.js'
 import { getSolutionFileName } from '../../../solution/index.js'
 
 import { Command } from 'commander'
-import fs from 'fs/promises'
-import path from 'path'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 
 export const resourceCreate = new Command()
   .name('create')

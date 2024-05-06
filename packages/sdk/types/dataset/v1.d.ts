@@ -12,16 +12,18 @@
  *   description?: string,
  *   store?: string,
  *   recordMaxTokens?: number,
+ *   searchMinScore?: number,
  *   searchMaxRecords?: number,
  *   searchMaxTokens?: number,
  *   matchInstruction?: string,
  *   mismatchInstruction?: string,
+ *   separators?: string,
+ *   visibility?: 'public'|'private',
  *   meta?: Record<string,any>,
  * }} DatasetOptions
  *
  * @typedef {DatasetOptions & {
  *   id: string,
- *   store: string,
  *   createdAt: number,
  *   updatedAt: number
  * }} DatasetInstance
@@ -108,15 +110,17 @@ export type DatasetOptions = {
     description?: string;
     store?: string;
     recordMaxTokens?: number;
+    searchMinScore?: number;
     searchMaxRecords?: number;
     searchMaxTokens?: number;
     matchInstruction?: string;
     mismatchInstruction?: string;
+    separators?: string;
+    visibility?: 'public' | 'private';
     meta?: Record<string, any>;
 };
 export type DatasetInstance = DatasetOptions & {
     id: string;
-    store: string;
     createdAt: number;
     updatedAt: number;
 };

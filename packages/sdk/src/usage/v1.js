@@ -6,6 +6,7 @@
  * @typedef {{
  *   tokens: number,
  *   conversations: number,
+ *   messages: number
  * }} UsageOptions
  *
  * @typedef {UsageOptions & {

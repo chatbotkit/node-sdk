@@ -1,9 +1,9 @@
 import { prompt } from '@chatbotkit/cli/input'
 import { print } from '@chatbotkit/cli/output'
 
-import childProcess from 'child_process'
 import { Command } from 'commander'
-import fs from 'fs/promises'
+import childProcess from 'node:child_process'
+import fs from 'node:fs/promises'
 
 /**
  * @param {string} command

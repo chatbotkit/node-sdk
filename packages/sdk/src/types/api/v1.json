@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1711460103607)"
+    "version": "v1 (build 1714995584678)"
   },
   "servers": [
     {
@@ -17,6 +17,39 @@
       }
     },
     "schemas": {
+      "Message": {
+        "type": "object",
+        "description": "A message in the conversation",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of the message",
+            "enum": [
+              "user",
+              "bot",
+              "context",
+              "instruction",
+              "backstory",
+              "activity"
+            ],
+            "$$ref": "#/components/schemas/MessageType"
+          },
+          "text": {
+            "type": "string",
+            "description": "The text of the message"
+          },
+          "meta": {
+            "type": "object",
+            "description": "Meta data information",
+            "additionalProperties": true,
+            "$$ref": "#/components/schemas/Meta"
+          }
+        },
+        "required": [
+          "type",
+          "text"
+        ]
+      },
       "Entity": {
         "type": "object",
         "description": "Extracted entity from the message",
@@ -118,6 +151,15 @@
         "enum": [
           "private",
           "public"
+        ]
+      },
+      "SecretType": {
+        "type": "string",
+        "description": "The type of the secret",
+        "enum": [
+          "bearer",
+          "plain",
+          "basic"
         ]
       },
       "Usage": {
@@ -4785,21 +4827,62 @@
           "content": {
             "application/json": {
               "schema": {
+                "description": "A bot configuration or reference",
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ],
                 "type": "object",
                 "properties": {
-                  "backstory": {
-                    "description": "The backstory to use for the conversation",
-                    "type": "string"
-                  },
-                  "model": {
-                    "description": "The model to use for the conversation",
-                    "type": "string"
-                  },
                   "messages": {
                     "description": "An array of messages to be added to the conversation",
                     "type": "array",
                     "items": {
                       "type": "object",
+                      "description": "A message in the conversation",
                       "properties": {
                         "type": {
                           "type": "string",
@@ -4815,23 +4898,22 @@
                           "$$ref": "#/components/schemas/MessageType"
                         },
                         "text": {
-                          "description": "The text of the message",
-                          "type": "string"
+                          "type": "string",
+                          "description": "The text of the message"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "description": "Meta data information",
+                          "additionalProperties": true,
+                          "$$ref": "#/components/schemas/Meta"
                         }
                       },
                       "required": [
                         "type",
                         "text"
-                      ]
+                      ],
+                      "$$ref": "#/components/schemas/Message"
                     }
-                  },
-                  "datasetId": {
-                    "description": "The id of the dataset to use",
-                    "type": "string"
-                  },
-                  "skillsetId": {
-                    "description": "The id of the skillset to use",
-                    "type": "string"
                   }
                 },
                 "required": [
@@ -5879,6 +5961,10 @@
                       "description": "The total number of tokens for each record",
                       "type": "number"
                     },
+                    "searchMinScore": {
+                      "description": "The minimum score to filter search results by",
+                      "type": "number"
+                    },
                     "searchMaxRecords": {
                       "description": "The total number of records to return during search",
                       "type": "number"
@@ -5893,6 +5979,10 @@
                     },
                     "mismatchInstruction": {
                       "description": "An instruction to include if no records where found",
+                      "type": "string"
+                    },
+                    "separators": {
+                      "description": "A list of separators to use when tokenizing text",
                       "type": "string"
                     },
                     "visibility": {
@@ -7671,6 +7761,10 @@
                     "description": "The total number of tokens to for each record",
                     "type": "number"
                   },
+                  "searchMinScore": {
+                    "description": "The minimum score to filter search results by",
+                    "type": "number"
+                  },
                   "searchMaxRecords": {
                     "description": "The total number of records to return during search",
                     "type": "number"
@@ -7685,6 +7779,10 @@
                   },
                   "mismatchInstruction": {
                     "description": "An instruction to include if no records where found",
+                    "type": "string"
+                  },
+                  "separators": {
+                    "description": "A list of separators to use when tokenizing text",
                     "type": "string"
                   },
                   "visibility": {
@@ -7854,6 +7952,10 @@
                     "description": "The total number of tokens for each record",
                     "type": "number"
                   },
+                  "searchMinScore": {
+                    "description": "The minimum score to filter search results by",
+                    "type": "number"
+                  },
                   "searchMaxRecords": {
                     "description": "The total number of records to return during search",
                     "type": "number"
@@ -7868,6 +7970,10 @@
                   },
                   "mismatchInstruction": {
                     "description": "An instruction to include if no records where found",
+                    "type": "string"
+                  },
+                  "separators": {
+                    "description": "A list of separators to use when tokenizing text",
                     "type": "string"
                   },
                   "visibility": {
@@ -8031,6 +8137,34 @@
                             "description": "The store for the dataset",
                             "type": "string"
                           },
+                          "recordMaxTokens": {
+                            "description": "The total number of tokens for each record",
+                            "type": "number"
+                          },
+                          "searchMinScore": {
+                            "description": "The minimum score to filter search results by",
+                            "type": "number"
+                          },
+                          "searchMaxRecords": {
+                            "description": "The total number of records to return during search",
+                            "type": "number"
+                          },
+                          "searchMaxTokens": {
+                            "description": "The total number of tokens to use during search",
+                            "type": "number"
+                          },
+                          "matchInstruction": {
+                            "description": "An instruction to include before found records",
+                            "type": "string"
+                          },
+                          "mismatchInstruction": {
+                            "description": "An instruction to include if no records where found",
+                            "type": "string"
+                          },
+                          "separators": {
+                            "description": "A list of separators to use when tokenizing text",
+                            "type": "string"
+                          },
                           "visibility": {
                             "type": "string",
                             "description": "The dataset visibility",
@@ -8100,6 +8234,34 @@
                             },
                             "store": {
                               "description": "The store for the dataset",
+                              "type": "string"
+                            },
+                            "recordMaxTokens": {
+                              "description": "The total number of tokens for each record",
+                              "type": "number"
+                            },
+                            "searchMinScore": {
+                              "description": "The minimum score to filter search results by",
+                              "type": "number"
+                            },
+                            "searchMaxRecords": {
+                              "description": "The total number of records to return during search",
+                              "type": "number"
+                            },
+                            "searchMaxTokens": {
+                              "description": "The total number of tokens to use during search",
+                              "type": "number"
+                            },
+                            "matchInstruction": {
+                              "description": "An instruction to include before found records",
+                              "type": "string"
+                            },
+                            "mismatchInstruction": {
+                              "description": "An instruction to include if no records where found",
+                              "type": "string"
+                            },
+                            "separators": {
+                              "description": "A list of separators to use when tokenizing text",
                               "type": "string"
                             },
                             "visibility": {
@@ -9980,7 +10142,7 @@
                   },
                   "sessionDuration": {
                     "description": "The chat session duration",
-                    "type": "string"
+                    "type": "number"
                   }
                 },
                 "oneOf": [
@@ -10614,7 +10776,8 @@
                     },
                     "schema": {
                       "description": "The configured extraction schema",
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": true
                     }
                   },
                   "required": [
@@ -10726,7 +10889,8 @@
                   },
                   "schema": {
                     "description": "The configured extraction schema",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10885,7 +11049,8 @@
                   },
                   "schema": {
                     "description": "The configured extraction schema",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 },
                 "required": [
@@ -11074,7 +11239,8 @@
                           },
                           "schema": {
                             "description": "The configured extraction schema",
-                            "type": "object"
+                            "type": "object",
+                            "additionalProperties": true
                           }
                         },
                         "required": [
@@ -11140,7 +11306,8 @@
                             },
                             "schema": {
                               "description": "The configured extraction schema",
-                              "type": "object"
+                              "type": "object",
+                              "additionalProperties": true
                             }
                           },
                           "$$ref": "#/paths/~1integration~1extract~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -11186,6 +11353,1144 @@
           }
         },
         "__originalOperationId": "listExtractIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/messenger/{messengerIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteMessengerIntegration",
+        "summary": "Delete Messenger integration",
+        "tags": [
+          "Messenger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "messengerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Messenger integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Messenger integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Messenger integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "deleteMessengerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/messenger/{messengerIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchMessengerIntegration",
+        "summary": "Fetch a messengerIntegration",
+        "tags": [
+          "Messenger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "messengerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Messenger integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Messenger integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "A bot configuration or reference",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The creation date"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The last update date"
+                    },
+                    "verifyToken": {
+                      "description": "The Messenger integration verify token",
+                      "type": "string"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "verifyToken"
+                  ],
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "botId": {
+                          "type": "string",
+                          "description": "The ID of the bot this configuration is using"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotRef"
+                    },
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "model": {
+                          "type": "string",
+                          "description": "A model definition",
+                          "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
+                          "$$ref": "#/components/schemas/Model"
+                        },
+                        "backstory": {
+                          "type": "string",
+                          "description": "The backstory this configuration is using"
+                        },
+                        "datasetId": {
+                          "type": "string",
+                          "description": "The id of the dataset this configuration is using"
+                        },
+                        "skillsetId": {
+                          "type": "string",
+                          "description": "The id of the skillset this configuration is using"
+                        },
+                        "privacy": {
+                          "type": "boolean",
+                          "description": "The privacy flag for this configuration"
+                        },
+                        "moderation": {
+                          "type": "boolean",
+                          "description": "The moderation flag for this configuration"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotConfig"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "fetchMessengerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/messenger/{messengerIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupMessengerIntegration",
+        "summary": "Setup a Messenger integration",
+        "tags": [
+          "Messenger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "messengerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Messenger integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Messenger integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Messenger Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "setupMessengerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/messenger/{messengerIntegrationId}/update": {
+      "post": {
+        "operationId": "updateMessengerIntegration",
+        "summary": "Update a Messenger integration",
+        "tags": [
+          "Messenger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "messengerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Messenger integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "accessToken": {
+                    "description": "The Messenger integration access token",
+                    "type": "string"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Messenger integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Messenger Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "updateMessengerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/messenger/create": {
+      "post": {
+        "operationId": "createMessengerIntegration",
+        "summary": "Create Messenger integration",
+        "tags": [
+          "Messenger Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "accessToken": {
+                    "description": "The Messenger integration access token",
+                    "type": "string"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Messenger integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Messenger Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "createMessengerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/messenger/list": {
+      "get": {
+        "operationId": "listMessengerIntegrations",
+        "summary": "List Messenger integrations",
+        "tags": [
+          "Messenger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Messenger integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A bot configuration or reference",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "verifyToken": {
+                            "description": "The Messenger integration verify token",
+                            "type": "string"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration (in milliseconds)",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "verifyToken"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A bot configuration or reference",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "verifyToken": {
+                              "description": "The Messenger integration verify token",
+                              "type": "string"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1messenger~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "verifyToken"
+                          ],
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listMessengerIntegrations",
         "security": [
           {
             "BearerAuth": []
@@ -15019,6 +16324,1129 @@
         ]
       }
     },
+    "/integration/telegram/{telegramIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteTelegramIntegration",
+        "summary": "Delete Telegram integration",
+        "tags": [
+          "Telegram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "telegramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Telegram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Telegram integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Telegram integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "deleteTelegramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/telegram/{telegramIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchTelegramIntegration",
+        "summary": "Fetch a telegramIntegration",
+        "tags": [
+          "Telegram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "telegramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Telegram integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Telegram integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "A bot configuration or reference",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The creation date"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The last update date"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "botId": {
+                          "type": "string",
+                          "description": "The ID of the bot this configuration is using"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotRef"
+                    },
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "model": {
+                          "type": "string",
+                          "description": "A model definition",
+                          "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
+                          "$$ref": "#/components/schemas/Model"
+                        },
+                        "backstory": {
+                          "type": "string",
+                          "description": "The backstory this configuration is using"
+                        },
+                        "datasetId": {
+                          "type": "string",
+                          "description": "The id of the dataset this configuration is using"
+                        },
+                        "skillsetId": {
+                          "type": "string",
+                          "description": "The id of the skillset this configuration is using"
+                        },
+                        "privacy": {
+                          "type": "boolean",
+                          "description": "The privacy flag for this configuration"
+                        },
+                        "moderation": {
+                          "type": "boolean",
+                          "description": "The moderation flag for this configuration"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotConfig"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "fetchTelegramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/telegram/{telegramIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupTelegramIntegration",
+        "summary": "Setup a Telegram integration",
+        "tags": [
+          "Telegram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "telegramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Telegram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Telegram integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Telegram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "setupTelegramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/telegram/{telegramIntegrationId}/update": {
+      "post": {
+        "operationId": "updateTelegramIntegration",
+        "summary": "Update a Telegram integration",
+        "tags": [
+          "Telegram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "telegramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Telegram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "botToken": {
+                    "description": "The Telegram integration bot token",
+                    "type": "string"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Telegram integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Telegram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "updateTelegramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/telegram/create": {
+      "post": {
+        "operationId": "createTelegramIntegration",
+        "summary": "Create Telegram integration",
+        "tags": [
+          "Telegram Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "botToken": {
+                    "description": "The Telegram integration bot token",
+                    "type": "string"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Telegram integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Telegram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "createTelegramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/telegram/list": {
+      "get": {
+        "operationId": "listTelegramIntegrations",
+        "summary": "List Telegram integrations",
+        "tags": [
+          "Telegram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Telegram integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A bot configuration or reference",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration (in milliseconds)",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A bot configuration or reference",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1telegram~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ],
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listTelegramIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/integration/whatsapp/{whatsappIntegrationId}/delete": {
       "post": {
         "operationId": "deleteWhatsAppIntegration",
@@ -15211,7 +17639,8 @@
                   "required": [
                     "id",
                     "createdAt",
-                    "updatedAt"
+                    "updatedAt",
+                    "verifyToken"
                   ],
                   "oneOf": [
                     {
@@ -15965,7 +18394,8 @@
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "verifyToken"
                         ],
                         "oneOf": [
                           {
@@ -16082,7 +18512,8 @@
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "verifyToken"
                           ],
                           "oneOf": [
                             {
@@ -19078,6 +21509,733 @@
         ]
       }
     },
+    "/secret/{secretId}/delete": {
+      "post": {
+        "operationId": "deleteSecret",
+        "summary": "Delete a secret",
+        "tags": [
+          "Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the secret to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The secret was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted secret",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "deleteSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/secret/{secretId}/fetch": {
+      "get": {
+        "operationId": "fetchSecret",
+        "summary": "Fetch a secret",
+        "tags": [
+          "Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the secret to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The secret was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the secret",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the secret",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the secret",
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The type of the secret",
+                      "enum": [
+                        "bearer",
+                        "plain",
+                        "basic"
+                      ],
+                      "$$ref": "#/components/schemas/SecretType"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "createdAt": {
+                      "description": "The timestamp for when the secret was created (in milliseconds)",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The timestamp for when the secret was last updated (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "fetchSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/secret/{secretId}/update": {
+      "post": {
+        "operationId": "updateSecret",
+        "summary": "Update secret",
+        "tags": [
+          "Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The new name for the secret",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The new description for the secret",
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The type of the secret",
+                    "enum": [
+                      "bearer",
+                      "plain",
+                      "basic"
+                    ],
+                    "$$ref": "#/components/schemas/SecretType"
+                  },
+                  "value": {
+                    "description": "The value of the secret",
+                    "type": "string"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The secret was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated secret",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "updateSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/secret/create": {
+      "post": {
+        "operationId": "createSecret",
+        "summary": "Create secret",
+        "tags": [
+          "Secret"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the secret",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "A description of the secret",
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The type of the secret",
+                    "enum": [
+                      "bearer",
+                      "plain",
+                      "basic"
+                    ],
+                    "$$ref": "#/components/schemas/SecretType"
+                  },
+                  "value": {
+                    "description": "The value of the secret",
+                    "type": "string"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The secret was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created secret",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "createSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/secret/list": {
+      "get": {
+        "operationId": "listSecrets",
+        "summary": "Retrieve a list of secrets",
+        "tags": [
+          "Secret"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of secrets was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of secrets",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the secret",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the secret",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the secret",
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of the secret",
+                            "enum": [
+                              "bearer",
+                              "plain",
+                              "basic"
+                            ],
+                            "$$ref": "#/components/schemas/SecretType"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "createdAt": {
+                            "description": "The timestamp when the secret was created",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp when the secret was last updated",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The ID of the secret",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "The name of the secret",
+                              "type": "string"
+                            },
+                            "description": {
+                              "description": "The description of the secret",
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string",
+                              "description": "The type of the secret",
+                              "enum": [
+                                "bearer",
+                                "plain",
+                                "basic"
+                              ],
+                              "$$ref": "#/components/schemas/SecretType"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "createdAt": {
+                              "description": "The timestamp when the secret was created",
+                              "type": "number"
+                            },
+                            "updatedAt": {
+                              "description": "The timestamp when the secret was last updated",
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "type",
+                            "createdAt",
+                            "updatedAt"
+                          ],
+                          "$$ref": "#/paths/~1secret~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listSecrets",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/skillset/{skillsetId}/ability/{abilityId}/delete": {
       "post": {
         "operationId": "deleteSkillsetAbility",
@@ -20228,7 +23386,7 @@
                   },
                   "required": [
                     "id",
-                    "visiblity",
+                    "visibility",
                     "createdAt",
                     "updatedAt"
                   ]
@@ -20799,11 +23957,16 @@
                     "conversations": {
                       "description": "The number of conversations the user has created",
                       "type": "number"
+                    },
+                    "messages": {
+                      "description": "The number of messages the user has sent",
+                      "type": "number"
                     }
                   },
                   "required": [
                     "tokens",
-                    "conversations"
+                    "conversations",
+                    "messages"
                   ]
                 }
               }
@@ -20833,6 +23996,125 @@
           }
         },
         "__originalOperationId": "fetchUsage",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/usage/series/fetch": {
+      "get": {
+        "operationId": "fetchUsageSeries",
+        "summary": "Fetch usage series",
+        "tags": [
+          "Usage"
+        ],
+        "responses": {
+          "200": {
+            "description": "The usage series information was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tokens": {
+                      "description": "The number of tokens the user has used",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "description": "The date of the data point",
+                            "type": "number"
+                          },
+                          "total": {
+                            "description": "The total number of tokens the user has used",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "date",
+                          "total"
+                        ]
+                      }
+                    },
+                    "conversations": {
+                      "description": "The number of conversations the user has created",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "description": "The date of the data point",
+                            "type": "number"
+                          },
+                          "total": {
+                            "description": "The total number of conversations the user has used",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "date",
+                          "total"
+                        ]
+                      }
+                    },
+                    "messages": {
+                      "description": "The number of messages the user has created",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": {
+                            "description": "The date of the data point",
+                            "type": "number"
+                          },
+                          "total": {
+                            "description": "The total number of messages the user has used",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "date",
+                          "total"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "tokens",
+                    "conversations",
+                    "messages"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "fetchUsageSeries",
         "security": [
           {
             "BearerAuth": []

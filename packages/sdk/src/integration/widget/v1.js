@@ -12,6 +12,27 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   theme?: string,
+ *   layout?: string,
+ *   title?: string,
+ *   intro?: string,
+ *   initial?: string,
+ *   placeholder?: string,
+ *   language?: string,
+ *   origin?: string,
+ *   stream?: boolean,
+ *   verbose?: boolean,
+ *   tools?: boolean,
+ *   unfurl?: boolean,
+ *   autoScroll?: boolean,
+ *   startFirst?: boolean,
+ *   contactCollection?: boolean,
+ *   exportConversation?: boolean,
+ *   restartConversation?: boolean,
+ *   maxsimize?: boolean,
+ *   messagePeek?: boolean,
+ *   poweredBy?: boolean,
+ *   sessionDuration?: number,
  *   meta?: Record<string,any>
  * }} WidgetIntegrationOptions
  *

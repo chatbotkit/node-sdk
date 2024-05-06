@@ -38,7 +38,8 @@ import { buildModelString } from '../../model/v1.js'
  * @typedef {WhatsAppIntegrationOptions & {
  *   id: string,
  *   createdAt: number,
- *   updatedAt: number
+ *   updatedAt: number,
+ *   verifyToken: string
  * }} WhatsAppIntegrationInstance
  */
 

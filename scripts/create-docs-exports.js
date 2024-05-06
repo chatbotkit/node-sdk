@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import childProcess from 'child_process'
-import fs from 'fs/promises'
-import path from 'path'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 
 async function exec(command) {
   return new Promise((resolve, reject) => {
