@@ -12,6 +12,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   visibility?: 'public'|'private'
  *   meta?: Record<string,any>
  * }} SkillsetOptions
  *
