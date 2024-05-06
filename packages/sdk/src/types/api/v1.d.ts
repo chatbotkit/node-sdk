@@ -8283,7 +8283,7 @@ export interface operations {
                         /** @description The last update date */
                         updatedAt: number;
                         /** @description The Messenger integration verify token */
-                        verifyToken?: string;
+                        verifyToken: string;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                     } & ({
@@ -8677,7 +8677,7 @@ export interface operations {
                             /** @description The last update date */
                             updatedAt: number;
                             /** @description The Messenger integration verify token */
-                            verifyToken?: string;
+                            verifyToken: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -8724,7 +8724,7 @@ export interface operations {
                             /** @description The last update date */
                             updatedAt: number;
                             /** @description The Messenger integration verify token */
-                            verifyToken?: string;
+                            verifyToken: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -11479,7 +11479,7 @@ export interface operations {
                         /** @description The last update date */
                         updatedAt: number;
                         /** @description The WhatsApp integration verify token */
-                        verifyToken?: string;
+                        verifyToken: string;
                         /** @description The WhatsApp integration phone number ID */
                         phoneNumberId?: string;
                         /** @description The session duration (in milliseconds) */
@@ -11879,7 +11879,7 @@ export interface operations {
                             /** @description The last update date */
                             updatedAt: number;
                             /** @description The WhatsApp integration verify token */
-                            verifyToken?: string;
+                            verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
                             phoneNumberId?: string;
                             /** @description The session duration (in milliseconds) */
@@ -11928,7 +11928,7 @@ export interface operations {
                             /** @description The last update date */
                             updatedAt: number;
                             /** @description The WhatsApp integration verify token */
-                            verifyToken?: string;
+                            verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
                             phoneNumberId?: string;
                             /** @description The session duration (in milliseconds) */

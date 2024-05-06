@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1714987986088)"
+    "version": "v1 (build 1714991621035)"
   },
   "servers": [
     {
@@ -11543,7 +11543,8 @@
                   "required": [
                     "id",
                     "createdAt",
-                    "updatedAt"
+                    "updatedAt",
+                    "verifyToken"
                   ],
                   "oneOf": [
                     {
@@ -12285,7 +12286,8 @@
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "verifyToken"
                         ],
                         "oneOf": [
                           {
@@ -12398,7 +12400,8 @@
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "verifyToken"
                           ],
                           "oneOf": [
                             {
@@ -17631,7 +17634,8 @@
                   "required": [
                     "id",
                     "createdAt",
-                    "updatedAt"
+                    "updatedAt",
+                    "verifyToken"
                   ],
                   "oneOf": [
                     {
@@ -18385,7 +18389,8 @@
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "verifyToken"
                         ],
                         "oneOf": [
                           {
@@ -18502,7 +18507,8 @@
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "verifyToken"
                           ],
                           "oneOf": [
                             {
