@@ -4,6 +4,7 @@ import { MessengerIntegrationClient } from './messenger/index.js'
 import { NotionIntegrationClient } from './notion/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
 import { SlackIntegrationClient } from './slack/index.js'
+import { SupportIntegrationClient } from './support/index.js'
 import { TelegramIntegrationClient } from './telegram/index.js'
 import { WhatsAppIntegrationClient } from './whatsapp/index.js'
 import { WidgetIntegrationClient } from './widget/index.js'
@@ -54,6 +55,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {NotionIntegrationClient} notion client
      */
     this.notion = new NotionIntegrationClient(options)
+
+    /**
+     * @type {SupportIntegrationClient} support client
+     */
+    this.support = new SupportIntegrationClient(options)
   }
 }
 
