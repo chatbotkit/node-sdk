@@ -7,7 +7,22 @@
  * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 /**
- * @typedef {import('../../types/bot.js').BotRefOrConfig & {
+ * @typedef {{
+ *   botId?: string
+ * }} BotRef
+ *
+ * @typedef {{
+ *   backstory?: string,
+ *   model?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean
+ * }} BotConfig
+ *
+ * @typedef {BotRef | BotConfig} BotRefOrConfig
+ *
+ * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   accessToken?: string,
@@ -99,7 +114,19 @@ export function deleteMessengerIntegration(client: ChatBotKitClient, messengerId
 export function setupMessengerIntegration(client: ChatBotKitClient, messengerId: string): Promise<MessengerIntegrationSetupResponse>;
 export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type MessengerIntegrationOptions = import('../../types/bot.js').BotRefOrConfig & {
+export type BotRef = {
+    botId?: string;
+};
+export type BotConfig = {
+    backstory?: string;
+    model?: string;
+    datasetId?: string;
+    skillsetId?: string;
+    privacy?: boolean;
+    moderation?: boolean;
+};
+export type BotRefOrConfig = BotRef | BotConfig;
+export type MessengerIntegrationOptions = BotRefOrConfig & {
     name?: string;
     description?: string;
     accessToken?: string;

@@ -236,6 +236,46 @@
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
     },
+    "./integration/discord": {
+      "types": "./types/integration/discord/index.d.ts",
+      "import": "./src/integration/discord/index.js"
+    },
+    "./integration/discord/index": {
+      "types": "./types/integration/discord/index.d.ts",
+      "import": "./src/integration/discord/index.js"
+    },
+    "./integration/discord/index.js": {
+      "types": "./types/integration/discord/index.d.ts",
+      "import": "./src/integration/discord/index.js"
+    },
+    "./integration/discord/v1": {
+      "types": "./types/integration/discord/v1.d.ts",
+      "import": "./src/integration/discord/v1.js"
+    },
+    "./integration/discord/v1.js": {
+      "types": "./types/integration/discord/v1.d.ts",
+      "import": "./src/integration/discord/v1.js"
+    },
+    "./integration/extract": {
+      "types": "./types/integration/extract/index.d.ts",
+      "import": "./src/integration/extract/index.js"
+    },
+    "./integration/extract/index": {
+      "types": "./types/integration/extract/index.d.ts",
+      "import": "./src/integration/extract/index.js"
+    },
+    "./integration/extract/index.js": {
+      "types": "./types/integration/extract/index.d.ts",
+      "import": "./src/integration/extract/index.js"
+    },
+    "./integration/extract/v1": {
+      "types": "./types/integration/extract/v1.d.ts",
+      "import": "./src/integration/extract/v1.js"
+    },
+    "./integration/extract/v1.js": {
+      "types": "./types/integration/extract/v1.d.ts",
+      "import": "./src/integration/extract/v1.js"
+    },
     "./integration": {
       "types": "./types/integration/index.d.ts",
       "import": "./src/integration/index.js"
@@ -267,6 +307,26 @@
     "./integration/messenger/v1.js": {
       "types": "./types/integration/messenger/v1.d.ts",
       "import": "./src/integration/messenger/v1.js"
+    },
+    "./integration/notion": {
+      "types": "./types/integration/notion/index.d.ts",
+      "import": "./src/integration/notion/index.js"
+    },
+    "./integration/notion/index": {
+      "types": "./types/integration/notion/index.d.ts",
+      "import": "./src/integration/notion/index.js"
+    },
+    "./integration/notion/index.js": {
+      "types": "./types/integration/notion/index.d.ts",
+      "import": "./src/integration/notion/index.js"
+    },
+    "./integration/notion/v1": {
+      "types": "./types/integration/notion/v1.d.ts",
+      "import": "./src/integration/notion/v1.js"
+    },
+    "./integration/notion/v1.js": {
+      "types": "./types/integration/notion/v1.d.ts",
+      "import": "./src/integration/notion/v1.js"
     },
     "./integration/sitemap": {
       "types": "./types/integration/sitemap/index.d.ts",
@@ -307,6 +367,46 @@
     "./integration/slack/v1.js": {
       "types": "./types/integration/slack/v1.d.ts",
       "import": "./src/integration/slack/v1.js"
+    },
+    "./integration/support": {
+      "types": "./types/integration/support/index.d.ts",
+      "import": "./src/integration/support/index.js"
+    },
+    "./integration/support/index": {
+      "types": "./types/integration/support/index.d.ts",
+      "import": "./src/integration/support/index.js"
+    },
+    "./integration/support/index.js": {
+      "types": "./types/integration/support/index.d.ts",
+      "import": "./src/integration/support/index.js"
+    },
+    "./integration/support/v1": {
+      "types": "./types/integration/support/v1.d.ts",
+      "import": "./src/integration/support/v1.js"
+    },
+    "./integration/support/v1.js": {
+      "types": "./types/integration/support/v1.d.ts",
+      "import": "./src/integration/support/v1.js"
+    },
+    "./integration/telegram": {
+      "types": "./types/integration/telegram/index.d.ts",
+      "import": "./src/integration/telegram/index.js"
+    },
+    "./integration/telegram/index": {
+      "types": "./types/integration/telegram/index.d.ts",
+      "import": "./src/integration/telegram/index.js"
+    },
+    "./integration/telegram/index.js": {
+      "types": "./types/integration/telegram/index.d.ts",
+      "import": "./src/integration/telegram/index.js"
+    },
+    "./integration/telegram/v1": {
+      "types": "./types/integration/telegram/v1.d.ts",
+      "import": "./src/integration/telegram/v1.js"
+    },
+    "./integration/telegram/v1.js": {
+      "types": "./types/integration/telegram/v1.d.ts",
+      "import": "./src/integration/telegram/v1.js"
     },
     "./integration/whatsapp": {
       "types": "./types/integration/whatsapp/index.d.ts",
@@ -495,6 +595,26 @@
     "./usage/index.js": {
       "types": "./types/usage/index.d.ts",
       "import": "./src/usage/index.js"
+    },
+    "./usage/series": {
+      "types": "./types/usage/series/index.d.ts",
+      "import": "./src/usage/series/index.js"
+    },
+    "./usage/series/index": {
+      "types": "./types/usage/series/index.d.ts",
+      "import": "./src/usage/series/index.js"
+    },
+    "./usage/series/index.js": {
+      "types": "./types/usage/series/index.d.ts",
+      "import": "./src/usage/series/index.js"
+    },
+    "./usage/series/v1": {
+      "types": "./types/usage/series/v1.d.ts",
+      "import": "./src/usage/series/v1.js"
+    },
+    "./usage/series/v1.js": {
+      "types": "./types/usage/series/v1.d.ts",
+      "import": "./src/usage/series/v1.js"
     },
     "./usage/v1": {
       "types": "./types/usage/v1.d.ts",

@@ -6,6 +6,9 @@
 
 ### Type Aliases
 
+- [BotConfig](integration_messenger_v1.md#botconfig)
+- [BotRef](integration_messenger_v1.md#botref)
+- [BotRefOrConfig](integration_messenger_v1.md#botreforconfig)
 - [ChatBotKitClient](integration_messenger_v1.md#chatbotkitclient)
 - [MessengerIntegrationCreateRequest](integration_messenger_v1.md#messengerintegrationcreaterequest)
 - [MessengerIntegrationCreateResponse](integration_messenger_v1.md#messengerintegrationcreateresponse)
@@ -33,6 +36,53 @@
 
 ## Type Aliases
 
+### BotConfig
+
+Ƭ **BotConfig**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `backstory?` | `string` |
+| `datasetId?` | `string` |
+| `model?` | `string` |
+| `moderation?` | `boolean` |
+| `privacy?` | `boolean` |
+| `skillsetId?` | `string` |
+
+#### Defined in
+
+[integration/messenger/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L25)
+
+___
+
+### BotRef
+
+Ƭ **BotRef**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `botId?` | `string` |
+
+#### Defined in
+
+[integration/messenger/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L16)
+
+___
+
+### BotRefOrConfig
+
+Ƭ **BotRefOrConfig**\<\>: [`BotRef`](integration_messenger_v1.md#botref) \| [`BotConfig`](integration_messenger_v1.md#botconfig)
+
+#### Defined in
+
+[integration/messenger/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L27)
+
+___
+
 ### ChatBotKitClient
 
 Ƭ **ChatBotKitClient**\<\>: [`client`](client.md)
@@ -49,7 +99,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L77)
+[integration/messenger/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L92)
 
 ___
 
@@ -65,7 +115,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L81)
+[integration/messenger/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L96)
 
 ___
 
@@ -81,7 +131,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L136)
+[integration/messenger/v1.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L151)
 
 ___
 
@@ -91,7 +141,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L59)
+[integration/messenger/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L74)
 
 ___
 
@@ -101,7 +151,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L27)
+[integration/messenger/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L42)
 
 ___
 
@@ -120,7 +170,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L31)
+[integration/messenger/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L46)
 
 ___
 
@@ -136,7 +186,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L33)
+[integration/messenger/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L48)
 
 ___
 
@@ -153,7 +203,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L38)
+[integration/messenger/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L53)
 
 ___
 
@@ -163,17 +213,17 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L40)
+[integration/messenger/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L55)
 
 ___
 
 ### MessengerIntegrationOptions
 
-Ƭ **MessengerIntegrationOptions**\<\>: `BotRefOrConfig` & \{ `accessToken?`: `string` ; `description?`: `string` ; `meta?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> ; `name?`: `string` ; `sessionDuration?`: `number`  }
+Ƭ **MessengerIntegrationOptions**\<\>: [`BotRefOrConfig`](integration_messenger_v1.md#botreforconfig) & \{ `accessToken?`: `string` ; `description?`: `string` ; `meta?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> ; `name?`: `string` ; `sessionDuration?`: `number`  }
 
 #### Defined in
 
-[integration/messenger/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L20)
+[integration/messenger/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L35)
 
 ___
 
@@ -189,7 +239,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L157)
+[integration/messenger/v1.js:172](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L172)
 
 ___
 
@@ -199,7 +249,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L106)
+[integration/messenger/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L121)
 
 ___
 
@@ -215,7 +265,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L110)
+[integration/messenger/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L125)
 
 ___
 
@@ -253,7 +303,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L87)
+[integration/messenger/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L102)
 
 ___
 
@@ -274,7 +324,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:142](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L142)
+[integration/messenger/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L157)
 
 ___
 
@@ -295,7 +345,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L65)
+[integration/messenger/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L80)
 
 ___
 
@@ -316,7 +366,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L46)
+[integration/messenger/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L61)
 
 ___
 
@@ -337,7 +387,7 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:163](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L163)
+[integration/messenger/v1.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L178)
 
 ___
 
@@ -359,4 +409,4 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:117](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L117)
+[integration/messenger/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L132)
