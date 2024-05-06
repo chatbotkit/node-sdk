@@ -1,5 +1,6 @@
 import { ChatBotKitClient } from '../client.js'
 import { DiscordIntegrationClient } from './discord/index.js'
+import { ExtractIntegrationClient } from './extract/index.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
 import { NotionIntegrationClient } from './notion/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
@@ -60,6 +61,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {SupportIntegrationClient} support client
      */
     this.support = new SupportIntegrationClient(options)
+
+    /**
+     * @type {ExtractIntegrationClient} extract client
+     */
+    this.extract = new ExtractIntegrationClient(options)
   }
 }
 
