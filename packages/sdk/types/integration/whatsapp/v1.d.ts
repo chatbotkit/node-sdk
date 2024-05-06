@@ -34,7 +34,8 @@
  * @typedef {WhatsAppIntegrationOptions & {
  *   id: string,
  *   createdAt: number,
- *   updatedAt: number
+ *   updatedAt: number,
+ *   verifyToken: string
  * }} WhatsAppIntegrationInstance
  */
 /**
@@ -138,6 +139,7 @@ export type WhatsAppIntegrationInstance = WhatsAppIntegrationOptions & {
     id: string;
     createdAt: number;
     updatedAt: number;
+    verifyToken: string;
 };
 export type WhatsAppIntegrationListRequest = {
     cursor?: string;

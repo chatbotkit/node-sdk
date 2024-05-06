@@ -10,6 +10,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   visibility?: 'public'|'private'
  *   meta?: Record<string,any>
  * }} SkillsetOptions
  *
@@ -87,6 +88,7 @@ export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>
 export type SkillsetOptions = {
     name?: string;
     description?: string;
+    visibility?: 'public' | 'private';
     meta?: Record<string, any>;
 };
 export type SkillsetInstance = SkillsetOptions & {

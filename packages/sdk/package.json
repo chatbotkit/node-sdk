@@ -248,6 +248,26 @@
       "types": "./types/integration/index.d.ts",
       "import": "./src/integration/index.js"
     },
+    "./integration/messenger": {
+      "types": "./types/integration/messenger/index.d.ts",
+      "import": "./src/integration/messenger/index.js"
+    },
+    "./integration/messenger/index": {
+      "types": "./types/integration/messenger/index.d.ts",
+      "import": "./src/integration/messenger/index.js"
+    },
+    "./integration/messenger/index.js": {
+      "types": "./types/integration/messenger/index.d.ts",
+      "import": "./src/integration/messenger/index.js"
+    },
+    "./integration/messenger/v1": {
+      "types": "./types/integration/messenger/v1.d.ts",
+      "import": "./src/integration/messenger/v1.js"
+    },
+    "./integration/messenger/v1.js": {
+      "types": "./types/integration/messenger/v1.d.ts",
+      "import": "./src/integration/messenger/v1.js"
+    },
     "./integration/sitemap": {
       "types": "./types/integration/sitemap/index.d.ts",
       "import": "./src/integration/sitemap/index.js"
@@ -267,6 +287,26 @@
     "./integration/sitemap/v1.js": {
       "types": "./types/integration/sitemap/v1.d.ts",
       "import": "./src/integration/sitemap/v1.js"
+    },
+    "./integration/slack": {
+      "types": "./types/integration/slack/index.d.ts",
+      "import": "./src/integration/slack/index.js"
+    },
+    "./integration/slack/index": {
+      "types": "./types/integration/slack/index.d.ts",
+      "import": "./src/integration/slack/index.js"
+    },
+    "./integration/slack/index.js": {
+      "types": "./types/integration/slack/index.d.ts",
+      "import": "./src/integration/slack/index.js"
+    },
+    "./integration/slack/v1": {
+      "types": "./types/integration/slack/v1.d.ts",
+      "import": "./src/integration/slack/v1.js"
+    },
+    "./integration/slack/v1.js": {
+      "types": "./types/integration/slack/v1.d.ts",
+      "import": "./src/integration/slack/v1.js"
     },
     "./integration/whatsapp": {
       "types": "./types/integration/whatsapp/index.d.ts",

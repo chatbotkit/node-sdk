@@ -26,7 +26,11 @@
 
   ↳ [`FileClient`](file.FileClient.md)
 
+  ↳ [`MessengerIntegrationClient`](integration_messenger.MessengerIntegrationClient.md)
+
   ↳ [`SitemapIntegrationClient`](integration_sitemap.SitemapIntegrationClient.md)
+
+  ↳ [`SlackIntegrationClient`](integration_slack.SlackIntegrationClient.md)
 
   ↳ [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
 
