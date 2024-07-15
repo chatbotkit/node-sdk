@@ -3,7 +3,8 @@ const readline = require('node:readline/promises')
 
 dotenv.config()
 
-const { ConversationClient } = require('@chatbotkit/sdk/conversation/index.js')
+// @note disabled due to no esm support in development
+// const { ConversationClient } = require('@chatbotkit/sdk/conversation/index.js')
 
 /**
  * Main function that implements a chatbot using the ChatBotKit SDK and the
@@ -12,6 +13,11 @@ const { ConversationClient } = require('@chatbotkit/sdk/conversation/index.js')
  * The conversation continues until the program is terminated.
  */
 async function main() {
+  // @note only used for development, otherwise use require
+  const { ConversationClient } = await import(
+    '@chatbotkit/sdk/conversation/index.js'
+  )
+
   const client = new ConversationClient({
     secret: process.env.CHATBOTKIT_API_SECRET,
   })
