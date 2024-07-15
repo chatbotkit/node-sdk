@@ -5,7 +5,15 @@
  * @typedef {{
  *   tokens: number,
  *   conversations: number,
- *   messages: number
+ *   messages: number,
+ *   database: {
+ *     datasets: number,
+ *     records: number,
+ *     skillsets: number,
+ *     abilities: number,
+ *     files: number,
+ *     users: number
+ *   }
  * }} UsageOptions
  *
  * @typedef {UsageOptions & {
@@ -24,6 +32,14 @@ export type UsageOptions = {
     tokens: number;
     conversations: number;
     messages: number;
+    database: {
+        datasets: number;
+        records: number;
+        skillsets: number;
+        abilities: number;
+        files: number;
+        users: number;
+    };
 };
 export type UsageInstance = UsageOptions & {};
 export type UsageFetchResponse = UsageInstance & {};

@@ -26,6 +26,7 @@
 - [dataset/v1](modules/dataset_v1.md)
 - [file](modules/file.md)
 - [file/v1](modules/file_v1.md)
+- [index](modules/index.md)
 - [integration/discord](modules/integration_discord.md)
 - [integration/discord/v1](modules/integration_discord_v1.md)
 - [integration/extract](modules/integration_extract.md)

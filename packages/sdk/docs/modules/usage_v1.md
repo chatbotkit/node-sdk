@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[usage/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L18)
+[usage/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L26)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[usage/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L13)
+[usage/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L21)
 
 ___
 
@@ -56,12 +56,19 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `conversations` | `number` |
+| `database` | \{ `abilities`: `number` ; `datasets`: `number` ; `files`: `number` ; `records`: `number` ; `skillsets`: `number` ; `users`: `number`  } |
+| `database.abilities` | `number` |
+| `database.datasets` | `number` |
+| `database.files` | `number` |
+| `database.records` | `number` |
+| `database.skillsets` | `number` |
+| `database.users` | `number` |
 | `messages` | `number` |
 | `tokens` | `number` |
 
 #### Defined in
 
-[usage/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L10)
+[usage/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L18)
 
 ## Functions
 
@@ -81,4 +88,4 @@ ___
 
 #### Defined in
 
-[usage/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L23)
+[usage/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L31)

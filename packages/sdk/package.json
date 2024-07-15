@@ -84,6 +84,26 @@
       "types": "./types/client.d.ts",
       "import": "./src/client.js"
     },
+    "./contact": {
+      "types": "./types/contact/index.d.ts",
+      "import": "./src/contact/index.js"
+    },
+    "./contact/index": {
+      "types": "./types/contact/index.d.ts",
+      "import": "./src/contact/index.js"
+    },
+    "./contact/index.js": {
+      "types": "./types/contact/index.d.ts",
+      "import": "./src/contact/index.js"
+    },
+    "./contact/v1": {
+      "types": "./types/contact/v1.d.ts",
+      "import": "./src/contact/v1.js"
+    },
+    "./contact/v1.js": {
+      "types": "./types/contact/v1.d.ts",
+      "import": "./src/contact/v1.js"
+    },
     "./conversation": {
       "types": "./types/conversation/index.d.ts",
       "import": "./src/conversation/index.js"
@@ -543,6 +563,26 @@
     "./partner/v1.js": {
       "types": "./types/partner/v1.d.ts",
       "import": "./src/partner/v1.js"
+    },
+    "./secret": {
+      "types": "./types/secret/index.d.ts",
+      "import": "./src/secret/index.js"
+    },
+    "./secret/index": {
+      "types": "./types/secret/index.d.ts",
+      "import": "./src/secret/index.js"
+    },
+    "./secret/index.js": {
+      "types": "./types/secret/index.d.ts",
+      "import": "./src/secret/index.js"
+    },
+    "./secret/v1": {
+      "types": "./types/secret/v1.d.ts",
+      "import": "./src/secret/v1.js"
+    },
+    "./secret/v1.js": {
+      "types": "./types/secret/v1.d.ts",
+      "import": "./src/secret/v1.js"
     },
     "./skillset/ability": {
       "types": "./types/skillset/ability/index.d.ts",

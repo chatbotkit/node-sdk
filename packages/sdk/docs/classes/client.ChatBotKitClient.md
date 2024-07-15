@@ -58,6 +58,10 @@
 
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
 
+  ↳ [`ContactClient`](index.ContactClient.md)
+
+  ↳ [`SecretClient`](index.SecretClient.md)
+
 ## Table of contents
 
 ### Constructors
