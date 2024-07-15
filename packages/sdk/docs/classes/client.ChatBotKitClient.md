@@ -12,6 +12,8 @@
 
   ↳ [`BotSessionClient`](bot_session.BotSessionClient.md)
 
+  ↳ [`ContactClient`](contact.ContactClient.md)
+
   ↳ [`ConversationClient`](conversation.ConversationClient.md)
 
   ↳ [`ConversationMessageClient`](conversation_message.ConversationMessageClient.md)
@@ -54,13 +56,11 @@
 
   ↳ [`PartnerUserTokenClient`](partner_user_token.PartnerUserTokenClient.md)
 
+  ↳ [`SecretClient`](secret.SecretClient.md)
+
   ↳ [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
 
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
-
-  ↳ [`ContactClient`](index.ContactClient.md)
-
-  ↳ [`SecretClient`](index.SecretClient.md)
 
 ## Table of contents
 

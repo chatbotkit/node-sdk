@@ -1,8 +1,8 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [index](../modules/index.md) / ContactClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [contact](../modules/contact.md) / ContactClient
 
 # Class: ContactClient
 
-[index](../modules/index.md).ContactClient
+[contact](../modules/contact.md).ContactClient
 
 Contact client.
 
@@ -16,22 +16,22 @@ Contact client.
 
 ### Constructors
 
-- [constructor](index.ContactClient.md#constructor)
+- [constructor](contact.ContactClient.md#constructor)
 
 ### Methods
 
-- [clientFetch](index.ContactClient.md#clientfetch)
-- [create](index.ContactClient.md#create)
-- [delete](index.ContactClient.md#delete)
-- [fetch](index.ContactClient.md#fetch)
-- [list](index.ContactClient.md#list)
-- [update](index.ContactClient.md#update)
+- [clientFetch](contact.ContactClient.md#clientfetch)
+- [create](contact.ContactClient.md#create)
+- [delete](contact.ContactClient.md#delete)
+- [fetch](contact.ContactClient.md#fetch)
+- [list](contact.ContactClient.md#list)
+- [update](contact.ContactClient.md#update)
 
 ## Constructors
 
 ### constructor
 
-• **new ContactClient**(`options`): [`ContactClient`](index.ContactClient.md)
+• **new ContactClient**(`options`): [`ContactClient`](contact.ContactClient.md)
 
 #### Parameters
 
@@ -41,7 +41,7 @@ Contact client.
 
 #### Returns
 
-[`ContactClient`](index.ContactClient.md)
+[`ContactClient`](contact.ContactClient.md)
 
 #### Overrides
 
@@ -97,7 +97,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ContactCreateResponse`\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactCreateResponse`](../modules/contact_v1.md#contactcreateresponse)\>
 
 Creates a new contact.
 
@@ -105,11 +105,11 @@ Creates a new contact.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `ContactCreateRequest` |
+| `request` | [`ContactCreateRequest`](../modules/contact_v1.md#contactcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ContactCreateResponse`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactCreateResponse`](../modules/contact_v1.md#contactcreateresponse)\>
 
 #### Defined in
 
@@ -119,7 +119,7 @@ ___
 
 ### delete
 
-▸ **delete**(`contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ContactDeleteResponse`\>
+▸ **delete**(`contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactDeleteResponse`](../modules/contact_v1.md#contactdeleteresponse)\>
 
 Deletes the contact.
 
@@ -131,7 +131,7 @@ Deletes the contact.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ContactDeleteResponse`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactDeleteResponse`](../modules/contact_v1.md#contactdeleteresponse)\>
 
 #### Defined in
 
@@ -141,7 +141,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ContactFetchResponse`\>
+▸ **fetch**(`contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactFetchResponse`](../modules/contact_v1.md#contactfetchresponse)\>
 
 Fetches a contact.
 
@@ -153,7 +153,7 @@ Fetches a contact.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ContactFetchResponse`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactFetchResponse`](../modules/contact_v1.md#contactfetchresponse)\>
 
 #### Defined in
 
@@ -163,7 +163,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<`ContactListResponse`, `ContactListStreamItemType`\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ContactListResponse`](../modules/contact_v1.md#contactlistresponse), [`ContactListStreamItemType`](../modules/contact_v1.md#contactliststreamitemtype)\>
 
 Retrieves a list of all contacts.
 
@@ -171,11 +171,11 @@ Retrieves a list of all contacts.
 
 | Name | Type |
 | :------ | :------ |
-| `request?` | `ContactListRequest` |
+| `request?` | [`ContactListRequest`](../modules/contact_v1.md#contactlistrequest) |
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<`ContactListResponse`, `ContactListStreamItemType`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`ContactListResponse`](../modules/contact_v1.md#contactlistresponse), [`ContactListStreamItemType`](../modules/contact_v1.md#contactliststreamitemtype)\>
 
 #### Defined in
 
@@ -185,7 +185,7 @@ ___
 
 ### update
 
-▸ **update**(`contactId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ContactUpdateResponse`\>
+▸ **update**(`contactId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactUpdateResponse`](../modules/contact_v1.md#contactupdateresponse)\>
 
 Updates a contact.
 
@@ -194,11 +194,11 @@ Updates a contact.
 | Name | Type |
 | :------ | :------ |
 | `contactId` | `string` |
-| `request` | `ContactUpdateRequest` |
+| `request` | [`ContactUpdateRequest`](../modules/contact_v1.md#contactupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ContactUpdateResponse`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactUpdateResponse`](../modules/contact_v1.md#contactupdateresponse)\>
 
 #### Defined in
 
