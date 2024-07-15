@@ -7,6 +7,7 @@ import { FileClient } from './file/index.js'
 import { IntegrationClient } from './integration/index.js'
 import { MagicClient } from './magic/index.js'
 import { PartnerClient } from './partner/index.js'
+import { SecretClient } from './secret/index.js'
 import { SkillsetClient } from './skillset/index.js'
 
 export { BotClient }
@@ -17,6 +18,8 @@ export { DatasetClient }
 export { SkillsetClient }
 export { IntegrationClient }
 export { ConversationClient }
+export { ContactClient }
+export { SecretClient }
 
 export class ChatBotKit extends ChatBotKitClient {
   /**
@@ -34,6 +37,9 @@ export class ChatBotKit extends ChatBotKitClient {
     this.integration = new IntegrationClient(options)
     this.conversation = new ConversationClient(options)
     this.contact = new ContactClient(options)
+
+    // @note overlapping name with the `secret` property
+    this.secrets = new SecretClient(options)
   }
 }
 
