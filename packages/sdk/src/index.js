@@ -1,5 +1,6 @@
 import { BotClient } from './bot/index.js'
 import { ChatBotKitClient } from './client.js'
+import { ContactClient } from './contact/index.js'
 import { ConversationClient } from './conversation/index.js'
 import { DatasetClient } from './dataset/index.js'
 import { FileClient } from './file/index.js'
@@ -32,6 +33,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.skillset = new SkillsetClient(options)
     this.integration = new IntegrationClient(options)
     this.conversation = new ConversationClient(options)
+    this.contact = new ContactClient(options)
   }
 }
 
