@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.11.0
+
+### Minor Changes
+
+- a808421: Updated usage API and new APIs for Secrets and Contacts.
+
 ## 1.10.0
 
 ### Minor Changes
