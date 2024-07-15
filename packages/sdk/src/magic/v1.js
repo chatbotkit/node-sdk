@@ -33,8 +33,8 @@
 export function generateMagic(client, magicId, request) {
   const url = `/api/v1/magic/${magicId}/generate`
 
-  /** @typedef {import('../types/api/v1.js').operations['generateMagic']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['generateMagic']['responses']['200']['content']['application/jsonl']} U */
+  /** @typedef {import('../types/api/v1.js').operations['generateMagicFromPrompt']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../types/api/v1.js').operations['generateMagicFromPrompt']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, {
     record: {
