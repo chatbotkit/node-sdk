@@ -140,6 +140,146 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/contact/{contactId}/conversation/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export contact conversations */
+        get: operations["exportContactConversations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/conversation/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List contact conversations */
+        get: operations["listContactConversations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete contact */
+        post: operations["deleteContact"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch contact */
+        get: operations["fetchContact"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update contact */
+        post: operations["updateContact"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create a new contact
+         * @description Create a new contact with the given parameters.
+         *
+         */
+        post: operations["createContact"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export contacts */
+        get: operations["exportContacts"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List contacts */
+        get: operations["listContacts"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/conversation/{conversationId}/complete": {
         parameters: {
             query?: never;
@@ -151,6 +291,23 @@ export interface paths {
         put?: never;
         /** Send and receive a conversation response */
         post: operations["completeConversationMessage"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/conversation/{conversationId}/contact/upsert": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Upsert contact */
+        post: operations["upsertConversationContact"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1010,6 +1167,108 @@ export interface paths {
         };
         /** List Discord integrations */
         get: operations["listDiscordIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/email/{emailIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Email integration */
+        post: operations["deleteEmailIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/email/{emailIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a emailIntegration */
+        get: operations["fetchEmailIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/email/{emailIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup a Email integration */
+        post: operations["setupEmailIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/email/{emailIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Email integration */
+        post: operations["updateEmailIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/email/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Email integration */
+        post: operations["createEmailIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/email/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Email integrations */
+        get: operations["listEmailIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1902,7 +2161,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/magic/{magicId}/generate": {
+    "/magic/{promptId}/generate": {
         parameters: {
             query?: never;
             header?: never;
@@ -1912,7 +2171,24 @@ export interface paths {
         get?: never;
         put?: never;
         /** Generate text (description, records, abilities and more) based on input. */
-        post: operations["generateMagic"];
+        post: operations["generateMagicFromPrompt"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/magic/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of magic prompts */
+        get: operations["listMagicPrompts"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -2351,7 +2627,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Fetch usage */
+        /**
+         * Fetch usage
+         * @description Fetches the usage data for the user in the current billing period.
+         */
         get: operations["fetchUsage"];
         put?: never;
         post?: never;
@@ -2368,7 +2647,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Fetch usage series */
+        /**
+         * Fetch usage series
+         * @description Fetches a series of usage data points for the user for the last 90 days.
+         */
         get: operations["fetchUsageSeries"];
         put?: never;
         post?: never;
@@ -2391,6 +2673,8 @@ export interface components {
             type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
             /** @description The text of the message */
             text: string;
+            /** @description A URL of an image */
+            image?: string;
             /** @description Meta data information */
             meta?: {
                 [key: string]: unknown;
@@ -2792,7 +3076,7 @@ export interface operations {
                          * @description The bot visibility
                          * @enum {string}
                          */
-                        visibility?: "private" | "public" | "restrictedAccessChat" | "unrestrictedAccessChat";
+                        visibility: "private" | "public" | "restrictedAccessChat" | "unrestrictedAccessChat";
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
@@ -3332,6 +3616,720 @@ export interface operations {
             };
         };
     };
+    exportContactConversations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of conversations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The contact id assigned to this conversation */
+                            contactId?: string;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description A bot configuration or reference */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The contact id assigned to this conversation */
+                            contactId?: string;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
+                    };
+                    "text/csv": string;
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listContactConversations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of conversations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The contact id assigned to this conversation */
+                            contactId?: string;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description A bot configuration or reference */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The contact id assigned to this conversation */
+                            contactId?: string;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteContact: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The contact was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted contact */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchContact: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The contact was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The email address of the contact */
+                        email?: string;
+                        /** @description The phone number of the contact */
+                        phone?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateContact: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The email address of the contact */
+                    email?: string;
+                    /** @description The phone number of the contact */
+                    phone?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The contact was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated contact */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createContact: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The email address of the contact */
+                    email?: string;
+                    /** @description The phone number of the contact */
+                    phone?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The contact was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created contact */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    exportContacts: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of contacts was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The email address of the contact */
+                            email?: string;
+                            /** @description The phone number of the contact */
+                            phone?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The email address of the contact */
+                            email?: string;
+                            /** @description The phone number of the contact */
+                            phone?: string;
+                        };
+                    };
+                    "text/csv": string;
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listContacts: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of contacts was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The email address of the contact */
+                            email?: string;
+                            /** @description The phone number of the contact */
+                            phone?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The email address of the contact */
+                            email?: string;
+                            /** @description The phone number of the contact */
+                            phone?: string;
+                        };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
     completeConversationMessage: {
         parameters: {
             query?: never;
@@ -3447,6 +4445,76 @@ export interface operations {
             };
             /** @description The specified resource was not found */
             404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    upsertConversationContact: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                conversationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The email address of the contact */
+                    email?: string;
+                    /** @description The phone number of the contact */
+                    phone?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The contact was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created contact */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -3641,25 +4709,42 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the conversation */
-                        id: string;
-                        /** @description The backstory for the conversation */
-                        backstory?: string;
-                        /** @description The model used in the conversation */
-                        model?: string;
-                        /** @description The ID of the dataset used in the conversation */
-                        datasetId?: string;
-                        /** @description The ID of the skillset used in the conversation */
-                        skillsetId?: string;
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the conversation was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the conversation was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
-                    };
+                        /** @description The contact id assigned to this conversation */
+                        contactId?: string;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
                 };
             };
             /** @description The user is not authorized to access the requested resource */
@@ -4697,25 +5782,36 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The bot id assigned to this conversation */
-                    botId?: string;
-                    /** @description The backstory for the conversation */
-                    backstory?: string;
-                    /** @description The model to use for the conversation */
-                    model?: string;
-                    /** @description The ID of the dataset to use for the conversation */
-                    datasetId?: string;
-                    /** @description The ID of the skillset to use for the conversation */
-                    skillsetId?: string;
-                    /** @description Turn conversation privacy features on */
-                    privacy?: boolean;
-                    /** @description Turn conversation moderation features on */
-                    moderation?: boolean;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
-                };
+                    /** @description The contact id assigned to this conversation */
+                    contactId?: string;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
             };
         };
         responses: {
@@ -4899,6 +5995,8 @@ export interface operations {
                         type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
+                        /** @description A URL of an image */
+                        image?: string;
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
@@ -5019,6 +6117,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The contact id assigned to this conversation */
+                    contactId?: string;
                     /** @description An array of messages to be added to the conversation */
                     messages?: {
                         /**
@@ -5117,51 +6217,50 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description The export of conversations was retrieved successfully */
+            /** @description The list of conversations was retrieved successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        items: {
-                            /** @description The ID of the conversation */
-                            id: string;
-                            /** @description The bot id assigned to this conversation */
-                            botId?: string;
-                            /** @description The backstory for the conversation */
-                            backstory?: string;
-                            /** @description The model used in the conversation */
-                            model?: string;
-                            /** @description The ID of the dataset used in the conversation */
-                            datasetId?: string;
-                            /** @description The ID of the skillset used in the conversation */
-                            skillsetId?: string;
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the conversation was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the conversation was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
-                            /** @description The messages associated with this conversation */
-                            messages?: {
-                                /** @description The ID of the message */
-                                id: string;
-                                /**
-                                 * @description The type of the message
-                                 * @enum {string}
-                                 */
-                                type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
-                                /** @description The text of the message */
-                                text: string;
-                                /** @description The timestamp of when the message was created (in milliseconds) */
-                                createdAt: number;
-                                /** @description The timestamp of when the message was last updated  (in milliseconds) */
-                                updatedAt: number;
-                            }[];
-                        }[];
+                            /** @description The contact id assigned to this conversation */
+                            contactId?: string;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
                     };
                     "application/jsonl": {
                         /**
@@ -5169,44 +6268,44 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description A bot configuration or reference */
                         data: {
-                            /** @description The ID of the conversation */
-                            id: string;
-                            /** @description The bot id assigned to this conversation */
-                            botId?: string;
-                            /** @description The backstory for the conversation */
-                            backstory?: string;
-                            /** @description The model used in the conversation */
-                            model?: string;
-                            /** @description The ID of the dataset used in the conversation */
-                            datasetId?: string;
-                            /** @description The ID of the skillset used in the conversation */
-                            skillsetId?: string;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the conversation was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the conversation was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
-                            /** @description The messages associated with this conversation */
-                            messages?: {
-                                /** @description The ID of the message */
-                                id: string;
-                                /**
-                                 * @description The type of the message
-                                 * @enum {string}
-                                 */
-                                type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
-                                /** @description The text of the message */
-                                text: string;
-                                /** @description The timestamp of when the message was created (in milliseconds) */
-                                createdAt: number;
-                                /** @description The timestamp of when the message was last updated  (in milliseconds) */
-                                updatedAt: number;
-                            }[];
-                        };
+                            /** @description The contact id assigned to this conversation */
+                            contactId?: string;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
                     };
                     "text/csv": string;
                 };
@@ -5247,28 +6346,43 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: {
-                            /** @description The ID of the conversation */
-                            id: string;
-                            /** @description The bot id assigned to this conversation */
-                            botId?: string;
-                            /** @description The backstory for the conversation */
-                            backstory?: string;
-                            /** @description The model used in the conversation */
-                            model?: string;
-                            /** @description The ID of the dataset used in the conversation */
-                            datasetId?: string;
-                            /** @description The ID of the skillset used in the conversation */
-                            skillsetId?: string;
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the conversation was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the conversation was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
-                        }[];
+                            /** @description The contact id assigned to this conversation */
+                            contactId?: string;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
                     };
                     "application/jsonl": {
                         /**
@@ -5276,28 +6390,44 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description A bot configuration or reference */
                         data: {
-                            /** @description The ID of the conversation */
-                            id: string;
-                            /** @description The bot id assigned to this conversation */
-                            botId?: string;
-                            /** @description The backstory for the conversation */
-                            backstory?: string;
-                            /** @description The model used in the conversation */
-                            model?: string;
-                            /** @description The ID of the dataset used in the conversation */
-                            datasetId?: string;
-                            /** @description The ID of the skillset used in the conversation */
-                            skillsetId?: string;
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the conversation was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the conversation was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
-                        };
+                            /** @description The contact id assigned to this conversation */
+                            contactId?: string;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
                     };
                 };
             };
@@ -7772,6 +8902,593 @@ export interface operations {
             };
         };
     };
+    deleteEmailIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                emailIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Email integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Email integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchEmailIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                emailIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Email integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description Weather to collect contacts */
+                        contactCollection?: boolean;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    setupEmailIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                emailIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Email integration was successfully setup */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Email Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateEmailIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                emailIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Email integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Email Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createEmailIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Email integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Email Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listEmailIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Email integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description A bot configuration or reference */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
     deleteExtractIntegration: {
         parameters: {
             query?: never;
@@ -8942,7 +10659,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the syneced Notion integration */
+                        /** @description The ID of the synced Notion integration */
                         id: string;
                     };
                 };
@@ -11492,6 +13209,8 @@ export interface operations {
                         verifyToken: string;
                         /** @description The WhatsApp integration phone number ID */
                         phoneNumberId?: string;
+                        /** @description Weather to collect contacts */
+                        contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                     } & ({
@@ -11655,6 +13374,8 @@ export interface operations {
                     phoneNumberId?: string;
                     /** @description The WhatsApp integration access token */
                     accessToken?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                 } & ({
@@ -11772,6 +13493,8 @@ export interface operations {
                     phoneNumberId?: string;
                     /** @description The WhatsApp integration access token */
                     accessToken?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                 } & ({
@@ -11892,6 +13615,8 @@ export interface operations {
                             verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
                             phoneNumberId?: string;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -11941,6 +13666,8 @@ export interface operations {
                             verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
                             phoneNumberId?: string;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -12201,7 +13928,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the setuped Widget integration */
+                        /** @description The ID of the Widget integration */
                         id: string;
                     };
                 };
@@ -12745,7 +14472,7 @@ export interface operations {
             };
         };
     };
-    generateMagic: {
+    generateMagicFromPrompt: {
         parameters: {
             query?: never;
             header?: never;
@@ -12757,11 +14484,13 @@ export interface operations {
                 "application/json": {
                     /** @description The text to use as input */
                     text: string;
+                    /** @description The model to use for generation */
+                    model?: string;
                 };
             };
         };
         responses: {
-            /** @description The next message in the conversation completed successfully */
+            /** @description The magic prompt completed successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -12810,6 +14539,69 @@ export interface operations {
             };
             /** @description The request could not be completed due to a conflict with the current state of the resource. */
             409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listMagicPrompts: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of magic prompts was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description An array of magic prompts */
+                        items: {
+                            /** @description The ID of the magic prompt */
+                            id: string;
+                            /** @description The ID of the magic prompt */
+                            name: string;
+                            /** @description The description of the magic prompt */
+                            description: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        data: {
+                            /** @description The ID of the magic prompt */
+                            id: string;
+                            /** @description The ID of the magic prompt */
+                            name: string;
+                            /** @description The description of the magic prompt */
+                            description: string;
+                        };
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -14704,6 +16496,21 @@ export interface operations {
                         conversations: number;
                         /** @description The number of messages the user has sent */
                         messages: number;
+                        /** @description Database usage information */
+                        database: {
+                            /** @description The number of datasets the user has created */
+                            datasets: number;
+                            /** @description The number of records the user has created */
+                            records: number;
+                            /** @description The number of skillsets the user has created */
+                            skillsets: number;
+                            /** @description The number of abilities the user has created */
+                            abilities: number;
+                            /** @description The number of files the user has created */
+                            files: number;
+                            /** @description The number of users the user has created */
+                            users: number;
+                        };
                     };
                 };
             };

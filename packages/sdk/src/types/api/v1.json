@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1714995584678)"
+    "version": "v1 (build 1721053613058)"
   },
   "servers": [
     {
@@ -37,6 +37,10 @@
           "text": {
             "type": "string",
             "description": "The text of the message"
+          },
+          "image": {
+            "type": "string",
+            "description": "A URL of an image"
           },
           "meta": {
             "type": "object",
@@ -780,7 +784,7 @@
                   },
                   "required": [
                     "id",
-                    "visbility",
+                    "visibility",
                     "createdAt",
                     "updatedAt"
                   ]
@@ -1787,6 +1791,1520 @@
         ]
       }
     },
+    "/contact/{contactId}/conversation/export": {
+      "get": {
+        "operationId": "exportContactConversations",
+        "summary": "Export contact conversations",
+        "tags": [
+          "Contact Conversation"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the contact to delete",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of conversations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A bot configuration or reference",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "contactId": {
+                            "description": "The contact id assigned to this conversation",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A bot configuration or reference",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "contactId": {
+                              "description": "The contact id assigned to this conversation",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1conversation~1export/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ],
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "exportContactConversations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/conversation/list": {
+      "get": {
+        "operationId": "listContactConversations",
+        "summary": "List contact conversations",
+        "tags": [
+          "Contact Conversation"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the contact to delete",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of conversations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A bot configuration or reference",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "contactId": {
+                            "description": "The contact id assigned to this conversation",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A bot configuration or reference",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "contactId": {
+                              "description": "The contact id assigned to this conversation",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1conversation~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ],
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listContactConversations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/delete": {
+      "post": {
+        "operationId": "deleteContact",
+        "summary": "Delete contact",
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the contact to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted contact",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "deleteContact",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/fetch": {
+      "get": {
+        "operationId": "fetchContact",
+        "summary": "Fetch contact",
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the contact to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The contact was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Instance list properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The creation date"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The last update date"
+                    },
+                    "email": {
+                      "description": "The email address of the contact",
+                      "type": "string"
+                    },
+                    "phone": {
+                      "description": "The phone number of the contact",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "fetchContact",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/update": {
+      "post": {
+        "operationId": "updateContact",
+        "summary": "Update contact",
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "email": {
+                    "description": "The email address of the contact",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "description": "The phone number of the contact",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated contact",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "updateContact",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/create": {
+      "post": {
+        "operationId": "createContact",
+        "summary": "Create a new contact",
+        "description": "Create a new contact with the given parameters.\n",
+        "tags": [
+          "Contact"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "email": {
+                    "description": "The email address of the contact",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "description": "The phone number of the contact",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created contact",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "createContact",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/export": {
+      "get": {
+        "operationId": "exportContacts",
+        "summary": "Export contacts",
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of contacts was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "email": {
+                            "description": "The email address of the contact",
+                            "type": "string"
+                          },
+                          "phone": {
+                            "description": "The phone number of the contact",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "email": {
+                              "description": "The email address of the contact",
+                              "type": "string"
+                            },
+                            "phone": {
+                              "description": "The phone number of the contact",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1contact~1export/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "exportContacts",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/list": {
+      "get": {
+        "operationId": "listContacts",
+        "summary": "List contacts",
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of contacts was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "email": {
+                            "description": "The email address of the contact",
+                            "type": "string"
+                          },
+                          "phone": {
+                            "description": "The phone number of the contact",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "email": {
+                              "description": "The email address of the contact",
+                              "type": "string"
+                            },
+                            "phone": {
+                              "description": "The phone number of the contact",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1contact~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listContacts",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/conversation/{conversationId}/complete": {
       "post": {
         "operationId": "completeConversationMessage",
@@ -2100,6 +3618,132 @@
         ]
       }
     },
+    "/conversation/{conversationId}/contact/upsert": {
+      "post": {
+        "operationId": "upsertConversationContact",
+        "summary": "Upsert contact",
+        "tags": [
+          "Conversation Contact"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "email": {
+                    "description": "The email address of the contact",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "description": "The phone number of the contact",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created contact",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "upsertConversationContact",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/conversation/{conversationId}/delete": {
       "post": {
         "operationId": "deleteConversation",
@@ -2380,26 +4024,15 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "A bot configuration or reference",
                   "properties": {
-                    "id": {
-                      "description": "The ID of the conversation",
-                      "type": "string"
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
                     },
-                    "backstory": {
-                      "description": "The backstory for the conversation",
-                      "type": "string"
-                    },
-                    "model": {
-                      "description": "The model used in the conversation",
-                      "type": "string"
-                    },
-                    "datasetId": {
-                      "description": "The ID of the dataset used in the conversation",
-                      "type": "string"
-                    },
-                    "skillsetId": {
-                      "description": "The ID of the skillset used in the conversation",
-                      "type": "string"
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
                     },
                     "meta": {
                       "type": "object",
@@ -2407,19 +4040,74 @@
                       "additionalProperties": true,
                       "$$ref": "#/components/schemas/Meta"
                     },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
                     "createdAt": {
-                      "description": "The timestamp for when the conversation was created (in milliseconds)",
-                      "type": "number"
+                      "type": "number",
+                      "description": "The creation date"
                     },
                     "updatedAt": {
-                      "description": "The timestamp for when the conversation was last updated (in milliseconds)",
-                      "type": "number"
+                      "type": "number",
+                      "description": "The last update date"
+                    },
+                    "contactId": {
+                      "description": "The contact id assigned to this conversation",
+                      "type": "string"
                     }
                   },
                   "required": [
                     "id",
                     "createdAt",
                     "updatedAt"
+                  ],
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "botId": {
+                          "type": "string",
+                          "description": "The ID of the bot this configuration is using"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotRef"
+                    },
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "model": {
+                          "type": "string",
+                          "description": "A model definition",
+                          "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
+                          "$$ref": "#/components/schemas/Model"
+                        },
+                        "backstory": {
+                          "type": "string",
+                          "description": "The backstory this configuration is using"
+                        },
+                        "datasetId": {
+                          "type": "string",
+                          "description": "The id of the dataset this configuration is using"
+                        },
+                        "skillsetId": {
+                          "type": "string",
+                          "description": "The id of the skillset this configuration is using"
+                        },
+                        "privacy": {
+                          "type": "boolean",
+                          "description": "The privacy flag for this configuration"
+                        },
+                        "moderation": {
+                          "type": "boolean",
+                          "description": "The moderation flag for this configuration"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotConfig"
+                    }
                   ]
                 }
               }
@@ -4504,42 +6192,74 @@
             "application/json": {
               "schema": {
                 "type": "object",
+                "description": "A bot configuration or reference",
                 "properties": {
-                  "botId": {
-                    "description": "The bot id assigned to this conversation",
-                    "type": "string"
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
                   },
-                  "backstory": {
-                    "description": "The backstory for the conversation",
-                    "type": "string"
-                  },
-                  "model": {
-                    "description": "The model to use for the conversation",
-                    "type": "string"
-                  },
-                  "datasetId": {
-                    "description": "The ID of the dataset to use for the conversation",
-                    "type": "string"
-                  },
-                  "skillsetId": {
-                    "description": "The ID of the skillset to use for the conversation",
-                    "type": "string"
-                  },
-                  "privacy": {
-                    "description": "Turn conversation privacy features on",
-                    "type": "boolean"
-                  },
-                  "moderation": {
-                    "description": "Turn conversation moderation features on",
-                    "type": "boolean"
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
                   },
                   "meta": {
                     "type": "object",
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactId": {
+                    "description": "The contact id assigned to this conversation",
+                    "type": "string"
                   }
-                }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
               }
             }
           }
@@ -4901,6 +6621,10 @@
                           "type": "string",
                           "description": "The text of the message"
                         },
+                        "image": {
+                          "type": "string",
+                          "description": "A URL of an image"
+                        },
                         "meta": {
                           "type": "object",
                           "description": "Meta data information",
@@ -5119,6 +6843,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactId": {
+                    "description": "The contact id assigned to this conversation",
+                    "type": "string"
                   },
                   "messages": {
                     "description": "An array of messages to be added to the conversation",
@@ -5345,7 +7073,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The export of conversations was retrieved successfully",
+            "description": "The list of conversations was retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -5355,30 +7083,15 @@
                       "type": "array",
                       "items": {
                         "type": "object",
+                        "description": "A bot configuration or reference",
                         "properties": {
-                          "id": {
-                            "description": "The ID of the conversation",
-                            "type": "string"
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
                           },
-                          "botId": {
-                            "description": "The bot id assigned to this conversation",
-                            "type": "string"
-                          },
-                          "backstory": {
-                            "description": "The backstory for the conversation",
-                            "type": "string"
-                          },
-                          "model": {
-                            "description": "The model used in the conversation",
-                            "type": "string"
-                          },
-                          "datasetId": {
-                            "description": "The ID of the dataset used in the conversation",
-                            "type": "string"
-                          },
-                          "skillsetId": {
-                            "description": "The ID of the skillset used in the conversation",
-                            "type": "string"
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
                           },
                           "meta": {
                             "type": "object",
@@ -5386,64 +7099,74 @@
                             "additionalProperties": true,
                             "$$ref": "#/components/schemas/Meta"
                           },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
                           "createdAt": {
-                            "description": "The timestamp for when the conversation was created (in milliseconds)",
-                            "type": "number"
+                            "type": "number",
+                            "description": "The creation date"
                           },
                           "updatedAt": {
-                            "description": "The timestamp for when the conversation was last updated (in milliseconds)",
-                            "type": "number"
+                            "type": "number",
+                            "description": "The last update date"
                           },
-                          "messages": {
-                            "description": "The messages associated with this conversation",
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "description": "The ID of the message",
-                                  "type": "string"
-                                },
-                                "type": {
-                                  "type": "string",
-                                  "description": "The type of the message",
-                                  "enum": [
-                                    "user",
-                                    "bot",
-                                    "context",
-                                    "instruction",
-                                    "backstory",
-                                    "activity"
-                                  ],
-                                  "$$ref": "#/components/schemas/MessageType"
-                                },
-                                "text": {
-                                  "description": "The text of the message",
-                                  "type": "string"
-                                },
-                                "createdAt": {
-                                  "description": "The timestamp of when the message was created (in milliseconds)",
-                                  "type": "number"
-                                },
-                                "updatedAt": {
-                                  "description": "The timestamp of when the message was last updated  (in milliseconds)",
-                                  "type": "number"
-                                }
-                              },
-                              "required": [
-                                "id",
-                                "type",
-                                "text",
-                                "createdAt",
-                                "updatedAt"
-                              ]
-                            }
+                          "contactId": {
+                            "description": "The contact id assigned to this conversation",
+                            "type": "string"
                           }
                         },
                         "required": [
                           "id",
                           "createdAt",
                           "updatedAt"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
                         ]
                       }
                     }
@@ -5468,30 +7191,15 @@
                         },
                         "data": {
                           "type": "object",
+                          "description": "A bot configuration or reference",
                           "properties": {
-                            "id": {
-                              "description": "The ID of the conversation",
-                              "type": "string"
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
                             },
-                            "botId": {
-                              "description": "The bot id assigned to this conversation",
-                              "type": "string"
-                            },
-                            "backstory": {
-                              "description": "The backstory for the conversation",
-                              "type": "string"
-                            },
-                            "model": {
-                              "description": "The model used in the conversation",
-                              "type": "string"
-                            },
-                            "datasetId": {
-                              "description": "The ID of the dataset used in the conversation",
-                              "type": "string"
-                            },
-                            "skillsetId": {
-                              "description": "The ID of the skillset used in the conversation",
-                              "type": "string"
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
                             },
                             "meta": {
                               "type": "object",
@@ -5499,66 +7207,76 @@
                               "additionalProperties": true,
                               "$$ref": "#/components/schemas/Meta"
                             },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
                             "createdAt": {
-                              "description": "The timestamp for when the conversation was created (in milliseconds)",
-                              "type": "number"
+                              "type": "number",
+                              "description": "The creation date"
                             },
                             "updatedAt": {
-                              "description": "The timestamp for when the conversation was last updated (in milliseconds)",
-                              "type": "number"
+                              "type": "number",
+                              "description": "The last update date"
                             },
-                            "messages": {
-                              "description": "The messages associated with this conversation",
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "description": "The ID of the message",
-                                    "type": "string"
-                                  },
-                                  "type": {
-                                    "type": "string",
-                                    "description": "The type of the message",
-                                    "enum": [
-                                      "user",
-                                      "bot",
-                                      "context",
-                                      "instruction",
-                                      "backstory",
-                                      "activity"
-                                    ],
-                                    "$$ref": "#/components/schemas/MessageType"
-                                  },
-                                  "text": {
-                                    "description": "The text of the message",
-                                    "type": "string"
-                                  },
-                                  "createdAt": {
-                                    "description": "The timestamp of when the message was created (in milliseconds)",
-                                    "type": "number"
-                                  },
-                                  "updatedAt": {
-                                    "description": "The timestamp of when the message was last updated  (in milliseconds)",
-                                    "type": "number"
-                                  }
-                                },
-                                "required": [
-                                  "id",
-                                  "type",
-                                  "text",
-                                  "createdAt",
-                                  "updatedAt"
-                                ]
-                              }
+                            "contactId": {
+                              "description": "The contact id assigned to this conversation",
+                              "type": "string"
                             }
                           },
+                          "$$ref": "#/paths/~1conversation~1export/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
                             "updatedAt"
                           ],
-                          "$$ref": "#/paths/~1conversation~1export/get/responses/200/content/application~1json/schema/properties/items/items"
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
                         }
                       },
                       "required": [
@@ -5657,30 +7375,15 @@
                       "type": "array",
                       "items": {
                         "type": "object",
+                        "description": "A bot configuration or reference",
                         "properties": {
-                          "id": {
-                            "description": "The ID of the conversation",
-                            "type": "string"
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
                           },
-                          "botId": {
-                            "description": "The bot id assigned to this conversation",
-                            "type": "string"
-                          },
-                          "backstory": {
-                            "description": "The backstory for the conversation",
-                            "type": "string"
-                          },
-                          "model": {
-                            "description": "The model used in the conversation",
-                            "type": "string"
-                          },
-                          "datasetId": {
-                            "description": "The ID of the dataset used in the conversation",
-                            "type": "string"
-                          },
-                          "skillsetId": {
-                            "description": "The ID of the skillset used in the conversation",
-                            "type": "string"
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
                           },
                           "meta": {
                             "type": "object",
@@ -5688,19 +7391,74 @@
                             "additionalProperties": true,
                             "$$ref": "#/components/schemas/Meta"
                           },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
                           "createdAt": {
-                            "description": "The timestamp for when the conversation was created (in milliseconds)",
-                            "type": "number"
+                            "type": "number",
+                            "description": "The creation date"
                           },
                           "updatedAt": {
-                            "description": "The timestamp for when the conversation was last updated (in milliseconds)",
-                            "type": "number"
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "contactId": {
+                            "description": "The contact id assigned to this conversation",
+                            "type": "string"
                           }
                         },
                         "required": [
                           "id",
                           "createdAt",
                           "updatedAt"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
                         ]
                       }
                     }
@@ -5725,30 +7483,15 @@
                         },
                         "data": {
                           "type": "object",
+                          "description": "A bot configuration or reference",
                           "properties": {
-                            "id": {
-                              "description": "The ID of the conversation",
-                              "type": "string"
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
                             },
-                            "botId": {
-                              "description": "The bot id assigned to this conversation",
-                              "type": "string"
-                            },
-                            "backstory": {
-                              "description": "The backstory for the conversation",
-                              "type": "string"
-                            },
-                            "model": {
-                              "description": "The model used in the conversation",
-                              "type": "string"
-                            },
-                            "datasetId": {
-                              "description": "The ID of the dataset used in the conversation",
-                              "type": "string"
-                            },
-                            "skillsetId": {
-                              "description": "The ID of the skillset used in the conversation",
-                              "type": "string"
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
                             },
                             "meta": {
                               "type": "object",
@@ -5756,21 +7499,76 @@
                               "additionalProperties": true,
                               "$$ref": "#/components/schemas/Meta"
                             },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
                             "createdAt": {
-                              "description": "The timestamp for when the conversation was created (in milliseconds)",
-                              "type": "number"
+                              "type": "number",
+                              "description": "The creation date"
                             },
                             "updatedAt": {
-                              "description": "The timestamp for when the conversation was last updated (in milliseconds)",
-                              "type": "number"
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "contactId": {
+                              "description": "The contact id assigned to this conversation",
+                              "type": "string"
                             }
                           },
+                          "$$ref": "#/paths/~1conversation~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
                             "updatedAt"
                           ],
-                          "$$ref": "#/paths/~1conversation~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
                         }
                       },
                       "required": [
@@ -10594,6 +12392,1141 @@
         ]
       }
     },
+    "/integration/email/{emailIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteEmailIntegration",
+        "summary": "Delete Email integration",
+        "tags": [
+          "Email Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "emailIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Email integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Email integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Email integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "deleteEmailIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/email/{emailIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchEmailIntegration",
+        "summary": "Fetch a emailIntegration",
+        "tags": [
+          "Email Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "emailIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Email integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Email integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "A bot configuration or reference",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The creation date"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The last update date"
+                    },
+                    "contactCollection": {
+                      "description": "Weather to collect contacts",
+                      "type": "boolean"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "botId": {
+                          "type": "string",
+                          "description": "The ID of the bot this configuration is using"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotRef"
+                    },
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "model": {
+                          "type": "string",
+                          "description": "A model definition",
+                          "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
+                          "$$ref": "#/components/schemas/Model"
+                        },
+                        "backstory": {
+                          "type": "string",
+                          "description": "The backstory this configuration is using"
+                        },
+                        "datasetId": {
+                          "type": "string",
+                          "description": "The id of the dataset this configuration is using"
+                        },
+                        "skillsetId": {
+                          "type": "string",
+                          "description": "The id of the skillset this configuration is using"
+                        },
+                        "privacy": {
+                          "type": "boolean",
+                          "description": "The privacy flag for this configuration"
+                        },
+                        "moderation": {
+                          "type": "boolean",
+                          "description": "The moderation flag for this configuration"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotConfig"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "fetchEmailIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/email/{emailIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupEmailIntegration",
+        "summary": "Setup a Email integration",
+        "tags": [
+          "Email Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "emailIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Email integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Email integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Email Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "setupEmailIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/email/{emailIntegrationId}/update": {
+      "post": {
+        "operationId": "updateEmailIntegration",
+        "summary": "Update a Email integration",
+        "tags": [
+          "Email Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "emailIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Email integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Email integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Email Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "updateEmailIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/email/create": {
+      "post": {
+        "operationId": "createEmailIntegration",
+        "summary": "Create Email integration",
+        "tags": [
+          "Email Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Email integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Email Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "createEmailIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/email/list": {
+      "get": {
+        "operationId": "listEmailIntegrations",
+        "summary": "List Email integrations",
+        "tags": [
+          "Email Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Email integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A bot configuration or reference",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "contactCollection": {
+                            "description": "Weather to collect contacts",
+                            "type": "boolean"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration (in milliseconds)",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A bot configuration or reference",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "contactCollection": {
+                              "description": "Weather to collect contacts",
+                              "type": "boolean"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1email~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ],
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listEmailIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/integration/extract/{extractIntegrationId}/delete": {
       "post": {
         "operationId": "deleteExtractIntegration",
@@ -12793,7 +15726,7 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "description": "The ID of the syneced Notion integration",
+                      "description": "The ID of the synced Notion integration",
                       "type": "string"
                     }
                   },
@@ -17631,6 +20564,10 @@
                       "description": "The WhatsApp integration phone number ID",
                       "type": "string"
                     },
+                    "contactCollection": {
+                      "description": "Weather to collect contacts",
+                      "type": "boolean"
+                    },
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
@@ -17939,6 +20876,10 @@
                     "description": "The WhatsApp integration access token",
                     "type": "string"
                   },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
@@ -18148,6 +21089,10 @@
                   "accessToken": {
                     "description": "The WhatsApp integration access token",
                     "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
@@ -18386,6 +21331,10 @@
                             "description": "The WhatsApp integration phone number ID",
                             "type": "string"
                           },
+                          "contactCollection": {
+                            "description": "Weather to collect contacts",
+                            "type": "boolean"
+                          },
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
@@ -18502,6 +21451,10 @@
                             "phoneNumberId": {
                               "description": "The WhatsApp integration phone number ID",
                               "type": "string"
+                            },
+                            "contactCollection": {
+                              "description": "Weather to collect contacts",
+                              "type": "boolean"
                             },
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
@@ -19012,7 +21965,7 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "description": "The ID of the setuped Widget integration",
+                      "description": "The ID of the Widget integration",
                       "type": "string"
                     }
                   },
@@ -20098,9 +23051,9 @@
         ]
       }
     },
-    "/magic/{magicId}/generate": {
+    "/magic/{promptId}/generate": {
       "post": {
-        "operationId": "generateMagic",
+        "operationId": "generateMagicFromPrompt",
         "summary": "Generate text (description, records, abilities and more) based on input.",
         "tags": [
           "Magic"
@@ -20115,6 +23068,10 @@
                   "text": {
                     "description": "The text to use as input",
                     "type": "string"
+                  },
+                  "model": {
+                    "description": "The model to use for generation",
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -20126,7 +23083,7 @@
         },
         "responses": {
           "200": {
-            "description": "The next message in the conversation completed successfully",
+            "description": "The magic prompt completed successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -20196,7 +23153,7 @@
                             "text",
                             "usage"
                           ],
-                          "$$ref": "#/paths/~1magic~1{magicId}~1generate/post/responses/200/content/application~1json/schema"
+                          "$$ref": "#/paths/~1magic~1{promptId}~1generate/post/responses/200/content/application~1json/schema"
                         }
                       },
                       "required": [
@@ -20254,7 +23211,163 @@
             "$$ref": "#/components/responses/Conflict"
           }
         },
-        "__originalOperationId": "generateMagic",
+        "__originalOperationId": "generateMagicFromPrompt",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/magic/list": {
+      "get": {
+        "operationId": "listMagicPrompts",
+        "summary": "Retrieve a list of magic prompts",
+        "tags": [
+          "Magic"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of magic prompts was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "description": "An array of magic prompts",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the magic prompt",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The ID of the magic prompt",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the magic prompt",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "description"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The ID of the magic prompt",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "The ID of the magic prompt",
+                              "type": "string"
+                            },
+                            "description": {
+                              "description": "The description of the magic prompt",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "name",
+                            "description"
+                          ],
+                          "$$ref": "#/paths/~1magic~1list/get/responses/200/content/application~1json/schema/properties/items/items"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listMagicPrompts",
         "security": [
           {
             "BearerAuth": []
@@ -23939,6 +27052,7 @@
       "get": {
         "operationId": "fetchUsage",
         "summary": "Fetch usage",
+        "description": "Fetches the usage data for the user in the current billing period.",
         "tags": [
           "Usage"
         ],
@@ -23961,12 +27075,51 @@
                     "messages": {
                       "description": "The number of messages the user has sent",
                       "type": "number"
+                    },
+                    "database": {
+                      "description": "Database usage information",
+                      "type": "object",
+                      "properties": {
+                        "datasets": {
+                          "description": "The number of datasets the user has created",
+                          "type": "number"
+                        },
+                        "records": {
+                          "description": "The number of records the user has created",
+                          "type": "number"
+                        },
+                        "skillsets": {
+                          "description": "The number of skillsets the user has created",
+                          "type": "number"
+                        },
+                        "abilities": {
+                          "description": "The number of abilities the user has created",
+                          "type": "number"
+                        },
+                        "files": {
+                          "description": "The number of files the user has created",
+                          "type": "number"
+                        },
+                        "users": {
+                          "description": "The number of users the user has created",
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "datasets",
+                        "records",
+                        "skillsets",
+                        "abilities",
+                        "files",
+                        "users"
+                      ]
                     }
                   },
                   "required": [
                     "tokens",
                     "conversations",
-                    "messages"
+                    "messages",
+                    "database"
                   ]
                 }
               }
@@ -24007,6 +27160,7 @@
       "get": {
         "operationId": "fetchUsageSeries",
         "summary": "Fetch usage series",
+        "description": "Fetches a series of usage data points for the user for the last 90 days.",
         "tags": [
           "Usage"
         ],
