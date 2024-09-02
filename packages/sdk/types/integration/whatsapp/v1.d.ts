@@ -28,6 +28,7 @@
  *   phoneNumberId?: string,
  *   accessToken?: string,
  *   sessionDuration?: number,
+ *   attachments?: boolean,
  *   meta?: Record<string,any>
  * }} WhatsAppIntegrationOptions
  *
@@ -133,6 +134,7 @@ export type WhatsAppIntegrationOptions = BotRefOrConfig & {
     phoneNumberId?: string;
     accessToken?: string;
     sessionDuration?: number;
+    attachments?: boolean;
     meta?: Record<string, any>;
 };
 export type WhatsAppIntegrationInstance = WhatsAppIntegrationOptions & {

@@ -27,6 +27,7 @@
  *   description?: string,
  *   botToken?: string,
  *   sessionDuration?: number,
+ *   attachments?: boolean,
  *   meta?: Record<string,any>
  * }} TelegramIntegrationOptions
  *
@@ -130,6 +131,7 @@ export type TelegramIntegrationOptions = BotRefOrConfig & {
     description?: string;
     botToken?: string;
     sessionDuration?: number;
+    attachments?: boolean;
     meta?: Record<string, any>;
 };
 export type TelegramIntegrationInstance = TelegramIntegrationOptions & {

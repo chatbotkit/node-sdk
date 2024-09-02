@@ -104,6 +104,26 @@
       "types": "./types/contact/v1.d.ts",
       "import": "./src/contact/v1.js"
     },
+    "./conversation/attachment": {
+      "types": "./types/conversation/attachment/index.d.ts",
+      "import": "./src/conversation/attachment/index.js"
+    },
+    "./conversation/attachment/index": {
+      "types": "./types/conversation/attachment/index.d.ts",
+      "import": "./src/conversation/attachment/index.js"
+    },
+    "./conversation/attachment/index.js": {
+      "types": "./types/conversation/attachment/index.d.ts",
+      "import": "./src/conversation/attachment/index.js"
+    },
+    "./conversation/attachment/v1": {
+      "types": "./types/conversation/attachment/v1.d.ts",
+      "import": "./src/conversation/attachment/v1.js"
+    },
+    "./conversation/attachment/v1.js": {
+      "types": "./types/conversation/attachment/v1.d.ts",
+      "import": "./src/conversation/attachment/v1.js"
+    },
     "./conversation": {
       "types": "./types/conversation/index.d.ts",
       "import": "./src/conversation/index.js"

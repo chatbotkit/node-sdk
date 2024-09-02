@@ -10,6 +10,10 @@ export function streamComplete(options: Options): import('../utils/stream.js').S
 export default complete;
 export type ReactElement = import('react').ReactElement;
 export type ReactNode = import('react').ReactNode;
+export type Item = {
+    type: string;
+    data: object;
+};
 export type BasicParametersSchema = Record<string, any>;
 export type ValidatingParametersSchema = {
     schema: BasicParametersSchema;
@@ -23,6 +27,12 @@ export type InputMessage = {
     text: string;
     meta?: Record<string, any>;
 };
+export type OutputMessage = {
+    type: 'bot' | 'activity';
+    text: string;
+    meta?: Record<string, any>;
+};
+export type Message = InputMessage | OutputMessage;
 export type RenderFunction = () => AsyncGenerator<ReactNode> | ReactNode | Promise<ReactNode>;
 export type HandlerArgs = any;
 export type HandlerOptions = {
@@ -47,15 +57,26 @@ export type InputFunction = {
     parameters: BasicParametersSchema | ValidatingParametersSchema;
     handler?: ((args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>) | undefined;
 };
+export type OnItemHandler = (arg0: Item) => any;
+export type OnFinishHandler = (arg0: {
+    messages: Message[];
+}) => any;
 export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest, 'messages' | 'functions'> & {
     client: import('@chatbotkit/sdk').ConversationClient;
     messages: InputMessage[];
     functions?: (InputFunction | (() => InputFunction | Promise<InputFunction>))[];
     maxRecusion?: number;
+    onItem?: OnItemHandler;
+    onFinish?: OnFinishHandler;
 };
 /**
  * @typedef {import('react').ReactElement} ReactElement
  * @typedef {import('react').ReactNode} ReactNode
+ */
+/**
+ * @todo come up with a better type for item
+ *
+ * @typedef {{type: string, data: object}} Item
  */
 /**
  * @typedef {Record<string,any>} BasicParametersSchema
@@ -71,10 +92,19 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  *   text: string,
  *   meta?: Record<string,any>
  * }} InputMessage
+ *
+ * @typedef {{
+ *   type: 'bot'|'activity',
+ *   text: string,
+ *   meta?: Record<string,any>
+ * }} OutputMessage
+ *
+ * @typedef {InputMessage | OutputMessage} Message
  */
 /**
  * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
- *
+ */
+/**
  * @typedef {any} HandlerArgs
  * @typedef {{
  *   messages: InputMessage[],
@@ -87,19 +117,27 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  *   }
  * }} HandlerOptions
  * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render?: RenderFunction, result?: any}} HandlerResult
- *
+ */
+/**
  * @typedef {{
  *   name: string,
  *   description: string,
  *   parameters: BasicParametersSchema|ValidatingParametersSchema,
  *   handler?: (args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>
  * }} InputFunction
- *
+ */
+/**
+ * @typedef {function(Item): any} OnItemHandler
+ * @typedef {function({ messages: Message[] }): any} OnFinishHandler
+ */
+/**
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
  *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
- *   maxRecusion?: number
+ *   maxRecusion?: number,
+ *   onItem?: OnItemHandler,
+ *   onFinish?: OnFinishHandler
  * }} Options
  */
 /**

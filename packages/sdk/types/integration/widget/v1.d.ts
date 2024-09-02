@@ -22,6 +22,8 @@
  *   verbose?: boolean,
  *   tools?: boolean,
  *   unfurl?: boolean,
+ *   math?: boolean,
+ *   attachments?: boolean,
  *   autoScroll?: boolean,
  *   startFirst?: boolean,
  *   contactCollection?: boolean,
@@ -120,6 +122,8 @@ export type WidgetIntegrationOptions = {
     verbose?: boolean;
     tools?: boolean;
     unfurl?: boolean;
+    math?: boolean;
+    attachments?: boolean;
     autoScroll?: boolean;
     startFirst?: boolean;
     contactCollection?: boolean;

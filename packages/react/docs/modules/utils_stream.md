@@ -6,12 +6,25 @@
 
 ### Type Aliases
 
+- [ConsumeOptions](utils_stream.md#consumeoptions)
 - [ConsumeResult](utils_stream.md#consumeresult)
 - [ConsumeSource](utils_stream.md#consumesource)
+- [Handlers](utils_stream.md#handlers)
+- [StreamOptions](utils_stream.md#streamoptions)
 - [StreamResult](utils_stream.md#streamresult)
 - [StreamSource](utils_stream.md#streamsource)
 
 ## Type Aliases
+
+### ConsumeOptions
+
+Ƭ **ConsumeOptions**\<\>: {} & [`Handlers`](utils_stream.md#handlers)
+
+#### Defined in
+
+[utils/stream.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L91)
+
+___
 
 ### ConsumeResult
 
@@ -19,7 +32,7 @@
 
 #### Defined in
 
-[utils/stream.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L40)
+[utils/stream.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L62)
 
 ___
 
@@ -29,7 +42,33 @@ ___
 
 #### Defined in
 
-[utils/stream.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L39)
+[utils/stream.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L61)
+
+___
+
+### Handlers
+
+Ƭ **Handlers**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `onFinish?` | () => `any` |
+
+#### Defined in
+
+[utils/stream.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L4)
+
+___
+
+### StreamOptions
+
+Ƭ **StreamOptions**\<\>: {} & [`Handlers`](utils_stream.md#handlers)
+
+#### Defined in
+
+[utils/stream.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L43)
 
 ___
 
@@ -39,7 +78,7 @@ ___
 
 #### Defined in
 
-[utils/stream.js:5](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L5)
+[utils/stream.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L11)
 
 ___
 
@@ -49,4 +88,4 @@ ___
 
 #### Defined in
 
-[utils/stream.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L4)
+[utils/stream.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L10)

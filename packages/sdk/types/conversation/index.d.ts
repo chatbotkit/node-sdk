@@ -16,6 +16,10 @@ export class ConversationClient extends ChatBotKitClient {
      */
     session: ConversationSessionClient;
     /**
+     * @type {ConversationAttachmentClient} attachment client
+     */
+    attachment: ConversationAttachmentClient;
+    /**
      * Retrieves a list of all conversations.
      *
      * @param {import('./v1.js').ConversationListRequest} [request]
@@ -99,3 +103,4 @@ export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>
 import { ChatBotKitClient } from '../client.js';
 import { ConversationMessageClient } from './message/index.js';
 import { ConversationSessionClient } from './session/index.js';
+import { ConversationAttachmentClient } from './attachment/index.js';
