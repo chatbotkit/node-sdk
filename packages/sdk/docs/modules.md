@@ -15,6 +15,8 @@
 - [contact](modules/contact.md)
 - [contact/v1](modules/contact_v1.md)
 - [conversation](modules/conversation.md)
+- [conversation/attachment](modules/conversation_attachment.md)
+- [conversation/attachment/v1](modules/conversation_attachment_v1.md)
 - [conversation/message](modules/conversation_message.md)
 - [conversation/message/v1](modules/conversation_message_v1.md)
 - [conversation/session](modules/conversation_session.md)

@@ -14,6 +14,8 @@
 
   ↳ [`ContactClient`](contact.ContactClient.md)
 
+  ↳ [`ConversationAttachmentClient`](conversation_attachment.ConversationAttachmentClient.md)
+
   ↳ [`ConversationClient`](conversation.ConversationClient.md)
 
   ↳ [`ConversationMessageClient`](conversation_message.ConversationMessageClient.md)

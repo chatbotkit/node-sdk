@@ -66,7 +66,7 @@ Conversation client.
 
 ### attachment
 
-• **attachment**: `ConversationAttachmentClient`
+• **attachment**: [`ConversationAttachmentClient`](conversation_attachment.ConversationAttachmentClient.md)
 
 #### Defined in
 
