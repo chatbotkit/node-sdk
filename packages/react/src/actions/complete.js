@@ -28,7 +28,9 @@ import { getRandomId } from '../utils/string.js'
 
 /**
  * @typedef {() => AsyncGenerator<ReactNode>|ReactNode|Promise<ReactNode>} RenderFunction
- *
+ */
+
+/**
  * @typedef {any} HandlerArgs
  * @typedef {{
  *   messages: InputMessage[],
@@ -41,14 +43,18 @@ import { getRandomId } from '../utils/string.js'
  *   }
  * }} HandlerOptions
  * @typedef {string|ReactElement|{text?: string, children?: ReactNode, render?: RenderFunction, result?: any}} HandlerResult
- *
+ */
+
+/**
  * @typedef {{
  *   name: string,
  *   description: string,
  *   parameters: BasicParametersSchema|ValidatingParametersSchema,
  *   handler?: (args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>
  * }} InputFunction
- *
+ */
+
+/**
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
