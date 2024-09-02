@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.12.0
+
+### Minor Changes
+
+- b8140aa: This changed includes the inclusion of additional API props and callback handlers to improve DX.
+
 ## 1.11.0
 
 ### Minor Changes
