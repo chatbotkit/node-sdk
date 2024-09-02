@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1721053613058)"
+    "version": "v1 (build 1725275238917)"
   },
   "servers": [
     {
@@ -37,10 +37,6 @@
           "text": {
             "type": "string",
             "description": "The text of the message"
-          },
-          "image": {
-            "type": "string",
-            "description": "A URL of an image"
           },
           "meta": {
             "type": "object",
@@ -932,7 +928,7 @@
                       "type": "string"
                     },
                     "token": {
-                      "description": "The token for this conversaion",
+                      "description": "The token for this conversation",
                       "type": "string"
                     },
                     "expiresAt": {
@@ -3298,6 +3294,217 @@
           }
         },
         "__originalOperationId": "listContacts",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/conversation/{conversationId}/attachment/upload": {
+      "post": {
+        "operationId": "uploadConversationAttachment",
+        "summary": "Upload a file as a conversation attachment",
+        "description": "Upload the specified file to the conversation. The file can be\nspecified either as a HTTP URL, a data URL, a multipart/form-data, or\nas a raw file stream. There is currently a limit of 4.5MB for files\nuploaded via all available methods except for direct-to-source uploads\nwhen using application/json request body with a file object.\n",
+        "tags": [
+          "Conversation Attachment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "file": {
+                        "description": "The file to upload either as http: or data: URL",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "file": {
+                        "description": "The file definition to upload",
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "description": "The file type",
+                            "type": "string"
+                          },
+                          "size": {
+                            "description": "The file size",
+                            "type": "number"
+                          },
+                          "name": {
+                            "description": "The file name",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "size"
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "required": [
+                  "file"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "description": "The file to upload",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              }
+            },
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was upload successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the upload file",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the upload file",
+                      "type": "string"
+                    },
+                    "uploadRequest": {
+                      "description": "The request required to upload the file",
+                      "type": "object",
+                      "properties": {
+                        "method": {
+                          "description": "The HTTP method to use",
+                          "type": "string"
+                        },
+                        "url": {
+                          "description": "The HTTP url to use",
+                          "type": "string"
+                        },
+                        "headers": {
+                          "description": "The HTTP url to use",
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "method",
+                        "url",
+                        "headers"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "uploadConversationAttachment",
         "security": [
           {
             "BearerAuth": []
@@ -6620,10 +6827,6 @@
                         "text": {
                           "type": "string",
                           "description": "The text of the message"
-                        },
-                        "image": {
-                          "type": "string",
-                          "description": "A URL of an image"
                         },
                         "meta": {
                           "type": "object",
@@ -10261,7 +10464,21 @@
           "200": {
             "description": "The file was downloaded successfully",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "description": "The URL to download the file",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ]
+                }
+              },
+              "*/*": {
                 "schema": {
                   "type": "string",
                   "format": "binary"
@@ -14476,6 +14693,10 @@
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
+                    },
+                    "attachments": {
+                      "description": "Weather the bot supports attachments",
+                      "type": "boolean"
                     }
                   },
                   "required": [
@@ -14780,6 +15001,10 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Weather the bot supports attachments",
+                    "type": "boolean"
                   }
                 },
                 "oneOf": [
@@ -14986,6 +15211,10 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Weather the bot supports attachments",
+                    "type": "boolean"
                   }
                 },
                 "oneOf": [
@@ -15219,6 +15448,10 @@
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
+                          },
+                          "attachments": {
+                            "description": "Weather the bot supports attachments",
+                            "type": "boolean"
                           }
                         },
                         "required": [
@@ -15332,6 +15565,10 @@
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
                               "type": "number"
+                            },
+                            "attachments": {
+                              "description": "Weather the bot supports attachments",
+                              "type": "boolean"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1messenger~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -15627,9 +15864,7 @@
                   "required": [
                     "id",
                     "createdAt",
-                    "updatedAt"
-                  ],
-                  "requires": [
+                    "updatedAt",
                     "datasetId"
                   ]
                 }
@@ -16236,9 +16471,7 @@
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
-                        ],
-                        "requires": [
+                          "updatedAt",
                           "datasetId"
                         ]
                       }
@@ -16313,9 +16546,7 @@
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
-                          ],
-                          "requires": [
+                            "updatedAt",
                             "datasetId"
                           ]
                         }
@@ -19436,6 +19667,10 @@
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
+                    },
+                    "attachments": {
+                      "description": "Weather the bot supports attachments",
+                      "type": "boolean"
                     }
                   },
                   "required": [
@@ -19739,6 +19974,10 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Weather the bot supports attachments",
+                    "type": "boolean"
                   }
                 },
                 "oneOf": [
@@ -19945,6 +20184,10 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Weather the bot supports attachments",
+                    "type": "boolean"
                   }
                 },
                 "oneOf": [
@@ -20174,6 +20417,10 @@
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
+                          },
+                          "attachments": {
+                            "description": "Weather the bot supports attachments",
+                            "type": "boolean"
                           }
                         },
                         "required": [
@@ -20282,6 +20529,10 @@
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
                               "type": "number"
+                            },
+                            "attachments": {
+                              "description": "Weather the bot supports attachments",
+                              "type": "boolean"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1telegram~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -20373,6 +20624,1156 @@
           }
         },
         "__originalOperationId": "listTelegramIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/{triggerIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteTriggerIntegration",
+        "summary": "Delete Trigger integration",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "triggerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Trigger integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Trigger integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "deleteTriggerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/{triggerIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchTriggerIntegration",
+        "summary": "Fetch a triggerIntegration",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "triggerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Trigger integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "A bot configuration or reference",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The creation date"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The last update date"
+                    },
+                    "secret": {
+                      "description": "The Trigger integration secret",
+                      "type": "string"
+                    },
+                    "text": {
+                      "description": "The text message to trigger the integration",
+                      "type": "string"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "secret"
+                  ],
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "botId": {
+                          "type": "string",
+                          "description": "The ID of the bot this configuration is using"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotRef"
+                    },
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "model": {
+                          "type": "string",
+                          "description": "A model definition",
+                          "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
+                          "$$ref": "#/components/schemas/Model"
+                        },
+                        "backstory": {
+                          "type": "string",
+                          "description": "The backstory this configuration is using"
+                        },
+                        "datasetId": {
+                          "type": "string",
+                          "description": "The id of the dataset this configuration is using"
+                        },
+                        "skillsetId": {
+                          "type": "string",
+                          "description": "The id of the skillset this configuration is using"
+                        },
+                        "privacy": {
+                          "type": "boolean",
+                          "description": "The privacy flag for this configuration"
+                        },
+                        "moderation": {
+                          "type": "boolean",
+                          "description": "The moderation flag for this configuration"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotConfig"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          }
+        },
+        "__originalOperationId": "fetchTriggerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/{triggerIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupTriggerIntegration",
+        "summary": "Setup a Trigger integration",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "triggerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Trigger integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Trigger Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "setupTriggerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/{triggerIntegrationId}/update": {
+      "post": {
+        "operationId": "updateTriggerIntegration",
+        "summary": "Update a Trigger integration",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "triggerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "text": {
+                    "description": "The text message to trigger the integration",
+                    "type": "string"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Trigger integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Trigger Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "description": "The specified resource was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "updateTriggerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/create": {
+      "post": {
+        "operationId": "createTriggerIntegration",
+        "summary": "Create Trigger integration",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "text": {
+                    "description": "The text message to trigger the integration",
+                    "type": "string"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Trigger integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Trigger Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request could not be understood or was missing required parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          },
+          "409": {
+            "description": "The request could not be completed due to a conflict with the current state of the resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Conflict"
+          }
+        },
+        "__originalOperationId": "createTriggerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/list": {
+      "get": {
+        "operationId": "listTriggerIntegrations",
+        "summary": "List Trigger integrations",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Trigger integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A bot configuration or reference",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          },
+                          "secret": {
+                            "description": "The Trigger integration secret",
+                            "type": "string"
+                          },
+                          "text": {
+                            "description": "The text message to trigger the integration",
+                            "type": "string"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration (in milliseconds)",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "secret"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A bot configuration or reference",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            },
+                            "secret": {
+                              "description": "The Trigger integration secret",
+                              "type": "string"
+                            },
+                            "text": {
+                              "description": "The text message to trigger the integration",
+                              "type": "string"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1trigger~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "secret"
+                          ],
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The user is not authorized to access the requested resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/Unauthorized"
+          }
+        },
+        "__originalOperationId": "listTriggerIntegrations",
         "security": [
           {
             "BearerAuth": []
@@ -20571,6 +21972,10 @@
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
+                    },
+                    "attachments": {
+                      "description": "Weather the bot supports attachments",
+                      "type": "boolean"
                     }
                   },
                   "required": [
@@ -20883,6 +22288,10 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Weather the bot supports attachments",
+                    "type": "boolean"
                   }
                 },
                 "oneOf": [
@@ -21097,6 +22506,10 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Weather the bot supports attachments",
+                    "type": "boolean"
                   }
                 },
                 "oneOf": [
@@ -21338,6 +22751,10 @@
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
+                          },
+                          "attachments": {
+                            "description": "Weather the bot supports attachments",
+                            "type": "boolean"
                           }
                         },
                         "required": [
@@ -21459,6 +22876,10 @@
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
                               "type": "number"
+                            },
+                            "attachments": {
+                              "description": "Weather the bot supports attachments",
+                              "type": "boolean"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1whatsapp~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -21784,6 +23205,14 @@
                     },
                     "unfurl": {
                       "description": "Whether the Widget integration unfurls links",
+                      "type": "boolean"
+                    },
+                    "math": {
+                      "description": "Whether the Widget integration supports math",
+                      "type": "boolean"
+                    },
+                    "attachments": {
+                      "description": "Whether the Widget integration supports attachments",
                       "type": "boolean"
                     },
                     "autoScroll": {
@@ -22143,6 +23572,14 @@
                     "description": "Whether the Widget integration unfurls links",
                     "type": "boolean"
                   },
+                  "math": {
+                    "description": "Whether the Widget integration supports math",
+                    "type": "boolean"
+                  },
+                  "attachments": {
+                    "description": "Whether the Widget integration supports attachments",
+                    "type": "boolean"
+                  },
                   "autoScroll": {
                     "description": "Whether the Widget integration auto scrolls",
                     "type": "boolean"
@@ -22423,6 +23860,14 @@
                   },
                   "unfurl": {
                     "description": "Whether the Widget integration unfurls links",
+                    "type": "boolean"
+                  },
+                  "math": {
+                    "description": "Weather the Widget integration supports math",
+                    "type": "boolean"
+                  },
+                  "attachments": {
+                    "description": "Weather the Widget integration supports attachments",
                     "type": "boolean"
                   },
                   "autoScroll": {
@@ -22734,6 +24179,14 @@
                             "description": "Whether the Widget integration unfurls links",
                             "type": "boolean"
                           },
+                          "math": {
+                            "description": "Weather the Widget integration supports math",
+                            "type": "boolean"
+                          },
+                          "attachments": {
+                            "description": "Weather the Widget integration supports attachments",
+                            "type": "boolean"
+                          },
                           "autoScroll": {
                             "description": "Whether the Widget integration auto scrolls",
                             "type": "boolean"
@@ -22922,6 +24375,14 @@
                               "description": "Whether the Widget integration unfurls links",
                               "type": "boolean"
                             },
+                            "math": {
+                              "description": "Weather the Widget integration supports math",
+                              "type": "boolean"
+                            },
+                            "attachments": {
+                              "description": "Weather the Widget integration supports attachments",
+                              "type": "boolean"
+                            },
                             "autoScroll": {
                               "description": "Whether the Widget integration auto scrolls",
                               "type": "boolean"
@@ -23057,6 +24518,17 @@
         "summary": "Generate text (description, records, abilities and more) based on input.",
         "tags": [
           "Magic"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "promptId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the prompt to use for generation",
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "required": true,

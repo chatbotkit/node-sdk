@@ -280,6 +280,31 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/conversation/{conversationId}/attachment/upload": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Upload a file as a conversation attachment
+         * @description Upload the specified file to the conversation. The file can be
+         *     specified either as a HTTP URL, a data URL, a multipart/form-data, or
+         *     as a raw file stream. There is currently a limit of 4.5MB for files
+         *     uploaded via all available methods except for direct-to-source uploads
+         *     when using application/json request body with a file object.
+         *
+         */
+        post: operations["uploadConversationAttachment"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/conversation/{conversationId}/complete": {
         parameters: {
             query?: never;
@@ -1957,6 +1982,108 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/trigger/{triggerIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Trigger integration */
+        post: operations["deleteTriggerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/trigger/{triggerIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a triggerIntegration */
+        get: operations["fetchTriggerIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/trigger/{triggerIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup a Trigger integration */
+        post: operations["setupTriggerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/trigger/{triggerIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Trigger integration */
+        post: operations["updateTriggerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/trigger/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Trigger integration */
+        post: operations["createTriggerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/trigger/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Trigger integrations */
+        get: operations["listTriggerIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/whatsapp/{whatsappIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -2673,8 +2800,6 @@ export interface components {
             type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
             /** @description The text of the message */
             text: string;
-            /** @description A URL of an image */
-            image?: string;
             /** @description Meta data information */
             meta?: {
                 [key: string]: unknown;
@@ -3161,7 +3286,7 @@ export interface operations {
                         id: string;
                         /** @description The ID of the conversation */
                         conversationId: string;
-                        /** @description The token for this conversaion */
+                        /** @description The token for this conversation */
                         token: string;
                         /** @description The time the token will expire in milliseconds */
                         expiresAt: number;
@@ -4316,6 +4441,109 @@ export interface operations {
             };
             /** @description The user is not authorized to access the requested resource */
             401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    uploadConversationAttachment: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                conversationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The file to upload either as http: or data: URL */
+                    file: string;
+                } | {
+                    /** @description The file definition to upload */
+                    file: {
+                        /** @description The file type */
+                        type: string;
+                        /** @description The file size */
+                        size: number;
+                        /** @description The file name */
+                        name?: string;
+                    };
+                };
+                "multipart/form-data": {
+                    /**
+                     * Format: binary
+                     * @description The file to upload
+                     */
+                    file: string;
+                };
+                "*/*": string;
+            };
+        };
+        responses: {
+            /** @description The file was upload successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the upload file */
+                        id: string;
+                        /** @description The name of the upload file */
+                        name?: string;
+                        /** @description The request required to upload the file */
+                        uploadRequest?: {
+                            /** @description The HTTP method to use */
+                            method: string;
+                            /** @description The HTTP url to use */
+                            url: string;
+                            /** @description The HTTP url to use */
+                            headers: Record<string, never>;
+                        };
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -5995,8 +6223,6 @@ export interface operations {
                         type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
-                        /** @description A URL of an image */
-                        image?: string;
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
@@ -7793,7 +8019,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/octet-stream": string;
+                    "application/json": {
+                        /** @description The URL to download the file */
+                        url: string;
+                    };
+                    "*/*": string;
                 };
             };
             /** @description The user is not authorized to access the requested resource */
@@ -10013,6 +10243,8 @@ export interface operations {
                         verifyToken: string;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
+                        /** @description Weather the bot supports attachments */
+                        attachments?: boolean;
                     } & ({
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
@@ -10174,6 +10406,8 @@ export interface operations {
                     accessToken?: string;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description Weather the bot supports attachments */
+                    attachments?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -10289,6 +10523,8 @@ export interface operations {
                     accessToken?: string;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description Weather the bot supports attachments */
+                    attachments?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -10407,6 +10643,8 @@ export interface operations {
                             verifyToken: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description Weather the bot supports attachments */
+                            attachments?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -10454,6 +10692,8 @@ export interface operations {
                             verifyToken: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description Weather the bot supports attachments */
+                            attachments?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -10597,7 +10837,7 @@ export interface operations {
                         /** @description The last update date */
                         updatedAt: number;
                         /** @description The ID of the dataset to sync into */
-                        datasetId?: string;
+                        datasetId: string;
                         /** @description The Notion API token */
                         token?: string;
                         /** @description The sync schedule */
@@ -10932,7 +11172,7 @@ export interface operations {
                             /** @description The last update date */
                             updatedAt: number;
                             /** @description The ID of the dataset to sync into */
-                            datasetId?: string;
+                            datasetId: string;
                             /** @description The Notion API token */
                             token?: string;
                             /** @description The sync schedule */
@@ -10964,7 +11204,7 @@ export interface operations {
                             /** @description The last update date */
                             updatedAt: number;
                             /** @description The ID of the dataset to sync into */
-                            datasetId?: string;
+                            datasetId: string;
                             /** @description The Notion API token */
                             token?: string;
                             /** @description The sync schedule */
@@ -12626,6 +12866,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
+                        /** @description Weather the bot supports attachments */
+                        attachments?: boolean;
                     } & ({
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
@@ -12787,6 +13029,8 @@ export interface operations {
                     botToken?: string;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description Weather the bot supports attachments */
+                    attachments?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -12902,6 +13146,8 @@ export interface operations {
                     botToken?: string;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description Weather the bot supports attachments */
+                    attachments?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -13018,6 +13264,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description Weather the bot supports attachments */
+                            attachments?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -13061,6 +13309,601 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                            /** @description Weather the bot supports attachments */
+                            attachments?: boolean;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    deleteTriggerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                triggerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Trigger integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Trigger integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    fetchTriggerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                triggerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Trigger integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                        /** @description The Trigger integration secret */
+                        secret: string;
+                        /** @description The text message to trigger the integration */
+                        text?: string;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    setupTriggerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                triggerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Trigger integration was successfully setup */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Trigger Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    updateTriggerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                triggerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The text message to trigger the integration */
+                    text?: string;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Trigger integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Trigger Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The specified resource was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    createTriggerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The text message to trigger the integration */
+                    text?: string;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Trigger integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Trigger Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The user is not authorized to access the requested resource */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+            /** @description The request could not be completed due to a conflict with the current state of the resource. */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The error message */
+                        message?: string;
+                        /** @description The error code */
+                        code?: string;
+                    };
+                };
+            };
+        };
+    };
+    listTriggerIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Trigger integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The Trigger integration secret */
+                            secret: string;
+                            /** @description The text message to trigger the integration */
+                            text?: string;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description A bot configuration or reference */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                            /** @description The Trigger integration secret */
+                            secret: string;
+                            /** @description The text message to trigger the integration */
+                            text?: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -13213,6 +14056,8 @@ export interface operations {
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
+                        /** @description Weather the bot supports attachments */
+                        attachments?: boolean;
                     } & ({
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
@@ -13378,6 +14223,8 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description Weather the bot supports attachments */
+                    attachments?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -13497,6 +14344,8 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description Weather the bot supports attachments */
+                    attachments?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -13619,6 +14468,8 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description Weather the bot supports attachments */
+                            attachments?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -13670,6 +14521,8 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description Weather the bot supports attachments */
+                            attachments?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -13838,6 +14691,10 @@ export interface operations {
                         tools?: boolean;
                         /** @description Whether the Widget integration unfurls links */
                         unfurl?: boolean;
+                        /** @description Whether the Widget integration supports math */
+                        math?: boolean;
+                        /** @description Whether the Widget integration supports attachments */
+                        attachments?: boolean;
                         /** @description Whether the Widget integration auto scrolls */
                         autoScroll?: boolean;
                         /** @description Whether the Widget integration starts first */
@@ -14023,6 +14880,10 @@ export interface operations {
                     tools?: boolean;
                     /** @description Whether the Widget integration unfurls links */
                     unfurl?: boolean;
+                    /** @description Whether the Widget integration supports math */
+                    math?: boolean;
+                    /** @description Whether the Widget integration supports attachments */
+                    attachments?: boolean;
                     /** @description Whether the Widget integration auto scrolls */
                     autoScroll?: boolean;
                     /** @description Whether the Widget integration starts first */
@@ -14176,6 +15037,10 @@ export interface operations {
                     tools?: boolean;
                     /** @description Whether the Widget integration unfurls links */
                     unfurl?: boolean;
+                    /** @description Weather the Widget integration supports math */
+                    math?: boolean;
+                    /** @description Weather the Widget integration supports attachments */
+                    attachments?: boolean;
                     /** @description Whether the Widget integration auto scrolls */
                     autoScroll?: boolean;
                     /** @description Whether the Widget integration starts first */
@@ -14332,6 +15197,10 @@ export interface operations {
                             tools?: boolean;
                             /** @description Whether the Widget integration unfurls links */
                             unfurl?: boolean;
+                            /** @description Weather the Widget integration supports math */
+                            math?: boolean;
+                            /** @description Weather the Widget integration supports attachments */
+                            attachments?: boolean;
                             /** @description Whether the Widget integration auto scrolls */
                             autoScroll?: boolean;
                             /** @description Whether the Widget integration starts first */
@@ -14417,6 +15286,10 @@ export interface operations {
                             tools?: boolean;
                             /** @description Whether the Widget integration unfurls links */
                             unfurl?: boolean;
+                            /** @description Weather the Widget integration supports math */
+                            math?: boolean;
+                            /** @description Weather the Widget integration supports attachments */
+                            attachments?: boolean;
                             /** @description Whether the Widget integration auto scrolls */
                             autoScroll?: boolean;
                             /** @description Whether the Widget integration starts first */
@@ -14476,7 +15349,9 @@ export interface operations {
         parameters: {
             query?: never;
             header?: never;
-            path?: never;
+            path: {
+                promptId: string;
+            };
             cookie?: never;
         };
         requestBody: {
