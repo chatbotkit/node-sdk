@@ -1,4 +1,10 @@
 /**
+ * @typedef {{
+ *   onFinish?: () => any
+ * }} Handlers
+ */
+
+/**
  * @todo come up with a better type for source and result
  *
  * @typedef {any} StreamSource
@@ -8,29 +14,45 @@
  * @param {StreamSource} source
  * @returns {StreamResult}
  */
-export function stream(source) {
+function streamIt(source) {
   /** @type {Promise<any>} */
   let it
 
   if ('next' in source && typeof source.next === 'function') {
     it = source.next()
   } else if ('stream' in source && typeof source.stream === 'function') {
-    return stream(source.stream())
+    return streamIt(source.stream())
   } else {
     throw new Error('Invalid source')
   }
 
   return new Promise((resolve, reject) => {
-    it.then((res) => {
+    it.then(async (res) => {
       if (res.done) {
         resolve({ iteratorResult: res })
       } else {
-        resolve({ iteratorResult: res, next: stream(source) })
+        resolve({ iteratorResult: res, next: streamIt(source) })
       }
     })
 
     it.catch((error) => reject(error))
   })
+}
+
+/**
+ * @typedef {{} & Handlers} StreamOptions
+ *
+ * @internal
+ * @param {StreamSource} source
+ * @param {StreamOptions} [options]
+ * @returns {StreamResult}
+ */
+export async function* stream(source, options) {
+  yield* streamIt(source)
+
+  if (options?.onFinish) {
+    await options.onFinish()
+  }
 }
 
 /**
@@ -43,7 +65,7 @@ export function stream(source) {
  * @param {ConsumeSource} source
  * @returns {ConsumeResult}
  */
-export function consume(source) {
+function consumeIt(source) {
   return {
     [Symbol.asyncIterator]: function () {
       return {
@@ -62,5 +84,21 @@ export function consume(source) {
         },
       }
     },
+  }
+}
+
+/**
+ * @typedef {{} & Handlers} ConsumeOptions
+ *
+ * @internal
+ * @param {ConsumeSource} source
+ * @param {ConsumeOptions} [options]
+ * @returns {ConsumeResult}
+ */
+export async function* consume(source, options) {
+  yield* consumeIt(source)
+
+  if (options?.onFinish) {
+    await options.onFinish()
   }
 }
