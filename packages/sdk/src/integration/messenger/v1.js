@@ -31,6 +31,7 @@ import { buildModelString } from '../../model/v1.js'
  *   description?: string,
  *   accessToken?: string,
  *   sessionDuration?: number,
+ *   attachments?: boolean,
  *   meta?: Record<string,any>
  * }} MessengerIntegrationOptions
  *

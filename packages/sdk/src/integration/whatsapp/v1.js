@@ -32,6 +32,7 @@ import { buildModelString } from '../../model/v1.js'
  *   phoneNumberId?: string,
  *   accessToken?: string,
  *   sessionDuration?: number,
+ *   attachments?: boolean,
  *   meta?: Record<string,any>
  * }} WhatsAppIntegrationOptions
  *
