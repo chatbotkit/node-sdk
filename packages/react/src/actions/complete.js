@@ -10,6 +10,12 @@ import { getRandomId } from '../utils/string.js'
  */
 
 /**
+ * @todo come up with a better type for item
+ *
+ * @typedef {{type: string, data: object}} Item
+ */
+
+/**
  * @typedef {Record<string,any>} BasicParametersSchema
  *
  * @typedef {{
@@ -24,6 +30,14 @@ import { getRandomId } from '../utils/string.js'
  *   text: string,
  *   meta?: Record<string,any>
  * }} InputMessage
+ *
+ * @typedef {{
+ *   type: 'bot'|'activity',
+ *   text: string,
+ *   meta?: Record<string,any>
+ * }} OutputMessage
+ *
+ * @typedef {InputMessage | OutputMessage} Message
  */
 
 /**
@@ -55,11 +69,18 @@ import { getRandomId } from '../utils/string.js'
  */
 
 /**
+ * @typedef {function(Item): any} OnItemHandler
+ * @typedef {function({ messages: Message[] }): any} OnFinishHandler
+ */
+
+/**
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
  *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
- *   maxRecusion?: number
+ *   maxRecusion?: number,
+ *   onItem?: OnItemHandler,
+ *   onFinish?: OnFinishHandler
  * }} Options
  */
 
@@ -171,6 +192,12 @@ async function* complete({
     // By default all items are yielded.
 
     yield item
+
+    // If we have an onItem handler then we call it.
+
+    if (options.onItem) {
+      await options.onItem(item)
+    }
 
     // Handle items based on their type.
 
@@ -342,6 +369,12 @@ async function* complete({
         }
       }
     }
+  }
+
+  // If we have an onFinish handler then we call it.
+
+  if (options.onFinish) {
+    await options.onFinish({ messages })
   }
 }
 
