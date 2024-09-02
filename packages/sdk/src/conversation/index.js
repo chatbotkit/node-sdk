@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
+import { ConversationAttachmentClient } from './attachment/index.js'
 import { ConversationMessageClient } from './message/index.js'
 import { ConversationSessionClient } from './session/index.js'
 import {
@@ -40,6 +41,11 @@ export class ConversationClient extends ChatBotKitClient {
      * @type {ConversationSessionClient} session client
      */
     this.session = new ConversationSessionClient(options)
+
+    /**
+     * @type {ConversationAttachmentClient} attachment client
+     */
+    this.attachment = new ConversationAttachmentClient(options)
   }
 
   /**
