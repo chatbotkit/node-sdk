@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.13.0
+
+### Minor Changes
+
+- 678ffa9: Added support for the the Widget SDK.
+
 ## 1.12.0
 
 ### Minor Changes
