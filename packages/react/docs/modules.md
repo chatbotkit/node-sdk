@@ -17,4 +17,7 @@
 - [hooks/useConversationManagerRemote](modules/hooks_useConversationManagerRemote.md)
 - [hooks/useConversationManagerState](modules/hooks_useConversationManagerState.md)
 - [hooks/useConversationManagerStateReducer](modules/hooks_useConversationManagerStateReducer.md)
+- [hooks/useWidgetInstance](modules/hooks_useWidgetInstance.md)
+- [hooks/useWidgetInstanceFunctions](modules/hooks_useWidgetInstanceFunctions.md)
+- [hooks/useWidgetInstanceNotifications](modules/hooks_useWidgetInstanceNotifications.md)
 - [utils/stream](modules/utils_stream.md)

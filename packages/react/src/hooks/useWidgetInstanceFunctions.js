@@ -5,19 +5,13 @@ import { useEffect } from 'react'
 import useWidgetInstance from './useWidgetInstance.js'
 
 /**
- * @typedef {{
- *   description: string,
- *   parameters: Record<string, any>,
- *   results: {
- *     data: any
- *   }
- * }} WidgetFunction
- * 
+ * @typedef {import('./useWidgetInstance.js').WidgetFunction} WidgetFunction
+ *
  * @param {{
  *   functions?: Record<string, WidgetFunction>?
- * }} params 
+ * }} [params]
  */
-export function useWidgetInstanceFunctions({ functions }) {
+export function useWidgetInstanceFunctions(params) {
   const instance = useWidgetInstance()
 
   useEffect(() => {
@@ -25,14 +19,14 @@ export function useWidgetInstanceFunctions({ functions }) {
       return
     }
 
-    if (functions === undefined) {
+    if (params?.functions === undefined) {
       return
     }
 
     instance.functions = {
-      ...functions,
+      ...params?.functions,
     }
-  }, [functions, instance])
+  }, [params?.functions, instance])
 }
 
 export default useWidgetInstanceFunctions

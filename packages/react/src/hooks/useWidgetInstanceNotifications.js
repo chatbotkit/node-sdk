@@ -5,15 +5,13 @@ import { useEffect } from 'react'
 import useWidgetInstance from './useWidgetInstance.js'
 
 /**
- * @typedef {{
- *   text: string
- * }} WidgetNotification
+ * @typedef {import('./useWidgetInstance.js').WidgetNotification} WidgetNotification
  *
  * @param {{
  *   notifications?: Record<string, WidgetNotification>?
- * }} params
+ * }} [params]
  */
-export function useWidgetInstanceNotifications({ notifications }) {
+export function useWidgetInstanceNotifications(params) {
   const instance = useWidgetInstance()
 
   useEffect(() => {
@@ -21,14 +19,14 @@ export function useWidgetInstanceNotifications({ notifications }) {
       return
     }
 
-    if (notifications == undefined) {
+    if (params?.notifications == undefined) {
       return
     }
 
     instance.notifications = {
-      ...notifications,
+      ...params?.notifications,
     }
-  }, [notifications, instance])
+  }, [params?.notifications, instance])
 }
 
 export default useWidgetInstanceNotifications

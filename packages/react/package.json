@@ -114,6 +114,30 @@
       "types": "./types/hooks/useConversationManagerStateReducer.d.ts",
       "import": "./src/hooks/useConversationManagerStateReducer.js"
     },
+    "./hooks/useWidgetInstance": {
+      "types": "./types/hooks/useWidgetInstance.d.ts",
+      "import": "./src/hooks/useWidgetInstance.js"
+    },
+    "./hooks/useWidgetInstance.js": {
+      "types": "./types/hooks/useWidgetInstance.d.ts",
+      "import": "./src/hooks/useWidgetInstance.js"
+    },
+    "./hooks/useWidgetInstanceFunctions": {
+      "types": "./types/hooks/useWidgetInstanceFunctions.d.ts",
+      "import": "./src/hooks/useWidgetInstanceFunctions.js"
+    },
+    "./hooks/useWidgetInstanceFunctions.js": {
+      "types": "./types/hooks/useWidgetInstanceFunctions.d.ts",
+      "import": "./src/hooks/useWidgetInstanceFunctions.js"
+    },
+    "./hooks/useWidgetInstanceNotifications": {
+      "types": "./types/hooks/useWidgetInstanceNotifications.d.ts",
+      "import": "./src/hooks/useWidgetInstanceNotifications.js"
+    },
+    "./hooks/useWidgetInstanceNotifications.js": {
+      "types": "./types/hooks/useWidgetInstanceNotifications.d.ts",
+      "import": "./src/hooks/useWidgetInstanceNotifications.js"
+    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
