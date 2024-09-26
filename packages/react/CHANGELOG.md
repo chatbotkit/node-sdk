@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.13.2
+
+### Patch Changes
+
+- c4e6d04: Fixed peer dependency version.
+
 ## 1.13.1
 
 ### Patch Changes
