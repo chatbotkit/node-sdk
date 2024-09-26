@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.13.1
+
+### Patch Changes
+
+- 963790d: Pin react and react-dom peer dependencies to 18.0.0 or above.
+
 ## 1.13.0
 
 ### Minor Changes
