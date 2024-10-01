@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.14.1
+
+### Patch Changes
+
+- 0e95b4b: Added missing functions.
+
 ## 1.14.0
 
 ### Minor Changes
