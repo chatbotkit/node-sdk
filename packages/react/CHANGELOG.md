@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.14.0
+
+### Minor Changes
+
+- 694a534: Added hooks to access widget instances already on the page.
+
 ## 1.13.2
 
 ### Patch Changes
