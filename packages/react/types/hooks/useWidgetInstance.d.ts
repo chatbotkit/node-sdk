@@ -17,7 +17,9 @@
  *   }
  * }} WidgetFunction
  *
- * @typedef {{
+ * @typedef {HTMLElement & {
+ *   ready: boolean,
+ *   readyPromise: Promise<boolean>,
  *   messages?: WidgetMessage[]?,
  *   notifications?: Record<string, WidgetNotification>?,
  *   functions?: Record<string, WidgetFunction>?
@@ -42,7 +44,9 @@ export type WidgetFunction = {
         data: any;
     };
 };
-export type ChatBotKitWidgetInstance = {
+export type ChatBotKitWidgetInstance = HTMLElement & {
+    ready: boolean;
+    readyPromise: Promise<boolean>;
     messages?: WidgetMessage[] | null;
     notifications?: Record<string, WidgetNotification> | null;
     functions?: Record<string, WidgetFunction> | null;

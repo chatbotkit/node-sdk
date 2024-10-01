@@ -114,6 +114,14 @@
       "types": "./types/hooks/useConversationManagerStateReducer.d.ts",
       "import": "./src/hooks/useConversationManagerStateReducer.js"
     },
+    "./hooks/useDOMQuerySelector": {
+      "types": "./types/hooks/useDOMQuerySelector.d.ts",
+      "import": "./src/hooks/useDOMQuerySelector.js"
+    },
+    "./hooks/useDOMQuerySelector.js": {
+      "types": "./types/hooks/useDOMQuerySelector.d.ts",
+      "import": "./src/hooks/useDOMQuerySelector.js"
+    },
     "./hooks/useWidgetInstance": {
       "types": "./types/hooks/useWidgetInstance.d.ts",
       "import": "./src/hooks/useWidgetInstance.js"
@@ -137,6 +145,14 @@
     "./hooks/useWidgetInstanceNotifications.js": {
       "types": "./types/hooks/useWidgetInstanceNotifications.d.ts",
       "import": "./src/hooks/useWidgetInstanceNotifications.js"
+    },
+    "./hooks/useWidgetQuerySelector": {
+      "types": "./types/hooks/useWidgetQuerySelector.d.ts",
+      "import": "./src/hooks/useWidgetQuerySelector.js"
+    },
+    "./hooks/useWidgetQuerySelector.js": {
+      "types": "./types/hooks/useWidgetQuerySelector.d.ts",
+      "import": "./src/hooks/useWidgetQuerySelector.js"
     },
     ".": {
       "types": "./types/index.d.ts",

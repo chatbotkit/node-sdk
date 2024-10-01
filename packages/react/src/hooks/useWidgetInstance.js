@@ -21,7 +21,9 @@ import { useEffect, useState } from 'react'
  *   }
  * }} WidgetFunction
  *
- * @typedef {{
+ * @typedef {HTMLElement & {
+ *   ready: boolean,
+ *   readyPromise: Promise<boolean>,
  *   messages?: WidgetMessage[]?,
  *   notifications?: Record<string, WidgetNotification>?,
  *   functions?: Record<string, WidgetFunction>?
