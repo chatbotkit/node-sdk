@@ -21,12 +21,18 @@ import { useEffect, useState } from 'react'
  *   }
  * }} WidgetFunction
  *
+ * @typedef {() => void} WidgteRestartConversationFn
+ *
+ * @typedef {(options: string|(({message: string} | {text: string}) & {hidden?: boolean, respond?: boolean})) => void} WidgetSendMessageFn
+ *
  * @typedef {HTMLElement & {
  *   ready: boolean,
  *   readyPromise: Promise<boolean>,
  *   messages?: WidgetMessage[]?,
  *   notifications?: Record<string, WidgetNotification>?,
- *   functions?: Record<string, WidgetFunction>?
+ *   functions?: Record<string, WidgetFunction>?,
+ *   restartConversation: WidgteRestartConversationFn,
+ *   sendMessage: WidgetSendMessageFn,
  * }} ChatBotKitWidgetInstance
  *
  * @returns {ChatBotKitWidgetInstance|null}
