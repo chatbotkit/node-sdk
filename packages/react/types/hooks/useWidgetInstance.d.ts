@@ -12,10 +12,19 @@
  * @typedef {{
  *   description: string,
  *   parameters: Record<string, any>,
- *   results: {
+ * }} WidgetFunctionBase
+ *
+ * @typedef {WidgetFunctionBase & {
+ *   result: {
  *     data: any
  *   }
- * }} WidgetFunction
+ * }} WidgetFunctionWithResult
+ *
+ * @typedef {WidgetFunctionBase & {
+ *  handler: (args: any) => any
+ * }} WidgetFunctionWithHandler
+ *
+ * @typedef {WidgetFunctionWithResult|WidgetFunctionWithHandler} WidgetFunction
  *
  * @typedef {() => void} WidgteRestartConversationFn
  *
@@ -43,13 +52,19 @@ export type WidgetMessage = {
 export type WidgetNotification = {
     text: string;
 };
-export type WidgetFunction = {
+export type WidgetFunctionBase = {
     description: string;
     parameters: Record<string, any>;
-    results: {
+};
+export type WidgetFunctionWithResult = WidgetFunctionBase & {
+    result: {
         data: any;
     };
 };
+export type WidgetFunctionWithHandler = WidgetFunctionBase & {
+    handler: (args: any) => any;
+};
+export type WidgetFunction = WidgetFunctionWithResult | WidgetFunctionWithHandler;
 export type WidgteRestartConversationFn = () => void;
 export type WidgetSendMessageFn = (options: string | (({
     message: string;

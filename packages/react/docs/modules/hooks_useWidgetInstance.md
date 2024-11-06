@@ -8,6 +8,9 @@
 
 - [ChatBotKitWidgetInstance](hooks_useWidgetInstance.md#chatbotkitwidgetinstance)
 - [WidgetFunction](hooks_useWidgetInstance.md#widgetfunction)
+- [WidgetFunctionBase](hooks_useWidgetInstance.md#widgetfunctionbase)
+- [WidgetFunctionWithHandler](hooks_useWidgetInstance.md#widgetfunctionwithhandler)
+- [WidgetFunctionWithResult](hooks_useWidgetInstance.md#widgetfunctionwithresult)
 - [WidgetMessage](hooks_useWidgetInstance.md#widgetmessage)
 - [WidgetNotification](hooks_useWidgetInstance.md#widgetnotification)
 - [WidgetSendMessageFn](hooks_useWidgetInstance.md#widgetsendmessagefn)
@@ -25,13 +28,23 @@
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L36)
+[hooks/useWidgetInstance.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L45)
 
 ___
 
 ### WidgetFunction
 
-Ƭ **WidgetFunction**\<\>: `Object`
+Ƭ **WidgetFunction**\<\>: [`WidgetFunctionWithResult`](hooks_useWidgetInstance.md#widgetfunctionwithresult) \| [`WidgetFunctionWithHandler`](hooks_useWidgetInstance.md#widgetfunctionwithhandler)
+
+#### Defined in
+
+[hooks/useWidgetInstance.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L31)
+
+___
+
+### WidgetFunctionBase
+
+Ƭ **WidgetFunctionBase**\<\>: `Object`
 
 #### Type declaration
 
@@ -39,12 +52,30 @@ ___
 | :------ | :------ |
 | `description` | `string` |
 | `parameters` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `results` | \{ `data`: `any`  } |
-| `results.data` | `any` |
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L22)
+[hooks/useWidgetInstance.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L19)
+
+___
+
+### WidgetFunctionWithHandler
+
+Ƭ **WidgetFunctionWithHandler**\<\>: [`WidgetFunctionBase`](hooks_useWidgetInstance.md#widgetfunctionbase) & \{ `handler`: (`args`: `any`) => `any`  }
+
+#### Defined in
+
+[hooks/useWidgetInstance.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L29)
+
+___
+
+### WidgetFunctionWithResult
+
+Ƭ **WidgetFunctionWithResult**\<\>: [`WidgetFunctionBase`](hooks_useWidgetInstance.md#widgetfunctionbase) & \{ `result`: \{ `data`: `any`  }  }
+
+#### Defined in
+
+[hooks/useWidgetInstance.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L25)
 
 ___
 
@@ -102,7 +133,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L26)
+[hooks/useWidgetInstance.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L35)
 
 ___
 
@@ -120,7 +151,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L24)
+[hooks/useWidgetInstance.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L33)
 
 ## Functions
 
@@ -134,4 +165,4 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L40)
+[hooks/useWidgetInstance.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L49)
