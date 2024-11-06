@@ -177,7 +177,7 @@ export class ResponsePromise {
  * @property {'http:'|'https:'} [protocol] An optional protocol to use for the API
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
  * @property {string} [runAsUserId] An optional user ID to run as
- * @property {string} [runAsChildUserEmail] An optional child user email to run as
+ * @property {string} [runAsChildUserEmail] An optional child user email to run as (experimental)
  */
 
 export class ChatBotKitClient {
