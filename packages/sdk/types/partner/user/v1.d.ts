@@ -10,6 +10,7 @@
  * @typedef {{
  *   name?: string,
  *   image?: string,
+ *   email?: string,
  *   meta?: Record<string,any>
  * }} PartnerUserOptions
  *
@@ -87,6 +88,7 @@ export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T,
 export type PartnerUserOptions = {
     name?: string;
     image?: string;
+    email?: string;
     meta?: Record<string, any>;
 };
 export type PartnerUserInstance = PartnerUserOptions & {

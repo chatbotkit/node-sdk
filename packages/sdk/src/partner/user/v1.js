@@ -12,6 +12,7 @@
  * @typedef {{
  *   name?: string,
  *   image?: string,
+ *   email?: string,
  *   meta?: Record<string,any>
  * }} PartnerUserOptions
  *

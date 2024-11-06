@@ -11,6 +11,7 @@
 - [endpoints](client.ChatBotKitClientOptions.md#endpoints)
 - [host](client.ChatBotKitClientOptions.md#host)
 - [protocol](client.ChatBotKitClientOptions.md#protocol)
+- [runAsUserEmail](client.ChatBotKitClientOptions.md#runasuseremail)
 - [runAsUserId](client.ChatBotKitClientOptions.md#runasuserid)
 - [secret](client.ChatBotKitClientOptions.md#secret)
 
@@ -49,6 +50,18 @@ An optional protocol to use for the API
 #### Defined in
 
 [client.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L177)
+
+___
+
+### runAsUserEmail
+
+• **runAsUserEmail**: `string`
+
+An optional user email to run as
+
+#### Defined in
+
+[client.js:180](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L180)
 
 ___
 

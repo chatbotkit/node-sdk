@@ -91,7 +91,7 @@ Contact client.
 
 #### Defined in
 
-[client.js:219](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L219)
+[client.js:221](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L221)
 
 ___
 

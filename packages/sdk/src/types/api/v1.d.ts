@@ -15606,6 +15606,8 @@ export interface operations {
                         name?: string;
                         /** @description The image of the partner user */
                         image?: string;
+                        /** @description The email of the partner user */
+                        email?: string;
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
@@ -15846,6 +15848,8 @@ export interface operations {
                     name?: string;
                     /** @description The image of the partner user */
                     image?: string;
+                    /** @description The email of the partner user */
+                    email?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
@@ -15938,6 +15942,8 @@ export interface operations {
                     name?: string;
                     /** @description The image of the partner user */
                     image?: string;
+                    /** @description The email of the partner user */
+                    email?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
@@ -16009,12 +16015,14 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
-                            /** @description The ID of the user */
+                            /** @description The ID of the partner user */
                             id: string;
-                            /** @description The name of the user */
+                            /** @description The name of the partner user */
                             name?: string;
-                            /** @description The image of the user */
+                            /** @description The image of the partner user */
                             image?: string;
+                            /** @description The email of the partner user */
+                            email?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -16032,12 +16040,14 @@ export interface operations {
                          */
                         type: "item";
                         data: {
-                            /** @description The ID of the user */
+                            /** @description The ID of the partner user */
                             id: string;
-                            /** @description The name of the user */
+                            /** @description The name of the partner user */
                             name?: string;
-                            /** @description The image of the user */
+                            /** @description The image of the partner user */
                             image?: string;
+                            /** @description The email of the partner user */
+                            email?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;

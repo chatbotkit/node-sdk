@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1730814917163)"
+    "version": "v1 (build 1730881454690)"
   },
   "servers": [
     {
@@ -25047,6 +25047,10 @@
                       "description": "The image of the partner user",
                       "type": "string"
                     },
+                    "email": {
+                      "description": "The email of the partner user",
+                      "type": "string"
+                    },
                     "meta": {
                       "type": "object",
                       "description": "Meta data information",
@@ -25542,6 +25546,10 @@
                     "description": "The image of the partner user",
                     "type": "string"
                   },
+                  "email": {
+                    "description": "The email of the partner user",
+                    "type": "string"
+                  },
                   "meta": {
                     "type": "object",
                     "description": "Meta data information",
@@ -25692,6 +25700,10 @@
                     "description": "The image of the partner user",
                     "type": "string"
                   },
+                  "email": {
+                    "description": "The email of the partner user",
+                    "type": "string"
+                  },
                   "meta": {
                     "type": "object",
                     "description": "Meta data information",
@@ -25828,15 +25840,19 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "description": "The ID of the user",
+                            "description": "The ID of the partner user",
                             "type": "string"
                           },
                           "name": {
-                            "description": "The name of the user",
+                            "description": "The name of the partner user",
                             "type": "string"
                           },
                           "image": {
-                            "description": "The image of the user",
+                            "description": "The image of the partner user",
+                            "type": "string"
+                          },
+                          "email": {
+                            "description": "The email of the partner user",
                             "type": "string"
                           },
                           "meta": {
@@ -25884,15 +25900,19 @@
                           "type": "object",
                           "properties": {
                             "id": {
-                              "description": "The ID of the user",
+                              "description": "The ID of the partner user",
                               "type": "string"
                             },
                             "name": {
-                              "description": "The name of the user",
+                              "description": "The name of the partner user",
                               "type": "string"
                             },
                             "image": {
-                              "description": "The image of the user",
+                              "description": "The image of the partner user",
+                              "type": "string"
+                            },
+                            "email": {
+                              "description": "The email of the partner user",
                               "type": "string"
                             },
                             "meta": {
