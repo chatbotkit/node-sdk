@@ -16,10 +16,19 @@ import { useEffect, useState } from 'react'
  * @typedef {{
  *   description: string,
  *   parameters: Record<string, any>,
- *   results: {
+ * }} WidgetFunctionBase
+ *
+ * @typedef {WidgetFunctionBase & {
+ *   result: {
  *     data: any
  *   }
- * }} WidgetFunction
+ * }} WidgetFunctionWithResult
+ *
+ * @typedef {WidgetFunctionBase & {
+ *  handler: (args: any) => any
+ * }} WidgetFunctionWithHandler
+ *
+ * @typedef {WidgetFunctionWithResult|WidgetFunctionWithHandler} WidgetFunction
  *
  * @typedef {() => void} WidgteRestartConversationFn
  *
