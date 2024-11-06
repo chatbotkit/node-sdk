@@ -11,7 +11,7 @@
 - [endpoints](client.ChatBotKitClientOptions.md#endpoints)
 - [host](client.ChatBotKitClientOptions.md#host)
 - [protocol](client.ChatBotKitClientOptions.md#protocol)
-- [runAsUserEmail](client.ChatBotKitClientOptions.md#runasuseremail)
+- [runAsChildUserEmail](client.ChatBotKitClientOptions.md#runaschilduseremail)
 - [runAsUserId](client.ChatBotKitClientOptions.md#runasuserid)
 - [secret](client.ChatBotKitClientOptions.md#secret)
 
@@ -43,7 +43,7 @@ ___
 
 ### protocol
 
-• **protocol**: ``"http:"`` \| ``"https"``
+• **protocol**: ``"http:"`` \| ``"https:"``
 
 An optional protocol to use for the API
 
@@ -53,11 +53,11 @@ An optional protocol to use for the API
 
 ___
 
-### runAsUserEmail
+### runAsChildUserEmail
 
-• **runAsUserEmail**: `string`
+• **runAsChildUserEmail**: `string`
 
-An optional user email to run as
+An optional child user email to run as (experimental)
 
 #### Defined in
 
