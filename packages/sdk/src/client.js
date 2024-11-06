@@ -177,7 +177,7 @@ export class ResponsePromise {
  * @property {'http:'|'https:'} [protocol] An optional protocol to use for the API
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
  * @property {string} [runAsUserId] An optional user ID to run as
- * @property {string} [runAsUserEmail] An optional user email to run as
+ * @property {string} [runAsChildUserEmail] An optional child user email to run as
  */
 
 export class ChatBotKitClient {
@@ -200,7 +200,7 @@ export class ChatBotKitClient {
     this.endpoints = options.endpoints || {}
 
     this.runAsUserId = options.runAsUserId
-    this.runAsUserEmail = options.runAsUserEmail
+    this.runAsChildUserEmail = options.runAsChildUserEmail
   }
 
   /**
@@ -258,8 +258,8 @@ export class ChatBotKitClient {
         headers['x-runas-user-id'] = this.runAsUserId
       }
 
-      if (this.runAsUserEmail) {
-        headers['x-runas-user-email'] = this.runAsUserEmail
+      if (this.runAsChildUserEmail) {
+        headers['x-runas-child-user-email'] = this.runAsChildUserEmail
       }
     }
 
