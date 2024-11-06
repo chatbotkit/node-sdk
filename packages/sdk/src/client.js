@@ -174,7 +174,7 @@ export class ResponsePromise {
  * @typedef {Object} ChatBotKitClientOptions
  * @property {string} secret A token to authenticate with the API
  * @property {string} [host] An optional hostname to use for the API
- * @property {'http:'|'https'} [protocol] An optional protocol to use for the API
+ * @property {'http:'|'https:'} [protocol] An optional protocol to use for the API
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
  * @property {string} [runAsUserId] An optional user ID to run as
  * @property {string} [runAsUserEmail] An optional user email to run as
