@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1725275238917)"
+    "version": "v1 (build 1730814917163)"
   },
   "servers": [
     {
@@ -351,6 +351,27 @@
       }
     },
     "responses": {
+      "NotModified": {
+        "description": "The resource was not modified",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "The error message"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "The error code"
+                }
+              },
+              "$$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      },
       "BadRequest": {
         "description": "The request could not be understood or was missing required parameters.",
         "content": {
@@ -3898,6 +3919,28 @@
               }
             }
           },
+          "304": {
+            "description": "The resource was not modified",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "The error message"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "The error code"
+                    }
+                  },
+                  "$$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "$$ref": "#/components/responses/NotModified"
+          },
           "400": {
             "description": "The request could not be understood or was missing required parameters.",
             "content": {
@@ -3919,28 +3962,6 @@
               }
             },
             "$$ref": "#/components/responses/BadRequest"
-          },
-          "409": {
-            "description": "The request could not be completed due to a conflict with the current state of the resource.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "The error message"
-                    },
-                    "code": {
-                      "type": "string",
-                      "description": "The error code"
-                    }
-                  },
-                  "$$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            },
-            "$$ref": "#/components/responses/Conflict"
           }
         },
         "__originalOperationId": "upsertConversationContact",
@@ -13928,6 +13949,10 @@
                       "description": "The configured extraction schema",
                       "type": "object",
                       "additionalProperties": true
+                    },
+                    "request": {
+                      "description": "Optional webhook to receive the extracted data",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -14041,6 +14066,10 @@
                     "description": "The configured extraction schema",
                     "type": "object",
                     "additionalProperties": true
+                  },
+                  "request": {
+                    "description": "Optional webhook to receive the extracted data",
+                    "type": "string"
                   }
                 }
               }
@@ -14201,6 +14230,10 @@
                     "description": "The configured extraction schema",
                     "type": "object",
                     "additionalProperties": true
+                  },
+                  "request": {
+                    "description": "Optional webhook to receive the extracted data",
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -14391,6 +14424,10 @@
                             "description": "The configured extraction schema",
                             "type": "object",
                             "additionalProperties": true
+                          },
+                          "request": {
+                            "description": "Optional webhook to receive the extracted data",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -14458,6 +14495,10 @@
                               "description": "The configured extraction schema",
                               "type": "object",
                               "additionalProperties": true
+                            },
+                            "request": {
+                              "description": "Optional webhook to receive the extracted data",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1extract~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -16272,7 +16313,7 @@
                   }
                 },
                 "required": [
-                  "datsetId"
+                  "datasetId"
                 ]
               }
             }
@@ -23211,6 +23252,10 @@
                       "description": "Whether the Widget integration supports math",
                       "type": "boolean"
                     },
+                    "carousel": {
+                      "description": "Whether the Widget integration supports carousels",
+                      "type": "boolean"
+                    },
                     "attachments": {
                       "description": "Whether the Widget integration supports attachments",
                       "type": "boolean"
@@ -23576,6 +23621,10 @@
                     "description": "Whether the Widget integration supports math",
                     "type": "boolean"
                   },
+                  "carousel": {
+                    "description": "Whether the Widget integration supports carousels",
+                    "type": "boolean"
+                  },
                   "attachments": {
                     "description": "Whether the Widget integration supports attachments",
                     "type": "boolean"
@@ -23864,6 +23913,10 @@
                   },
                   "math": {
                     "description": "Weather the Widget integration supports math",
+                    "type": "boolean"
+                  },
+                  "carousel": {
+                    "description": "Weather the Widget integration supports carousels",
                     "type": "boolean"
                   },
                   "attachments": {
@@ -24183,6 +24236,10 @@
                             "description": "Weather the Widget integration supports math",
                             "type": "boolean"
                           },
+                          "carousel": {
+                            "description": "Weather the Widget integration supports carousels",
+                            "type": "boolean"
+                          },
                           "attachments": {
                             "description": "Weather the Widget integration supports attachments",
                             "type": "boolean"
@@ -24377,6 +24434,10 @@
                             },
                             "math": {
                               "description": "Weather the Widget integration supports math",
+                              "type": "boolean"
+                            },
+                            "carousel": {
+                              "description": "Weather the Widget integration supports carousels",
                               "type": "boolean"
                             },
                             "attachments": {

@@ -2953,6 +2953,20 @@ export interface components {
         };
     };
     responses: {
+        /** @description The resource was not modified */
+        NotModified: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": {
+                    /** @description The error message */
+                    message?: string;
+                    /** @description The error code */
+                    code?: string;
+                };
+            };
+        };
         /** @description The request could not be understood or was missing required parameters. */
         BadRequest: {
             headers: {
@@ -4741,8 +4755,8 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description The resource was not modified */
+            304: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -4755,8 +4769,8 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
+            /** @description The request could not be understood or was missing required parameters. */
+            400: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -9828,6 +9842,8 @@ export interface operations {
                         schema?: {
                             [key: string]: unknown;
                         };
+                        /** @description Optional webhook to receive the extracted data */
+                        request?: string;
                     };
                 };
             };
@@ -9887,6 +9903,8 @@ export interface operations {
                     schema?: {
                         [key: string]: unknown;
                     };
+                    /** @description Optional webhook to receive the extracted data */
+                    request?: string;
                 };
             };
         };
@@ -9985,6 +10003,8 @@ export interface operations {
                     schema?: {
                         [key: string]: unknown;
                     };
+                    /** @description Optional webhook to receive the extracted data */
+                    request?: string;
                 };
             };
         };
@@ -10086,6 +10106,8 @@ export interface operations {
                             schema?: {
                                 [key: string]: unknown;
                             };
+                            /** @description Optional webhook to receive the extracted data */
+                            request?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -10116,6 +10138,8 @@ export interface operations {
                             schema?: {
                                 [key: string]: unknown;
                             };
+                            /** @description Optional webhook to receive the extracted data */
+                            request?: string;
                         };
                     };
                 };
@@ -11069,7 +11093,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the dataset to sync into */
-                    datasetId?: string;
+                    datasetId: string;
                     /** @description The Notion API token */
                     token?: string;
                     /** @description The sync schedule */
@@ -14693,6 +14717,8 @@ export interface operations {
                         unfurl?: boolean;
                         /** @description Whether the Widget integration supports math */
                         math?: boolean;
+                        /** @description Whether the Widget integration supports carousels */
+                        carousel?: boolean;
                         /** @description Whether the Widget integration supports attachments */
                         attachments?: boolean;
                         /** @description Whether the Widget integration auto scrolls */
@@ -14882,6 +14908,8 @@ export interface operations {
                     unfurl?: boolean;
                     /** @description Whether the Widget integration supports math */
                     math?: boolean;
+                    /** @description Whether the Widget integration supports carousels */
+                    carousel?: boolean;
                     /** @description Whether the Widget integration supports attachments */
                     attachments?: boolean;
                     /** @description Whether the Widget integration auto scrolls */
@@ -15039,6 +15067,8 @@ export interface operations {
                     unfurl?: boolean;
                     /** @description Weather the Widget integration supports math */
                     math?: boolean;
+                    /** @description Weather the Widget integration supports carousels */
+                    carousel?: boolean;
                     /** @description Weather the Widget integration supports attachments */
                     attachments?: boolean;
                     /** @description Whether the Widget integration auto scrolls */
@@ -15199,6 +15229,8 @@ export interface operations {
                             unfurl?: boolean;
                             /** @description Weather the Widget integration supports math */
                             math?: boolean;
+                            /** @description Weather the Widget integration supports carousels */
+                            carousel?: boolean;
                             /** @description Weather the Widget integration supports attachments */
                             attachments?: boolean;
                             /** @description Whether the Widget integration auto scrolls */
@@ -15288,6 +15320,8 @@ export interface operations {
                             unfurl?: boolean;
                             /** @description Weather the Widget integration supports math */
                             math?: boolean;
+                            /** @description Weather the Widget integration supports carousels */
+                            carousel?: boolean;
                             /** @description Weather the Widget integration supports attachments */
                             attachments?: boolean;
                             /** @description Whether the Widget integration auto scrolls */
