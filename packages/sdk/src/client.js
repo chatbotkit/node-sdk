@@ -177,6 +177,8 @@ export class ResponsePromise {
  * @property {'http:'|'https'} [protocol] An optional protocol to use for the API
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
  * @property {string} [runAsUserId] An optional user ID to run as
+ * @property {string} [runAsPartnerUserId] An optional partner user id to run as
+ * @property {string} [runAsPartnerUserEmail] An optional partner user email to run as
  */
 
 export class ChatBotKitClient {
@@ -199,6 +201,8 @@ export class ChatBotKitClient {
     this.endpoints = options.endpoints || {}
 
     this.runAsUserId = options.runAsUserId
+    this.runAsPartnerUserId = options.runAsPartnerUserId
+    this.runAsPartnerUserEmail = options.runAsPartnerUserEmail
   }
 
   /**
@@ -249,11 +253,19 @@ export class ChatBotKitClient {
 
     if (!options?.external) {
       if (this.secret) {
-        headers['Authorization'] = `Bearer ${this.secret}`
+        headers['authorization'] = `Bearer ${this.secret}`
       }
 
       if (this.runAsUserId) {
-        headers['X-RunAs-UserId'] = this.runAsUserId
+        headers['x-runas-userid'] = this.runAsUserId
+      }
+
+      if (this.runAsPartnerUserId) {
+        headers['x-runas-partner-user-id'] = this.runAsPartnerUserId
+      }
+
+      if (this.runAsPartnerUserEmail) {
+        headers['x-runas-partner-user-email'] = this.runAsPartnerUserEmail
       }
     }
 
@@ -264,13 +276,13 @@ export class ChatBotKitClient {
 
       data = JSON.stringify(options.record)
 
-      headers['Content-Type'] = 'application/json'
+      headers['content-type'] = 'application/json'
     } else if (options?.buffer) {
       method = method || 'POST'
 
       data = options.buffer
 
-      headers['Content-Type'] = 'application/octet-stream'
+      headers['content-type'] = 'application/octet-stream'
     } else if (options?.file) {
       method = method || 'POST'
 
