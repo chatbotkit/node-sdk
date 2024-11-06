@@ -1,5 +1,13 @@
 # @chatbotkit/react
 
+## 1.14.2
+
+### Patch Changes
+
+- 5352253: Extra options to the SDK and React
+- Updated dependencies [5352253]
+  - @chatbotkit/sdk@1.14.2
+
 ## 1.14.1
 
 ### Patch Changes
