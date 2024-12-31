@@ -10,6 +10,8 @@
  * @typedef {any} StreamSource
  * @typedef {any} StreamResult
  *
+ * This function is used on the server to stream data to the client.
+ *
  * @internal
  * @param {StreamSource} source
  * @returns {StreamResult}
@@ -42,17 +44,21 @@ function streamIt(source) {
 /**
  * @typedef {{} & Handlers} StreamOptions
  *
+ * This function is used on the server to stream data to the client.
+ *
  * @internal
  * @param {StreamSource} source
  * @param {StreamOptions} [options]
  * @returns {StreamResult}
  */
-export async function* stream(source, options) {
-  yield* streamIt(source)
+export function stream(source, options) {
+  return streamIt(source).then((result) => {
+    if (options?.onFinish) {
+      options.onFinish()
+    }
 
-  if (options?.onFinish) {
-    await options.onFinish()
-  }
+    return result
+  })
 }
 
 /**
@@ -60,6 +66,8 @@ export async function* stream(source, options) {
  *
  * @typedef {any} ConsumeSource
  * @typedef {any} ConsumeResult
+ *
+ * This function is used on the client to consume a server stream.
  *
  * @internal
  * @param {ConsumeSource} source
@@ -89,6 +97,8 @@ function consumeIt(source) {
 
 /**
  * @typedef {{} & Handlers} ConsumeOptions
+ *
+ * This function is used on the client to consume a server stream.
  *
  * @internal
  * @param {ConsumeSource} source
