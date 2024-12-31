@@ -4,7 +4,6 @@
 [![NPM](https://img.shields.io/npm/v/@chatbotkit/sdk.svg)](https://www.npmjs.com/package/@chatbotkit/sdk)
 [![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@chatbotkit.com)
 [![Discord](https://img.shields.io/badge/Discord-Support-blue?logo=discord)](https://go.cbk.ai/discord)
-[![Slack](https://img.shields.io/badge/Slack-Support-blue?logo=slack)](https://go.cbk.ai/slack)
 
 # ChatBotKit Node SDK
 
@@ -55,6 +54,7 @@ For an in-depth exploration of the ChatBotKit Node SDK, including insights into 
 Encountered a bug or interested in contributing? Your participation is highly appreciated! Feel free to open an issue or submit a pull request on our [official GitHub repository](https://github.com/chatbotkit/node-sdk).
 
 ## Built With ChatBotKit
+
 - [FormShare](https://formshare.ai/) - Bring your forms to life with generative UI.
 - [PeopleAI](https://people.ai/) - Experience history like never before with our AI chatbots.
 - [AskNotion](https://asknotion.app/) - Create your personal ChatGPT-like chatbot that is trained on your Notion Pages.
