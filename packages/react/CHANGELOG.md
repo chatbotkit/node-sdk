@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.14.3
+
+### Patch Changes
+
+- d859507: Fixed an issue with stream function definition.
+
 ## 1.14.2
 
 ### Patch Changes
