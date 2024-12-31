@@ -369,3 +369,24 @@ All SDK features are considered unstable unless explicitly marked as stable. Sta
 ## Contributing
 
 Encounter a bug or want to contribute? Open an issue or submit a pull request on our [official GitHub repository](https://github.com/chatbotkit/node-sdk).
+
+### Setup
+
+The project is setup as a monorepo using pnpm and turbo build. Clone the reporitory and run the following commands to get started:
+
+```bash
+pnpm install
+```
+
+To perform type and lint checks, run:
+
+```bash
+pnpm check
+pnpm lint
+```
+
+To build the project, run:
+
+```bash
+pnpm build
+```
