@@ -1,6 +1,8 @@
 /**
  * @typedef {{} & Handlers} StreamOptions
  *
+ * This function is used on the server to stream data to the client.
+ *
  * @internal
  * @param {StreamSource} source
  * @param {StreamOptions} [options]
@@ -9,6 +11,8 @@
 export function stream(source: StreamSource, options?: Handlers | undefined): StreamResult;
 /**
  * @typedef {{} & Handlers} ConsumeOptions
+ *
+ * This function is used on the client to consume a server stream.
  *
  * @internal
  * @param {ConsumeSource} source
@@ -20,8 +24,20 @@ export type Handlers = {
     onFinish?: () => any;
 };
 export type StreamSource = any;
+/**
+ * This function is used on the server to stream data to the client.
+ */
 export type StreamResult = any;
+/**
+ * This function is used on the server to stream data to the client.
+ */
 export type StreamOptions = {} & Handlers;
 export type ConsumeSource = any;
+/**
+ * This function is used on the client to consume a server stream.
+ */
 export type ConsumeResult = any;
+/**
+ * This function is used on the client to consume a server stream.
+ */
 export type ConsumeOptions = {} & Handlers;

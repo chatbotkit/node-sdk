@@ -20,9 +20,11 @@
 
 Ƭ **ConsumeOptions**\<\>: {} & [`Handlers`](utils_stream.md#handlers)
 
+This function is used on the client to consume a server stream.
+
 #### Defined in
 
-[utils/stream.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L91)
+[utils/stream.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L99)
 
 ___
 
@@ -30,9 +32,11 @@ ___
 
 Ƭ **ConsumeResult**\<\>: `any`
 
+This function is used on the client to consume a server stream.
+
 #### Defined in
 
-[utils/stream.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L62)
+[utils/stream.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L68)
 
 ___
 
@@ -42,7 +46,7 @@ ___
 
 #### Defined in
 
-[utils/stream.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L61)
+[utils/stream.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L67)
 
 ___
 
@@ -66,15 +70,19 @@ ___
 
 Ƭ **StreamOptions**\<\>: {} & [`Handlers`](utils_stream.md#handlers)
 
+This function is used on the server to stream data to the client.
+
 #### Defined in
 
-[utils/stream.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L43)
+[utils/stream.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L45)
 
 ___
 
 ### StreamResult
 
 Ƭ **StreamResult**\<\>: `any`
+
+This function is used on the server to stream data to the client.
 
 #### Defined in
 
