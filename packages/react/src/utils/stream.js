@@ -52,7 +52,7 @@ function streamIt(source) {
  * @returns {StreamResult}
  */
 export function stream(source, options) {
-  return streamIt(source).then((result) => {
+  return streamIt(source).then((/** @type {any} */ result) => {
     if (options?.onFinish) {
       options.onFinish()
     }
