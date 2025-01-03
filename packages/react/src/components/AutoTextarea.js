@@ -18,14 +18,20 @@ import React, {
 export function AutoTextarea(props, forwardedRef) {
   const localRef = useRef(null)
 
-  useImperativeHandle(forwardedRef, () => localRef.current)
+  useImperativeHandle(
+    forwardedRef,
+    /** @type {() => HTMLTextAreaElement} */ () => {
+      // @ts-ignore
+      return /** @type {HTMLTextAreaElement} */ (localRef.current)
+    }
+  )
 
   useEffect(() => {
-    const textarea = localRef.current
-
-    if (!textarea) {
+    if (!localRef.current) {
       return
     }
+
+    const textarea = /** @type {HTMLTextAreaElement} */ (localRef.current)
 
     function recalibrate() {
       const adjustment = `calc(${
