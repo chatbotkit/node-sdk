@@ -21,6 +21,7 @@ export function AutoTextarea(props, forwardedRef) {
   useImperativeHandle(
     forwardedRef,
     /** @type {() => HTMLTextAreaElement} */ () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return /** @type {HTMLTextAreaElement} */ (localRef.current)
     }
