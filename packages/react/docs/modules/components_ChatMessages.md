@@ -29,4 +29,4 @@ messages are added.
 
 #### Defined in
 
-[components/ChatMessages.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ChatMessages.js#L14)
+[packages/react/src/components/ChatMessages.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ChatMessages.js#L14)

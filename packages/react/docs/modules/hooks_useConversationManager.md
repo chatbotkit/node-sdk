@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[hooks/useConversationManager.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L18)
+[packages/react/src/hooks/useConversationManager.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L18)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L13)
+[packages/react/src/hooks/useConversationManager.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L13)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L27)
+[packages/react/src/hooks/useConversationManager.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L27)
 
 ___
 
@@ -57,6 +57,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `backstory?` | `string` |
+| `botId?` | `string` |
 | `client?` | `ConversationClient` |
 | `conversationId?` | `string` |
 | `datasetId?` | `string` |
@@ -65,11 +66,12 @@ ___
 | `moderation?` | `boolean` |
 | `privacy?` | `boolean` |
 | `skillsetId?` | `string` |
+| `stateful?` | `boolean` |
 | `token?` | `string` |
 
 #### Defined in
 
-[hooks/useConversationManagerRemote.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L35)
+[packages/react/src/hooks/useConversationManagerRemote.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L37)
 
 ___
 
@@ -95,7 +97,7 @@ ___
 
 #### Defined in
 
-[hooks/useConversationManager.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L41)
+[packages/react/src/hooks/useConversationManager.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L41)
 
 ## Functions
 
@@ -120,4 +122,4 @@ details like the token and conversation ID.
 
 #### Defined in
 
-[hooks/useConversationManager.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L53)
+[packages/react/src/hooks/useConversationManager.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L53)

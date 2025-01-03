@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L45)
+[packages/react/src/hooks/useWidgetInstance.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L45)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L31)
+[packages/react/src/hooks/useWidgetInstance.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L31)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L19)
+[packages/react/src/hooks/useWidgetInstance.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L19)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L29)
+[packages/react/src/hooks/useWidgetInstance.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L29)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L25)
+[packages/react/src/hooks/useWidgetInstance.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L25)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L10)
+[packages/react/src/hooks/useWidgetInstance.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L10)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L14)
+[packages/react/src/hooks/useWidgetInstance.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L14)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L35)
+[packages/react/src/hooks/useWidgetInstance.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L35)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L33)
+[packages/react/src/hooks/useWidgetInstance.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L33)
 
 ## Functions
 
@@ -165,4 +165,4 @@ ___
 
 #### Defined in
 
-[hooks/useWidgetInstance.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L49)
+[packages/react/src/hooks/useWidgetInstance.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L49)

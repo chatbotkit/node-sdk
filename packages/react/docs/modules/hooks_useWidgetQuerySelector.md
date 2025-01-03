@@ -38,4 +38,4 @@ Re-exports [ChatBotKitWidgetInstance](hooks_useWidgetInstance.md#chatbotkitwidge
 
 #### Defined in
 
-[hooks/useWidgetQuerySelector.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetQuerySelector.js#L16)
+[packages/react/src/hooks/useWidgetQuerySelector.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetQuerySelector.js#L16)

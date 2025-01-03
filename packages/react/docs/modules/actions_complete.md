@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[actions/complete.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L19)
+[packages/react/src/actions/complete.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L19)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L48)
+[packages/react/src/actions/complete.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L48)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L58)
+[packages/react/src/actions/complete.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L58)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L59)
+[packages/react/src/actions/complete.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L59)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L68)
+[packages/react/src/actions/complete.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L68)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L32)
+[packages/react/src/actions/complete.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L32)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L15)
+[packages/react/src/actions/complete.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L15)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L40)
+[packages/react/src/actions/complete.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L40)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L73)
+[packages/react/src/actions/complete.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L73)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L72)
+[packages/react/src/actions/complete.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L72)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L84)
+[packages/react/src/actions/complete.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L84)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L38)
+[packages/react/src/actions/complete.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L38)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L8)
+[packages/react/src/actions/complete.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L8)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L44)
+[packages/react/src/actions/complete.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L44)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[actions/complete.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L24)
+[packages/react/src/actions/complete.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L24)
 
 ## Functions
 
@@ -257,7 +257,7 @@ the current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[actions/complete.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L95)
+[packages/react/src/actions/complete.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L95)
 
 ___
 
@@ -281,4 +281,4 @@ current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[actions/complete.js:389](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L389)
+[packages/react/src/actions/complete.js:389](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L389)

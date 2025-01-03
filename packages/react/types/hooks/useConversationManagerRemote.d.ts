@@ -11,8 +11,10 @@
  * @typedef {{
  *   client?: ConversationClient,
  *   endpoint?: EndpointURL|EndpointFunction,
- *   conversationId?: string,
  *   token?: string,
+ *   conversationId?: string,
+ *   stateful?: boolean,
+ *   botId?: string,
  *   backstory?: string,
  *   model?: Model,
  *   datasetId?: string,
@@ -31,7 +33,7 @@
  * @returns {UseConversationManagerRemoteResult}
  * @todo requires refactoring
  */
-export function useConversationManagerRemote({ client: _client, endpoint, conversationId, token, backstory, model, datasetId, skillsetId, privacy, moderation, ...rest }: UseConversationManagerRemoteOptions): UseConversationManagerRemoteResult;
+export function useConversationManagerRemote({ client: _client, endpoint, token, conversationId, stateful, botId, backstory, model, datasetId, skillsetId, privacy, moderation, ...rest }: UseConversationManagerRemoteOptions): UseConversationManagerRemoteResult;
 export default useConversationManagerRemote;
 export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
 export type Model = import('@chatbotkit/sdk/model/v1').Model;
@@ -40,8 +42,10 @@ export type EndpointFunction = (options: any) => AsyncGenerator<any>;
 export type UseConversationManagerRemoteOptions = {
     client?: ConversationClient;
     endpoint?: EndpointURL | EndpointFunction;
-    conversationId?: string;
     token?: string;
+    conversationId?: string;
+    stateful?: boolean;
+    botId?: string;
     backstory?: string;
     model?: Model;
     datasetId?: string;
