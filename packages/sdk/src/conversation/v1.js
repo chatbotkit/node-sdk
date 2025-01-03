@@ -86,7 +86,9 @@ export async function fetchConversation(client, conversationId) {
   const url = `/api/v1/conversation/${conversationId}/fetch`
 
   /** @type {import('../types/api/v1.js').operations['fetchConversation']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  const response = await client.clientFetch(url, {
+    endpoint: '/api/v1/conversation/{conversationId}/fetch',
+  })
 
   return response
 }
@@ -145,6 +147,8 @@ export async function updateConversation(client, conversationId, request) {
 
       model: request.model ? buildModelString(request.model) : undefined,
     },
+
+    endpoint: '/api/v1/conversation/{conversationId}/update',
   })
 
   return response
@@ -166,6 +170,8 @@ export async function deleteConversation(client, conversationId) {
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['deleteConversation']['requestBody']['content']['application/json']} */
     record: {},
+
+    endpoint: '/api/v1/conversation/{conversationId}/delete',
   })
 
   return response
@@ -270,6 +276,8 @@ export function completeConversationMessage(client, conversationId, request) {
     record: {
       ...request,
     },
+
+    endpoint: '/api/v1/conversation/{conversationId}/complete',
   })
 
   return response
@@ -308,6 +316,8 @@ export function sendConversationMessage(client, conversationId, request) {
     record: {
       ...request,
     },
+
+    endpoint: '/api/v1/conversation/{conversationId}/send',
   })
 
   return response
@@ -352,6 +362,8 @@ export function receiveConversationMessage(client, conversationId, request) {
     record: {
       ...request,
     },
+
+    endpoint: '/api/v1/conversation/{conversationId}/receive',
   })
 
   return response
@@ -382,6 +394,8 @@ export async function upvoteConversation(client, conversationId, request) {
 
       ...request,
     },
+
+    endpoint: '/api/v1/conversation/{conversationId}/upvote',
   })
 
   return response
@@ -412,6 +426,8 @@ export async function downvoteConversation(client, conversationId, request) {
 
       ...request,
     },
+
+    endpoint: '/api/v1/conversation/{conversationId}/downvote',
   })
 
   return response
