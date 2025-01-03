@@ -232,27 +232,33 @@ export function withRetry(fetch, defaultOptions) {
  * @returns {AsyncGenerator<Record<string,any>>}
  */
 export async function* jsonl(body) {
-  const decoder = new TextDecoder()
+  try {
+    const decoder = new TextDecoder()
 
-  let previous = ''
+    let previous = ''
 
-  for await (const chunk of body) {
-    previous += decoder.decode(chunk)
+    for await (const chunk of body) {
+      previous += decoder.decode(chunk)
 
-    let eolIndex
+      let eolIndex
 
-    while ((eolIndex = previous.indexOf('\n')) >= 0) {
-      const line = previous.slice(0, eolIndex + 1)
+      while ((eolIndex = previous.indexOf('\n')) >= 0) {
+        const line = previous.slice(0, eolIndex + 1)
 
-      if (line) {
-        yield JSON.parse(line)
+        if (line) {
+          yield JSON.parse(line)
+        }
+
+        previous = previous.slice(eolIndex + 1)
       }
-
-      previous = previous.slice(eolIndex + 1)
     }
-  }
 
-  if (previous.trim().length > 0) {
-    yield JSON.parse(previous)
+    if (previous.trim().length > 0) {
+      yield JSON.parse(previous)
+    }
+  } catch (e) {
+    if (e.name !== ABORT_ERROR_NAME) {
+      throw e
+    }
   }
 }
