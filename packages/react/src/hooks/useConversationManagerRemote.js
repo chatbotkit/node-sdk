@@ -126,7 +126,9 @@ export function useConversationManagerRemote({
           }
 
           yield* client
-            .complete(conversationId, { text: lastUserMessage.text })
+            .complete(/** @type {string} */ (conversationId), {
+              text: lastUserMessage.text,
+            })
             .stream()
         }
       )
