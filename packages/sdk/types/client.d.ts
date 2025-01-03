@@ -85,7 +85,8 @@ export class ChatBotKitClient {
      *   record?: Record<string,any>,
      *   buffer?: ArrayBuffer,
      *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
-     *   external?: boolean
+     *   external?: boolean,
+     *   endpoint?: string
      * }} [options]
      * @returns {ResponsePromise<T,U>}
      */
@@ -101,6 +102,7 @@ export class ChatBotKitClient {
             data: string | ArrayBuffer;
         } | undefined;
         external?: boolean | undefined;
+        endpoint?: string | undefined;
     } | undefined): ResponsePromise<T, U>;
 }
 export type ChatBotKitClientOptions = {

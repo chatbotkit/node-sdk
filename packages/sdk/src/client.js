@@ -223,7 +223,7 @@ export class ChatBotKitClient {
     let method = options?.method
 
     const url = new URL(
-      this.endpoints[options?.endpoint] || this.endpoints[path] || path,
+      this.endpoints[options?.endpoint || path] || path,
       this.url
     )
 
