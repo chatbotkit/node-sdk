@@ -8,8 +8,7 @@ import React, {
 } from 'react'
 
 /**
- * A textarea that automatically adjusts its height based on its content. The
- * height is adjusted on input and focus events.
+ * A textarea that automatically adjusts its height based on its content.
  *
  * @param {{
  *   [name: string]: any
