@@ -56,6 +56,7 @@ For an in-depth exploration of the ChatBotKit Node SDK, including insights into 
 Encountered a bug or interested in contributing? Your participation is highly appreciated! Feel free to open an issue or submit a pull request on our [official GitHub repository](https://github.com/chatbotkit/node-sdk).
 
 ## Built With ChatBotKit
+
 - [FormShare](https://formshare.ai/) - Bring your forms to life with generative UI.
 - [PeopleAI](https://people.ai/) - Experience history like never before with our AI chatbots.
 - [AskNotion](https://asknotion.app/) - Create your personal ChatGPT-like chatbot that is trained on your Notion Pages.
