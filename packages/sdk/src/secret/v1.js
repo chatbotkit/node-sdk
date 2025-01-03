@@ -12,7 +12,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
- *   type?: 'bearer'|'plain'|'basic',
+ *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template',
  *   value?: string,
  *   meta?: Record<string,any>
  * }} SecretOptions
