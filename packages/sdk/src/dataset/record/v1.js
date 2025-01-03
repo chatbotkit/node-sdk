@@ -10,7 +10,10 @@
 
 /**
  * @typedef {{
+ *   name?: string,
+ *   description?: string,
  *   text: string,
+ *   source?: string,
  *   meta?: Record<string,any>
  * }} DatasetRecordOptions
  *
