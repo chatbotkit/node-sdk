@@ -24,8 +24,9 @@ import { ConversationClient } from '@chatbotkit/sdk'
  * @typedef {{
  *   client?: ConversationClient,
  *   endpoint?: EndpointURL|EndpointFunction,
- *   conversationId?: string,
  *   token?: string,
+ *   conversationId?: string,
+ *   stateful?: boolean,
  *   botId?: string,
  *   backstory?: string,
  *   model?: Model,
@@ -51,8 +52,11 @@ export function useConversationManagerRemote({
 
   endpoint,
 
-  conversationId,
   token,
+
+  conversationId,
+
+  stateful = conversationId ? true : false,
 
   botId,
   backstory,
@@ -93,6 +97,7 @@ export function useConversationManagerRemote({
 
       extension.endpoints = {
         '/api/v1/conversation/complete': endpoint,
+        '/api/v1/conversation/{conversationId}/complete': endpoint,
       }
     }
 
@@ -109,7 +114,7 @@ export function useConversationManagerRemote({
 
   /** @type {UseConversationManagerRemoteResult} */
   const remote = useMemo(() => {
-    if (conversationId) {
+    if (stateful) {
       return /** @type {UseConversationManagerRemoteResult} */ (
         async function* (messages) {
           const lastUserMessage = [...messages]
