@@ -4,4 +4,5 @@ packages:
   - 'examples/sdk/*'
   - 'examples/nextjs/pages/*'
   - 'examples/nextjs/app/*'
+  - 'examples/nextjs/hybrid/*'
   - 'examples/cloudflare/*'
