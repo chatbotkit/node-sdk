@@ -26,6 +26,7 @@ import { ConversationClient } from '@chatbotkit/sdk'
  *   endpoint?: EndpointURL|EndpointFunction,
  *   conversationId?: string,
  *   token?: string,
+ *   botId?: string,
  *   backstory?: string,
  *   model?: Model,
  *   datasetId?: string,
@@ -53,6 +54,7 @@ export function useConversationManagerRemote({
   conversationId,
   token,
 
+  botId,
   backstory,
   model,
   datasetId,
@@ -128,8 +130,7 @@ export function useConversationManagerRemote({
         async function* (messages) {
           yield* client
             .complete(null, {
-              // @todo uncomment once supported
-              // botId: botId,
+              botId: botId,
               backstory: backstory,
               model: model,
               datasetId: datasetId,
