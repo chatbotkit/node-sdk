@@ -12,6 +12,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   fingerprint: string,
  *   email?: string,
  *   phone?: string,
  *   meta?: Record<string,any>
@@ -97,7 +98,6 @@ export async function createContact(client, request) {
 
 /**
  * @typedef {ContactOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} ContactUpdateRequest
  *
  * @typedef {{
