@@ -12,7 +12,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
- *   fingerprint: string,
+ *   fingerprint?: string,
  *   email?: string,
  *   phone?: string,
  *   meta?: Record<string,any>
