@@ -214,14 +214,18 @@ export class ChatBotKitClient {
    *   record?: Record<string,any>,
    *   buffer?: ArrayBuffer,
    *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
-   *   external?: boolean
+   *   external?: boolean,
+   *   endpoint?: string
    * }} [options]
    * @returns {ResponsePromise<T,U>}
    */
   clientFetch(path, options) {
     let method = options?.method
 
-    const url = new URL(this.endpoints[path] || path, this.url)
+    const url = new URL(
+      this.endpoints[options?.endpoint] || this.endpoints[path] || path,
+      this.url
+    )
 
     if (
       url.hostname === 'api.chatbotkit.com' &&
