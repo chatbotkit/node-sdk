@@ -186,7 +186,7 @@ ___
 | `searchMinScore?` | `number` |
 | `separators?` | `string` |
 | `store?` | `string` |
-| `visibility?` | ``"public"`` \| ``"private"`` |
+| `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
 
 #### Defined in
 

@@ -193,7 +193,7 @@ ___
 | `description?` | `string` |
 | `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `name?` | `string` |
-| `type?` | ``"bearer"`` \| ``"plain"`` \| ``"basic"`` |
+| `type?` | ``"plain"`` \| ``"basic"`` \| ``"bearer"`` \| ``"oauth"`` \| ``"template"`` |
 | `value?` | `string` |
 
 #### Defined in

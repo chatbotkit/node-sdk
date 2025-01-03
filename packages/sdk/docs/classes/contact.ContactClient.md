@@ -194,7 +194,7 @@ Updates a contact.
 | Name | Type |
 | :------ | :------ |
 | `contactId` | `string` |
-| `request` | [`ContactUpdateRequest`](../modules/contact_v1.md#contactupdaterequest) |
+| `request` | [`ContactOptions`](../modules/contact_v1.md#contactoptions) |
 
 #### Returns
 

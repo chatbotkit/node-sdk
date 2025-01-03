@@ -208,7 +208,7 @@ ___
 | `model?` | `string` |
 | `name?` | `string` |
 | `skillsetId?` | `string` |
-| `visibility?` | ``"public"`` \| ``"private"`` \| ``"restrictedAccessChat"`` \| ``"unrestrictedAccessChat"`` |
+| `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
 
 #### Defined in
 
