@@ -173,6 +173,7 @@ export async function deleteConversation(client, conversationId) {
 
 /**
  * @typedef {{
+ *   botId?: string,
  *   backstory?: string,
  *   model?: import('../model/v1.js').Model,
  *   messages?: Message[],
