@@ -10,6 +10,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   fingerprint?: string,
  *   email?: string,
  *   phone?: string,
  *   meta?: Record<string,any>
@@ -63,7 +64,6 @@ export function fetchContact(client: ChatBotKitClient, contactId: string): Promi
 export function createContact(client: ChatBotKitClient, request: ContactCreateRequest): Promise<ContactCreateResponse>;
 /**
  * @typedef {ContactOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} ContactUpdateRequest
  *
  * @typedef {{
@@ -91,6 +91,7 @@ export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>
 export type ContactOptions = {
     name?: string;
     description?: string;
+    fingerprint?: string;
     email?: string;
     phone?: string;
     meta?: Record<string, any>;
@@ -121,9 +122,7 @@ export type ContactCreateRequest = ContactOptions & {
 export type ContactCreateResponse = {
     id: string;
 };
-export type ContactUpdateRequest = ContactOptions & {
-    model?: import('../model/v1.js').Model;
-};
+export type ContactUpdateRequest = ContactOptions & {};
 export type ContactUpdateResponse = {
     id: string;
 };

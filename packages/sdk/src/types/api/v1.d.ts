@@ -441,6 +441,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/conversation/{conversationId}/message/{messageId}/synthesize": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Synthesize conversation message */
+        post: operations["synthesizeConversationMessage"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/conversation/{conversationId}/message/{messageId}/update": {
         parameters: {
             query?: never;
@@ -2833,32 +2850,52 @@ export interface components {
          * @description The bot visibility
          * @enum {string}
          */
-        BotVisibility: "private" | "public" | "restrictedAccessChat" | "unrestrictedAccessChat";
+        BotVisibility: "private" | "protected" | "public";
         /**
          * @description The dataset visibility
          * @enum {string}
          */
-        DatasetVisibility: "private" | "public";
+        DatasetVisibility: "private" | "protected" | "public";
         /**
          * @description The dataset file attachment type
          * @enum {string}
          */
         DatasetFileAttachmentType: "source";
+        DatasetFilter: {
+            [key: string]: string | number | boolean | {
+                $eq: string | number | boolean;
+            } | {
+                $ne: string | number | boolean;
+            } | {
+                $gt: number;
+            } | {
+                $gte: number;
+            } | {
+                $lt: number;
+            } | {
+                $lte: number;
+            };
+        };
         /**
          * @description The skillset visibility
          * @enum {string}
          */
-        SkillsetVisibility: "private" | "public";
+        SkillsetVisibility: "private" | "protected" | "public";
         /**
          * @description The file visibility
          * @enum {string}
          */
-        FileVisibility: "private" | "public";
+        FileVisibility: "private" | "protected" | "public";
+        /**
+         * @description The kind of the secret
+         * @enum {string}
+         */
+        SecretKind: "shared" | "personal";
         /**
          * @description The type of the secret
          * @enum {string}
          */
-        SecretType: "bearer" | "plain" | "basic";
+        SecretType: "plain" | "basic" | "bearer" | "oauth" | "template";
         /** @description Usage information */
         Usage: {
             /** @description The tokens used in this exchange */
@@ -2945,82 +2982,15 @@ export interface components {
             /** @description The last update date */
             updatedAt: number;
         };
-        ErrorResponse: {
-            /** @description The error message */
-            message?: string;
-            /** @description The error code */
-            code?: string;
-        };
     };
     responses: {
-        /** @description The resource was not modified */
-        NotModified: {
+        /** @description An error response */
+        ErrorResponse: {
             headers: {
                 [name: string]: unknown;
             };
             content: {
-                "application/json": {
-                    /** @description The error message */
-                    message?: string;
-                    /** @description The error code */
-                    code?: string;
-                };
-            };
-        };
-        /** @description The request could not be understood or was missing required parameters. */
-        BadRequest: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": {
-                    /** @description The error message */
-                    message?: string;
-                    /** @description The error code */
-                    code?: string;
-                };
-            };
-        };
-        /** @description The request could not be completed due to a conflict with the current state of the resource. */
-        Conflict: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": {
-                    /** @description The error message */
-                    message?: string;
-                    /** @description The error code */
-                    code?: string;
-                };
-            };
-        };
-        /** @description The user is not authorized to access the requested resource */
-        Unauthorized: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": {
-                    /** @description The error message */
-                    message?: string;
-                    /** @description The error code */
-                    code?: string;
-                };
-            };
-        };
-        /** @description The specified resource was not found */
-        NotFound: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                "application/json": {
-                    /** @description The error message */
-                    message?: string;
-                    /** @description The error code */
-                    code?: string;
-                };
+                "application/json": unknown;
             };
         };
     };
@@ -3058,32 +3028,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3104,7 +3055,7 @@ export interface operations {
                      * @description The value of the downvote
                      * @default -100
                      */
-                    value: number;
+                    value?: number;
                 };
             };
         };
@@ -3121,60 +3072,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3197,62 +3101,50 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the bot */
-                        id: string;
-                        /** @description The name of the bot */
+                        /** @description The associated name */
                         name?: string;
-                        /** @description The description of the bot */
+                        /** @description The associated description */
                         description?: string;
-                        /** @description The backstory for the bot */
-                        backstory?: string;
-                        /** @description The model used in the bot */
-                        model?: string;
-                        /** @description The ID of the dataset used in the bot */
-                        datasetId?: string;
-                        /** @description The ID of the skillset used in the bot */
-                        skillsetId?: string;
-                        /**
-                         * @description The bot visibility
-                         * @enum {string}
-                         */
-                        visibility: "private" | "public" | "restrictedAccessChat" | "unrestrictedAccessChat";
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the bot was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the bot was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                        /**
+                         * @description The bot visibility
+                         * @enum {string}
+                         */
+                        visibility?: "private" | "protected" | "public";
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3317,60 +3209,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3387,28 +3232,39 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the bot */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The description of the bot */
+                    /** @description The associated description */
                     description?: string;
-                    /** @description The backstory of the bot */
-                    backstory?: string;
-                    /** @description The model of the bot */
-                    model?: string;
-                    /** @description The id of the dataset the bot is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset the bot is using */
-                    skillsetId?: string;
-                    /**
-                     * @description The bot visibility
-                     * @enum {string}
-                     */
-                    visibility?: "private" | "public" | "restrictedAccessChat" | "unrestrictedAccessChat";
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
-                };
+                    /**
+                     * @description The bot visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
             };
         };
         responses: {
@@ -3424,60 +3280,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3498,7 +3307,7 @@ export interface operations {
                      * @description The value of the upvote
                      * @default 100
                      */
-                    value: number;
+                    value?: number;
                 };
             };
         };
@@ -3515,60 +3324,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3583,27 +3345,34 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the bot */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The description of the bot */
+                    /** @description The associated description */
                     description?: string;
-                    /** @description The backstory of the bot */
-                    backstory?: string;
-                    /** @description The model of the bot */
-                    model?: string;
-                    /** @description The id of the dataset the bot is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset the bot is using */
-                    skillsetId?: string;
-                    /**
-                     * @description The bot visibility
-                     * @enum {string}
-                     */
-                    visibility?: "private" | "public" | "restrictedAccessChat" | "unrestrictedAccessChat";
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                    /**
+                     * @description The bot visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -3620,32 +3389,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3670,35 +3420,41 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of bots */
                         items: {
-                            /** @description The ID of the bot */
-                            id: string;
-                            /** @description The name of the bot */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the bot */
+                            /** @description The associated description */
                             description?: string;
-                            /** @description The backstory of the bot */
-                            backstory?: string;
-                            /** @description The model of the bot */
-                            model?: string;
-                            /** @description The id of the dataset the bot is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset the bot is using */
-                            skillsetId?: string;
-                            /**
-                             * @description The bot visibility
-                             * @enum {string}
-                             */
-                            visibility: "private" | "public" | "restrictedAccessChat" | "unrestrictedAccessChat";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the bot was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the bot was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                            /**
+                             * @description The bot visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         }[];
                     };
                     "application/jsonl": {
@@ -3707,50 +3463,53 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
-                            /** @description The ID of the bot */
-                            id: string;
-                            /** @description The name of the bot */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the bot */
+                            /** @description The associated description */
                             description?: string;
-                            /** @description The backstory of the bot */
-                            backstory?: string;
-                            /** @description The model of the bot */
-                            model?: string;
-                            /** @description The id of the dataset the bot is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset the bot is using */
-                            skillsetId?: string;
-                            /**
-                             * @description The bot visibility
-                             * @enum {string}
-                             */
-                            visibility: "private" | "public" | "restrictedAccessChat" | "unrestrictedAccessChat";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the bot was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the bot was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                            /**
+                             * @description The bot visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3863,18 +3622,13 @@ export interface operations {
                     "text/csv": string;
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -3986,18 +3740,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4029,32 +3778,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4091,6 +3821,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The last update date */
                         updatedAt: number;
+                        /** @description The fingerprint of the contact */
+                        fingerprint?: string;
                         /** @description The email address of the contact */
                         email?: string;
                         /** @description The phone number of the contact */
@@ -4098,32 +3830,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4148,6 +3861,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The fingerprint of the contact */
+                    fingerprint?: string;
                     /** @description The email address of the contact */
                     email?: string;
                     /** @description The phone number of the contact */
@@ -4168,60 +3883,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4244,6 +3912,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The fingerprint of the contact */
+                    fingerprint?: string;
                     /** @description The email address of the contact */
                     email?: string;
                     /** @description The phone number of the contact */
@@ -4264,32 +3934,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4329,6 +3980,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The fingerprint of the contact */
+                            fingerprint?: string;
                             /** @description The email address of the contact */
                             email?: string;
                             /** @description The phone number of the contact */
@@ -4357,6 +4010,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The fingerprint of the contact */
+                            fingerprint?: string;
                             /** @description The email address of the contact */
                             email?: string;
                             /** @description The phone number of the contact */
@@ -4366,18 +4021,13 @@ export interface operations {
                     "text/csv": string;
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4417,6 +4067,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The fingerprint of the contact */
+                            fingerprint?: string;
                             /** @description The email address of the contact */
                             email?: string;
                             /** @description The phone number of the contact */
@@ -4445,6 +4097,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The fingerprint of the contact */
+                            fingerprint?: string;
                             /** @description The email address of the contact */
                             email?: string;
                             /** @description The phone number of the contact */
@@ -4453,18 +4107,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4482,10 +4131,10 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The file to upload either as http: or data: URL */
-                    file: string;
+                    file?: string;
                 } | {
                     /** @description The file definition to upload */
-                    file: {
+                    file?: {
                         /** @description The file type */
                         type: string;
                         /** @description The file size */
@@ -4528,46 +4177,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4657,60 +4273,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4755,32 +4324,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The resource was not modified */
-            304: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4812,32 +4362,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4858,7 +4389,7 @@ export interface operations {
                      * @description The value of the downvote
                      * @default -100
                      */
-                    value: number;
+                    value?: number;
                 };
             };
         };
@@ -4875,60 +4406,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -4989,32 +4473,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5047,32 +4512,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5094,7 +4540,7 @@ export interface operations {
                      * @description The value of the downvote
                      * @default -100
                      */
-                    value: number;
+                    value?: number;
                 };
             };
         };
@@ -5111,60 +4557,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5188,8 +4587,20 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the fetched message */
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
                         id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
                         /**
                          * @description The type of the message
                          * @enum {string}
@@ -5197,39 +4608,55 @@ export interface operations {
                         type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the fetched message */
                         text: string;
-                        /** @description The date and time when the message was created (in milliseconds) */
-                        createdAt: number;
-                        /** @description The date and time when the message was last updated (in milliseconds) */
-                        updatedAt: number;
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    synthesizeConversationMessage: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                conversationId: string;
+                messageId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The message was synthesized successfully */
+            200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
+                        /** @description The ID of the synthesized message */
+                        id: string;
                     };
                 };
             };
-            /** @description The specified resource was not found */
-            404: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5247,12 +4674,40 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The updated text of the message */
-                    text?: string;
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The type of the message
+                     * @enum {string}
+                     */
+                    type?: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                    /** @description The updated text of the message */
+                    text?: string;
+                    /** @description Known entities */
+                    entities?: {
+                        /** @description The entity type */
+                        type: string;
+                        /** @description Start offset */
+                        begin: number;
+                        /** @description End offset */
+                        end: number;
+                        /** @description The text value of the entity */
+                        text: string;
+                        replacement?: {
+                            /** @description Start offset */
+                            begin: number;
+                            /** @description End offset */
+                            end: number;
+                            /** @description The text value of the replacement */
+                            text: string;
+                        };
+                    }[];
                 };
             };
         };
@@ -5269,60 +4724,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5344,7 +4752,7 @@ export interface operations {
                      * @description The value of the upvote
                      * @default 100
                      */
-                    value: number;
+                    value?: number;
                 };
             };
         };
@@ -5361,60 +4769,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5431,6 +4792,14 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                     /**
                      * @description The type of the message
                      * @enum {string}
@@ -5492,60 +4861,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5572,10 +4894,21 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of conversation messages */
                         items: {
-                            /** @description The ID of the message */
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                             /**
                              * @description The type of the message
                              * @enum {string}
@@ -5583,10 +4916,6 @@ export interface operations {
                             type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
-                            /** @description The timestamp of when the message was created (in milliseconds) */
-                            createdAt: number;
-                            /** @description The timestamp of when the message was last updated  (in milliseconds) */
-                            updatedAt: number;
                         }[];
                     };
                     "application/jsonl": {
@@ -5595,9 +4924,22 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the message */
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                             /**
                              * @description The type of the message
                              * @enum {string}
@@ -5605,40 +4947,17 @@ export interface operations {
                             type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
-                            /** @description The timestamp of when the message was created (in milliseconds) */
-                            createdAt: number;
-                            /** @description The timestamp of when the message was last updated  (in milliseconds) */
-                            updatedAt: number;
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5706,60 +5025,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5862,60 +5134,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -5954,60 +5179,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6069,60 +5247,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6143,7 +5274,7 @@ export interface operations {
                      * @description The value of the upvote
                      * @default 100
                      */
-                    value: number;
+                    value?: number;
                 };
             };
         };
@@ -6160,60 +5291,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6309,32 +5393,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6414,32 +5479,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6550,18 +5596,13 @@ export interface operations {
                     "text/csv": string;
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6671,18 +5712,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6714,32 +5750,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6762,14 +5779,22 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the dataset */
-                        id: string;
-                        /** @description The name of the dataset */
+                        /** @description The associated name */
                         name?: string;
-                        /** @description The description of the dataset */
+                        /** @description The associated description */
                         description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
                         /** @description The store for the dataset */
-                        store: string;
+                        store?: string;
                         /** @description The total number of tokens for each record */
                         recordMaxTokens?: number;
                         /** @description The minimum score to filter search results by */
@@ -6788,44 +5813,17 @@ export interface operations {
                          * @description The dataset visibility
                          * @enum {string}
                          */
-                        visibility: "private" | "public";
-                        /** @description Meta data information */
-                        meta?: {
-                            [key: string]: unknown;
-                        };
-                        /** @description The timestamp for when the dataset was created (in milliseconds) */
-                        createdAt: number;
-                        /** @description The timestamp for when the dataset was last updated (in milliseconds) */
-                        updatedAt: number;
+                        visibility?: "private" | "protected" | "public";
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6864,32 +5862,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6906,7 +5885,10 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": Record<string, never>;
+                "application/json": {
+                    /** @description Delete records associated with the file */
+                    deleteRecords?: boolean;
+                };
             };
         };
         responses: {
@@ -6922,32 +5904,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -6980,32 +5943,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7032,27 +5976,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of files */
                         items: {
-                            /** @description The ID of the file */
-                            id: string;
-                            /** @description The name of the file */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the file */
+                            /** @description The associated description */
                             description?: string;
-                            /**
-                             * @description The file visibility
-                             * @enum {string}
-                             */
-                            visibility: "private" | "public";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the file was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the file was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description The file visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         }[];
                     };
                     "application/jsonl": {
@@ -7061,42 +6004,38 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the file */
-                            id: string;
-                            /** @description The name of the file */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the file */
+                            /** @description The associated description */
                             description?: string;
-                            /**
-                             * @description The file visibility
-                             * @enum {string}
-                             */
-                            visibility: "private" | "public";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the file was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the file was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description The file visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7129,32 +6068,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7178,47 +6098,34 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the dataset record */
-                        id: string;
-                        /** @description The text of the dataset record */
-                        text: string;
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the dataset record was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the dataset record was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
+                        /** @description The text of the dataset record */
+                        text: string;
+                        /** @description The source of the dataset record */
+                        source?: string;
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7238,6 +6145,8 @@ export interface operations {
                 "application/json": {
                     /** @description The text to update the record with */
                     text?: string;
+                    /** @description The source to update the record with */
+                    source?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
@@ -7258,60 +6167,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7330,6 +6192,8 @@ export interface operations {
                 "application/json": {
                     /** @description The text of the record */
                     text: string;
+                    /** @description The source of the record */
+                    source?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
@@ -7350,60 +6214,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7431,11 +6248,22 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            text: string;
-                            meta?: Record<string, never>;
+                            /** @description The creation date */
                             createdAt: number;
+                            /** @description The last update date */
                             updatedAt: number;
+                            text: string;
+                            source?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -7444,29 +6272,36 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            text: string;
-                            meta?: Record<string, never>;
+                            /** @description The creation date */
                             createdAt: number;
+                            /** @description The last update date */
                             updatedAt: number;
+                            text: string;
+                            source?: string;
                         };
                     };
                     "text/csv": string;
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7494,11 +6329,22 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            text: string;
-                            meta?: Record<string, never>;
+                            /** @description The creation date */
                             createdAt: number;
+                            /** @description The last update date */
                             updatedAt: number;
+                            text: string;
+                            source?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -7507,42 +6353,35 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            text: string;
-                            meta?: Record<string, never>;
+                            /** @description The creation date */
                             createdAt: number;
+                            /** @description The last update date */
                             updatedAt: number;
+                            text: string;
+                            source?: string;
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7559,8 +6398,23 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The search query to use for the search */
+                    /** @description The keyword/phrase to search for */
                     search: string;
+                    filter?: {
+                        [key: string]: string | number | boolean | {
+                            $eq: string | number | boolean;
+                        } | {
+                            $ne: string | number | boolean;
+                        } | {
+                            $gt: number;
+                        } | {
+                            $gte: number;
+                        } | {
+                            $lt: number;
+                        } | {
+                            $lte: number;
+                        };
+                    };
                 };
             };
         };
@@ -7582,60 +6436,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7652,10 +6459,14 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The new name for the dataset */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The new description for the dataset */
+                    /** @description The associated description */
                     description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                     /** @description The total number of tokens to for each record */
                     recordMaxTokens?: number;
                     /** @description The minimum score to filter search results by */
@@ -7674,11 +6485,7 @@ export interface operations {
                      * @description The dataset visibility
                      * @enum {string}
                      */
-                    visibility?: "private" | "public";
-                    /** @description Meta data information */
-                    meta?: {
-                        [key: string]: unknown;
-                    };
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -7695,60 +6502,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7763,10 +6523,14 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the dataset */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description A description of the dataset */
+                    /** @description The associated description */
                     description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
                     /** @description The storage class for this dataset */
                     store?: string;
                     /** @description The total number of tokens for each record */
@@ -7787,11 +6551,7 @@ export interface operations {
                      * @description The dataset visibility
                      * @enum {string}
                      */
-                    visibility?: "private" | "public";
-                    /** @description Meta data information */
-                    meta?: {
-                        [key: string]: unknown;
-                    };
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -7808,32 +6568,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7858,16 +6599,23 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of datasets */
                         items: {
-                            /** @description The ID of the dataset */
-                            id: string;
-                            /** @description The name of the dataset */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the dataset */
+                            /** @description The associated description */
                             description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                             /** @description The store for the dataset */
-                            store: string;
+                            store?: string;
                             /** @description The total number of tokens for each record */
                             recordMaxTokens?: number;
                             /** @description The minimum score to filter search results by */
@@ -7886,15 +6634,7 @@ export interface operations {
                              * @description The dataset visibility
                              * @enum {string}
                              */
-                            visibility: "private" | "public";
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The timestamp when the dataset was created */
-                            createdAt: number;
-                            /** @description The timestamp when the dataset was last updated */
-                            updatedAt: number;
+                            visibility?: "private" | "protected" | "public";
                         }[];
                     };
                     "application/jsonl": {
@@ -7903,15 +6643,24 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the dataset */
-                            id: string;
-                            /** @description The name of the dataset */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the dataset */
+                            /** @description The associated description */
                             description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                             /** @description The store for the dataset */
-                            store: string;
+                            store?: string;
                             /** @description The total number of tokens for each record */
                             recordMaxTokens?: number;
                             /** @description The minimum score to filter search results by */
@@ -7930,31 +6679,18 @@ export interface operations {
                              * @description The dataset visibility
                              * @enum {string}
                              */
-                            visibility: "private" | "public";
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The timestamp when the dataset was created */
-                            createdAt: number;
-                            /** @description The timestamp when the dataset was last updated */
-                            updatedAt: number;
+                            visibility?: "private" | "protected" | "public";
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -7986,32 +6722,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8040,32 +6757,13 @@ export interface operations {
                     "*/*": string;
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8088,54 +6786,35 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the file */
-                        id: string;
-                        /** @description The name of the file */
+                        /** @description The associated name */
                         name?: string;
-                        /** @description The description of the file */
+                        /** @description The associated description */
                         description?: string;
-                        /**
-                         * @description The file visibility
-                         * @enum {string}
-                         */
-                        visibility: "private" | "public";
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the file was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the file was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
+                        /**
+                         * @description The file visibility
+                         * @enum {string}
+                         */
+                        visibility?: "private" | "protected" | "public";
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8167,32 +6846,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8209,19 +6869,19 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The new name for the file */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The new description for the file */
+                    /** @description The associated description */
                     description?: string;
-                    /**
-                     * @description The file visibility
-                     * @enum {string}
-                     */
-                    visibility?: "private" | "public";
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The file visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -8238,60 +6898,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8309,10 +6922,10 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The file to upload either as http: or data: URL */
-                    file: string;
+                    file?: string;
                 } | {
                     /** @description The file definition to upload */
-                    file: {
+                    file?: {
                         /** @description The file type */
                         type: string;
                         /** @description The file size */
@@ -8353,46 +6966,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8407,19 +6987,19 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the file */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description A description of the file */
+                    /** @description The associated description */
                     description?: string;
-                    /**
-                     * @description The file visibility
-                     * @enum {string}
-                     */
-                    visibility?: "private" | "public";
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The file visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -8436,32 +7016,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8486,27 +7047,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of files */
                         items: {
-                            /** @description The ID of the file */
-                            id: string;
-                            /** @description The name of the file */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the file */
+                            /** @description The associated description */
                             description?: string;
-                            /**
-                             * @description The file visibility
-                             * @enum {string}
-                             */
-                            visibility: "private" | "public";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the file was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the file was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description The file visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         }[];
                     };
                     "application/jsonl": {
@@ -8515,42 +7075,38 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the file */
-                            id: string;
-                            /** @description The name of the file */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the file */
+                            /** @description The associated description */
                             description?: string;
-                            /**
-                             * @description The file visibility
-                             * @enum {string}
-                             */
-                            visibility: "private" | "public";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the file was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the file was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description The file visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8582,46 +7138,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8686,32 +7209,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8743,46 +7247,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8852,60 +7323,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -8973,46 +7397,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9130,18 +7521,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9173,46 +7559,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9275,32 +7628,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9332,60 +7666,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9449,60 +7736,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9564,46 +7804,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9717,18 +7924,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9760,46 +7962,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9847,32 +8016,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9921,60 +8071,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -9998,7 +8101,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the Bot to use */
-                    botId: string;
+                    botId?: string;
                     /** @description The configured extraction schema */
                     schema?: {
                         [key: string]: unknown;
@@ -10021,46 +8124,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10144,18 +8214,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10187,46 +8252,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10291,32 +8323,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10348,60 +8361,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10467,60 +8433,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10584,46 +8503,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10741,18 +8627,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10784,46 +8665,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10871,32 +8719,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -10928,46 +8757,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11016,60 +8812,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11093,7 +8842,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the dataset to sync into */
-                    datasetId: string;
+                    datasetId?: string;
                     /** @description The Notion API token */
                     token?: string;
                     /** @description The sync schedule */
@@ -11116,46 +8865,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11239,18 +8955,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11282,46 +8993,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11375,32 +9053,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11432,60 +9091,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11540,60 +9152,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11617,7 +9182,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the dataset to use for this Sitemap integration */
-                    datasetId: string;
+                    datasetId?: string;
                     /** @description The URL to use for this Sitemap integration */
                     url?: string;
                     /** @description The glob rules to use for this Sitemap integration */
@@ -11646,46 +9211,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11781,18 +9313,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11824,46 +9351,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11926,32 +9420,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -11983,46 +9458,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12090,60 +9532,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12209,46 +9604,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12362,18 +9724,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12405,46 +9762,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12488,32 +9812,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12558,60 +9863,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12635,7 +9893,7 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /** @description The ID of the Bot to use */
-                    botId: string;
+                    botId?: string;
                     /** @description The email to use */
                     email?: string;
                 };
@@ -12654,46 +9912,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12769,18 +9994,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12812,46 +10032,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12888,6 +10075,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The last update date */
                         updatedAt: number;
+                        /** @description Weather to collect contacts */
+                        contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
@@ -12914,32 +10103,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -12971,60 +10141,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13051,6 +10174,8 @@ export interface operations {
                     };
                     /** @description The Telegram integration bot token */
                     botToken?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
@@ -13090,60 +10215,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13168,6 +10246,8 @@ export interface operations {
                     };
                     /** @description The Telegram integration bot token */
                     botToken?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
@@ -13207,46 +10287,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13286,6 +10333,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
@@ -13333,6 +10382,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
@@ -13360,18 +10411,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13403,46 +10449,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13481,8 +10494,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The Trigger integration secret */
                         secret: string;
-                        /** @description The text message to trigger the integration */
-                        text?: string;
+                        /** @description When enabled the integration requires authentication */
+                        authenticate?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                     } & ({
@@ -13507,32 +10520,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13564,60 +10558,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13642,8 +10589,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The text message to trigger the integration */
-                    text?: string;
+                    /** @description When enabled the integration requires authentication */
+                    authenticate?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                 } & ({
@@ -13681,60 +10628,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13757,8 +10657,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The text message to trigger the integration */
-                    text?: string;
+                    /** @description When enabled the integration requires authentication */
+                    authenticate?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                 } & ({
@@ -13796,46 +10696,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13877,8 +10744,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The Trigger integration secret */
                             secret: string;
-                            /** @description The text message to trigger the integration */
-                            text?: string;
+                            /** @description When enabled the integration requires authentication */
+                            authenticate?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -13926,8 +10793,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The Trigger integration secret */
                             secret: string;
-                            /** @description The text message to trigger the integration */
-                            text?: string;
+                            /** @description When enabled the integration requires authentication */
+                            authenticate?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -13953,18 +10820,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -13996,46 +10858,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14104,32 +10933,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14161,60 +10971,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14284,60 +11047,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14405,46 +11121,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14570,18 +11253,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14613,46 +11291,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14735,6 +11380,10 @@ export interface operations {
                         maximize?: boolean;
                         /** @description Controls whether the Widget allows peeking at the initial messages */
                         messagePeek?: boolean;
+                        /** @description Whether the Widget integration supports voice input */
+                        voiceIn?: boolean;
+                        /** @description Whether the Widget integration supports voice output */
+                        voiceOut?: boolean;
                         /** @description Whether the Widget integration displays powered by ChatBotKit */
                         poweredBy?: boolean;
                     } & ({
@@ -14759,32 +11408,13 @@ export interface operations {
                     });
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14816,46 +11446,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -14926,6 +11523,10 @@ export interface operations {
                     maximize?: boolean;
                     /** @description Controls whether the Widget allows peeking at the initial messages */
                     messagePeek?: boolean;
+                    /** @description Controls whether the Widget allows voice input */
+                    voiceIn?: boolean;
+                    /** @description Controls whether the Widget allows voice output */
+                    voiceOut?: boolean;
                     /** @description Whether the Widget integration displays powered by ChatBotKit */
                     poweredBy?: boolean;
                 } & ({
@@ -14963,60 +11564,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15079,12 +11633,16 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description Controls whether the Widget allows exporting the current conversation */
                     exportConversation?: boolean;
+                    /** @description Controls whether the Widget allows restarting the conversation */
+                    restartConversation?: boolean;
                     /** @description Controls whether the Widget allows maximizing the conversation */
                     maximize?: boolean;
                     /** @description Controls whether the Widget allows peeking at the initial messages */
                     messagePeek?: boolean;
-                    /** @description Controls whether the Widget allows restarting the conversation */
-                    restartConversation?: boolean;
+                    /** @description Controls whether the Widget allows voice input */
+                    voiceIn?: boolean;
+                    /** @description Controls whether the Widget allows voice output */
+                    voiceOut?: boolean;
                     /** @description Whether the Widget integration displays powered by ChatBotKit */
                     poweredBy?: boolean;
                 } & ({
@@ -15122,46 +11680,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15247,6 +11772,10 @@ export interface operations {
                             maximize?: boolean;
                             /** @description Controls whether the Widget allows peeking at the initial messages */
                             messagePeek?: boolean;
+                            /** @description Whether the Widget integration supports voice input */
+                            voiceIn?: boolean;
+                            /** @description Whether the Widget integration supports voice output */
+                            voiceOut?: boolean;
                             /** @description Whether the Widget integration displays powered by ChatBotKit */
                             poweredBy?: boolean;
                         } & ({
@@ -15338,6 +11867,10 @@ export interface operations {
                             maximize?: boolean;
                             /** @description Controls whether the Widget allows peeking at the initial messages */
                             messagePeek?: boolean;
+                            /** @description Whether the Widget integration supports voice input */
+                            voiceIn?: boolean;
+                            /** @description Whether the Widget integration supports voice output */
+                            voiceOut?: boolean;
                             /** @description Whether the Widget integration displays powered by ChatBotKit */
                             poweredBy?: boolean;
                         } & ({
@@ -15363,18 +11896,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15393,7 +11921,9 @@ export interface operations {
                 "application/json": {
                     /** @description The text to use as input */
                     text: string;
-                    /** @description The model to use for generation */
+                    /** @description Additional properties to pass to the prompt */
+                    props?: Record<string, never>;
+                    /** @description Optional language model to use for generation */
                     model?: string;
                 };
             };
@@ -15432,32 +11962,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15482,14 +11993,21 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of magic prompts */
                         items: {
-                            /** @description The ID of the magic prompt */
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            /** @description The ID of the magic prompt */
-                            name: string;
-                            /** @description The description of the magic prompt */
-                            description: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                         }[];
                     };
                     "application/jsonl": {
@@ -15498,29 +12016,33 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the magic prompt */
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            /** @description The ID of the magic prompt */
-                            name: string;
-                            /** @description The description of the magic prompt */
-                            description: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15552,32 +12074,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15600,51 +12103,34 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the partner user */
-                        id: string;
-                        /** @description The name of the partner user */
+                        /** @description The associated name */
                         name?: string;
-                        /** @description The image of the partner user */
-                        image?: string;
-                        /** @description The email of the partner user */
-                        email?: string;
+                        /** @description The associated description */
+                        description?: string;
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the partner user was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the partner user was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
+                        /** @description The image of the partner user */
+                        image?: string;
+                        /** @description The email of the partner user */
+                        email?: string;
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15677,32 +12163,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15738,32 +12205,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15791,11 +12239,19 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
-                            /** @description The ID of the user */
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            /** @description The timestamp for when the user token was created (in milliseconds) */
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the user token was updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
                         }[];
                     };
@@ -15805,29 +12261,33 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the user */
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            /** @description The timestamp for when the user token was created (in milliseconds) */
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the user token was updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15844,16 +12304,18 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the partner user */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The image of the partner user */
-                    image?: string;
-                    /** @description The email of the partner user */
-                    email?: string;
+                    /** @description The associated description */
+                    description?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The image of the partner user */
+                    image?: string;
+                    /** @description The email of the partner user */
+                    email?: string;
                 };
             };
         };
@@ -15870,60 +12332,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -15938,16 +12353,18 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the partner user */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The image of the partner user */
-                    image?: string;
-                    /** @description The email of the partner user */
-                    email?: string;
+                    /** @description The associated description */
+                    description?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The image of the partner user */
+                    image?: string;
+                    /** @description The email of the partner user */
+                    email?: string;
                 };
             };
         };
@@ -15964,32 +12381,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16015,22 +12413,24 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
-                            /** @description The ID of the partner user */
-                            id: string;
-                            /** @description The name of the partner user */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The image of the partner user */
-                            image?: string;
-                            /** @description The email of the partner user */
-                            email?: string;
+                            /** @description The associated description */
+                            description?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the user was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the user was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /** @description The image of the partner user */
+                            image?: string;
+                            /** @description The email of the partner user */
+                            email?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -16039,39 +12439,37 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the partner user */
-                            id: string;
-                            /** @description The name of the partner user */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The image of the partner user */
-                            image?: string;
-                            /** @description The email of the partner user */
-                            email?: string;
+                            /** @description The associated description */
+                            description?: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp for when the user was created (in milliseconds) */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp for when the user was last updated (in milliseconds) */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /** @description The image of the partner user */
+                            image?: string;
+                            /** @description The email of the partner user */
+                            email?: string;
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16096,22 +12494,31 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of models */
                         items: {
-                            /** @description The ID of the model */
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            /** @description The description of the model */
-                            description: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                             /** @description The backstory of the model */
-                            provider: string;
+                            provider?: string;
                             /** @description The model of the model */
-                            family: string;
+                            family?: string;
                             /** @description The maximum number of tokens the model can use */
-                            maxTokens: number;
+                            maxTokens?: number;
                             /** @description The maximum number of tokens the model can accept */
-                            maxInputTokens: number;
+                            maxInputTokens?: number;
                             /** @description The maximum number of tokens the model can generate */
-                            maxOutputTokens: number;
+                            maxOutputTokens?: number;
                         }[];
                     };
                     "application/jsonl": {
@@ -16120,37 +12527,43 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the model */
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
                             id: string;
-                            /** @description The description of the model */
-                            description: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                             /** @description The backstory of the model */
-                            provider: string;
+                            provider?: string;
                             /** @description The model of the model */
-                            family: string;
+                            family?: string;
                             /** @description The maximum number of tokens the model can use */
-                            maxTokens: number;
+                            maxTokens?: number;
                             /** @description The maximum number of tokens the model can accept */
-                            maxInputTokens: number;
+                            maxInputTokens?: number;
                             /** @description The maximum number of tokens the model can generate */
-                            maxOutputTokens: number;
+                            maxOutputTokens?: number;
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16182,32 +12595,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16230,54 +12624,42 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the secret */
-                        id: string;
-                        /** @description The name of the secret */
+                        /** @description The associated name */
                         name?: string;
-                        /** @description The description of the secret */
+                        /** @description The associated description */
                         description?: string;
-                        /**
-                         * @description The type of the secret
-                         * @enum {string}
-                         */
-                        type: "bearer" | "plain" | "basic";
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the secret was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the secret was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
+                        /**
+                         * @description The kind of the secret
+                         * @enum {string}
+                         */
+                        kind?: "shared" | "personal";
+                        /**
+                         * @description The type of the secret
+                         * @enum {string}
+                         */
+                        type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                        /** @description The config of the secret */
+                        config?: Record<string, never>;
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16294,21 +12676,28 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The new name for the secret */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The new description for the secret */
+                    /** @description The associated description */
                     description?: string;
-                    /**
-                     * @description The type of the secret
-                     * @enum {string}
-                     */
-                    type?: "bearer" | "plain" | "basic";
-                    /** @description The value of the secret */
-                    value?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The kind of the secret
+                     * @enum {string}
+                     */
+                    kind?: "shared" | "personal";
+                    /**
+                     * @description The type of the secret
+                     * @enum {string}
+                     */
+                    type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                    /** @description The value of the secret */
+                    value?: string;
+                    /** @description The config of the secret */
+                    config?: Record<string, never>;
                 };
             };
         };
@@ -16325,60 +12714,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16393,21 +12735,28 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the secret */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description A description of the secret */
+                    /** @description The associated description */
                     description?: string;
-                    /**
-                     * @description The type of the secret
-                     * @enum {string}
-                     */
-                    type?: "bearer" | "plain" | "basic";
-                    /** @description The value of the secret */
-                    value?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The kind of the secret
+                     * @enum {string}
+                     */
+                    kind?: "shared" | "personal";
+                    /**
+                     * @description The type of the secret
+                     * @enum {string}
+                     */
+                    type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                    /** @description The value of the secret */
+                    value?: string;
+                    /** @description The config of the secret */
+                    config?: string;
                 };
             };
         };
@@ -16424,32 +12773,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16474,27 +12804,33 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of secrets */
                         items: {
-                            /** @description The ID of the secret */
-                            id: string;
-                            /** @description The name of the secret */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the secret */
+                            /** @description The associated description */
                             description?: string;
-                            /**
-                             * @description The type of the secret
-                             * @enum {string}
-                             */
-                            type: "bearer" | "plain" | "basic";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the secret was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the secret was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description The kind of the secret
+                             * @enum {string}
+                             */
+                            kind?: "shared" | "personal";
+                            /**
+                             * @description The type of the secret
+                             * @enum {string}
+                             */
+                            type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                            /** @description The config of the secret */
+                            config?: Record<string, never>;
                         }[];
                     };
                     "application/jsonl": {
@@ -16503,42 +12839,45 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the secret */
-                            id: string;
-                            /** @description The name of the secret */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the secret */
+                            /** @description The associated description */
                             description?: string;
-                            /**
-                             * @description The type of the secret
-                             * @enum {string}
-                             */
-                            type: "bearer" | "plain" | "basic";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the secret was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the secret was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description The kind of the secret
+                             * @enum {string}
+                             */
+                            kind?: "shared" | "personal";
+                            /**
+                             * @description The type of the secret
+                             * @enum {string}
+                             */
+                            type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                            /** @description The config of the secret */
+                            config?: Record<string, never>;
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16571,32 +12910,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16620,51 +12940,32 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the skillset ability */
-                        id: string;
-                        /** @description The name of the skillset ability */
+                        /** @description The associated name */
                         name: string;
-                        /** @description The description of the skillset ability */
+                        /** @description The associated description */
                         description: string;
-                        /** @description The instruction of the skillset ability */
-                        instruction: string;
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the skillset ability was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the skillset ability was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
+                        /** @description The instruction of the skillset ability */
+                        instruction: string;
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16682,16 +12983,16 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the ability */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The description for the ability */
+                    /** @description The associated description */
                     description?: string;
-                    /** @description The text to update the ability with */
-                    instruction?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The text to update the ability with */
+                    instruction?: string;
                 };
             };
         };
@@ -16708,60 +13009,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16778,16 +13032,16 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the ability */
+                    /** @description The associated name */
                     name: string;
-                    /** @description The description for the ability */
+                    /** @description The associated description */
                     description: string;
-                    /** @description The instruction of the ability */
-                    instruction: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The instruction of the ability */
+                    instruction: string;
                 };
             };
         };
@@ -16804,60 +13058,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16885,13 +13092,21 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
-                            id: string;
+                            /** @description The associated name */
                             name: string;
+                            /** @description The associated description */
                             description: string;
-                            instruction: string;
-                            meta?: Record<string, never>;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
+                            /** @description The last update date */
                             updatedAt: number;
+                            instruction: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -16900,31 +13115,35 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            id: string;
+                            /** @description The associated name */
                             name: string;
+                            /** @description The associated description */
                             description: string;
-                            instruction: string;
-                            meta?: Record<string, never>;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
+                            /** @description The last update date */
                             updatedAt: number;
+                            instruction: string;
                         };
                     };
                     "text/csv": string;
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -16952,13 +13171,21 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
-                            id: string;
+                            /** @description The associated name */
                             name: string;
+                            /** @description The associated description */
                             description: string;
-                            instruction: string;
-                            meta?: Record<string, never>;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
+                            /** @description The last update date */
                             updatedAt: number;
+                            instruction: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -16967,44 +13194,34 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            id: string;
+                            /** @description The associated name */
                             name: string;
+                            /** @description The associated description */
                             description: string;
-                            instruction: string;
-                            meta?: Record<string, never>;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
+                            /** @description The last update date */
                             updatedAt: number;
+                            instruction: string;
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -17036,32 +13253,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -17084,54 +13282,35 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the skillset */
-                        id: string;
-                        /** @description The name of the skillset */
+                        /** @description The associated name */
                         name?: string;
-                        /** @description The description of the skillset */
+                        /** @description The associated description */
                         description?: string;
-                        /**
-                         * @description The skillset visibility
-                         * @enum {string}
-                         */
-                        visibility: "private" | "public";
                         /** @description Meta data information */
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The timestamp for when the skillset was created (in milliseconds) */
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
                         createdAt: number;
-                        /** @description The timestamp for when the skillset was last updated (in milliseconds) */
+                        /** @description The last update date */
                         updatedAt: number;
+                        /**
+                         * @description The skillset visibility
+                         * @enum {string}
+                         */
+                        visibility?: "private" | "protected" | "public";
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -17148,19 +13327,19 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The new name for the skillset */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description The new description for the skillset */
+                    /** @description The associated description */
                     description?: string;
-                    /**
-                     * @description The skillset visibility
-                     * @enum {string}
-                     */
-                    visibility?: "private" | "public";
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The skillset visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -17177,60 +13356,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The specified resource was not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -17245,19 +13377,19 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The name of the skillset */
+                    /** @description The associated name */
                     name?: string;
-                    /** @description A description of the skillset */
+                    /** @description The associated description */
                     description?: string;
-                    /**
-                     * @description The skillset visibility
-                     * @enum {string}
-                     */
-                    visibility?: "private" | "public";
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The skillset visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -17274,32 +13406,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The request could not be understood or was missing required parameters. */
-            400: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
-                };
-            };
-            /** @description The request could not be completed due to a conflict with the current state of the resource. */
-            409: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -17324,27 +13437,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of skillsets */
                         items: {
-                            /** @description The ID of the skillset */
-                            id: string;
-                            /** @description The name of the skillset */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the skillset */
+                            /** @description The associated description */
                             description?: string;
-                            /**
-                             * @description The skillset visibility
-                             * @enum {string}
-                             */
-                            visibility: "private" | "public";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the skillset was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the skillset was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description The skillset visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         }[];
                     };
                     "application/jsonl": {
@@ -17353,42 +13465,38 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
+                        /** @description Instance list properties */
                         data: {
-                            /** @description The ID of the skillset */
-                            id: string;
-                            /** @description The name of the skillset */
+                            /** @description The associated name */
                             name?: string;
-                            /** @description The description of the skillset */
+                            /** @description The associated description */
                             description?: string;
-                            /**
-                             * @description The skillset visibility
-                             * @enum {string}
-                             */
-                            visibility: "private" | "public";
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The timestamp when the skillset was created */
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
                             createdAt: number;
-                            /** @description The timestamp when the skillset was last updated */
+                            /** @description The last update date */
                             updatedAt: number;
+                            /**
+                             * @description The skillset visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         };
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -17433,18 +13541,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };
@@ -17489,18 +13592,13 @@ export interface operations {
                     };
                 };
             };
-            /** @description The user is not authorized to access the requested resource */
-            401: {
+            /** @description An error response */
+            default: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        /** @description The error message */
-                        message?: string;
-                        /** @description The error code */
-                        code?: string;
-                    };
+                    "application/json": unknown;
                 };
             };
         };

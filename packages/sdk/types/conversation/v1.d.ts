@@ -109,6 +109,7 @@ export function updateConversation(client: ChatBotKitClient, conversationId: str
 export function deleteConversation(client: ChatBotKitClient, conversationId: string): Promise<ConversationDeleteResponse>;
 /**
  * @typedef {{
+ *   botId?: string,
  *   backstory?: string,
  *   model?: import('../model/v1.js').Model,
  *   messages?: Message[],
@@ -327,6 +328,7 @@ export type ConversationDeleteResponse = {
     id: string;
 };
 export type ConversationCompleteRequest = {
+    botId?: string;
     backstory?: string;
     model?: import('../model/v1.js').Model;
     messages?: Message[];

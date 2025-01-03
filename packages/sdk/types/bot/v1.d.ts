@@ -14,7 +14,7 @@
  *   model?: string,
  *   datasetId?: string,
  *   skillsetId?: string,
- *   visibility?: 'public'|'private'|'restrictedAccessChat'|'unrestrictedAccessChat',
+ *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>
  * }} BotOptions
  *
@@ -128,7 +128,7 @@ export type BotOptions = {
     model?: string;
     datasetId?: string;
     skillsetId?: string;
-    visibility?: 'public' | 'private' | 'restrictedAccessChat' | 'unrestrictedAccessChat';
+    visibility?: 'private' | 'protected' | 'public';
     meta?: Record<string, any>;
 };
 export type BotInstance = BotOptions & {

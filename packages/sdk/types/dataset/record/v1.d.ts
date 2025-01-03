@@ -8,7 +8,10 @@
  */
 /**
  * @typedef {{
+ *   name?: string,
+ *   description?: string,
  *   text: string,
+ *   source?: string,
  *   meta?: Record<string,any>
  * }} DatasetRecordOptions
  *
@@ -89,7 +92,10 @@ export function deleteDatasetRecord(client: ChatBotKitClient, datasetId: string,
 export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
 export type DatasetRecordOptions = {
+    name?: string;
+    description?: string;
     text: string;
+    source?: string;
     meta?: Record<string, any>;
 };
 export type DatasetRecordInstance = DatasetRecordOptions & {

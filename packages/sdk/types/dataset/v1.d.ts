@@ -18,7 +18,7 @@
  *   matchInstruction?: string,
  *   mismatchInstruction?: string,
  *   separators?: string,
- *   visibility?: 'public'|'private',
+ *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>,
  * }} DatasetOptions
  *
@@ -116,7 +116,7 @@ export type DatasetOptions = {
     matchInstruction?: string;
     mismatchInstruction?: string;
     separators?: string;
-    visibility?: 'public' | 'private';
+    visibility?: 'private' | 'protected' | 'public';
     meta?: Record<string, any>;
 };
 export type DatasetInstance = DatasetOptions & {
