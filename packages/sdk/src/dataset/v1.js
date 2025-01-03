@@ -20,7 +20,7 @@
  *   matchInstruction?: string,
  *   mismatchInstruction?: string,
  *   separators?: string,
- *   visibility?: 'public'|'private',
+ *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>,
  * }} DatasetOptions
  *
