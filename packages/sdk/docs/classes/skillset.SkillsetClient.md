@@ -85,6 +85,7 @@ Skillset client.
 | `path` | `string` |
 | `options?` | `Object` |
 | `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
+| `options.endpoint?` | `string` |
 | `options.external?` | `boolean` |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
@@ -105,7 +106,7 @@ Skillset client.
 
 #### Defined in
 
-[client.js:221](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L221)
+[client.js:222](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L222)
 
 ___
 
