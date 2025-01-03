@@ -1,6 +1,11 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 
 /**
  * A textarea that automatically adjusts its height based on its content. The
@@ -9,52 +14,73 @@ import React, { useEffect, useRef } from 'react'
  * @param {{
  *   [name: string]: any
  * }} [props]
+ * @param {React.Ref<HTMLTextAreaElement>} [forwardedRef]
  */
-export function AutoTextarea(props) {
-  const ref = useRef(null)
+export function AutoTextarea(props, forwardedRef) {
+  const localRef = useRef(null)
 
-  /**
-   * @param {HTMLTextAreaElement} textarea
-   */
-  function recalibrate(textarea) {
-    const adjustment = `calc(${
-      [textarea.style.paddingTop, textarea.style.paddingBottom]
-        .filter((f) => f)
-        .join(' + ') || '0px'
-    })`
-
-    textarea.style.height = 'auto'
-    textarea.style.height = `calc(${textarea.scrollHeight}px - ${adjustment})`
-  }
+  useImperativeHandle(forwardedRef, () => localRef.current)
 
   useEffect(() => {
-    const textarea = ref.current
+    const textarea = localRef.current
 
-    if (textarea) {
-      recalibrate(textarea)
-
-      const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-          if (
-            mutation.type === 'childList' ||
-            mutation.type === 'characterData'
-          ) {
-            recalibrate(textarea)
-          }
-        }
-      })
-
-      observer.observe(textarea, {
-        childList: true, // observe direct children
-        subtree: true, // and lower descendants too
-        characterData: true, // observe text changes
-      })
-
-      return () => observer.disconnect()
+    if (!textarea) {
+      return
     }
-  }, [])
 
-  return <textarea ref={ref} rows={1} {...props} />
+    function recalibrate() {
+      const adjustment = `calc(${
+        [textarea.style.paddingTop, textarea.style.paddingBottom]
+          .filter((f) => f)
+          .join(' + ') || '0px'
+      })`
+
+      textarea.style.height = 'auto'
+      textarea.style.height = `calc(${textarea.scrollHeight}px - ${adjustment})`
+    }
+
+    recalibrate()
+
+    const mutationObserver = new MutationObserver((mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (
+          mutation.type === 'childList' ||
+          // @ts-expect-error for some reaons subtree is not in the type
+          mutation.type === 'subtree' ||
+          mutation.type === 'characterData'
+        ) {
+          recalibrate()
+        }
+      }
+    })
+
+    mutationObserver.observe(textarea, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    })
+
+    const resizeObserver = new ResizeObserver(recalibrate)
+
+    resizeObserver.observe(textarea)
+
+    textarea.addEventListener('input', recalibrate)
+    textarea.addEventListener('focus', recalibrate)
+
+    window.addEventListener('resize', recalibrate)
+
+    return () => {
+      mutationObserver.disconnect()
+      resizeObserver.disconnect()
+
+      textarea.removeEventListener('input', recalibrate)
+      textarea.removeEventListener('focus', recalibrate)
+
+      window.removeEventListener('resize', recalibrate)
+    }
+  }, [localRef])
+
+  return <textarea ref={localRef} rows={1} {...props} />
 }
 
-export default AutoTextarea
+export default forwardRef(AutoTextarea)
