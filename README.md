@@ -390,3 +390,9 @@ To build the project, run:
 ```bash
 pnpm build
 ```
+
+To build a specific package, run:
+
+```bash
+pnpm -F @chatbotkit/${PACKAGE_NAME} build
+```
