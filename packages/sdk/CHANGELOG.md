@@ -1,5 +1,13 @@
 # @chatbotkit/sdk
 
+## 1.14.4
+
+### Patch Changes
+
+- 1fe223f: Improved react components and new SDK function parameters.
+- Updated dependencies [1fe223f]
+  - @chatbotkit/fetch@1.14.4
+
 ## 1.14.2
 
 ### Patch Changes
