@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.15.0
+
+### Minor Changes
+
+- 373d6df: Cleaned up hook types and added createdAt property to all messages.
+
 ## 1.14.4
 
 ### Patch Changes
