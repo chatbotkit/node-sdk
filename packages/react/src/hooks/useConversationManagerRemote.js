@@ -138,13 +138,19 @@ export function useConversationManagerRemote({
           yield* client
             .complete(null, {
               botId: botId,
+
               backstory: backstory,
               model: model,
               datasetId: datasetId,
               skillsetId: skillsetId,
               privacy: privacy,
               moderation: moderation,
-              messages: messages,
+
+              messages: messages.map(({ type, text, meta }) => ({
+                type,
+                text,
+                meta,
+              })),
             })
             .stream()
         }
