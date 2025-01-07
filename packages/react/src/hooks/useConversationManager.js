@@ -24,6 +24,7 @@ import { useConversationManagerState } from './useConversationManagerState.js'
 
 /**
  * @typedef {UseConversationManagerRemoteOptions & {
+ *   interactionMaxMessages?: number
  * }} UseConversationManagerOptions
  *
  * @typedef {{
@@ -51,6 +52,8 @@ import { useConversationManagerState } from './useConversationManagerState.js'
  * @returns {UseConversationManagerResult}
  */
 export function useConversationManager({
+  interactionMaxMessages = 100,
+
   ...conversationManagerRemoteOptions
 }) {
   const remote = useConversationManagerRemote(conversationManagerRemoteOptions)
@@ -96,7 +99,7 @@ export function useConversationManager({
           meta,
         }
       }) || []),
-    ].slice(-100) // @todo make configurable
+    ].slice(-Math.abs(interactionMaxMessages))
 
     try {
       setThinking(true)
