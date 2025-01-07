@@ -5,15 +5,13 @@ import { useCallback } from 'react'
 import useConversationManagerStateReducer from './useConversationManagerStateReducer.js'
 
 /**
- * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
- *
  * @typedef {import('./useConversationManagerStateReducer.js').State} State
  *
  * @typedef {{
- *   setThinking: (thinking: boolean) => void,
- *   setTyping: (typing: boolean) => void,
- *   appendText: (text: string) => void,
- *   appendMessage: (message: Message) => void
+ *   setThinking: (thinking: import('./useConversationManagerStateReducer.js').SetThinkingAction['data']['thinking']) => void,
+ *   setTyping: (typing: import('./useConversationManagerStateReducer.js').SetTypingAction['data']['typing']) => void,
+ *   appendText: (text: import('./useConversationManagerStateReducer.js').AppendTextAction['data']['text']) => void,
+ *   appendMessage: (message: import('./useConversationManagerStateReducer.js').AppendMessageAction['data']['message']) => void,
  * }} StateFunctions
  */
 
@@ -29,28 +27,36 @@ export function useConversationManagerState(state) {
   const [_, dispatch] = useConversationManagerStateReducer(state)
 
   const setThinking = useCallback(
-    (/** @type {boolean} */ thinking) => {
+    (
+      /** @type {import('./useConversationManagerStateReducer.js').SetThinkingAction['data']['thinking']} */ thinking
+    ) => {
       dispatch({ type: 'setThinking', data: { thinking } })
     },
     [dispatch]
   )
 
   const setTyping = useCallback(
-    (/** @type {boolean} */ typing) => {
+    (
+      /** @type {import('./useConversationManagerStateReducer.js').SetTypingAction['data']['typing']} */ typing
+    ) => {
       dispatch({ type: 'setTyping', data: { typing } })
     },
     [dispatch]
   )
 
   const appendText = useCallback(
-    (/** @type {string} */ text) => {
+    (
+      /** @type {import('./useConversationManagerStateReducer.js').AppendTextAction['data']['text']} */ text
+    ) => {
       dispatch({ type: 'appendText', data: { text } })
     },
     [dispatch]
   )
 
   const appendMessage = useCallback(
-    (/** @type {Message} */ message) => {
+    (
+      /** @type {import('./useConversationManagerStateReducer.js').AppendMessageAction['data']['message']} */ message
+    ) => {
       dispatch({ type: 'appendMessage', data: { message } })
     },
     [dispatch]

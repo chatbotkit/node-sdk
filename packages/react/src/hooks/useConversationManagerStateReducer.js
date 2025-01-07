@@ -5,17 +5,15 @@ import { useReducer } from 'react'
 import { getRandomId } from '../utils/string.js'
 
 /**
- * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
- *
- * @typedef {{id: string} & Message} MessageWithId
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').Message & {id: string, createdAt: Date}} Message
  */
 
 /**
  * @typedef {{
  *   thinking: boolean,
  *   typing: boolean,
- *   message: MessageWithId | null,
- *   messages: MessageWithId[],
+ *   message: Message | null,
+ *   messages: Message[],
  * }} State
  *
  * @typedef {{
@@ -42,7 +40,7 @@ import { getRandomId } from '../utils/string.js'
  * @typedef {{
  *   type: 'appendMessage',
  *   data: {
- *     message: Omit<Message,'id'> & {id?: string},
+ *     message: Omit<Message,'id'|'createdAt'> & {id?: string, createdAt?: Date},
  *   }
  * }} AppendMessageAction
  *
@@ -110,11 +108,12 @@ export function conversationManagerStateReducer(state, action) {
       }
 
       const message = state.message
-        ? /** @type {MessageWithId} */ ({ ...state.message })
-        : /** @type {MessageWithId} */ ({
+        ? /** @type {Message} */ ({ ...state.message })
+        : /** @type {Message} */ ({
             id: getRandomId('tmp-'),
             type: 'bot',
             text: '',
+            createdAt: new Date(),
           })
 
       message.text += text
@@ -157,6 +156,7 @@ export function conversationManagerStateReducer(state, action) {
             ...message,
 
             id: message.id || getRandomId('tmp-'),
+            createdAt: message.createdAt || new Date(),
           })
         }
       } else {
@@ -164,6 +164,7 @@ export function conversationManagerStateReducer(state, action) {
           ...message,
 
           id: getRandomId('tmp-'),
+          createdAt: new Date(),
         })
       }
 

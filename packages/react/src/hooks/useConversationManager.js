@@ -9,11 +9,13 @@ import { useConversationManagerState } from './useConversationManagerState.js'
  * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  *
  * @typedef {Message & {
- *   id: string
+ *   id: string,
+ *   createdAt: Date
  * }} SimpleMessage
  *
  * @typedef {Message & {
  *   id: string,
+ *   createdAt: Date,
  *   children?: import('react').ReactNode
  * }} ComplexMessage
  */
