@@ -1,13 +1,11 @@
 /**
- * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
- *
  * @typedef {import('./useConversationManagerStateReducer.js').State} State
  *
  * @typedef {{
- *   setThinking: (thinking: boolean) => void,
- *   setTyping: (typing: boolean) => void,
- *   appendText: (text: string) => void,
- *   appendMessage: (message: Message) => void
+ *   setThinking: (thinking: import('./useConversationManagerStateReducer.js').SetThinkingAction['data']['thinking']) => void,
+ *   setTyping: (typing: import('./useConversationManagerStateReducer.js').SetTypingAction['data']['typing']) => void,
+ *   appendText: (text: import('./useConversationManagerStateReducer.js').AppendTextAction['data']['text']) => void,
+ *   appendMessage: (message: import('./useConversationManagerStateReducer.js').AppendMessageAction['data']['message']) => void,
  * }} StateFunctions
  */
 /**
@@ -20,11 +18,10 @@
  */
 export function useConversationManagerState(state?: Partial<import("./useConversationManagerStateReducer.js").State> | undefined): [State, StateFunctions];
 export default useConversationManagerState;
-export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
 export type State = import('./useConversationManagerStateReducer.js').State;
 export type StateFunctions = {
-    setThinking: (thinking: boolean) => void;
-    setTyping: (typing: boolean) => void;
-    appendText: (text: string) => void;
-    appendMessage: (message: Message) => void;
+    setThinking: (thinking: import('./useConversationManagerStateReducer.js').SetThinkingAction['data']['thinking']) => void;
+    setTyping: (typing: import('./useConversationManagerStateReducer.js').SetTypingAction['data']['typing']) => void;
+    appendText: (text: import('./useConversationManagerStateReducer.js').AppendTextAction['data']['text']) => void;
+    appendMessage: (message: import('./useConversationManagerStateReducer.js').AppendMessageAction['data']['message']) => void;
 };

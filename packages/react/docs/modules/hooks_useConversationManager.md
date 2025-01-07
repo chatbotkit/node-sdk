@@ -20,31 +20,31 @@
 
 ### ComplexMessage
 
-Ƭ **ComplexMessage**\<\>: `Message` & \{ `children?`: `ReactNode` ; `id`: `string`  }
+Ƭ **ComplexMessage**\<\>: `Message` & \{ `children?`: `ReactNode` ; `createdAt`: [`Date`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date ) ; `id`: `string`  }
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManager.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L18)
+[packages/react/src/hooks/useConversationManager.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L20)
 
 ___
 
 ### SimpleMessage
 
-Ƭ **SimpleMessage**\<\>: `Message` & \{ `id`: `string`  }
+Ƭ **SimpleMessage**\<\>: `Message` & \{ `createdAt`: [`Date`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date ) ; `id`: `string`  }
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManager.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L13)
+[packages/react/src/hooks/useConversationManager.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L14)
 
 ___
 
 ### UseConversationManagerOptions
 
-Ƭ **UseConversationManagerOptions**\<\>: [`UseConversationManagerRemoteOptions`](hooks_useConversationManager.md#useconversationmanagerremoteoptions) & {}
+Ƭ **UseConversationManagerOptions**\<\>: [`UseConversationManagerRemoteOptions`](hooks_useConversationManager.md#useconversationmanagerremoteoptions) & \{ `interactionMaxMessages?`: `number`  }
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManager.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L27)
+[packages/react/src/hooks/useConversationManager.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L30)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManager.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L41)
+[packages/react/src/hooks/useConversationManager.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L44)
 
 ## Functions
 
@@ -114,7 +114,7 @@ details like the token and conversation ID.
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`UseConversationManagerRemoteOptions`](hooks_useConversationManager.md#useconversationmanagerremoteoptions) |
+| `options` | [`UseConversationManagerOptions`](hooks_useConversationManager.md#useconversationmanageroptions) |
 
 #### Returns
 
@@ -122,4 +122,4 @@ details like the token and conversation ID.
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManager.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L53)
+[packages/react/src/hooks/useConversationManager.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L56)

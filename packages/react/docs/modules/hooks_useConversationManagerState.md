@@ -23,14 +23,14 @@
 
 | Name | Type |
 | :------ | :------ |
-| `message` | [`MessageWithId`](hooks_useConversationManagerStateReducer.md#messagewithid) \| ``null`` |
-| `messages` | [`MessageWithId`](hooks_useConversationManagerStateReducer.md#messagewithid)[] |
+| `message` | [`Message`](hooks_useConversationManagerStateReducer.md#message) \| ``null`` |
+| `messages` | [`Message`](hooks_useConversationManagerStateReducer.md#message)[] |
 | `thinking` | `boolean` |
 | `typing` | `boolean` |
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerStateReducer.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L20)
+[packages/react/src/hooks/useConversationManagerStateReducer.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L17)
 
 ___
 
@@ -42,14 +42,14 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `appendMessage` | (`message`: `Message`) => `void` |
-| `appendText` | (`text`: `string`) => `void` |
-| `setThinking` | (`thinking`: `boolean`) => `void` |
-| `setTyping` | (`typing`: `boolean`) => `void` |
+| `appendMessage` | (`message`: [`hooks/useConversationManagerStateReducer`](hooks_useConversationManagerStateReducer.md)[``"data"``][``"message"``]) => `void` |
+| `appendText` | (`text`: [`hooks/useConversationManagerStateReducer`](hooks_useConversationManagerStateReducer.md)[``"data"``][``"text"``]) => `void` |
+| `setThinking` | (`thinking`: [`hooks/useConversationManagerStateReducer`](hooks_useConversationManagerStateReducer.md)[``"data"``][``"thinking"``]) => `void` |
+| `setTyping` | (`typing`: [`hooks/useConversationManagerStateReducer`](hooks_useConversationManagerStateReducer.md)[``"data"``][``"typing"``]) => `void` |
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerState.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerState.js#L17)
+[packages/react/src/hooks/useConversationManagerState.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerState.js#L15)
 
 ## Functions
 
@@ -73,4 +73,4 @@ state if no state is given.
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerState.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerState.js#L28)
+[packages/react/src/hooks/useConversationManagerState.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerState.js#L26)

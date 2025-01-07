@@ -1,15 +1,12 @@
 /**
- * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
- *
- * @typedef {{id: string} & Message} MessageWithId
- * @typedef {{id?: string} & Message} MessageWithOptionalId
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').Message & {id: string, createdAt: Date}} Message
  */
 /**
  * @typedef {{
  *   thinking: boolean,
  *   typing: boolean,
- *   message: MessageWithId | null,
- *   messages: MessageWithId[],
+ *   message: Message | null,
+ *   messages: Message[],
  * }} State
  *
  * @typedef {{
@@ -36,7 +33,7 @@
  * @typedef {{
  *   type: 'appendMessage',
  *   data: {
- *     message: MessageWithOptionalId,
+ *     message: Omit<Message,'id'|'createdAt'> & {id?: string, createdAt?: Date},
  *   }
  * }} AppendMessageAction
  *
@@ -71,18 +68,15 @@ export function conversationManagerStateInitial(state?: Partial<State> | undefin
  */
 export function useConversationManagerStateReducer(state?: Partial<State> | undefined): [State, import('react').Dispatch<Action>];
 export default useConversationManagerStateReducer;
-export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
-export type MessageWithId = {
+export type Message = import('@chatbotkit/sdk/conversation/v1').Message & {
     id: string;
-} & Message;
-export type MessageWithOptionalId = {
-    id?: string;
-} & Message;
+    createdAt: Date;
+};
 export type State = {
     thinking: boolean;
     typing: boolean;
-    message: MessageWithId | null;
-    messages: MessageWithId[];
+    message: Message | null;
+    messages: Message[];
 };
 export type SetThinkingAction = {
     type: 'setThinking';
@@ -105,7 +99,10 @@ export type AppendTextAction = {
 export type AppendMessageAction = {
     type: 'appendMessage';
     data: {
-        message: MessageWithOptionalId;
+        message: Omit<Message, 'id' | 'createdAt'> & {
+            id?: string;
+            createdAt?: Date;
+        };
     };
 };
 export type Action = SetThinkingAction | SetTypingAction | AppendTextAction | AppendMessageAction;

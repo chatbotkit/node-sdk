@@ -20,7 +20,7 @@ Creates a conversation manager instance and context.
 
 | Name | Type |
 | :------ | :------ |
-| `props` | [`UseConversationManagerRemoteOptions`](hooks_useConversationManager.md#useconversationmanagerremoteoptions) & \{ `children`: `ReactNode`  } |
+| `props` | [`UseConversationManagerRemoteOptions`](hooks_useConversationManager.md#useconversationmanagerremoteoptions) & \{ `interactionMaxMessages?`: `number`  } & \{ `children`: `ReactNode`  } |
 
 #### Returns
 

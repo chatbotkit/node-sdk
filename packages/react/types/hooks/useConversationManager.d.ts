@@ -2,11 +2,13 @@
  * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  *
  * @typedef {Message & {
- *   id: string
+ *   id: string,
+ *   createdAt: Date
  * }} SimpleMessage
  *
  * @typedef {Message & {
  *   id: string,
+ *   createdAt: Date,
  *   children?: import('react').ReactNode
  * }} ComplexMessage
  */
@@ -15,6 +17,7 @@
  */
 /**
  * @typedef {UseConversationManagerRemoteOptions & {
+ *   interactionMaxMessages?: number
  * }} UseConversationManagerOptions
  *
  * @typedef {{
@@ -40,18 +43,22 @@
  * @param {UseConversationManagerOptions} options
  * @returns {UseConversationManagerResult}
  */
-export function useConversationManager({ ...conversationManagerRemoteOptions }: UseConversationManagerOptions): UseConversationManagerResult;
+export function useConversationManager({ interactionMaxMessages, ...conversationManagerRemoteOptions }: UseConversationManagerOptions): UseConversationManagerResult;
 export default useConversationManager;
 export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
 export type SimpleMessage = Message & {
     id: string;
+    createdAt: Date;
 };
 export type ComplexMessage = Message & {
     id: string;
+    createdAt: Date;
     children?: import('react').ReactNode;
 };
 export type UseConversationManagerRemoteOptions = import('./useConversationManagerRemote.js').UseConversationManagerRemoteOptions;
-export type UseConversationManagerOptions = UseConversationManagerRemoteOptions & {};
+export type UseConversationManagerOptions = UseConversationManagerRemoteOptions & {
+    interactionMaxMessages?: number;
+};
 export type UseConversationManagerResult = {
     message: SimpleMessage | null;
     messages: ComplexMessage[];

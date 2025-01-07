@@ -13,8 +13,7 @@
 - [Action](hooks_useConversationManagerStateReducer.md#action)
 - [AppendMessageAction](hooks_useConversationManagerStateReducer.md#appendmessageaction)
 - [AppendTextAction](hooks_useConversationManagerStateReducer.md#appendtextaction)
-- [MessageWithId](hooks_useConversationManagerStateReducer.md#messagewithid)
-- [MessageWithOptionalId](hooks_useConversationManagerStateReducer.md#messagewithoptionalid)
+- [Message](hooks_useConversationManagerStateReducer.md#message)
 - [SetThinkingAction](hooks_useConversationManagerStateReducer.md#setthinkingaction)
 - [SetTypingAction](hooks_useConversationManagerStateReducer.md#settypingaction)
 
@@ -38,7 +37,7 @@ Re-exports [State](hooks_useConversationManagerState.md#state)
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerStateReducer.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L50)
+[packages/react/src/hooks/useConversationManagerStateReducer.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L47)
 
 ___
 
@@ -50,13 +49,13 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `data` | \{ `message`: [`MessageWithOptionalId`](hooks_useConversationManagerStateReducer.md#messagewithoptionalid)  } |
-| `data.message` | [`MessageWithOptionalId`](hooks_useConversationManagerStateReducer.md#messagewithoptionalid) |
+| `data` | \{ `message`: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`Message`](hooks_useConversationManagerStateReducer.md#message), ``"id"`` \| ``"createdAt"``\> & \{ `createdAt?`: [`Date`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date ) ; `id?`: `string`  }  } |
+| `data.message` | [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`Message`](hooks_useConversationManagerStateReducer.md#message), ``"id"`` \| ``"createdAt"``\> & \{ `createdAt?`: [`Date`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date ) ; `id?`: `string`  } |
 | `type` | ``"appendMessage"`` |
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerStateReducer.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L48)
+[packages/react/src/hooks/useConversationManagerStateReducer.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L45)
 
 ___
 
@@ -74,27 +73,17 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerStateReducer.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L41)
+[packages/react/src/hooks/useConversationManagerStateReducer.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L38)
 
 ___
 
-### MessageWithId
+### Message
 
-Ƭ **MessageWithId**\<\>: \{ `id`: `string`  } & `Message`
-
-#### Defined in
-
-[packages/react/src/hooks/useConversationManagerStateReducer.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L10)
-
-___
-
-### MessageWithOptionalId
-
-Ƭ **MessageWithOptionalId**\<\>: \{ `id?`: `string`  } & `Message`
+Ƭ **Message**\<\>: `Message` & \{ `createdAt`: [`Date`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date ) ; `id`: `string`  }
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerStateReducer.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L11)
+[packages/react/src/hooks/useConversationManagerStateReducer.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L8)
 
 ___
 
@@ -112,7 +101,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerStateReducer.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L27)
+[packages/react/src/hooks/useConversationManagerStateReducer.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L24)
 
 ___
 
@@ -130,7 +119,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerStateReducer.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L34)
+[packages/react/src/hooks/useConversationManagerStateReducer.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L31)
 
 ## Functions
 
@@ -179,7 +168,7 @@ that are dispatched to it.
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerStateReducer.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L62)
+[packages/react/src/hooks/useConversationManagerStateReducer.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L59)
 
 ___
 
