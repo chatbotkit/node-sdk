@@ -8,7 +8,6 @@ import { getRandomId } from '../utils/string.js'
  * @typedef {import('@chatbotkit/sdk/conversation/v1').Message} Message
  *
  * @typedef {{id: string} & Message} MessageWithId
- * @typedef {{id?: string} & Message} MessageWithOptionalId
  */
 
 /**
@@ -43,7 +42,7 @@ import { getRandomId } from '../utils/string.js'
  * @typedef {{
  *   type: 'appendMessage',
  *   data: {
- *     message: MessageWithOptionalId,
+ *     message: Message & {id?: string},
  *   }
  * }} AppendMessageAction
  *
