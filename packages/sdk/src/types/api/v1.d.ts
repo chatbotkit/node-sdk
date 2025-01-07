@@ -2475,6 +2475,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/ability/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of platform abilities */
+        get: operations["listPlatformAbilities"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/model/list": {
         parameters: {
             query?: never;
@@ -4264,6 +4281,26 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
+                        type: "message";
+                        /** @description A message in the conversation */
+                        data: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
                         type: "token";
                         /** @description The data for the event */
                         data: {
@@ -5016,6 +5053,26 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
+                        type: "message";
+                        /** @description A message in the conversation */
+                        data: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
                         type: "token";
                         /** @description The data for the event */
                         data: {
@@ -5377,6 +5434,26 @@ export interface operations {
                             usage: {
                                 /** @description The tokens used in this exchange */
                                 token: number;
+                            };
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "message";
+                        /** @description A message in the conversation */
+                        data: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
                             };
                         };
                     } | {
@@ -12459,6 +12536,80 @@ export interface operations {
                             image?: string;
                             /** @description The email of the partner user */
                             email?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPlatformAbilities: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of abilities was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                         };
                     };
                 };

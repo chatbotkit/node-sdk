@@ -166,6 +166,11 @@ export function completeConversation(client: ChatBotKitClient, request: Conversa
  *   data: ConversationCompleteMessageResponse
  * }} ConversationCompleteMessageStreamResult
  *
+ *  @typedef {{
+ *   type: 'message',
+ *   data: Message
+ * }} ConversationCompleteMessageStreamMessage
+ *
  * @typedef {{
  *   type: 'token',
  *   data: {
@@ -173,7 +178,7 @@ export function completeConversation(client: ChatBotKitClient, request: Conversa
  *   }
  * }} ConversationCompleteMessageStreamToken
  *
- * @typedef {ConversationCompleteMessageStreamResult|ConversationCompleteMessageStreamToken} ConversationCompleteMessageStreamType
+ * @typedef {ConversationCompleteMessageStreamResult|ConversationCompleteMessageStreamMessage|ConversationCompleteMessageStreamToken} ConversationCompleteMessageStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -221,13 +226,18 @@ export function sendConversationMessage(client: ChatBotKitClient, conversationId
  * }} ConversationReceiveMessageStreamResult
  *
  * @typedef {{
+ *   type: 'message',
+ *   data: Message,
+ * }} ConversationReceiveMessageStreamMessage
+ *
+ * @typedef {{
  *   type: 'token',
  *   data: {
  *     token: string
  *   }
  * }} ConversationReceiveMessageStreamToken
  *
- * @typedef {ConversationReceiveMessageStreamResult|ConversationReceiveMessageStreamToken} ConversationReceiveMessageStreamType
+ * @typedef {ConversationReceiveMessageStreamResult|ConversationReceiveMessageStreamMessage|ConversationReceiveMessageStreamToken} ConversationReceiveMessageStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -382,13 +392,17 @@ export type ConversationCompleteMessageStreamResult = {
     type: 'result';
     data: ConversationCompleteMessageResponse;
 };
+export type ConversationCompleteMessageStreamMessage = {
+    type: 'message';
+    data: Message;
+};
 export type ConversationCompleteMessageStreamToken = {
     type: 'token';
     data: {
         token: string;
     };
 };
-export type ConversationCompleteMessageStreamType = ConversationCompleteMessageStreamResult | ConversationCompleteMessageStreamToken;
+export type ConversationCompleteMessageStreamType = ConversationCompleteMessageStreamResult | ConversationCompleteMessageStreamMessage | ConversationCompleteMessageStreamToken;
 export type ConversationSendMessageRequest = {
     text?: string;
     entities?: Entity[];
@@ -414,13 +428,17 @@ export type ConversationReceiveMessageStreamResult = {
     type: 'result';
     data: ConversationReceiveMessageResponse;
 };
+export type ConversationReceiveMessageStreamMessage = {
+    type: 'message';
+    data: Message;
+};
 export type ConversationReceiveMessageStreamToken = {
     type: 'token';
     data: {
         token: string;
     };
 };
-export type ConversationReceiveMessageStreamType = ConversationReceiveMessageStreamResult | ConversationReceiveMessageStreamToken;
+export type ConversationReceiveMessageStreamType = ConversationReceiveMessageStreamResult | ConversationReceiveMessageStreamMessage | ConversationReceiveMessageStreamToken;
 export type ConversationUpvoteRequest = {
     value?: number;
 };

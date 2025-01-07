@@ -252,6 +252,11 @@ export function completeConversation(client, request) {
  *   data: ConversationCompleteMessageResponse
  * }} ConversationCompleteMessageStreamResult
  *
+ *  @typedef {{
+ *   type: 'message',
+ *   data: Message
+ * }} ConversationCompleteMessageStreamMessage
+ *
  * @typedef {{
  *   type: 'token',
  *   data: {
@@ -259,7 +264,7 @@ export function completeConversation(client, request) {
  *   }
  * }} ConversationCompleteMessageStreamToken
  *
- * @typedef {ConversationCompleteMessageStreamResult|ConversationCompleteMessageStreamToken} ConversationCompleteMessageStreamType
+ * @typedef {ConversationCompleteMessageStreamResult|ConversationCompleteMessageStreamMessage|ConversationCompleteMessageStreamToken} ConversationCompleteMessageStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -339,13 +344,18 @@ export function sendConversationMessage(client, conversationId, request) {
  * }} ConversationReceiveMessageStreamResult
  *
  * @typedef {{
+ *   type: 'message',
+ *   data: Message,
+ * }} ConversationReceiveMessageStreamMessage
+ *
+ * @typedef {{
  *   type: 'token',
  *   data: {
  *     token: string
  *   }
  * }} ConversationReceiveMessageStreamToken
  *
- * @typedef {ConversationReceiveMessageStreamResult|ConversationReceiveMessageStreamToken} ConversationReceiveMessageStreamType
+ * @typedef {ConversationReceiveMessageStreamResult|ConversationReceiveMessageStreamMessage|ConversationReceiveMessageStreamToken} ConversationReceiveMessageStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId

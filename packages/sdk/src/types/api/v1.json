@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1735924763432)"
+    "version": "v1 (build 1736291509264)"
   },
   "servers": [
     {
@@ -3104,6 +3104,56 @@
                           "description": "The type of event",
                           "type": "string",
                           "enum": [
+                            "message"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A message in the conversation",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "description": "The type of the message",
+                              "enum": [
+                                "user",
+                                "bot",
+                                "context",
+                                "instruction",
+                                "backstory",
+                                "activity"
+                              ],
+                              "$$ref": "#/components/schemas/MessageType"
+                            },
+                            "text": {
+                              "type": "string",
+                              "description": "The text of the message"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "text"
+                          ],
+                          "$$ref": "#/components/schemas/Message"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
                             "token"
                           ]
                         },
@@ -4665,6 +4715,56 @@
                           "description": "The type of event",
                           "type": "string",
                           "enum": [
+                            "message"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A message in the conversation",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "description": "The type of the message",
+                              "enum": [
+                                "user",
+                                "bot",
+                                "context",
+                                "instruction",
+                                "backstory",
+                                "activity"
+                              ],
+                              "$$ref": "#/components/schemas/MessageType"
+                            },
+                            "text": {
+                              "type": "string",
+                              "description": "The text of the message"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "text"
+                          ],
+                          "$$ref": "#/components/schemas/Message"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
                             "token"
                           ]
                         },
@@ -5459,6 +5559,56 @@
                             "usage"
                           ],
                           "$$ref": "#/paths/~1conversation~1complete/post/responses/200/content/application~1json/schema"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "message"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A message in the conversation",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "description": "The type of the message",
+                              "enum": [
+                                "user",
+                                "bot",
+                                "context",
+                                "instruction",
+                                "backstory",
+                                "activity"
+                              ],
+                              "$$ref": "#/components/schemas/MessageType"
+                            },
+                            "text": {
+                              "type": "string",
+                              "description": "The text of the message"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "text"
+                          ],
+                          "$$ref": "#/components/schemas/Message"
                         }
                       },
                       "required": [
@@ -19829,6 +19979,178 @@
           }
         },
         "__originalOperationId": "listPartnerUsers",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/ability/list": {
+      "get": {
+        "operationId": "listPlatformAbilities",
+        "summary": "Retrieve a list of platform abilities",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of abilities was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The creation date"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The last update date"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The creation date"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The last update date"
+                            }
+                          },
+                          "$$ref": "#/paths/~1platform~1ability~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listPlatformAbilities",
         "security": [
           {
             "BearerAuth": []
