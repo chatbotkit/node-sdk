@@ -42,7 +42,7 @@ import { getRandomId } from '../utils/string.js'
  * @typedef {{
  *   type: 'appendMessage',
  *   data: {
- *     message: Message & {id?: string},
+ *     message: Omit<Message,'id'> & {id?: string},
  *   }
  * }} AppendMessageAction
  *
