@@ -30,6 +30,7 @@ import { buildModelString } from '../../model/v1.js'
  *   name?: string,
  *   description?: string,
  *   botToken?: string,
+ *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   attachments?: boolean,
  *   meta?: Record<string,any>
