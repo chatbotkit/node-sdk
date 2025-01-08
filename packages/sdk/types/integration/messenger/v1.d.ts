@@ -26,6 +26,7 @@
  *   name?: string,
  *   description?: string,
  *   accessToken?: string,
+ *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   attachments?: boolean,
  *   meta?: Record<string,any>
@@ -131,6 +132,7 @@ export type MessengerIntegrationOptions = BotRefOrConfig & {
     name?: string;
     description?: string;
     accessToken?: string;
+    contactCollection?: boolean;
     sessionDuration?: number;
     attachments?: boolean;
     meta?: Record<string, any>;

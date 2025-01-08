@@ -32,6 +32,8 @@
 - [file/v1](modules/file_v1.md)
 - [integration/discord](modules/integration_discord.md)
 - [integration/discord/v1](modules/integration_discord_v1.md)
+- [integration/email](modules/integration_email.md)
+- [integration/email/v1](modules/integration_email_v1.md)
 - [integration/extract](modules/integration_extract.md)
 - [integration/extract/v1](modules/integration_extract_v1.md)
 - [integration/messenger](modules/integration_messenger.md)

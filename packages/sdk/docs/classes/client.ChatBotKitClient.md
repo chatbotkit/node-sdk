@@ -32,6 +32,8 @@
 
   ↳ [`DiscordIntegrationClient`](integration_discord.DiscordIntegrationClient.md)
 
+  ↳ [`EmailIntegrationClient`](integration_email.EmailIntegrationClient.md)
+
   ↳ [`ExtractIntegrationClient`](integration_extract.ExtractIntegrationClient.md)
 
   ↳ [`MessengerIntegrationClient`](integration_messenger.MessengerIntegrationClient.md)

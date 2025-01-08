@@ -27,6 +27,7 @@
  *   description?: string,
  *   phoneNumberId?: string,
  *   accessToken?: string,
+ *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   attachments?: boolean,
  *   meta?: Record<string,any>
@@ -133,6 +134,7 @@ export type WhatsAppIntegrationOptions = BotRefOrConfig & {
     description?: string;
     phoneNumberId?: string;
     accessToken?: string;
+    contactCollection?: boolean;
     sessionDuration?: number;
     attachments?: boolean;
     meta?: Record<string, any>;
