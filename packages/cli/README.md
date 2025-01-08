@@ -4,7 +4,6 @@
 [![NPM](https://img.shields.io/npm/v/@chatbotkit/cli.svg)](https://www.npmjs.com/package/@chatbotkit/cli)
 [![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@chatbotkit.com)
 [![Discord](https://img.shields.io/badge/Discord-Support-blue?logo=discord)](https://go.cbk.ai/discord)
-[![Slack](https://img.shields.io/badge/Slack-Support-blue?logo=slack)](https://go.cbk.ai/slack)
 
 # ChatBotKit CLI
 
