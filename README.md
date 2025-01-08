@@ -339,7 +339,7 @@ export const config = {
 
 ## Examples
 
-Explore a range of examples [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
+Explore a wide range of examples [here](https://github.com/chatbotkit/node-sdk/tree/main/examples).
 
 Some notable examples include:
 
