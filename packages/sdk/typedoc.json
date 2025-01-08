@@ -3,6 +3,8 @@
     "../../typedoc.base.json"
   ],
   "entryPoints": [
+    "./src/blueprint/index.js",
+    "./src/blueprint/v1.js",
     "./src/bot/index.js",
     "./src/bot/session/index.js",
     "./src/bot/session/v1.js",
@@ -63,6 +65,14 @@
     "./src/partner/user/token/v1.js",
     "./src/partner/user/v1.js",
     "./src/partner/v1.js",
+    "./src/platform/ability/index.js",
+    "./src/platform/ability/v1.js",
+    "./src/platform/index.js",
+    "./src/platform/model/index.js",
+    "./src/platform/model/v1.js",
+    "./src/platform/secret/index.js",
+    "./src/platform/secret/v1.js",
+    "./src/platform/v1.js",
     "./src/secret/index.js",
     "./src/secret/v1.js",
     "./src/skillset/ability/index.js",

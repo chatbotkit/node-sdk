@@ -68,6 +68,8 @@
 
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
 
+  ↳ [`BlueprintClient`](index.BlueprintClient.md)
+
 ## Table of contents
 
 ### Constructors

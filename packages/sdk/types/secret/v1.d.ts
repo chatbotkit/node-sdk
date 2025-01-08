@@ -10,6 +10,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   kind?: 'shared'|'personal',
  *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template',
  *   value?: string,
  *   meta?: Record<string,any>
@@ -91,6 +92,7 @@ export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>
 export type SecretOptions = {
     name?: string;
     description?: string;
+    kind?: 'shared' | 'personal';
     type?: 'plain' | 'basic' | 'bearer' | 'oauth' | 'template';
     value?: string;
     meta?: Record<string, any>;

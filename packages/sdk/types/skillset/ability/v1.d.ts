@@ -8,6 +8,7 @@
  */
 /**
  * @typedef {{
+ *   secretId?: string,
  *   name: string,
  *   description: string,
  *   instruction: string,
@@ -91,6 +92,7 @@ export function deleteSkillsetAbility(client: ChatBotKitClient, skillsetId: stri
 export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
 export type SkillsetAbilityOptions = {
+    secretId?: string;
     name: string;
     description: string;
     instruction: string;

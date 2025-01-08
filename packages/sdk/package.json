@@ -28,6 +28,26 @@
   "type": "module",
   "main": "./src/index.js",
   "exports": {
+    "./blueprint": {
+      "types": "./types/blueprint/index.d.ts",
+      "import": "./src/blueprint/index.js"
+    },
+    "./blueprint/index": {
+      "types": "./types/blueprint/index.d.ts",
+      "import": "./src/blueprint/index.js"
+    },
+    "./blueprint/index.js": {
+      "types": "./types/blueprint/index.d.ts",
+      "import": "./src/blueprint/index.js"
+    },
+    "./blueprint/v1": {
+      "types": "./types/blueprint/v1.d.ts",
+      "import": "./src/blueprint/v1.js"
+    },
+    "./blueprint/v1.js": {
+      "types": "./types/blueprint/v1.d.ts",
+      "import": "./src/blueprint/v1.js"
+    },
     "./bot": {
       "types": "./types/bot/index.d.ts",
       "import": "./src/bot/index.js"
@@ -623,6 +643,86 @@
     "./partner/v1.js": {
       "types": "./types/partner/v1.d.ts",
       "import": "./src/partner/v1.js"
+    },
+    "./platform/ability": {
+      "types": "./types/platform/ability/index.d.ts",
+      "import": "./src/platform/ability/index.js"
+    },
+    "./platform/ability/index": {
+      "types": "./types/platform/ability/index.d.ts",
+      "import": "./src/platform/ability/index.js"
+    },
+    "./platform/ability/index.js": {
+      "types": "./types/platform/ability/index.d.ts",
+      "import": "./src/platform/ability/index.js"
+    },
+    "./platform/ability/v1": {
+      "types": "./types/platform/ability/v1.d.ts",
+      "import": "./src/platform/ability/v1.js"
+    },
+    "./platform/ability/v1.js": {
+      "types": "./types/platform/ability/v1.d.ts",
+      "import": "./src/platform/ability/v1.js"
+    },
+    "./platform": {
+      "types": "./types/platform/index.d.ts",
+      "import": "./src/platform/index.js"
+    },
+    "./platform/index": {
+      "types": "./types/platform/index.d.ts",
+      "import": "./src/platform/index.js"
+    },
+    "./platform/index.js": {
+      "types": "./types/platform/index.d.ts",
+      "import": "./src/platform/index.js"
+    },
+    "./platform/model": {
+      "types": "./types/platform/model/index.d.ts",
+      "import": "./src/platform/model/index.js"
+    },
+    "./platform/model/index": {
+      "types": "./types/platform/model/index.d.ts",
+      "import": "./src/platform/model/index.js"
+    },
+    "./platform/model/index.js": {
+      "types": "./types/platform/model/index.d.ts",
+      "import": "./src/platform/model/index.js"
+    },
+    "./platform/model/v1": {
+      "types": "./types/platform/model/v1.d.ts",
+      "import": "./src/platform/model/v1.js"
+    },
+    "./platform/model/v1.js": {
+      "types": "./types/platform/model/v1.d.ts",
+      "import": "./src/platform/model/v1.js"
+    },
+    "./platform/secret": {
+      "types": "./types/platform/secret/index.d.ts",
+      "import": "./src/platform/secret/index.js"
+    },
+    "./platform/secret/index": {
+      "types": "./types/platform/secret/index.d.ts",
+      "import": "./src/platform/secret/index.js"
+    },
+    "./platform/secret/index.js": {
+      "types": "./types/platform/secret/index.d.ts",
+      "import": "./src/platform/secret/index.js"
+    },
+    "./platform/secret/v1": {
+      "types": "./types/platform/secret/v1.d.ts",
+      "import": "./src/platform/secret/v1.js"
+    },
+    "./platform/secret/v1.js": {
+      "types": "./types/platform/secret/v1.d.ts",
+      "import": "./src/platform/secret/v1.js"
+    },
+    "./platform/v1": {
+      "types": "./types/platform/v1.d.ts",
+      "import": "./src/platform/v1.js"
+    },
+    "./platform/v1.js": {
+      "types": "./types/platform/v1.d.ts",
+      "import": "./src/platform/v1.js"
     },
     "./secret": {
       "types": "./types/secret/index.d.ts",

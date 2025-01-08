@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L74)
+[secret/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L75)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L78)
+[secret/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L79)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L129)
+[secret/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L130)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L56)
+[secret/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L57)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L24)
+[secret/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L25)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L28)
+[secret/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L29)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L30)
+[secret/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L31)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L35)
+[secret/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L36)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L37)
+[secret/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L38)
 
 ___
 
@@ -191,6 +191,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `description?` | `string` |
+| `kind?` | ``"shared"`` \| ``"personal"`` |
 | `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `name?` | `string` |
 | `type?` | ``"plain"`` \| ``"basic"`` \| ``"bearer"`` \| ``"oauth"`` \| ``"template"`` |
@@ -198,7 +199,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L18)
+[secret/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L19)
 
 ___
 
@@ -208,7 +209,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L101)
+[secret/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L102)
 
 ___
 
@@ -224,7 +225,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L105)
+[secret/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L106)
 
 ## Functions
 
@@ -245,7 +246,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L84)
+[secret/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L85)
 
 ___
 
@@ -266,7 +267,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L135)
+[secret/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L136)
 
 ___
 
@@ -287,7 +288,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L62)
+[secret/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L63)
 
 ___
 
@@ -308,7 +309,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L43)
+[secret/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L44)
 
 ___
 
@@ -330,4 +331,4 @@ ___
 
 #### Defined in
 
-[secret/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L112)
+[secret/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L113)
