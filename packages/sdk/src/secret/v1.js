@@ -12,6 +12,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   kind?: 'shared'|'personal',
  *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template',
  *   value?: string,
  *   meta?: Record<string,any>
