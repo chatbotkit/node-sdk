@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.15.2
+
+### Patch Changes
+
+- b9cf23f: Added missing clients and fields.
+
 ## 1.15.1
 
 ### Patch Changes
