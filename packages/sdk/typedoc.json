@@ -45,6 +45,8 @@
     "./src/integration/support/v1.js",
     "./src/integration/telegram/index.js",
     "./src/integration/telegram/v1.js",
+    "./src/integration/trigger/index.js",
+    "./src/integration/trigger/v1.js",
     "./src/integration/whatsapp/index.js",
     "./src/integration/whatsapp/v1.js",
     "./src/integration/widget/index.js",

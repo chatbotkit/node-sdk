@@ -7,6 +7,7 @@ import { SitemapIntegrationClient } from './sitemap/index.js'
 import { SlackIntegrationClient } from './slack/index.js'
 import { SupportIntegrationClient } from './support/index.js'
 import { TelegramIntegrationClient } from './telegram/index.js'
+import { TriggerIntegrationClient } from './trigger/index.js'
 import { WhatsAppIntegrationClient } from './whatsapp/index.js'
 import { WidgetIntegrationClient } from './widget/index.js'
 
@@ -46,6 +47,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {TelegramIntegrationClient} telegram client
      */
     this.telegram = new TelegramIntegrationClient(options)
+
+    /**
+     * @type {TriggerIntegrationClient} trigger client
+     */
+    this.trigger = new TriggerIntegrationClient(options)
 
     /**
      * @type {SitemapIntegrationClient} sitemap client

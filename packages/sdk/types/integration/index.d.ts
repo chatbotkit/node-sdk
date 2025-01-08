@@ -24,6 +24,10 @@ export class IntegrationClient extends ChatBotKitClient {
      */
     telegram: TelegramIntegrationClient;
     /**
+     * @type {TriggerIntegrationClient} trigger client
+     */
+    trigger: TriggerIntegrationClient;
+    /**
      * @type {SitemapIntegrationClient} sitemap client
      */
     sitemap: SitemapIntegrationClient;
@@ -48,6 +52,7 @@ import { DiscordIntegrationClient } from './discord/index.js';
 import { WhatsAppIntegrationClient } from './whatsapp/index.js';
 import { MessengerIntegrationClient } from './messenger/index.js';
 import { TelegramIntegrationClient } from './telegram/index.js';
+import { TriggerIntegrationClient } from './trigger/index.js';
 import { SitemapIntegrationClient } from './sitemap/index.js';
 import { NotionIntegrationClient } from './notion/index.js';
 import { SupportIntegrationClient } from './support/index.js';

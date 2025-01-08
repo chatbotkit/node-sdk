@@ -448,6 +448,26 @@
       "types": "./types/integration/telegram/v1.d.ts",
       "import": "./src/integration/telegram/v1.js"
     },
+    "./integration/trigger": {
+      "types": "./types/integration/trigger/index.d.ts",
+      "import": "./src/integration/trigger/index.js"
+    },
+    "./integration/trigger/index": {
+      "types": "./types/integration/trigger/index.d.ts",
+      "import": "./src/integration/trigger/index.js"
+    },
+    "./integration/trigger/index.js": {
+      "types": "./types/integration/trigger/index.d.ts",
+      "import": "./src/integration/trigger/index.js"
+    },
+    "./integration/trigger/v1": {
+      "types": "./types/integration/trigger/v1.d.ts",
+      "import": "./src/integration/trigger/v1.js"
+    },
+    "./integration/trigger/v1.js": {
+      "types": "./types/integration/trigger/v1.d.ts",
+      "import": "./src/integration/trigger/v1.js"
+    },
     "./integration/whatsapp": {
       "types": "./types/integration/whatsapp/index.d.ts",
       "import": "./src/integration/whatsapp/index.js"
