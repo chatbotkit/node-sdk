@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1736291509264)"
+    "version": "v1 (build 1736297676495)"
   },
   "servers": [
     {
@@ -3138,8 +3138,7 @@
                           "required": [
                             "type",
                             "text"
-                          ],
-                          "$$ref": "#/components/schemas/Message"
+                          ]
                         }
                       },
                       "required": [
@@ -5607,8 +5606,7 @@
                           "required": [
                             "type",
                             "text"
-                          ],
-                          "$$ref": "#/components/schemas/Message"
+                          ]
                         }
                       },
                       "required": [
@@ -16017,6 +16015,72 @@
           }
         },
         "__originalOperationId": "fetchTriggerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/{triggerIntegrationId}/invoke": {
+      "post": {
+        "operationId": "invokeTriggerIntegration",
+        "summary": "Invoke Trigger integration",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "triggerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Trigger integration was trigged successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the trigged Trigger integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "invokeTriggerIntegration",
         "security": [
           {
             "BearerAuth": []

@@ -2033,6 +2033,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/trigger/{triggerIntegrationId}/invoke": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Invoke Trigger integration */
+        post: operations["invokeTriggerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/trigger/{triggerIntegrationId}/setup": {
         parameters: {
             query?: never;
@@ -10595,6 +10612,44 @@ export interface operations {
                         /** @description The moderation flag for this configuration */
                         moderation?: boolean;
                     });
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    invokeTriggerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                triggerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Trigger integration was trigged successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the trigged Trigger integration */
+                        id: string;
+                    };
                 };
             };
             /** @description An error response */

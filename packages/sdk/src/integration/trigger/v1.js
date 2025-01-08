@@ -185,3 +185,29 @@ export async function setupTriggerIntegration(client, triggerId) {
 
   return response
 }
+
+/**
+ * @typedef {object} TriggerIntegrationInvokeRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} TriggerIntegrationInvokeResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} triggerId
+ * @param {TriggerIntegrationInvokeRequest} request
+ * @returns {Promise<TriggerIntegrationInvokeResponse>}
+ */
+export async function invokeTriggerIntegration(client, triggerId, request) {
+  const url = `/api/v1/integration/trigger/${triggerId}/invoke`
+
+  /** @type {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['requestBody']['content']['application/json']} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}
