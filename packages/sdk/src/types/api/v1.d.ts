@@ -13641,6 +13641,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The last update date */
                         updatedAt: number;
+                        /** @description The ID of the secret associated with the ability */
+                        secretId?: string;
                         /** @description The instruction of the skillset ability */
                         instruction: string;
                     };
@@ -13678,6 +13680,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the secret associated with the ability */
+                    secretId?: string;
                     /** @description The text to update the ability with */
                     instruction?: string;
                 };
@@ -13727,6 +13731,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the secret associated with the ability */
+                    secretId?: string;
                     /** @description The instruction of the ability */
                     instruction: string;
                 };
@@ -13793,6 +13799,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The ID of the secret associated with the ability */
+                            secretId?: string;
                             instruction: string;
                         }[];
                     };
@@ -13818,6 +13826,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The ID of the secret associated with the ability */
+                            secretId?: string;
                             instruction: string;
                         };
                     };
@@ -13872,6 +13882,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The ID of the secret associated with the ability */
+                            secretId?: string;
                             instruction: string;
                         }[];
                     };
@@ -13897,6 +13909,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The ID of the secret associated with the ability */
+                            secretId?: string;
                             instruction: string;
                         };
                     };

@@ -10,6 +10,7 @@
 
 /**
  * @typedef {{
+ *   secretId?: string,
  *   name: string,
  *   description: string,
  *   instruction: string,

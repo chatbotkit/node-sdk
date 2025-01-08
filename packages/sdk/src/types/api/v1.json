@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1736329451773)"
+    "version": "v1 (build 1736329793704)"
   },
   "servers": [
     {
@@ -21888,6 +21888,10 @@
                       "type": "number",
                       "description": "The last update date"
                     },
+                    "secretId": {
+                      "description": "The ID of the secret associated with the ability",
+                      "type": "string"
+                    },
                     "instruction": {
                       "description": "The instruction of the skillset ability",
                       "type": "string"
@@ -21969,6 +21973,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "secretId": {
+                    "description": "The ID of the secret associated with the ability",
+                    "type": "string"
                   },
                   "instruction": {
                     "description": "The text to update the ability with",
@@ -22055,6 +22063,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "secretId": {
+                    "description": "The ID of the secret associated with the ability",
+                    "type": "string"
                   },
                   "instruction": {
                     "description": "The instruction of the ability",
@@ -22195,6 +22207,10 @@
                             "type": "number",
                             "description": "The last update date"
                           },
+                          "secretId": {
+                            "description": "The ID of the secret associated with the ability",
+                            "type": "string"
+                          },
                           "instruction": {
                             "type": "string"
                           }
@@ -22257,6 +22273,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The last update date"
+                            },
+                            "secretId": {
+                              "description": "The ID of the secret associated with the ability",
+                              "type": "string"
                             },
                             "instruction": {
                               "type": "string"
@@ -22393,6 +22413,10 @@
                             "type": "number",
                             "description": "The last update date"
                           },
+                          "secretId": {
+                            "description": "The ID of the secret associated with the ability",
+                            "type": "string"
+                          },
                           "instruction": {
                             "type": "string"
                           }
@@ -22455,6 +22479,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The last update date"
+                            },
+                            "secretId": {
+                              "description": "The ID of the secret associated with the ability",
+                              "type": "string"
                             },
                             "instruction": {
                               "type": "string"
