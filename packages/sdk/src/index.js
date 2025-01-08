@@ -8,6 +8,7 @@ import { FileClient } from './file/index.js'
 import { IntegrationClient } from './integration/index.js'
 import { MagicClient } from './magic/index.js'
 import { PartnerClient } from './partner/index.js'
+import { PlatformClient } from './platform/index.js'
 import { SecretClient } from './secret/index.js'
 import { SkillsetClient } from './skillset/index.js'
 
@@ -30,6 +31,7 @@ export class ChatBotKit extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
+    this.platform = new PlatformClient(options)
     this.blueprint = new BlueprintClient(options)
     this.bot = new BotClient(options)
     this.file = new FileClient(options)
