@@ -4,6 +4,108 @@
  */
 
 export interface paths {
+    "/blueprint/{blueprintId}/clone": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Clone a blueprint */
+        post: operations["cloneBlueprint"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/blueprint/{blueprintId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete a blueprint */
+        post: operations["deleteBlueprint"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/blueprint/{blueprintId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a blueprint */
+        get: operations["fetchBlueprint"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/blueprint/{blueprintId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update blueprint */
+        post: operations["updateBlueprint"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/blueprint/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create blueprint */
+        post: operations["createBlueprint"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/blueprint/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of blueprints */
+        get: operations["listBlueprints"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/bot/{botId}/delete": {
         parameters: {
             query?: never;
@@ -2526,6 +2628,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/secret/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of platform secrets */
+        get: operations["listPlatformSecrets"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/secret/{secretId}/delete": {
         parameters: {
             query?: never;
@@ -3035,6 +3154,294 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    cloneBlueprint: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The blueprint was cloned successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the cloned blueprint */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    deleteBlueprint: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The blueprint was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted blueprint */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchBlueprint: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The blueprint was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The creation date */
+                        createdAt: number;
+                        /** @description The last update date */
+                        updatedAt: number;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    updateBlueprint: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description The blueprint was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated blueprint */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    createBlueprint: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description The blueprint was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created blueprint */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listBlueprints: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of blueprints was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items?: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     deleteBot: {
         parameters: {
             query?: never;
@@ -12759,6 +13166,80 @@ export interface operations {
                             maxInputTokens?: number;
                             /** @description The maximum number of tokens the model can generate */
                             maxOutputTokens?: number;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPlatformSecrets: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of secrets was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The creation date */
+                            createdAt: number;
+                            /** @description The last update date */
+                            updatedAt: number;
                         };
                     };
                 };
