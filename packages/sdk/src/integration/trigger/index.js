@@ -3,6 +3,7 @@ import {
   createTriggerIntegration,
   deleteTriggerIntegration,
   fetchTriggerIntegration,
+  invokeTriggerIntegration,
   listTriggerIntegrations,
   setupTriggerIntegration,
   updateTriggerIntegration,
@@ -81,6 +82,17 @@ export class TriggerIntegrationClient extends ChatBotKitClient {
    */
   setup(triggerId) {
     return setupTriggerIntegration(this, triggerId)
+  }
+
+  /**
+   * Invoke a trigger integration.
+   *
+   * @param {string} triggerId
+   * @param {import('./v1.js').TriggerIntegrationInvokeRequest} request
+   * @returns {Promise<import('./v1.js').TriggerIntegrationInvokeResponse>}
+   */
+  invoke(triggerId, request) {
+    return invokeTriggerIntegration(this, triggerId, request)
   }
 }
 
