@@ -6,6 +6,8 @@
 
 ### Modules
 
+- [blueprint](modules/blueprint.md)
+- [blueprint/v1](modules/blueprint_v1.md)
 - [bot](modules/bot.md)
 - [bot/session](modules/bot_session.md)
 - [bot/session/v1](modules/bot_session_v1.md)
@@ -30,7 +32,6 @@
 - [dataset/v1](modules/dataset_v1.md)
 - [file](modules/file.md)
 - [file/v1](modules/file_v1.md)
-- [index](modules/index.md)
 - [integration/discord](modules/integration_discord.md)
 - [integration/discord/v1](modules/integration_discord_v1.md)
 - [integration/email](modules/integration_email.md)
@@ -64,6 +65,13 @@
 - [partner/user/token](modules/partner_user_token.md)
 - [partner/user/token/v1](modules/partner_user_token_v1.md)
 - [partner/user/v1](modules/partner_user_v1.md)
+- [platform](modules/platform.md)
+- [platform/ability](modules/platform_ability.md)
+- [platform/ability/v1](modules/platform_ability_v1.md)
+- [platform/model](modules/platform_model.md)
+- [platform/model/v1](modules/platform_model_v1.md)
+- [platform/secret](modules/platform_secret.md)
+- [platform/secret/v1](modules/platform_secret_v1.md)
 - [secret](modules/secret.md)
 - [secret/v1](modules/secret_v1.md)
 - [skillset](modules/skillset.md)

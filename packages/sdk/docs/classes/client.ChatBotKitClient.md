@@ -8,6 +8,8 @@
 
 - **`ChatBotKitClient`**
 
+  ↳ [`BlueprintClient`](blueprint.BlueprintClient.md)
+
   ↳ [`BotClient`](bot.BotClient.md)
 
   ↳ [`BotSessionClient`](bot_session.BotSessionClient.md)
@@ -62,13 +64,19 @@
 
   ↳ [`PartnerUserTokenClient`](partner_user_token.PartnerUserTokenClient.md)
 
+  ↳ [`PlatformAbilityClient`](platform_ability.PlatformAbilityClient.md)
+
+  ↳ [`PlatformClient`](platform.PlatformClient.md)
+
+  ↳ [`PlatformModelClient`](platform_model.PlatformModelClient.md)
+
+  ↳ [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
+
   ↳ [`SecretClient`](secret.SecretClient.md)
 
   ↳ [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
 
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
-
-  ↳ [`BlueprintClient`](index.BlueprintClient.md)
 
 ## Table of contents
 
