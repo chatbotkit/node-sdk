@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[integration/trigger/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L14)
+[integration/trigger/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L15)

@@ -47,6 +47,14 @@ export class TriggerIntegrationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').TriggerIntegrationSetupResponse>}
      */
     setup(triggerId: string): Promise<import('./v1.js').TriggerIntegrationSetupResponse>;
+    /**
+     * Invoke a trigger integration.
+     *
+     * @param {string} triggerId
+     * @param {import('./v1.js').TriggerIntegrationInvokeRequest} request
+     * @returns {Promise<import('./v1.js').TriggerIntegrationInvokeResponse>}
+     */
+    invoke(triggerId: string, request: import('./v1.js').TriggerIntegrationInvokeRequest): Promise<import('./v1.js').TriggerIntegrationInvokeResponse>;
 }
 export default TriggerIntegrationClient;
 export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;

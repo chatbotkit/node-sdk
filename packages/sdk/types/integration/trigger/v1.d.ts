@@ -111,6 +111,19 @@ export function deleteTriggerIntegration(client: ChatBotKitClient, triggerId: st
  * @returns {Promise<TriggerIntegrationSetupResponse>}
  */
 export function setupTriggerIntegration(client: ChatBotKitClient, triggerId: string): Promise<TriggerIntegrationSetupResponse>;
+/**
+ * @typedef {object} TriggerIntegrationInvokeRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} TriggerIntegrationInvokeResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} triggerId
+ * @param {TriggerIntegrationInvokeRequest} request
+ * @returns {Promise<TriggerIntegrationInvokeResponse>}
+ */
+export function invokeTriggerIntegration(client: ChatBotKitClient, triggerId: string, request: TriggerIntegrationInvokeRequest): Promise<TriggerIntegrationInvokeResponse>;
 export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
 export type BotRef = {
@@ -168,5 +181,9 @@ export type TriggerIntegrationDeleteResponse = {
     id: string;
 };
 export type TriggerIntegrationSetupResponse = {
+    id: string;
+};
+export type TriggerIntegrationInvokeRequest = object;
+export type TriggerIntegrationInvokeResponse = {
     id: string;
 };

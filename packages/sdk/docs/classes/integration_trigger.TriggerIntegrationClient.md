@@ -26,6 +26,7 @@
 - [create](integration_trigger.TriggerIntegrationClient.md#create)
 - [delete](integration_trigger.TriggerIntegrationClient.md#delete)
 - [fetch](integration_trigger.TriggerIntegrationClient.md#fetch)
+- [invoke](integration_trigger.TriggerIntegrationClient.md#invoke)
 - [list](integration_trigger.TriggerIntegrationClient.md#list)
 - [setup](integration_trigger.TriggerIntegrationClient.md#setup)
 - [update](integration_trigger.TriggerIntegrationClient.md#update)
@@ -52,7 +53,7 @@
 
 #### Defined in
 
-[integration/trigger/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L21)
+[integration/trigger/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L22)
 
 ## Methods
 
@@ -117,7 +118,7 @@ Creates a new trigger integration.
 
 #### Defined in
 
-[integration/trigger/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L51)
+[integration/trigger/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L52)
 
 ___
 
@@ -139,7 +140,7 @@ Deletes a trigger integration.
 
 #### Defined in
 
-[integration/trigger/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L72)
+[integration/trigger/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L73)
 
 ___
 
@@ -161,7 +162,30 @@ Fetches a trigger integration.
 
 #### Defined in
 
-[integration/trigger/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L41)
+[integration/trigger/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L42)
+
+___
+
+### invoke
+
+▸ **invoke**(`triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationInvokeResponse`](../modules/integration_trigger_v1.md#triggerintegrationinvokeresponse)\>
+
+Invoke a trigger integration.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `triggerId` | `string` |
+| `request` | `any` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationInvokeResponse`](../modules/integration_trigger_v1.md#triggerintegrationinvokeresponse)\>
+
+#### Defined in
+
+[integration/trigger/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L94)
 
 ___
 
@@ -183,7 +207,7 @@ Retrieves a list of all trigger integrations.
 
 #### Defined in
 
-[integration/trigger/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L31)
+[integration/trigger/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L32)
 
 ___
 
@@ -205,7 +229,7 @@ Setups a trigger integration.
 
 #### Defined in
 
-[integration/trigger/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L82)
+[integration/trigger/index.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L83)
 
 ___
 
@@ -228,4 +252,4 @@ Updates a trigger integration.
 
 #### Defined in
 
-[integration/trigger/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L62)
+[integration/trigger/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L63)
