@@ -30,6 +30,8 @@
     "./src/index.js",
     "./src/integration/discord/index.js",
     "./src/integration/discord/v1.js",
+    "./src/integration/email/index.js",
+    "./src/integration/email/v1.js",
     "./src/integration/extract/index.js",
     "./src/integration/extract/v1.js",
     "./src/integration/index.js",

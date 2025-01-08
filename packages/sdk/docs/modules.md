@@ -46,6 +46,8 @@
 - [integration/support/v1](modules/integration_support_v1.md)
 - [integration/telegram](modules/integration_telegram.md)
 - [integration/telegram/v1](modules/integration_telegram_v1.md)
+- [integration/trigger](modules/integration_trigger.md)
+- [integration/trigger/v1](modules/integration_trigger_v1.md)
 - [integration/whatsapp](modules/integration_whatsapp.md)
 - [integration/whatsapp/v1](modules/integration_whatsapp_v1.md)
 - [integration/widget](modules/integration_widget.md)

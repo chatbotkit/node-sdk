@@ -296,6 +296,26 @@
       "types": "./types/integration/discord/v1.d.ts",
       "import": "./src/integration/discord/v1.js"
     },
+    "./integration/email": {
+      "types": "./types/integration/email/index.d.ts",
+      "import": "./src/integration/email/index.js"
+    },
+    "./integration/email/index": {
+      "types": "./types/integration/email/index.d.ts",
+      "import": "./src/integration/email/index.js"
+    },
+    "./integration/email/index.js": {
+      "types": "./types/integration/email/index.d.ts",
+      "import": "./src/integration/email/index.js"
+    },
+    "./integration/email/v1": {
+      "types": "./types/integration/email/v1.d.ts",
+      "import": "./src/integration/email/v1.js"
+    },
+    "./integration/email/v1.js": {
+      "types": "./types/integration/email/v1.d.ts",
+      "import": "./src/integration/email/v1.js"
+    },
     "./integration/extract": {
       "types": "./types/integration/extract/index.d.ts",
       "import": "./src/integration/extract/index.js"

@@ -46,6 +46,8 @@
 
   ↳ [`TelegramIntegrationClient`](integration_telegram.TelegramIntegrationClient.md)
 
+  ↳ [`TriggerIntegrationClient`](integration_trigger.TriggerIntegrationClient.md)
+
   ↳ [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
 
   ↳ [`WidgetIntegrationClient`](integration_widget.WidgetIntegrationClient.md)

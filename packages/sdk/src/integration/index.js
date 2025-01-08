@@ -1,5 +1,6 @@
 import { ChatBotKitClient } from '../client.js'
 import { DiscordIntegrationClient } from './discord/index.js'
+import { EmailIntegrationClient } from './email/index.js'
 import { ExtractIntegrationClient } from './extract/index.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
 import { NotionIntegrationClient } from './notion/index.js'
@@ -52,6 +53,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {TriggerIntegrationClient} trigger client
      */
     this.trigger = new TriggerIntegrationClient(options)
+
+    /**
+     * @type {EmailIntegrationClient} email client
+     */
+    this.email = new EmailIntegrationClient(options)
 
     /**
      * @type {SitemapIntegrationClient} sitemap client
