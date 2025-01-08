@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.15.1
+
+### Patch Changes
+
+- caec8d0: Added missing integrations and properties.
+
 ## 1.14.4
 
 ### Patch Changes
