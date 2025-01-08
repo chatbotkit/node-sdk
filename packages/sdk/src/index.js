@@ -1,3 +1,4 @@
+import { BlueprintClient } from './blueprint/index.js'
 import { BotClient } from './bot/index.js'
 import { ChatBotKitClient } from './client.js'
 import { ContactClient } from './contact/index.js'
@@ -20,6 +21,7 @@ export { IntegrationClient }
 export { ConversationClient }
 export { ContactClient }
 export { SecretClient }
+export { BlueprintClient }
 
 export class ChatBotKit extends ChatBotKitClient {
   /**
@@ -28,6 +30,7 @@ export class ChatBotKit extends ChatBotKitClient {
   constructor(options) {
     super(options)
 
+    this.blueprint = new BlueprintClient(options)
     this.bot = new BotClient(options)
     this.file = new FileClient(options)
     this.magic = new MagicClient(options)

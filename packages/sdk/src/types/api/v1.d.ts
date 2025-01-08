@@ -3388,7 +3388,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items?: {
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
