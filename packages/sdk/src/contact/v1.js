@@ -15,6 +15,7 @@
  *   fingerprint?: string,
  *   email?: string,
  *   phone?: string,
+ *   nick?: string,
  *   meta?: Record<string,any>
  * }} ContactOptions
  *
