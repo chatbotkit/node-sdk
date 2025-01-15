@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.15.3
+
+### Patch Changes
+
+- af398c5: Added missing api parameters.
+
 ## 1.15.2
 
 ### Patch Changes
