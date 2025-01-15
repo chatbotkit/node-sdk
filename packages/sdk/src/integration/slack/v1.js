@@ -32,6 +32,7 @@ import { buildModelString } from '../../model/v1.js'
  *   signingSecret?: string,
  *   botToken?: string,
  *   visibleMessages?: number,
+ *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   meta?: Record<string,any>
  * }} SlackIntegrationOptions

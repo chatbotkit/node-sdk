@@ -33,6 +33,7 @@ import { buildModelString } from '../../model/v1.js'
  *   botToken?: string,
  *   publicKey?: string,
  *   handle?: string,
+ *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   meta?: Record<string,any>
  * }} DiscordIntegrationOptions
