@@ -29,6 +29,7 @@
  *   botToken?: string,
  *   publicKey?: string,
  *   handle?: string,
+ *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   meta?: Record<string,any>
  * }} DiscordIntegrationOptions
@@ -135,6 +136,7 @@ export type DiscordIntegrationOptions = BotRefOrConfig & {
     botToken?: string;
     publicKey?: string;
     handle?: string;
+    contactCollection?: boolean;
     sessionDuration?: number;
     meta?: Record<string, any>;
 };

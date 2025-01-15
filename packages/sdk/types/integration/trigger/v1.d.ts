@@ -26,6 +26,7 @@
  *   name?: string,
  *   description?: string,
  *   authenticate?: boolean,
+ *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
  *   sessionDuration?: number,
  *   meta?: Record<string,any>
  * }} TriggerIntegrationOptions
@@ -142,6 +143,7 @@ export type TriggerIntegrationOptions = BotRefOrConfig & {
     name?: string;
     description?: string;
     authenticate?: boolean;
+    triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
     sessionDuration?: number;
     meta?: Record<string, any>;
 };

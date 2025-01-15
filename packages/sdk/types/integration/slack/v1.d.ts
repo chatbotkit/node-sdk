@@ -28,6 +28,7 @@
  *   signingSecret?: string,
  *   botToken?: string,
  *   visibleMessages?: number,
+ *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   meta?: Record<string,any>
  * }} SlackIntegrationOptions
@@ -133,6 +134,7 @@ export type SlackIntegrationOptions = BotRefOrConfig & {
     signingSecret?: string;
     botToken?: string;
     visibleMessages?: number;
+    contactCollection?: boolean;
     sessionDuration?: number;
     meta?: Record<string, any>;
 };

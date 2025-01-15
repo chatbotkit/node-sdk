@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L94)
+[integration/discord/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L95)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L98)
+[integration/discord/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L99)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L153)
+[integration/discord/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L154)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L76)
+[integration/discord/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L77)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L44)
+[integration/discord/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L45)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L48)
+[integration/discord/v1.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L49)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L50)
+[integration/discord/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L51)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L55)
+[integration/discord/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L56)
 
 ___
 
@@ -213,17 +213,17 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L57)
+[integration/discord/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L58)
 
 ___
 
 ### DiscordIntegrationOptions
 
-Ƭ **DiscordIntegrationOptions**\<\>: [`BotRefOrConfig`](integration_discord_v1.md#botreforconfig) & \{ `appId?`: `string` ; `botToken?`: `string` ; `description?`: `string` ; `handle?`: `string` ; `meta?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> ; `name?`: `string` ; `publicKey?`: `string` ; `sessionDuration?`: `number`  }
+Ƭ **DiscordIntegrationOptions**\<\>: [`BotRefOrConfig`](integration_discord_v1.md#botreforconfig) & \{ `appId?`: `string` ; `botToken?`: `string` ; `contactCollection?`: `boolean` ; `description?`: `string` ; `handle?`: `string` ; `meta?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> ; `name?`: `string` ; `publicKey?`: `string` ; `sessionDuration?`: `number`  }
 
 #### Defined in
 
-[integration/discord/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L38)
+[integration/discord/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L39)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L174)
+[integration/discord/v1.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L175)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:123](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L123)
+[integration/discord/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L124)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L127)
+[integration/discord/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L128)
 
 ___
 
@@ -303,7 +303,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L104)
+[integration/discord/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L105)
 
 ___
 
@@ -324,7 +324,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L159)
+[integration/discord/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L160)
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L82)
+[integration/discord/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L83)
 
 ___
 
@@ -366,7 +366,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L63)
+[integration/discord/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L64)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:180](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L180)
+[integration/discord/v1.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L181)
 
 ___
 
@@ -409,4 +409,4 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L134)
+[integration/discord/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L135)

@@ -13,6 +13,7 @@
  *   fingerprint?: string,
  *   email?: string,
  *   phone?: string,
+ *   nick?: string,
  *   meta?: Record<string,any>
  * }} ContactOptions
  *
@@ -94,6 +95,7 @@ export type ContactOptions = {
     fingerprint?: string;
     email?: string;
     phone?: string;
+    nick?: string;
     meta?: Record<string, any>;
 };
 export type ContactInstance = ContactOptions & {
