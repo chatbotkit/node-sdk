@@ -3000,6 +3000,11 @@ export interface components {
          */
         MessageType: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
         /**
+         * @description The schedule
+         * @enum {string}
+         */
+        Schedule: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+        /**
          * @description The bot visibility
          * @enum {string}
          */
@@ -4268,6 +4273,8 @@ export interface operations {
                         email?: string;
                         /** @description The phone number of the contact */
                         phone?: string;
+                        /** @description The nickname of the contact */
+                        nick?: string;
                     };
                 };
             };
@@ -4308,6 +4315,8 @@ export interface operations {
                     email?: string;
                     /** @description The phone number of the contact */
                     phone?: string;
+                    /** @description The nickname of the contact */
+                    nick?: string;
                 };
             };
         };
@@ -4359,6 +4368,8 @@ export interface operations {
                     email?: string;
                     /** @description The phone number of the contact */
                     phone?: string;
+                    /** @description The nickname of the contact */
+                    nick?: string;
                 };
             };
         };
@@ -4427,6 +4438,8 @@ export interface operations {
                             email?: string;
                             /** @description The phone number of the contact */
                             phone?: string;
+                            /** @description The nickname of the contact */
+                            nick?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -4457,6 +4470,8 @@ export interface operations {
                             email?: string;
                             /** @description The phone number of the contact */
                             phone?: string;
+                            /** @description The nickname of the contact */
+                            nick?: string;
                         };
                     };
                     "text/csv": string;
@@ -4514,6 +4529,8 @@ export interface operations {
                             email?: string;
                             /** @description The phone number of the contact */
                             phone?: string;
+                            /** @description The nickname of the contact */
+                            nick?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -4544,6 +4561,8 @@ export interface operations {
                             email?: string;
                             /** @description The phone number of the contact */
                             phone?: string;
+                            /** @description The nickname of the contact */
+                            nick?: string;
                         };
                     };
                 };
@@ -7686,6 +7705,8 @@ export interface operations {
                         appId?: string;
                         /** @description The Discord command handle */
                         handle?: string;
+                        /** @description Weather to collect contacts */
+                        contactCollection?: boolean;
                         /** @description The chat session duration */
                         sessionDuration?: number;
                     } & ({
@@ -7787,6 +7808,8 @@ export interface operations {
                     publicKey?: string;
                     /** @description The Discord command handle */
                     handle?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The chat session duration */
                     sessionDuration?: number;
                 } & ({
@@ -7861,6 +7884,8 @@ export interface operations {
                     publicKey?: string;
                     /** @description The Discord command handle */
                     handle?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The chat session duration */
                     sessionDuration?: number;
                 } & ({
@@ -7948,6 +7973,8 @@ export interface operations {
                             appId?: string;
                             /** @description The Discord command handle */
                             handle?: string;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The chat session duration */
                             sessionDuration?: number;
                         } & ({
@@ -7997,6 +8024,8 @@ export interface operations {
                             appId?: string;
                             /** @description The Discord command handle */
                             handle?: string;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The chat session duration */
                             sessionDuration?: number;
                         } & ({
@@ -9895,6 +9924,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The last update date */
                         updatedAt: number;
+                        /** @description Weather to collect contacts */
+                        contactCollection?: boolean;
                         /** @description The session duration for the Slack integration */
                         sessionDuration?: number;
                         /** @description The number of visible messages outside of the new thread */
@@ -9994,6 +10025,8 @@ export interface operations {
                     signingSecret?: string;
                     /** @description The bot token for the Slack integration */
                     botToken?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The session duration for the Slack integration */
                     sessionDuration?: number;
                     /** @description The number of visible messages outside of the new thread */
@@ -10068,6 +10101,8 @@ export interface operations {
                     botToken?: string;
                     /** @description The session duration for the Slack integration */
                     sessionDuration?: number;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The number of visible messages outside of the new thread */
                     visibleMessages?: number;
                 } & ({
@@ -10151,6 +10186,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The session duration for the Slack integration */
                             sessionDuration?: number;
                             /** @description The number of visible messages outside of the new thread */
@@ -10198,6 +10235,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The session duration for the Slack integration */
                             sessionDuration?: number;
                             /** @description The number of visible messages outside of the new thread */
@@ -10997,6 +11036,11 @@ export interface operations {
                         secret: string;
                         /** @description When enabled the integration requires authentication */
                         authenticate?: boolean;
+                        /**
+                         * @description The schedule
+                         * @enum {string}
+                         */
+                        triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                     } & ({
@@ -11130,6 +11174,11 @@ export interface operations {
                     };
                     /** @description When enabled the integration requires authentication */
                     authenticate?: boolean;
+                    /**
+                     * @description The schedule
+                     * @enum {string}
+                     */
+                    triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                 } & ({
@@ -11198,6 +11247,11 @@ export interface operations {
                     };
                     /** @description When enabled the integration requires authentication */
                     authenticate?: boolean;
+                    /**
+                     * @description The schedule
+                     * @enum {string}
+                     */
+                    triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                 } & ({
@@ -11285,6 +11339,11 @@ export interface operations {
                             secret: string;
                             /** @description When enabled the integration requires authentication */
                             authenticate?: boolean;
+                            /**
+                             * @description The schedule
+                             * @enum {string}
+                             */
+                            triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -11334,6 +11393,11 @@ export interface operations {
                             secret: string;
                             /** @description When enabled the integration requires authentication */
                             authenticate?: boolean;
+                            /**
+                             * @description The schedule
+                             * @enum {string}
+                             */
+                            triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         } & ({
@@ -12547,6 +12611,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The alias of the item */
+                            alias: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -12571,6 +12637,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            /** @description The alias of the item */
+                            alias: string;
                         };
                     };
                 };
@@ -13048,6 +13116,12 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            parameters: {
+                                name: string;
+                                description: string;
+                                operand?: string;
+                                required?: boolean;
+                            }[];
                         }[];
                     };
                     "application/jsonl": {
@@ -13072,6 +13146,12 @@ export interface operations {
                             createdAt: number;
                             /** @description The last update date */
                             updatedAt: number;
+                            parameters: {
+                                name: string;
+                                description: string;
+                                operand?: string;
+                                required?: boolean;
+                            }[];
                         };
                     };
                 };

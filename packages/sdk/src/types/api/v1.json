@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1736329793704)"
+    "version": "v1 (build 1736944150638)"
   },
   "servers": [
     {
@@ -110,6 +110,19 @@
           "instruction",
           "backstory",
           "activity"
+        ]
+      },
+      "Schedule": {
+        "type": "string",
+        "description": "The schedule",
+        "enum": [
+          "never",
+          "quarterhourly",
+          "halfhourly",
+          "hourly",
+          "daily",
+          "weekly",
+          "monthly"
         ]
       },
       "BotVisibility": {
@@ -2695,6 +2708,10 @@
                     "phone": {
                       "description": "The phone number of the contact",
                       "type": "string"
+                    },
+                    "nick": {
+                      "description": "The nickname of the contact",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -2773,6 +2790,10 @@
                   },
                   "phone": {
                     "description": "The phone number of the contact",
+                    "type": "string"
+                  },
+                  "nick": {
+                    "description": "The nickname of the contact",
                     "type": "string"
                   }
                 }
@@ -2858,6 +2879,10 @@
                   },
                   "phone": {
                     "description": "The phone number of the contact",
+                    "type": "string"
+                  },
+                  "nick": {
+                    "description": "The nickname of the contact",
                     "type": "string"
                   }
                 }
@@ -2992,6 +3017,10 @@
                           "phone": {
                             "description": "The phone number of the contact",
                             "type": "string"
+                          },
+                          "nick": {
+                            "description": "The nickname of the contact",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -3060,6 +3089,10 @@
                             },
                             "phone": {
                               "description": "The phone number of the contact",
+                              "type": "string"
+                            },
+                            "nick": {
+                              "description": "The nickname of the contact",
                               "type": "string"
                             }
                           },
@@ -3193,6 +3226,10 @@
                           "phone": {
                             "description": "The phone number of the contact",
                             "type": "string"
+                          },
+                          "nick": {
+                            "description": "The nickname of the contact",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -3261,6 +3298,10 @@
                             },
                             "phone": {
                               "description": "The phone number of the contact",
+                              "type": "string"
+                            },
+                            "nick": {
+                              "description": "The nickname of the contact",
                               "type": "string"
                             }
                           },
@@ -9938,6 +9979,10 @@
                       "description": "The Discord command handle",
                       "type": "string"
                     },
+                    "contactCollection": {
+                      "description": "Weather to collect contacts",
+                      "type": "boolean"
+                    },
                     "sessionDuration": {
                       "description": "The chat session duration",
                       "type": "number"
@@ -10139,6 +10184,10 @@
                     "description": "The Discord command handle",
                     "type": "string"
                   },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
                   "sessionDuration": {
                     "description": "The chat session duration",
                     "type": "number"
@@ -10277,6 +10326,10 @@
                   "handle": {
                     "description": "The Discord command handle",
                     "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
                   },
                   "sessionDuration": {
                     "description": "The chat session duration",
@@ -10458,6 +10511,10 @@
                             "description": "The Discord command handle",
                             "type": "string"
                           },
+                          "contactCollection": {
+                            "description": "Weather to collect contacts",
+                            "type": "boolean"
+                          },
                           "sessionDuration": {
                             "description": "The chat session duration",
                             "type": "number"
@@ -10573,6 +10630,10 @@
                             "handle": {
                               "description": "The Discord command handle",
                               "type": "string"
+                            },
+                            "contactCollection": {
+                              "description": "Weather to collect contacts",
+                              "type": "boolean"
                             },
                             "sessionDuration": {
                               "description": "The chat session duration",
@@ -14282,6 +14343,10 @@
                       "type": "number",
                       "description": "The last update date"
                     },
+                    "contactCollection": {
+                      "description": "Weather to collect contacts",
+                      "type": "boolean"
+                    },
                     "sessionDuration": {
                       "description": "The session duration for the Slack integration",
                       "type": "number"
@@ -14479,6 +14544,10 @@
                     "description": "The bot token for the Slack integration",
                     "type": "string"
                   },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
                   "sessionDuration": {
                     "description": "The session duration for the Slack integration",
                     "type": "number"
@@ -14617,6 +14686,10 @@
                   "sessionDuration": {
                     "description": "The session duration for the Slack integration",
                     "type": "number"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
                   },
                   "visibleMessages": {
                     "description": "The number of visible messages outside of the new thread",
@@ -14790,6 +14863,10 @@
                             "type": "number",
                             "description": "The last update date"
                           },
+                          "contactCollection": {
+                            "description": "Weather to collect contacts",
+                            "type": "boolean"
+                          },
                           "sessionDuration": {
                             "description": "The session duration for the Slack integration",
                             "type": "number"
@@ -14901,6 +14978,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The last update date"
+                            },
+                            "contactCollection": {
+                              "description": "Weather to collect contacts",
+                              "type": "boolean"
                             },
                             "sessionDuration": {
                               "description": "The session duration for the Slack integration",
@@ -16481,6 +16562,20 @@
                       "description": "When enabled the integration requires authentication",
                       "type": "boolean"
                     },
+                    "triggerSchedule": {
+                      "type": "string",
+                      "description": "The schedule",
+                      "enum": [
+                        "never",
+                        "quarterhourly",
+                        "halfhourly",
+                        "hourly",
+                        "daily",
+                        "weekly",
+                        "monthly"
+                      ],
+                      "$$ref": "#/components/schemas/Schedule"
+                    },
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
@@ -16737,6 +16832,20 @@
                     "description": "When enabled the integration requires authentication",
                     "type": "boolean"
                   },
+                  "triggerSchedule": {
+                    "type": "string",
+                    "description": "The schedule",
+                    "enum": [
+                      "never",
+                      "quarterhourly",
+                      "halfhourly",
+                      "hourly",
+                      "daily",
+                      "weekly",
+                      "monthly"
+                    ],
+                    "$$ref": "#/components/schemas/Schedule"
+                  },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
@@ -16863,6 +16972,20 @@
                   "authenticate": {
                     "description": "When enabled the integration requires authentication",
                     "type": "boolean"
+                  },
+                  "triggerSchedule": {
+                    "type": "string",
+                    "description": "The schedule",
+                    "enum": [
+                      "never",
+                      "quarterhourly",
+                      "halfhourly",
+                      "hourly",
+                      "daily",
+                      "weekly",
+                      "monthly"
+                    ],
+                    "$$ref": "#/components/schemas/Schedule"
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
@@ -17044,6 +17167,20 @@
                             "description": "When enabled the integration requires authentication",
                             "type": "boolean"
                           },
+                          "triggerSchedule": {
+                            "type": "string",
+                            "description": "The schedule",
+                            "enum": [
+                              "never",
+                              "quarterhourly",
+                              "halfhourly",
+                              "hourly",
+                              "daily",
+                              "weekly",
+                              "monthly"
+                            ],
+                            "$$ref": "#/components/schemas/Schedule"
+                          },
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
@@ -17160,6 +17297,20 @@
                             "authenticate": {
                               "description": "When enabled the integration requires authentication",
                               "type": "boolean"
+                            },
+                            "triggerSchedule": {
+                              "type": "string",
+                              "description": "The schedule",
+                              "enum": [
+                                "never",
+                                "quarterhourly",
+                                "halfhourly",
+                                "hourly",
+                                "daily",
+                                "weekly",
+                                "monthly"
+                              ],
+                              "$$ref": "#/components/schemas/Schedule"
                             },
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
@@ -19648,12 +19799,17 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The last update date"
+                          },
+                          "alias": {
+                            "description": "The alias of the item",
+                            "type": "string"
                           }
                         },
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "alias"
                         ]
                       }
                     }
@@ -19705,13 +19861,18 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The last update date"
+                            },
+                            "alias": {
+                              "description": "The alias of the item",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1magic~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "alias"
                           ]
                         }
                       },
@@ -20666,12 +20827,37 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The last update date"
+                          },
+                          "parameters": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "operand": {
+                                  "type": "string"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "description"
+                              ]
+                            }
                           }
                         },
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "parameters"
                         ]
                       }
                     }
@@ -20723,13 +20909,38 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The last update date"
+                            },
+                            "parameters": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "description": {
+                                    "type": "string"
+                                  },
+                                  "operand": {
+                                    "type": "string"
+                                  },
+                                  "required": {
+                                    "type": "boolean"
+                                  }
+                                },
+                                "required": [
+                                  "name",
+                                  "description"
+                                ]
+                              }
                             }
                           },
                           "$$ref": "#/paths/~1platform~1ability~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "parameters"
                           ]
                         }
                       },
