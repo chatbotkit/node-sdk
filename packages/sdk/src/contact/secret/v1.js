@@ -62,7 +62,7 @@ export function listSecrets(client, contactId, request) {
  * @returns {Promise<SecretDeleteResponse>}
  */
 export async function deleteSecret(client, contactId, secretId) {
-  const url = `/api/v1/contact/${contactId}/${secretId}/delete`
+  const url = `/api/v1/contact/${contactId}/secret/${secretId}/delete`
 
   /** @type {import('../../types/api/v1.js').operations['deleteContactSecret']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
@@ -86,7 +86,7 @@ export async function deleteSecret(client, contactId, secretId) {
  * @returns {Promise<SecretVerifyResponse>}
  */
 export async function verifySecret(client, contactId, secretId) {
-  const url = `/api/v1/contact/${contactId}/${secretId}/verify`
+  const url = `/api/v1/contact/${contactId}/secret/${secretId}/verify`
 
   /** @type {import('../../types/api/v1.js').operations['verifyContactSecret']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
@@ -109,7 +109,7 @@ export async function verifySecret(client, contactId, secretId) {
  * @returns {Promise<SecretAuthenticateResponse>}
  */
 export async function authenticateSecret(client, contactId, secretId) {
-  const url = `/api/v1/contact/${contactId}/${secretId}/authenticate`
+  const url = `/api/v1/contact/${contactId}/secret/${secretId}/authenticate`
 
   /** @type {import('../../types/api/v1.js').operations['authenticateContactSecret']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
