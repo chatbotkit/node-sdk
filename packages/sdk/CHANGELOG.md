@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.16.2
+
+### Patch Changes
+
+- f36e973: Fixed paths.
+
 ## 1.16.1
 
 ### Patch Changes
