@@ -72,7 +72,6 @@ export async function fetchContact(client, contactId) {
 
 /**
  * @typedef {ContactOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} ContactCreateRequest
  *
  * @typedef {{
@@ -140,6 +139,33 @@ export async function deleteContact(client, contactId) {
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['deleteContact']['requestBody']['content']['application/json']} */
     record: {},
+  })
+
+  return response
+}
+
+/**
+ * @typedef {ContactOptions & {
+ *   fingerprint: string
+ * }} ContactEnsureRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ContactEnsureResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {ContactEnsureRequest} request
+ * @returns {Promise<ContactEnsureResponse>}
+ */
+export async function ensureContact(client, request) {
+  const url = `/api/v1/contact/ensure`
+
+  /** @type {import('../types/api/v1.js').operations['ensureContact']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../types/api/v1.js').operations['ensureContact']['requestBody']['content']['application/json']} */
+    record: {
+      ...request,
+    },
   })
 
   return response

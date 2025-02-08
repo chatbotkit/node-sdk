@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[contact/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L13)
+[contact/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L15)

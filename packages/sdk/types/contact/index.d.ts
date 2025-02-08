@@ -7,6 +7,7 @@
  * Contact client.
  */
 export class ContactClient extends ChatBotKitClient {
+    secrets: SecretClient;
     /**
      * Retrieves a list of all contacts.
      *
@@ -43,7 +44,15 @@ export class ContactClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').ContactDeleteResponse>}
      */
     delete(contactId: string): Promise<import('./v1.js').ContactDeleteResponse>;
+    /**
+     * Ensures a contact exists.
+     *
+     * @param {import('./v1.js').ContactEnsureRequest} request
+     * @returns {Promise<import('./v1.js').ContactEnsureResponse>}
+     */
+    ensure(request: import('./v1.js').ContactEnsureRequest): Promise<import('./v1.js').ContactEnsureResponse>;
 }
 export default ContactClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../client.js';
+import { SecretClient } from './secret/index.js';

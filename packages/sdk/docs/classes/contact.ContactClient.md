@@ -23,6 +23,7 @@ Contact client.
 - [clientFetch](contact.ContactClient.md#clientfetch)
 - [create](contact.ContactClient.md#create)
 - [delete](contact.ContactClient.md#delete)
+- [ensure](contact.ContactClient.md#ensure)
 - [fetch](contact.ContactClient.md#fetch)
 - [list](contact.ContactClient.md#list)
 - [update](contact.ContactClient.md#update)
@@ -49,7 +50,7 @@ Contact client.
 
 #### Defined in
 
-[contact/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L23)
+[contact/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L25)
 
 ## Methods
 
@@ -106,7 +107,7 @@ Creates a new contact.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ContactCreateRequest`](../modules/contact_v1.md#contactcreaterequest) |
+| `request` | [`ContactOptions`](../modules/contact_v1.md#contactoptions) |
 
 #### Returns
 
@@ -114,7 +115,7 @@ Creates a new contact.
 
 #### Defined in
 
-[contact/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L53)
+[contact/index.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L58)
 
 ___
 
@@ -136,7 +137,29 @@ Deletes the contact.
 
 #### Defined in
 
-[contact/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L74)
+[contact/index.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L79)
+
+___
+
+### ensure
+
+▸ **ensure**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactEnsureResponse`](../modules/contact_v1.md#contactensureresponse)\>
+
+Ensures a contact exists.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | [`ContactEnsureRequest`](../modules/contact_v1.md#contactensurerequest) |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactEnsureResponse`](../modules/contact_v1.md#contactensureresponse)\>
+
+#### Defined in
+
+[contact/index.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L89)
 
 ___
 
@@ -158,7 +181,7 @@ Fetches a contact.
 
 #### Defined in
 
-[contact/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L43)
+[contact/index.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L48)
 
 ___
 
@@ -180,7 +203,7 @@ Retrieves a list of all contacts.
 
 #### Defined in
 
-[contact/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L33)
+[contact/index.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L38)
 
 ___
 
@@ -203,4 +226,4 @@ Updates a contact.
 
 #### Defined in
 
-[contact/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L64)
+[contact/index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L69)

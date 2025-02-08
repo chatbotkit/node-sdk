@@ -51,7 +51,6 @@ export function listContacts(client: ChatBotKitClient, request?: ContactListRequ
 export function fetchContact(client: ChatBotKitClient, contactId: string): Promise<ContactFetchResponse>;
 /**
  * @typedef {ContactOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} ContactCreateRequest
  *
  * @typedef {{
@@ -87,6 +86,20 @@ export function updateContact(client: ChatBotKitClient, contactId: string, reque
  * @returns {Promise<ContactDeleteResponse>}
  */
 export function deleteContact(client: ChatBotKitClient, contactId: string): Promise<ContactDeleteResponse>;
+/**
+ * @typedef {ContactOptions & {
+ *   fingerprint: string
+ * }} ContactEnsureRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ContactEnsureResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {ContactEnsureRequest} request
+ * @returns {Promise<ContactEnsureResponse>}
+ */
+export function ensureContact(client: ChatBotKitClient, request: ContactEnsureRequest): Promise<ContactEnsureResponse>;
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 export type ContactOptions = {
@@ -118,9 +131,7 @@ export type ContactListStreamItemType = {
 };
 export type ContactListStreamType = ContactListStreamItemType;
 export type ContactFetchResponse = ContactInstance & {};
-export type ContactCreateRequest = ContactOptions & {
-    model?: import('../model/v1.js').Model;
-};
+export type ContactCreateRequest = ContactOptions & {};
 export type ContactCreateResponse = {
     id: string;
 };
@@ -129,5 +140,11 @@ export type ContactUpdateResponse = {
     id: string;
 };
 export type ContactDeleteResponse = {
+    id: string;
+};
+export type ContactEnsureRequest = ContactOptions & {
+    fingerprint: string;
+};
+export type ContactEnsureResponse = {
     id: string;
 };

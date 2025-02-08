@@ -1,7 +1,9 @@
 import { ChatBotKitClient } from '../client.js'
+import { SecretClient } from './secret/index.js'
 import {
   createContact,
   deleteContact,
+  ensureContact,
   fetchContact,
   listContacts,
   updateContact,
@@ -22,6 +24,9 @@ export class ContactClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    // @note overlapping name with the `secret` property
+    this.secrets = new SecretClient(options)
   }
 
   /**
@@ -73,6 +78,16 @@ export class ContactClient extends ChatBotKitClient {
    */
   delete(contactId) {
     return deleteContact(this, contactId)
+  }
+
+  /**
+   * Ensures a contact exists.
+   *
+   * @param {import('./v1.js').ContactEnsureRequest} request
+   * @returns {Promise<import('./v1.js').ContactEnsureResponse>}
+   */
+  ensure(request) {
+    return ensureContact(this, request)
   }
 }
 
