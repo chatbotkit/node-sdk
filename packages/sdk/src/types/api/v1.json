@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1736944150638)"
+    "version": "v1 (build 1739022209313)"
   },
   "servers": [
     {
@@ -456,11 +456,11 @@
           },
           "createdAt": {
             "type": "number",
-            "description": "The creation date"
+            "description": "The timestamp (ms) when the instance was created"
           },
           "updatedAt": {
             "type": "number",
-            "description": "The last update date"
+            "description": "The timestamp (ms) when the instance was updated"
           }
         },
         "required": [
@@ -510,7 +510,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -576,7 +577,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -666,11 +668,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     }
                   },
                   "required": [
@@ -926,11 +928,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           }
                         },
                         "required": [
@@ -983,11 +985,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             }
                           },
                           "$$ref": "#/paths/~1blueprint~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -1049,7 +1051,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -1214,11 +1217,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "model": {
                       "type": "string",
@@ -1833,11 +1836,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "model": {
                             "type": "string",
@@ -1927,11 +1930,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "model": {
                               "type": "string",
@@ -2088,11 +2091,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "contactId": {
                             "description": "The contact id assigned to this conversation",
@@ -2196,14 +2199,18 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "contactId": {
                               "description": "The contact id assigned to this conversation",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "The task id assigned to this conversation",
                               "type": "string"
                             }
                           },
@@ -2376,11 +2383,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "contactId": {
                             "description": "The contact id assigned to this conversation",
@@ -2484,14 +2491,18 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "contactId": {
                               "description": "The contact id assigned to this conversation",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "The task id assigned to this conversation",
                               "type": "string"
                             }
                           },
@@ -2601,7 +2612,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -2691,11 +2703,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "fingerprint": {
                       "description": "The fingerprint of the contact",
@@ -2712,12 +2724,17 @@
                     "nick": {
                       "description": "The nickname of the contact",
                       "type": "string"
+                    },
+                    "verifiedAt": {
+                      "description": "The timestamp (ms) when the contact was verified",
+                      "type": "number"
                     }
                   },
                   "required": [
                     "id",
                     "createdAt",
-                    "updatedAt"
+                    "updatedAt",
+                    "fingerprint"
                   ]
                 }
               }
@@ -2734,6 +2751,460 @@
           }
         },
         "__originalOperationId": "fetchContact",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/secret/{secretId}/authenticate": {
+      "post": {
+        "operationId": "authenticateContactSecret",
+        "summary": "Authenticate contact secret",
+        "tags": [
+          "Contact Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the contact the secret belongs to"
+            }
+          },
+          {
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the secret to authenticate"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact secret is about to be authenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the secret to authenticate",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "The URL to authenticate the secret",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "authenticateContactSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/secret/{secretId}/delete": {
+      "post": {
+        "operationId": "deleteContactSecret",
+        "summary": "Delete contact secret",
+        "tags": [
+          "Contact Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the contact the secret belongs to"
+            }
+          },
+          {
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the secret to be deleted"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact secret was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted secret",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteContactSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/secret/{secretId}/verify": {
+      "post": {
+        "operationId": "verifyContactSecret",
+        "summary": "Verify contact secret",
+        "tags": [
+          "Contact Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the contact the secret belongs to"
+            }
+          },
+          {
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the secret to be verified"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact secret was verified successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the verified secret",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The status of the secret",
+                      "type": "string",
+                      "enum": [
+                        "unauthenticated",
+                        "authenticated"
+                      ]
+                    },
+                    "action": {
+                      "oneOf": [
+                        {
+                          "description": "The action to take next",
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of action to take",
+                              "type": "string",
+                              "enum": [
+                                "authenticate"
+                              ]
+                            },
+                            "url": {
+                              "description": "The URL to authenticate the secret",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "verifyContactSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/secret/list": {
+      "get": {
+        "operationId": "listContactSecrets",
+        "summary": "List contact secrets",
+        "tags": [
+          "Contact Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the contact to list secrets for",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of contacts was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "description": "The type of the secret",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "type"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "type": {
+                              "description": "The type of the secret",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1contact~1{contactId}~1secret~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listContactSecrets",
         "security": [
           {
             "BearerAuth": []
@@ -2795,6 +3266,10 @@
                   "nick": {
                     "description": "The nickname of the contact",
                     "type": "string"
+                  },
+                  "verifiedAt": {
+                    "description": "The timestamp (ms) when the contact was verified",
+                    "type": "number"
                   }
                 }
               }
@@ -2884,6 +3359,10 @@
                   "nick": {
                     "description": "The nickname of the contact",
                     "type": "string"
+                  },
+                  "verifiedAt": {
+                    "description": "The timestamp (ms) when the contact was verified",
+                    "type": "number"
                   }
                 }
               }
@@ -2921,6 +3400,102 @@
           }
         },
         "__originalOperationId": "createContact",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/ensure": {
+      "post": {
+        "operationId": "ensureContact",
+        "summary": "Ensure a contact exists or create a new one",
+        "description": "Ensure a contact with the given parameters exists or create a new one.\n",
+        "tags": [
+          "Contact"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "fingerprint": {
+                    "description": "The fingerprint of the contact",
+                    "type": "string"
+                  },
+                  "email": {
+                    "description": "The email address of the contact",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "description": "The phone number of the contact",
+                    "type": "string"
+                  },
+                  "nick": {
+                    "description": "The nickname of the contact",
+                    "type": "string"
+                  },
+                  "verifiedAt": {
+                    "description": "The timestamp (ms) when the contact was verified",
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "fingerprint"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact was ensured successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the ensured contact",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "ensureContact",
         "security": [
           {
             "BearerAuth": []
@@ -3000,11 +3575,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "fingerprint": {
                             "description": "The fingerprint of the contact",
@@ -3021,12 +3596,17 @@
                           "nick": {
                             "description": "The nickname of the contact",
                             "type": "string"
+                          },
+                          "verifiedAt": {
+                            "description": "The timestamp (ms) when the contact was verified",
+                            "type": "number"
                           }
                         },
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "fingerprint"
                         ]
                       }
                     }
@@ -3073,11 +3653,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "fingerprint": {
                               "description": "The fingerprint of the contact",
@@ -3094,13 +3674,18 @@
                             "nick": {
                               "description": "The nickname of the contact",
                               "type": "string"
+                            },
+                            "verifiedAt": {
+                              "description": "The timestamp (ms) when the contact was verified",
+                              "type": "number"
                             }
                           },
                           "$$ref": "#/paths/~1contact~1export/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "fingerprint"
                           ]
                         }
                       },
@@ -3209,11 +3794,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "fingerprint": {
                             "description": "The fingerprint of the contact",
@@ -3230,12 +3815,17 @@
                           "nick": {
                             "description": "The nickname of the contact",
                             "type": "string"
+                          },
+                          "verifiedAt": {
+                            "description": "The timestamp (ms) when the contact was verified",
+                            "type": "number"
                           }
                         },
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "fingerprint"
                         ]
                       }
                     }
@@ -3282,11 +3872,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "fingerprint": {
                               "description": "The fingerprint of the contact",
@@ -3303,13 +3893,18 @@
                             "nick": {
                               "description": "The nickname of the contact",
                               "type": "string"
+                            },
+                            "verifiedAt": {
+                              "description": "The timestamp (ms) when the contact was verified",
+                              "type": "number"
                             }
                           },
                           "$$ref": "#/paths/~1contact~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "fingerprint"
                           ]
                         }
                       },
@@ -3892,7 +4487,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -4057,14 +4653,18 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "contactId": {
                       "description": "The contact id assigned to this conversation",
+                      "type": "string"
+                    },
+                    "taskId": {
+                      "description": "The task id assigned to this conversation",
                       "type": "string"
                     }
                   },
@@ -4174,7 +4774,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -4357,11 +4958,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "type": {
                       "type": "string",
@@ -5030,11 +5631,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "type": {
                             "type": "string",
@@ -5106,11 +5707,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "type": {
                               "type": "string",
@@ -5791,6 +6392,10 @@
                   "contactId": {
                     "description": "The contact id assigned to this conversation",
                     "type": "string"
+                  },
+                  "taskId": {
+                    "description": "The task id assigned to this conversation",
+                    "type": "string"
                   }
                 },
                 "oneOf": [
@@ -6280,6 +6885,10 @@
                     "description": "The contact id assigned to this conversation",
                     "type": "string"
                   },
+                  "taskId": {
+                    "description": "The task id assigned to this conversation",
+                    "type": "string"
+                  },
                   "messages": {
                     "description": "An array of messages to be added to the conversation",
                     "type": "array",
@@ -6502,14 +7111,18 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "contactId": {
                             "description": "The contact id assigned to this conversation",
+                            "type": "string"
+                          },
+                          "taskId": {
+                            "description": "The task id assigned to this conversation",
                             "type": "string"
                           }
                         },
@@ -6610,14 +7223,18 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "contactId": {
                               "description": "The contact id assigned to this conversation",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "The task id assigned to this conversation",
                               "type": "string"
                             }
                           },
@@ -6781,14 +7398,18 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "contactId": {
                             "description": "The contact id assigned to this conversation",
+                            "type": "string"
+                          },
+                          "taskId": {
+                            "description": "The task id assigned to this conversation",
                             "type": "string"
                           }
                         },
@@ -6889,14 +7510,18 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "contactId": {
                               "description": "The contact id assigned to this conversation",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "The task id assigned to this conversation",
                               "type": "string"
                             }
                           },
@@ -7006,7 +7631,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -7096,14 +7722,18 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "store": {
-                      "description": "The store for the dataset",
+                      "description": "The storage class for the dataset",
+                      "type": "string"
+                    },
+                    "reranker": {
+                      "description": "The reranker class for the dataset",
                       "type": "string"
                     },
                     "recordMaxTokens": {
@@ -7370,7 +8000,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -7494,11 +8125,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "visibility": {
                             "type": "string",
@@ -7561,11 +8192,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "visibility": {
                               "type": "string",
@@ -7646,7 +8277,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -7745,11 +8377,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "text": {
                       "description": "The text of the dataset record",
@@ -8042,11 +8674,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "text": {
                             "type": "string"
@@ -8106,11 +8738,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "text": {
                               "type": "string"
@@ -8242,11 +8874,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "text": {
                             "type": "string"
@@ -8306,11 +8938,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "text": {
                               "type": "string"
@@ -8599,6 +9231,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "reranker": {
+                    "description": "The reranker class for the dataset",
+                    "type": "string"
+                  },
                   "recordMaxTokens": {
                     "description": "The total number of tokens to for each record",
                     "type": "number"
@@ -8710,7 +9346,11 @@
                     "$$ref": "#/components/schemas/Meta"
                   },
                   "store": {
-                    "description": "The storage class for this dataset",
+                    "description": "The storage class for the dataset",
+                    "type": "string"
+                  },
+                  "reranker": {
+                    "description": "The reranker class for the dataset",
                     "type": "string"
                   },
                   "recordMaxTokens": {
@@ -8866,14 +9506,18 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "store": {
-                            "description": "The store for the dataset",
+                            "description": "The storage class for the dataset",
+                            "type": "string"
+                          },
+                          "reranker": {
+                            "description": "The reranker class for the dataset",
                             "type": "string"
                           },
                           "recordMaxTokens": {
@@ -8965,14 +9609,18 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "store": {
-                              "description": "The store for the dataset",
+                              "description": "The storage class for the dataset",
+                              "type": "string"
+                            },
+                            "reranker": {
+                              "description": "The reranker class for the dataset",
                               "type": "string"
                             },
                             "recordMaxTokens": {
@@ -9073,7 +9721,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -9226,11 +9875,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "visibility": {
                       "type": "string",
@@ -9293,7 +9942,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -9732,11 +10382,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "visibility": {
                             "type": "string",
@@ -9799,11 +10449,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "visibility": {
                               "type": "string",
@@ -9875,7 +10525,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -9965,11 +10616,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "appId": {
                       "description": "The Discord application ID",
@@ -10085,7 +10736,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -10497,11 +11149,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "appId": {
                             "description": "The Discord application ID",
@@ -10617,11 +11269,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "appId": {
                               "description": "The Discord application ID",
@@ -10746,7 +11398,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -10836,11 +11489,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
@@ -10948,7 +11601,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -11328,11 +11982,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
@@ -11440,11 +12094,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "contactCollection": {
                               "description": "Weather to collect contacts",
@@ -11561,7 +12215,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -11651,11 +12306,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "botId": {
                       "description": "The ID of the Bot to use",
@@ -11952,11 +12607,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "botId": {
                             "description": "The ID of the Bot to use",
@@ -12023,11 +12678,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "botId": {
                               "description": "The ID of the Bot to use",
@@ -12103,7 +12758,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -12193,11 +12849,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "verifyToken": {
                       "description": "The Messenger integration verify token",
@@ -12310,7 +12966,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -12698,11 +13355,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "verifyToken": {
                             "description": "The Messenger integration verify token",
@@ -12815,11 +13472,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "verifyToken": {
                               "description": "The Messenger integration verify token",
@@ -12941,7 +13598,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -13031,11 +13689,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "datasetId": {
                       "description": "The ID of the dataset to sync into",
@@ -13105,7 +13763,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -13407,11 +14066,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "datasetId": {
                             "description": "The ID of the dataset to sync into",
@@ -13481,11 +14140,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "datasetId": {
                               "description": "The ID of the dataset to sync into",
@@ -13564,7 +14223,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -13654,11 +14314,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "datasetId": {
                       "description": "The ID of the dataset used in the Sitemap integration",
@@ -13740,7 +14400,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -14066,11 +14727,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "datasetId": {
                             "description": "The ID of the dataset used in the Sitemap integration",
@@ -14152,11 +14813,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "datasetId": {
                               "description": "The ID of the dataset used in the Sitemap integration",
@@ -14247,7 +14908,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -14337,11 +14999,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
@@ -14453,7 +15115,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -14857,11 +15520,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
@@ -14973,11 +15636,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "contactCollection": {
                               "description": "Weather to collect contacts",
@@ -15098,7 +15761,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -15188,11 +15852,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "botId": {
                       "description": "The ID of the Bot to use",
@@ -15474,11 +16138,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "botId": {
                             "description": "The ID of the Bot to use",
@@ -15540,11 +16204,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "botId": {
                               "description": "The ID of the Bot to use",
@@ -15615,7 +16279,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -15705,11 +16370,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
@@ -15821,7 +16486,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -16217,11 +16883,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
@@ -16333,11 +16999,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "contactCollection": {
                               "description": "Weather to collect contacts",
@@ -16458,7 +17124,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -16548,11 +17215,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "secret": {
                       "description": "The Trigger integration secret",
@@ -16679,7 +17346,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -16745,7 +17413,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -17153,11 +17822,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "secret": {
                             "description": "The Trigger integration secret",
@@ -17284,11 +17953,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "secret": {
                               "description": "The Trigger integration secret",
@@ -17424,7 +18093,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -17514,11 +18184,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "verifyToken": {
                       "description": "The WhatsApp integration verify token",
@@ -17639,7 +18309,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -18043,11 +18714,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "verifyToken": {
                             "description": "The WhatsApp integration verify token",
@@ -18168,11 +18839,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "verifyToken": {
                               "description": "The WhatsApp integration verify token",
@@ -18302,7 +18973,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -18392,11 +19064,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "theme": {
                       "description": "The theme of the Widget integration",
@@ -18600,7 +19272,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -19172,11 +19845,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "theme": {
                             "description": "The theme of the Widget integration",
@@ -19380,11 +20053,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "theme": {
                               "description": "The theme of the Widget integration",
@@ -19794,11 +20467,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "alias": {
                             "description": "The alias of the item",
@@ -19856,11 +20529,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "alias": {
                               "description": "The alias of the item",
@@ -19927,7 +20600,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -20017,11 +20691,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "image": {
                       "description": "The image of the partner user",
@@ -20091,7 +20765,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -20157,7 +20832,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -20291,11 +20967,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           }
                         },
                         "required": [
@@ -20348,11 +21024,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             }
                           },
                           "$$ref": "#/paths/~1partner~1user~1{userId}~1token~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -20634,11 +21310,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "image": {
                             "description": "The image of the partner user",
@@ -20699,11 +21375,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "image": {
                               "description": "The image of the partner user",
@@ -20822,11 +21498,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "parameters": {
                             "type": "array",
@@ -20904,11 +21580,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "parameters": {
                               "type": "array",
@@ -21044,11 +21720,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "provider": {
                             "description": "The backstory of the model",
@@ -21121,11 +21797,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "provider": {
                               "description": "The backstory of the model",
@@ -21256,11 +21932,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           }
                         },
                         "required": [
@@ -21313,11 +21989,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             }
                           },
                           "$$ref": "#/paths/~1platform~1secret~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -21379,7 +22055,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -21469,11 +22146,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "kind": {
                       "type": "string",
@@ -21812,11 +22489,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "kind": {
                             "type": "string",
@@ -21894,11 +22571,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "kind": {
                               "type": "string",
@@ -21994,7 +22671,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -22093,11 +22771,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "secretId": {
                       "description": "The ID of the secret associated with the ability",
@@ -22412,11 +23090,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "secretId": {
                             "description": "The ID of the secret associated with the ability",
@@ -22479,11 +23157,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "secretId": {
                               "description": "The ID of the secret associated with the ability",
@@ -22618,11 +23296,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "secretId": {
                             "description": "The ID of the secret associated with the ability",
@@ -22685,11 +23363,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "secretId": {
                               "description": "The ID of the secret associated with the ability",
@@ -22761,7 +23439,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {}
               }
             }
           }
@@ -22851,11 +23530,11 @@
                     },
                     "createdAt": {
                       "type": "number",
-                      "description": "The creation date"
+                      "description": "The timestamp (ms) when the instance was created"
                     },
                     "updatedAt": {
                       "type": "number",
-                      "description": "The last update date"
+                      "description": "The timestamp (ms) when the instance was updated"
                     },
                     "visibility": {
                       "type": "string",
@@ -23141,11 +23820,11 @@
                           },
                           "createdAt": {
                             "type": "number",
-                            "description": "The creation date"
+                            "description": "The timestamp (ms) when the instance was created"
                           },
                           "updatedAt": {
                             "type": "number",
-                            "description": "The last update date"
+                            "description": "The timestamp (ms) when the instance was updated"
                           },
                           "visibility": {
                             "type": "string",
@@ -23208,11 +23887,11 @@
                             },
                             "createdAt": {
                               "type": "number",
-                              "description": "The creation date"
+                              "description": "The timestamp (ms) when the instance was created"
                             },
                             "updatedAt": {
                               "type": "number",
-                              "description": "The last update date"
+                              "description": "The timestamp (ms) when the instance was updated"
                             },
                             "visibility": {
                               "type": "string",
@@ -23254,6 +23933,742 @@
           }
         },
         "__originalOperationId": "listSkillsets",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task/{taskId}/delete": {
+      "post": {
+        "operationId": "deleteTask",
+        "summary": "Delete task",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the task to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The task was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted task",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteTask",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task/{taskId}/fetch": {
+      "get": {
+        "operationId": "fetchTask",
+        "summary": "Fetch task",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the task to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The task was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Instance list properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "contactId": {
+                      "type": "string",
+                      "description": "The contact associated with the task"
+                    },
+                    "botId": {
+                      "type": "string",
+                      "description": "The bot associated with the task"
+                    },
+                    "schedule": {
+                      "type": "string",
+                      "description": "The schedule of the task"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchTask",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task/{taskId}/update": {
+      "post": {
+        "operationId": "updateTask",
+        "summary": "Update task",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the task"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The bot associated with the task"
+                  },
+                  "schedule": {
+                    "type": "string",
+                    "description": "The schedule of the task"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The task was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated task",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateTask",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task/create": {
+      "post": {
+        "operationId": "createTask",
+        "summary": "Create a new task",
+        "description": "Create a new task with the given parameters.\n",
+        "tags": [
+          "Task"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactId": {
+                    "type": "string",
+                    "description": "The contact associated with the task"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The bot associated with the task"
+                  },
+                  "schedule": {
+                    "type": "string",
+                    "description": "The schedule of the task"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The task was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created task",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createTask",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task/export": {
+      "get": {
+        "operationId": "exportTasks",
+        "summary": "Export tasks",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of tasks was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "contactId": {
+                            "type": "string",
+                            "description": "The contact associated with the task"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The bot associated with the task"
+                          },
+                          "schedule": {
+                            "type": "string",
+                            "description": "The schedule of the task"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "contactId": {
+                              "type": "string",
+                              "description": "The contact associated with the task"
+                            },
+                            "botId": {
+                              "type": "string",
+                              "description": "The bot associated with the task"
+                            },
+                            "schedule": {
+                              "type": "string",
+                              "description": "The schedule of the task"
+                            }
+                          },
+                          "$$ref": "#/paths/~1task~1export/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "exportTasks",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task/list": {
+      "get": {
+        "operationId": "listTasks",
+        "summary": "List tasks",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of tasks was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "contactId": {
+                            "type": "string",
+                            "description": "The contact associated with the task"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The bot associated with the task"
+                          },
+                          "schedule": {
+                            "type": "string",
+                            "description": "The schedule of the task"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "contactId": {
+                              "type": "string",
+                              "description": "The contact associated with the task"
+                            },
+                            "botId": {
+                              "type": "string",
+                              "description": "The bot associated with the task"
+                            },
+                            "schedule": {
+                              "type": "string",
+                              "description": "The schedule of the task"
+                            }
+                          },
+                          "$$ref": "#/paths/~1task~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listTasks",
         "security": [
           {
             "BearerAuth": []

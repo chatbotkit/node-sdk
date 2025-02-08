@@ -310,6 +310,74 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/contact/{contactId}/secret/{secretId}/authenticate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Authenticate contact secret */
+        post: operations["authenticateContactSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/secret/{secretId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete contact secret */
+        post: operations["deleteContactSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/secret/{secretId}/verify": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Verify contact secret */
+        post: operations["verifyContactSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/secret/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List contact secrets */
+        get: operations["listContactSecrets"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/contact/{contactId}/update": {
         parameters: {
             query?: never;
@@ -342,6 +410,27 @@ export interface paths {
          *
          */
         post: operations["createContact"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/ensure": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Ensure a contact exists or create a new one
+         * @description Ensure a contact with the given parameters exists or create a new one.
+         *
+         */
+        post: operations["ensureContact"];
         delete?: never;
         options?: never;
         head?: never;
@@ -2917,6 +3006,112 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/task/{taskId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete task */
+        post: operations["deleteTask"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/task/{taskId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch task */
+        get: operations["fetchTask"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/task/{taskId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update task */
+        post: operations["updateTask"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/task/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create a new task
+         * @description Create a new task with the given parameters.
+         *
+         */
+        post: operations["createTask"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/task/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export tasks */
+        get: operations["exportTasks"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/task/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List tasks */
+        get: operations["listTasks"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/usage/fetch": {
         parameters: {
             query?: never;
@@ -3135,9 +3330,9 @@ export interface components {
             };
             /** @description The instance ID */
             id: string;
-            /** @description The creation date */
+            /** @description The timestamp (ms) when the instance was created */
             createdAt: number;
-            /** @description The last update date */
+            /** @description The timestamp (ms) when the instance was updated */
             updatedAt: number;
         };
     };
@@ -3263,9 +3458,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                     };
                 };
@@ -3404,9 +3599,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         }[];
                     };
@@ -3428,9 +3623,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         };
                     };
@@ -3557,9 +3752,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /**
                          * @description A model definition
@@ -3877,9 +4072,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description A model definition
@@ -3921,9 +4116,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description A model definition
@@ -3993,9 +4188,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
@@ -4038,12 +4233,14 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
+                            /** @description The task id assigned to this conversation */
+                            taskId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -4112,9 +4309,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
@@ -4157,12 +4354,14 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
+                            /** @description The task id assigned to this conversation */
+                            taskId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -4263,18 +4462,233 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The fingerprint of the contact */
-                        fingerprint?: string;
+                        fingerprint: string;
                         /** @description The email address of the contact */
                         email?: string;
                         /** @description The phone number of the contact */
                         phone?: string;
                         /** @description The nickname of the contact */
                         nick?: string;
+                        /** @description The timestamp (ms) when the contact was verified */
+                        verifiedAt?: number;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    authenticateContactSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                contactId: string;
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The contact secret is about to be authenticated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the secret to authenticate */
+                        id: string;
+                        /** @description The URL to authenticate the secret */
+                        url?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    deleteContactSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                contactId: string;
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The contact secret was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted secret */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    verifyContactSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                contactId: string;
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The contact secret was verified successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the verified secret */
+                        id: string;
+                        /**
+                         * @description The status of the secret
+                         * @enum {string}
+                         */
+                        status: "unauthenticated" | "authenticated";
+                        action?: {
+                            /**
+                             * @description The type of action to take
+                             * @enum {string}
+                             */
+                            type?: "authenticate";
+                            /** @description The URL to authenticate the secret */
+                            url?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listContactSecrets: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of contacts was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The type of the secret */
+                            type: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The type of the secret */
+                            type: string;
+                        };
                     };
                 };
             };
@@ -4317,6 +4731,8 @@ export interface operations {
                     phone?: string;
                     /** @description The nickname of the contact */
                     nick?: string;
+                    /** @description The timestamp (ms) when the contact was verified */
+                    verifiedAt?: number;
                 };
             };
         };
@@ -4370,6 +4786,8 @@ export interface operations {
                     phone?: string;
                     /** @description The nickname of the contact */
                     nick?: string;
+                    /** @description The timestamp (ms) when the contact was verified */
+                    verifiedAt?: number;
                 };
             };
         };
@@ -4382,6 +4800,61 @@ export interface operations {
                 content: {
                     "application/json": {
                         /** @description The ID of the created contact */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    ensureContact: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The fingerprint of the contact */
+                    fingerprint: string;
+                    /** @description The email address of the contact */
+                    email?: string;
+                    /** @description The phone number of the contact */
+                    phone?: string;
+                    /** @description The nickname of the contact */
+                    nick?: string;
+                    /** @description The timestamp (ms) when the contact was verified */
+                    verifiedAt?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The contact was ensured successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the ensured contact */
                         id: string;
                     };
                 };
@@ -4428,18 +4901,20 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The fingerprint of the contact */
-                            fingerprint?: string;
+                            fingerprint: string;
                             /** @description The email address of the contact */
                             email?: string;
                             /** @description The phone number of the contact */
                             phone?: string;
                             /** @description The nickname of the contact */
                             nick?: string;
+                            /** @description The timestamp (ms) when the contact was verified */
+                            verifiedAt?: number;
                         }[];
                     };
                     "application/jsonl": {
@@ -4460,18 +4935,20 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The fingerprint of the contact */
-                            fingerprint?: string;
+                            fingerprint: string;
                             /** @description The email address of the contact */
                             email?: string;
                             /** @description The phone number of the contact */
                             phone?: string;
                             /** @description The nickname of the contact */
                             nick?: string;
+                            /** @description The timestamp (ms) when the contact was verified */
+                            verifiedAt?: number;
                         };
                     };
                     "text/csv": string;
@@ -4519,18 +4996,20 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The fingerprint of the contact */
-                            fingerprint?: string;
+                            fingerprint: string;
                             /** @description The email address of the contact */
                             email?: string;
                             /** @description The phone number of the contact */
                             phone?: string;
                             /** @description The nickname of the contact */
                             nick?: string;
+                            /** @description The timestamp (ms) when the contact was verified */
+                            verifiedAt?: number;
                         }[];
                     };
                     "application/jsonl": {
@@ -4551,18 +5030,20 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The fingerprint of the contact */
-                            fingerprint?: string;
+                            fingerprint: string;
                             /** @description The email address of the contact */
                             email?: string;
                             /** @description The phone number of the contact */
                             phone?: string;
                             /** @description The nickname of the contact */
                             nick?: string;
+                            /** @description The timestamp (ms) when the contact was verified */
+                            verifiedAt?: number;
                         };
                     };
                 };
@@ -4925,12 +5406,14 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The contact id assigned to this conversation */
                         contactId?: string;
+                        /** @description The task id assigned to this conversation */
+                        taskId?: string;
                     } & ({
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
@@ -5077,9 +5560,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /**
                          * @description The type of the message
@@ -5385,9 +5868,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The type of the message
@@ -5416,9 +5899,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The type of the message
@@ -5712,6 +6195,8 @@ export interface operations {
                     };
                     /** @description The contact id assigned to this conversation */
                     contactId?: string;
+                    /** @description The task id assigned to this conversation */
+                    taskId?: string;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -5944,6 +6429,8 @@ export interface operations {
                     };
                     /** @description The contact id assigned to this conversation */
                     contactId?: string;
+                    /** @description The task id assigned to this conversation */
+                    taskId?: string;
                     /** @description An array of messages to be added to the conversation */
                     messages?: {
                         /**
@@ -6041,12 +6528,14 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
+                            /** @description The task id assigned to this conversation */
+                            taskId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -6086,12 +6575,14 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
+                            /** @description The task id assigned to this conversation */
+                            taskId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -6158,12 +6649,14 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
+                            /** @description The task id assigned to this conversation */
+                            taskId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -6203,12 +6696,14 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
+                            /** @description The task id assigned to this conversation */
+                            taskId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -6309,12 +6804,14 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
-                        /** @description The store for the dataset */
+                        /** @description The storage class for the dataset */
                         store?: string;
+                        /** @description The reranker class for the dataset */
+                        reranker?: string;
                         /** @description The total number of tokens for each record */
                         recordMaxTokens?: number;
                         /** @description The minimum score to filter search results by */
@@ -6507,9 +7004,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The file visibility
@@ -6536,9 +7033,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The file visibility
@@ -6628,9 +7125,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The text of the dataset record */
                         text: string;
@@ -6778,9 +7275,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             text: string;
                             source?: string;
@@ -6804,9 +7301,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             text: string;
                             source?: string;
@@ -6859,9 +7356,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             text: string;
                             source?: string;
@@ -6885,9 +7382,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             text: string;
                             source?: string;
@@ -6987,6 +7484,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The reranker class for the dataset */
+                    reranker?: string;
                     /** @description The total number of tokens to for each record */
                     recordMaxTokens?: number;
                     /** @description The minimum score to filter search results by */
@@ -7051,8 +7550,10 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The storage class for this dataset */
+                    /** @description The storage class for the dataset */
                     store?: string;
+                    /** @description The reranker class for the dataset */
+                    reranker?: string;
                     /** @description The total number of tokens for each record */
                     recordMaxTokens?: number;
                     /** @description The minimum score to filter search results by */
@@ -7130,12 +7631,14 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The store for the dataset */
+                            /** @description The storage class for the dataset */
                             store?: string;
+                            /** @description The reranker class for the dataset */
+                            reranker?: string;
                             /** @description The total number of tokens for each record */
                             recordMaxTokens?: number;
                             /** @description The minimum score to filter search results by */
@@ -7175,12 +7678,14 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The store for the dataset */
+                            /** @description The storage class for the dataset */
                             store?: string;
+                            /** @description The reranker class for the dataset */
+                            reranker?: string;
                             /** @description The total number of tokens for each record */
                             recordMaxTokens?: number;
                             /** @description The minimum score to filter search results by */
@@ -7316,9 +7821,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /**
                          * @description The file visibility
@@ -7578,9 +8083,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The file visibility
@@ -7607,9 +8112,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The file visibility
@@ -7697,9 +8202,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The Discord application ID */
                         appId?: string;
@@ -7965,9 +8470,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The Discord application ID */
                             appId?: string;
@@ -8016,9 +8521,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The Discord application ID */
                             appId?: string;
@@ -8128,9 +8633,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
@@ -8376,9 +8881,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
@@ -8423,9 +8928,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
@@ -8531,9 +9036,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The ID of the Bot to use */
                         botId: string;
@@ -8696,9 +9201,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the Bot to use */
                             botId: string;
@@ -8728,9 +9233,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the Bot to use */
                             botId: string;
@@ -8821,9 +9326,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The Messenger integration verify token */
                         verifyToken: string;
@@ -9075,9 +9580,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The Messenger integration verify token */
                             verifyToken: string;
@@ -9124,9 +9629,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The Messenger integration verify token */
                             verifyToken: string;
@@ -9234,9 +9739,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The ID of the dataset to sync into */
                         datasetId: string;
@@ -9437,9 +9942,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the dataset to sync into */
                             datasetId: string;
@@ -9469,9 +9974,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the dataset to sync into */
                             datasetId: string;
@@ -9562,9 +10067,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The ID of the dataset used in the Sitemap integration */
                         datasetId: string;
@@ -9783,9 +10288,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the dataset used in the Sitemap integration */
                             datasetId: string;
@@ -9821,9 +10326,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the dataset used in the Sitemap integration */
                             datasetId: string;
@@ -9920,9 +10425,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
@@ -10182,9 +10687,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
@@ -10231,9 +10736,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
@@ -10341,9 +10846,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The ID of the Bot to use */
                         botId: string;
@@ -10494,9 +10999,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the Bot to use */
                             botId: string;
@@ -10522,9 +11027,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the Bot to use */
                             botId: string;
@@ -10611,9 +11116,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
@@ -10869,9 +11374,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
@@ -10918,9 +11423,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
@@ -11028,9 +11533,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The Trigger integration secret */
                         secret: string;
@@ -11331,9 +11836,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The Trigger integration secret */
                             secret: string;
@@ -11385,9 +11890,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The Trigger integration secret */
                             secret: string;
@@ -11500,9 +12005,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The WhatsApp integration verify token */
                         verifyToken: string;
@@ -11766,9 +12271,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The WhatsApp integration verify token */
                             verifyToken: string;
@@ -11819,9 +12324,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The WhatsApp integration verify token */
                             verifyToken: string;
@@ -11933,9 +12438,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The theme of the Widget integration */
                         theme?: string;
@@ -12325,9 +12830,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The theme of the Widget integration */
                             theme?: string;
@@ -12420,9 +12925,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The theme of the Widget integration */
                             theme?: string;
@@ -12607,9 +13112,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The alias of the item */
                             alias: string;
@@ -12633,9 +13138,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The alias of the item */
                             alias: string;
@@ -12720,9 +13225,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The image of the partner user */
                         image?: string;
@@ -12856,9 +13361,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         }[];
                     };
@@ -12880,9 +13385,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         };
                     };
@@ -13030,9 +13535,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The image of the partner user */
                             image?: string;
@@ -13058,9 +13563,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The image of the partner user */
                             image?: string;
@@ -13112,9 +13617,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             parameters: {
                                 name: string;
@@ -13142,9 +13647,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             parameters: {
                                 name: string;
@@ -13198,9 +13703,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The backstory of the model */
                             provider?: string;
@@ -13232,9 +13737,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The backstory of the model */
                             provider?: string;
@@ -13292,9 +13797,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         }[];
                     };
@@ -13316,9 +13821,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         };
                     };
@@ -13401,9 +13906,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /**
                          * @description The kind of the secret
@@ -13582,9 +14087,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The kind of the secret
@@ -13618,9 +14123,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The kind of the secret
@@ -13717,9 +14222,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The ID of the secret associated with the ability */
                         secretId?: string;
@@ -13875,9 +14380,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
@@ -13902,9 +14407,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
@@ -13958,9 +14463,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
@@ -13985,9 +14490,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
@@ -14073,9 +14578,9 @@ export interface operations {
                         };
                         /** @description The instance ID */
                         id: string;
-                        /** @description The creation date */
+                        /** @description The timestamp (ms) when the instance was created */
                         createdAt: number;
-                        /** @description The last update date */
+                        /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /**
                          * @description The skillset visibility
@@ -14229,9 +14734,9 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The skillset visibility
@@ -14258,15 +14763,382 @@ export interface operations {
                             };
                             /** @description The instance ID */
                             id: string;
-                            /** @description The creation date */
+                            /** @description The timestamp (ms) when the instance was created */
                             createdAt: number;
-                            /** @description The last update date */
+                            /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /**
                              * @description The skillset visibility
                              * @enum {string}
                              */
                             visibility?: "private" | "protected" | "public";
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    deleteTask: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                taskId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The task was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted task */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchTask: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                taskId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The task was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The contact associated with the task */
+                        contactId?: string;
+                        /** @description The bot associated with the task */
+                        botId?: string;
+                        /** @description The schedule of the task */
+                        schedule?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    updateTask: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                taskId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The contact associated with the task */
+                    contactId?: string;
+                    /** @description The bot associated with the task */
+                    botId?: string;
+                    /** @description The schedule of the task */
+                    schedule?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The task was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated task */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    createTask: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The contact associated with the task */
+                    contactId?: string;
+                    /** @description The bot associated with the task */
+                    botId?: string;
+                    /** @description The schedule of the task */
+                    schedule?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The task was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created task */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    exportTasks: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of tasks was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the task */
+                            contactId?: string;
+                            /** @description The bot associated with the task */
+                            botId?: string;
+                            /** @description The schedule of the task */
+                            schedule?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the task */
+                            contactId?: string;
+                            /** @description The bot associated with the task */
+                            botId?: string;
+                            /** @description The schedule of the task */
+                            schedule?: string;
+                        };
+                    };
+                    "text/csv": string;
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listTasks: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of tasks was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the task */
+                            contactId?: string;
+                            /** @description The bot associated with the task */
+                            botId?: string;
+                            /** @description The schedule of the task */
+                            schedule?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the task */
+                            contactId?: string;
+                            /** @description The bot associated with the task */
+                            botId?: string;
+                            /** @description The schedule of the task */
+                            schedule?: string;
                         };
                     };
                 };
