@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.16.3
+
+### Patch Changes
+
+- 4e7e995: Added missing properties.
+
 ## 1.16.2
 
 ### Patch Changes
