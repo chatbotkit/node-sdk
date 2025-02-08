@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.16.1
+
+### Patch Changes
+
+- 6806809: Improved type support.
+
 ## 1.16.0
 
 ### Minor Changes
