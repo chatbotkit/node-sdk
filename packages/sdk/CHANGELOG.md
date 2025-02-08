@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.16.0
+
+### Minor Changes
+
+- 9c4984c: Added additional contact methods to control secrets.
+
 ## 1.15.3
 
 ### Patch Changes
