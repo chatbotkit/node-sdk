@@ -14,6 +14,7 @@
  *   email?: string,
  *   phone?: string,
  *   nick?: string,
+ *   verifiedAt?: number,
  *   meta?: Record<string,any>
  * }} ContactOptions
  *
@@ -109,6 +110,7 @@ export type ContactOptions = {
     email?: string;
     phone?: string;
     nick?: string;
+    verifiedAt?: number;
     meta?: Record<string, any>;
 };
 export type ContactInstance = ContactOptions & {
