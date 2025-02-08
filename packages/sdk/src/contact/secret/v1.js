@@ -75,7 +75,9 @@ export async function deleteSecret(client, contactId, secretId) {
 
 /**
  * @typedef {{
- *   id: string
+ *   id: string,
+ *   status: 'unauthenticated'|'authenticated',
+ *   action?: {type: 'authenticate', url: string}
  * }} SecretVerifyResponse
  *
  * @param {ChatBotKitClient} client
@@ -98,6 +100,7 @@ export async function verifySecret(client, contactId, secretId) {
 /**
  * @typedef {{
  *   id: string
+ *   url: string
  * }} SecretAuthenticateResponse
  *
  * @param {ChatBotKitClient} client

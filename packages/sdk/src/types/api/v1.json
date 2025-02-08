@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1739022209313)"
+    "version": "v1 (build 1739032552117)"
   },
   "servers": [
     {
@@ -2815,7 +2815,7 @@
                   },
                   "required": [
                     "id",
-                    "status"
+                    "url"
                   ]
                 }
               }
@@ -2990,7 +2990,11 @@
                               "description": "The URL to authenticate the secret",
                               "type": "string"
                             }
-                          }
+                          },
+                          "required": [
+                            "type",
+                            "url"
+                          ]
                         }
                       ]
                     }

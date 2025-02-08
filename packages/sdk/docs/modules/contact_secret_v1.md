@@ -63,10 +63,11 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `id` | `string` |
+| `url` | `string` |
 
 #### Defined in
 
-[contact/secret/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L101)
+[contact/secret/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L104)
 
 ___
 
@@ -185,11 +186,15 @@ ___
 
 | Name | Type |
 | :------ | :------ |
+| `action?` | \{ `type`: ``"authenticate"`` ; `url`: `string`  } |
+| `action.type` | ``"authenticate"`` |
+| `action.url` | `string` |
 | `id` | `string` |
+| `status` | ``"unauthenticated"`` \| ``"authenticated"`` |
 
 #### Defined in
 
-[contact/secret/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L79)
+[contact/secret/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L81)
 
 ## Functions
 
@@ -211,7 +216,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L108)
+[contact/secret/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L111)
 
 ___
 
@@ -277,4 +282,4 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L86)
+[contact/secret/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L88)

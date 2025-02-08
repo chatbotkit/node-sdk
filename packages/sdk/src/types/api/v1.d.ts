@@ -4516,7 +4516,7 @@ export interface operations {
                         /** @description The ID of the secret to authenticate */
                         id: string;
                         /** @description The URL to authenticate the secret */
-                        url?: string;
+                        url: string;
                     };
                 };
             };
@@ -4605,9 +4605,9 @@ export interface operations {
                              * @description The type of action to take
                              * @enum {string}
                              */
-                            type?: "authenticate";
+                            type: "authenticate";
                             /** @description The URL to authenticate the secret */
-                            url?: string;
+                            url: string;
                         };
                     };
                 };

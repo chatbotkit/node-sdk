@@ -51,7 +51,9 @@ export function listSecrets(client: ChatBotKitClient, contactId: string, request
 export function deleteSecret(client: ChatBotKitClient, contactId: string, secretId: string): Promise<SecretDeleteResponse>;
 /**
  * @typedef {{
- *   id: string
+ *   id: string,
+ *   status: 'unauthenticated'|'authenticated',
+ *   action?: {type: 'authenticate', url: string}
  * }} SecretVerifyResponse
  *
  * @param {ChatBotKitClient} client
@@ -63,6 +65,7 @@ export function verifySecret(client: ChatBotKitClient, contactId: string, secret
 /**
  * @typedef {{
  *   id: string
+ *   url: string
  * }} SecretAuthenticateResponse
  *
  * @param {ChatBotKitClient} client
@@ -103,7 +106,13 @@ export type SecretDeleteResponse = {
 };
 export type SecretVerifyResponse = {
     id: string;
+    status: 'unauthenticated' | 'authenticated';
+    action?: {
+        type: 'authenticate';
+        url: string;
+    };
 };
 export type SecretAuthenticateResponse = {
     id: string;
+    url: string;
 };
