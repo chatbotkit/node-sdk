@@ -16,6 +16,8 @@
 
   ↳ [`ContactClient`](contact.ContactClient.md)
 
+  ↳ [`SecretClient`](contact_secret.SecretClient.md)
+
   ↳ [`ConversationAttachmentClient`](conversation_attachment.ConversationAttachmentClient.md)
 
   ↳ [`ConversationClient`](conversation.ConversationClient.md)
