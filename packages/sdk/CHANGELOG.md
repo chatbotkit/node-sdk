@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.16.4
+
+### Patch Changes
+
+- e5d8d68: Added missing properties and better query support for list methods.
+
 ## 1.16.3
 
 ### Patch Changes
