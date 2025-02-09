@@ -245,7 +245,9 @@ export class ChatBotKitClient {
             url.searchParams.append(`${key}.${subKey}`, subValue)
           }
         } else {
-          url.searchParams.append(key, value)
+          if (value) {
+            url.searchParams.append(key, value)
+          }
         }
       }
     }
