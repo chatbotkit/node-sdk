@@ -242,7 +242,9 @@ export class ChatBotKitClient {
           for (const subKey in value) {
             const subValue = value[subKey]
 
-            url.searchParams.append(`${key}.${subKey}`, subValue)
+            if (subValue) {
+              url.searchParams.append(`${key}.${subKey}`, subValue)
+            }
           }
         } else {
           if (value) {
