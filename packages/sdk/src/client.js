@@ -242,12 +242,12 @@ export class ChatBotKitClient {
           for (const subKey in value) {
             const subValue = value[subKey]
 
-            if (subValue) {
+            if (subValue != null) {
               url.searchParams.append(`${key}.${subKey}`, subValue)
             }
           }
         } else {
-          if (value) {
+          if (value != null) {
             url.searchParams.append(key, value)
           }
         }
