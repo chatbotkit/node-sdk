@@ -11,6 +11,7 @@ import { PartnerClient } from './partner/index.js'
 import { PlatformClient } from './platform/index.js'
 import { SecretClient } from './secret/index.js'
 import { SkillsetClient } from './skillset/index.js'
+import { TaskClient } from './task/index.js'
 
 export { BotClient }
 export { FileClient }
@@ -42,6 +43,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.integration = new IntegrationClient(options)
     this.conversation = new ConversationClient(options)
     this.contact = new ContactClient(options)
+    this.task = new TaskClient(options)
 
     // @note overlapping name with the `secret` property
     this.secrets = new SecretClient(options)
