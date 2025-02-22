@@ -10,6 +10,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   contactId? : string,
  *   botId? : string,
  *   schedule?: string,
  *   meta?: Record<string,any>
@@ -91,6 +92,7 @@ export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>
 export type TaskOptions = {
     name?: string;
     description?: string;
+    contactId?: string;
     botId?: string;
     schedule?: string;
     meta?: Record<string, any>;

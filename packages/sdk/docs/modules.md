@@ -84,5 +84,7 @@
 - [skillset/ability](modules/skillset_ability.md)
 - [skillset/ability/v1](modules/skillset_ability_v1.md)
 - [skillset/v1](modules/skillset_v1.md)
+- [task](modules/task.md)
+- [task/v1](modules/task_v1.md)
 - [usage/series/v1](modules/usage_series_v1.md)
 - [usage/v1](modules/usage_v1.md)

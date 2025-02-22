@@ -84,6 +84,8 @@
 
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
 
+  ↳ [`TaskClient`](task.TaskClient.md)
+
 ## Table of contents
 
 ### Constructors
