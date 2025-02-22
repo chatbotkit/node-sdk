@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.0
+
+### Minor Changes
+
+- f0e1ae6: Added new contact methods and refactored existing methods.
+
 ## 1.16.4
 
 ### Patch Changes
