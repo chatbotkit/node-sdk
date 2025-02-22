@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1739032552117)"
+    "version": "v1 (build 1740245900866)"
   },
   "servers": [
     {
@@ -293,6 +293,15 @@
           "bearer",
           "oauth",
           "template"
+        ]
+      },
+      "SecretVisibility": {
+        "type": "string",
+        "description": "The visibility of the secret",
+        "enum": [
+          "private",
+          "protected",
+          "public"
         ]
       },
       "Usage": {
@@ -3209,6 +3218,279 @@
           }
         },
         "__originalOperationId": "listContactSecrets",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/task/{taskId}/delete": {
+      "post": {
+        "operationId": "deleteContactTask",
+        "summary": "Delete contact task",
+        "tags": [
+          "Contact Task"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the contact the task belongs to"
+            }
+          },
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the task to be deleted"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The contact task was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted task",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteContactTask",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contact/{contactId}/task/list": {
+      "get": {
+        "operationId": "listContactTasks",
+        "summary": "List contact tasks",
+        "tags": [
+          "Contact Task"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contactId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the contact to list tasks for",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of contacts was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The bot associated with the task"
+                          },
+                          "schedule": {
+                            "type": "string",
+                            "description": "The schedule of the task"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "botId": {
+                              "type": "string",
+                              "description": "The bot associated with the task"
+                            },
+                            "schedule": {
+                              "type": "string",
+                              "description": "The schedule of the task"
+                            }
+                          },
+                          "$$ref": "#/paths/~1contact~1{contactId}~1task~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listContactTasks",
         "security": [
           {
             "BearerAuth": []
@@ -22180,6 +22462,16 @@
                     "config": {
                       "description": "The config of the secret",
                       "type": "object"
+                    },
+                    "visibility": {
+                      "type": "string",
+                      "description": "The visibility of the secret",
+                      "enum": [
+                        "private",
+                        "protected",
+                        "public"
+                      ],
+                      "$$ref": "#/components/schemas/SecretVisibility"
                     }
                   },
                   "required": [
@@ -22276,6 +22568,16 @@
                   "config": {
                     "description": "The config of the secret",
                     "type": "object"
+                  },
+                  "visibility": {
+                    "type": "string",
+                    "description": "The visibility of the secret",
+                    "enum": [
+                      "private",
+                      "protected",
+                      "public"
+                    ],
+                    "$$ref": "#/components/schemas/SecretVisibility"
                   }
                 }
               }
@@ -22377,6 +22679,16 @@
                   "config": {
                     "description": "The config of the secret",
                     "type": "string"
+                  },
+                  "visibility": {
+                    "type": "string",
+                    "description": "The visibility of the secret",
+                    "enum": [
+                      "private",
+                      "protected",
+                      "public"
+                    ],
+                    "$$ref": "#/components/schemas/SecretVisibility"
                   }
                 }
               }
@@ -22523,6 +22835,16 @@
                           "config": {
                             "description": "The config of the secret",
                             "type": "object"
+                          },
+                          "visibility": {
+                            "type": "string",
+                            "description": "The visibility of the secret",
+                            "enum": [
+                              "private",
+                              "protected",
+                              "public"
+                            ],
+                            "$$ref": "#/components/schemas/SecretVisibility"
                           }
                         },
                         "required": [
@@ -22605,6 +22927,16 @@
                             "config": {
                               "description": "The config of the secret",
                               "type": "object"
+                            },
+                            "visibility": {
+                              "type": "string",
+                              "description": "The visibility of the secret",
+                              "enum": [
+                                "private",
+                                "protected",
+                                "public"
+                              ],
+                              "$$ref": "#/components/schemas/SecretVisibility"
                             }
                           },
                           "$$ref": "#/paths/~1secret~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -22785,6 +23117,10 @@
                       "description": "The ID of the secret associated with the ability",
                       "type": "string"
                     },
+                    "botId": {
+                      "description": "The ID of the bot associated with the ability",
+                      "type": "string"
+                    },
                     "instruction": {
                       "description": "The instruction of the skillset ability",
                       "type": "string"
@@ -22869,6 +23205,10 @@
                   },
                   "secretId": {
                     "description": "The ID of the secret associated with the ability",
+                    "type": "string"
+                  },
+                  "botId": {
+                    "description": "The ID of the bot associated with the ability",
                     "type": "string"
                   },
                   "instruction": {
@@ -22959,6 +23299,10 @@
                   },
                   "secretId": {
                     "description": "The ID of the secret associated with the ability",
+                    "type": "string"
+                  },
+                  "botId": {
+                    "description": "The ID of the bot associated with the ability",
                     "type": "string"
                   },
                   "instruction": {
@@ -23104,6 +23448,10 @@
                             "description": "The ID of the secret associated with the ability",
                             "type": "string"
                           },
+                          "botId": {
+                            "description": "The ID of the bot associated with the ability",
+                            "type": "string"
+                          },
                           "instruction": {
                             "type": "string"
                           }
@@ -23169,6 +23517,10 @@
                             },
                             "secretId": {
                               "description": "The ID of the secret associated with the ability",
+                              "type": "string"
+                            },
+                            "botId": {
+                              "description": "The ID of the bot associated with the ability",
                               "type": "string"
                             },
                             "instruction": {
@@ -23310,6 +23662,10 @@
                             "description": "The ID of the secret associated with the ability",
                             "type": "string"
                           },
+                          "botId": {
+                            "description": "The ID of the bot associated with the ability",
+                            "type": "string"
+                          },
                           "instruction": {
                             "type": "string"
                           }
@@ -23375,6 +23731,10 @@
                             },
                             "secretId": {
                               "description": "The ID of the secret associated with the ability",
+                              "type": "string"
+                            },
+                            "botId": {
+                              "description": "The ID of the bot associated with the ability",
                               "type": "string"
                             },
                             "instruction": {

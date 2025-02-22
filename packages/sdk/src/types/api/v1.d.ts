@@ -378,6 +378,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/contact/{contactId}/task/{taskId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete contact task */
+        post: operations["deleteContactTask"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/task/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List contact tasks */
+        get: operations["listContactTasks"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/contact/{contactId}/update": {
         parameters: {
             query?: never;
@@ -3249,6 +3283,11 @@ export interface components {
          * @enum {string}
          */
         SecretType: "plain" | "basic" | "bearer" | "oauth" | "template";
+        /**
+         * @description The visibility of the secret
+         * @enum {string}
+         */
+        SecretVisibility: "private" | "protected" | "public";
         /** @description Usage information */
         Usage: {
             /** @description The tokens used in this exchange */
@@ -4688,6 +4727,129 @@ export interface operations {
                             updatedAt: number;
                             /** @description The type of the secret */
                             type: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    deleteContactTask: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                contactId: string;
+                taskId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The contact task was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted task */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listContactTasks: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of contacts was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The bot associated with the task */
+                            botId?: string;
+                            /** @description The schedule of the task */
+                            schedule?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The bot associated with the task */
+                            botId?: string;
+                            /** @description The schedule of the task */
+                            schedule?: string;
                         };
                     };
                 };
@@ -13922,6 +14084,11 @@ export interface operations {
                         type?: "plain" | "basic" | "bearer" | "oauth" | "template";
                         /** @description The config of the secret */
                         config?: Record<string, never>;
+                        /**
+                         * @description The visibility of the secret
+                         * @enum {string}
+                         */
+                        visibility?: "private" | "protected" | "public";
                     };
                 };
             };
@@ -13970,6 +14137,11 @@ export interface operations {
                     value?: string;
                     /** @description The config of the secret */
                     config?: Record<string, never>;
+                    /**
+                     * @description The visibility of the secret
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -14029,6 +14201,11 @@ export interface operations {
                     value?: string;
                     /** @description The config of the secret */
                     config?: string;
+                    /**
+                     * @description The visibility of the secret
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -14103,6 +14280,11 @@ export interface operations {
                             type?: "plain" | "basic" | "bearer" | "oauth" | "template";
                             /** @description The config of the secret */
                             config?: Record<string, never>;
+                            /**
+                             * @description The visibility of the secret
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         }[];
                     };
                     "application/jsonl": {
@@ -14139,6 +14321,11 @@ export interface operations {
                             type?: "plain" | "basic" | "bearer" | "oauth" | "template";
                             /** @description The config of the secret */
                             config?: Record<string, never>;
+                            /**
+                             * @description The visibility of the secret
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         };
                     };
                 };
@@ -14228,6 +14415,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the secret associated with the ability */
                         secretId?: string;
+                        /** @description The ID of the bot associated with the ability */
+                        botId?: string;
                         /** @description The instruction of the skillset ability */
                         instruction: string;
                     };
@@ -14267,6 +14456,8 @@ export interface operations {
                     };
                     /** @description The ID of the secret associated with the ability */
                     secretId?: string;
+                    /** @description The ID of the bot associated with the ability */
+                    botId?: string;
                     /** @description The text to update the ability with */
                     instruction?: string;
                 };
@@ -14318,6 +14509,8 @@ export interface operations {
                     };
                     /** @description The ID of the secret associated with the ability */
                     secretId?: string;
+                    /** @description The ID of the bot associated with the ability */
+                    botId?: string;
                     /** @description The instruction of the ability */
                     instruction: string;
                 };
@@ -14386,6 +14579,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
+                            /** @description The ID of the bot associated with the ability */
+                            botId?: string;
                             instruction: string;
                         }[];
                     };
@@ -14413,6 +14608,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
+                            /** @description The ID of the bot associated with the ability */
+                            botId?: string;
                             instruction: string;
                         };
                     };
@@ -14469,6 +14666,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
+                            /** @description The ID of the bot associated with the ability */
+                            botId?: string;
                             instruction: string;
                         }[];
                     };
@@ -14496,6 +14695,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
+                            /** @description The ID of the bot associated with the ability */
+                            botId?: string;
                             instruction: string;
                         };
                     };

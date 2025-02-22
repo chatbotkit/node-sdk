@@ -1,5 +1,6 @@
 import { ChatBotKitClient } from '../client.js'
 import { SecretClient } from './secret/index.js'
+import { TaskClient } from './task/index.js'
 import {
   createContact,
   deleteContact,
@@ -24,6 +25,8 @@ export class ContactClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    this.task = new TaskClient(options)
 
     // @note overlapping name with the `secret` property
     this.secrets = new SecretClient(options)
