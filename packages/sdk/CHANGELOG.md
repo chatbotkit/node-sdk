@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.1
+
+### Patch Changes
+
+- 3b7789c: Added task implementation.
+
 ## 1.17.0
 
 ### Minor Changes
