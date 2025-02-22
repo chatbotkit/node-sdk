@@ -15,6 +15,8 @@
 - [buffer](modules/buffer.md)
 - [client](modules/client.md)
 - [contact](modules/contact.md)
+- [contact/conversation](modules/contact_conversation.md)
+- [contact/conversation/v1](modules/contact_conversation_v1.md)
 - [contact/secret](modules/contact_secret.md)
 - [contact/secret/v1](modules/contact_secret_v1.md)
 - [contact/task](modules/contact_task.md)

@@ -14,6 +14,8 @@
 
   ↳ [`BotSessionClient`](bot_session.BotSessionClient.md)
 
+  ↳ [`ConversationClient`](contact_conversation.ConversationClient.md)
+
   ↳ [`ContactClient`](contact.ContactClient.md)
 
   ↳ [`SecretClient`](contact_secret.SecretClient.md)
