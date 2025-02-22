@@ -11,6 +11,8 @@
     "./src/bot/v1.js",
     "./src/buffer.js",
     "./src/client.js",
+    "./src/contact/conversation/index.js",
+    "./src/contact/conversation/v1.js",
     "./src/contact/index.js",
     "./src/contact/secret/index.js",
     "./src/contact/secret/v1.js",

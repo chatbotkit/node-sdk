@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:213](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L213)
+[conversation/v1.js:217](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L217)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:242](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L242)
+[conversation/v1.js:246](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L246)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:248](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L248)
+[conversation/v1.js:252](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L252)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:258](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L258)
+[conversation/v1.js:262](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L262)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:253](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L253)
+[conversation/v1.js:257](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L257)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:265](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L265)
+[conversation/v1.js:269](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L269)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:267](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L267)
+[conversation/v1.js:271](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L271)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L191)
+[conversation/v1.js:195](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L195)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:196](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L196)
+[conversation/v1.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L200)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L201)
+[conversation/v1.js:205](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L205)
 
 ___
 
@@ -250,7 +250,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:208](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L208)
+[conversation/v1.js:212](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L212)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:215](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L215)
+[conversation/v1.js:219](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L219)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L99)
+[conversation/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L103)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L103)
+[conversation/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L107)
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L160)
+[conversation/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L164)
 
 ___
 
@@ -318,7 +318,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:417](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L417)
+[conversation/v1.js:421](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L421)
 
 ___
 
@@ -334,7 +334,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:421](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L421)
+[conversation/v1.js:425](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L425)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L79)
+[conversation/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L83)
 
 ___
 
@@ -354,7 +354,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L27)
+[conversation/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L31)
 
 ___
 
@@ -373,7 +373,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L51)
+[conversation/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L55)
 
 ___
 
@@ -389,7 +389,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L53)
+[conversation/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L57)
 
 ___
 
@@ -406,7 +406,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L58)
+[conversation/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L62)
 
 ___
 
@@ -416,7 +416,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L60)
+[conversation/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L64)
 
 ___
 
@@ -430,14 +430,18 @@ ___
 | :------ | :------ |
 | `backstory?` | `string` |
 | `botId?` | `string` |
+| `contactId?` | `string` |
 | `datasetId?` | `string` |
+| `description?` | `string` |
 | `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `model?` | `string` |
+| `name?` | `string` |
 | `skillsetId?` | `string` |
+| `taskId?` | `string` |
 
 #### Defined in
 
-[conversation/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L21)
+[conversation/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L25)
 
 ___
 
@@ -447,7 +451,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:333](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L333)
+[conversation/v1.js:337](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L337)
 
 ___
 
@@ -466,7 +470,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:339](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L339)
+[conversation/v1.js:343](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L343)
 
 ___
 
@@ -483,7 +487,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:349](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L349)
+[conversation/v1.js:353](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L353)
 
 ___
 
@@ -500,7 +504,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:344](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L344)
+[conversation/v1.js:348](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L348)
 
 ___
 
@@ -518,7 +522,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:356](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L356)
+[conversation/v1.js:360](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L360)
 
 ___
 
@@ -528,7 +532,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:358](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L358)
+[conversation/v1.js:362](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L362)
 
 ___
 
@@ -545,7 +549,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:295](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L295)
+[conversation/v1.js:299](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L299)
 
 ___
 
@@ -562,7 +566,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:300](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L300)
+[conversation/v1.js:304](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L304)
 
 ___
 
@@ -579,7 +583,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:305](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L305)
+[conversation/v1.js:309](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L309)
 
 ___
 
@@ -589,7 +593,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:307](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L307)
+[conversation/v1.js:311](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L311)
 
 ___
 
@@ -599,7 +603,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L128)
+[conversation/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L132)
 
 ___
 
@@ -615,7 +619,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L132)
+[conversation/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L136)
 
 ___
 
@@ -631,7 +635,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:385](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L385)
+[conversation/v1.js:389](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L389)
 
 ___
 
@@ -647,7 +651,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:389](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L389)
+[conversation/v1.js:393](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L393)
 
 ___
 
@@ -670,7 +674,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L47)
+[conversation/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L51)
 
 ___
 
@@ -688,7 +692,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L35)
+[conversation/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L39)
 
 ___
 
@@ -698,7 +702,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L29)
+[conversation/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L33)
 
 ___
 
@@ -736,7 +740,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:221](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L221)
+[conversation/v1.js:225](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L225)
 
 ___
 
@@ -758,7 +762,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:274](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L274)
+[conversation/v1.js:278](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L278)
 
 ___
 
@@ -779,7 +783,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L109)
+[conversation/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L113)
 
 ___
 
@@ -800,7 +804,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L166)
+[conversation/v1.js:170](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L170)
 
 ___
 
@@ -822,7 +826,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:428](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L428)
+[conversation/v1.js:432](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L432)
 
 ___
 
@@ -843,7 +847,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L85)
+[conversation/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L89)
 
 ___
 
@@ -864,7 +868,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L66)
+[conversation/v1.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L70)
 
 ___
 
@@ -886,7 +890,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:365](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L365)
+[conversation/v1.js:369](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L369)
 
 ___
 
@@ -908,7 +912,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:314](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L314)
+[conversation/v1.js:318](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L318)
 
 ___
 
@@ -930,7 +934,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L139)
+[conversation/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L143)
 
 ___
 
@@ -952,4 +956,4 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:396](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L396)
+[conversation/v1.js:400](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L400)

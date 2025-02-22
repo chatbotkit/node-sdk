@@ -104,6 +104,26 @@
       "types": "./types/client.d.ts",
       "import": "./src/client.js"
     },
+    "./contact/conversation": {
+      "types": "./types/contact/conversation/index.d.ts",
+      "import": "./src/contact/conversation/index.js"
+    },
+    "./contact/conversation/index": {
+      "types": "./types/contact/conversation/index.d.ts",
+      "import": "./src/contact/conversation/index.js"
+    },
+    "./contact/conversation/index.js": {
+      "types": "./types/contact/conversation/index.d.ts",
+      "import": "./src/contact/conversation/index.js"
+    },
+    "./contact/conversation/v1": {
+      "types": "./types/contact/conversation/v1.d.ts",
+      "import": "./src/contact/conversation/v1.js"
+    },
+    "./contact/conversation/v1.js": {
+      "types": "./types/contact/conversation/v1.d.ts",
+      "import": "./src/contact/conversation/v1.js"
+    },
     "./contact": {
       "types": "./types/contact/index.d.ts",
       "import": "./src/contact/index.js"

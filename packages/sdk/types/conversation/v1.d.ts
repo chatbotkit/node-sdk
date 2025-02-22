@@ -8,6 +8,10 @@
  */
 /**
  * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   contactId?: string,
+ *   taskId?: string,
  *   botId?: string,
  *   backstory?: string,
  *   model?: string,
@@ -278,6 +282,10 @@ export function downvoteConversation(client: ChatBotKitClient, conversationId: s
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 export type ConversationOptions = {
+    name?: string;
+    description?: string;
+    contactId?: string;
+    taskId?: string;
     botId?: string;
     backstory?: string;
     model?: string;
