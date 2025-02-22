@@ -54,19 +54,19 @@ export function listSecrets(client, contactId, request) {
 /**
  * @typedef {{
  *   id: string
- * }} SecretDeleteResponse
+ * }} SecretRevokeResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {Promise<SecretDeleteResponse>}
+ * @returns {Promise<SecretRevokeResponse>}
  */
-export async function deleteSecret(client, contactId, secretId) {
-  const url = `/api/v1/contact/${contactId}/secret/${secretId}/delete`
+export async function revokeSecret(client, contactId, secretId) {
+  const url = `/api/v1/contact/${contactId}/secret/${secretId}/revoke`
 
-  /** @type {import('../../types/api/v1.js').operations['deleteContactSecret']['responses']['200']['content']['application/json']} */
+  /** @type {import('../../types/api/v1.js').operations['revokeContactSecret']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['deleteContactSecret']['requestBody']['content']['application/json']} */
+    /** @type {import('../../types/api/v1.js').operations['revokeContactSecret']['requestBody']['content']['application/json']} */
     record: {},
   })
 

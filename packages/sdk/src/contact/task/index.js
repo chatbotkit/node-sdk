@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../../client.js'
-import { deleteTask, listTasks } from './v1.js'
+import { listTasks } from './v1.js'
 
 /**
  * @template T
@@ -27,17 +27,6 @@ export class TaskClient extends ChatBotKitClient {
    */
   list(contactId, request) {
     return listTasks(this, contactId, request)
-  }
-
-  /**
-   * Deletes the contact task.
-   *
-   * @param {string} contactId
-   * @param {string} taskId
-   * @returns {Promise<import('./v1.js').TaskDeleteResponse>}
-   */
-  delete(contactId, taskId) {
-    return deleteTask(this, contactId, taskId)
   }
 }
 
