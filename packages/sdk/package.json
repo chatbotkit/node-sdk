@@ -844,6 +844,26 @@
       "types": "./types/skillset/v1.d.ts",
       "import": "./src/skillset/v1.js"
     },
+    "./task": {
+      "types": "./types/task/index.d.ts",
+      "import": "./src/task/index.js"
+    },
+    "./task/index": {
+      "types": "./types/task/index.d.ts",
+      "import": "./src/task/index.js"
+    },
+    "./task/index.js": {
+      "types": "./types/task/index.d.ts",
+      "import": "./src/task/index.js"
+    },
+    "./task/v1": {
+      "types": "./types/task/v1.d.ts",
+      "import": "./src/task/v1.js"
+    },
+    "./task/v1.js": {
+      "types": "./types/task/v1.d.ts",
+      "import": "./src/task/v1.js"
+    },
     "./usage": {
       "types": "./types/usage/index.d.ts",
       "import": "./src/usage/index.js"

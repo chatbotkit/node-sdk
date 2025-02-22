@@ -10,6 +10,7 @@ export class ChatBotKit extends ChatBotKitClient {
     integration: IntegrationClient;
     conversation: ConversationClient;
     contact: ContactClient;
+    task: TaskClient;
     secrets: SecretClient;
 }
 export default ChatBotKit;
@@ -26,4 +27,5 @@ import { SecretClient } from './secret/index.js';
 import { BlueprintClient } from './blueprint/index.js';
 import { ChatBotKitClient } from './client.js';
 import { PlatformClient } from './platform/index.js';
+import { TaskClient } from './task/index.js';
 export { BotClient, FileClient, MagicClient, PartnerClient, DatasetClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, BlueprintClient };
