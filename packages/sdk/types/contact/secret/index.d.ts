@@ -16,13 +16,13 @@ export class SecretClient extends ChatBotKitClient {
      */
     list(contactId: string, request?: import("./v1.js").SecretListRequest | undefined): ResponsePromise<import('./v1.js').SecretListResponse, import('./v1.js').SecretListStreamType>;
     /**
-     * Deletes the contact secret.
+     * Revokes the contact secret.
      *
      * @param {string} contactId
      * @param {string} secretId
-     * @returns {Promise<import('./v1.js').SecretDeleteResponse>}
+     * @returns {Promise<import('./v1.js').SecretRevokeResponse>}
      */
-    delete(contactId: string, secretId: string): Promise<import('./v1.js').SecretDeleteResponse>;
+    revoke(contactId: string, secretId: string): Promise<import('./v1.js').SecretRevokeResponse>;
     /**
      * Verifies the contact secret.
      *

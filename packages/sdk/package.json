@@ -136,6 +136,26 @@
       "types": "./types/contact/secret/v1.d.ts",
       "import": "./src/contact/secret/v1.js"
     },
+    "./contact/task": {
+      "types": "./types/contact/task/index.d.ts",
+      "import": "./src/contact/task/index.js"
+    },
+    "./contact/task/index": {
+      "types": "./types/contact/task/index.d.ts",
+      "import": "./src/contact/task/index.js"
+    },
+    "./contact/task/index.js": {
+      "types": "./types/contact/task/index.d.ts",
+      "import": "./src/contact/task/index.js"
+    },
+    "./contact/task/v1": {
+      "types": "./types/contact/task/v1.d.ts",
+      "import": "./src/contact/task/v1.js"
+    },
+    "./contact/task/v1.js": {
+      "types": "./types/contact/task/v1.d.ts",
+      "import": "./src/contact/task/v1.js"
+    },
     "./contact/v1": {
       "types": "./types/contact/v1.d.ts",
       "import": "./src/contact/v1.js"

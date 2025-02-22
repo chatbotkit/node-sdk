@@ -41,14 +41,14 @@ export function listSecrets(client: ChatBotKitClient, contactId: string, request
 /**
  * @typedef {{
  *   id: string
- * }} SecretDeleteResponse
+ * }} SecretRevokeResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {Promise<SecretDeleteResponse>}
+ * @returns {Promise<SecretRevokeResponse>}
  */
-export function deleteSecret(client: ChatBotKitClient, contactId: string, secretId: string): Promise<SecretDeleteResponse>;
+export function revokeSecret(client: ChatBotKitClient, contactId: string, secretId: string): Promise<SecretRevokeResponse>;
 /**
  * @typedef {{
  *   id: string,
@@ -101,7 +101,7 @@ export type SecretListStreamItemType = {
     data: SecretInstance;
 };
 export type SecretListStreamType = SecretListStreamItemType;
-export type SecretDeleteResponse = {
+export type SecretRevokeResponse = {
     id: string;
 };
 export type SecretVerifyResponse = {

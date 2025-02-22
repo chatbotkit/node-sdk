@@ -22,8 +22,8 @@ Contact secret client.
 
 - [authenticate](contact_secret.SecretClient.md#authenticate)
 - [clientFetch](contact_secret.SecretClient.md#clientfetch)
-- [delete](contact_secret.SecretClient.md#delete)
 - [list](contact_secret.SecretClient.md#list)
+- [revoke](contact_secret.SecretClient.md#revoke)
 - [verify](contact_secret.SecretClient.md#verify)
 
 ## Constructors
@@ -118,29 +118,6 @@ ___
 
 ___
 
-### delete
-
-▸ **delete**(`contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretDeleteResponse`](../modules/contact_secret_v1.md#secretdeleteresponse)\>
-
-Deletes the contact secret.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `contactId` | `string` |
-| `secretId` | `string` |
-
-#### Returns
-
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretDeleteResponse`](../modules/contact_secret_v1.md#secretdeleteresponse)\>
-
-#### Defined in
-
-[contact/secret/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L44)
-
-___
-
 ### list
 
 ▸ **list**(`contactId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretListResponse`](../modules/contact_secret_v1.md#secretlistresponse), [`SecretListStreamItemType`](../modules/contact_secret_v1.md#secretliststreamitemtype)\>
@@ -161,6 +138,29 @@ Retrieves a list of all contact secrets.
 #### Defined in
 
 [contact/secret/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L33)
+
+___
+
+### revoke
+
+▸ **revoke**(`contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretRevokeResponse`](../modules/contact_secret_v1.md#secretrevokeresponse)\>
+
+Revokes the contact secret.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `contactId` | `string` |
+| `secretId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretRevokeResponse`](../modules/contact_secret_v1.md#secretrevokeresponse)\>
+
+#### Defined in
+
+[contact/secret/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L44)
 
 ___
 

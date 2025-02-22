@@ -9,20 +9,20 @@
 - [ChatBotKitClient](contact_secret_v1.md#chatbotkitclient)
 - [ResponsePromise](contact_secret_v1.md#responsepromise)
 - [SecretAuthenticateResponse](contact_secret_v1.md#secretauthenticateresponse)
-- [SecretDeleteResponse](contact_secret_v1.md#secretdeleteresponse)
 - [SecretInstance](contact_secret_v1.md#secretinstance)
 - [SecretListRequest](contact_secret_v1.md#secretlistrequest)
 - [SecretListResponse](contact_secret_v1.md#secretlistresponse)
 - [SecretListStreamItemType](contact_secret_v1.md#secretliststreamitemtype)
 - [SecretListStreamType](contact_secret_v1.md#secretliststreamtype)
 - [SecretOptions](contact_secret_v1.md#secretoptions)
+- [SecretRevokeResponse](contact_secret_v1.md#secretrevokeresponse)
 - [SecretVerifyResponse](contact_secret_v1.md#secretverifyresponse)
 
 ### Functions
 
 - [authenticateSecret](contact_secret_v1.md#authenticatesecret)
-- [deleteSecret](contact_secret_v1.md#deletesecret)
 - [listSecrets](contact_secret_v1.md#listsecrets)
+- [revokeSecret](contact_secret_v1.md#revokesecret)
 - [verifySecret](contact_secret_v1.md#verifysecret)
 
 ## Type Aliases
@@ -68,22 +68,6 @@ ___
 #### Defined in
 
 [contact/secret/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L104)
-
-___
-
-### SecretDeleteResponse
-
-Ƭ **SecretDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[contact/secret/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L57)
 
 ___
 
@@ -178,6 +162,22 @@ ___
 
 ___
 
+### SecretRevokeResponse
+
+Ƭ **SecretRevokeResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+#### Defined in
+
+[contact/secret/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L57)
+
+___
+
 ### SecretVerifyResponse
 
 Ƭ **SecretVerifyResponse**\<\>: `Object`
@@ -220,28 +220,6 @@ ___
 
 ___
 
-### deleteSecret
-
-▸ **deleteSecret**(`client`, `contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretDeleteResponse`](contact_secret_v1.md#secretdeleteresponse)\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `contactId` | `string` |
-| `secretId` | `string` |
-
-#### Returns
-
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretDeleteResponse`](contact_secret_v1.md#secretdeleteresponse)\>
-
-#### Defined in
-
-[contact/secret/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L64)
-
-___
-
 ### listSecrets
 
 ▸ **listSecrets**(`client`, `contactId`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretListResponse`](contact_secret_v1.md#secretlistresponse), [`SecretListStreamItemType`](contact_secret_v1.md#secretliststreamitemtype)\>
@@ -261,6 +239,28 @@ ___
 #### Defined in
 
 [contact/secret/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L43)
+
+___
+
+### revokeSecret
+
+▸ **revokeSecret**(`client`, `contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretRevokeResponse`](contact_secret_v1.md#secretrevokeresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `contactId` | `string` |
+| `secretId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretRevokeResponse`](contact_secret_v1.md#secretrevokeresponse)\>
+
+#### Defined in
+
+[contact/secret/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L64)
 
 ___
 

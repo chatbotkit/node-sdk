@@ -14,6 +14,8 @@
     "./src/contact/index.js",
     "./src/contact/secret/index.js",
     "./src/contact/secret/v1.js",
+    "./src/contact/task/index.js",
+    "./src/contact/task/v1.js",
     "./src/contact/v1.js",
     "./src/conversation/attachment/index.js",
     "./src/conversation/attachment/v1.js",

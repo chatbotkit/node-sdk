@@ -242,23 +242,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/contact/{contactId}/conversation/export": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Export contact conversations */
-        get: operations["exportContactConversations"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/contact/{contactId}/conversation/list": {
         parameters: {
             query?: never;
@@ -327,7 +310,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/contact/{contactId}/secret/{secretId}/delete": {
+    "/contact/{contactId}/secret/{secretId}/revoke": {
         parameters: {
             query?: never;
             header?: never;
@@ -336,8 +319,8 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Delete contact secret */
-        post: operations["deleteContactSecret"];
+        /** Revoke contact secret */
+        post: operations["revokeContactSecret"];
         delete?: never;
         options?: never;
         head?: never;
@@ -372,23 +355,6 @@ export interface paths {
         get: operations["listContactSecrets"];
         put?: never;
         post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/contact/{contactId}/task/{taskId}/delete": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Delete contact task */
-        post: operations["deleteContactTask"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4194,127 +4160,6 @@ export interface operations {
             };
         };
     };
-    exportContactConversations: {
-        parameters: {
-            query?: {
-                cursor?: string;
-                order?: "asc" | "desc";
-                take?: number;
-            };
-            header?: never;
-            path: {
-                contactId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of conversations was retrieved successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        items: ({
-                            /** @description The associated name */
-                            name?: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The contact id assigned to this conversation */
-                            contactId?: string;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
-                    };
-                    "application/jsonl": {
-                        /**
-                         * @description The type of event
-                         * @enum {string}
-                         */
-                        type: "item";
-                        /** @description A bot configuration or reference */
-                        data: {
-                            /** @description The associated name */
-                            name?: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The contact id assigned to this conversation */
-                            contactId?: string;
-                            /** @description The task id assigned to this conversation */
-                            taskId?: string;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
-                    };
-                    "text/csv": string;
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
     listContactConversations: {
         parameters: {
             query?: {
@@ -4354,6 +4199,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The contact id assigned to this conversation */
                             contactId?: string;
+                            /** @description The task id assigned to this conversation */
+                            taskId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -4570,7 +4417,7 @@ export interface operations {
             };
         };
     };
-    deleteContactSecret: {
+    revokeContactSecret: {
         parameters: {
             query?: never;
             header?: never;
@@ -4586,14 +4433,14 @@ export interface operations {
             };
         };
         responses: {
-            /** @description The contact secret was deleted successfully */
+            /** @description The contact secret was revoked successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the deleted secret */
+                        /** @description The ID of the revoked secret */
                         id: string;
                     };
                 };
@@ -4742,45 +4589,6 @@ export interface operations {
             };
         };
     };
-    deleteContactTask: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                contactId: string;
-                taskId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": Record<string, never>;
-            };
-        };
-        responses: {
-            /** @description The contact task was deleted successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The ID of the deleted task */
-                        id: string;
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
     listContactTasks: {
         parameters: {
             query?: {
@@ -4818,6 +4626,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The contact id assigned to this task */
+                            contactId?: string;
                             /** @description The bot associated with the task */
                             botId?: string;
                             /** @description The schedule of the task */
@@ -4846,6 +4656,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The contact id assigned to this task */
+                            contactId?: string;
                             /** @description The bot associated with the task */
                             botId?: string;
                             /** @description The schedule of the task */

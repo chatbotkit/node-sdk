@@ -7,6 +7,7 @@
  * Contact client.
  */
 export class ContactClient extends ChatBotKitClient {
+    task: TaskClient;
     secrets: SecretClient;
     /**
      * Retrieves a list of all contacts.
@@ -55,4 +56,5 @@ export class ContactClient extends ChatBotKitClient {
 export default ContactClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../client.js';
+import { TaskClient } from './task/index.js';
 import { SecretClient } from './secret/index.js';

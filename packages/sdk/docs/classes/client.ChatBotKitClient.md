@@ -18,6 +18,8 @@
 
   ↳ [`SecretClient`](contact_secret.SecretClient.md)
 
+  ↳ [`TaskClient`](contact_task.TaskClient.md)
+
   ↳ [`ConversationAttachmentClient`](conversation_attachment.ConversationAttachmentClient.md)
 
   ↳ [`ConversationClient`](conversation.ConversationClient.md)

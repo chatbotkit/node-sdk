@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1740245900866)"
+    "version": "v1 (build 1740255818992)"
   },
   "servers": [
     {
@@ -2019,298 +2019,6 @@
         ]
       }
     },
-    "/contact/{contactId}/conversation/export": {
-      "get": {
-        "operationId": "exportContactConversations",
-        "summary": "Export contact conversations",
-        "tags": [
-          "Contact Conversation"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "contactId",
-            "required": true,
-            "schema": {
-              "description": "The ID of the contact to delete",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "cursor",
-            "schema": {
-              "description": "The cursor to use for pagination",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "order",
-            "schema": {
-              "description": "The order of the paginated items",
-              "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "default": "desc"
-            }
-          },
-          {
-            "in": "query",
-            "name": "take",
-            "schema": {
-              "description": "The number of items to retrieve",
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The list of conversations was retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "A bot configuration or reference",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The associated name"
-                          },
-                          "description": {
-                            "type": "string",
-                            "description": "The associated description"
-                          },
-                          "meta": {
-                            "type": "object",
-                            "description": "Meta data information",
-                            "additionalProperties": true,
-                            "$$ref": "#/components/schemas/Meta"
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "The instance ID"
-                          },
-                          "createdAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was created"
-                          },
-                          "updatedAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was updated"
-                          },
-                          "contactId": {
-                            "description": "The contact id assigned to this conversation",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "createdAt",
-                          "updatedAt"
-                        ],
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
-                            "properties": {
-                              "botId": {
-                                "type": "string",
-                                "description": "The ID of the bot this configuration is using"
-                              }
-                            },
-                            "$$ref": "#/components/schemas/BotRef"
-                          },
-                          {
-                            "type": "object",
-                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
-                            "properties": {
-                              "model": {
-                                "type": "string",
-                                "description": "A model definition",
-                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                                "example": "gpt-4-turbo/temperature=0.7",
-                                "$$ref": "#/components/schemas/Model"
-                              },
-                              "backstory": {
-                                "type": "string",
-                                "description": "The backstory this configuration is using"
-                              },
-                              "datasetId": {
-                                "type": "string",
-                                "description": "The id of the dataset this configuration is using"
-                              },
-                              "skillsetId": {
-                                "type": "string",
-                                "description": "The id of the skillset this configuration is using"
-                              },
-                              "privacy": {
-                                "type": "boolean",
-                                "description": "The privacy flag for this configuration"
-                              },
-                              "moderation": {
-                                "type": "boolean",
-                                "description": "The moderation flag for this configuration"
-                              }
-                            },
-                            "$$ref": "#/components/schemas/BotConfig"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "items"
-                  ]
-                }
-              },
-              "application/jsonl": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "item"
-                          ]
-                        },
-                        "data": {
-                          "type": "object",
-                          "description": "A bot configuration or reference",
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "The associated name"
-                            },
-                            "description": {
-                              "type": "string",
-                              "description": "The associated description"
-                            },
-                            "meta": {
-                              "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The instance ID"
-                            },
-                            "createdAt": {
-                              "type": "number",
-                              "description": "The timestamp (ms) when the instance was created"
-                            },
-                            "updatedAt": {
-                              "type": "number",
-                              "description": "The timestamp (ms) when the instance was updated"
-                            },
-                            "contactId": {
-                              "description": "The contact id assigned to this conversation",
-                              "type": "string"
-                            },
-                            "taskId": {
-                              "description": "The task id assigned to this conversation",
-                              "type": "string"
-                            }
-                          },
-                          "$$ref": "#/paths/~1conversation~1export/get/responses/200/content/application~1json/schema/properties/items/items",
-                          "required": [
-                            "id",
-                            "createdAt",
-                            "updatedAt"
-                          ],
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
-                              "properties": {
-                                "botId": {
-                                  "type": "string",
-                                  "description": "The ID of the bot this configuration is using"
-                                }
-                              },
-                              "$$ref": "#/components/schemas/BotRef"
-                            },
-                            {
-                              "type": "object",
-                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
-                              "properties": {
-                                "model": {
-                                  "type": "string",
-                                  "description": "A model definition",
-                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                                  "example": "gpt-4-turbo/temperature=0.7",
-                                  "$$ref": "#/components/schemas/Model"
-                                },
-                                "backstory": {
-                                  "type": "string",
-                                  "description": "The backstory this configuration is using"
-                                },
-                                "datasetId": {
-                                  "type": "string",
-                                  "description": "The id of the dataset this configuration is using"
-                                },
-                                "skillsetId": {
-                                  "type": "string",
-                                  "description": "The id of the skillset this configuration is using"
-                                },
-                                "privacy": {
-                                  "type": "boolean",
-                                  "description": "The privacy flag for this configuration"
-                                },
-                                "moderation": {
-                                  "type": "boolean",
-                                  "description": "The moderation flag for this configuration"
-                                }
-                              },
-                              "$$ref": "#/components/schemas/BotConfig"
-                            }
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
-                    }
-                  ]
-                }
-              },
-              "text/csv": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "exportContactConversations",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
     "/contact/{contactId}/conversation/list": {
       "get": {
         "operationId": "listContactConversations",
@@ -2324,7 +2032,7 @@
             "name": "contactId",
             "required": true,
             "schema": {
-              "description": "The ID of the contact to delete",
+              "description": "The ID of the contact to list conversations for",
               "type": "string"
             }
           },
@@ -2400,6 +2108,10 @@
                           },
                           "contactId": {
                             "description": "The contact id assigned to this conversation",
+                            "type": "string"
+                          },
+                          "taskId": {
+                            "description": "The task id assigned to this conversation",
                             "type": "string"
                           }
                         },
@@ -2515,7 +2227,7 @@
                               "type": "string"
                             }
                           },
-                          "$$ref": "#/paths/~1conversation~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "$$ref": "#/paths/~1contact~1{contactId}~1conversation~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
@@ -2848,10 +2560,10 @@
         ]
       }
     },
-    "/contact/{contactId}/secret/{secretId}/delete": {
+    "/contact/{contactId}/secret/{secretId}/revoke": {
       "post": {
-        "operationId": "deleteContactSecret",
-        "summary": "Delete contact secret",
+        "operationId": "revokeContactSecret",
+        "summary": "Revoke contact secret",
         "tags": [
           "Contact Secret"
         ],
@@ -2871,7 +2583,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The ID of the secret to be deleted"
+              "description": "The ID of the secret to be revoked"
             }
           }
         ],
@@ -2888,14 +2600,14 @@
         },
         "responses": {
           "200": {
-            "description": "The contact secret was deleted successfully",
+            "description": "The contact secret was revoked successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "description": "The ID of the deleted secret",
+                      "description": "The ID of the revoked secret",
                       "type": "string"
                     }
                   },
@@ -2916,7 +2628,7 @@
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
-        "__originalOperationId": "deleteContactSecret",
+        "__originalOperationId": "revokeContactSecret",
         "security": [
           {
             "BearerAuth": []
@@ -3225,82 +2937,6 @@
         ]
       }
     },
-    "/contact/{contactId}/task/{taskId}/delete": {
-      "post": {
-        "operationId": "deleteContactTask",
-        "summary": "Delete contact task",
-        "tags": [
-          "Contact Task"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "contactId",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The ID of the contact the task belongs to"
-            }
-          },
-          {
-            "in": "path",
-            "name": "taskId",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The ID of the task to be deleted"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The contact task was deleted successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "The ID of the deleted task",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "deleteContactTask",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
     "/contact/{contactId}/task/list": {
       "get": {
         "operationId": "listContactTasks",
@@ -3388,6 +3024,10 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "contactId": {
+                            "description": "The contact id assigned to this task",
+                            "type": "string"
+                          },
                           "botId": {
                             "type": "string",
                             "description": "The bot associated with the task"
@@ -3452,6 +3092,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "contactId": {
+                              "description": "The contact id assigned to this task",
+                              "type": "string"
                             },
                             "botId": {
                               "type": "string",
