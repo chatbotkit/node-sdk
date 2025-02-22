@@ -12,6 +12,10 @@ import { buildModelString } from '../model/v1.js'
 
 /**
  * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   contactId?: string,
+ *   taskId?: string,
  *   botId?: string,
  *   backstory?: string,
  *   model?: string,

@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
+import { ConversationClient } from './conversation/index.js'
 import { SecretClient } from './secret/index.js'
 import { TaskClient } from './task/index.js'
 import {
@@ -27,6 +28,7 @@ export class ContactClient extends ChatBotKitClient {
     super(options)
 
     this.task = new TaskClient(options)
+    this.conversation = new ConversationClient(options)
 
     // @note overlapping name with the `secret` property
     this.secrets = new SecretClient(options)
