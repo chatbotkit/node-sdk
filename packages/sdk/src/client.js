@@ -35,8 +35,9 @@ export class ResponsePromise {
    *   headers: Record<string,any>,
    *   data?: any
    * }} request
+   * @param {Map<string,Promise<T>>} [cacheMap]
    */
-  constructor(url, request) {
+  constructor(url, request, cacheMap = new Map()) {
     this.url = url
     this.request = request
 
@@ -45,7 +46,7 @@ export class ResponsePromise {
     this.fetchPromise = null
     this.streamPromise = null
 
-    this.cacheMap = new Map()
+    this.cacheMap = cacheMap
   }
 
   get [Symbol.toStringTag]() {
@@ -230,6 +231,8 @@ export class ChatBotKitClient {
 
     this.runAsUserId = options.runAsUserId
     this.runAsChildUserEmail = options.runAsChildUserEmail
+
+    this.cacheMap = new Map()
   }
 
   /**
@@ -338,6 +341,6 @@ export class ChatBotKitClient {
       data,
     }
 
-    return new ResponsePromise(url, request)
+    return new ResponsePromise(url, request, this.cacheMap)
   }
 }
