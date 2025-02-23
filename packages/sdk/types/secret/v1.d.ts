@@ -115,15 +115,11 @@ export type SecretListStreamItemType = {
 };
 export type SecretListStreamType = SecretListStreamItemType;
 export type SecretFetchResponse = SecretInstance & {};
-export type SecretCreateRequest = SecretOptions & {
-    model?: import('../model/v1.js').Model;
-};
+export type SecretCreateRequest = SecretOptions & {};
 export type SecretCreateResponse = {
     id: string;
 };
-export type SecretUpdateRequest = SecretOptions & {
-    model?: import('../model/v1.js').Model;
-};
+export type SecretUpdateRequest = SecretOptions & {};
 export type SecretUpdateResponse = {
     id: string;
 };

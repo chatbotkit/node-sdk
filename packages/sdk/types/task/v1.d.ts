@@ -115,15 +115,11 @@ export type TaskListStreamItemType = {
 };
 export type TaskListStreamType = TaskListStreamItemType;
 export type TaskFetchResponse = TaskInstance & {};
-export type TaskCreateRequest = TaskOptions & {
-    model?: import('../model/v1.js').Model;
-};
+export type TaskCreateRequest = TaskOptions & {};
 export type TaskCreateResponse = {
     id: string;
 };
-export type TaskUpdateRequest = TaskOptions & {
-    model?: import('../model/v1.js').Model;
-};
+export type TaskUpdateRequest = TaskOptions & {};
 export type TaskUpdateResponse = {
     id: string;
 };

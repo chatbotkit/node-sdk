@@ -45,17 +45,17 @@
 
 #### Defined in
 
-[blueprint/v1.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L147)
+[blueprint/v1.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L146)
 
 ___
 
 ### BlueprintCreateRequest
 
-Ƭ **BlueprintCreateRequest**\<\>: [`BlueprintOptions`](blueprint_v1.md#blueprintoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **BlueprintCreateRequest**\<\>: [`BlueprintOptions`](blueprint_v1.md#blueprintoptions) & {}
 
 #### Defined in
 
-[blueprint/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L72)
+[blueprint/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L71)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L76)
+[blueprint/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L75)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L126)
+[blueprint/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L125)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L98)
+[blueprint/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L97)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L102)
+[blueprint/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L101)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L153)
+[blueprint/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L152)
 
 ___
 
@@ -274,7 +274,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`BlueprintCreateRequest`](blueprint_v1.md#blueprintcreaterequest) |
+| `request` | [`BlueprintOptions`](blueprint_v1.md#blueprintoptions) |
 
 #### Returns
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L82)
+[blueprint/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L81)
 
 ___
 
@@ -303,7 +303,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L132)
+[blueprint/v1.js:131](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L131)
 
 ___
 
@@ -367,4 +367,4 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L109)
+[blueprint/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L108)

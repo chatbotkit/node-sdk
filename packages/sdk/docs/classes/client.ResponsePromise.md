@@ -19,6 +19,7 @@
 
 ### Methods
 
+- [cache](client.ResponsePromise.md#cache)
 - [catch](client.ResponsePromise.md#catch)
 - [finally](client.ResponsePromise.md#finally)
 - [getRequest](client.ResponsePromise.md#getrequest)
@@ -58,6 +59,26 @@
 
 ## Methods
 
+### cache
+
+▸ **cache**(`key`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
+
+#### Defined in
+
+[client.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L177)
+
+___
+
 ### catch
 
 ▸ **catch**(`fn`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
@@ -74,7 +95,7 @@
 
 #### Defined in
 
-[client.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L147)
+[client.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L149)
 
 ___
 
@@ -94,7 +115,7 @@ ___
 
 #### Defined in
 
-[client.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L154)
+[client.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L156)
 
 ___
 
@@ -117,7 +138,7 @@ ___
 
 #### Defined in
 
-[client.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L56)
+[client.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L58)
 
 ___
 
@@ -131,7 +152,7 @@ ___
 
 #### Defined in
 
-[client.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L161)
+[client.js:163](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L163)
 
 ___
 
@@ -152,4 +173,4 @@ ___
 
 #### Defined in
 
-[client.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L128)
+[client.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L130)

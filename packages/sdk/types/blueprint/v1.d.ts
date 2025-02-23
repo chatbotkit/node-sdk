@@ -119,9 +119,7 @@ export type BlueprintListStreamItemType = {
 };
 export type BlueprintListStreamType = BlueprintListStreamItemType;
 export type BlueprintFetchResponse = BlueprintInstance & {};
-export type BlueprintCreateRequest = BlueprintOptions & {
-    model?: import('../model/v1.js').Model;
-};
+export type BlueprintCreateRequest = BlueprintOptions & {};
 export type BlueprintCreateResponse = {
     id: string;
 };

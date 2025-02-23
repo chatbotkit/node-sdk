@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[contact/task/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L24)
+[contact/task/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L25)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[contact/task/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L28)
+[contact/task/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L29)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[contact/task/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L30)
+[contact/task/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L31)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[contact/task/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L35)
+[contact/task/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L36)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[contact/task/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L37)
+[contact/task/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L38)
 
 ___
 
@@ -129,6 +129,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `botId?` | `string` |
+| `contactId?` | `string` |
 | `description?` | `string` |
 | `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `name?` | `string` |
@@ -136,7 +137,7 @@ ___
 
 #### Defined in
 
-[contact/task/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L18)
+[contact/task/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L19)
 
 ## Functions
 
@@ -158,4 +159,4 @@ ___
 
 #### Defined in
 
-[contact/task/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L44)
+[contact/task/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L45)

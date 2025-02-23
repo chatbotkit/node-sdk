@@ -25,6 +25,7 @@ export class ResponsePromise<T, U> {
     decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
     streamPromise: Promise<Response> | null;
+    cacheMap: Map<any, any>;
     /**
      * @param {{method?: string, headers?: Record<string,any>, data?: any}} [params]
      */
@@ -53,6 +54,10 @@ export class ResponsePromise<T, U> {
      * @returns {AsyncGenerator<U>}
      */
     stream(): AsyncGenerator<U>;
+    /**
+     * @param {string} key
+     */
+    cache(key: string): Promise<any>;
     get [Symbol.toStringTag](): string;
 }
 /**

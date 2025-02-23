@@ -92,7 +92,7 @@ Task client.
 
 #### Defined in
 
-[client.js:222](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L222)
+[client.js:250](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L250)
 
 ___
 
@@ -106,7 +106,7 @@ Creates a new task.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`TaskCreateRequest`](../modules/task_v1.md#taskcreaterequest) |
+| `request` | [`TaskOptions`](../modules/task_v1.md#taskoptions) |
 
 #### Returns
 
@@ -195,7 +195,7 @@ Updates a task.
 | Name | Type |
 | :------ | :------ |
 | `taskId` | `string` |
-| `request` | [`TaskUpdateRequest`](../modules/task_v1.md#taskupdaterequest) |
+| `request` | [`TaskOptions`](../modules/task_v1.md#taskoptions) |
 
 #### Returns
 

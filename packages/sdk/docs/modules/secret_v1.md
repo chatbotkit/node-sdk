@@ -60,11 +60,11 @@ ___
 
 ### SecretCreateRequest
 
-Ƭ **SecretCreateRequest**\<\>: [`SecretOptions`](secret_v1.md#secretoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **SecretCreateRequest**\<\>: [`SecretOptions`](secret_v1.md#secretoptions) & {}
 
 #### Defined in
 
-[secret/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L75)
+[secret/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L74)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L79)
+[secret/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L78)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L130)
+[secret/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L128)
 
 ___
 
@@ -205,11 +205,11 @@ ___
 
 ### SecretUpdateRequest
 
-Ƭ **SecretUpdateRequest**\<\>: [`SecretOptions`](secret_v1.md#secretoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **SecretUpdateRequest**\<\>: [`SecretOptions`](secret_v1.md#secretoptions) & {}
 
 #### Defined in
 
-[secret/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L102)
+[secret/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L100)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L106)
+[secret/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L104)
 
 ## Functions
 
@@ -238,7 +238,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`SecretCreateRequest`](secret_v1.md#secretcreaterequest) |
+| `request` | [`SecretOptions`](secret_v1.md#secretoptions) |
 
 #### Returns
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L85)
+[secret/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L84)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L136)
+[secret/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L134)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `secretId` | `string` |
-| `request` | [`SecretUpdateRequest`](secret_v1.md#secretupdaterequest) |
+| `request` | [`SecretOptions`](secret_v1.md#secretoptions) |
 
 #### Returns
 
@@ -331,4 +331,4 @@ ___
 
 #### Defined in
 
-[secret/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L113)
+[secret/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L111)
