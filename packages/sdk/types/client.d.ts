@@ -10,12 +10,13 @@ export class ResponsePromise<T, U> {
      *   headers: Record<string,any>,
      *   data?: any
      * }} request
+     * @param {Map<string,Promise<T>>} [cacheMap]
      */
     constructor(url: URL | string, request: {
         method: string;
         headers: Record<string, any>;
         data?: any;
-    });
+    }, cacheMap?: Map<string, Promise<T>> | undefined);
     url: string | URL;
     request: {
         method: string;
@@ -25,7 +26,7 @@ export class ResponsePromise<T, U> {
     decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
     streamPromise: Promise<Response> | null;
-    cacheMap: Map<any, any>;
+    cacheMap: Map<string, Promise<T>>;
     /**
      * @param {{method?: string, headers?: Record<string,any>, data?: any}} [params]
      */
@@ -80,6 +81,7 @@ export class ChatBotKitClient {
     endpoints: Record<string, string>;
     runAsUserId: string | undefined;
     runAsChildUserEmail: string | undefined;
+    cacheMap: Map<any, any>;
     /**
      * @template T
      * @template U

@@ -196,7 +196,7 @@ export class ResponsePromise {
       )
     }
 
-    return this.cacheMap.get(key)
+    return /** @type {T}*/ (await this.cacheMap.get(key))
   }
 }
 
