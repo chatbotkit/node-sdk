@@ -44,6 +44,8 @@ export class ResponsePromise {
 
     this.fetchPromise = null
     this.streamPromise = null
+
+    this.cacheMap = new Map()
   }
 
   get [Symbol.toStringTag]() {
@@ -167,6 +169,30 @@ export class ResponsePromise {
 
     // @ts-expect-error polyfill
     yield* jsonl(response.body)
+  }
+
+  /**
+   * @param {string} key
+   */
+  async cache(key) {
+    if (!this.cacheMap.has(key)) {
+      this.cacheMap.set(
+        key,
+        this.getFetchPromise().then(async (response) => {
+          if (
+            response.headers.get('content-type')?.includes('application/json')
+          ) {
+            return await response.json()
+          } else {
+            return {
+              data: await response.arrayBuffer(),
+            }
+          }
+        })
+      )
+    }
+
+    return this.cacheMap.get(key)
   }
 }
 
