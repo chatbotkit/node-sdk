@@ -7,6 +7,7 @@
 ### Type Aliases
 
 - [ChatBotKitClient](usage_series_v1.md#chatbotkitclient)
+- [ResponsePromise](usage_series_v1.md#responsepromise)
 - [UsageSeriesFetchResponse](usage_series_v1.md#usageseriesfetchresponse)
 - [UsageSeriesInstance](usage_series_v1.md#usageseriesinstance)
 - [UsageSeriesOptions](usage_series_v1.md#usageseriesoptions)
@@ -27,13 +28,30 @@
 
 ___
 
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: [`client`](client.md)
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[usage/series/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L8)
+
+___
+
 ### UsageSeriesFetchResponse
 
 Ƭ **UsageSeriesFetchResponse**\<\>: [`UsageSeriesInstance`](usage_series_v1.md#usageseriesinstance) & {}
 
 #### Defined in
 
-[usage/series/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L18)
+[usage/series/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L24)
 
 ___
 
@@ -43,7 +61,7 @@ ___
 
 #### Defined in
 
-[usage/series/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L13)
+[usage/series/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L19)
 
 ___
 
@@ -61,13 +79,13 @@ ___
 
 #### Defined in
 
-[usage/series/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L10)
+[usage/series/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L16)
 
 ## Functions
 
 ### fetchUsageSeries
 
-▸ **fetchUsageSeries**(`client`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`UsageSeriesOptions`](usage_series_v1.md#usageseriesoptions)\>
+▸ **fetchUsageSeries**(`client`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`UsageSeriesOptions`](usage_series_v1.md#usageseriesoptions), `never`\>
 
 #### Parameters
 
@@ -77,8 +95,8 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`UsageSeriesOptions`](usage_series_v1.md#usageseriesoptions)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`UsageSeriesOptions`](usage_series_v1.md#usageseriesoptions), `never`\>
 
 #### Defined in
 
-[usage/series/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L23)
+[usage/series/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L29)

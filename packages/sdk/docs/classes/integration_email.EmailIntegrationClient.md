@@ -145,7 +145,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`emailId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationFetchResponse`](../modules/integration_email_v1.md#emailintegrationfetchresponse)\>
+▸ **fetch**(`emailId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`EmailIntegrationFetchResponse`](../modules/integration_email_v1.md#emailintegrationfetchresponse), `never`\>
 
 Fetches a email integration.
 
@@ -157,7 +157,7 @@ Fetches a email integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationFetchResponse`](../modules/integration_email_v1.md#emailintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`EmailIntegrationFetchResponse`](../modules/integration_email_v1.md#emailintegrationfetchresponse), `never`\>
 
 #### Defined in
 

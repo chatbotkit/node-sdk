@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L72)
+[skillset/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L73)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L76)
+[skillset/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L77)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L126)
+[skillset/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L127)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L98)
+[skillset/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L99)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L102)
+[skillset/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L103)
 
 ## Functions
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L82)
+[skillset/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L83)
 
 ___
 
@@ -265,13 +265,13 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L132)
+[skillset/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L133)
 
 ___
 
 ### fetchSkillset
 
-▸ **fetchSkillset**(`client`, `skillsetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse)\>
+▸ **fetchSkillset**(`client`, `skillsetId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse), `never`\>
 
 #### Parameters
 
@@ -282,7 +282,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse), `never`\>
 
 #### Defined in
 
@@ -329,4 +329,4 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L109)
+[skillset/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L110)

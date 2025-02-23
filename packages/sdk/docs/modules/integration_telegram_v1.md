@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L93)
+[integration/telegram/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L94)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L97)
+[integration/telegram/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L98)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L152)
+[integration/telegram/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L153)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:173](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L173)
+[integration/telegram/v1.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L174)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L122)
+[integration/telegram/v1.js:123](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L123)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L126)
+[integration/telegram/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L127)
 
 ## Functions
 
@@ -303,7 +303,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L103)
+[integration/telegram/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L104)
 
 ___
 
@@ -324,13 +324,13 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L158)
+[integration/telegram/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L159)
 
 ___
 
 ### fetchTelegramIntegration
 
-▸ **fetchTelegramIntegration**(`client`, `telegramId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationFetchResponse`](integration_telegram_v1.md#telegramintegrationfetchresponse)\>
+▸ **fetchTelegramIntegration**(`client`, `telegramId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TelegramIntegrationFetchResponse`](integration_telegram_v1.md#telegramintegrationfetchresponse), `never`\>
 
 #### Parameters
 
@@ -341,7 +341,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationFetchResponse`](integration_telegram_v1.md#telegramintegrationfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TelegramIntegrationFetchResponse`](integration_telegram_v1.md#telegramintegrationfetchresponse), `never`\>
 
 #### Defined in
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L179)
+[integration/telegram/v1.js:180](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L180)
 
 ___
 
@@ -409,4 +409,4 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L133)
+[integration/telegram/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L134)

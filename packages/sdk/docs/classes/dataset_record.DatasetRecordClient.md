@@ -144,7 +144,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`datasetId`, `recordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordFetchResponse`](../modules/dataset_record_v1.md#datasetrecordfetchresponse)\>
+▸ **fetch**(`datasetId`, `recordId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordFetchResponse`](../modules/dataset_record_v1.md#datasetrecordfetchresponse), `never`\>
 
 Fetches a record.
 
@@ -157,7 +157,7 @@ Fetches a record.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordFetchResponse`](../modules/dataset_record_v1.md#datasetrecordfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordFetchResponse`](../modules/dataset_record_v1.md#datasetrecordfetchresponse), `never`\>
 
 #### Defined in
 

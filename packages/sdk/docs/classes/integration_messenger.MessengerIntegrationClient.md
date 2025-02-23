@@ -145,7 +145,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationFetchResponse`](../modules/integration_messenger_v1.md#messengerintegrationfetchresponse)\>
+▸ **fetch**(`messengerId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`MessengerIntegrationFetchResponse`](../modules/integration_messenger_v1.md#messengerintegrationfetchresponse), `never`\>
 
 Fetches a messenger integration.
 
@@ -157,7 +157,7 @@ Fetches a messenger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationFetchResponse`](../modules/integration_messenger_v1.md#messengerintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`MessengerIntegrationFetchResponse`](../modules/integration_messenger_v1.md#messengerintegrationfetchresponse), `never`\>
 
 #### Defined in
 

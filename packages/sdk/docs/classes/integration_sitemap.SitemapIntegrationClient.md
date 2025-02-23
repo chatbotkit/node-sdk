@@ -145,7 +145,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse)\>
+▸ **fetch**(`sitemapId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse), `never`\>
 
 Fetches a sitemap integration.
 
@@ -157,7 +157,7 @@ Fetches a sitemap integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse), `never`\>
 
 #### Defined in
 

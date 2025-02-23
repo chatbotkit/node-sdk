@@ -168,7 +168,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`datasetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFetchResponse`](../modules/dataset_v1.md#datasetfetchresponse)\>
+▸ **fetch**(`datasetId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetFetchResponse`](../modules/dataset_v1.md#datasetfetchresponse), `never`\>
 
 Fetches a dataset.
 
@@ -180,7 +180,7 @@ Fetches a dataset.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFetchResponse`](../modules/dataset_v1.md#datasetfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetFetchResponse`](../modules/dataset_v1.md#datasetfetchresponse), `never`\>
 
 #### Defined in
 

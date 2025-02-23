@@ -165,7 +165,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintFetchResponse`](../modules/blueprint_v1.md#blueprintfetchresponse)\>
+▸ **fetch**(`blueprintId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintFetchResponse`](../modules/blueprint_v1.md#blueprintfetchresponse), `never`\>
 
 Fetches a blueprint.
 
@@ -177,7 +177,7 @@ Fetches a blueprint.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintFetchResponse`](../modules/blueprint_v1.md#blueprintfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintFetchResponse`](../modules/blueprint_v1.md#blueprintfetchresponse), `never`\>
 
 #### Defined in
 

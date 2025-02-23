@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L75)
+[dataset/record/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L76)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L79)
+[dataset/record/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L80)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L136)
+[dataset/record/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L137)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L102)
+[dataset/record/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L103)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L106)
+[dataset/record/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L107)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L86)
+[dataset/record/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L87)
 
 ___
 
@@ -268,13 +268,13 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L143)
+[dataset/record/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L144)
 
 ___
 
 ### fetchDatasetRecord
 
-▸ **fetchDatasetRecord**(`client`, `datasetId`, `recordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordFetchResponse`](dataset_record_v1.md#datasetrecordfetchresponse)\>
+▸ **fetchDatasetRecord**(`client`, `datasetId`, `recordId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DatasetRecordFetchResponse`](dataset_record_v1.md#datasetrecordfetchresponse), `never`\>
 
 #### Parameters
 
@@ -286,7 +286,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordFetchResponse`](dataset_record_v1.md#datasetrecordfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DatasetRecordFetchResponse`](dataset_record_v1.md#datasetrecordfetchresponse), `never`\>
 
 #### Defined in
 
@@ -335,4 +335,4 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L114)
+[dataset/record/v1.js:115](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L115)

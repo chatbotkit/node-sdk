@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[bot/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L79)
+[bot/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L80)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L83)
+[bot/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L84)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:138](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L138)
+[bot/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L139)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L189)
+[bot/v1.js:190](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L190)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:193](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L193)
+[bot/v1.js:194](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L194)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L108)
+[bot/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L109)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L112)
+[bot/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L113)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L159)
+[bot/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L160)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:163](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L163)
+[bot/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L164)
 
 ___
 
@@ -318,7 +318,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L89)
+[bot/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L90)
 
 ___
 
@@ -339,7 +339,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L144)
+[bot/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L145)
 
 ___
 
@@ -361,13 +361,13 @@ ___
 
 #### Defined in
 
-[bot/v1.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L200)
+[bot/v1.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L201)
 
 ___
 
 ### fetchBot
 
-▸ **fetchBot**(`client`, `botId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotFetchResponse`](bot_v1.md#botfetchresponse)\>
+▸ **fetchBot**(`client`, `botId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`BotFetchResponse`](bot_v1.md#botfetchresponse), `never`\>
 
 #### Parameters
 
@@ -378,7 +378,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotFetchResponse`](bot_v1.md#botfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`BotFetchResponse`](bot_v1.md#botfetchresponse), `never`\>
 
 #### Defined in
 
@@ -425,7 +425,7 @@ ___
 
 #### Defined in
 
-[bot/v1.js:119](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L119)
+[bot/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L120)
 
 ___
 
@@ -447,4 +447,4 @@ ___
 
 #### Defined in
 
-[bot/v1.js:170](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L170)
+[bot/v1.js:171](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L171)

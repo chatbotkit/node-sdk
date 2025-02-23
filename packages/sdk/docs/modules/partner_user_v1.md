@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[partner/user/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L72)
+[partner/user/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L73)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[partner/user/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L76)
+[partner/user/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L77)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[partner/user/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L126)
+[partner/user/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L127)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[partner/user/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L98)
+[partner/user/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L99)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-[partner/user/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L102)
+[partner/user/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L103)
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-[partner/user/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L82)
+[partner/user/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L83)
 
 ___
 
@@ -265,13 +265,13 @@ ___
 
 #### Defined in
 
-[partner/user/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L132)
+[partner/user/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L133)
 
 ___
 
 ### fetchPartnerUser
 
-▸ **fetchPartnerUser**(`client`, `userId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserFetchResponse`](partner_user_v1.md#partneruserfetchresponse)\>
+▸ **fetchPartnerUser**(`client`, `userId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PartnerUserFetchResponse`](partner_user_v1.md#partneruserfetchresponse), `never`\>
 
 #### Parameters
 
@@ -282,7 +282,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserFetchResponse`](partner_user_v1.md#partneruserfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PartnerUserFetchResponse`](partner_user_v1.md#partneruserfetchresponse), `never`\>
 
 #### Defined in
 
@@ -329,4 +329,4 @@ ___
 
 #### Defined in
 
-[partner/user/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L109)
+[partner/user/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L110)

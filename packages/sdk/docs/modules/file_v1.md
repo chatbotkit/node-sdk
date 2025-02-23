@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L72)
+[file/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L73)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L76)
+[file/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L77)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L126)
+[file/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L127)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L201)
+[file/v1.js:202](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L202)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L98)
+[file/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L99)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L102)
+[file/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L103)
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L149)
+[file/v1.js:150](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L150)
 
 ___
 
@@ -259,7 +259,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L153)
+[file/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L154)
 
 ___
 
@@ -297,7 +297,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L82)
+[file/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L83)
 
 ___
 
@@ -318,7 +318,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L132)
+[file/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L133)
 
 ___
 
@@ -339,13 +339,13 @@ ___
 
 #### Defined in
 
-[file/v1.js:207](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L207)
+[file/v1.js:208](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L208)
 
 ___
 
 ### fetchFile
 
-▸ **fetchFile**(`client`, `fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileFetchResponse`](file_v1.md#filefetchresponse)\>
+▸ **fetchFile**(`client`, `fileId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`FileFetchResponse`](file_v1.md#filefetchresponse), `never`\>
 
 #### Parameters
 
@@ -356,7 +356,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileFetchResponse`](file_v1.md#filefetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`FileFetchResponse`](file_v1.md#filefetchresponse), `never`\>
 
 #### Defined in
 
@@ -403,7 +403,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L109)
+[file/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L110)
 
 ___
 
@@ -425,4 +425,4 @@ ___
 
 #### Defined in
 
-[file/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L160)
+[file/v1.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L161)

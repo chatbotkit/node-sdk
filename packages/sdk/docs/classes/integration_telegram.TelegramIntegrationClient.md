@@ -145,7 +145,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`telegramId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationFetchResponse`](../modules/integration_telegram_v1.md#telegramintegrationfetchresponse)\>
+▸ **fetch**(`telegramId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TelegramIntegrationFetchResponse`](../modules/integration_telegram_v1.md#telegramintegrationfetchresponse), `never`\>
 
 Fetches a telegram integration.
 
@@ -157,7 +157,7 @@ Fetches a telegram integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationFetchResponse`](../modules/integration_telegram_v1.md#telegramintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`TelegramIntegrationFetchResponse`](../modules/integration_telegram_v1.md#telegramintegrationfetchresponse), `never`\>
 
 #### Defined in
 

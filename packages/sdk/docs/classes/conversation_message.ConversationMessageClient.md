@@ -168,7 +168,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`conversationId`, `messageId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageFetchResponse`](../modules/conversation_message_v1.md#conversationmessagefetchresponse)\>
+▸ **fetch**(`conversationId`, `messageId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationMessageFetchResponse`](../modules/conversation_message_v1.md#conversationmessagefetchresponse), `never`\>
 
 Fetches a message.
 
@@ -181,7 +181,7 @@ Fetches a message.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationMessageFetchResponse`](../modules/conversation_message_v1.md#conversationmessagefetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationMessageFetchResponse`](../modules/conversation_message_v1.md#conversationmessagefetchresponse), `never`\>
 
 #### Defined in
 

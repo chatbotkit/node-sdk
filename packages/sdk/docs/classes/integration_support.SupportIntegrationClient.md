@@ -144,7 +144,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`supportId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SupportIntegrationFetchResponse`](../modules/integration_support_v1.md#supportintegrationfetchresponse)\>
+▸ **fetch**(`supportId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SupportIntegrationFetchResponse`](../modules/integration_support_v1.md#supportintegrationfetchresponse), `never`\>
 
 Fetches a support integration.
 
@@ -156,7 +156,7 @@ Fetches a support integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SupportIntegrationFetchResponse`](../modules/integration_support_v1.md#supportintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SupportIntegrationFetchResponse`](../modules/integration_support_v1.md#supportintegrationfetchresponse), `never`\>
 
 #### Defined in
 

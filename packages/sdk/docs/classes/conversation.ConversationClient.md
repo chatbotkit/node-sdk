@@ -242,7 +242,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`conversationId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationFetchResponse`](../modules/conversation_v1.md#conversationfetchresponse)\>
+▸ **fetch**(`conversationId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationFetchResponse`](../modules/conversation_v1.md#conversationfetchresponse), `never`\>
 
 Fetches a conversation.
 
@@ -254,7 +254,7 @@ Fetches a conversation.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationFetchResponse`](../modules/conversation_v1.md#conversationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationFetchResponse`](../modules/conversation_v1.md#conversationfetchresponse), `never`\>
 
 #### Defined in
 

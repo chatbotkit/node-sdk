@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L92)
+[integration/trigger/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L93)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L96)
+[integration/trigger/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L97)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L151)
+[integration/trigger/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L152)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L191)
+[integration/trigger/v1.js:192](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L192)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:195](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L195)
+[integration/trigger/v1.js:196](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L196)
 
 ___
 
@@ -285,7 +285,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:172](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L172)
+[integration/trigger/v1.js:173](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L173)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L121)
+[integration/trigger/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L122)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L125)
+[integration/trigger/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L126)
 
 ## Functions
 
@@ -332,7 +332,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L102)
+[integration/trigger/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L103)
 
 ___
 
@@ -353,13 +353,13 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L157)
+[integration/trigger/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L158)
 
 ___
 
 ### fetchTriggerIntegration
 
-▸ **fetchTriggerIntegration**(`client`, `triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationFetchResponse`](integration_trigger_v1.md#triggerintegrationfetchresponse)\>
+▸ **fetchTriggerIntegration**(`client`, `triggerId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TriggerIntegrationFetchResponse`](integration_trigger_v1.md#triggerintegrationfetchresponse), `never`\>
 
 #### Parameters
 
@@ -370,7 +370,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationFetchResponse`](integration_trigger_v1.md#triggerintegrationfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TriggerIntegrationFetchResponse`](integration_trigger_v1.md#triggerintegrationfetchresponse), `never`\>
 
 #### Defined in
 
@@ -396,7 +396,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:202](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L202)
+[integration/trigger/v1.js:203](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L203)
 
 ___
 
@@ -438,7 +438,7 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L178)
+[integration/trigger/v1.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L179)
 
 ___
 
@@ -460,4 +460,4 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L132)
+[integration/trigger/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L133)

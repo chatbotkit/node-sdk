@@ -142,7 +142,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretFetchResponse`](../modules/secret_v1.md#secretfetchresponse)\>
+▸ **fetch**(`secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretFetchResponse`](../modules/secret_v1.md#secretfetchresponse), `never`\>
 
 Fetches a secret.
 
@@ -154,7 +154,7 @@ Fetches a secret.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretFetchResponse`](../modules/secret_v1.md#secretfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretFetchResponse`](../modules/secret_v1.md#secretfetchresponse), `never`\>
 
 #### Defined in
 

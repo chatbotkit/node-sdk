@@ -146,7 +146,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationFetchResponse`](../modules/integration_trigger_v1.md#triggerintegrationfetchresponse)\>
+▸ **fetch**(`triggerId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TriggerIntegrationFetchResponse`](../modules/integration_trigger_v1.md#triggerintegrationfetchresponse), `never`\>
 
 Fetches a trigger integration.
 
@@ -158,7 +158,7 @@ Fetches a trigger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationFetchResponse`](../modules/integration_trigger_v1.md#triggerintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`TriggerIntegrationFetchResponse`](../modules/integration_trigger_v1.md#triggerintegrationfetchresponse), `never`\>
 
 #### Defined in
 

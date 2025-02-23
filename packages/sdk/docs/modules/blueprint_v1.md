@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[blueprint/v1.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L146)
+[blueprint/v1.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L147)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L71)
+[blueprint/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L72)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L75)
+[blueprint/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L76)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L125)
+[blueprint/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L126)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L97)
+[blueprint/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L98)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L101)
+[blueprint/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L102)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L152)
+[blueprint/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L153)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L81)
+[blueprint/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L82)
 
 ___
 
@@ -303,13 +303,13 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:131](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L131)
+[blueprint/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L132)
 
 ___
 
 ### fetchBlueprint
 
-▸ **fetchBlueprint**(`client`, `blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintFetchResponse`](blueprint_v1.md#blueprintfetchresponse)\>
+▸ **fetchBlueprint**(`client`, `blueprintId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`BlueprintFetchResponse`](blueprint_v1.md#blueprintfetchresponse), `never`\>
 
 #### Parameters
 
@@ -320,7 +320,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintFetchResponse`](blueprint_v1.md#blueprintfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`BlueprintFetchResponse`](blueprint_v1.md#blueprintfetchresponse), `never`\>
 
 #### Defined in
 
@@ -367,4 +367,4 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L108)
+[blueprint/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L109)

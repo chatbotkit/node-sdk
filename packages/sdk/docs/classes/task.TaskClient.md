@@ -142,7 +142,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskFetchResponse`](../modules/task_v1.md#taskfetchresponse)\>
+▸ **fetch**(`taskId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TaskFetchResponse`](../modules/task_v1.md#taskfetchresponse), `never`\>
 
 Fetches a task.
 
@@ -154,7 +154,7 @@ Fetches a task.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskFetchResponse`](../modules/task_v1.md#taskfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`TaskFetchResponse`](../modules/task_v1.md#taskfetchresponse), `never`\>
 
 #### Defined in
 

@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L95)
+[integration/whatsapp/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L96)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L99)
+[integration/whatsapp/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L100)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L154)
+[integration/whatsapp/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L155)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L175)
+[integration/whatsapp/v1.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L176)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L124)
+[integration/whatsapp/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L125)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L128)
+[integration/whatsapp/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L129)
 
 ## Functions
 
@@ -303,7 +303,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L105)
+[integration/whatsapp/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L106)
 
 ___
 
@@ -324,13 +324,13 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L160)
+[integration/whatsapp/v1.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L161)
 
 ___
 
 ### fetchWhatsAppIntegration
 
-▸ **fetchWhatsAppIntegration**(`client`, `whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationFetchResponse`](integration_whatsapp_v1.md#whatsappintegrationfetchresponse)\>
+▸ **fetchWhatsAppIntegration**(`client`, `whatsappId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WhatsAppIntegrationFetchResponse`](integration_whatsapp_v1.md#whatsappintegrationfetchresponse), `never`\>
 
 #### Parameters
 
@@ -341,7 +341,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationFetchResponse`](integration_whatsapp_v1.md#whatsappintegrationfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WhatsAppIntegrationFetchResponse`](integration_whatsapp_v1.md#whatsappintegrationfetchresponse), `never`\>
 
 #### Defined in
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L181)
+[integration/whatsapp/v1.js:182](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L182)
 
 ___
 
@@ -409,4 +409,4 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L135)
+[integration/whatsapp/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L136)

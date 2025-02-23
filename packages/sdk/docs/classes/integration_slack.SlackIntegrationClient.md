@@ -145,7 +145,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`slackId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationFetchResponse`](../modules/integration_slack_v1.md#slackintegrationfetchresponse)\>
+▸ **fetch**(`slackId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SlackIntegrationFetchResponse`](../modules/integration_slack_v1.md#slackintegrationfetchresponse), `never`\>
 
 Fetches a slack integration.
 
@@ -157,7 +157,7 @@ Fetches a slack integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationFetchResponse`](../modules/integration_slack_v1.md#slackintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SlackIntegrationFetchResponse`](../modules/integration_slack_v1.md#slackintegrationfetchresponse), `never`\>
 
 #### Defined in
 

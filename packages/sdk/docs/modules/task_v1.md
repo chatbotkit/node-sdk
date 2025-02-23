@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L74)
+[task/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L75)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L78)
+[task/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L79)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L128)
+[task/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L129)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L100)
+[task/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L101)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L104)
+[task/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L105)
 
 ## Functions
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L84)
+[task/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L85)
 
 ___
 
@@ -267,13 +267,13 @@ ___
 
 #### Defined in
 
-[task/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L134)
+[task/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L135)
 
 ___
 
 ### fetchTask
 
-▸ **fetchTask**(`client`, `taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskFetchResponse`](task_v1.md#taskfetchresponse)\>
+▸ **fetchTask**(`client`, `taskId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TaskFetchResponse`](task_v1.md#taskfetchresponse), `never`\>
 
 #### Parameters
 
@@ -284,7 +284,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskFetchResponse`](task_v1.md#taskfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TaskFetchResponse`](task_v1.md#taskfetchresponse), `never`\>
 
 #### Defined in
 
@@ -331,4 +331,4 @@ ___
 
 #### Defined in
 
-[task/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L111)
+[task/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L112)

@@ -144,7 +144,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`extractId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationFetchResponse`](../modules/integration_extract_v1.md#extractintegrationfetchresponse)\>
+▸ **fetch**(`extractId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ExtractIntegrationFetchResponse`](../modules/integration_extract_v1.md#extractintegrationfetchresponse), `never`\>
 
 Fetches a extract integration.
 
@@ -156,7 +156,7 @@ Fetches a extract integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationFetchResponse`](../modules/integration_extract_v1.md#extractintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`ExtractIntegrationFetchResponse`](../modules/integration_extract_v1.md#extractintegrationfetchresponse), `never`\>
 
 #### Defined in
 

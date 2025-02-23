@@ -166,7 +166,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse)\>
+▸ **fetch**(`fileId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse), `never`\>
 
 Fetches a file.
 
@@ -178,7 +178,7 @@ Fetches a file.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse), `never`\>
 
 #### Defined in
 

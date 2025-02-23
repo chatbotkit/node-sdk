@@ -156,7 +156,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`userId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse)\>
+▸ **fetch**(`userId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse), `never`\>
 
 Fetches a user.
 
@@ -168,7 +168,7 @@ Fetches a user.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse), `never`\>
 
 #### Defined in
 

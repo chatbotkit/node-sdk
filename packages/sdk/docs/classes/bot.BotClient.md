@@ -179,7 +179,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`botId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotFetchResponse`](../modules/bot_v1.md#botfetchresponse)\>
+▸ **fetch**(`botId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`BotFetchResponse`](../modules/bot_v1.md#botfetchresponse), `never`\>
 
 Fetches a bot.
 
@@ -191,7 +191,7 @@ Fetches a bot.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotFetchResponse`](../modules/bot_v1.md#botfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`BotFetchResponse`](../modules/bot_v1.md#botfetchresponse), `never`\>
 
 #### Defined in
 

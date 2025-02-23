@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L94)
+[integration/slack/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L95)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L98)
+[integration/slack/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L99)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L153)
+[integration/slack/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L154)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L174)
+[integration/slack/v1.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L175)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:123](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L123)
+[integration/slack/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L124)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L127)
+[integration/slack/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L128)
 
 ## Functions
 
@@ -303,7 +303,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L104)
+[integration/slack/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L105)
 
 ___
 
@@ -324,13 +324,13 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L159)
+[integration/slack/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L160)
 
 ___
 
 ### fetchSlackIntegration
 
-▸ **fetchSlackIntegration**(`client`, `slackId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationFetchResponse`](integration_slack_v1.md#slackintegrationfetchresponse)\>
+▸ **fetchSlackIntegration**(`client`, `slackId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SlackIntegrationFetchResponse`](integration_slack_v1.md#slackintegrationfetchresponse), `never`\>
 
 #### Parameters
 
@@ -341,7 +341,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationFetchResponse`](integration_slack_v1.md#slackintegrationfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SlackIntegrationFetchResponse`](integration_slack_v1.md#slackintegrationfetchresponse), `never`\>
 
 #### Defined in
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:180](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L180)
+[integration/slack/v1.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L181)
 
 ___
 
@@ -409,4 +409,4 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L134)
+[integration/slack/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L135)

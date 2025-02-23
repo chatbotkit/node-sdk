@@ -145,7 +145,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationFetchResponse`](../modules/integration_discord_v1.md#discordintegrationfetchresponse)\>
+▸ **fetch**(`discordId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DiscordIntegrationFetchResponse`](../modules/integration_discord_v1.md#discordintegrationfetchresponse), `never`\>
 
 Fetches a discord integration.
 
@@ -157,7 +157,7 @@ Fetches a discord integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationFetchResponse`](../modules/integration_discord_v1.md#discordintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`DiscordIntegrationFetchResponse`](../modules/integration_discord_v1.md#discordintegrationfetchresponse), `never`\>
 
 #### Defined in
 

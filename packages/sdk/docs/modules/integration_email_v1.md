@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L91)
+[integration/email/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L92)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L95)
+[integration/email/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L96)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:150](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L150)
+[integration/email/v1.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L151)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:171](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L171)
+[integration/email/v1.js:172](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L172)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L120)
+[integration/email/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L121)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L124)
+[integration/email/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L125)
 
 ___
 
@@ -303,7 +303,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L101)
+[integration/email/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L102)
 
 ___
 
@@ -324,13 +324,13 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L156)
+[integration/email/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L157)
 
 ___
 
 ### fetchEmailIntegration
 
-▸ **fetchEmailIntegration**(`client`, `emailId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationFetchResponse`](integration_email_v1.md#emailintegrationfetchresponse)\>
+▸ **fetchEmailIntegration**(`client`, `emailId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`EmailIntegrationFetchResponse`](integration_email_v1.md#emailintegrationfetchresponse), `never`\>
 
 #### Parameters
 
@@ -341,7 +341,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationFetchResponse`](integration_email_v1.md#emailintegrationfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`EmailIntegrationFetchResponse`](integration_email_v1.md#emailintegrationfetchresponse), `never`\>
 
 #### Defined in
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L177)
+[integration/email/v1.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L178)
 
 ___
 
@@ -409,4 +409,4 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:131](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L131)
+[integration/email/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L132)

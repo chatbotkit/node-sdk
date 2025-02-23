@@ -7,6 +7,7 @@
 ### Type Aliases
 
 - [ChatBotKitClient](usage_v1.md#chatbotkitclient)
+- [ResponsePromise](usage_v1.md#responsepromise)
 - [UsageFetchResponse](usage_v1.md#usagefetchresponse)
 - [UsageInstance](usage_v1.md#usageinstance)
 - [UsageOptions](usage_v1.md#usageoptions)
@@ -27,13 +28,30 @@
 
 ___
 
+### ResponsePromise
+
+Ƭ **ResponsePromise**\<`T`, `U`\>: [`client`](client.md)
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Defined in
+
+[usage/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L8)
+
+___
+
 ### UsageFetchResponse
 
 Ƭ **UsageFetchResponse**\<\>: [`UsageInstance`](usage_v1.md#usageinstance) & {}
 
 #### Defined in
 
-[usage/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L26)
+[usage/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L32)
 
 ___
 
@@ -43,7 +61,7 @@ ___
 
 #### Defined in
 
-[usage/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L21)
+[usage/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L27)
 
 ___
 
@@ -68,13 +86,13 @@ ___
 
 #### Defined in
 
-[usage/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L18)
+[usage/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L24)
 
 ## Functions
 
 ### fetchUsage
 
-▸ **fetchUsage**(`client`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`UsageOptions`](usage_v1.md#usageoptions)\>
+▸ **fetchUsage**(`client`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`UsageOptions`](usage_v1.md#usageoptions), `never`\>
 
 #### Parameters
 
@@ -84,8 +102,8 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`UsageOptions`](usage_v1.md#usageoptions)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`UsageOptions`](usage_v1.md#usageoptions), `never`\>
 
 #### Defined in
 
-[usage/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L31)
+[usage/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L37)

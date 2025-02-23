@@ -165,7 +165,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactFetchResponse`](../modules/contact_v1.md#contactfetchresponse)\>
+▸ **fetch**(`contactId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ContactFetchResponse`](../modules/contact_v1.md#contactfetchresponse), `never`\>
 
 Fetches a contact.
 
@@ -177,7 +177,7 @@ Fetches a contact.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactFetchResponse`](../modules/contact_v1.md#contactfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`ContactFetchResponse`](../modules/contact_v1.md#contactfetchresponse), `never`\>
 
 #### Defined in
 

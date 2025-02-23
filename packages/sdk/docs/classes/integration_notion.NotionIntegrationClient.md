@@ -145,7 +145,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationFetchResponse`](../modules/integration_notion_v1.md#notionintegrationfetchresponse)\>
+▸ **fetch**(`notionId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`NotionIntegrationFetchResponse`](../modules/integration_notion_v1.md#notionintegrationfetchresponse), `never`\>
 
 Fetches a notion integration.
 
@@ -157,7 +157,7 @@ Fetches a notion integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationFetchResponse`](../modules/integration_notion_v1.md#notionintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`NotionIntegrationFetchResponse`](../modules/integration_notion_v1.md#notionintegrationfetchresponse), `never`\>
 
 #### Defined in
 

@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L75)
+[skillset/ability/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L76)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L79)
+[skillset/ability/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L80)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L136)
+[skillset/ability/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L137)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L102)
+[skillset/ability/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L103)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L106)
+[skillset/ability/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L107)
 
 ## Functions
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L86)
+[skillset/ability/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L87)
 
 ___
 
@@ -268,13 +268,13 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L143)
+[skillset/ability/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L144)
 
 ___
 
 ### fetchSkillsetAbility
 
-▸ **fetchSkillsetAbility**(`client`, `skillsetId`, `abilityId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityFetchResponse`](skillset_ability_v1.md#skillsetabilityfetchresponse)\>
+▸ **fetchSkillsetAbility**(`client`, `skillsetId`, `abilityId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SkillsetAbilityFetchResponse`](skillset_ability_v1.md#skillsetabilityfetchresponse), `never`\>
 
 #### Parameters
 
@@ -286,7 +286,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityFetchResponse`](skillset_ability_v1.md#skillsetabilityfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SkillsetAbilityFetchResponse`](skillset_ability_v1.md#skillsetabilityfetchresponse), `never`\>
 
 #### Defined in
 
@@ -335,4 +335,4 @@ ___
 
 #### Defined in
 
-[skillset/ability/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L114)
+[skillset/ability/v1.js:115](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L115)

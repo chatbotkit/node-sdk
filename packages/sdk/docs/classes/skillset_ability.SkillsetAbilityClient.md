@@ -144,7 +144,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`skillsetId`, `abilityId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse)\>
+▸ **fetch**(`skillsetId`, `abilityId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse), `never`\>
 
 Fetches a ability.
 
@@ -157,7 +157,7 @@ Fetches a ability.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse), `never`\>
 
 #### Defined in
 

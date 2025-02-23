@@ -144,7 +144,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationFetchResponse`](../modules/integration_widget_v1.md#widgetintegrationfetchresponse)\>
+▸ **fetch**(`widgetId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`WidgetIntegrationFetchResponse`](../modules/integration_widget_v1.md#widgetintegrationfetchresponse), `never`\>
 
 Fetches a widget integration.
 
@@ -156,7 +156,7 @@ Fetches a widget integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationFetchResponse`](../modules/integration_widget_v1.md#widgetintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`WidgetIntegrationFetchResponse`](../modules/integration_widget_v1.md#widgetintegrationfetchresponse), `never`\>
 
 #### Defined in
 

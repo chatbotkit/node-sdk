@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L94)
+[integration/widget/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L95)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L98)
+[integration/widget/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L99)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:148](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L148)
+[integration/widget/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L149)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L120)
+[integration/widget/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L121)
 
 ___
 
@@ -245,7 +245,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L124)
+[integration/widget/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L125)
 
 ## Functions
 
@@ -266,7 +266,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L104)
+[integration/widget/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L105)
 
 ___
 
@@ -287,13 +287,13 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L154)
+[integration/widget/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L155)
 
 ___
 
 ### fetchWidgetIntegration
 
-▸ **fetchWidgetIntegration**(`client`, `widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationFetchResponse`](integration_widget_v1.md#widgetintegrationfetchresponse)\>
+▸ **fetchWidgetIntegration**(`client`, `widgetId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WidgetIntegrationFetchResponse`](integration_widget_v1.md#widgetintegrationfetchresponse), `never`\>
 
 #### Parameters
 
@@ -304,7 +304,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationFetchResponse`](integration_widget_v1.md#widgetintegrationfetchresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WidgetIntegrationFetchResponse`](integration_widget_v1.md#widgetintegrationfetchresponse), `never`\>
 
 #### Defined in
 
@@ -351,4 +351,4 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:131](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L131)
+[integration/widget/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L132)

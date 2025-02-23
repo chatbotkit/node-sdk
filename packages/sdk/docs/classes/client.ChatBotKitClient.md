@@ -86,6 +86,10 @@
 
   ↳ [`TaskClient`](task.TaskClient.md)
 
+  ↳ [`UsageClient`](usage.UsageClient.md)
+
+  ↳ [`UsageSeriesClient`](usage_series.UsageSeriesClient.md)
+
 ## Table of contents
 
 ### Constructors

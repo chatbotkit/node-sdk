@@ -145,7 +145,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationFetchResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationfetchresponse)\>
+▸ **fetch**(`whatsappId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`WhatsAppIntegrationFetchResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationfetchresponse), `never`\>
 
 Fetches a whatsapp integration.
 
@@ -157,7 +157,7 @@ Fetches a whatsapp integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationFetchResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationfetchresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`WhatsAppIntegrationFetchResponse`](../modules/integration_whatsapp_v1.md#whatsappintegrationfetchresponse), `never`\>
 
 #### Defined in
 
