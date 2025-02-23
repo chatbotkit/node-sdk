@@ -12,8 +12,8 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
- *   contactId? : string,
- *   botId? : string,
+ *   contactId?: string,
+ *   botId?: string,
  *   schedule?: string,
  *   meta?: Record<string,any>
  * }} TaskOptions
