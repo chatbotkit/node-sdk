@@ -175,6 +175,8 @@ export class ResponsePromise {
    * @param {string} key
    */
   async cache(key) {
+    key = [key, this.request?.method || 'GET', this.url.toString()].join(':::')
+
     if (!this.cacheMap.has(key)) {
       this.cacheMap.set(
         key,
