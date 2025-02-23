@@ -46,9 +46,9 @@ export function listSecrets(client: ChatBotKitClient, contactId: string, request
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {Promise<SecretRevokeResponse>}
+ * @returns {ResponsePromise<SecretRevokeResponse,never>}
  */
-export function revokeSecret(client: ChatBotKitClient, contactId: string, secretId: string): Promise<SecretRevokeResponse>;
+export function revokeSecret(client: ChatBotKitClient, contactId: string, secretId: string): ResponsePromise<SecretRevokeResponse, never>;
 /**
  * @typedef {{
  *   id: string,
@@ -59,9 +59,9 @@ export function revokeSecret(client: ChatBotKitClient, contactId: string, secret
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {Promise<SecretVerifyResponse>}
+ * @returns {ResponsePromise<SecretVerifyResponse,never>}
  */
-export function verifySecret(client: ChatBotKitClient, contactId: string, secretId: string): Promise<SecretVerifyResponse>;
+export function verifySecret(client: ChatBotKitClient, contactId: string, secretId: string): ResponsePromise<SecretVerifyResponse, never>;
 /**
  * @typedef {{
  *   id: string
@@ -71,9 +71,9 @@ export function verifySecret(client: ChatBotKitClient, contactId: string, secret
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {Promise<SecretAuthenticateResponse>}
+ * @returns {ResponsePromise<SecretAuthenticateResponse,never>}
  */
-export function authenticateSecret(client: ChatBotKitClient, contactId: string, secretId: string): Promise<SecretAuthenticateResponse>;
+export function authenticateSecret(client: ChatBotKitClient, contactId: string, secretId: string): ResponsePromise<SecretAuthenticateResponse, never>;
 export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
 export type SecretOptions = {

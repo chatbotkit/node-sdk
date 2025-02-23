@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L104)
+[contact/secret/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L106)
 
 ___
 
@@ -194,13 +194,13 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L81)
+[contact/secret/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L82)
 
 ## Functions
 
 ### authenticateSecret
 
-▸ **authenticateSecret**(`client`, `contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretAuthenticateResponse`](contact_secret_v1.md#secretauthenticateresponse)\>
+▸ **authenticateSecret**(`client`, `contactId`, `secretId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretAuthenticateResponse`](contact_secret_v1.md#secretauthenticateresponse), `never`\>
 
 #### Parameters
 
@@ -212,11 +212,11 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretAuthenticateResponse`](contact_secret_v1.md#secretauthenticateresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretAuthenticateResponse`](contact_secret_v1.md#secretauthenticateresponse), `never`\>
 
 #### Defined in
 
-[contact/secret/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L111)
+[contact/secret/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L113)
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 ### revokeSecret
 
-▸ **revokeSecret**(`client`, `contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretRevokeResponse`](contact_secret_v1.md#secretrevokeresponse)\>
+▸ **revokeSecret**(`client`, `contactId`, `secretId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretRevokeResponse`](contact_secret_v1.md#secretrevokeresponse), `never`\>
 
 #### Parameters
 
@@ -256,7 +256,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretRevokeResponse`](contact_secret_v1.md#secretrevokeresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretRevokeResponse`](contact_secret_v1.md#secretrevokeresponse), `never`\>
 
 #### Defined in
 
@@ -266,7 +266,7 @@ ___
 
 ### verifySecret
 
-▸ **verifySecret**(`client`, `contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretVerifyResponse`](contact_secret_v1.md#secretverifyresponse)\>
+▸ **verifySecret**(`client`, `contactId`, `secretId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretVerifyResponse`](contact_secret_v1.md#secretverifyresponse), `never`\>
 
 #### Parameters
 
@@ -278,8 +278,8 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretVerifyResponse`](contact_secret_v1.md#secretverifyresponse)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretVerifyResponse`](contact_secret_v1.md#secretverifyresponse), `never`\>
 
 #### Defined in
 
-[contact/secret/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L88)
+[contact/secret/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L89)

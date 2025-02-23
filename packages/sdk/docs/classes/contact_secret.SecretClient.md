@@ -54,7 +54,7 @@ Contact secret client.
 
 ### authenticate
 
-▸ **authenticate**(`contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretAuthenticateResponse`](../modules/contact_secret_v1.md#secretauthenticateresponse)\>
+▸ **authenticate**(`contactId`, `secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretAuthenticateResponse`](../modules/contact_secret_v1.md#secretauthenticateresponse), `never`\>
 
 Authenticates the contact secret.
 
@@ -67,7 +67,7 @@ Authenticates the contact secret.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretAuthenticateResponse`](../modules/contact_secret_v1.md#secretauthenticateresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretAuthenticateResponse`](../modules/contact_secret_v1.md#secretauthenticateresponse), `never`\>
 
 #### Defined in
 
@@ -143,7 +143,7 @@ ___
 
 ### revoke
 
-▸ **revoke**(`contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretRevokeResponse`](../modules/contact_secret_v1.md#secretrevokeresponse)\>
+▸ **revoke**(`contactId`, `secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretRevokeResponse`](../modules/contact_secret_v1.md#secretrevokeresponse), `never`\>
 
 Revokes the contact secret.
 
@@ -156,7 +156,7 @@ Revokes the contact secret.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretRevokeResponse`](../modules/contact_secret_v1.md#secretrevokeresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretRevokeResponse`](../modules/contact_secret_v1.md#secretrevokeresponse), `never`\>
 
 #### Defined in
 
@@ -166,7 +166,7 @@ ___
 
 ### verify
 
-▸ **verify**(`contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretVerifyResponse`](../modules/contact_secret_v1.md#secretverifyresponse)\>
+▸ **verify**(`contactId`, `secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretVerifyResponse`](../modules/contact_secret_v1.md#secretverifyresponse), `never`\>
 
 Verifies the contact secret.
 
@@ -179,7 +179,7 @@ Verifies the contact secret.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretVerifyResponse`](../modules/contact_secret_v1.md#secretverifyresponse)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretVerifyResponse`](../modules/contact_secret_v1.md#secretverifyresponse), `never`\>
 
 #### Defined in
 
