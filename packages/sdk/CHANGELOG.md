@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.6
+
+### Patch Changes
+
+- 67df658: Use response promise in contact secrets.
+
 ## 1.17.5
 
 ### Patch Changes
