@@ -145,6 +145,7 @@ export class ResponsePromise {
 
   /**
    * @param {(...args: any[]) => any} fn
+   * @returns {Promise<T>}
    */
   catch(fn) {
     return this.getFetchPromise().catch(fn)
