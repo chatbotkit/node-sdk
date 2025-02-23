@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.4
+
+### Patch Changes
+
+- 8012176: Updated fetch types.
+
 ## 1.17.3
 
 ### Patch Changes
