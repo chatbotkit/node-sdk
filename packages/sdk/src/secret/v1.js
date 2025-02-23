@@ -71,7 +71,6 @@ export async function fetchSecret(client, secretId) {
 
 /**
  * @typedef {SecretOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} SecretCreateRequest
  *
  * @typedef {{
@@ -98,7 +97,6 @@ export async function createSecret(client, request) {
 
 /**
  * @typedef {SecretOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} SecretUpdateRequest
  *
  * @typedef {{

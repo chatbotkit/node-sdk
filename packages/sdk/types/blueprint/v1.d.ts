@@ -47,7 +47,6 @@ export function listBlueprints(client: ChatBotKitClient, request?: BlueprintList
 export function fetchBlueprint(client: ChatBotKitClient, blueprintId: string): Promise<BlueprintFetchResponse>;
 /**
  * @typedef {BlueprintOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} BlueprintCreateRequest
  *
  * @typedef {{

@@ -71,7 +71,6 @@ export async function fetchTask(client, taskId) {
 
 /**
  * @typedef {TaskOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} TaskCreateRequest
  *
  * @typedef {{
@@ -98,7 +97,6 @@ export async function createTask(client, request) {
 
 /**
  * @typedef {TaskOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} TaskUpdateRequest
  *
  * @typedef {{

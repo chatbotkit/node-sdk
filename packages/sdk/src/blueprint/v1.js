@@ -68,7 +68,6 @@ export async function fetchBlueprint(client, blueprintId) {
 
 /**
  * @typedef {BlueprintOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} BlueprintCreateRequest
  *
  * @typedef {{

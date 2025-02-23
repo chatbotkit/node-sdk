@@ -50,7 +50,6 @@ export function listTasks(client: ChatBotKitClient, request?: TaskListRequest | 
 export function fetchTask(client: ChatBotKitClient, taskId: string): Promise<TaskFetchResponse>;
 /**
  * @typedef {TaskOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} TaskCreateRequest
  *
  * @typedef {{
@@ -64,7 +63,6 @@ export function fetchTask(client: ChatBotKitClient, taskId: string): Promise<Tas
 export function createTask(client: ChatBotKitClient, request: TaskCreateRequest): Promise<TaskCreateResponse>;
 /**
  * @typedef {TaskOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} TaskUpdateRequest
  *
  * @typedef {{

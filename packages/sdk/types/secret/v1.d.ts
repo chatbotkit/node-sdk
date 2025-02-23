@@ -50,7 +50,6 @@ export function listSecrets(client: ChatBotKitClient, request?: SecretListReques
 export function fetchSecret(client: ChatBotKitClient, secretId: string): Promise<SecretFetchResponse>;
 /**
  * @typedef {SecretOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} SecretCreateRequest
  *
  * @typedef {{
@@ -64,7 +63,6 @@ export function fetchSecret(client: ChatBotKitClient, secretId: string): Promise
 export function createSecret(client: ChatBotKitClient, request: SecretCreateRequest): Promise<SecretCreateResponse>;
 /**
  * @typedef {SecretOptions & {
- *   model?: import('../model/v1.js').Model,
  * }} SecretUpdateRequest
  *
  * @typedef {{
