@@ -101,4 +101,4 @@ Partner client.
 
 #### Defined in
 
-[client.js:251](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L251)
+[client.js:254](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L254)

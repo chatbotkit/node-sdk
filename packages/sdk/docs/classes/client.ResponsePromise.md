@@ -30,7 +30,7 @@
 
 ### constructor
 
-• **new ResponsePromise**\<`T`, `U`\>(`url`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<`T`, `U`\>
+• **new ResponsePromise**\<`T`, `U`\>(`url`, `request`, `cacheMap?`): [`ResponsePromise`](client.ResponsePromise.md)\<`T`, `U`\>
 
 #### Type parameters
 
@@ -48,6 +48,7 @@
 | `request.data?` | `any` |
 | `request.headers` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `request.method` | `string` |
+| `cacheMap?` | [`Map`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map )\<`string`, [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>\> |
 
 #### Returns
 
@@ -55,7 +56,7 @@
 
 #### Defined in
 
-[client.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L39)
+[client.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L40)
 
 ## Methods
 
@@ -75,7 +76,7 @@
 
 #### Defined in
 
-[client.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L178)
+[client.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L179)
 
 ___
 
@@ -95,7 +96,7 @@ ___
 
 #### Defined in
 
-[client.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L149)
+[client.js:150](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L150)
 
 ___
 
@@ -115,7 +116,7 @@ ___
 
 #### Defined in
 
-[client.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L156)
+[client.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L157)
 
 ___
 
@@ -138,7 +139,7 @@ ___
 
 #### Defined in
 
-[client.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L58)
+[client.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L59)
 
 ___
 
@@ -152,7 +153,7 @@ ___
 
 #### Defined in
 
-[client.js:163](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L163)
+[client.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L164)
 
 ___
 
@@ -173,4 +174,4 @@ ___
 
 #### Defined in
 
-[client.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L130)
+[client.js:131](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L131)
