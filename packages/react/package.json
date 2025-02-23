@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/react",
-  "version": "1.17.2",
+  "version": "1.17.3",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {

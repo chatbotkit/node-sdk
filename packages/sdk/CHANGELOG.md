@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.3
+
+### Patch Changes
+
+- 6d8ed8c: Improved caching function.
+
 ## 1.17.2
 
 ### Patch Changes
