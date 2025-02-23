@@ -145,7 +145,6 @@ export class ResponsePromise {
 
   /**
    * @param {(...args: any[]) => any} fn
-   * @returns {Promise<T>}
    */
   catch(fn) {
     return this.getFetchPromise().catch(fn)
@@ -173,9 +172,10 @@ export class ResponsePromise {
   }
 
   /**
-   * @param {string} key
+   * @param {string} [key]
+   * @returns {Promise<T>}
    */
-  async cache(key) {
+  async cache(key = 'default') {
     key = [key, this.request?.method || 'GET', this.url.toString()].join(':::')
 
     if (!this.cacheMap.has(key)) {
