@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.2
+
+### Patch Changes
+
+- 223a0f7: Fixed types and added simple cache method.
+
 ## 1.17.1
 
 ### Patch Changes
