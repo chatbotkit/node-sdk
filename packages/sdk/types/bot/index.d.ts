@@ -22,9 +22,9 @@ export class BotClient extends ChatBotKitClient {
      * Fetches a bot.
      *
      * @param {string} botId
-     * @returns {Promise<import('./v1.js').BotFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').BotFetchResponse,never>}
      */
-    fetch(botId: string): Promise<import('./v1.js').BotFetchResponse>;
+    fetch(botId: string): ResponsePromise<import('./v1.js').BotFetchResponse, never>;
     /**
      * Creates a new bot.
      *

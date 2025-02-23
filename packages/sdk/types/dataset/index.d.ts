@@ -26,9 +26,9 @@ export class DatasetClient extends ChatBotKitClient {
      * Fetches a dataset.
      *
      * @param {string} datasetId
-     * @returns {Promise<import('./v1.js').DatasetFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').DatasetFetchResponse,never>}
      */
-    fetch(datasetId: string): Promise<import('./v1.js').DatasetFetchResponse>;
+    fetch(datasetId: string): ResponsePromise<import('./v1.js').DatasetFetchResponse, never>;
     /**
      * Creates a new dataset.
      *

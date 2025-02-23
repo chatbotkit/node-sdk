@@ -69,9 +69,9 @@ export function listConversations(client: ChatBotKitClient, request?: Conversati
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
- * @returns {Promise<ConversationFetchResponse>}
+ * @returns {ResponsePromise<ConversationFetchResponse,never>}
  */
-export function fetchConversation(client: ChatBotKitClient, conversationId: string): Promise<ConversationFetchResponse>;
+export function fetchConversation(client: ChatBotKitClient, conversationId: string): ResponsePromise<ConversationFetchResponse, never>;
 /**
  * @typedef {ConversationOptions & {
  *   model?: import('../model/v1.js').Model

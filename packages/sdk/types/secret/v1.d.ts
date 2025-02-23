@@ -45,9 +45,9 @@ export function listSecrets(client: ChatBotKitClient, request?: SecretListReques
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
- * @returns {Promise<SecretFetchResponse>}
+ * @returns {ResponsePromise<SecretFetchResponse,never>}
  */
-export function fetchSecret(client: ChatBotKitClient, secretId: string): Promise<SecretFetchResponse>;
+export function fetchSecret(client: ChatBotKitClient, secretId: string): ResponsePromise<SecretFetchResponse, never>;
 /**
  * @typedef {SecretOptions & {
  * }} SecretCreateRequest

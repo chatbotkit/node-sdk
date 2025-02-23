@@ -22,9 +22,9 @@ export class PartnerUserClient extends ChatBotKitClient {
      * Fetches a user.
      *
      * @param {string} userId
-     * @returns {Promise<import('./v1.js').PartnerUserFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').PartnerUserFetchResponse,never>}
      */
-    fetch(userId: string): Promise<import('./v1.js').PartnerUserFetchResponse>;
+    fetch(userId: string): ResponsePromise<import('./v1.js').PartnerUserFetchResponse, never>;
     /**
      * Creates a new user.
      *

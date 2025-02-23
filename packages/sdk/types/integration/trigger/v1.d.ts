@@ -60,9 +60,9 @@ export function listTriggerIntegrations(client: ChatBotKitClient, request?: Trig
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
- * @returns {Promise<TriggerIntegrationFetchResponse>}
+ * @returns {ResponsePromise<TriggerIntegrationFetchResponse,never>}
  */
-export function fetchTriggerIntegration(client: ChatBotKitClient, triggerId: string): Promise<TriggerIntegrationFetchResponse>;
+export function fetchTriggerIntegration(client: ChatBotKitClient, triggerId: string): ResponsePromise<TriggerIntegrationFetchResponse, never>;
 /**
  * @typedef {TriggerIntegrationOptions & {
  *   model?: import('../../model/v1.js').Model

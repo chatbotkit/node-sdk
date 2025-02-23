@@ -42,9 +42,9 @@ export function listBlueprints(client: ChatBotKitClient, request?: BlueprintList
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
- * @returns {Promise<BlueprintFetchResponse>}
+ * @returns {ResponsePromise<BlueprintFetchResponse,never>}
  */
-export function fetchBlueprint(client: ChatBotKitClient, blueprintId: string): Promise<BlueprintFetchResponse>;
+export function fetchBlueprint(client: ChatBotKitClient, blueprintId: string): ResponsePromise<BlueprintFetchResponse, never>;
 /**
  * @typedef {BlueprintOptions & {
  * }} BlueprintCreateRequest

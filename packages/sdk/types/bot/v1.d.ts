@@ -47,9 +47,9 @@ export function listBots(client: ChatBotKitClient, request?: BotListRequest | un
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
- * @returns {Promise<BotFetchResponse>}
+ * @returns {ResponsePromise<BotFetchResponse,never>}
  */
-export function fetchBot(client: ChatBotKitClient, botId: string): Promise<BotFetchResponse>;
+export function fetchBot(client: ChatBotKitClient, botId: string): ResponsePromise<BotFetchResponse, never>;
 /**
  * @typedef {BotOptions & {
  *   model?: import('../model/v1.js').Model,

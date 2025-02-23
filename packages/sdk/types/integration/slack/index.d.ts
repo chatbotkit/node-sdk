@@ -15,9 +15,9 @@ export class SlackIntegrationClient extends ChatBotKitClient {
      * Fetches a slack integration.
      *
      * @param {string} slackId
-     * @returns {Promise<import('./v1.js').SlackIntegrationFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').SlackIntegrationFetchResponse,never>}
      */
-    fetch(slackId: string): Promise<import('./v1.js').SlackIntegrationFetchResponse>;
+    fetch(slackId: string): ResponsePromise<import('./v1.js').SlackIntegrationFetchResponse, never>;
     /**
      * Creates a new slack integration.
      *

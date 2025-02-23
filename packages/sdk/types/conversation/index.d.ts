@@ -30,9 +30,9 @@ export class ConversationClient extends ChatBotKitClient {
      * Fetches a conversation.
      *
      * @param {string} conversationId
-     * @returns {Promise<import('./v1.js').ConversationFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').ConversationFetchResponse,never>}
      */
-    fetch(conversationId: string): Promise<import('./v1.js').ConversationFetchResponse>;
+    fetch(conversationId: string): ResponsePromise<import('./v1.js').ConversationFetchResponse, never>;
     /**
      * Creates a new conversation.
      *

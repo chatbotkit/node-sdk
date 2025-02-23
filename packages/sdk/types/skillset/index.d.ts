@@ -22,9 +22,9 @@ export class SkillsetClient extends ChatBotKitClient {
      * Fetches a skillset.
      *
      * @param {string} skillsetId
-     * @returns {Promise<import('./v1.js').SkillsetFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').SkillsetFetchResponse,never>}
      */
-    fetch(skillsetId: string): Promise<import('./v1.js').SkillsetFetchResponse>;
+    fetch(skillsetId: string): ResponsePromise<import('./v1.js').SkillsetFetchResponse, never>;
     /**
      * Creates a new skillset.
      *

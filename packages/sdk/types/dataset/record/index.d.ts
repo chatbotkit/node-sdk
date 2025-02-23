@@ -20,9 +20,9 @@ export class DatasetRecordClient extends ChatBotKitClient {
      *
      * @param {string} datasetId
      * @param {string} recordId
-     * @returns {Promise<import('./v1.js').DatasetRecordFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').DatasetRecordFetchResponse,never>}
      */
-    fetch(datasetId: string, recordId: string): Promise<import('./v1.js').DatasetRecordFetchResponse>;
+    fetch(datasetId: string, recordId: string): ResponsePromise<import('./v1.js').DatasetRecordFetchResponse, never>;
     /**
      * Creates a new record.
      *

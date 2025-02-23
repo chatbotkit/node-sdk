@@ -18,9 +18,9 @@ export class BlueprintClient extends ChatBotKitClient {
      * Fetches a blueprint.
      *
      * @param {string} blueprintId
-     * @returns {Promise<import('./v1.js').BlueprintFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').BlueprintFetchResponse,never>}
      */
-    fetch(blueprintId: string): Promise<import('./v1.js').BlueprintFetchResponse>;
+    fetch(blueprintId: string): ResponsePromise<import('./v1.js').BlueprintFetchResponse, never>;
     /**
      * Creates a new blueprint.
      *

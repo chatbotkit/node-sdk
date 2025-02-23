@@ -62,9 +62,9 @@ export function listMessengerIntegrations(client: ChatBotKitClient, request?: Me
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
- * @returns {Promise<MessengerIntegrationFetchResponse>}
+ * @returns {ResponsePromise<MessengerIntegrationFetchResponse,never>}
  */
-export function fetchMessengerIntegration(client: ChatBotKitClient, messengerId: string): Promise<MessengerIntegrationFetchResponse>;
+export function fetchMessengerIntegration(client: ChatBotKitClient, messengerId: string): ResponsePromise<MessengerIntegrationFetchResponse, never>;
 /**
  * @typedef {MessengerIntegrationOptions & {
  *   model?: import('../../model/v1.js').Model

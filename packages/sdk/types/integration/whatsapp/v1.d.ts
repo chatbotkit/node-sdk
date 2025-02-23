@@ -63,9 +63,9 @@ export function listWhatsAppIntegrations(client: ChatBotKitClient, request?: Wha
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
- * @returns {Promise<WhatsAppIntegrationFetchResponse>}
+ * @returns {ResponsePromise<WhatsAppIntegrationFetchResponse,never>}
  */
-export function fetchWhatsAppIntegration(client: ChatBotKitClient, whatsappId: string): Promise<WhatsAppIntegrationFetchResponse>;
+export function fetchWhatsAppIntegration(client: ChatBotKitClient, whatsappId: string): ResponsePromise<WhatsAppIntegrationFetchResponse, never>;
 /**
  * @typedef {WhatsAppIntegrationOptions & {
  *   model?: import('../../model/v1.js').Model

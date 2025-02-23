@@ -43,9 +43,9 @@ export function listSkillsets(client: ChatBotKitClient, request?: SkillsetListRe
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
- * @returns {Promise<SkillsetFetchResponse>}
+ * @returns {ResponsePromise<SkillsetFetchResponse,never>}
  */
-export function fetchSkillset(client: ChatBotKitClient, skillsetId: string): Promise<SkillsetFetchResponse>;
+export function fetchSkillset(client: ChatBotKitClient, skillsetId: string): ResponsePromise<SkillsetFetchResponse, never>;
 /**
  * @typedef {SkillsetOptions & {
  * }} SkillsetCreateRequest

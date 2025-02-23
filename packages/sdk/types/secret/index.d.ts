@@ -18,9 +18,9 @@ export class SecretClient extends ChatBotKitClient {
      * Fetches a secret.
      *
      * @param {string} secretId
-     * @returns {Promise<import('./v1.js').SecretFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').SecretFetchResponse,never>}
      */
-    fetch(secretId: string): Promise<import('./v1.js').SecretFetchResponse>;
+    fetch(secretId: string): ResponsePromise<import('./v1.js').SecretFetchResponse, never>;
     /**
      * Creates a new secret.
      *

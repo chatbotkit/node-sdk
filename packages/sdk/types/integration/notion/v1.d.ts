@@ -46,9 +46,9 @@ export function listNotionIntegrations(client: ChatBotKitClient, request?: Notio
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
- * @returns {Promise<NotionIntegrationFetchResponse>}
+ * @returns {ResponsePromise<NotionIntegrationFetchResponse,never>}
  */
-export function fetchNotionIntegration(client: ChatBotKitClient, notionId: string): Promise<NotionIntegrationFetchResponse>;
+export function fetchNotionIntegration(client: ChatBotKitClient, notionId: string): ResponsePromise<NotionIntegrationFetchResponse, never>;
 /**
  * @typedef {NotionIntegrationOptions & {datasetId: string}} NotionIntegrationCreateRequest
  *

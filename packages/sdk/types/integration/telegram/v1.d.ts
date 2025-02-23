@@ -61,9 +61,9 @@ export function listTelegramIntegrations(client: ChatBotKitClient, request?: Tel
  *
  * @param {ChatBotKitClient} client
  * @param {string} telegramId
- * @returns {Promise<TelegramIntegrationFetchResponse>}
+ * @returns {ResponsePromise<TelegramIntegrationFetchResponse,never>}
  */
-export function fetchTelegramIntegration(client: ChatBotKitClient, telegramId: string): Promise<TelegramIntegrationFetchResponse>;
+export function fetchTelegramIntegration(client: ChatBotKitClient, telegramId: string): ResponsePromise<TelegramIntegrationFetchResponse, never>;
 /**
  * @typedef {TelegramIntegrationOptions & {
  *   model?: import('../../model/v1.js').Model

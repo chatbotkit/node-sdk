@@ -65,9 +65,9 @@ export function listWidgetIntegrations(client: ChatBotKitClient, request?: Widge
  *
  * @param {ChatBotKitClient} client
  * @param {string} widgetId
- * @returns {Promise<WidgetIntegrationFetchResponse>}
+ * @returns {ResponsePromise<WidgetIntegrationFetchResponse,never>}
  */
-export function fetchWidgetIntegration(client: ChatBotKitClient, widgetId: string): Promise<WidgetIntegrationFetchResponse>;
+export function fetchWidgetIntegration(client: ChatBotKitClient, widgetId: string): ResponsePromise<WidgetIntegrationFetchResponse, never>;
 /**
  * @typedef {WidgetIntegrationOptions & {
  * }} WidgetIntegrationCreateRequest

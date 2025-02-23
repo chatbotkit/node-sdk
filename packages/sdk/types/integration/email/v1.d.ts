@@ -59,9 +59,9 @@ export function listEmailIntegrations(client: ChatBotKitClient, request?: EmailI
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
- * @returns {Promise<EmailIntegrationFetchResponse>}
+ * @returns {ResponsePromise<EmailIntegrationFetchResponse,never>}
  */
-export function fetchEmailIntegration(client: ChatBotKitClient, emailId: string): Promise<EmailIntegrationFetchResponse>;
+export function fetchEmailIntegration(client: ChatBotKitClient, emailId: string): ResponsePromise<EmailIntegrationFetchResponse, never>;
 /**
  * @typedef {EmailIntegrationOptions & {
  *   model?: import('../../model/v1.js').Model

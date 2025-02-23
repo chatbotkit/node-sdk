@@ -62,9 +62,9 @@ export function listSlackIntegrations(client: ChatBotKitClient, request?: SlackI
  *
  * @param {ChatBotKitClient} client
  * @param {string} slackId
- * @returns {Promise<SlackIntegrationFetchResponse>}
+ * @returns {ResponsePromise<SlackIntegrationFetchResponse,never>}
  */
-export function fetchSlackIntegration(client: ChatBotKitClient, slackId: string): Promise<SlackIntegrationFetchResponse>;
+export function fetchSlackIntegration(client: ChatBotKitClient, slackId: string): ResponsePromise<SlackIntegrationFetchResponse, never>;
 /**
  * @typedef {SlackIntegrationOptions & {
  *   model?: import('../../model/v1.js').Model

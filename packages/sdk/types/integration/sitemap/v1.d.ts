@@ -49,9 +49,9 @@ export function listSitemapIntegrations(client: ChatBotKitClient, request?: Site
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
- * @returns {Promise<SitemapIntegrationFetchResponse>}
+ * @returns {ResponsePromise<SitemapIntegrationFetchResponse,never>}
  */
-export function fetchSitemapIntegration(client: ChatBotKitClient, sitemapId: string): Promise<SitemapIntegrationFetchResponse>;
+export function fetchSitemapIntegration(client: ChatBotKitClient, sitemapId: string): ResponsePromise<SitemapIntegrationFetchResponse, never>;
 /**
  * @typedef {SitemapIntegrationOptions & {datasetId: string}} SitemapIntegrationCreateRequest
  *

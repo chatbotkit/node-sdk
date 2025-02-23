@@ -15,9 +15,9 @@ export class TelegramIntegrationClient extends ChatBotKitClient {
      * Fetches a telegram integration.
      *
      * @param {string} telegramId
-     * @returns {Promise<import('./v1.js').TelegramIntegrationFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').TelegramIntegrationFetchResponse,never>}
      */
-    fetch(telegramId: string): Promise<import('./v1.js').TelegramIntegrationFetchResponse>;
+    fetch(telegramId: string): ResponsePromise<import('./v1.js').TelegramIntegrationFetchResponse, never>;
     /**
      * Creates a new telegram integration.
      *

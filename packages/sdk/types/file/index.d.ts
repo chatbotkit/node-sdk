@@ -18,9 +18,9 @@ export class FileClient extends ChatBotKitClient {
      * Fetches a file.
      *
      * @param {string} fileId
-     * @returns {Promise<import('./v1.js').FileFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').FileFetchResponse,never>}
      */
-    fetch(fileId: string): Promise<import('./v1.js').FileFetchResponse>;
+    fetch(fileId: string): ResponsePromise<import('./v1.js').FileFetchResponse, never>;
     /**
      * Creates a new file.
      *

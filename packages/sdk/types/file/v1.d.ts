@@ -41,9 +41,9 @@ export function listFiles(client: ChatBotKitClient, request?: FileListRequest | 
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
- * @returns {Promise<FileFetchResponse>}
+ * @returns {ResponsePromise<FileFetchResponse,never>}
  */
-export function fetchFile(client: ChatBotKitClient, fileId: string): Promise<FileFetchResponse>;
+export function fetchFile(client: ChatBotKitClient, fileId: string): ResponsePromise<FileFetchResponse, never>;
 /**
  * @typedef {FileOptions & {
  * }} FileCreateRequest

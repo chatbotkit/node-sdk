@@ -45,9 +45,9 @@ export function listTasks(client: ChatBotKitClient, request?: TaskListRequest | 
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
- * @returns {Promise<TaskFetchResponse>}
+ * @returns {ResponsePromise<TaskFetchResponse,never>}
  */
-export function fetchTask(client: ChatBotKitClient, taskId: string): Promise<TaskFetchResponse>;
+export function fetchTask(client: ChatBotKitClient, taskId: string): ResponsePromise<TaskFetchResponse, never>;
 /**
  * @typedef {TaskOptions & {
  * }} TaskCreateRequest

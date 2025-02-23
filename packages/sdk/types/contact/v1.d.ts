@@ -47,9 +47,9 @@ export function listContacts(client: ChatBotKitClient, request?: ContactListRequ
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
- * @returns {Promise<ContactFetchResponse>}
+ * @returns {ResponsePromise<ContactFetchResponse,never>}
  */
-export function fetchContact(client: ChatBotKitClient, contactId: string): Promise<ContactFetchResponse>;
+export function fetchContact(client: ChatBotKitClient, contactId: string): ResponsePromise<ContactFetchResponse, never>;
 /**
  * @typedef {ContactOptions & {
  * }} ContactCreateRequest

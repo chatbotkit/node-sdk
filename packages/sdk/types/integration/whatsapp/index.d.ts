@@ -15,9 +15,9 @@ export class WhatsAppIntegrationClient extends ChatBotKitClient {
      * Fetches a whatsapp integration.
      *
      * @param {string} whatsappId
-     * @returns {Promise<import('./v1.js').WhatsAppIntegrationFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').WhatsAppIntegrationFetchResponse,never>}
      */
-    fetch(whatsappId: string): Promise<import('./v1.js').WhatsAppIntegrationFetchResponse>;
+    fetch(whatsappId: string): ResponsePromise<import('./v1.js').WhatsAppIntegrationFetchResponse, never>;
     /**
      * Creates a new whatsapp integration.
      *

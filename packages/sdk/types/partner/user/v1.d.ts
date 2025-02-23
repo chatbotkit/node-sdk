@@ -43,9 +43,9 @@ export function listPartnerUsers(client: ChatBotKitClient, request?: PartnerUser
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
- * @returns {Promise<PartnerUserFetchResponse>}
+ * @returns {ResponsePromise<PartnerUserFetchResponse,never>}
  */
-export function fetchPartnerUser(client: ChatBotKitClient, userId: string): Promise<PartnerUserFetchResponse>;
+export function fetchPartnerUser(client: ChatBotKitClient, userId: string): ResponsePromise<PartnerUserFetchResponse, never>;
 /**
  * @typedef {PartnerUserOptions & {
  * }} PartnerUserCreateRequest

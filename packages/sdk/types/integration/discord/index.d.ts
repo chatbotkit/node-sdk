@@ -15,9 +15,9 @@ export class DiscordIntegrationClient extends ChatBotKitClient {
      * Fetches a discord integration.
      *
      * @param {string} discordId
-     * @returns {Promise<import('./v1.js').DiscordIntegrationFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').DiscordIntegrationFetchResponse,never>}
      */
-    fetch(discordId: string): Promise<import('./v1.js').DiscordIntegrationFetchResponse>;
+    fetch(discordId: string): ResponsePromise<import('./v1.js').DiscordIntegrationFetchResponse, never>;
     /**
      * Creates a new discord integration.
      *

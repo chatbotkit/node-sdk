@@ -2,6 +2,11 @@
  * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+/**
  * @typedef {{
  *   tokens: number,
  *   conversations: number,
@@ -24,10 +29,11 @@
  * }} UsageFetchResponse
  *
  * @param {ChatBotKitClient} client
- * @returns {Promise<UsageFetchResponse>}
+ * @returns {ResponsePromise<UsageFetchResponse,never>}
  */
-export function fetchUsage(client: ChatBotKitClient): Promise<UsageFetchResponse>;
+export function fetchUsage(client: ChatBotKitClient): ResponsePromise<UsageFetchResponse, never>;
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
+export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 export type UsageOptions = {
     tokens: number;
     conversations: number;

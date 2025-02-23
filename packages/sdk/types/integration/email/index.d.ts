@@ -15,9 +15,9 @@ export class EmailIntegrationClient extends ChatBotKitClient {
      * Fetches a email integration.
      *
      * @param {string} emailId
-     * @returns {Promise<import('./v1.js').EmailIntegrationFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').EmailIntegrationFetchResponse,never>}
      */
-    fetch(emailId: string): Promise<import('./v1.js').EmailIntegrationFetchResponse>;
+    fetch(emailId: string): ResponsePromise<import('./v1.js').EmailIntegrationFetchResponse, never>;
     /**
      * Creates a new email integration.
      *

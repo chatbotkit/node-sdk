@@ -46,9 +46,9 @@ export function listSupportIntegrations(client: ChatBotKitClient, request?: Supp
  *
  * @param {ChatBotKitClient} client
  * @param {string} supportId
- * @returns {Promise<SupportIntegrationFetchResponse>}
+ * @returns {ResponsePromise<SupportIntegrationFetchResponse,never>}
  */
-export function fetchSupportIntegration(client: ChatBotKitClient, supportId: string): Promise<SupportIntegrationFetchResponse>;
+export function fetchSupportIntegration(client: ChatBotKitClient, supportId: string): ResponsePromise<SupportIntegrationFetchResponse, never>;
 /**
  * @typedef {SupportIntegrationOptions & {botId: string}} SupportIntegrationCreateRequest
  *

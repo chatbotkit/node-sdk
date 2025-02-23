@@ -63,9 +63,9 @@ export function listDiscordIntegrations(client: ChatBotKitClient, request?: Disc
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
- * @returns {Promise<DiscordIntegrationFetchResponse>}
+ * @returns {ResponsePromise<DiscordIntegrationFetchResponse,never>}
  */
-export function fetchDiscordIntegration(client: ChatBotKitClient, discordId: string): Promise<DiscordIntegrationFetchResponse>;
+export function fetchDiscordIntegration(client: ChatBotKitClient, discordId: string): ResponsePromise<DiscordIntegrationFetchResponse, never>;
 /**
  * @typedef {DiscordIntegrationOptions & {
  *   model?: import('../../model/v1.js').Model

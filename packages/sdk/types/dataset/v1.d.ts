@@ -51,9 +51,9 @@ export function listDatasets(client: ChatBotKitClient, request?: DatasetListRequ
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
- * @returns {Promise<DatasetFetchResponse>}
+ * @returns {ResponsePromise<DatasetFetchResponse,never>}
  */
-export function fetchDataset(client: ChatBotKitClient, datasetId: string): Promise<DatasetFetchResponse>;
+export function fetchDataset(client: ChatBotKitClient, datasetId: string): ResponsePromise<DatasetFetchResponse, never>;
 /**
  * @typedef {DatasetOptions & {
  *   store?: string

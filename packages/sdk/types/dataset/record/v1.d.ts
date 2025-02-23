@@ -46,9 +46,9 @@ export function listDatasetRecords(client: ChatBotKitClient, datasetId: string, 
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
  * @param {string} recordId
- * @returns {Promise<DatasetRecordFetchResponse>}
+ * @returns {ResponsePromise<DatasetRecordFetchResponse,never>}
  */
-export function fetchDatasetRecord(client: ChatBotKitClient, datasetId: string, recordId: string): Promise<DatasetRecordFetchResponse>;
+export function fetchDatasetRecord(client: ChatBotKitClient, datasetId: string, recordId: string): ResponsePromise<DatasetRecordFetchResponse, never>;
 /**
  * @typedef {DatasetRecordOptions & {
  * }} DatasetRecordCreateRequest

@@ -46,9 +46,9 @@ export function listExtractIntegrations(client: ChatBotKitClient, request?: Extr
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
- * @returns {Promise<ExtractIntegrationFetchResponse>}
+ * @returns {ResponsePromise<ExtractIntegrationFetchResponse,never>}
  */
-export function fetchExtractIntegration(client: ChatBotKitClient, extractId: string): Promise<ExtractIntegrationFetchResponse>;
+export function fetchExtractIntegration(client: ChatBotKitClient, extractId: string): ResponsePromise<ExtractIntegrationFetchResponse, never>;
 /**
  * @typedef {ExtractIntegrationOptions & {botId: string}} ExtractIntegrationCreateRequest
  *

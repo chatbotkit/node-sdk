@@ -46,9 +46,9 @@ export function listConversationMessages(client: ChatBotKitClient, conversationI
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {string} messageId
- * @returns {Promise<ConversationMessageFetchResponse>}
+ * @returns {ResponsePromise<ConversationMessageFetchResponse,never>}
  */
-export function fetchConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string): Promise<ConversationMessageFetchResponse>;
+export function fetchConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string): ResponsePromise<ConversationMessageFetchResponse, never>;
 /**
  * @typedef {ConversationMessageOptions & {
  * }} ConversationMessageCreateRequest

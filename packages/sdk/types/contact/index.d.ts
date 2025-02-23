@@ -21,9 +21,9 @@ export class ContactClient extends ChatBotKitClient {
      * Fetches a contact.
      *
      * @param {string} contactId
-     * @returns {Promise<import('./v1.js').ContactFetchResponse>}
+     * @returns {ResponsePromise<import('./v1.js').ContactFetchResponse,never>}
      */
-    fetch(contactId: string): Promise<import('./v1.js').ContactFetchResponse>;
+    fetch(contactId: string): ResponsePromise<import('./v1.js').ContactFetchResponse, never>;
     /**
      * Creates a new contact.
      *
