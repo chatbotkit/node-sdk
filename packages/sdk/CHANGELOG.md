@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.5
+
+### Patch Changes
+
+- a2f5a78: Pass cache map from the client.
+
 ## 1.17.4
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @chatbotkit/react
 
+## 1.17.5
+
+### Patch Changes
+
+- Updated dependencies [a2f5a78]
+  - @chatbotkit/sdk@1.17.5
+
 ## 1.17.4
 
 ### Patch Changes
