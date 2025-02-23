@@ -94,7 +94,7 @@
 
 #### Defined in
 
-[client.js:250](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L250)
+[client.js:251](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L251)
 
 ___
 

@@ -55,9 +55,10 @@ export class ResponsePromise<T, U> {
      */
     stream(): AsyncGenerator<U>;
     /**
-     * @param {string} key
+     * @param {string} [key]
+     * @returns {Promise<T>}
      */
-    cache(key: string): Promise<any>;
+    cache(key?: string | undefined): Promise<T>;
     get [Symbol.toStringTag](): string;
 }
 /**

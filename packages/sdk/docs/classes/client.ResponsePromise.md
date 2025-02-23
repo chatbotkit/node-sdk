@@ -61,21 +61,21 @@
 
 ### cache
 
-▸ **cache**(`key`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
+▸ **cache**(`key?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `key?` | `string` | `'default'` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>
 
 #### Defined in
 
-[client.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L177)
+[client.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L178)
 
 ___
 
