@@ -59,13 +59,14 @@ export function listDatasetRecords(client, datasetId, request) {
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
  * @param {string} recordId
- * @returns {Promise<DatasetRecordFetchResponse>}
+ * @returns {ResponsePromise<DatasetRecordFetchResponse,never>}
  */
-export async function fetchDatasetRecord(client, datasetId, recordId) {
+export function fetchDatasetRecord(client, datasetId, recordId) {
   const url = `/api/v1/dataset/${datasetId}/record/${recordId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchDatasetRecord']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchDatasetRecord']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

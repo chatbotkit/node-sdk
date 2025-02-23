@@ -40,7 +40,7 @@ export class DatasetRecordClient extends ChatBotKitClient {
    *
    * @param {string} datasetId
    * @param {string} recordId
-   * @returns {Promise<import('./v1.js').DatasetRecordFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').DatasetRecordFetchResponse,never>}
    */
   fetch(datasetId, recordId) {
     return fetchDatasetRecord(this, datasetId, recordId)

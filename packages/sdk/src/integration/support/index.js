@@ -35,7 +35,7 @@ export class SupportIntegrationClient extends ChatBotKitClient {
    * Fetches a support integration.
    *
    * @param {string} supportId
-   * @returns {Promise<import('./v1.js').SupportIntegrationFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').SupportIntegrationFetchResponse,never>}
    */
   fetch(supportId) {
     return fetchSupportIntegration(this, supportId)

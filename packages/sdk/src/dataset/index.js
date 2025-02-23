@@ -51,7 +51,7 @@ export class DatasetClient extends ChatBotKitClient {
    * Fetches a dataset.
    *
    * @param {string} datasetId
-   * @returns {Promise<import('./v1.js').DatasetFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').DatasetFetchResponse,never>}
    */
   fetch(datasetId) {
     return fetchDataset(this, datasetId)

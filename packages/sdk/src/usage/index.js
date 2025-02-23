@@ -2,6 +2,12 @@ import { ChatBotKitClient } from '../client.js'
 import { UsageSeriesClient } from './series/index.js'
 import { fetchUsage } from './v1.js'
 
+/**
+ * @template T
+ * @template U
+ * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
 export class UsageClient extends ChatBotKitClient {
   /**
    * @param {import('../client.js').ChatBotKitClientOptions} options
@@ -18,7 +24,7 @@ export class UsageClient extends ChatBotKitClient {
   /**
    * Fetches usage.
    *
-   * @returns {Promise<import('./v1.js').UsageFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').UsageFetchResponse,never>}
    */
   fetch() {
     return fetchUsage(this)

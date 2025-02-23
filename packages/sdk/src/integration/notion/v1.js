@@ -59,13 +59,14 @@ export function listNotionIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
- * @returns {Promise<NotionIntegrationFetchResponse>}
+ * @returns {ResponsePromise<NotionIntegrationFetchResponse,never>}
  */
-export async function fetchNotionIntegration(client, notionId) {
+export function fetchNotionIntegration(client, notionId) {
   const url = `/api/v1/integration/notion/${notionId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchNotionIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchNotionIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

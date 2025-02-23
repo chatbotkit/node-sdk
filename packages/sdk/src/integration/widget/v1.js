@@ -78,13 +78,14 @@ export function listWidgetIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} widgetId
- * @returns {Promise<WidgetIntegrationFetchResponse>}
+ * @returns {ResponsePromise<WidgetIntegrationFetchResponse,never>}
  */
-export async function fetchWidgetIntegration(client, widgetId) {
+export function fetchWidgetIntegration(client, widgetId) {
   const url = `/api/v1/integration/widget/${widgetId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchWidgetIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchWidgetIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

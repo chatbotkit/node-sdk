@@ -84,13 +84,14 @@ export function listConversations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
- * @returns {Promise<ConversationFetchResponse>}
+ * @returns {ResponsePromise<ConversationFetchResponse,never>}
  */
-export async function fetchConversation(client, conversationId) {
+export function fetchConversation(client, conversationId) {
   const url = `/api/v1/conversation/${conversationId}/fetch`
 
-  /** @type {import('../types/api/v1.js').operations['fetchConversation']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url, {
+  /** @typedef {import('../types/api/v1.js').operations['fetchConversation']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url, {
     endpoint: '/api/v1/conversation/{conversationId}/fetch',
   })
 

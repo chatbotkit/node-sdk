@@ -60,13 +60,14 @@ export function listContacts(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
- * @returns {Promise<ContactFetchResponse>}
+ * @returns {ResponsePromise<ContactFetchResponse,never>}
  */
-export async function fetchContact(client, contactId) {
+export function fetchContact(client, contactId) {
   const url = `/api/v1/contact/${contactId}/fetch`
 
-  /** @type {import('../types/api/v1.js').operations['fetchContact']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../types/api/v1.js').operations['fetchContact']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

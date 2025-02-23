@@ -35,7 +35,7 @@ export class ExtractIntegrationClient extends ChatBotKitClient {
    * Fetches a extract integration.
    *
    * @param {string} extractId
-   * @returns {Promise<import('./v1.js').ExtractIntegrationFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').ExtractIntegrationFetchResponse,never>}
    */
   fetch(extractId) {
     return fetchExtractIntegration(this, extractId)

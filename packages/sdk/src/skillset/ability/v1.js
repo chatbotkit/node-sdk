@@ -59,13 +59,14 @@ export function listSkillsetAbilities(client, skillsetId, request) {
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
  * @param {string} abilityId
- * @returns {Promise<SkillsetAbilityFetchResponse>}
+ * @returns {ResponsePromise<SkillsetAbilityFetchResponse,never>}
  */
-export async function fetchSkillsetAbility(client, skillsetId, abilityId) {
+export function fetchSkillsetAbility(client, skillsetId, abilityId) {
   const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchSkillsetAbility']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchSkillsetAbility']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

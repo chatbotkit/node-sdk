@@ -78,13 +78,14 @@ export function listWhatsAppIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
- * @returns {Promise<WhatsAppIntegrationFetchResponse>}
+ * @returns {ResponsePromise<WhatsAppIntegrationFetchResponse,never>}
  */
-export async function fetchWhatsAppIntegration(client, whatsappId) {
+export function fetchWhatsAppIntegration(client, whatsappId) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchWhatsAppIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchWhatsAppIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

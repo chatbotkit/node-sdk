@@ -75,13 +75,14 @@ export function listTriggerIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
- * @returns {Promise<TriggerIntegrationFetchResponse>}
+ * @returns {ResponsePromise<TriggerIntegrationFetchResponse,never>}
  */
-export async function fetchTriggerIntegration(client, triggerId) {
+export function fetchTriggerIntegration(client, triggerId) {
   const url = `/api/v1/integration/trigger/${triggerId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchTriggerIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchTriggerIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

@@ -62,13 +62,14 @@ export function listSitemapIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
- * @returns {Promise<SitemapIntegrationFetchResponse>}
+ * @returns {ResponsePromise<SitemapIntegrationFetchResponse,never>}
  */
-export async function fetchSitemapIntegration(client, sitemapId) {
+export function fetchSitemapIntegration(client, sitemapId) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchSitemapIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchSitemapIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

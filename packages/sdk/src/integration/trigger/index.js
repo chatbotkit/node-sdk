@@ -37,7 +37,7 @@ export class TriggerIntegrationClient extends ChatBotKitClient {
    * Fetches a trigger integration.
    *
    * @param {string} triggerId
-   * @returns {Promise<import('./v1.js').TriggerIntegrationFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').TriggerIntegrationFetchResponse,never>}
    */
   fetch(triggerId) {
     return fetchTriggerIntegration(this, triggerId)

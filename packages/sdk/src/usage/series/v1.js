@@ -3,6 +3,12 @@
  */
 
 /**
+ * @template T
+ * @template U
+ * @typedef {import('../../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+
+/**
  * @typedef {{
  *   tokens: {date: number, total: number}[],
  *   conversations: {date: number, total: number}[],
@@ -18,13 +24,14 @@
  * }} UsageSeriesFetchResponse
  *
  * @param {ChatBotKitClient} client
- * @returns {Promise<UsageSeriesFetchResponse>}
+ * @returns {ResponsePromise<UsageSeriesFetchResponse,never>}
  */
-export async function fetchUsageSeries(client) {
+export function fetchUsageSeries(client) {
   const url = `/api/v1/usage/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchUsageSeries']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchUsageSeries']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

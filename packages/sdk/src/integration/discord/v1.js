@@ -78,13 +78,14 @@ export function listDiscordIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
- * @returns {Promise<DiscordIntegrationFetchResponse>}
+ * @returns {ResponsePromise<DiscordIntegrationFetchResponse,never>}
  */
-export async function fetchDiscordIntegration(client, discordId) {
+export function fetchDiscordIntegration(client, discordId) {
   const url = `/api/v1/integration/discord/${discordId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchDiscordIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchDiscordIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

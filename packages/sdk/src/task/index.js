@@ -38,7 +38,7 @@ export class TaskClient extends ChatBotKitClient {
    * Fetches a task.
    *
    * @param {string} taskId
-   * @returns {Promise<import('./v1.js').TaskFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').TaskFetchResponse,never>}
    */
   fetch(taskId) {
     return fetchTask(this, taskId)

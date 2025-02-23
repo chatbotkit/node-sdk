@@ -77,13 +77,14 @@ export function listSlackIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} slackId
- * @returns {Promise<SlackIntegrationFetchResponse>}
+ * @returns {ResponsePromise<SlackIntegrationFetchResponse,never>}
  */
-export async function fetchSlackIntegration(client, slackId) {
+export function fetchSlackIntegration(client, slackId) {
   const url = `/api/v1/integration/slack/${slackId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchSlackIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchSlackIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

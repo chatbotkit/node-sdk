@@ -64,13 +64,14 @@ export function listDatasets(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
- * @returns {Promise<DatasetFetchResponse>}
+ * @returns {ResponsePromise<DatasetFetchResponse,never>}
  */
-export async function fetchDataset(client, datasetId) {
+export function fetchDataset(client, datasetId) {
   const url = `/api/v1/dataset/${datasetId}/fetch`
 
-  /** @type {import('../types/api/v1.js').operations['fetchDataset']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../types/api/v1.js').operations['fetchDataset']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

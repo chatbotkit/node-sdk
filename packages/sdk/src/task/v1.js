@@ -58,13 +58,14 @@ export function listTasks(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
- * @returns {Promise<TaskFetchResponse>}
+ * @returns {ResponsePromise<TaskFetchResponse,never>}
  */
-export async function fetchTask(client, taskId) {
+export function fetchTask(client, taskId) {
   const url = `/api/v1/task/${taskId}/fetch`
 
-  /** @type {import('../types/api/v1.js').operations['fetchTask']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../types/api/v1.js').operations['fetchTask']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

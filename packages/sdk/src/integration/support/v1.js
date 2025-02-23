@@ -59,13 +59,14 @@ export function listSupportIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} supportId
- * @returns {Promise<SupportIntegrationFetchResponse>}
+ * @returns {ResponsePromise<SupportIntegrationFetchResponse,never>}
  */
-export async function fetchSupportIntegration(client, supportId) {
+export function fetchSupportIntegration(client, supportId) {
   const url = `/api/v1/integration/support/${supportId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchSupportIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchSupportIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

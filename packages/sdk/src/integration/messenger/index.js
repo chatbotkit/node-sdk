@@ -36,7 +36,7 @@ export class MessengerIntegrationClient extends ChatBotKitClient {
    * Fetches a messenger integration.
    *
    * @param {string} messengerId
-   * @returns {Promise<import('./v1.js').MessengerIntegrationFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').MessengerIntegrationFetchResponse,never>}
    */
   fetch(messengerId) {
     return fetchMessengerIntegration(this, messengerId)

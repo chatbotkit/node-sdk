@@ -55,13 +55,14 @@ export function listBlueprints(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
- * @returns {Promise<BlueprintFetchResponse>}
+ * @returns {ResponsePromise<BlueprintFetchResponse,never>}
  */
-export async function fetchBlueprint(client, blueprintId) {
+export function fetchBlueprint(client, blueprintId) {
   const url = `/api/v1/blueprint/${blueprintId}/fetch`
 
-  /** @type {import('../types/api/v1.js').operations['fetchBlueprint']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../types/api/v1.js').operations['fetchBlueprint']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

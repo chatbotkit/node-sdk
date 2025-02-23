@@ -74,13 +74,14 @@ export function listEmailIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
- * @returns {Promise<EmailIntegrationFetchResponse>}
+ * @returns {ResponsePromise<EmailIntegrationFetchResponse,never>}
  */
-export async function fetchEmailIntegration(client, emailId) {
+export function fetchEmailIntegration(client, emailId) {
   const url = `/api/v1/integration/email/${emailId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchEmailIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchEmailIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

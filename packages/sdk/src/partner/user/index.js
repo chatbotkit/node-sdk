@@ -44,7 +44,7 @@ export class PartnerUserClient extends ChatBotKitClient {
    * Fetches a user.
    *
    * @param {string} userId
-   * @returns {Promise<import('./v1.js').PartnerUserFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').PartnerUserFetchResponse,never>}
    */
   fetch(userId) {
     return fetchPartnerUser(this, userId)

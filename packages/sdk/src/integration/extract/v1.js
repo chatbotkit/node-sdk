@@ -59,13 +59,14 @@ export function listExtractIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
- * @returns {Promise<ExtractIntegrationFetchResponse>}
+ * @returns {ResponsePromise<ExtractIntegrationFetchResponse,never>}
  */
-export async function fetchExtractIntegration(client, extractId) {
+export function fetchExtractIntegration(client, extractId) {
   const url = `/api/v1/integration/extract/${extractId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchExtractIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchExtractIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

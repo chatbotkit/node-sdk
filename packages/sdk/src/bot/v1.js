@@ -62,13 +62,14 @@ export function listBots(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
- * @returns {Promise<BotFetchResponse>}
+ * @returns {ResponsePromise<BotFetchResponse,never>}
  */
-export async function fetchBot(client, botId) {
+export function fetchBot(client, botId) {
   const url = `/api/v1/bot/${botId}/fetch`
 
-  /** @type {import('../types/api/v1.js').operations['fetchBot']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../types/api/v1.js').operations['fetchBot']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

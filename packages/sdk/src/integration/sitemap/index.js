@@ -36,7 +36,7 @@ export class SitemapIntegrationClient extends ChatBotKitClient {
    * Fetches a sitemap integration.
    *
    * @param {string} sitemapId
-   * @returns {Promise<import('./v1.js').SitemapIntegrationFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').SitemapIntegrationFetchResponse,never>}
    */
   fetch(sitemapId) {
     return fetchSitemapIntegration(this, sitemapId)

@@ -77,13 +77,14 @@ export function listMessengerIntegrations(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
- * @returns {Promise<MessengerIntegrationFetchResponse>}
+ * @returns {ResponsePromise<MessengerIntegrationFetchResponse,never>}
  */
-export async function fetchMessengerIntegration(client, messengerId) {
+export function fetchMessengerIntegration(client, messengerId) {
   const url = `/api/v1/integration/messenger/${messengerId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchMessengerIntegration']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchMessengerIntegration']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

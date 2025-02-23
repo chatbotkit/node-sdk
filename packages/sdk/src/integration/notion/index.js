@@ -36,7 +36,7 @@ export class NotionIntegrationClient extends ChatBotKitClient {
    * Fetches a notion integration.
    *
    * @param {string} notionId
-   * @returns {Promise<import('./v1.js').NotionIntegrationFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').NotionIntegrationFetchResponse,never>}
    */
   fetch(notionId) {
     return fetchNotionIntegration(this, notionId)

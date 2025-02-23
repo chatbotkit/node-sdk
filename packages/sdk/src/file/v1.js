@@ -56,13 +56,14 @@ export function listFiles(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
- * @returns {Promise<FileFetchResponse>}
+ * @returns {ResponsePromise<FileFetchResponse,never>}
  */
-export async function fetchFile(client, fileId) {
+export function fetchFile(client, fileId) {
   const url = `/api/v1/file/${fileId}/fetch`
 
-  /** @type {import('../types/api/v1.js').operations['fetchFile']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../types/api/v1.js').operations['fetchFile']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

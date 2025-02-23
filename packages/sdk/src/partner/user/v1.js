@@ -56,13 +56,14 @@ export function listPartnerUsers(client, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
- * @returns {Promise<PartnerUserFetchResponse>}
+ * @returns {ResponsePromise<PartnerUserFetchResponse,never>}
  */
-export async function fetchPartnerUser(client, userId) {
+export function fetchPartnerUser(client, userId) {
   const url = `/api/v1/partner/user/${userId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchPartnerUser']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchPartnerUser']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }

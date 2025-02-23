@@ -40,7 +40,7 @@ export class FileClient extends ChatBotKitClient {
    * Fetches a file.
    *
    * @param {string} fileId
-   * @returns {Promise<import('./v1.js').FileFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').FileFetchResponse,never>}
    */
   fetch(fileId) {
     return fetchFile(this, fileId)

@@ -44,7 +44,7 @@ export class SkillsetClient extends ChatBotKitClient {
    * Fetches a skillset.
    *
    * @param {string} skillsetId
-   * @returns {Promise<import('./v1.js').SkillsetFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').SkillsetFetchResponse,never>}
    */
   fetch(skillsetId) {
     return fetchSkillset(this, skillsetId)

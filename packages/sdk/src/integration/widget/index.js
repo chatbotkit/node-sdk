@@ -35,7 +35,7 @@ export class WidgetIntegrationClient extends ChatBotKitClient {
    * Fetches a widget integration.
    *
    * @param {string} widgetId
-   * @returns {Promise<import('./v1.js').WidgetIntegrationFetchResponse>}
+   * @returns {ResponsePromise<import('./v1.js').WidgetIntegrationFetchResponse,never>}
    */
   fetch(widgetId) {
     return fetchWidgetIntegration(this, widgetId)

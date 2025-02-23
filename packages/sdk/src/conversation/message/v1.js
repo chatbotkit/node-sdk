@@ -59,17 +59,14 @@ export function listConversationMessages(client, conversationId, request) {
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {string} messageId
- * @returns {Promise<ConversationMessageFetchResponse>}
+ * @returns {ResponsePromise<ConversationMessageFetchResponse,never>}
  */
-export async function fetchConversationMessage(
-  client,
-  conversationId,
-  messageId
-) {
+export function fetchConversationMessage(client, conversationId, messageId) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/fetch`
 
-  /** @type {import('../../types/api/v1.js').operations['fetchConversationMessage']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url)
+  /** @typedef {import('../../types/api/v1.js').operations['fetchConversationMessage']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url)
 
   return response
 }
