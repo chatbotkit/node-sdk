@@ -59,13 +59,14 @@ export function listSecrets(client, contactId, request) {
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {Promise<SecretRevokeResponse>}
+ * @returns {ResponsePromise<SecretRevokeResponse,never>}
  */
-export async function revokeSecret(client, contactId, secretId) {
+export function revokeSecret(client, contactId, secretId) {
   const url = `/api/v1/contact/${contactId}/secret/${secretId}/revoke`
 
-  /** @type {import('../../types/api/v1.js').operations['revokeContactSecret']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url, {
+  /** @typedef {import('../../types/api/v1.js').operations['revokeContactSecret']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['revokeContactSecret']['requestBody']['content']['application/json']} */
     record: {},
   })
@@ -83,13 +84,14 @@ export async function revokeSecret(client, contactId, secretId) {
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {Promise<SecretVerifyResponse>}
+ * @returns {ResponsePromise<SecretVerifyResponse,never>}
  */
-export async function verifySecret(client, contactId, secretId) {
+export function verifySecret(client, contactId, secretId) {
   const url = `/api/v1/contact/${contactId}/secret/${secretId}/verify`
 
-  /** @type {import('../../types/api/v1.js').operations['verifyContactSecret']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url, {
+  /** @typedef {import('../../types/api/v1.js').operations['verifyContactSecret']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['verifyContactSecret']['requestBody']['content']['application/json']} */
     record: {},
   })
@@ -106,13 +108,14 @@ export async function verifySecret(client, contactId, secretId) {
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {Promise<SecretAuthenticateResponse>}
+ * @returns {ResponsePromise<SecretAuthenticateResponse,never>}
  */
-export async function authenticateSecret(client, contactId, secretId) {
+export function authenticateSecret(client, contactId, secretId) {
   const url = `/api/v1/contact/${contactId}/secret/${secretId}/authenticate`
 
-  /** @type {import('../../types/api/v1.js').operations['authenticateContactSecret']['responses']['200']['content']['application/json']} */
-  const response = await client.clientFetch(url, {
+  /** @typedef {import('../../types/api/v1.js').operations['authenticateContactSecret']['responses']['200']['content']['application/json']} T */
+  /** @type {ResponsePromise<T,never>} */
+  const response = client.clientFetch(url, {
     /** @type {import('../../types/api/v1.js').operations['authenticateContactSecret']['requestBody']['content']['application/json']} */
     record: {},
   })
