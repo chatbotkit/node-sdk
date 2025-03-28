@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.17.7
+
+### Patch Changes
+
+- 2289df0: Support for error messages.
+
 ## 1.17.6
 
 ### Patch Changes
