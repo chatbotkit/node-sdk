@@ -20,6 +20,18 @@ export function stream(source: StreamSource, options?: Handlers | undefined): St
  * @returns {ConsumeResult}
  */
 export function consume(source: ConsumeSource, options?: Handlers | undefined): ConsumeResult;
+export class StreamError extends Error {
+    /**
+     * @param {string} message
+     * @param {string} code
+     */
+    constructor(message: string, code: string);
+    /**
+     * @type {string}
+     * @public
+     */
+    public code: string;
+}
 export type Handlers = {
     onFinish?: () => any;
 };

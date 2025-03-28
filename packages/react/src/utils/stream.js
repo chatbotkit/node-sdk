@@ -1,3 +1,19 @@
+export class StreamError extends Error {
+  /**
+   * @param {string} message
+   * @param {string} code
+   */
+  constructor(message, code) {
+    super(message)
+
+    /**
+     * @type {string}
+     * @public
+     */
+    this.code = code
+  }
+}
+
 /**
  * @typedef {{
  *   onFinish?: () => any
@@ -80,9 +96,15 @@ function consumeIt(source) {
         current: source,
 
         async next() {
-          const { iteratorResult, next } = await this.current
+          const { iteratorResult, next, error } = await this.current
 
-          if (next) {
+          if (error) {
+            if (typeof error === 'object') {
+              throw new StreamError(error.message, error.code)
+            } else {
+              throw new StreamError(error, 'UNKNOWN')
+            }
+          } else if (next) {
             this.current = next
           } else {
             iteratorResult.done = true
