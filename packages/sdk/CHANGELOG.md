@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.8
+
+### Patch Changes
+
+- 76e2fbd: Added timezone support.
+
 ## 1.17.6
 
 ### Patch Changes
