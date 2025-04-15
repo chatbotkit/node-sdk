@@ -70,6 +70,7 @@ export class ResponsePromise<T, U> {
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
  * @property {string} [runAsUserId] An optional user ID to run as
  * @property {string} [runAsChildUserEmail] An optional child user email to run as (experimental)
+ * @property {string} [timezone] An optional timezone to use for the API
  */
 export class ChatBotKitClient {
     /**
@@ -81,6 +82,7 @@ export class ChatBotKitClient {
     endpoints: Record<string, string>;
     runAsUserId: string | undefined;
     runAsChildUserEmail: string | undefined;
+    timezone: string | undefined;
     cacheMap: Map<any, any>;
     /**
      * @template T
@@ -138,4 +140,8 @@ export type ChatBotKitClientOptions = {
      * An optional child user email to run as (experimental)
      */
     runAsChildUserEmail?: string | undefined;
+    /**
+     * An optional timezone to use for the API
+     */
+    timezone?: string | undefined;
 };

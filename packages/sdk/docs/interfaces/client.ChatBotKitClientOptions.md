@@ -14,6 +14,7 @@
 - [runAsChildUserEmail](client.ChatBotKitClientOptions.md#runaschilduseremail)
 - [runAsUserId](client.ChatBotKitClientOptions.md#runasuserid)
 - [secret](client.ChatBotKitClientOptions.md#secret)
+- [timezone](client.ChatBotKitClientOptions.md#timezone)
 
 ## Properties
 
@@ -86,3 +87,15 @@ A token to authenticate with the API
 #### Defined in
 
 [client.js:205](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L205)
+
+___
+
+### timezone
+
+• **timezone**: `string`
+
+An optional timezone to use for the API
+
+#### Defined in
+
+[client.js:211](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L211)

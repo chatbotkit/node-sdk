@@ -92,7 +92,7 @@ Dataset record client.
 
 #### Defined in
 
-[client.js:254](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L254)
+[client.js:257](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L257)
 
 ___
 
