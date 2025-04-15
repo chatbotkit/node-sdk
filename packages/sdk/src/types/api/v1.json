@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1740255818992)"
+    "version": "v1 (build 1744710737572)"
   },
   "servers": [
     {
@@ -317,6 +317,50 @@
           "token"
         ]
       },
+      "Limits": {
+        "type": "object",
+        "description": "Limits information",
+        "properties": {
+          "tokens": {
+            "type": "number",
+            "description": "The tokens limit"
+          },
+          "conversations": {
+            "type": "number",
+            "description": "The conversations limit"
+          },
+          "messages": {
+            "type": "number",
+            "description": "The messages limit"
+          },
+          "database": {
+            "type": "object",
+            "description": "The database limits",
+            "properties": {
+              "datasets": {
+                "type": "number",
+                "description": "The datasets limit"
+              },
+              "records": {
+                "type": "number",
+                "description": "The records limit"
+              },
+              "skillsets": {
+                "type": "number",
+                "description": "The skillsets limit"
+              },
+              "abilities": {
+                "type": "number",
+                "description": "The abilities limit"
+              },
+              "files": {
+                "type": "number",
+                "description": "The files limit"
+              }
+            }
+          }
+        }
+      },
       "Meta": {
         "type": "object",
         "description": "Meta data information",
@@ -419,6 +463,29 @@
             },
             "$$ref": "#/components/schemas/BotConfig"
           }
+        ]
+      },
+      "InstanceMetaProps": {
+        "description": "Instance list properties",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The instance ID"
+          },
+          "createdAt": {
+            "type": "number",
+            "description": "The timestamp (ms) when the instance was created"
+          },
+          "updatedAt": {
+            "type": "number",
+            "description": "The timestamp (ms) when the instance was updated"
+          }
+        },
+        "required": [
+          "id",
+          "createdAt",
+          "updatedAt"
         ]
       },
       "InstanceCrudProps": {
@@ -1030,6 +1097,69 @@
           }
         },
         "__originalOperationId": "listBlueprints",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/bot/{botId}/clone": {
+      "post": {
+        "operationId": "cloneBot",
+        "summary": "Clone bot",
+        "tags": [
+          "Bot"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "botId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The bot was cloned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the cloned bot",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "cloneBot",
         "security": [
           {
             "BearerAuth": []
@@ -8284,23 +8414,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "description": "Instance list properties",
+                  "type": "object",
                   "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "The associated name"
-                    },
-                    "description": {
-                      "type": "string",
-                      "description": "The associated description"
-                    },
-                    "meta": {
-                      "type": "object",
-                      "description": "Meta data information",
-                      "additionalProperties": true,
-                      "$$ref": "#/components/schemas/Meta"
-                    },
                     "id": {
                       "type": "string",
                       "description": "The instance ID"
@@ -8581,23 +8697,9 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Instance list properties",
+                        "type": "object",
                         "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The associated name"
-                          },
-                          "description": {
-                            "type": "string",
-                            "description": "The associated description"
-                          },
-                          "meta": {
-                            "type": "object",
-                            "description": "Meta data information",
-                            "additionalProperties": true,
-                            "$$ref": "#/components/schemas/Meta"
-                          },
                           "id": {
                             "type": "string",
                             "description": "The instance ID"
@@ -8645,23 +8747,9 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Instance list properties",
+                          "type": "object",
                           "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "The associated name"
-                            },
-                            "description": {
-                              "type": "string",
-                              "description": "The associated description"
-                            },
-                            "meta": {
-                              "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
-                            },
                             "id": {
                               "type": "string",
                               "description": "The instance ID"
@@ -8681,13 +8769,13 @@
                               "type": "string"
                             }
                           },
-                          "$$ref": "#/paths/~1dataset~1{datasetId}~1record~1export/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
                             "updatedAt",
                             "text"
-                          ]
+                          ],
+                          "$$ref": "#/paths/~1dataset~1{datasetId}~1record~1export/get/responses/200/content/application~1json/schema/properties/items/items"
                         }
                       },
                       "required": [
@@ -8781,23 +8869,9 @@
                     "items": {
                       "type": "array",
                       "items": {
-                        "type": "object",
                         "description": "Instance list properties",
+                        "type": "object",
                         "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The associated name"
-                          },
-                          "description": {
-                            "type": "string",
-                            "description": "The associated description"
-                          },
-                          "meta": {
-                            "type": "object",
-                            "description": "Meta data information",
-                            "additionalProperties": true,
-                            "$$ref": "#/components/schemas/Meta"
-                          },
                           "id": {
                             "type": "string",
                             "description": "The instance ID"
@@ -8845,23 +8919,9 @@
                           ]
                         },
                         "data": {
-                          "type": "object",
                           "description": "Instance list properties",
+                          "type": "object",
                           "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "The associated name"
-                            },
-                            "description": {
-                              "type": "string",
-                              "description": "The associated description"
-                            },
-                            "meta": {
-                              "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
-                            },
                             "id": {
                               "type": "string",
                               "description": "The instance ID"
@@ -8881,13 +8941,13 @@
                               "type": "string"
                             }
                           },
-                          "$$ref": "#/paths/~1dataset~1{datasetId}~1record~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
                             "updatedAt",
                             "text"
-                          ]
+                          ],
+                          "$$ref": "#/paths/~1dataset~1{datasetId}~1record~1list/get/responses/200/content/application~1json/schema/properties/items/items"
                         }
                       },
                       "required": [
@@ -9087,11 +9147,21 @@
                           },
                           "text": {
                             "type": "string"
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "meta": {
+                            "type": "object"
+                          },
+                          "score": {
+                            "type": "number"
                           }
                         },
                         "required": [
                           "id",
-                          "text"
+                          "text",
+                          "score"
                         ]
                       }
                     }
@@ -18000,6 +18070,823 @@
         ]
       }
     },
+    "/integration/twilio/{twilioIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteTwilioIntegration",
+        "summary": "Delete Twilio integration",
+        "tags": [
+          "Twilio Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "twilioIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Twilio integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Twilio integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Twilio integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteTwilioIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/twilio/{twilioIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchTwilioIntegration",
+        "summary": "Fetch a twilioIntegration",
+        "tags": [
+          "Twilio Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "twilioIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Twilio integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Twilio integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "A bot configuration or reference",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "contactCollection": {
+                      "description": "Weather to collect contacts",
+                      "type": "boolean"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "botId": {
+                          "type": "string",
+                          "description": "The ID of the bot this configuration is using"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotRef"
+                    },
+                    {
+                      "type": "object",
+                      "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                      "properties": {
+                        "model": {
+                          "type": "string",
+                          "description": "A model definition",
+                          "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                          "example": "gpt-4-turbo/temperature=0.7",
+                          "$$ref": "#/components/schemas/Model"
+                        },
+                        "backstory": {
+                          "type": "string",
+                          "description": "The backstory this configuration is using"
+                        },
+                        "datasetId": {
+                          "type": "string",
+                          "description": "The id of the dataset this configuration is using"
+                        },
+                        "skillsetId": {
+                          "type": "string",
+                          "description": "The id of the skillset this configuration is using"
+                        },
+                        "privacy": {
+                          "type": "boolean",
+                          "description": "The privacy flag for this configuration"
+                        },
+                        "moderation": {
+                          "type": "boolean",
+                          "description": "The moderation flag for this configuration"
+                        }
+                      },
+                      "$$ref": "#/components/schemas/BotConfig"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchTwilioIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/twilio/{twilioIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupTwilioIntegration",
+        "summary": "Setup a Twilio integration",
+        "tags": [
+          "Twilio Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "twilioIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Twilio integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Twilio integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Twilio Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "setupTwilioIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/twilio/{twilioIntegrationId}/update": {
+      "post": {
+        "operationId": "updateTwilioIntegration",
+        "summary": "Update a Twilio integration",
+        "tags": [
+          "Twilio Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "twilioIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Twilio integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Twilio integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Twilio Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateTwilioIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/twilio/create": {
+      "post": {
+        "operationId": "createTwilioIntegration",
+        "summary": "Create Twilio integration",
+        "tags": [
+          "Twilio Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration or reference",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "botId": {
+                        "type": "string",
+                        "description": "The ID of the bot this configuration is using"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotRef"
+                  },
+                  {
+                    "type": "object",
+                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                    "properties": {
+                      "model": {
+                        "type": "string",
+                        "description": "A model definition",
+                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                        "example": "gpt-4-turbo/temperature=0.7",
+                        "$$ref": "#/components/schemas/Model"
+                      },
+                      "backstory": {
+                        "type": "string",
+                        "description": "The backstory this configuration is using"
+                      },
+                      "datasetId": {
+                        "type": "string",
+                        "description": "The id of the dataset this configuration is using"
+                      },
+                      "skillsetId": {
+                        "type": "string",
+                        "description": "The id of the skillset this configuration is using"
+                      },
+                      "privacy": {
+                        "type": "boolean",
+                        "description": "The privacy flag for this configuration"
+                      },
+                      "moderation": {
+                        "type": "boolean",
+                        "description": "The moderation flag for this configuration"
+                      }
+                    },
+                    "$$ref": "#/components/schemas/BotConfig"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Twilio integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Twilio Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createTwilioIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/twilio/list": {
+      "get": {
+        "operationId": "listTwilioIntegrations",
+        "summary": "List Twilio integrations",
+        "tags": [
+          "Twilio Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Twilio integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A bot configuration or reference",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "contactCollection": {
+                            "description": "Weather to collect contacts",
+                            "type": "boolean"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration (in milliseconds)",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ],
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "botId": {
+                                "type": "string",
+                                "description": "The ID of the bot this configuration is using"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotRef"
+                          },
+                          {
+                            "type": "object",
+                            "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                            "properties": {
+                              "model": {
+                                "type": "string",
+                                "description": "A model definition",
+                                "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                "example": "gpt-4-turbo/temperature=0.7",
+                                "$$ref": "#/components/schemas/Model"
+                              },
+                              "backstory": {
+                                "type": "string",
+                                "description": "The backstory this configuration is using"
+                              },
+                              "datasetId": {
+                                "type": "string",
+                                "description": "The id of the dataset this configuration is using"
+                              },
+                              "skillsetId": {
+                                "type": "string",
+                                "description": "The id of the skillset this configuration is using"
+                              },
+                              "privacy": {
+                                "type": "boolean",
+                                "description": "The privacy flag for this configuration"
+                              },
+                              "moderation": {
+                                "type": "boolean",
+                                "description": "The moderation flag for this configuration"
+                              }
+                            },
+                            "$$ref": "#/components/schemas/BotConfig"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "A bot configuration or reference",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "contactCollection": {
+                              "description": "Weather to collect contacts",
+                              "type": "boolean"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1twilio~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ],
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "botId": {
+                                  "type": "string",
+                                  "description": "The ID of the bot this configuration is using"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotRef"
+                            },
+                            {
+                              "type": "object",
+                              "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                              "properties": {
+                                "model": {
+                                  "type": "string",
+                                  "description": "A model definition",
+                                  "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "$$ref": "#/components/schemas/Model"
+                                },
+                                "backstory": {
+                                  "type": "string",
+                                  "description": "The backstory this configuration is using"
+                                },
+                                "datasetId": {
+                                  "type": "string",
+                                  "description": "The id of the dataset this configuration is using"
+                                },
+                                "skillsetId": {
+                                  "type": "string",
+                                  "description": "The id of the skillset this configuration is using"
+                                },
+                                "privacy": {
+                                  "type": "boolean",
+                                  "description": "The privacy flag for this configuration"
+                                },
+                                "moderation": {
+                                  "type": "boolean",
+                                  "description": "The moderation flag for this configuration"
+                                }
+                              },
+                              "$$ref": "#/components/schemas/BotConfig"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listTwilioIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/integration/whatsapp/{whatsappIntegrationId}/delete": {
       "post": {
         "operationId": "deleteWhatsAppIntegration",
@@ -19060,6 +19947,10 @@
                       "description": "Whether the Widget integration supports carousels",
                       "type": "boolean"
                     },
+                    "from": {
+                      "description": "Whether the Widget integration supports forms",
+                      "type": "boolean"
+                    },
                     "attachments": {
                       "description": "Whether the Widget integration supports attachments",
                       "type": "boolean"
@@ -19346,6 +20237,10 @@
                     "description": "Whether the Widget integration supports carousels",
                     "type": "boolean"
                   },
+                  "form": {
+                    "description": "Whether the Widget integration supports forms",
+                    "type": "boolean"
+                  },
                   "attachments": {
                     "description": "Whether the Widget integration supports attachments",
                     "type": "boolean"
@@ -19567,6 +20462,10 @@
                   },
                   "carousel": {
                     "description": "Weather the Widget integration supports carousels",
+                    "type": "boolean"
+                  },
+                  "form": {
+                    "description": "Weather the Widget integration supports forms",
                     "type": "boolean"
                   },
                   "attachments": {
@@ -19841,6 +20740,10 @@
                             "description": "Weather the Widget integration supports carousels",
                             "type": "boolean"
                           },
+                          "form": {
+                            "description": "Weather the Widget integration supports forms",
+                            "type": "boolean"
+                          },
                           "attachments": {
                             "description": "Weather the Widget integration supports attachments",
                             "type": "boolean"
@@ -20047,6 +20950,10 @@
                             },
                             "carousel": {
                               "description": "Weather the Widget integration supports carousels",
+                              "type": "boolean"
+                            },
+                            "form": {
+                              "description": "Weather the Widget integration supports forms",
                               "type": "boolean"
                             },
                             "attachments": {
@@ -20634,6 +21541,51 @@
                     "email": {
                       "description": "The email of the partner user",
                       "type": "string"
+                    },
+                    "limits": {
+                      "type": "object",
+                      "description": "Limits information",
+                      "properties": {
+                        "tokens": {
+                          "type": "number",
+                          "description": "The tokens limit"
+                        },
+                        "conversations": {
+                          "type": "number",
+                          "description": "The conversations limit"
+                        },
+                        "messages": {
+                          "type": "number",
+                          "description": "The messages limit"
+                        },
+                        "database": {
+                          "type": "object",
+                          "description": "The database limits",
+                          "properties": {
+                            "datasets": {
+                              "type": "number",
+                              "description": "The datasets limit"
+                            },
+                            "records": {
+                              "type": "number",
+                              "description": "The records limit"
+                            },
+                            "skillsets": {
+                              "type": "number",
+                              "description": "The skillsets limit"
+                            },
+                            "abilities": {
+                              "type": "number",
+                              "description": "The abilities limit"
+                            },
+                            "files": {
+                              "type": "number",
+                              "description": "The files limit"
+                            }
+                          }
+                        }
+                      },
+                      "$$ref": "#/components/schemas/Limits"
                     }
                   },
                   "required": [
@@ -21044,6 +21996,51 @@
                   "email": {
                     "description": "The email of the partner user",
                     "type": "string"
+                  },
+                  "limits": {
+                    "type": "object",
+                    "description": "Limits information",
+                    "properties": {
+                      "tokens": {
+                        "type": "number",
+                        "description": "The tokens limit"
+                      },
+                      "conversations": {
+                        "type": "number",
+                        "description": "The conversations limit"
+                      },
+                      "messages": {
+                        "type": "number",
+                        "description": "The messages limit"
+                      },
+                      "database": {
+                        "type": "object",
+                        "description": "The database limits",
+                        "properties": {
+                          "datasets": {
+                            "type": "number",
+                            "description": "The datasets limit"
+                          },
+                          "records": {
+                            "type": "number",
+                            "description": "The records limit"
+                          },
+                          "skillsets": {
+                            "type": "number",
+                            "description": "The skillsets limit"
+                          },
+                          "abilities": {
+                            "type": "number",
+                            "description": "The abilities limit"
+                          },
+                          "files": {
+                            "type": "number",
+                            "description": "The files limit"
+                          }
+                        }
+                      }
+                    },
+                    "$$ref": "#/components/schemas/Limits"
                   }
                 }
               }
@@ -21124,6 +22121,51 @@
                   "email": {
                     "description": "The email of the partner user",
                     "type": "string"
+                  },
+                  "limits": {
+                    "type": "object",
+                    "description": "Limits information",
+                    "properties": {
+                      "tokens": {
+                        "type": "number",
+                        "description": "The tokens limit"
+                      },
+                      "conversations": {
+                        "type": "number",
+                        "description": "The conversations limit"
+                      },
+                      "messages": {
+                        "type": "number",
+                        "description": "The messages limit"
+                      },
+                      "database": {
+                        "type": "object",
+                        "description": "The database limits",
+                        "properties": {
+                          "datasets": {
+                            "type": "number",
+                            "description": "The datasets limit"
+                          },
+                          "records": {
+                            "type": "number",
+                            "description": "The records limit"
+                          },
+                          "skillsets": {
+                            "type": "number",
+                            "description": "The skillsets limit"
+                          },
+                          "abilities": {
+                            "type": "number",
+                            "description": "The abilities limit"
+                          },
+                          "files": {
+                            "type": "number",
+                            "description": "The files limit"
+                          }
+                        }
+                      }
+                    },
+                    "$$ref": "#/components/schemas/Limits"
                   }
                 }
               }
@@ -21253,6 +22295,51 @@
                           "email": {
                             "description": "The email of the partner user",
                             "type": "string"
+                          },
+                          "limits": {
+                            "type": "object",
+                            "description": "Limits information",
+                            "properties": {
+                              "tokens": {
+                                "type": "number",
+                                "description": "The tokens limit"
+                              },
+                              "conversations": {
+                                "type": "number",
+                                "description": "The conversations limit"
+                              },
+                              "messages": {
+                                "type": "number",
+                                "description": "The messages limit"
+                              },
+                              "database": {
+                                "type": "object",
+                                "description": "The database limits",
+                                "properties": {
+                                  "datasets": {
+                                    "type": "number",
+                                    "description": "The datasets limit"
+                                  },
+                                  "records": {
+                                    "type": "number",
+                                    "description": "The records limit"
+                                  },
+                                  "skillsets": {
+                                    "type": "number",
+                                    "description": "The skillsets limit"
+                                  },
+                                  "abilities": {
+                                    "type": "number",
+                                    "description": "The abilities limit"
+                                  },
+                                  "files": {
+                                    "type": "number",
+                                    "description": "The files limit"
+                                  }
+                                }
+                              }
+                            },
+                            "$$ref": "#/components/schemas/Limits"
                           }
                         },
                         "required": [
@@ -21318,6 +22405,51 @@
                             "email": {
                               "description": "The email of the partner user",
                               "type": "string"
+                            },
+                            "limits": {
+                              "type": "object",
+                              "description": "Limits information",
+                              "properties": {
+                                "tokens": {
+                                  "type": "number",
+                                  "description": "The tokens limit"
+                                },
+                                "conversations": {
+                                  "type": "number",
+                                  "description": "The conversations limit"
+                                },
+                                "messages": {
+                                  "type": "number",
+                                  "description": "The messages limit"
+                                },
+                                "database": {
+                                  "type": "object",
+                                  "description": "The database limits",
+                                  "properties": {
+                                    "datasets": {
+                                      "type": "number",
+                                      "description": "The datasets limit"
+                                    },
+                                    "records": {
+                                      "type": "number",
+                                      "description": "The records limit"
+                                    },
+                                    "skillsets": {
+                                      "type": "number",
+                                      "description": "The skillsets limit"
+                                    },
+                                    "abilities": {
+                                      "type": "number",
+                                      "description": "The abilities limit"
+                                    },
+                                    "files": {
+                                      "type": "number",
+                                      "description": "The files limit"
+                                    }
+                                  }
+                                }
+                              },
+                              "$$ref": "#/components/schemas/Limits"
                             }
                           },
                           "$$ref": "#/paths/~1partner~1user~1list/get/responses/200/content/application~1json/schema/properties/items/items",

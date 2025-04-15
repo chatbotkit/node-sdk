@@ -106,6 +106,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/bot/{botId}/clone": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Clone bot */
+        post: operations["cloneBot"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/bot/{botId}/delete": {
         parameters: {
             query?: never;
@@ -2309,6 +2326,108 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/twilio/{twilioIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Twilio integration */
+        post: operations["deleteTwilioIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/twilio/{twilioIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a twilioIntegration */
+        get: operations["fetchTwilioIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/twilio/{twilioIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup a Twilio integration */
+        post: operations["setupTwilioIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/twilio/{twilioIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Twilio integration */
+        post: operations["updateTwilioIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/twilio/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Twilio integration */
+        post: operations["createTwilioIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/twilio/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Twilio integrations */
+        get: operations["listTwilioIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/whatsapp/{whatsappIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -3259,6 +3378,28 @@ export interface components {
             /** @description The tokens used in this exchange */
             token: number;
         };
+        /** @description Limits information */
+        Limits: {
+            /** @description The tokens limit */
+            tokens?: number;
+            /** @description The conversations limit */
+            conversations?: number;
+            /** @description The messages limit */
+            messages?: number;
+            /** @description The database limits */
+            database?: {
+                /** @description The datasets limit */
+                datasets?: number;
+                /** @description The records limit */
+                records?: number;
+                /** @description The skillsets limit */
+                skillsets?: number;
+                /** @description The abilities limit */
+                abilities?: number;
+                /** @description The files limit */
+                files?: number;
+            };
+        };
         /** @description Meta data information */
         Meta: {
             [key: string]: unknown;
@@ -3311,6 +3452,15 @@ export interface components {
             privacy?: boolean;
             /** @description The moderation flag for this configuration */
             moderation?: boolean;
+        };
+        /** @description Instance list properties */
+        InstanceMetaProps: {
+            /** @description The instance ID */
+            id: string;
+            /** @description The timestamp (ms) when the instance was created */
+            createdAt: number;
+            /** @description The timestamp (ms) when the instance was updated */
+            updatedAt: number;
         };
         /** @description Instance crud properties */
         InstanceCrudProps: {
@@ -3633,6 +3783,44 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    cloneBot: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                botId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": unknown;
+            };
+        };
+        responses: {
+            /** @description The bot was cloned successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the cloned bot */
+                        id: string;
                     };
                 };
             };
@@ -7089,14 +7277,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The associated name */
-                        name?: string;
-                        /** @description The associated description */
-                        description?: string;
-                        /** @description Meta data information */
-                        meta?: {
-                            [key: string]: unknown;
-                        };
                         /** @description The instance ID */
                         id: string;
                         /** @description The timestamp (ms) when the instance was created */
@@ -7239,14 +7419,6 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
-                            /** @description The associated name */
-                            name?: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
                             /** @description The instance ID */
                             id: string;
                             /** @description The timestamp (ms) when the instance was created */
@@ -7265,14 +7437,6 @@ export interface operations {
                         type: "item";
                         /** @description Instance list properties */
                         data: {
-                            /** @description The associated name */
-                            name?: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
                             /** @description The instance ID */
                             id: string;
                             /** @description The timestamp (ms) when the instance was created */
@@ -7320,14 +7484,6 @@ export interface operations {
                 content: {
                     "application/json": {
                         items: {
-                            /** @description The associated name */
-                            name?: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
                             /** @description The instance ID */
                             id: string;
                             /** @description The timestamp (ms) when the instance was created */
@@ -7346,14 +7502,6 @@ export interface operations {
                         type: "item";
                         /** @description Instance list properties */
                         data: {
-                            /** @description The associated name */
-                            name?: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
                             /** @description The instance ID */
                             id: string;
                             /** @description The timestamp (ms) when the instance was created */
@@ -7423,6 +7571,9 @@ export interface operations {
                         records: {
                             id: string;
                             text: string;
+                            source?: string;
+                            meta?: Record<string, never>;
+                            score: number;
                         }[];
                     };
                 };
@@ -11913,6 +12064,409 @@ export interface operations {
             };
         };
     };
+    deleteTwilioIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                twilioIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Twilio integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Twilio integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchTwilioIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                twilioIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Twilio integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description Weather to collect contacts */
+                        contactCollection?: boolean;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
+                    } & ({
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                    } | {
+                        /**
+                         * @description A model definition
+                         * @example gpt-4-turbo/temperature=0.7
+                         */
+                        model?: string;
+                        /** @description The backstory this configuration is using */
+                        backstory?: string;
+                        /** @description The id of the dataset this configuration is using */
+                        datasetId?: string;
+                        /** @description The id of the skillset this configuration is using */
+                        skillsetId?: string;
+                        /** @description The privacy flag for this configuration */
+                        privacy?: boolean;
+                        /** @description The moderation flag for this configuration */
+                        moderation?: boolean;
+                    });
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    setupTwilioIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                twilioIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Twilio integration was successfully setup */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Twilio Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    updateTwilioIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                twilioIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Twilio integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Twilio Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    createTwilioIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The Twilio integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Twilio Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listTwilioIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Twilio integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: ({
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        }))[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description A bot configuration or reference */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                        } & ({
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                        } | {
+                            /**
+                             * @description A model definition
+                             * @example gpt-4-turbo/temperature=0.7
+                             */
+                            model?: string;
+                            /** @description The backstory this configuration is using */
+                            backstory?: string;
+                            /** @description The id of the dataset this configuration is using */
+                            datasetId?: string;
+                            /** @description The id of the skillset this configuration is using */
+                            skillsetId?: string;
+                            /** @description The privacy flag for this configuration */
+                            privacy?: boolean;
+                            /** @description The moderation flag for this configuration */
+                            moderation?: boolean;
+                        });
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     deleteWhatsAppIntegration: {
         parameters: {
             query?: never;
@@ -12446,6 +13000,8 @@ export interface operations {
                         math?: boolean;
                         /** @description Whether the Widget integration supports carousels */
                         carousel?: boolean;
+                        /** @description Whether the Widget integration supports forms */
+                        from?: boolean;
                         /** @description Whether the Widget integration supports attachments */
                         attachments?: boolean;
                         /** @description Whether the Widget integration auto scrolls */
@@ -12589,6 +13145,8 @@ export interface operations {
                     math?: boolean;
                     /** @description Whether the Widget integration supports carousels */
                     carousel?: boolean;
+                    /** @description Whether the Widget integration supports forms */
+                    form?: boolean;
                     /** @description Whether the Widget integration supports attachments */
                     attachments?: boolean;
                     /** @description Whether the Widget integration auto scrolls */
@@ -12705,6 +13263,8 @@ export interface operations {
                     math?: boolean;
                     /** @description Weather the Widget integration supports carousels */
                     carousel?: boolean;
+                    /** @description Weather the Widget integration supports forms */
+                    form?: boolean;
                     /** @description Weather the Widget integration supports attachments */
                     attachments?: boolean;
                     /** @description Whether the Widget integration auto scrolls */
@@ -12838,6 +13398,8 @@ export interface operations {
                             math?: boolean;
                             /** @description Weather the Widget integration supports carousels */
                             carousel?: boolean;
+                            /** @description Weather the Widget integration supports forms */
+                            form?: boolean;
                             /** @description Weather the Widget integration supports attachments */
                             attachments?: boolean;
                             /** @description Whether the Widget integration auto scrolls */
@@ -12933,6 +13495,8 @@ export interface operations {
                             math?: boolean;
                             /** @description Weather the Widget integration supports carousels */
                             carousel?: boolean;
+                            /** @description Weather the Widget integration supports forms */
+                            form?: boolean;
                             /** @description Weather the Widget integration supports attachments */
                             attachments?: boolean;
                             /** @description Whether the Widget integration auto scrolls */
@@ -13207,6 +13771,28 @@ export interface operations {
                         image?: string;
                         /** @description The email of the partner user */
                         email?: string;
+                        /** @description Limits information */
+                        limits?: {
+                            /** @description The tokens limit */
+                            tokens?: number;
+                            /** @description The conversations limit */
+                            conversations?: number;
+                            /** @description The messages limit */
+                            messages?: number;
+                            /** @description The database limits */
+                            database?: {
+                                /** @description The datasets limit */
+                                datasets?: number;
+                                /** @description The records limit */
+                                records?: number;
+                                /** @description The skillsets limit */
+                                skillsets?: number;
+                                /** @description The abilities limit */
+                                abilities?: number;
+                                /** @description The files limit */
+                                files?: number;
+                            };
+                        };
                     };
                 };
             };
@@ -13402,6 +13988,28 @@ export interface operations {
                     image?: string;
                     /** @description The email of the partner user */
                     email?: string;
+                    /** @description Limits information */
+                    limits?: {
+                        /** @description The tokens limit */
+                        tokens?: number;
+                        /** @description The conversations limit */
+                        conversations?: number;
+                        /** @description The messages limit */
+                        messages?: number;
+                        /** @description The database limits */
+                        database?: {
+                            /** @description The datasets limit */
+                            datasets?: number;
+                            /** @description The records limit */
+                            records?: number;
+                            /** @description The skillsets limit */
+                            skillsets?: number;
+                            /** @description The abilities limit */
+                            abilities?: number;
+                            /** @description The files limit */
+                            files?: number;
+                        };
+                    };
                 };
             };
         };
@@ -13451,6 +14059,28 @@ export interface operations {
                     image?: string;
                     /** @description The email of the partner user */
                     email?: string;
+                    /** @description Limits information */
+                    limits?: {
+                        /** @description The tokens limit */
+                        tokens?: number;
+                        /** @description The conversations limit */
+                        conversations?: number;
+                        /** @description The messages limit */
+                        messages?: number;
+                        /** @description The database limits */
+                        database?: {
+                            /** @description The datasets limit */
+                            datasets?: number;
+                            /** @description The records limit */
+                            records?: number;
+                            /** @description The skillsets limit */
+                            skillsets?: number;
+                            /** @description The abilities limit */
+                            abilities?: number;
+                            /** @description The files limit */
+                            files?: number;
+                        };
+                    };
                 };
             };
         };
@@ -13517,6 +14147,28 @@ export interface operations {
                             image?: string;
                             /** @description The email of the partner user */
                             email?: string;
+                            /** @description Limits information */
+                            limits?: {
+                                /** @description The tokens limit */
+                                tokens?: number;
+                                /** @description The conversations limit */
+                                conversations?: number;
+                                /** @description The messages limit */
+                                messages?: number;
+                                /** @description The database limits */
+                                database?: {
+                                    /** @description The datasets limit */
+                                    datasets?: number;
+                                    /** @description The records limit */
+                                    records?: number;
+                                    /** @description The skillsets limit */
+                                    skillsets?: number;
+                                    /** @description The abilities limit */
+                                    abilities?: number;
+                                    /** @description The files limit */
+                                    files?: number;
+                                };
+                            };
                         }[];
                     };
                     "application/jsonl": {
@@ -13545,6 +14197,28 @@ export interface operations {
                             image?: string;
                             /** @description The email of the partner user */
                             email?: string;
+                            /** @description Limits information */
+                            limits?: {
+                                /** @description The tokens limit */
+                                tokens?: number;
+                                /** @description The conversations limit */
+                                conversations?: number;
+                                /** @description The messages limit */
+                                messages?: number;
+                                /** @description The database limits */
+                                database?: {
+                                    /** @description The datasets limit */
+                                    datasets?: number;
+                                    /** @description The records limit */
+                                    records?: number;
+                                    /** @description The skillsets limit */
+                                    skillsets?: number;
+                                    /** @description The abilities limit */
+                                    abilities?: number;
+                                    /** @description The files limit */
+                                    files?: number;
+                                };
+                            };
                         };
                     };
                 };
