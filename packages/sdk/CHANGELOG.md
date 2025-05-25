@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.9
+
+### Patch Changes
+
+- 620ba98: Added headers field to the client.
+
 ## 1.17.8
 
 ### Patch Changes
