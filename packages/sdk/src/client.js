@@ -209,6 +209,7 @@ export class ResponsePromise {
  * @property {string} [runAsUserId] An optional user ID to run as
  * @property {string} [runAsChildUserEmail] An optional child user email to run as (experimental)
  * @property {string} [timezone] An optional timezone to use for the API
+ * @property {Record<string,string>} [headers] An optional map of headers to add to the request
  */
 
 export class ChatBotKitClient {
@@ -234,6 +235,8 @@ export class ChatBotKitClient {
     this.runAsChildUserEmail = options.runAsChildUserEmail
 
     this.timezone = options.timezone
+
+    this.headers = options.headers || {}
 
     this.cacheMap = new Map()
   }
@@ -290,7 +293,9 @@ export class ChatBotKitClient {
     }
 
     /** @type {Record<string,string>} */
-    const headers = {}
+    const headers = {
+      ...this.headers,
+    }
 
     if (!options?.external) {
       if (this.secret) {
