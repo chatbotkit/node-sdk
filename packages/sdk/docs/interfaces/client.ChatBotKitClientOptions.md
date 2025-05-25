@@ -9,6 +9,7 @@
 ### Properties
 
 - [endpoints](client.ChatBotKitClientOptions.md#endpoints)
+- [headers](client.ChatBotKitClientOptions.md#headers)
 - [host](client.ChatBotKitClientOptions.md#host)
 - [protocol](client.ChatBotKitClientOptions.md#protocol)
 - [runAsChildUserEmail](client.ChatBotKitClientOptions.md#runaschilduseremail)
@@ -27,6 +28,18 @@ An optional map of endpoints to override
 #### Defined in
 
 [client.js:208](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L208)
+
+___
+
+### headers
+
+• **headers**: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\>
+
+An optional map of headers to add to the request
+
+#### Defined in
+
+[client.js:212](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L212)
 
 ___
 

@@ -108,7 +108,7 @@ Bot client.
 
 #### Defined in
 
-[client.js:257](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L257)
+[client.js:260](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L260)
 
 ___
 
