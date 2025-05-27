@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.10
+
+### Patch Changes
+
+- 0492db6: Added extra options to control timeout and retries.
+
 ## 1.17.9
 
 ### Patch Changes
