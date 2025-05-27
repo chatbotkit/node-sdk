@@ -8,7 +8,11 @@ import {
   withTimeout,
 } from '@chatbotkit/fetch'
 
-const fetchPlusPlus = withRetry(withTimeout(fetch))
+const fetchPlusPlus = withRetry(withTimeout(fetch, { timeout: Infinity }), {
+  retries: 3,
+  retryDelay: 250,
+  retryTimeout: true,
+})
 
 /** @type {Record<string,{message: string, code: string}>} */
 const standardErrors = {
@@ -33,7 +37,11 @@ export class ResponsePromise {
    * @param {{
    *   method: string,
    *   headers: Record<string,any>,
-   *   data?: any
+   *   data?: any,
+   *   timeout?: number,
+   *   retries?: number,
+   *   retryDelay?: number,
+   *   retryTimeout?: boolean
    * }} request
    * @param {Map<string,Promise<T>>} [cacheMap]
    */
@@ -54,12 +62,30 @@ export class ResponsePromise {
   }
 
   /**
-   * @param {{method?: string, headers?: Record<string,any>, data?: any}} [params]
+   * @param {{
+   *   method?: string,
+   *   headers?: Record<string,any>,
+   *   data?: any,
+   *   timeout?: number,
+   *   retries?: number,
+   *   retryDelay?: number,
+   *   retryTimeout?: boolean
+   * }} [params]
    */
   async getRequest(params) {
     let body
 
-    const { method, headers, data } = this.request
+    const {
+      method,
+      headers,
+      data,
+
+      timeout,
+
+      retries,
+      retryDelay,
+      retryTimeout,
+    } = this.request
 
     if (data) {
       body = params?.data || data
@@ -76,6 +102,14 @@ export class ResponsePromise {
       },
 
       body,
+
+      ...{
+        timeout: params.timeout ?? timeout,
+
+        retries: params.retries ?? retries,
+        retryDelay: params.retryDelay ?? retryDelay,
+        retryTimeout: params.retryTimeout ?? retryTimeout,
+      },
 
       mode: 'cors',
       cache: 'no-cache',
@@ -210,6 +244,10 @@ export class ResponsePromise {
  * @property {string} [runAsChildUserEmail] An optional child user email to run as (experimental)
  * @property {string} [timezone] An optional timezone to use for the API
  * @property {Record<string,string>} [headers] An optional map of headers to add to the request
+ * @property {number} [timeout] An optional timeout in milliseconds for the request
+ * @property {number} [retries] An optional number of retries for the request
+ * @property {number} [retryDelay] An optional delay in milliseconds between retries
+ * @property {boolean} [retryTimeout] An optional flag to retry on timeout errors
  */
 
 export class ChatBotKitClient {
@@ -238,6 +276,12 @@ export class ChatBotKitClient {
 
     this.headers = options.headers || {}
 
+    this.timeout = options.timeout
+
+    this.retries = options.retries
+    this.retryDelay = options.retryDelay
+    this.retryTimeout = options.retryTimeout
+
     this.cacheMap = new Map()
   }
 
@@ -253,7 +297,11 @@ export class ChatBotKitClient {
    *   buffer?: ArrayBuffer,
    *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
    *   external?: boolean,
-   *   endpoint?: string
+   *   endpoint?: string,
+   *   timeout?: number,
+   *   retries?: number,
+   *   retryDelay?: number,
+   *   retryTimeout?: boolean
    * }} [options]
    * @returns {ResponsePromise<T,U>}
    */
@@ -351,6 +399,12 @@ export class ChatBotKitClient {
       method,
       headers,
       data,
+
+      timeout: options?.timeout ?? this.timeout,
+
+      retries: options?.retries ?? this.retries,
+      retryDelay: options?.retryDelay ?? this.retryDelay,
+      retryTimeout: options?.retryTimeout ?? this.retryTimeout,
     }
 
     return new ResponsePromise(url, request, this.cacheMap)
