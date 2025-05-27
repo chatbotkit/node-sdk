@@ -104,11 +104,11 @@ export class ResponsePromise {
       body,
 
       ...{
-        timeout: params.timeout ?? timeout,
+        timeout: params?.timeout ?? timeout,
 
-        retries: params.retries ?? retries,
-        retryDelay: params.retryDelay ?? retryDelay,
-        retryTimeout: params.retryTimeout ?? retryTimeout,
+        retries: params?.retries ?? retries,
+        retryDelay: params?.retryDelay ?? retryDelay,
+        retryTimeout: params?.retryTimeout ?? retryTimeout,
       },
 
       mode: 'cors',
