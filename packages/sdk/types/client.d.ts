@@ -8,7 +8,11 @@ export class ResponsePromise<T, U> {
      * @param {{
      *   method: string,
      *   headers: Record<string,any>,
-     *   data?: any
+     *   data?: any,
+     *   timeout?: number,
+     *   retries?: number,
+     *   retryDelay?: number,
+     *   retryTimeout?: boolean
      * }} request
      * @param {Map<string,Promise<T>>} [cacheMap]
      */
@@ -16,24 +20,44 @@ export class ResponsePromise<T, U> {
         method: string;
         headers: Record<string, any>;
         data?: any;
+        timeout?: number;
+        retries?: number;
+        retryDelay?: number;
+        retryTimeout?: boolean;
     }, cacheMap?: Map<string, Promise<T>> | undefined);
     url: string | URL;
     request: {
         method: string;
         headers: Record<string, any>;
         data?: any;
+        timeout?: number | undefined;
+        retries?: number | undefined;
+        retryDelay?: number | undefined;
+        retryTimeout?: boolean | undefined;
     };
     decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
     streamPromise: Promise<Response> | null;
     cacheMap: Map<string, Promise<T>>;
     /**
-     * @param {{method?: string, headers?: Record<string,any>, data?: any}} [params]
+     * @param {{
+     *   method?: string,
+     *   headers?: Record<string,any>,
+     *   data?: any,
+     *   timeout?: number,
+     *   retries?: number,
+     *   retryDelay?: number,
+     *   retryTimeout?: boolean
+     * }} [params]
      */
     getRequest(params?: {
         method?: string | undefined;
         headers?: Record<string, any> | undefined;
         data?: any;
+        timeout?: number | undefined;
+        retries?: number | undefined;
+        retryDelay?: number | undefined;
+        retryTimeout?: boolean | undefined;
     } | undefined): Promise<Response>;
     getFetchPromise(): Promise<Response>;
     getStreamPromise(): Promise<Response>;
@@ -72,6 +96,10 @@ export class ResponsePromise<T, U> {
  * @property {string} [runAsChildUserEmail] An optional child user email to run as (experimental)
  * @property {string} [timezone] An optional timezone to use for the API
  * @property {Record<string,string>} [headers] An optional map of headers to add to the request
+ * @property {number} [timeout] An optional timeout in milliseconds for the request
+ * @property {number} [retries] An optional number of retries for the request
+ * @property {number} [retryDelay] An optional delay in milliseconds between retries
+ * @property {boolean} [retryTimeout] An optional flag to retry on timeout errors
  */
 export class ChatBotKitClient {
     /**
@@ -85,6 +113,10 @@ export class ChatBotKitClient {
     runAsChildUserEmail: string | undefined;
     timezone: string | undefined;
     headers: Record<string, string>;
+    timeout: number | undefined;
+    retries: number | undefined;
+    retryDelay: number | undefined;
+    retryTimeout: boolean | undefined;
     cacheMap: Map<any, any>;
     /**
      * @template T
@@ -98,7 +130,11 @@ export class ChatBotKitClient {
      *   buffer?: ArrayBuffer,
      *   file?: { name?: string, type?: string, data: string|ArrayBuffer },
      *   external?: boolean,
-     *   endpoint?: string
+     *   endpoint?: string,
+     *   timeout?: number,
+     *   retries?: number,
+     *   retryDelay?: number,
+     *   retryTimeout?: boolean
      * }} [options]
      * @returns {ResponsePromise<T,U>}
      */
@@ -115,6 +151,10 @@ export class ChatBotKitClient {
         } | undefined;
         external?: boolean | undefined;
         endpoint?: string | undefined;
+        timeout?: number | undefined;
+        retries?: number | undefined;
+        retryDelay?: number | undefined;
+        retryTimeout?: boolean | undefined;
     } | undefined): ResponsePromise<T, U>;
 }
 export type ChatBotKitClientOptions = {
@@ -150,4 +190,20 @@ export type ChatBotKitClientOptions = {
      * An optional map of headers to add to the request
      */
     headers?: Record<string, string> | undefined;
+    /**
+     * An optional timeout in milliseconds for the request
+     */
+    timeout?: number | undefined;
+    /**
+     * An optional number of retries for the request
+     */
+    retries?: number | undefined;
+    /**
+     * An optional delay in milliseconds between retries
+     */
+    retryDelay?: number | undefined;
+    /**
+     * An optional flag to retry on timeout errors
+     */
+    retryTimeout?: boolean | undefined;
 };
