@@ -118,7 +118,7 @@
 
 #### Defined in
 
-[client.js:219](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L219)
+[client.js:257](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L257)
 
 ## Methods
 
@@ -150,6 +150,10 @@
 | `options.method?` | `string` |
 | `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.retries?` | `number` |
+| `options.retryDelay?` | `number` |
+| `options.retryTimeout?` | `boolean` |
+| `options.timeout?` | `number` |
 
 #### Returns
 
@@ -157,4 +161,4 @@
 
 #### Defined in
 
-[client.js:260](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L260)
+[client.js:308](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L308)
