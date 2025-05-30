@@ -28,7 +28,7 @@ const standardErrors = {
 }
 
 /**
- * @typedef {(url: string|URL, init?: RequestInit) => Promise<Response>} FetchFunction
+ * @typedef {typeof fetchPlusPlus} FetchFunction
  */
 
 /**
