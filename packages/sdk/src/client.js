@@ -28,6 +28,10 @@ const standardErrors = {
 }
 
 /**
+ * @typedef {(url: string|URL, init?: RequestInit) => Promise<Response>} FetchFunction
+ */
+
+/**
  * @template T
  * @template U
  */
@@ -42,7 +46,7 @@ export class ResponsePromise {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
-   *   fetch?: (...args: any[]) => any
+   *   fetch?: FetchFunction
    * }} request
    * @param {Map<string,Promise<T>>} [cacheMap]
    */
@@ -71,7 +75,7 @@ export class ResponsePromise {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
-   *   fetch?: (...args: any[]) => any
+   *   fetch?: FetchFunction
    * }} [params]
    */
   async getRequest(params) {
@@ -252,7 +256,7 @@ export class ResponsePromise {
  * @property {number} [retries] An optional number of retries for the request
  * @property {number} [retryDelay] An optional delay in milliseconds between retries
  * @property {boolean} [retryTimeout] An optional flag to retry on timeout errors
- * @property {(...args: any[]) => any} [fetch] An optional fetch implementation function to use instead
+ * @property {FetchFunction} [fetch] An optional fetch implementation function to use instead
  */
 
 export class ChatBotKitClient {
@@ -309,7 +313,7 @@ export class ChatBotKitClient {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
-   *   fetch?: (...args: any[]) => any
+   *   fetch?: FetchFunction
    * }} [options]
    * @returns {ResponsePromise<T,U>}
    */
