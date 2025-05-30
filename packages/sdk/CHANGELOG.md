@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.17.11
+
+### Patch Changes
+
+- 6ab2955: Support for custom fetch functions and react stream callback function yeild handlers.
+
 ## 1.17.10
 
 ### Patch Changes
