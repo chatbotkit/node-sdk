@@ -46,7 +46,7 @@ export class ResponsePromise {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
-   *   fetch?: FetchFunction
+   *   fetchFn?: FetchFunction
    * }} request
    * @param {Map<string,Promise<T>>} [cacheMap]
    */
@@ -75,7 +75,7 @@ export class ResponsePromise {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
-   *   fetch?: FetchFunction
+   *   fetchFn?: FetchFunction
    * }} [params]
    */
   async getRequest(params) {
@@ -92,7 +92,7 @@ export class ResponsePromise {
       retryDelay,
       retryTimeout,
 
-      fetch,
+      fetchFn,
     } = this.request
 
     if (data) {
@@ -101,7 +101,7 @@ export class ResponsePromise {
 
     const url = this.url.toString()
 
-    const response = await (params?.fetch || fetch || fetchPlusPlus)(url, {
+    const response = await (params?.fetchFn || fetchFn || fetchPlusPlus)(url, {
       method: params?.method || method,
 
       headers: {
@@ -266,7 +266,7 @@ export class ResponsePromise {
  * @property {number} [retries] An optional number of retries for the request
  * @property {number} [retryDelay] An optional delay in milliseconds between retries
  * @property {boolean} [retryTimeout] An optional flag to retry on timeout errors
- * @property {FetchFunction} [fetch] An optional fetch implementation function to use instead
+ * @property {FetchFunction} [fetchFn] An optional fetch implementation function to use instead
  */
 
 export class ChatBotKitClient {
@@ -301,7 +301,7 @@ export class ChatBotKitClient {
     this.retryDelay = options.retryDelay
     this.retryTimeout = options.retryTimeout
 
-    this.fetch = options.fetch || fetchPlusPlus
+    this.fetchFn = options.fetchFn || fetchPlusPlus
 
     this.cacheMap = new Map()
   }
@@ -323,7 +323,7 @@ export class ChatBotKitClient {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
-   *   fetch?: FetchFunction
+   *   fetchFn?: FetchFunction
    * }} [options]
    * @returns {ResponsePromise<T,U>}
    */
@@ -428,7 +428,7 @@ export class ChatBotKitClient {
       retryDelay: options?.retryDelay ?? this.retryDelay,
       retryTimeout: options?.retryTimeout ?? this.retryTimeout,
 
-      fetch: options?.fetch || this.fetch,
+      fetchFn: options?.fetchFn || this.fetchFn,
     }
 
     return new ResponsePromise(url, request, this.cacheMap)
