@@ -219,11 +219,15 @@ export class ResponsePromise {
    * @returns {Promise<T>}
    */
   async cache(key = 'default') {
-    key = [key, this.request?.method || 'GET', this.url.toString()].join(':::')
+    const cacheKey = JSON.stringify({
+      key,
+      method: this.request?.method || 'GET',
+      url: this.url.toString(),
+    })
 
-    if (!this.cacheMap.has(key)) {
+    if (!this.cacheMap.has(cacheKey)) {
       this.cacheMap.set(
-        key,
+        cacheKey,
         this.getFetchPromise().then(async (response) => {
           if (
             response.headers.get('content-type')?.includes('application/json')
@@ -238,7 +242,7 @@ export class ResponsePromise {
       )
     }
 
-    return /** @type {T}*/ (await this.cacheMap.get(key))
+    return /** @type {T}*/ (await this.cacheMap.get(cacheKey))
   }
 }
 
