@@ -70,6 +70,7 @@ import { getRandomId } from '../utils/string.js'
 
 /**
  * @typedef {function(Item): any} OnItemHandler
+ * @typedef {function(): any} OnStartHandler
  * @typedef {function({ messages: Message[] }): any} OnFinishHandler
  */
 
@@ -80,6 +81,7 @@ import { getRandomId } from '../utils/string.js'
  *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
  *   maxRecusion?: number,
  *   onItem?: OnItemHandler,
+ *   onStart?: OnStartHandler,
  *   onFinish?: OnFinishHandler
  * }} Options
  */
@@ -184,6 +186,16 @@ async function* complete({
 
   if (!it) {
     throw new Error('No stream iterator')
+  }
+
+  // If we have an onStart handler then we call it.
+
+  if (options.onStart) {
+    const result = await options.onStart()
+
+    if (result && typeof result === 'object' && 'type' in result) {
+      yield result
+    }
   }
 
   // Iterate over the stream and handle each item.
