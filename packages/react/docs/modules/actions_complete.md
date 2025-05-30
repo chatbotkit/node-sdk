@@ -16,6 +16,7 @@
 - [Message](actions_complete.md#message)
 - [OnFinishHandler](actions_complete.md#onfinishhandler)
 - [OnItemHandler](actions_complete.md#onitemhandler)
+- [OnStartHandler](actions_complete.md#onstarthandler)
 - [Options](actions_complete.md#options)
 - [OutputMessage](actions_complete.md#outputmessage)
 - [ReactElement](actions_complete.md#reactelement)
@@ -150,7 +151,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/actions/complete.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L73)
+[packages/react/src/actions/complete.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L74)
 
 ___
 
@@ -164,13 +165,23 @@ ___
 
 ___
 
-### Options
+### OnStartHandler
 
-Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: ([`InputFunction`](actions_complete.md#inputfunction) \| () => [`InputFunction`](actions_complete.md#inputfunction) \| [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`InputFunction`](actions_complete.md#inputfunction)\>)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[] ; `onFinish?`: [`OnFinishHandler`](actions_complete.md#onfinishhandler) ; `onItem?`: [`OnItemHandler`](actions_complete.md#onitemhandler)  }
+Ƭ **OnStartHandler**\<\>: function(): any
 
 #### Defined in
 
-[packages/react/src/actions/complete.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L84)
+[packages/react/src/actions/complete.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L73)
+
+___
+
+### Options
+
+Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: ([`InputFunction`](actions_complete.md#inputfunction) \| () => [`InputFunction`](actions_complete.md#inputfunction) \| [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`InputFunction`](actions_complete.md#inputfunction)\>)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[] ; `onFinish?`: [`OnFinishHandler`](actions_complete.md#onfinishhandler) ; `onItem?`: [`OnItemHandler`](actions_complete.md#onitemhandler) ; `onStart?`: [`OnStartHandler`](actions_complete.md#onstarthandler)  }
+
+#### Defined in
+
+[packages/react/src/actions/complete.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L86)
 
 ___
 
@@ -257,7 +268,7 @@ the current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[packages/react/src/actions/complete.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L95)
+[packages/react/src/actions/complete.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L97)
 
 ___
 
@@ -281,4 +292,4 @@ current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[packages/react/src/actions/complete.js:397](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L397)
+[packages/react/src/actions/complete.js:409](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L409)

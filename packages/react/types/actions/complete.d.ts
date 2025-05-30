@@ -58,6 +58,7 @@ export type InputFunction = {
     handler?: ((args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>) | undefined;
 };
 export type OnItemHandler = (arg0: Item) => any;
+export type OnStartHandler = () => any;
 export type OnFinishHandler = (arg0: {
     messages: Message[];
 }) => any;
@@ -67,6 +68,7 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
     functions?: (InputFunction | (() => InputFunction | Promise<InputFunction>))[];
     maxRecusion?: number;
     onItem?: OnItemHandler;
+    onStart?: OnStartHandler;
     onFinish?: OnFinishHandler;
 };
 /**
@@ -128,6 +130,7 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  */
 /**
  * @typedef {function(Item): any} OnItemHandler
+ * @typedef {function(): any} OnStartHandler
  * @typedef {function({ messages: Message[] }): any} OnFinishHandler
  */
 /**
@@ -137,6 +140,7 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
  *   maxRecusion?: number,
  *   onItem?: OnItemHandler,
+ *   onStart?: OnStartHandler,
  *   onFinish?: OnFinishHandler
  * }} Options
  */
