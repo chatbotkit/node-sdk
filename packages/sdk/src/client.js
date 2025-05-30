@@ -132,8 +132,8 @@ export class ResponsePromise {
       try {
         const data = JSON.parse(new TextDecoder().decode(buffer))
 
-        message = data.message
-        code = data.code
+        message = data.message || `HTTP Error: ${response.statusText}`
+        code = data.code || `ERROR_${response.status}`
       } catch (e) {
         const data = standardErrors[response.status] || standardErrors.default
 
