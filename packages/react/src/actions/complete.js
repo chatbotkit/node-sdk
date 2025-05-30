@@ -100,7 +100,7 @@ async function* complete({
   messages,
   functions,
 
-  maxRecusion = 3,
+  maxRecusion = 50,
 
   ...options
 }) {
