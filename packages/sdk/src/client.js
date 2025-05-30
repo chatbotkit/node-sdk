@@ -174,7 +174,10 @@ export class ResponsePromise {
     return this.getFetchPromise()
       .then(async (response) => {
         if (
-          response.headers.get('content-type')?.includes('application/json')
+          (response.headers.get('content-type') || '')
+            .toLowerCase()
+            .split(';')[0]
+            .trim() === 'application/json'
         ) {
           return await response.json()
         } else {
@@ -230,7 +233,10 @@ export class ResponsePromise {
         cacheKey,
         this.getFetchPromise().then(async (response) => {
           if (
-            response.headers.get('content-type')?.includes('application/json')
+            (response.headers.get('content-type') || '')
+              .toLowerCase()
+              .split(';')[0]
+              .trim() === 'application/json'
           ) {
             return await response.json()
           } else {
