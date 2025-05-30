@@ -1,4 +1,7 @@
 /**
+ * @typedef {typeof fetchPlusPlus} FetchFunction
+ */
+/**
  * @template T
  * @template U
  */
@@ -12,7 +15,8 @@ export class ResponsePromise<T, U> {
      *   timeout?: number,
      *   retries?: number,
      *   retryDelay?: number,
-     *   retryTimeout?: boolean
+     *   retryTimeout?: boolean,
+     *   fetchFn?: FetchFunction
      * }} request
      * @param {Map<string,Promise<T>>} [cacheMap]
      */
@@ -24,6 +28,7 @@ export class ResponsePromise<T, U> {
         retries?: number;
         retryDelay?: number;
         retryTimeout?: boolean;
+        fetchFn?: FetchFunction;
     }, cacheMap?: Map<string, Promise<T>> | undefined);
     url: string | URL;
     request: {
@@ -34,6 +39,7 @@ export class ResponsePromise<T, U> {
         retries?: number | undefined;
         retryDelay?: number | undefined;
         retryTimeout?: boolean | undefined;
+        fetchFn?: import("@chatbotkit/fetch").FetchFn | undefined;
     };
     decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
@@ -47,7 +53,8 @@ export class ResponsePromise<T, U> {
      *   timeout?: number,
      *   retries?: number,
      *   retryDelay?: number,
-     *   retryTimeout?: boolean
+     *   retryTimeout?: boolean,
+     *   fetchFn?: FetchFunction
      * }} [params]
      */
     getRequest(params?: {
@@ -58,6 +65,7 @@ export class ResponsePromise<T, U> {
         retries?: number | undefined;
         retryDelay?: number | undefined;
         retryTimeout?: boolean | undefined;
+        fetchFn?: import("@chatbotkit/fetch").FetchFn | undefined;
     } | undefined): Promise<Response>;
     getFetchPromise(): Promise<Response>;
     getStreamPromise(): Promise<Response>;
@@ -100,6 +108,7 @@ export class ResponsePromise<T, U> {
  * @property {number} [retries] An optional number of retries for the request
  * @property {number} [retryDelay] An optional delay in milliseconds between retries
  * @property {boolean} [retryTimeout] An optional flag to retry on timeout errors
+ * @property {FetchFunction} [fetchFn] An optional fetch implementation function to use instead
  */
 export class ChatBotKitClient {
     /**
@@ -117,6 +126,7 @@ export class ChatBotKitClient {
     retries: number | undefined;
     retryDelay: number | undefined;
     retryTimeout: boolean | undefined;
+    fetchFn: import("@chatbotkit/fetch").FetchFn;
     cacheMap: Map<any, any>;
     /**
      * @template T
@@ -134,7 +144,8 @@ export class ChatBotKitClient {
      *   timeout?: number,
      *   retries?: number,
      *   retryDelay?: number,
-     *   retryTimeout?: boolean
+     *   retryTimeout?: boolean,
+     *   fetchFn?: FetchFunction
      * }} [options]
      * @returns {ResponsePromise<T,U>}
      */
@@ -155,8 +166,10 @@ export class ChatBotKitClient {
         retries?: number | undefined;
         retryDelay?: number | undefined;
         retryTimeout?: boolean | undefined;
+        fetchFn?: import("@chatbotkit/fetch").FetchFn | undefined;
     } | undefined): ResponsePromise<T, U>;
 }
+export type FetchFunction = typeof fetchPlusPlus;
 export type ChatBotKitClientOptions = {
     /**
      * A token to authenticate with the API
@@ -206,4 +219,10 @@ export type ChatBotKitClientOptions = {
      * An optional flag to retry on timeout errors
      */
     retryTimeout?: boolean | undefined;
+    /**
+     * An optional fetch implementation function to use instead
+     */
+    fetchFn?: import("@chatbotkit/fetch").FetchFn | undefined;
 };
+declare const fetchPlusPlus: import("@chatbotkit/fetch").FetchFn;
+export {};
