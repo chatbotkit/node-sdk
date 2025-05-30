@@ -196,7 +196,11 @@ async function* complete({
     // If we have an onItem handler then we call it.
 
     if (options.onItem) {
-      await options.onItem(item)
+      const result = await options.onItem(item)
+
+      if (result && typeof result === 'object' && 'type' in result) {
+        yield result
+      }
     }
 
     // Handle items based on their type.
@@ -374,7 +378,11 @@ async function* complete({
   // If we have an onFinish handler then we call it.
 
   if (options.onFinish) {
-    await options.onFinish({ messages })
+    const result = await options.onFinish({ messages })
+
+    if (result && typeof result === 'object' && 'type' in result) {
+      yield result
+    }
   }
 }
 
