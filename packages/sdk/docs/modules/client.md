@@ -12,3 +12,17 @@
 ### Interfaces
 
 - [ChatBotKitClientOptions](../interfaces/client.ChatBotKitClientOptions.md)
+
+### Type Aliases
+
+- [FetchFunction](client.md#fetchfunction)
+
+## Type Aliases
+
+### FetchFunction
+
+Ƭ **FetchFunction**\<\>: typeof `fetchPlusPlus`
+
+#### Defined in
+
+[client.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L31)

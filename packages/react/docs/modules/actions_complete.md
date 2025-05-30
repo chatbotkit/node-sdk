@@ -281,4 +281,4 @@ current message state as well as correctly handling function calls.
 
 #### Defined in
 
-[packages/react/src/actions/complete.js:389](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L389)
+[packages/react/src/actions/complete.js:397](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L397)

@@ -95,6 +95,7 @@ ___
 | `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.endpoint?` | `string` |
 | `options.external?` | `boolean` |
+| `options.fetchFn?` | `FetchFn` |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
@@ -118,7 +119,7 @@ ___
 
 #### Defined in
 
-[client.js:308](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L308)
+[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
 
 ___
 

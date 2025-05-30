@@ -46,6 +46,7 @@
 | `url` | `string` \| [`URL`]( https://developer.mozilla.org/docs/Web/API/URL ) |
 | `request` | `Object` |
 | `request.data?` | `any` |
+| `request.fetchFn?` | `FetchFn` |
 | `request.headers` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `request.method` | `string` |
 | `request.retries?` | `number` |
@@ -60,7 +61,7 @@
 
 #### Defined in
 
-[client.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L48)
+[client.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L53)
 
 ## Methods
 
@@ -80,7 +81,7 @@
 
 #### Defined in
 
-[client.js:213](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L213)
+[client.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L224)
 
 ___
 
@@ -100,7 +101,7 @@ ___
 
 #### Defined in
 
-[client.js:184](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L184)
+[client.js:195](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L195)
 
 ___
 
@@ -120,7 +121,7 @@ ___
 
 #### Defined in
 
-[client.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L191)
+[client.js:202](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L202)
 
 ___
 
@@ -134,6 +135,7 @@ ___
 | :------ | :------ |
 | `params?` | `Object` |
 | `params.data?` | `any` |
+| `params.fetchFn?` | `FetchFn` |
 | `params.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `params.method?` | `string` |
 | `params.retries?` | `number` |
@@ -147,7 +149,7 @@ ___
 
 #### Defined in
 
-[client.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L75)
+[client.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L81)
 
 ___
 
@@ -161,7 +163,7 @@ ___
 
 #### Defined in
 
-[client.js:198](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L198)
+[client.js:209](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L209)
 
 ___
 
@@ -182,4 +184,4 @@ ___
 
 #### Defined in
 
-[client.js:165](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L165)
+[client.js:173](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L173)
