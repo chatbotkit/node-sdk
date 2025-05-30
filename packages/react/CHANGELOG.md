@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.17.12
+
+### Patch Changes
+
+- 615b05e: Added onStart handler and increase the maxRecursion to 50.
+
 ## 1.17.11
 
 ### Patch Changes
