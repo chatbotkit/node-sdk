@@ -1,5 +1,16 @@
 # @chatbotkit/sdk
 
+## 1.18.0
+
+### Minor Changes
+
+- 4951ab6: Updated fetch implementation plus new API types.
+
+### Patch Changes
+
+- Updated dependencies [4951ab6]
+  - @chatbotkit/fetch@1.18.0
+
 ## 1.17.11
 
 ### Patch Changes
