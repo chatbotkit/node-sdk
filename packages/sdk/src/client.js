@@ -28,7 +28,7 @@ const standardErrors = {
 }
 
 /**
- * @typedef {typeof fetchPlusPlus} FetchFunction
+ * @typedef {import('@chatbotkit/fetch').FetchFn<import('@chatbotkit/fetch').withRetryOptions & import('@chatbotkit/fetch').withTimeoutOptions>} FetchFunction
  */
 
 /**

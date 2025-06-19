@@ -1,5 +1,5 @@
 /**
- * @typedef {typeof fetchPlusPlus} FetchFunction
+ * @typedef {import('@chatbotkit/fetch').FetchFn<import('@chatbotkit/fetch').withRetryOptions & import('@chatbotkit/fetch').withTimeoutOptions>} FetchFunction
  */
 /**
  * @template T
@@ -39,7 +39,7 @@ export class ResponsePromise<T, U> {
         retries?: number | undefined;
         retryDelay?: number | undefined;
         retryTimeout?: boolean | undefined;
-        fetchFn?: import("@chatbotkit/fetch").FetchFn | undefined;
+        fetchFn?: FetchFunction | undefined;
     };
     decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
@@ -65,7 +65,7 @@ export class ResponsePromise<T, U> {
         retries?: number | undefined;
         retryDelay?: number | undefined;
         retryTimeout?: boolean | undefined;
-        fetchFn?: import("@chatbotkit/fetch").FetchFn | undefined;
+        fetchFn?: FetchFunction | undefined;
     } | undefined): Promise<Response>;
     getFetchPromise(): Promise<Response>;
     getStreamPromise(): Promise<Response>;
@@ -126,7 +126,7 @@ export class ChatBotKitClient {
     retries: number | undefined;
     retryDelay: number | undefined;
     retryTimeout: boolean | undefined;
-    fetchFn: import("@chatbotkit/fetch").FetchFn;
+    fetchFn: FetchFunction;
     cacheMap: Map<any, any>;
     /**
      * @template T
@@ -166,10 +166,10 @@ export class ChatBotKitClient {
         retries?: number | undefined;
         retryDelay?: number | undefined;
         retryTimeout?: boolean | undefined;
-        fetchFn?: import("@chatbotkit/fetch").FetchFn | undefined;
+        fetchFn?: FetchFunction | undefined;
     } | undefined): ResponsePromise<T, U>;
 }
-export type FetchFunction = typeof fetchPlusPlus;
+export type FetchFunction = import('@chatbotkit/fetch').FetchFn<import('@chatbotkit/fetch').withRetryOptions & import('@chatbotkit/fetch').withTimeoutOptions>;
 export type ChatBotKitClientOptions = {
     /**
      * A token to authenticate with the API
@@ -222,7 +222,5 @@ export type ChatBotKitClientOptions = {
     /**
      * An optional fetch implementation function to use instead
      */
-    fetchFn?: import("@chatbotkit/fetch").FetchFn | undefined;
+    fetchFn?: FetchFunction | undefined;
 };
-declare const fetchPlusPlus: import("@chatbotkit/fetch").FetchFn;
-export {};
