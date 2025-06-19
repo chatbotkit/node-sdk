@@ -26,7 +26,7 @@
  *   updatedAt: number
  * }} ConversationInstance
  *
- * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'|'activity'} MessageType
+ * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'activity'} MessageType
  *
  * @typedef {{
  *   type: MessageType,
@@ -298,7 +298,7 @@ export type ConversationInstance = ConversationOptions & {
     createdAt: number;
     updatedAt: number;
 };
-export type MessageType = 'user' | 'bot' | 'context' | 'instruction' | 'backstory' | 'activity';
+export type MessageType = 'user' | 'bot' | 'reasoning' | 'context' | 'instruction' | 'backstory' | 'activity';
 export type Message = {
     type: MessageType;
     text: string;

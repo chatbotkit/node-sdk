@@ -224,7 +224,7 @@ ___
 
 ### ConversationMessageType
 
-Ƭ **ConversationMessageType**\<\>: ``"user"`` \| ``"bot"`` \| ``"context"`` \| ``"instruction"`` \| ``"backstory"`` \| ``"activity"``
+Ƭ **ConversationMessageType**\<\>: ``"user"`` \| ``"bot"`` \| ``"reasoning"`` \| ``"context"`` \| ``"instruction"`` \| ``"backstory"`` \| ``"activity"``
 
 #### Defined in
 

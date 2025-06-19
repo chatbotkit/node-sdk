@@ -30,7 +30,7 @@ import { buildModelString } from '../model/v1.js'
  *   updatedAt: number
  * }} ConversationInstance
  *
- * @typedef {'user'|'bot'|'context'|'instruction'|'backstory'|'activity'} MessageType
+ * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'activity'} MessageType
  *
  * @typedef {{
  *   type: MessageType,
