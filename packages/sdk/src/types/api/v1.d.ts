@@ -55,6 +55,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/blueprint/{blueprintId}/resource/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List the resources of a blueprint */
+        get: operations["listBlueprintResources"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/blueprint/{blueprintId}/update": {
         parameters: {
             query?: never;
@@ -1604,6 +1621,91 @@ export interface paths {
         };
         /** List Extract integrations */
         get: operations["listExtractIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/mcpserver/{mcpserverIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete McpServer integration */
+        post: operations["deleteMcpServerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/mcpserver/{mcpserverIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a mcpserverIntegration */
+        get: operations["fetchMcpServerIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/mcpserver/{mcpserverIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a McpServer integration */
+        post: operations["updateMcpServerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/mcpserver/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create McpServer integration */
+        post: operations["createMcpServerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/mcpserver/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List McpServer integrations */
+        get: operations["listMcpServerIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3281,7 +3383,7 @@ export interface components {
              * @description The type of the message
              * @enum {string}
              */
-            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
             /** @description The text of the message */
             text: string;
             /** @description Meta data information */
@@ -3312,7 +3414,7 @@ export interface components {
          * @description The type of the message
          * @enum {string}
          */
-        MessageType: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+        MessageType: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
         /**
          * @description The schedule
          * @enum {string}
@@ -3502,7 +3604,10 @@ export interface components {
             };
         };
     };
-    parameters: never;
+    parameters: {
+        /** @description The timezone to use for the request */
+        TimezoneHeader: string;
+    };
     requestBodies: never;
     headers: never;
     pathItems: never;
@@ -3533,6 +3638,8 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the cloned blueprint */
                         id: string;
+                        /** @description A map of the resources that were cloned */
+                        resources: Record<string, never>;
                     };
                 };
             };
@@ -3617,6 +3724,42 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listBlueprintResources: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Blueprint resources were retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the blueprint */
+                        id: string;
+                        /** @description A map of the resources */
+                        resources: Record<string, never>;
                     };
                 };
             };
@@ -4003,7 +4146,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
                     }[];
@@ -4036,7 +4179,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                         }[];
@@ -5294,7 +5437,10 @@ export interface operations {
     completeConversationMessage: {
         parameters: {
             query?: never;
-            header?: never;
+            header?: {
+                /** @description The timezone to use for the request */
+                "X-Timezone"?: string;
+            };
             path: {
                 conversationId: string;
             };
@@ -5374,7 +5520,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */
@@ -5730,7 +5876,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the fetched message */
                         text: string;
                     };
@@ -5811,7 +5957,7 @@ export interface operations {
                      * @description The type of the message
                      * @enum {string}
                      */
-                    type?: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                    type?: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                     /** @description The updated text of the message */
                     text?: string;
                     /** @description Known entities */
@@ -5929,7 +6075,7 @@ export interface operations {
                      * @description The type of the message
                      * @enum {string}
                      */
-                    type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                    type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                     /** @description The text of the message */
                     text: string;
                     /** @description Known entities */
@@ -6038,7 +6184,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                         }[];
@@ -6069,7 +6215,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                         };
@@ -6148,7 +6294,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */
@@ -6452,7 +6598,10 @@ export interface operations {
     completeConversation: {
         parameters: {
             query?: never;
-            header?: never;
+            header?: {
+                /** @description The timezone to use for the request */
+                "X-Timezone"?: string;
+            };
             path?: never;
             cookie?: never;
         };
@@ -6465,7 +6614,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
                         /** @description Meta data information */
@@ -6538,7 +6687,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */
@@ -6599,7 +6748,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                         /** @description The text of the message */
                         text: string;
                     }[];
@@ -6641,7 +6790,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
                             /** @description The text of the message */
                             text: string;
                         }[];
@@ -8766,6 +8915,8 @@ export interface operations {
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
+                        /** @description Weather the bot supports attachments */
+                        attachments?: boolean;
                     } & ({
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
@@ -8861,6 +9012,8 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description Weather the bot supports attachments */
+                    attachments?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -8929,6 +9082,8 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description Weather the bot supports attachments */
+                    attachments?: boolean;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -9014,6 +9169,8 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description Weather the bot supports attachments */
+                            attachments?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -9061,6 +9218,8 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description Weather the bot supports attachments */
+                            attachments?: boolean;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -9370,6 +9529,276 @@ export interface operations {
                             };
                             /** @description Optional webhook to receive the extracted data */
                             request?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    deleteMcpServerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                mcpserverIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The McpServer integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted McpServer integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchMcpServerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                mcpserverIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The McpServer integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The ID of the skillset */
+                        skillsetId?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    updateMcpServerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                mcpserverIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the skillset */
+                    skillsetId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The McpServer integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the McpServer Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    createMcpServerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the skillset */
+                    skillsetId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The McpServer integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the McpServer Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listMcpServerIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of McpServer integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The ID of the skillset */
+                            skillsetId?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The ID of the skillset */
+                            skillsetId?: string;
                         };
                     };
                 };

@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1744710737572)"
+    "version": "v1 (build 1750168082212)"
   },
   "servers": [
     {
@@ -16,6 +16,18 @@
         "scheme": "bearer"
       }
     },
+    "parameters": {
+      "TimezoneHeader": {
+        "name": "X-Timezone",
+        "in": "header",
+        "description": "The timezone to use for the request",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "example": "Europe/London"
+        }
+      }
+    },
     "schemas": {
       "Message": {
         "type": "object",
@@ -27,6 +39,7 @@
             "enum": [
               "user",
               "bot",
+              "reasoning",
               "context",
               "instruction",
               "backstory",
@@ -106,6 +119,7 @@
         "enum": [
           "user",
           "bot",
+          "reasoning",
           "context",
           "instruction",
           "backstory",
@@ -603,10 +617,15 @@
                     "id": {
                       "description": "The ID of the cloned blueprint",
                       "type": "string"
+                    },
+                    "resources": {
+                      "description": "A map of the resources that were cloned",
+                      "type": "object"
                     }
                   },
                   "required": [
-                    "id"
+                    "id",
+                    "resources"
                   ]
                 }
               }
@@ -771,6 +790,67 @@
           }
         },
         "__originalOperationId": "fetchBlueprint",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/blueprint/{blueprintId}/resource/list": {
+      "get": {
+        "operationId": "listBlueprintResources",
+        "summary": "List the resources of a blueprint",
+        "tags": [
+          "Blueprint Resources"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "blueprintId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the blueprint to clone",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blueprint resources were retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the blueprint",
+                      "type": "string"
+                    },
+                    "resources": {
+                      "description": "A map of the resources",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "resources"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listBlueprintResources",
         "security": [
           {
             "BearerAuth": []
@@ -1468,6 +1548,7 @@
                           "enum": [
                             "user",
                             "bot",
+                            "reasoning",
                             "context",
                             "instruction",
                             "backstory",
@@ -1533,6 +1614,7 @@
                             "enum": [
                               "user",
                               "bot",
+                              "reasoning",
                               "context",
                               "instruction",
                               "backstory",
@@ -4166,6 +4248,17 @@
               "description": "The ID of the conversation to receive message from",
               "type": "string"
             }
+          },
+          {
+            "name": "X-Timezone",
+            "in": "header",
+            "description": "The timezone to use for the request",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Europe/London"
+            },
+            "$$ref": "#/components/parameters/TimezoneHeader"
           }
         ],
         "requestBody": {
@@ -4352,6 +4445,7 @@
                               "enum": [
                                 "user",
                                 "bot",
+                                "reasoning",
                                 "context",
                                 "instruction",
                                 "backstory",
@@ -5030,6 +5124,7 @@
                       "enum": [
                         "user",
                         "bot",
+                        "reasoning",
                         "context",
                         "instruction",
                         "backstory",
@@ -5202,6 +5297,7 @@
                     "enum": [
                       "user",
                       "bot",
+                      "reasoning",
                       "context",
                       "instruction",
                       "backstory",
@@ -5441,6 +5537,7 @@
                     "enum": [
                       "user",
                       "bot",
+                      "reasoning",
                       "context",
                       "instruction",
                       "backstory",
@@ -5703,6 +5800,7 @@
                             "enum": [
                               "user",
                               "bot",
+                              "reasoning",
                               "context",
                               "instruction",
                               "backstory",
@@ -5779,6 +5877,7 @@
                               "enum": [
                                 "user",
                                 "bot",
+                                "reasoning",
                                 "context",
                                 "instruction",
                                 "backstory",
@@ -5968,6 +6067,7 @@
                               "enum": [
                                 "user",
                                 "bot",
+                                "reasoning",
                                 "context",
                                 "instruction",
                                 "backstory",
@@ -6629,6 +6729,19 @@
         "tags": [
           "Conversation"
         ],
+        "parameters": [
+          {
+            "name": "X-Timezone",
+            "in": "header",
+            "description": "The timezone to use for the request",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Europe/London"
+            },
+            "$$ref": "#/components/parameters/TimezoneHeader"
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -6697,6 +6810,7 @@
                           "enum": [
                             "user",
                             "bot",
+                            "reasoning",
                             "context",
                             "instruction",
                             "backstory",
@@ -6830,6 +6944,7 @@
                               "enum": [
                                 "user",
                                 "bot",
+                                "reasoning",
                                 "context",
                                 "instruction",
                                 "backstory",
@@ -6961,6 +7076,7 @@
                           "enum": [
                             "user",
                             "bot",
+                            "reasoning",
                             "context",
                             "instruction",
                             "backstory",
@@ -7055,6 +7171,7 @@
                             "enum": [
                               "user",
                               "bot",
+                              "reasoning",
                               "context",
                               "instruction",
                               "backstory",
@@ -11502,6 +11619,10 @@
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
+                    },
+                    "attachments": {
+                      "description": "Weather the bot supports attachments",
+                      "type": "boolean"
                     }
                   },
                   "required": [
@@ -11692,6 +11813,10 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Weather the bot supports attachments",
+                    "type": "boolean"
                   }
                 },
                 "oneOf": [
@@ -11819,6 +11944,10 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Weather the bot supports attachments",
+                    "type": "boolean"
                   }
                 },
                 "oneOf": [
@@ -11995,6 +12124,10 @@
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
+                          },
+                          "attachments": {
+                            "description": "Weather the bot supports attachments",
+                            "type": "boolean"
                           }
                         },
                         "required": [
@@ -12107,6 +12240,10 @@
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
                               "type": "number"
+                            },
+                            "attachments": {
+                              "description": "Weather the bot supports attachments",
+                              "type": "boolean"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1email~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -12728,6 +12865,521 @@
           }
         },
         "__originalOperationId": "listExtractIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/mcpserver/{mcpserverIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteMcpServerIntegration",
+        "summary": "Delete McpServer integration",
+        "tags": [
+          "McpServer Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "mcpserverIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the McpServer integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The McpServer integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted McpServer integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteMcpServerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/mcpserver/{mcpserverIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchMcpServerIntegration",
+        "summary": "Fetch a mcpserverIntegration",
+        "tags": [
+          "McpServer Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "mcpserverIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the McpServer integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The McpServer integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Instance list properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "description": "The ID of the blueprint",
+                      "type": "string"
+                    },
+                    "skillsetId": {
+                      "description": "The ID of the skillset",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchMcpServerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/mcpserver/{mcpserverIntegrationId}/update": {
+      "post": {
+        "operationId": "updateMcpServerIntegration",
+        "summary": "Update a McpServer integration",
+        "tags": [
+          "McpServer Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "mcpserverIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the McpServer integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "description": "The ID of the blueprint",
+                    "type": "string"
+                  },
+                  "skillsetId": {
+                    "description": "The ID of the skillset",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The McpServer integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the McpServer Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateMcpServerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/mcpserver/create": {
+      "post": {
+        "operationId": "createMcpServerIntegration",
+        "summary": "Create McpServer integration",
+        "tags": [
+          "McpServer Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Instance crud properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "description": "The ID of the blueprint",
+                    "type": "string"
+                  },
+                  "skillsetId": {
+                    "description": "The ID of the skillset",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The McpServer integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the McpServer Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createMcpServerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/mcpserver/list": {
+      "get": {
+        "operationId": "listMcpServerIntegrations",
+        "summary": "List McpServer integrations",
+        "tags": [
+          "McpServer Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of McpServer integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "description": "The ID of the blueprint",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "The ID of the skillset",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "description": "The ID of the blueprint",
+                              "type": "string"
+                            },
+                            "skillsetId": {
+                              "description": "The ID of the skillset",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1mcpserver~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listMcpServerIntegrations",
         "security": [
           {
             "BearerAuth": []
