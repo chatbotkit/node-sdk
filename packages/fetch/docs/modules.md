@@ -4,6 +4,12 @@
 
 ## Table of contents
 
+### Classes
+
+- [AbortError](classes/AbortError.md)
+- [FetchError](classes/FetchError.md)
+- [TimeoutError](classes/TimeoutError.md)
+
 ### Type Aliases
 
 - [FetchFn](modules.md#fetchfn)
@@ -52,7 +58,7 @@
 
 #### Defined in
 
-[index.js:232](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L232)
+[index.js:241](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L241)
 
 ___
 
@@ -73,7 +79,7 @@ Add retry capabilities to any fetch implementation.
 
 #### Defined in
 
-[index.js:318](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L318)
+[index.js:327](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L327)
 
 ___
 
@@ -91,7 +97,7 @@ Add timeout capabilities to any fetch implementation.
 
 #### Defined in
 
-[index.js:238](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L238)
+[index.js:247](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L247)
 
 ## Variables
 
@@ -121,7 +127,7 @@ Add timeout capabilities to any fetch implementation.
 
 #### Defined in
 
-[index.js:208](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L208)
+[index.js:217](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L217)
 
 ___
 
@@ -142,13 +148,13 @@ ___
 
 #### Defined in
 
-[index.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L200)
+[index.js:209](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L209)
 
 ___
 
 ### getFetchError
 
-▸ **getFetchError**(`response`, `meta?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`FetchError`\>
+▸ **getFetchError**(`response`, `meta?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FetchError`](classes/FetchError.md)\>
 
 Create a FetchError from a Response object.
 
@@ -161,11 +167,11 @@ Create a FetchError from a Response object.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`FetchError`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FetchError`](classes/FetchError.md)\>
 
 #### Defined in
 
-[index.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L136)
+[index.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L139)
 
 ___
 
@@ -187,7 +193,7 @@ Expose a JSONL stream as an async iterable.
 
 #### Defined in
 
-[index.js:400](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L400)
+[index.js:409](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L409)
 
 ___
 
@@ -208,7 +214,7 @@ ___
 
 #### Defined in
 
-[index.js:326](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L326)
+[index.js:335](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L335)
 
 ___
 
@@ -229,4 +235,4 @@ ___
 
 #### Defined in
 
-[index.js:246](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L246)
+[index.js:255](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L255)
