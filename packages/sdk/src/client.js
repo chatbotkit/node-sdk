@@ -141,7 +141,7 @@ export class ResponsePromise {
         code = data.code
       }
 
-      throw new FetchError(message, code, url, this.request, response)
+      throw new FetchError(message, code, { url })
     }
 
     return response
