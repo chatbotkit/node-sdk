@@ -23,7 +23,7 @@ export type ValidatingParametersSchema = {
     }>;
 };
 export type InputMessage = {
-    type: 'bot' | 'user' | 'context' | 'instruction' | 'backstory' | 'activity';
+    type: 'bot' | 'user' | 'reasoning' | 'context' | 'instruction' | 'backstory' | 'activity';
     text: string;
     meta?: Record<string, any>;
 };
@@ -90,7 +90,7 @@ export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').Conversa
  */
 /**
  * @typedef {{
- *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
+ *   type: 'bot'|'user'|'reasoning'|'context'|'instruction'|'backstory'|'activity',
  *   text: string,
  *   meta?: Record<string,any>
  * }} InputMessage
