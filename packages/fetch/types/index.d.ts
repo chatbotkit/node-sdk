@@ -115,6 +115,9 @@ export const GATEWAY_TIMEOUT_CODE: "GATEWAY_TIMEOUT";
  * @type {Record<number,string>}
  */
 export const statusToCodeMap: Record<number, string>;
+/**
+ * A FetchError is thrown when a fetch request fails.
+ */
 export class FetchError extends Error {
     /**
      * @param {string} message
@@ -131,9 +134,15 @@ export const DEFAULT_RETRIES: 5;
 export const DEFAULT_RETRY_DELAY: 250;
 export const DEFAULT_RETRY_TIMEOUT: false;
 export const DEFAULT_RETRY_STATUSES: number[];
+/**
+ * A AbortError is thrown when a fetch request is aborted.
+ */
 export class AbortError extends Error {
     code: string;
 }
+/**
+ * A TimeoutError is thrown when a fetch request times out.
+ */
 export class TimeoutError extends Error {
     code: string;
 }
