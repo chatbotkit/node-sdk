@@ -46,7 +46,7 @@
 | `url` | `string` \| [`URL`]( https://developer.mozilla.org/docs/Web/API/URL ) |
 | `request` | `Object` |
 | `request.data?` | `any` |
-| `request.fetchFn?` | `FetchFn` |
+| `request.fetchFn?` | [`FetchFunction`](../modules/client.md#fetchfunction) |
 | `request.headers` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `request.method` | `string` |
 | `request.retries?` | `number` |
@@ -135,7 +135,7 @@ ___
 | :------ | :------ |
 | `params?` | `Object` |
 | `params.data?` | `any` |
-| `params.fetchFn?` | `FetchFn` |
+| `params.fetchFn?` | [`FetchFunction`](../modules/client.md#fetchfunction) |
 | `params.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `params.method?` | `string` |
 | `params.retries?` | `number` |

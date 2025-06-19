@@ -69,7 +69,7 @@ Bot session client.
 | `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.endpoint?` | `string` |
 | `options.external?` | `boolean` |
-| `options.fetchFn?` | `FetchFn` |
+| `options.fetchFn?` | [`FetchFunction`](../modules/client.md#fetchfunction) |
 | `options.file?` | `Object` |
 | `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `options.file.name?` | `string` |
