@@ -21,7 +21,7 @@
 
 ### FetchFunction
 
-Ƭ **FetchFunction**\<\>: typeof `fetchPlusPlus`
+Ƭ **FetchFunction**\<\>: `FetchFn`
 
 #### Defined in
 

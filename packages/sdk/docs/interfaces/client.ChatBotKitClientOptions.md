@@ -38,7 +38,7 @@ ___
 
 ### fetchFn
 
-• **fetchFn**: `FetchFn`
+• **fetchFn**: [`FetchFunction`](../modules/client.md#fetchfunction)
 
 An optional fetch implementation function to use instead
 
