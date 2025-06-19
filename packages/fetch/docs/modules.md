@@ -4,18 +4,21 @@
 
 ## Table of contents
 
-### Classes
-
-- [FetchError](classes/FetchError.md)
-
 ### Type Aliases
 
 - [FetchFn](modules.md#fetchfn)
 - [withRetryOptions](modules.md#withretryoptions)
 - [withTimeoutOptions](modules.md#withtimeoutoptions)
 
+### Variables
+
+- [statusToCodeMap](modules.md#statustocodemap)
+
 ### Functions
 
+- [anySignal](modules.md#anysignal)
+- [fetch](modules.md#fetch)
+- [getFetchError](modules.md#getfetcherror)
 - [jsonl](modules.md#jsonl)
 - [withRetry](modules.md#withretry)
 - [withTimeout](modules.md#withtimeout)
@@ -24,7 +27,13 @@
 
 ### FetchFn
 
-Ƭ **FetchFn**\<\>: (`url`: `string`, `options?`: `RequestInit`) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
+Ƭ **FetchFn**\<`T`\>: (`url`: `string` \| [`URL`]( https://developer.mozilla.org/docs/Web/API/URL ), `options?`: `RequestInit` & `T`) => [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
 
 #### Type declaration
 
@@ -34,8 +43,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `url` | `string` |
-| `options?` | `RequestInit` |
+| `url` | `string` \| [`URL`]( https://developer.mozilla.org/docs/Web/API/URL ) |
+| `options?` | `RequestInit` & `T` |
 
 ##### Returns
 
@@ -43,13 +52,15 @@
 
 #### Defined in
 
-[index.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L75)
+[index.js:232](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L232)
 
 ___
 
 ### withRetryOptions
 
 Ƭ **withRetryOptions**\<\>: `Object`
+
+Add retry capabilities to any fetch implementation.
 
 #### Type declaration
 
@@ -62,7 +73,7 @@ ___
 
 #### Defined in
 
-[index.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L160)
+[index.js:318](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L318)
 
 ___
 
@@ -80,9 +91,83 @@ Add timeout capabilities to any fetch implementation.
 
 #### Defined in
 
-[index.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L81)
+[index.js:238](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L238)
+
+## Variables
+
+### statusToCodeMap
+
+• `Const` **statusToCodeMap**: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`number`, `string`\>
+
+#### Defined in
+
+[index.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L92)
 
 ## Functions
+
+### anySignal
+
+▸ **anySignal**(`signals`): [`AbortSignal`]( https://developer.mozilla.org/docs/Web/API/AbortSignal )
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `signals` | [`AbortSignal`]( https://developer.mozilla.org/docs/Web/API/AbortSignal )[] |
+
+#### Returns
+
+[`AbortSignal`]( https://developer.mozilla.org/docs/Web/API/AbortSignal )
+
+#### Defined in
+
+[index.js:208](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L208)
+
+___
+
+### fetch
+
+▸ **fetch**(`url`, `init?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` \| [`URL`]( https://developer.mozilla.org/docs/Web/API/URL ) |
+| `init?` | `RequestInit` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
+
+#### Defined in
+
+[index.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L200)
+
+___
+
+### getFetchError
+
+▸ **getFetchError**(`response`, `meta?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`FetchError`\>
+
+Create a FetchError from a Response object.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `response` | [`Response`]( https://developer.mozilla.org/docs/Web/API/Response ) |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`FetchError`\>
+
+#### Defined in
+
+[index.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L136)
+
+___
 
 ### jsonl
 
@@ -102,46 +187,46 @@ Expose a JSONL stream as an async iterable.
 
 #### Defined in
 
-[index.js:234](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L234)
+[index.js:400](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L400)
 
 ___
 
 ### withRetry
 
-▸ **withRetry**(`fetch`, `defaultOptions?`): [`FetchFn`](modules.md#fetchfn)
+▸ **withRetry**(`fetch`, `defaultOptions?`): [`FetchFn`](modules.md#fetchfn)\<[`withRetryOptions`](modules.md#withretryoptions)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `fetch` | [`FetchFn`](modules.md#fetchfn) |
+| `fetch` | [`FetchFn`](modules.md#fetchfn)\<{}\> |
 | `defaultOptions?` | [`withRetryOptions`](modules.md#withretryoptions) |
 
 #### Returns
 
-[`FetchFn`](modules.md#fetchfn)
+[`FetchFn`](modules.md#fetchfn)\<[`withRetryOptions`](modules.md#withretryoptions)\>
 
 #### Defined in
 
-[index.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L166)
+[index.js:326](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L326)
 
 ___
 
 ### withTimeout
 
-▸ **withTimeout**(`fetch`, `defaultOptions?`): [`FetchFn`](modules.md#fetchfn)
+▸ **withTimeout**(`fetch`, `defaultOptions?`): [`FetchFn`](modules.md#fetchfn)\<[`withTimeoutOptions`](modules.md#withtimeoutoptions)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `fetch` | [`FetchFn`](modules.md#fetchfn) |
+| `fetch` | [`FetchFn`](modules.md#fetchfn)\<{}\> |
 | `defaultOptions?` | [`withTimeoutOptions`](modules.md#withtimeoutoptions) |
 
 #### Returns
 
-[`FetchFn`](modules.md#fetchfn)
+[`FetchFn`](modules.md#fetchfn)\<[`withTimeoutOptions`](modules.md#withtimeoutoptions)\>
 
 #### Defined in
 
-[index.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L89)
+[index.js:246](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L246)
