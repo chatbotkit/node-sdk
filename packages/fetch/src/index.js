@@ -110,6 +110,9 @@ export const statusToCodeMap = {
   [GATEWAY_TIMEOUT_STATUS]: GATEWAY_TIMEOUT_CODE,
 }
 
+/**
+ * A FetchError is thrown when a fetch request fails.
+ */
 export class FetchError extends Error {
   /**
    * @param {string} message
@@ -168,6 +171,9 @@ export const DEFAULT_RETRY_DELAY = 250
 export const DEFAULT_RETRY_TIMEOUT = false
 export const DEFAULT_RETRY_STATUSES = [429, 500, 502, 503, 504]
 
+/**
+ * A AbortError is thrown when a fetch request is aborted.
+ */
 export class AbortError extends Error {
   /**
    * @param {string} [message]
@@ -180,6 +186,9 @@ export class AbortError extends Error {
   }
 }
 
+/**
+ * A TimeoutError is thrown when a fetch request times out.
+ */
 export class TimeoutError extends Error {
   /**
    * @param {string} [message]
