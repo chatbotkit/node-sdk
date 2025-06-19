@@ -37,7 +37,7 @@ async function main() {
     },
   ]
 
-  /** @type {{type: 'user'|'bot'|'activity'|'context'|'instruction'|'backstory', text: string, meta?: Record<string,any>}[]} */
+  /** @type {{type: 'user'|'bot'|'reasoning'|'activity'|'context'|'instruction'|'backstory', text: string, meta?: Record<string,any>}[]} */
   const messages = []
 
   for (;;) {
