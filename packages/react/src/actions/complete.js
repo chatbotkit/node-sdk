@@ -26,7 +26,7 @@ import { getRandomId } from '../utils/string.js'
 
 /**
  * @typedef {{
- *   type: 'bot'|'user'|'context'|'instruction'|'backstory'|'activity',
+ *   type: 'bot'|'user'|'reasoning'|'context'|'instruction'|'backstory'|'activity',
  *   text: string,
  *   meta?: Record<string,any>
  * }} InputMessage
