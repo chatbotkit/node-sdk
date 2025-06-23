@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.18.1
+
+### Patch Changes
+
+- cd3eb60: Updated AutoTextarea
+
 ## 1.18.0
 
 ### Patch Changes
