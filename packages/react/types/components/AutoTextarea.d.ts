@@ -1,10 +1,12 @@
 /**
- * A textarea that automatically adjusts its height based on its content.
+ * A textarea that automatically adjusts its height based on its content. The
+ * height is adjusted on input and focus events.
  *
  * @param {{
  *   [name: string]: any
  * }} [props]
  * @param {React.Ref<HTMLTextAreaElement>} [forwardedRef]
+ * @todo remove this component once field-sizing is supported in all browsers
  */
 export function AutoTextarea(props?: {
     [name: string]: any;
