@@ -8,31 +8,48 @@ import React, {
 } from 'react'
 
 /**
- * A textarea that automatically adjusts its height based on its content.
+ * A textarea that automatically adjusts its height based on its content. The
+ * height is adjusted on input and focus events.
  *
  * @param {{
  *   [name: string]: any
  * }} [props]
  * @param {React.Ref<HTMLTextAreaElement>} [forwardedRef]
+ * @todo remove this component once field-sizing is supported in all browsers
  */
 export function AutoTextarea(props, forwardedRef) {
   const localRef = useRef(null)
 
   useImperativeHandle(
     forwardedRef,
-    /** @type {() => HTMLTextAreaElement} */ () => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      return /** @type {HTMLTextAreaElement} */ (localRef.current)
-    }
+    () =>
+      /** @type {HTMLTextAreaElement} */ (
+        /** @type {unknown} */ (localRef.current)
+      )
   )
 
   useEffect(() => {
-    if (!localRef.current) {
+    const textarea = /** @type {HTMLTextAreaElement} */ (
+      /** @type {unknown} */ (localRef.current)
+    )
+
+    if (!textarea) {
       return
     }
 
-    const textarea = /** @type {HTMLTextAreaElement} */ (localRef.current)
+    if (typeof CSS === 'object' && CSS.supports?.('field-sizing', 'content')) {
+      // @ts-expect-error fieldSizing is not in the type definition because it
+      // is not commonly supported yet
+      textarea.style.fieldSizing = 'content'
+
+      return
+    } else {
+      // @note without field-sizing this implementation can cause weird effects
+      // where the textarea jumps around when the content changes
+
+      textarea.style.maxHeight = '80vh!important'
+      textarea.style.overflow = 'auto!important'
+    }
 
     function recalibrate() {
       const adjustment = `calc(${
@@ -84,7 +101,7 @@ export function AutoTextarea(props, forwardedRef) {
 
       window.removeEventListener('resize', recalibrate)
     }
-  }, [localRef])
+  }, [])
 
   return <textarea ref={localRef} rows={1} {...props} />
 }
