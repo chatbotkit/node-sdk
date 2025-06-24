@@ -344,6 +344,26 @@
       "types": "./types/file/v1.d.ts",
       "import": "./src/file/v1.js"
     },
+    "./graphql": {
+      "types": "./types/graphql/index.d.ts",
+      "import": "./src/graphql/index.js"
+    },
+    "./graphql/index": {
+      "types": "./types/graphql/index.d.ts",
+      "import": "./src/graphql/index.js"
+    },
+    "./graphql/index.js": {
+      "types": "./types/graphql/index.d.ts",
+      "import": "./src/graphql/index.js"
+    },
+    "./graphql/v1": {
+      "types": "./types/graphql/v1.d.ts",
+      "import": "./src/graphql/v1.js"
+    },
+    "./graphql/v1.js": {
+      "types": "./types/graphql/v1.d.ts",
+      "import": "./src/graphql/v1.js"
+    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"

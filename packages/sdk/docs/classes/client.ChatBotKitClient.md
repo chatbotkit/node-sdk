@@ -90,6 +90,8 @@
 
   ↳ [`UsageSeriesClient`](usage_series.UsageSeriesClient.md)
 
+  ↳ [`GraphqlClient`](index.GraphqlClient.md)
+
 ## Table of contents
 
 ### Constructors

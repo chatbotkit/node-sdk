@@ -35,6 +35,8 @@
     "./src/dataset/v1.js",
     "./src/file/index.js",
     "./src/file/v1.js",
+    "./src/graphql/index.js",
+    "./src/graphql/v1.js",
     "./src/index.js",
     "./src/integration/discord/index.js",
     "./src/integration/discord/v1.js",
