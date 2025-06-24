@@ -5,6 +5,7 @@ import { ContactClient } from './contact/index.js'
 import { ConversationClient } from './conversation/index.js'
 import { DatasetClient } from './dataset/index.js'
 import { FileClient } from './file/index.js'
+import { GraphqlClient } from './graphql/index.js'
 import { IntegrationClient } from './integration/index.js'
 import { MagicClient } from './magic/index.js'
 import { PartnerClient } from './partner/index.js'
@@ -24,6 +25,7 @@ export { ConversationClient }
 export { ContactClient }
 export { SecretClient }
 export { BlueprintClient }
+export { GraphqlClient }
 
 export class ChatBotKit extends ChatBotKitClient {
   /**
@@ -47,6 +49,8 @@ export class ChatBotKit extends ChatBotKitClient {
 
     // @note overlapping name with the `secret` property
     this.secrets = new SecretClient(options)
+
+    this.graphql = new GraphqlClient(options)
   }
 }
 
