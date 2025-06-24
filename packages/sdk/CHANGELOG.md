@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.18.2
+
+### Patch Changes
+
+- 9d7fa77: Added graphql client.
+
 ## 1.18.0
 
 ### Minor Changes
