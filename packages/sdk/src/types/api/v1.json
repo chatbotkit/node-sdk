@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1750168082212)"
+    "version": "v1 (build 1750784934769)"
   },
   "servers": [
     {
@@ -577,6 +577,89 @@
     }
   ],
   "paths": {
+    "/graphql": {
+      "post": {
+        "operationId": "graphql",
+        "summary": "Execute a GraphQL query or mutation",
+        "tags": [
+          "GraphQL"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "description": "The GraphQL query or mutation string",
+                    "type": "string"
+                  },
+                  "variables": {
+                    "description": "The variables for the GraphQL operation",
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "operationName": {
+                    "description": "The name of the operation to execute",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "query"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The result of the GraphQL operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "description": "The data returned by the GraphQL operation",
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "errors": {
+                      "description": "Any errors returned by the GraphQL operation",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "graphql",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/blueprint/{blueprintId}/clone": {
       "post": {
         "operationId": "cloneBlueprint",

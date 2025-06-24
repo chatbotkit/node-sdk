@@ -4,6 +4,23 @@
  */
 
 export interface paths {
+    "/graphql": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Execute a GraphQL query or mutation */
+        post: operations["graphql"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/blueprint/{blueprintId}/clone": {
         parameters: {
             query?: never;
@@ -3614,6 +3631,57 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    graphql: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The GraphQL query or mutation string */
+                    query: string;
+                    /** @description The variables for the GraphQL operation */
+                    variables?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The name of the operation to execute */
+                    operationName?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The result of the GraphQL operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The data returned by the GraphQL operation */
+                        data?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description Any errors returned by the GraphQL operation */
+                        errors?: {
+                            message?: string;
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     cloneBlueprint: {
         parameters: {
             query?: never;
