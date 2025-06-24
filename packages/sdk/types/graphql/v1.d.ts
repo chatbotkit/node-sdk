@@ -2,8 +2,27 @@
  * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */
 /**
- * @typedef {import('../types/api/v1.js').operations['graphql']['requestBody']['content']['application/json']} GraphqlRequest
- * @typedef {import('../types/api/v1.js').operations['graphql']['responses']['200']['content']['application/json']} GraphqlResponse
+ * @template T
+ * @template U
+ * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
+ */
+/**
+ * @typedef {{
+ *   query: string,
+ *   variables?: {
+ *     [key: string]: unknown
+ *   }
+ *   operationName?: string
+ * }} GraphqlRequest
+ *
+ * @typedef {{
+ *   data?: {
+ *     [key: string]: unknown
+ *   },
+ *   errors?: {
+ *     message: string
+ *   }[]
+ * }} GraphqlResponse
  */
 /**
  * @param {ChatBotKitClient} client
@@ -12,5 +31,19 @@
  */
 export function call(client: ChatBotKitClient, body: GraphqlRequest): Promise<GraphqlResponse>;
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type GraphqlRequest = import('../types/api/v1.js').operations['graphql']['requestBody']['content']['application/json'];
-export type GraphqlResponse = import('../types/api/v1.js').operations['graphql']['responses']['200']['content']['application/json'];
+export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type GraphqlRequest = {
+    query: string;
+    variables?: {
+        [key: string]: unknown;
+    } | undefined;
+    operationName?: string | undefined;
+};
+export type GraphqlResponse = {
+    data?: {
+        [key: string]: unknown;
+    } | undefined;
+    errors?: {
+        message: string;
+    }[] | undefined;
+};

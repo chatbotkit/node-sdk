@@ -51,7 +51,7 @@ GraphQL client.
 
 ### call
 
-▸ **call**(`input`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+▸ **call**(`input`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`GraphqlResponse`](../modules/graphql_v1.md#graphqlresponse)\>
 
 Executes a GraphQL query.
 
@@ -59,11 +59,11 @@ Executes a GraphQL query.
 
 | Name | Type |
 | :------ | :------ |
-| `input` | `Object` |
+| `input` | [`GraphqlRequest`](../modules/graphql_v1.md#graphqlrequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`GraphqlResponse`](../modules/graphql_v1.md#graphqlresponse)\>
 
 #### Defined in
 
