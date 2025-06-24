@@ -1,8 +1,8 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [index](../modules/index.md) / GraphqlClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [graphql](../modules/graphql.md) / GraphqlClient
 
 # Class: GraphqlClient
 
-[index](../modules/index.md).GraphqlClient
+[graphql](../modules/graphql.md).GraphqlClient
 
 GraphQL client.
 
@@ -16,18 +16,18 @@ GraphQL client.
 
 ### Constructors
 
-- [constructor](index.GraphqlClient.md#constructor)
+- [constructor](graphql.GraphqlClient.md#constructor)
 
 ### Methods
 
-- [call](index.GraphqlClient.md#call)
-- [clientFetch](index.GraphqlClient.md#clientfetch)
+- [call](graphql.GraphqlClient.md#call)
+- [clientFetch](graphql.GraphqlClient.md#clientfetch)
 
 ## Constructors
 
 ### constructor
 
-• **new GraphqlClient**(`options`): [`GraphqlClient`](index.GraphqlClient.md)
+• **new GraphqlClient**(`options`): [`GraphqlClient`](graphql.GraphqlClient.md)
 
 #### Parameters
 
@@ -37,7 +37,7 @@ GraphQL client.
 
 #### Returns
 
-[`GraphqlClient`](index.GraphqlClient.md)
+[`GraphqlClient`](graphql.GraphqlClient.md)
 
 #### Overrides
 

@@ -38,6 +38,8 @@
 
   ↳ [`FileClient`](file.FileClient.md)
 
+  ↳ [`GraphqlClient`](graphql.GraphqlClient.md)
+
   ↳ [`DiscordIntegrationClient`](integration_discord.DiscordIntegrationClient.md)
 
   ↳ [`EmailIntegrationClient`](integration_email.EmailIntegrationClient.md)
@@ -89,8 +91,6 @@
   ↳ [`UsageClient`](usage.UsageClient.md)
 
   ↳ [`UsageSeriesClient`](usage_series.UsageSeriesClient.md)
-
-  ↳ [`GraphqlClient`](index.GraphqlClient.md)
 
 ## Table of contents
 
