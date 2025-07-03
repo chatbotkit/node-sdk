@@ -1,5 +1,11 @@
 # @chatbotkit/fetch
 
+## 1.18.3
+
+### Patch Changes
+
+- e409f0f: Fixed issue with consuming body upon error.
+
 ## 1.18.0
 
 ### Minor Changes

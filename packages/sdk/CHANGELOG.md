@@ -1,5 +1,12 @@
 # @chatbotkit/sdk
 
+## 1.18.3
+
+### Patch Changes
+
+- Updated dependencies [e409f0f]
+  - @chatbotkit/fetch@1.18.3
+
 ## 1.18.2
 
 ### Patch Changes

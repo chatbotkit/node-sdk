@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.18.3
+
+### Patch Changes
+
+- @chatbotkit/sdk@1.18.3
+
 ## 1.18.2
 
 ### Patch Changes
