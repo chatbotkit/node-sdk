@@ -362,10 +362,17 @@ export function withRetry(fetch, defaultOptions) {
 
       if (!response.ok) {
         if (retryStatuses.includes(response.status)) {
-          throw await getFetchError(response, {
-            url: new URL(url).href,
-            options: options,
-          })
+          // @note we don't use getFetchError here because we don't want to read
+          // the response body
+
+          throw new FetchError(
+            `Fetch failed with status ${response.status} (${response.statusText})`,
+            statusToCodeMap[response.status] || statusToCodeMap[500],
+            {
+              url: new URL(url).href,
+              options: options,
+            }
+          )
         } else {
           return response
         }
