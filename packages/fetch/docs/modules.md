@@ -193,7 +193,7 @@ Expose a JSONL stream as an async iterable.
 
 #### Defined in
 
-[index.js:409](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L409)
+[index.js:416](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L416)
 
 ___
 
