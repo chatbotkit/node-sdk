@@ -1,5 +1,11 @@
 # @chatbotkit/react
 
+## 1.18.4
+
+### Patch Changes
+
+- 82262b8: Re-arrange item yielding after onItem handler
+
 ## 1.18.3
 
 ### Patch Changes
