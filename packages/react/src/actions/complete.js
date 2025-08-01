@@ -201,10 +201,6 @@ async function* complete({
   // Iterate over the stream and handle each item.
 
   for await (const item of it) {
-    // By default all items are yielded.
-
-    yield item
-
     // If we have an onItem handler then we call it.
 
     if (options.onItem) {
@@ -214,6 +210,10 @@ async function* complete({
         yield result
       }
     }
+
+    // Yield the item after handling it to allow modifications.
+
+    yield item
 
     // Handle items based on their type.
 
