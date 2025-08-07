@@ -14,6 +14,7 @@ import {
   sendConversationMessage,
   updateConversation,
   upvoteConversation,
+  upsertConversationContact,
 } from './v1.js'
 
 /**
@@ -174,6 +175,17 @@ export class ConversationClient extends ChatBotKitClient {
    */
   downvote(conversationId, request) {
     return downvoteConversation(this, conversationId, request)
+  }
+
+  /**
+   * Upsert conversation contact.
+   *
+   * @param {string} conversationId
+   * @param {import('./v1.js').ConversationContactUpsertRequest} request
+   * @returns {Promise<import('./v1.js').ConversationContactUpsertResponse>}
+   */
+  upsertContact(conversationId, request) {
+    return upsertConversationContact(this, conversationId, request)
   }
 }
 

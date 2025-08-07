@@ -279,6 +279,25 @@ export function upvoteConversation(client: ChatBotKitClient, conversationId: str
  * @returns {Promise<ConversationDownvoteResponse>}
  */
 export function downvoteConversation(client: ChatBotKitClient, conversationId: string, request: ConversationDownvoteRequest): Promise<ConversationDownvoteResponse>;
+/**
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   meta?: Record<string,any>,
+ *   email?: string,
+ *   phone?: string
+ * }} ConversationContactUpsertRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationContactUpsertResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationContactUpsertRequest} request
+ * @returns {Promise<ConversationContactUpsertResponse>}
+ */
+export function upsertConversationContact(client: ChatBotKitClient, conversationId: string, request: ConversationContactUpsertRequest): Promise<ConversationContactUpsertResponse>;
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 export type ConversationOptions = {
@@ -457,5 +476,15 @@ export type ConversationDownvoteRequest = {
     value?: number;
 };
 export type ConversationDownvoteResponse = {
+    id: string;
+};
+export type ConversationContactUpsertRequest = {
+    name?: string;
+    description?: string;
+    meta?: Record<string, any>;
+    email?: string;
+    phone?: string;
+};
+export type ConversationContactUpsertResponse = {
     id: string;
 };

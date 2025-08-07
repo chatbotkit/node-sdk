@@ -97,6 +97,14 @@ export class ConversationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').ConversationDownvoteResponse>}
      */
     downvote(conversationId: string, request: import('./v1.js').ConversationDownvoteRequest): Promise<import('./v1.js').ConversationDownvoteResponse>;
+    /**
+     * Upsert conversation contact.
+     *
+     * @param {string} conversationId
+     * @param {import('./v1.js').ConversationContactUpsertRequest} request
+     * @returns {Promise<import('./v1.js').ConversationContactUpsertResponse>}
+     */
+    upsertContact(conversationId: string, request: import('./v1.js').ConversationContactUpsertRequest): Promise<import('./v1.js').ConversationContactUpsertResponse>;
 }
 export default ConversationClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;

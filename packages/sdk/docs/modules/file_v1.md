@@ -21,6 +21,8 @@
 - [FileListStreamItemType](file_v1.md#fileliststreamitemtype)
 - [FileListStreamType](file_v1.md#fileliststreamtype)
 - [FileOptions](file_v1.md#fileoptions)
+- [FileSyncRequest](file_v1.md#filesyncrequest)
+- [FileSyncResponse](file_v1.md#filesyncresponse)
 - [FileUpdateRequest](file_v1.md#fileupdaterequest)
 - [FileUpdateResponse](file_v1.md#fileupdateresponse)
 - [FileUploadRequest](file_v1.md#fileuploadrequest)
@@ -34,6 +36,7 @@
 - [downloadFile](file_v1.md#downloadfile)
 - [fetchFile](file_v1.md#fetchfile)
 - [listFiles](file_v1.md#listfiles)
+- [syncFile](file_v1.md#syncfile)
 - [updateFile](file_v1.md#updatefile)
 - [uploadFile](file_v1.md#uploadfile)
 
@@ -200,6 +203,32 @@ ___
 #### Defined in
 
 [file/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L18)
+
+___
+
+### FileSyncRequest
+
+Ƭ **FileSyncRequest**\<\>: `Object`
+
+#### Defined in
+
+[file/v1.js:218](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L218)
+
+___
+
+### FileSyncResponse
+
+Ƭ **FileSyncResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+#### Defined in
+
+[file/v1.js:222](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L222)
 
 ___
 
@@ -382,6 +411,28 @@ ___
 #### Defined in
 
 [file/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L42)
+
+___
+
+### syncFile
+
+▸ **syncFile**(`client`, `fileId`, `request?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileSyncResponse`](file_v1.md#filesyncresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `fileId` | `string` |
+| `request?` | [`FileSyncRequest`](file_v1.md#filesyncrequest) |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileSyncResponse`](file_v1.md#filesyncresponse)\>
+
+#### Defined in
+
+[file/v1.js:229](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L229)
 
 ___
 

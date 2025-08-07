@@ -19,6 +19,8 @@
 - [ConversationCompleteStreamResult](conversation_v1.md#conversationcompletestreamresult)
 - [ConversationCompleteStreamToken](conversation_v1.md#conversationcompletestreamtoken)
 - [ConversationCompleteStreamType](conversation_v1.md#conversationcompletestreamtype)
+- [ConversationContactUpsertRequest](conversation_v1.md#conversationcontactupsertrequest)
+- [ConversationContactUpsertResponse](conversation_v1.md#conversationcontactupsertresponse)
 - [ConversationCreateRequest](conversation_v1.md#conversationcreaterequest)
 - [ConversationCreateResponse](conversation_v1.md#conversationcreateresponse)
 - [ConversationDeleteResponse](conversation_v1.md#conversationdeleteresponse)
@@ -62,6 +64,7 @@
 - [receiveConversationMessage](conversation_v1.md#receiveconversationmessage)
 - [sendConversationMessage](conversation_v1.md#sendconversationmessage)
 - [updateConversation](conversation_v1.md#updateconversation)
+- [upsertConversationContact](conversation_v1.md#upsertconversationcontact)
 - [upvoteConversation](conversation_v1.md#upvoteconversation)
 
 ## Type Aliases
@@ -261,6 +264,42 @@ ___
 #### Defined in
 
 [conversation/v1.js:220](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L220)
+
+___
+
+### ConversationContactUpsertRequest
+
+Ƭ **ConversationContactUpsertRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `description?` | `string` |
+| `email?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `name?` | `string` |
+| `phone?` | `string` |
+
+#### Defined in
+
+[conversation/v1.js:458](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L458)
+
+___
+
+### ConversationContactUpsertResponse
+
+Ƭ **ConversationContactUpsertResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+#### Defined in
+
+[conversation/v1.js:462](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L462)
 
 ___
 
@@ -935,6 +974,28 @@ ___
 #### Defined in
 
 [conversation/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L144)
+
+___
+
+### upsertConversationContact
+
+▸ **upsertConversationContact**(`client`, `conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationContactUpsertResponse`](conversation_v1.md#conversationcontactupsertresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `conversationId` | `string` |
+| `request` | [`ConversationContactUpsertRequest`](conversation_v1.md#conversationcontactupsertrequest) |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationContactUpsertResponse`](conversation_v1.md#conversationcontactupsertresponse)\>
+
+#### Defined in
+
+[conversation/v1.js:469](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L469)
 
 ___
 

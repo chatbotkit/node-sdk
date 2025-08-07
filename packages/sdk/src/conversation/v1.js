@@ -447,3 +447,34 @@ export async function downvoteConversation(client, conversationId, request) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   meta?: Record<string,any>,
+ *   email?: string,
+ *   phone?: string
+ * }} ConversationContactUpsertRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} ConversationContactUpsertResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationContactUpsertRequest} request
+ * @returns {Promise<ConversationContactUpsertResponse>}
+ */
+export async function upsertConversationContact(client, conversationId, request) {
+  const url = `/api/v1/conversation/${conversationId}/contact/upsert`
+
+  /** @type {import('../types/api/v1.js').operations['upsertConversationContact']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, /** @type {any} */ ({
+    record: {
+      ...request,
+    },
+  }))
+
+  return response
+}
