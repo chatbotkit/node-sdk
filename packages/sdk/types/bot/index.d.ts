@@ -48,6 +48,14 @@ export class BotClient extends ChatBotKitClient {
      */
     delete(botId: string): Promise<import('./v1.js').BotDeleteResponse>;
     /**
+     * Clones a bot.
+     *
+     * @param {string} botId
+     * @param {import('./v1.js').BotCloneRequest} [request]
+     * @returns {Promise<import('./v1.js').BotCloneResponse>}
+     */
+    clone(botId: string, request?: import("./v1.js").BotCloneRequest | undefined): Promise<import('./v1.js').BotCloneResponse>;
+    /**
      * @param {string} botId
      * @param {import('./v1.js').BotUpvoteRequest} request
      * @returns {Promise<import('./v1.js').BotUpvoteResponse>}

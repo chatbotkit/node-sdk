@@ -25,6 +25,7 @@ Bot client.
 ### Methods
 
 - [clientFetch](bot.BotClient.md#clientfetch)
+- [clone](bot.BotClient.md#clone)
 - [create](bot.BotClient.md#create)
 - [delete](bot.BotClient.md#delete)
 - [downvote](bot.BotClient.md#downvote)
@@ -55,7 +56,7 @@ Bot client.
 
 #### Defined in
 
-[bot/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L26)
+[bot/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L27)
 
 ## Properties
 
@@ -65,7 +66,7 @@ Bot client.
 
 #### Defined in
 
-[bot/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L32)
+[bot/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L33)
 
 ## Methods
 
@@ -117,6 +118,29 @@ Bot client.
 
 ___
 
+### clone
+
+▸ **clone**(`botId`, `request?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotCloneResponse`](../modules/bot_v1.md#botcloneresponse)\>
+
+Clones a bot.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `botId` | `string` |
+| `request?` | [`BotCloneRequest`](../modules/bot_v1.md#botclonerequest) |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotCloneResponse`](../modules/bot_v1.md#botcloneresponse)\>
+
+#### Defined in
+
+[bot/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L94)
+
+___
+
 ### create
 
 ▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotCreateResponse`](../modules/bot_v1.md#botcreateresponse)\>
@@ -135,7 +159,7 @@ Creates a new bot.
 
 #### Defined in
 
-[bot/index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L61)
+[bot/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L62)
 
 ___
 
@@ -157,7 +181,7 @@ Deletes the bot.
 
 #### Defined in
 
-[bot/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L82)
+[bot/index.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L83)
 
 ___
 
@@ -178,7 +202,7 @@ ___
 
 #### Defined in
 
-[bot/index.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L100)
+[bot/index.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L112)
 
 ___
 
@@ -200,7 +224,7 @@ Fetches a bot.
 
 #### Defined in
 
-[bot/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L51)
+[bot/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L52)
 
 ___
 
@@ -222,7 +246,7 @@ Retrieves a list of all bots.
 
 #### Defined in
 
-[bot/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L41)
+[bot/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L42)
 
 ___
 
@@ -245,7 +269,7 @@ Updates a bot.
 
 #### Defined in
 
-[bot/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L72)
+[bot/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L73)
 
 ___
 
@@ -266,4 +290,4 @@ ___
 
 #### Defined in
 
-[bot/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L91)
+[bot/index.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L103)

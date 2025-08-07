@@ -19,6 +19,8 @@ import { buildModelString } from '../model/v1.js'
  *   datasetId?: string,
  *   skillsetId?: string,
  *   visibility?: 'private'|'protected'|'public',
+ *   privacy?: boolean,
+ *   moderation?: boolean,
  *   meta?: Record<string,any>
  * }} BotOptions
  *
@@ -150,6 +152,31 @@ export async function deleteBot(client, botId) {
     /** @type {import('../types/api/v1.js').operations['deleteBot']['requestBody']['content']['application/json']} */
     record: {},
   })
+
+  return response
+}
+
+/**
+ * @typedef {{}} BotCloneRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} BotCloneResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} botId
+ * @param {BotCloneRequest} [request]
+ * @returns {Promise<BotCloneResponse>}
+ */
+export async function cloneBot(client, botId, request) {
+  const url = `/api/v1/bot/${botId}/clone`
+
+  /** @type {import('../types/api/v1.js').operations['cloneBot']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, /** @type {any} */ ({
+    record: {
+      ...request,
+    },
+  }))
 
   return response
 }

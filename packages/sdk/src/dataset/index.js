@@ -92,11 +92,11 @@ export class DatasetClient extends ChatBotKitClient {
    * Searches the dataset.
    *
    * @param {string} datasetId
-   * @param {string} search
+   * @param {import('./v1.js').DatasetSearchRequest|string} request
    * @returns {Promise<import('./v1.js').DatasetSearchResponse>}
    */
-  search(datasetId, search) {
-    return searchDataset(this, datasetId, search)
+  search(datasetId, request) {
+    return searchDataset(this, datasetId, request)
   }
 }
 

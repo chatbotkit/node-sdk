@@ -1,6 +1,7 @@
 import { ChatBotKitClient } from '../client.js'
 import { BotSessionClient } from './session/index.js'
 import {
+  cloneBot,
   createBot,
   deleteBot,
   downvoteBot,
@@ -81,6 +82,17 @@ export class BotClient extends ChatBotKitClient {
    */
   delete(botId) {
     return deleteBot(this, botId)
+  }
+
+  /**
+   * Clones a bot.
+   *
+   * @param {string} botId
+   * @param {import('./v1.js').BotCloneRequest} [request]
+   * @returns {Promise<import('./v1.js').BotCloneResponse>}
+   */
+  clone(botId, request) {
+    return cloneBot(this, botId, request)
   }
 
   /**

@@ -17,6 +17,7 @@
 - [DatasetListStreamItemType](dataset_v1.md#datasetliststreamitemtype)
 - [DatasetListStreamType](dataset_v1.md#datasetliststreamtype)
 - [DatasetOptions](dataset_v1.md#datasetoptions)
+- [DatasetSearchRequest](dataset_v1.md#datasetsearchrequest)
 - [DatasetSearchResponse](dataset_v1.md#datasetsearchresponse)
 - [DatasetUpdateRequest](dataset_v1.md#datasetupdaterequest)
 - [DatasetUpdateResponse](dataset_v1.md#datasetupdateresponse)
@@ -194,6 +195,23 @@ ___
 
 ___
 
+### DatasetSearchRequest
+
+Ƭ **DatasetSearchRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `filter?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `search` | `string` |
+
+#### Defined in
+
+[dataset/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/v1.js#L158)
+
+___
+
 ### DatasetSearchResponse
 
 Ƭ **DatasetSearchResponse**\<\>: `Object`
@@ -206,7 +224,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/v1.js#L157)
+[dataset/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/v1.js#L162)
 
 ___
 
@@ -339,7 +357,7 @@ ___
 
 ### searchDataset
 
-▸ **searchDataset**(`client`, `datasetId`, `search`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetSearchResponse`](dataset_v1.md#datasetsearchresponse)\>
+▸ **searchDataset**(`client`, `datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetSearchResponse`](dataset_v1.md#datasetsearchresponse)\>
 
 #### Parameters
 
@@ -347,7 +365,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
-| `search` | `string` |
+| `request` | `string` \| [`DatasetSearchRequest`](dataset_v1.md#datasetsearchrequest) |
 
 #### Returns
 
@@ -355,7 +373,7 @@ ___
 
 #### Defined in
 
-[dataset/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/v1.js#L164)
+[dataset/v1.js:169](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/v1.js#L169)
 
 ___
 

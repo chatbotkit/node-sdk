@@ -15,6 +15,8 @@
  *   datasetId?: string,
  *   skillsetId?: string,
  *   visibility?: 'private'|'protected'|'public',
+ *   privacy?: boolean,
+ *   moderation?: boolean,
  *   meta?: Record<string,any>
  * }} BotOptions
  *
@@ -90,6 +92,19 @@ export function updateBot(client: ChatBotKitClient, botId: string, request: BotU
  */
 export function deleteBot(client: ChatBotKitClient, botId: string): Promise<BotDeleteResponse>;
 /**
+ * @typedef {{}} BotCloneRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} BotCloneResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} botId
+ * @param {BotCloneRequest} [request]
+ * @returns {Promise<BotCloneResponse>}
+ */
+export function cloneBot(client: ChatBotKitClient, botId: string, request?: BotCloneRequest | undefined): Promise<BotCloneResponse>;
+/**
  * @typedef {{
  *   value?: number
  * }} BotUpvoteRequest
@@ -129,6 +144,8 @@ export type BotOptions = {
     datasetId?: string;
     skillsetId?: string;
     visibility?: 'private' | 'protected' | 'public';
+    privacy?: boolean;
+    moderation?: boolean;
     meta?: Record<string, any>;
 };
 export type BotInstance = BotOptions & {
@@ -164,6 +181,10 @@ export type BotUpdateResponse = {
     id: string;
 };
 export type BotDeleteResponse = {
+    id: string;
+};
+export type BotCloneRequest = {};
+export type BotCloneResponse = {
     id: string;
 };
 export type BotUpvoteRequest = {
