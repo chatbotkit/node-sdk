@@ -94,15 +94,20 @@ export function updateDataset(client: ChatBotKitClient, datasetId: string, reque
 export function deleteDataset(client: ChatBotKitClient, datasetId: string): Promise<DatasetDeleteResponse>;
 /**
  * @typedef {{
+ *   search: string,
+ *   filter?: Record<string,any>
+ * }} DatasetSearchRequest
+ *
+ * @typedef {{
  *   records: {id: string, text: string}[]
  * }} DatasetSearchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
- * @param {string} search
+ * @param {DatasetSearchRequest|string} request
  * @returns {Promise<DatasetSearchResponse>}
  */
-export function searchDataset(client: ChatBotKitClient, datasetId: string, search: string): Promise<DatasetSearchResponse>;
+export function searchDataset(client: ChatBotKitClient, datasetId: string, request: DatasetSearchRequest | string): Promise<DatasetSearchResponse>;
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 export type DatasetOptions = {
@@ -151,6 +156,10 @@ export type DatasetUpdateResponse = {
 };
 export type DatasetDeleteResponse = {
     id: string;
+};
+export type DatasetSearchRequest = {
+    search: string;
+    filter?: Record<string, any>;
 };
 export type DatasetSearchResponse = {
     records: {

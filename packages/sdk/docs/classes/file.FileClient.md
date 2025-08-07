@@ -26,6 +26,7 @@ File client.
 - [download](file.FileClient.md#download)
 - [fetch](file.FileClient.md#fetch)
 - [list](file.FileClient.md#list)
+- [sync](file.FileClient.md#sync)
 - [update](file.FileClient.md#update)
 - [upload](file.FileClient.md#upload)
 
@@ -51,7 +52,7 @@ File client.
 
 #### Defined in
 
-[file/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L25)
+[file/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L26)
 
 ## Methods
 
@@ -121,7 +122,7 @@ Creates a new file.
 
 #### Defined in
 
-[file/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L55)
+[file/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L56)
 
 ___
 
@@ -143,7 +144,7 @@ Deletes the file.
 
 #### Defined in
 
-[file/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L76)
+[file/index.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L77)
 
 ___
 
@@ -165,7 +166,7 @@ Download file data.
 
 #### Defined in
 
-[file/index.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L97)
+[file/index.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L109)
 
 ___
 
@@ -187,7 +188,7 @@ Fetches a file.
 
 #### Defined in
 
-[file/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L45)
+[file/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L46)
 
 ___
 
@@ -209,7 +210,30 @@ Retrieves a list of all files.
 
 #### Defined in
 
-[file/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L35)
+[file/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L36)
+
+___
+
+### sync
+
+▸ **sync**(`fileId`, `request?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileSyncResponse`](../modules/file_v1.md#filesyncresponse)\>
+
+Sync file.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fileId` | `string` |
+| `request?` | [`FileSyncRequest`](../modules/file_v1.md#filesyncrequest) |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileSyncResponse`](../modules/file_v1.md#filesyncresponse)\>
+
+#### Defined in
+
+[file/index.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L99)
 
 ___
 
@@ -232,7 +256,7 @@ Updates a file.
 
 #### Defined in
 
-[file/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L66)
+[file/index.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L67)
 
 ___
 
@@ -255,4 +279,4 @@ Upload file data.
 
 #### Defined in
 
-[file/index.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L87)
+[file/index.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L88)

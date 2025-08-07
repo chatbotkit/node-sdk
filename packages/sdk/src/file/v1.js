@@ -213,3 +213,28 @@ export async function downloadFile(client, fileId) {
 
   return response
 }
+
+/**
+ * @typedef {{}} FileSyncRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} FileSyncResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} fileId
+ * @param {FileSyncRequest} [request]
+ * @returns {Promise<FileSyncResponse>}
+ */
+export async function syncFile(client, fileId, request) {
+  const url = `/api/v1/file/${fileId}/sync`
+
+  /** @type {import('../types/api/v1.js').operations['syncFile']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, /** @type {any} */ ({
+    record: {
+      ...request,
+    },
+  }))
+
+  return response
+}

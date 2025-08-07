@@ -11,6 +11,7 @@ export class ChatBotKit extends ChatBotKitClient {
     conversation: ConversationClient;
     contact: ContactClient;
     task: TaskClient;
+    usage: UsageClient;
     secrets: SecretClient;
     graphql: GraphqlClient;
 }
@@ -27,7 +28,8 @@ import { ContactClient } from './contact/index.js';
 import { SecretClient } from './secret/index.js';
 import { BlueprintClient } from './blueprint/index.js';
 import { GraphqlClient } from './graphql/index.js';
+import { UsageClient } from './usage/index.js';
 import { ChatBotKitClient } from './client.js';
 import { PlatformClient } from './platform/index.js';
 import { TaskClient } from './task/index.js';
-export { BotClient, FileClient, MagicClient, PartnerClient, DatasetClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, BlueprintClient, GraphqlClient };
+export { BotClient, FileClient, MagicClient, PartnerClient, DatasetClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, BlueprintClient, GraphqlClient, UsageClient };

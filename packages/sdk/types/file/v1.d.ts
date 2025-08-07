@@ -108,6 +108,19 @@ export function uploadFile(client: ChatBotKitClient, fileId: string, request: Fi
  * @returns {Promise<FileDownloadResponse>}
  */
 export function downloadFile(client: ChatBotKitClient, fileId: string): Promise<FileDownloadResponse>;
+/**
+ * @typedef {{}} FileSyncRequest
+ *
+ * @typedef {{
+ *   id: string
+ * }} FileSyncResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} fileId
+ * @param {FileSyncRequest} [request]
+ * @returns {Promise<FileSyncResponse>}
+ */
+export function syncFile(client: ChatBotKitClient, fileId: string, request?: FileSyncRequest | undefined): Promise<FileSyncResponse>;
 export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
 export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
 export type FileOptions = {
@@ -156,4 +169,8 @@ export type FileUploadResponse = {
 };
 export type FileDownloadResponse = {
     data: ArrayBuffer;
+};
+export type FileSyncRequest = {};
+export type FileSyncResponse = {
+    id: string;
 };

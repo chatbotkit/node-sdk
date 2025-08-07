@@ -153,22 +153,31 @@ export async function deleteDataset(client, datasetId) {
 
 /**
  * @typedef {{
+ *   search: string,
+ *   filter?: Record<string,any>
+ * }} DatasetSearchRequest
+ *
+ * @typedef {{
  *   records: {id: string, text: string}[]
  * }} DatasetSearchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
- * @param {string} search
+ * @param {DatasetSearchRequest|string} request
  * @returns {Promise<DatasetSearchResponse>}
  */
-export async function searchDataset(client, datasetId, search) {
+export async function searchDataset(client, datasetId, request) {
   const url = `/api/v1/dataset/${datasetId}/search`
+
+  // Support backward compatibility: if request is a string, treat it as search
+  const searchRequest = typeof request === 'string' ? { search: request } : request
 
   /** @type {import('../types/api/v1.js').operations['searchDataset']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
     /** @type {import('../types/api/v1.js').operations['searchDataset']['requestBody']['content']['application/json']} */
     record: {
-      search,
+      search: searchRequest.search,
+      ...(searchRequest.filter && { filter: searchRequest.filter }),
     },
   })
 

@@ -27,7 +27,7 @@
  * @returns {ResponsePromise<UsageSeriesFetchResponse,never>}
  */
 export function fetchUsageSeries(client) {
-  const url = `/api/v1/usage/fetch`
+  const url = `/api/v1/usage/series/fetch`
 
   /** @typedef {import('../../types/api/v1.js').operations['fetchUsageSeries']['responses']['200']['content']['application/json']} T */
   /** @type {ResponsePromise<T,never>} */

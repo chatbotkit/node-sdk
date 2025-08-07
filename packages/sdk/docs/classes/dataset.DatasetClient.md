@@ -217,7 +217,7 @@ ___
 
 ### search
 
-▸ **search**(`datasetId`, `search`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
+▸ **search**(`datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
 
 Searches the dataset.
 
@@ -226,7 +226,7 @@ Searches the dataset.
 | Name | Type |
 | :------ | :------ |
 | `datasetId` | `string` |
-| `search` | `string` |
+| `request` | `string` \| [`DatasetSearchRequest`](../modules/dataset_v1.md#datasetsearchrequest) |
 
 #### Returns
 
