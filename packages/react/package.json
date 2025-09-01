@@ -4,7 +4,7 @@
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=20.0.0"
   },
   "repository": {
     "type": "git",
@@ -236,6 +236,7 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
+    "typescript": "^5.9",
     "@types/react": "^18.2.0"
   }
 }

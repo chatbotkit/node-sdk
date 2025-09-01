@@ -4,7 +4,7 @@
   "description": "ChatBotKit adapter for NextAuth.js to make conversational AI bots with authentication and authorization",
   "license": "ISC",
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=20.0.0"
   },
   "repository": {
     "type": "git",
@@ -83,6 +83,9 @@
   "dependencies": {
     "@chatbotkit/sdk": "workspace:*",
     "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.9"
   },
   "peerDependencies": {
     "next-auth": ">=3.0.0",

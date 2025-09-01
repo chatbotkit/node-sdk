@@ -4,7 +4,7 @@
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=20.0.0"
   },
   "repository": {
     "type": "git",
@@ -959,6 +959,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
+    "typescript": "^5.9",
     "openapi-typescript": "7.4.4",
     "swagger-client": "^3.24.5"
   }

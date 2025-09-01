@@ -1,20 +1,17 @@
-import { Blob, FormData, fetch as nativeFetch } from 'node-fetch-native'
-
-export { Blob, FormData }
+/* eslint-disable no-undef */
+const globalObject = typeof global !== 'undefined' ? global : globalThis
 
 // we need to polyfill the ReadableStream for chrome and Safari
 {
   if (
-    // eslint-disable-next-line no-undef
-    typeof globalThis.ReadableStream === 'function' &&
-    // @ts-expect-error polyfill
-    // eslint-disable-next-line no-undef
-    typeof globalThis.ReadableStream.prototype[Symbol.asyncIterator] !==
+    typeof globalObject !== 'undefined' &&
+    typeof globalObject.ReadableStream === 'function' &&
+    // @ts-expect-error because it is non standard
+    typeof globalObject.ReadableStream.prototype[Symbol.asyncIterator] !==
       'function'
   ) {
-    // @ts-expect-error polyfill
-    // eslint-disable-next-line no-undef
-    globalThis.ReadableStream.prototype[Symbol.asyncIterator] = function () {
+    // @ts-expect-error because it is non standard
+    globalObject.ReadableStream.prototype[Symbol.asyncIterator] = function () {
       const reader = this.getReader()
 
       return {
@@ -148,7 +145,7 @@ export async function getFetchError(response, meta) {
 
   try {
     json = JSON.parse(text)
-  } catch (e) {
+  } catch {
     json = { message: text, code: statusToCodeMap[status] }
   }
 
@@ -207,6 +204,13 @@ export class TimeoutError extends Error {
  * @returns {Promise<Response>}
  */
 export function fetch(url, init) {
+  const nativeFetch =
+    typeof globalObject !== 'undefined' ? globalObject.fetch : undefined
+
+  if (!nativeFetch) {
+    throw new Error(`No suitable fetch implementation found`)
+  }
+
   return nativeFetch(url, init)
 }
 
@@ -297,13 +301,13 @@ export function withTimeout(fetch, defaultOptions) {
 
         signal,
       })
-    } catch (error) {
+    } catch (/** @type {any} */ error) {
       // @note we have a problem because some implementation (Chrome) do not
       // correctly transfer the real reason for the abort i.e. the timeout
       // error, so we need to check if we have raised a timeout above and if so
       // we need to throw the correct error
 
-      if ([error.name, error.message].includes(ABORT_ERROR_NAME)) {
+      if ([error?.name, error?.message].includes(ABORT_ERROR_NAME)) {
         if (isTimeOutAbort) {
           throw new TimeoutError()
         }
@@ -379,9 +383,9 @@ export function withRetry(fetch, defaultOptions) {
       }
 
       return response
-    } catch (error) {
+    } catch (/** @type {any} */ error) {
       switch (true) {
-        case [error.name, error.message].includes(TIMEOUT_ERROR_NAME) &&
+        case [error?.name, error?.message].includes(TIMEOUT_ERROR_NAME) &&
           !retryTimeout: {
           throw error
         }
@@ -438,9 +442,9 @@ export async function* jsonl(body) {
     if (previous.trim().length > 0) {
       yield JSON.parse(previous)
     }
-  } catch (e) {
-    if (e.name !== ABORT_ERROR_NAME) {
-      throw e
+  } catch (/** @type {any} */ error) {
+    if (error?.name !== ABORT_ERROR_NAME) {
+      throw error
     }
   }
 }

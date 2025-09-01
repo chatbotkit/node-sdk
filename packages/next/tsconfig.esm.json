@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "dist/esm"
+    "outDir": "dist/esm",
+    "skipLibCheck": true
   },
   "include": ["src/"]
 }
