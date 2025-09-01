@@ -26,6 +26,9 @@ const globalObject = typeof global !== 'undefined' ? global : globalThis
   }
 }
 
+export const Blob = globalObject.Blob
+export const FormData = globalObject.FormData
+
 export const OK_STATUS = 200
 export const NOT_MODIFIED_STATUS = 304
 export const BAD_REQUEST_STATUS = 400

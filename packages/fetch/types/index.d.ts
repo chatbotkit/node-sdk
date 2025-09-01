@@ -57,6 +57,14 @@ export function withRetry(fetch: FetchFn<{}>, defaultOptions?: withRetryOptions)
 export function jsonl(body: ReadableStream<Uint8Array> & {
     [Symbol.asyncIterator](): AsyncIterator<Uint8Array>;
 }): AsyncGenerator<Record<string, any>>;
+export const Blob: {
+    new (blobParts?: BlobPart[], options?: BlobPropertyBag): Blob;
+    prototype: Blob;
+};
+export const FormData: {
+    new (form?: HTMLFormElement, submitter?: HTMLElement | null): FormData;
+    prototype: FormData;
+};
 export const OK_STATUS: 200;
 export const NOT_MODIFIED_STATUS: 304;
 export const BAD_REQUEST_STATUS: 400;
