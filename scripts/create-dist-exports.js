@@ -64,6 +64,8 @@ async function main() {
   packageStruct.main = './dist/cjs/index.js'
   packageStruct.types = './dist/cjs/index.d.ts'
 
+  packageStruct.files = ['dist/**']
+
   await fs.writeFile(
     'package.json',
     JSON.stringify(packageStruct, null, 2) + '\n'

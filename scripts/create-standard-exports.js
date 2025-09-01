@@ -58,6 +58,8 @@ async function main() {
   packageStruct.main = './src/index.js'
   packageStruct.types = './types/index.d.ts'
 
+  delete packageStruct.files
+
   await fs.writeFile(
     'package.json',
     JSON.stringify(packageStruct, null, 2) + '\n'

@@ -45,9 +45,6 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist/**"
-  ],
   "scripts": {
     "build": "run-s build:*",
     "build:cjs": "tsc -p tsconfig.cjs.json",
