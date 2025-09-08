@@ -5,13 +5,13 @@
  * @param {Record<string,any>} [meta]
  * @returns {Promise<FetchError>}
  */
-export function getFetchError(response: Response, meta?: Record<string, any> | undefined): Promise<FetchError>;
+export function getFetchError(response: Response, meta?: Record<string, any>): Promise<FetchError>;
 /**
  * @param {string|URL} url
  * @param {RequestInit} [init]
  * @returns {Promise<Response>}
  */
-export function fetch(url: string | URL, init?: RequestInit | undefined): Promise<Response>;
+export function fetch(url: string | URL, init?: RequestInit): Promise<Response>;
 /**
  * @param {(AbortSignal|null|undefined)[]} signals
  * @returns {AbortSignal}
@@ -32,7 +32,7 @@ export function anySignal(signals: (AbortSignal | null | undefined)[]): AbortSig
  * @param {withTimeoutOptions} [defaultOptions]
  * @returns {FetchFn<withTimeoutOptions>}
  */
-export function withTimeout(fetch: FetchFn<{}>, defaultOptions?: withTimeoutOptions | undefined): FetchFn<withTimeoutOptions>;
+export function withTimeout(fetch: FetchFn<{}>, defaultOptions?: withTimeoutOptions): FetchFn<withTimeoutOptions>;
 /**
  * @typedef {{
  *   retries?: number,
@@ -47,7 +47,7 @@ export function withTimeout(fetch: FetchFn<{}>, defaultOptions?: withTimeoutOpti
  * @param {withRetryOptions} [defaultOptions]
  * @returns {FetchFn<withRetryOptions>}
  */
-export function withRetry(fetch: FetchFn<{}>, defaultOptions?: withRetryOptions | undefined): FetchFn<withRetryOptions>;
+export function withRetry(fetch: FetchFn<{}>, defaultOptions?: withRetryOptions): FetchFn<withRetryOptions>;
 /**
  * Expose a JSONL stream as an async iterable.
  *
@@ -57,6 +57,14 @@ export function withRetry(fetch: FetchFn<{}>, defaultOptions?: withRetryOptions 
 export function jsonl(body: ReadableStream<Uint8Array> & {
     [Symbol.asyncIterator](): AsyncIterator<Uint8Array>;
 }): AsyncGenerator<Record<string, any>>;
+export const Blob: {
+    new (blobParts?: BlobPart[], options?: BlobPropertyBag): Blob;
+    prototype: Blob;
+};
+export const FormData: {
+    new (form?: HTMLFormElement, submitter?: HTMLElement | null): FormData;
+    prototype: FormData;
+};
 export const OK_STATUS: 200;
 export const NOT_MODIFIED_STATUS: 304;
 export const BAD_REQUEST_STATUS: 400;
@@ -124,7 +132,7 @@ export class FetchError extends Error {
      * @param {string} code
      * @param {Record<string,any>} [meta]
      */
-    constructor(message: string, code: string, meta?: Record<string, any> | undefined);
+    constructor(message: string, code: string, meta?: Record<string, any>);
     code: string;
 }
 export const ABORT_ERROR_NAME: "AbortError";
@@ -163,6 +171,3 @@ export type withRetryOptions = {
     retryTimeout?: boolean;
     retryStatuses?: number[];
 };
-import { Blob } from 'node-fetch-native';
-import { FormData } from 'node-fetch-native';
-export { Blob, FormData };

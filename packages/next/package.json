@@ -4,7 +4,7 @@
   "description": "Utility library for ChatbotKit for Next.js",
   "license": "ISC",
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=20.0.0"
   },
   "repository": {
     "type": "git",
@@ -45,9 +45,6 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist/**"
-  ],
   "scripts": {
     "build": "run-s build:*",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -73,5 +70,8 @@
   "types": "./types/index.d.ts",
   "dependencies": {
     "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.9"
   }
 }

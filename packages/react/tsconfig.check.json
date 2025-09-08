@@ -2,7 +2,19 @@
   "extends": "../../tsconfig.check.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "src"
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": true,
+    "maxNodeModuleJsDepth": 0,
+    "lib": ["es2018", "dom"],
+    "types": ["node"]
   },
-  "include": ["src/"]
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules/**/*",
+    "../../node_modules/**/*",
+    "**/node_modules/**/*",
+    "dist/**/*"
+  ]
 }

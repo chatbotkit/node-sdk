@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.check.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "src"
+    "rootDir": "src",
+    "skipLibCheck": true
   },
   "include": ["src/"]
 }
