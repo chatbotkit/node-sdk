@@ -96,7 +96,16 @@ function consumeIt(source) {
         current: source,
 
         async next() {
-          const { iteratorResult, next, error } = await this.current
+          const result = await this.current
+
+          if (!result || typeof result !== 'object') {
+            throw new StreamError(
+              'Invalid stream result',
+              'INVALID_STREAM_RESULT'
+            )
+          }
+
+          const { iteratorResult, next, error } = result
 
           if (error) {
             if (typeof error === 'object') {
