@@ -182,6 +182,7 @@ export class ResponsePromise {
           return await response.json()
         } else {
           return {
+            headers: response.headers,
             data: await response.arrayBuffer(),
           }
         }

@@ -198,6 +198,7 @@ export async function uploadFile(client, fileId, request) {
 
 /**
  * @typedef {{
+ *   headers: Headers,
  *   data: ArrayBuffer
  * }} FileDownloadResponse
  *

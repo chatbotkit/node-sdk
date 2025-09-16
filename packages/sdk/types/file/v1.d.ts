@@ -155,5 +155,6 @@ export type FileUploadResponse = {
     id: string;
 };
 export type FileDownloadResponse = {
+    headers: Headers;
     data: ArrayBuffer;
 };
