@@ -17,7 +17,7 @@ export default async function handler(req) {
 
   return stream(
     cbk.conversation.complete(req.nextUrl.searchParams.get('conversationId'), {
-      // You can pass any other parmters here.
+      // You can pass any other parameters here.
 
       text,
     })
