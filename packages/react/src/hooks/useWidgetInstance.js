@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 
+import useDOMQuerySelector from './useDOMQuerySelector.js'
+
 /**
  * @typedef {{
  *   id: string,
@@ -30,7 +32,7 @@ import { useEffect, useState } from 'react'
  *
  * @typedef {WidgetFunctionWithResult|WidgetFunctionWithHandler} WidgetFunction
  *
- * @typedef {() => void} WidgteRestartConversationFn
+ * @typedef {() => void} WidgetRestartConversationFn
  *
  * @typedef {(options: string|(({message: string} | {text: string}) & {hidden?: boolean, respond?: boolean})) => void} WidgetSendMessageFn
  *
@@ -40,16 +42,41 @@ import { useEffect, useState } from 'react'
  *   messages?: WidgetMessage[]?,
  *   notifications?: Record<string, WidgetNotification>?,
  *   functions?: Record<string, WidgetFunction>?,
- *   restartConversation: WidgteRestartConversationFn,
+ *   restartConversation: WidgetRestartConversationFn,
  *   sendMessage: WidgetSendMessageFn,
  * }} ChatBotKitWidgetInstance
  *
+ * @param {string} [selector]
  * @returns {ChatBotKitWidgetInstance|null}
  */
-export function useWidgetInstance() {
+export function useWidgetInstance(selector) {
   const [instance, setInstance] = useState(null)
 
+  const [element] = useDOMQuerySelector(selector, { waitForElements: true })
+
   useEffect(() => {
+    if (element) {
+      if (element.readyPromise) {
+        element.readyPromise.then(() => setInstance(element))
+
+        return
+      }
+
+      {
+        const onReady = () => {
+          setInstance(element)
+        }
+
+        element.addEventListener('ready', onReady)
+        
+        return () => {
+          element?.removeEventListener?.('ready', onReady)
+        }
+      }
+
+      return
+    }
+
     // @ts-expect-error chatbotkitWidget is a global variable
     if (window.chatbotkitWidget) {
       // @ts-expect-error chatbotkitWidget is a global variable
@@ -72,7 +99,7 @@ export function useWidgetInstance() {
     return () => {
       window.removeEventListener('chatbotkitWidgetInit', onInit)
     }
-  }, [])
+  }, [element])
 
   return instance
 }

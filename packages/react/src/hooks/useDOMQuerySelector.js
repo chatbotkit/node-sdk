@@ -14,6 +14,10 @@ export function useDOMQuerySelector(selector, options) {
   const [elements, setElements] = useState(/** @type {T[]} */ ([]))
 
   useEffect(() => {
+    if (!selector) {
+      return
+    }
+
     const elements = document.querySelectorAll(selector)
 
     setElements(/** @type {T[]} */ (Array.from(elements)))

@@ -14,7 +14,7 @@
 - [WidgetMessage](hooks_useWidgetInstance.md#widgetmessage)
 - [WidgetNotification](hooks_useWidgetInstance.md#widgetnotification)
 - [WidgetSendMessageFn](hooks_useWidgetInstance.md#widgetsendmessagefn)
-- [WidgteRestartConversationFn](hooks_useWidgetInstance.md#widgterestartconversationfn)
+- [WidgetRestartConversationFn](hooks_useWidgetInstance.md#widgterestartconversationfn)
 
 ### Functions
 
@@ -24,7 +24,7 @@
 
 ### ChatBotKitWidgetInstance
 
-Ƭ **ChatBotKitWidgetInstance**\<\>: [`HTMLElement`]( https://developer.mozilla.org/docs/Web/API/HTMLElement ) & \{ `functions?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetFunction`](hooks_useWidgetInstance.md#widgetfunction)\> \| ``null`` ; `messages?`: [`WidgetMessage`](hooks_useWidgetInstance.md#widgetmessage)[] \| ``null`` ; `notifications?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetNotification`](hooks_useWidgetInstance.md#widgetnotification)\> \| ``null`` ; `ready`: `boolean` ; `readyPromise`: [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`boolean`\> ; `restartConversation`: [`WidgteRestartConversationFn`](hooks_useWidgetInstance.md#widgterestartconversationfn) ; `sendMessage`: [`WidgetSendMessageFn`](hooks_useWidgetInstance.md#widgetsendmessagefn)  }
+Ƭ **ChatBotKitWidgetInstance**\<\>: [`HTMLElement`]( https://developer.mozilla.org/docs/Web/API/HTMLElement ) & \{ `functions?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetFunction`](hooks_useWidgetInstance.md#widgetfunction)\> \| ``null`` ; `messages?`: [`WidgetMessage`](hooks_useWidgetInstance.md#widgetmessage)[] \| ``null`` ; `notifications?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetNotification`](hooks_useWidgetInstance.md#widgetnotification)\> \| ``null`` ; `ready`: `boolean` ; `readyPromise`: [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`boolean`\> ; `restartConversation`: [`WidgetRestartConversationFn`](hooks_useWidgetInstance.md#widgterestartconversationfn) ; `sendMessage`: [`WidgetSendMessageFn`](hooks_useWidgetInstance.md#widgetsendmessagefn)  }
 
 #### Defined in
 
@@ -137,9 +137,9 @@ ___
 
 ___
 
-### WidgteRestartConversationFn
+### WidgetRestartConversationFn
 
-Ƭ **WidgteRestartConversationFn**\<\>: () => `void`
+Ƭ **WidgetRestartConversationFn**\<\>: () => `void`
 
 #### Type declaration
 

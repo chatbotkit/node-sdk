@@ -26,7 +26,7 @@
  *
  * @typedef {WidgetFunctionWithResult|WidgetFunctionWithHandler} WidgetFunction
  *
- * @typedef {() => void} WidgteRestartConversationFn
+ * @typedef {() => void} WidgetRestartConversationFn
  *
  * @typedef {(options: string|(({message: string} | {text: string}) & {hidden?: boolean, respond?: boolean})) => void} WidgetSendMessageFn
  *
@@ -36,7 +36,7 @@
  *   messages?: WidgetMessage[]?,
  *   notifications?: Record<string, WidgetNotification>?,
  *   functions?: Record<string, WidgetFunction>?,
- *   restartConversation: WidgteRestartConversationFn,
+ *   restartConversation: WidgetRestartConversationFn,
  *   sendMessage: WidgetSendMessageFn,
  * }} ChatBotKitWidgetInstance
  *
@@ -65,7 +65,7 @@ export type WidgetFunctionWithHandler = WidgetFunctionBase & {
     handler: (args: any) => any;
 };
 export type WidgetFunction = WidgetFunctionWithResult | WidgetFunctionWithHandler;
-export type WidgteRestartConversationFn = () => void;
+export type WidgetRestartConversationFn = () => void;
 export type WidgetSendMessageFn = (options: string | (({
     message: string;
 } | {
@@ -80,6 +80,6 @@ export type ChatBotKitWidgetInstance = HTMLElement & {
     messages?: WidgetMessage[] | null;
     notifications?: Record<string, WidgetNotification> | null;
     functions?: Record<string, WidgetFunction> | null;
-    restartConversation: WidgteRestartConversationFn;
+    restartConversation: WidgetRestartConversationFn;
     sendMessage: WidgetSendMessageFn;
 };
