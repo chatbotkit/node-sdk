@@ -64,6 +64,8 @@ export function useWidgetInstance(selector) {
 
       {
         const onReady = () => {
+          element.removeEventListener('ready', onReady)
+
           setInstance(element)
         }
 
