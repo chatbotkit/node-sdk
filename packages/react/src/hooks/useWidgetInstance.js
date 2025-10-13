@@ -68,13 +68,11 @@ export function useWidgetInstance(selector) {
         }
 
         element.addEventListener('ready', onReady)
-        
+
         return () => {
           element?.removeEventListener?.('ready', onReady)
         }
       }
-
-      return
     }
 
     // @ts-expect-error chatbotkitWidget is a global variable
