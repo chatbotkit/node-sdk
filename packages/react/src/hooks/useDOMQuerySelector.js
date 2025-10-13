@@ -28,37 +28,35 @@ export default function useDOMQuerySelector(selector, options, deps) {
 
     const initialElements = parent.querySelectorAll(selector)
 
-    if (initialElements.length) {
-      setElements([...initialElements])
-    } else {
-      if (waitForElements) {
-        const observer = new MutationObserver(() => {
-          const elements = parent.querySelectorAll(selector)
+    setElements([...initialElements])
 
-          if (elements.length) {
-            setElements([...elements])
+    if (!initialElements.length && waitForElements) {
+      const observer = new MutationObserver(() => {
+        const elements = parent.querySelectorAll(selector)
 
-            if (disconnectOnFirstMatch) {
-              try {
-                observer.disconnect()
-              } catch {
-                // just in case
-              }
+        if (elements.length) {
+          setElements([...elements])
+
+          if (disconnectOnFirstMatch) {
+            try {
+              observer.disconnect()
+            } catch {
+              // just in case
             }
           }
-        })
+        }
+      })
 
-        observer.observe(parent, {
-          childList: true,
-          subtree: true,
-        })
+      observer.observe(parent, {
+        childList: true,
+        subtree: true,
+      })
 
-        return () => {
-          try {
-            observer.disconnect()
-          } catch {
-            // just in case
-          }
+      return () => {
+        try {
+          observer.disconnect()
+        } catch {
+          // just in case
         }
       }
     }
