@@ -25,8 +25,7 @@ export function AutoTextarea(props, forwardedRef) {
     () =>
       /** @type {HTMLTextAreaElement} */ (
         /** @type {unknown} */ (localRef.current)
-      ),
-    []
+      )
   )
 
   useEffect(() => {
