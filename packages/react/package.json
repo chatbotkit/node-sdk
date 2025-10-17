@@ -146,14 +146,6 @@
       "types": "./types/hooks/useWidgetInstanceNotifications.d.ts",
       "import": "./src/hooks/useWidgetInstanceNotifications.js"
     },
-    "./hooks/useWidgetQuerySelector": {
-      "types": "./types/hooks/useWidgetQuerySelector.d.ts",
-      "import": "./src/hooks/useWidgetQuerySelector.js"
-    },
-    "./hooks/useWidgetQuerySelector.js": {
-      "types": "./types/hooks/useWidgetQuerySelector.d.ts",
-      "import": "./src/hooks/useWidgetQuerySelector.js"
-    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"

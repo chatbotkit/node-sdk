@@ -11,9 +11,10 @@ import useWidgetInstance from './useWidgetInstance.js'
  *   selector?: string,
  *   notifications?: Record<string, WidgetNotification>?
  * }} [params]
+ * @param {any[]} [deps]
  */
-export function useWidgetInstanceNotifications(params) {
-  const instance = useWidgetInstance(params?.selector)
+export function useWidgetInstanceNotifications(params, deps) {
+  const instance = useWidgetInstance(params?.selector, deps)
 
   useEffect(() => {
     if (!instance) {

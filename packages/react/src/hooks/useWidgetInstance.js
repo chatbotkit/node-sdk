@@ -47,12 +47,17 @@ import useDOMQuerySelector from './useDOMQuerySelector.js'
  * }} ChatBotKitWidgetInstance
  *
  * @param {string} [selector]
+ * @param {any[]} [deps]
  * @returns {ChatBotKitWidgetInstance|null}
  */
-export function useWidgetInstance(selector) {
+export function useWidgetInstance(selector, deps) {
   const [instance, setInstance] = useState(null)
 
-  const [element] = useDOMQuerySelector(selector, { waitForElements: true })
+  const [element] = useDOMQuerySelector(
+    selector,
+    { waitForElements: true },
+    deps
+  )
 
   useEffect(() => {
     if (element) {

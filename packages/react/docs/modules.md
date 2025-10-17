@@ -21,5 +21,4 @@
 - [hooks/useWidgetInstance](modules/hooks_useWidgetInstance.md)
 - [hooks/useWidgetInstanceFunctions](modules/hooks_useWidgetInstanceFunctions.md)
 - [hooks/useWidgetInstanceNotifications](modules/hooks_useWidgetInstanceNotifications.md)
-- [hooks/useWidgetQuerySelector](modules/hooks_useWidgetQuerySelector.md)
 - [utils/stream](modules/utils_stream.md)
