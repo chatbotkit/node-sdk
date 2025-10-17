@@ -12,6 +12,7 @@ import useWidgetInstance from './useWidgetInstance.js'
  *   notifications?: Record<string, WidgetNotification>?
  * }} [params]
  * @param {any[]} [deps]
+ * @returns {import('./useWidgetInstance.js').ChatBotKitWidgetInstance|null}
  */
 export function useWidgetInstanceNotifications(params, deps) {
   const instance = useWidgetInstance(params?.selector, deps)
@@ -29,6 +30,8 @@ export function useWidgetInstanceNotifications(params, deps) {
       ...params?.notifications,
     }
   }, [params?.notifications, instance])
+
+  return instance
 }
 
 export default useWidgetInstanceNotifications

@@ -13,6 +13,7 @@ import useWidgetInstance from './useWidgetInstance.js'
  *   functions?: Record<string, WidgetFunction>?
  * }} [params]
  * @param {any[]} [deps]
+ * @returns {import('./useWidgetInstance.js').ChatBotKitWidgetInstance|null}
  */
 export function useWidgetInstanceFunctions(params, deps) {
   const instance = useWidgetInstance(params?.selector, deps)
@@ -30,6 +31,8 @@ export function useWidgetInstanceFunctions(params, deps) {
       ...params?.functions,
     }
   }, [params?.functions, instance])
+
+  return instance
 }
 
 export default useWidgetInstanceFunctions
