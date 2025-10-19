@@ -13,6 +13,7 @@
  *   name?: string,
  *   description?: string,
  *   store?: string,
+ *   reranker?: string,
  *   recordMaxTokens?: number,
  *   searchMinScore?: number,
  *   searchMaxRecords?: number,

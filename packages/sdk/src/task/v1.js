@@ -15,6 +15,7 @@
  *   contactId?: string,
  *   botId?: string,
  *   schedule?: string,
+ *   sessionDuration?: number,
  *   meta?: Record<string,any>
  * }} TaskOptions
  *

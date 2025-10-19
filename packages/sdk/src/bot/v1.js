@@ -18,6 +18,8 @@ import { buildModelString } from '../model/v1.js'
  *   model?: string,
  *   datasetId?: string,
  *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
  *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>
  * }} BotOptions
@@ -161,7 +163,8 @@ export async function deleteBot(client, botId) {
 
 /**
  * @typedef {{
- *   value?: number
+ *   value?: number,
+ *   reason?: string
  * }} BotUpvoteRequest
  *
  * @typedef {{
@@ -191,7 +194,8 @@ export async function upvoteBot(client, botId, request) {
 
 /**
  * @typedef {{
- *   value?: number
+ *   value?: number,
+ *   reason?: string
  * }} BotDownvoteRequest
  *
  * @typedef {{
