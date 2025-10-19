@@ -13,7 +13,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Execute a GraphQL query or mutation */
+        /** Execute a GraphQL query */
         post: operations["graphql"];
         delete?: never;
         options?: never;
@@ -208,6 +208,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/bot/{botId}/memory/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search memories for a specific bot */
+        post: operations["searchBotMemory"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/bot/{botId}/session/create": {
         parameters: {
             query?: never;
@@ -253,6 +270,29 @@ export interface paths {
         put?: never;
         /** Upvote a bot */
         post: operations["upvoteBot"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/bot/{botId}/usage/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch bot usage statistics
+         * @description Retrieve usage statistics for a specific bot, including total tokens
+         *     (BASE type only), total conversations, and total messages. Optionally
+         *     filter by date range.
+         *
+         */
+        get: operations["fetchBotUsage"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -338,6 +378,40 @@ export interface paths {
         get: operations["fetchContact"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/memory/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List contact memories */
+        get: operations["listContactMemories"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/memory/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search memories for a specific contact */
+        post: operations["searchContactMemory"];
         delete?: never;
         options?: never;
         head?: never;
@@ -851,6 +925,28 @@ export interface paths {
         put?: never;
         /** Upvote conversation */
         post: operations["upvoteConversation"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/conversation/{conversationId}/usage/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch conversation usage statistics
+         * @description Retrieve usage statistics for a specific conversation, including total tokens
+         *     (BASE type only) and total messages. Optionally filter by date range.
+         *
+         */
+        get: operations["fetchConversationUsage"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -2785,6 +2881,129 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/memory/{memoryId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete memory */
+        post: operations["deleteMemory"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/memory/{memoryId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch memory */
+        get: operations["fetchMemory"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/memory/{memoryId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update memory */
+        post: operations["updateMemory"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/memory/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create a new memory
+         * @description Create a new memory with the given parameters.
+         *
+         */
+        post: operations["createMemory"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/memory/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export memories */
+        get: operations["exportMemories"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/memory/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List memories */
+        get: operations["listMemories"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/memory/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search memories for records matching a given search query */
+        post: operations["searchMemory"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/partner/user/{userId}/delete": {
         parameters: {
             query?: never;
@@ -2938,6 +3157,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/example/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of platform examples */
+        get: operations["listPlatformExamples"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/model/list": {
         parameters: {
             query?: never;
@@ -2964,6 +3200,91 @@ export interface paths {
         };
         /** Retrieve a list of platform secrets */
         get: operations["listPlatformSecrets"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/policy/{id}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete policy */
+        post: operations["deletePolicy"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/policy/{id}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch policy */
+        get: operations["fetchPolicy"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/policy/{id}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update policy */
+        post: operations["updatePolicy"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/policy/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create policy */
+        post: operations["createPolicy"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/policy/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of policies */
+        get: operations["listPolicies"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3278,6 +3599,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/task/{taskId}/trigger": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Trigger a task
+         * @description Manually trigger a task to execute immediately.
+         *
+         */
+        post: operations["triggerTask"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/task/{taskId}/update": {
         parameters: {
             query?: never;
@@ -3342,6 +3684,23 @@ export interface paths {
         };
         /** List tasks */
         get: operations["listTasks"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/team/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of teams */
+        get: operations["listTeams"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3433,6 +3792,11 @@ export interface components {
          */
         MessageType: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
         /**
+         * @description The type of the trigger
+         * @enum {string}
+         */
+        Trigger: "never" | "automatic";
+        /**
          * @description The schedule
          * @enum {string}
          */
@@ -3486,7 +3850,7 @@ export interface components {
          * @description The type of the secret
          * @enum {string}
          */
-        SecretType: "plain" | "basic" | "bearer" | "oauth" | "template";
+        SecretType: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
         /**
          * @description The visibility of the secret
          * @enum {string}
@@ -4101,6 +4465,8 @@ export interface operations {
                      * @default -100
                      */
                     value?: number;
+                    /** @description The reason for the downvote */
+                    reason?: string;
                 };
             };
         };
@@ -4180,6 +4546,51 @@ export interface operations {
                          * @enum {string}
                          */
                         visibility?: "private" | "protected" | "public";
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    searchBotMemory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                botId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The keyword/phrase to search for */
+                    search: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description An array of memories matching the search query */
+                        items: {
+                            id: string;
+                            text: string;
+                            meta?: Record<string, never>;
+                        }[];
                     };
                 };
             };
@@ -4353,6 +4764,8 @@ export interface operations {
                      * @default 100
                      */
                     value?: number;
+                    /** @description The reason for the upvote */
+                    reason?: string;
                 };
             };
         };
@@ -4366,6 +4779,47 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the upvoted bot */
                         id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchBotUsage: {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+            };
+            header?: never;
+            path: {
+                botId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Bot usage statistics retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description Total number of BASE tokens used */
+                        tokens?: number;
+                        /** @description Total number of conversations */
+                        conversations?: number;
+                        /** @description Total number of messages */
+                        messages?: number;
                     };
                 };
             };
@@ -4759,8 +5213,139 @@ export interface operations {
                         phone?: string;
                         /** @description The nickname of the contact */
                         nick?: string;
+                        /** @description The preferences of the contact */
+                        preferences?: string;
                         /** @description The timestamp (ms) when the contact was verified */
                         verifiedAt?: number;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listContactMemories: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of contacts was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot the memory belongs to */
+                            botId?: string;
+                            /** @description The text of the memory */
+                            text: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot the memory belongs to */
+                            botId?: string;
+                            /** @description The text of the memory */
+                            text: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    searchContactMemory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The keyword/phrase to search for */
+                    search: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description An array of memories matching the search query */
+                        items: {
+                            id: string;
+                            text: string;
+                            meta?: Record<string, never>;
+                        }[];
                     };
                 };
             };
@@ -5104,6 +5689,8 @@ export interface operations {
                     phone?: string;
                     /** @description The nickname of the contact */
                     nick?: string;
+                    /** @description The preferences of the contact */
+                    preferences?: string;
                     /** @description The timestamp (ms) when the contact was verified */
                     verifiedAt?: number;
                 };
@@ -5159,6 +5746,8 @@ export interface operations {
                     phone?: string;
                     /** @description The nickname of the contact */
                     nick?: string;
+                    /** @description The preferences of the contact */
+                    preferences?: string;
                     /** @description The timestamp (ms) when the contact was verified */
                     verifiedAt?: number;
                 };
@@ -5214,6 +5803,8 @@ export interface operations {
                     phone?: string;
                     /** @description The nickname of the contact */
                     nick?: string;
+                    /** @description The preferences of the contact */
+                    preferences?: string;
                     /** @description The timestamp (ms) when the contact was verified */
                     verifiedAt?: number;
                 };
@@ -5286,6 +5877,8 @@ export interface operations {
                             phone?: string;
                             /** @description The nickname of the contact */
                             nick?: string;
+                            /** @description The preferences of the contact */
+                            preferences?: string;
                             /** @description The timestamp (ms) when the contact was verified */
                             verifiedAt?: number;
                         }[];
@@ -5320,6 +5913,8 @@ export interface operations {
                             phone?: string;
                             /** @description The nickname of the contact */
                             nick?: string;
+                            /** @description The preferences of the contact */
+                            preferences?: string;
                             /** @description The timestamp (ms) when the contact was verified */
                             verifiedAt?: number;
                         };
@@ -5381,6 +5976,8 @@ export interface operations {
                             phone?: string;
                             /** @description The nickname of the contact */
                             nick?: string;
+                            /** @description The preferences of the contact */
+                            preferences?: string;
                             /** @description The timestamp (ms) when the contact was verified */
                             verifiedAt?: number;
                         }[];
@@ -5415,6 +6012,8 @@ export interface operations {
                             phone?: string;
                             /** @description The nickname of the contact */
                             nick?: string;
+                            /** @description The preferences of the contact */
+                            preferences?: string;
                             /** @description The timestamp (ms) when the contact was verified */
                             verifiedAt?: number;
                         };
@@ -5468,7 +6067,7 @@ export interface operations {
             };
         };
         responses: {
-            /** @description The file was upload successfully */
+            /** @description The file was uploaded successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -5477,7 +6076,7 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the upload file */
                         id: string;
-                        /** @description The name of the upload file */
+                        /** @description The name of the uploaded file */
                         name?: string;
                         /** @description The request required to upload the file */
                         uploadRequest?: {
@@ -5485,7 +6084,7 @@ export interface operations {
                             method: string;
                             /** @description The HTTP url to use */
                             url: string;
-                            /** @description The HTTP url to use */
+                            /** @description The HTTP headers to use */
                             headers: Record<string, never>;
                         };
                     };
@@ -5727,6 +6326,8 @@ export interface operations {
                      * @default -100
                      */
                     value?: number;
+                    /** @description The reason for the downvote */
+                    reason?: string;
                 };
             };
         };
@@ -5880,6 +6481,8 @@ export interface operations {
                      * @default -100
                      */
                     value?: number;
+                    /** @description The reason for the downvote */
+                    reason?: string;
                 };
             };
         };
@@ -6092,6 +6695,8 @@ export interface operations {
                      * @default 100
                      */
                     value?: number;
+                    /** @description The reason for the upvote */
+                    reason?: string;
                 };
             };
         };
@@ -6573,6 +7178,8 @@ export interface operations {
                     contactId?: string;
                     /** @description The task id assigned to this conversation */
                     taskId?: string;
+                    /** @description The space id assigned to this conversation */
+                    spaceId?: string;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -6636,6 +7243,8 @@ export interface operations {
                      * @default 100
                      */
                     value?: number;
+                    /** @description The reason for the upvote */
+                    reason?: string;
                 };
             };
         };
@@ -6649,6 +7258,45 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the upvoted conversation */
                         id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchConversationUsage: {
+        parameters: {
+            query?: {
+                from?: string;
+                to?: string;
+            };
+            header?: never;
+            path: {
+                conversationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Conversation usage statistics retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description Total number of BASE tokens used */
+                        tokens?: number;
+                        /** @description Total number of messages */
+                        messages?: number;
                     };
                 };
             };
@@ -6810,6 +7458,8 @@ export interface operations {
                     contactId?: string;
                     /** @description The task id assigned to this conversation */
                     taskId?: string;
+                    /** @description The space id assigned to this conversation */
+                    spaceId?: string;
                     /** @description An array of messages to be added to the conversation */
                     messages?: {
                         /**
@@ -6915,6 +7565,8 @@ export interface operations {
                             contactId?: string;
                             /** @description The task id assigned to this conversation */
                             taskId?: string;
+                            /** @description The space id assigned to this conversation */
+                            spaceId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -6962,6 +7614,8 @@ export interface operations {
                             contactId?: string;
                             /** @description The task id assigned to this conversation */
                             taskId?: string;
+                            /** @description The space id assigned to this conversation */
+                            spaceId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -7036,6 +7690,8 @@ export interface operations {
                             contactId?: string;
                             /** @description The task id assigned to this conversation */
                             taskId?: string;
+                            /** @description The space id assigned to this conversation */
+                            spaceId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -7083,6 +7739,8 @@ export interface operations {
                             contactId?: string;
                             /** @description The task id assigned to this conversation */
                             taskId?: string;
+                            /** @description The space id assigned to this conversation */
+                            spaceId?: string;
                         } & ({
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
@@ -8327,7 +8985,7 @@ export interface operations {
                             method: string;
                             /** @description The HTTP url to use */
                             url: string;
-                            /** @description The HTTP url to use */
+                            /** @description The HTTP headers to use */
                             headers: Record<string, never>;
                         };
                     };
@@ -8548,6 +9206,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description The Discord application ID */
                         appId?: string;
                         /** @description The Discord command handle */
@@ -8556,26 +9216,7 @@ export interface operations {
                         contactCollection?: boolean;
                         /** @description The chat session duration */
                         sessionDuration?: number;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -8611,7 +9252,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the setuped Discord integration */
+                        /** @description The ID of the setup Discord integration */
                         id: string;
                     };
                 };
@@ -8647,6 +9288,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The Discord application ID */
                     appId?: string;
                     /** @description The Discord bot token */
@@ -8659,26 +9302,7 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The chat session duration */
                     sessionDuration?: number;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -8723,6 +9347,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The Discord application ID */
                     appId?: string;
                     /** @description The Discord bot token */
@@ -8735,26 +9361,7 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The chat session duration */
                     sessionDuration?: number;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -8801,7 +9408,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -8816,6 +9423,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The Discord application ID */
                             appId?: string;
                             /** @description The Discord command handle */
@@ -8824,26 +9433,7 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The chat session duration */
                             sessionDuration?: number;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -8851,7 +9441,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -8867,6 +9457,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The Discord application ID */
                             appId?: string;
                             /** @description The Discord command handle */
@@ -8875,26 +9467,7 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The chat session duration */
                             sessionDuration?: number;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -8979,32 +9552,15 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
                         attachments?: boolean;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -9076,32 +9632,15 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description Weather to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -9146,32 +9685,15 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description Weather to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -9218,7 +9740,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -9233,32 +9755,15 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -9266,7 +9771,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -9282,32 +9787,15 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -9952,32 +10440,15 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description The Messenger integration verify token */
                         verifyToken: string;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
                         attachments?: boolean;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -10049,32 +10520,15 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The Messenger integration access token */
                     accessToken?: string;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -10119,32 +10573,15 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The Messenger integration access token */
                     accessToken?: string;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -10191,7 +10628,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -10206,32 +10643,15 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The Messenger integration verify token */
                             verifyToken: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -10239,7 +10659,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -10255,32 +10675,15 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The Messenger integration verify token */
                             verifyToken: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -11051,32 +11454,19 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration for the Slack integration */
                         sessionDuration?: number;
+                        /** @description Whether to enable references feature */
+                        references?: boolean;
+                        /** @description Whether to enable ratings buttons feature */
+                        ratings?: boolean;
                         /** @description The number of visible messages outside of the new thread */
                         visibleMessages?: number;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -11105,14 +11495,14 @@ export interface operations {
             };
         };
         responses: {
-            /** @description The Slack integration was setuped successfully */
+            /** @description The Slack integration was setup successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        /** @description The ID of the setuped Slack integration */
+                        /** @description The ID of the setup Slack integration */
                         id: string;
                     };
                 };
@@ -11148,36 +11538,25 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The signing secret for the Slack integration */
                     signingSecret?: string;
                     /** @description The bot token for the Slack integration */
                     botToken?: string;
+                    /** @description The user token for the Slack integration */
+                    userToken?: string;
                     /** @description Weather to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration for the Slack integration */
                     sessionDuration?: number;
+                    /** @description Whether to enable references feature */
+                    references?: boolean;
+                    /** @description Whether to enable ratings buttons feature */
+                    ratings?: boolean;
                     /** @description The number of visible messages outside of the new thread */
                     visibleMessages?: number;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -11222,36 +11601,25 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The signing secret for the Slack integration */
                     signingSecret?: string;
                     /** @description The bot token for the Slack integration */
                     botToken?: string;
+                    /** @description The user token for the Slack integration */
+                    userToken?: string;
                     /** @description The session duration for the Slack integration */
                     sessionDuration?: number;
                     /** @description Weather to collect contacts */
                     contactCollection?: boolean;
+                    /** @description Whether to enable references feature */
+                    references?: boolean;
+                    /** @description Whether to enable ratings buttons feature */
+                    ratings?: boolean;
                     /** @description The number of visible messages outside of the new thread */
                     visibleMessages?: number;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -11298,7 +11666,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -11313,32 +11681,19 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration for the Slack integration */
                             sessionDuration?: number;
+                            /** @description Whether to enable references feature */
+                            references?: boolean;
+                            /** @description Whether to enable ratings buttons feature */
+                            ratings?: boolean;
                             /** @description The number of visible messages outside of the new thread */
                             visibleMessages?: number;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -11346,7 +11701,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -11362,32 +11717,19 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration for the Slack integration */
                             sessionDuration?: number;
+                            /** @description Whether to enable references feature */
+                            references?: boolean;
+                            /** @description Whether to enable ratings buttons feature */
+                            ratings?: boolean;
                             /** @description The number of visible messages outside of the new thread */
                             visibleMessages?: number;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -11742,32 +12084,15 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
                         attachments?: boolean;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -11839,6 +12164,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The Telegram integration bot token */
                     botToken?: string;
                     /** @description Weather to collect contacts */
@@ -11847,26 +12174,7 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -11911,6 +12219,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The Telegram integration bot token */
                     botToken?: string;
                     /** @description Weather to collect contacts */
@@ -11919,26 +12229,7 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -11985,7 +12276,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -12000,32 +12291,15 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -12033,7 +12307,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -12049,32 +12323,15 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -12159,6 +12416,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description The Trigger integration secret */
                         secret: string;
                         /** @description When enabled the integration requires authentication */
@@ -12170,26 +12429,7 @@ export interface operations {
                         triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -12299,6 +12539,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description When enabled the integration requires authentication */
                     authenticate?: boolean;
                     /**
@@ -12308,26 +12550,7 @@ export interface operations {
                     triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -12372,6 +12595,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description When enabled the integration requires authentication */
                     authenticate?: boolean;
                     /**
@@ -12381,26 +12606,7 @@ export interface operations {
                     triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -12447,7 +12653,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -12462,6 +12668,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The Trigger integration secret */
                             secret: string;
                             /** @description When enabled the integration requires authentication */
@@ -12473,26 +12681,7 @@ export interface operations {
                             triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -12500,7 +12689,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -12516,6 +12705,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The Trigger integration secret */
                             secret: string;
                             /** @description When enabled the integration requires authentication */
@@ -12527,26 +12718,7 @@ export interface operations {
                             triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -12631,30 +12803,13 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -12726,30 +12881,13 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description Weather to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -12794,30 +12932,13 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description Weather to collect contacts */
                     contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -12864,7 +12985,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -12879,30 +13000,13 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -12910,7 +13014,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -12926,30 +13030,13 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -13034,6 +13121,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description The WhatsApp integration verify token */
                         verifyToken: string;
                         /** @description The WhatsApp integration phone number ID */
@@ -13044,26 +13133,7 @@ export interface operations {
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
                         attachments?: boolean;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -13135,6 +13205,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The WhatsApp integration phone number ID */
                     phoneNumberId?: string;
                     /** @description The WhatsApp integration access token */
@@ -13145,26 +13217,7 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -13209,6 +13262,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The WhatsApp integration phone number ID */
                     phoneNumberId?: string;
                     /** @description The WhatsApp integration access token */
@@ -13219,26 +13274,7 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -13285,7 +13321,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -13300,6 +13336,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The WhatsApp integration verify token */
                             verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
@@ -13310,26 +13348,7 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -13337,7 +13356,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -13353,6 +13372,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The WhatsApp integration verify token */
                             verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
@@ -13363,26 +13384,7 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -13467,6 +13469,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
                         /** @description The theme of the Widget integration */
                         theme?: string;
                         /** @description The default layout of the Widget integration */
@@ -13485,6 +13489,8 @@ export interface operations {
                         sessionDuration?: number;
                         /** @description The language of the Widget integration */
                         language?: string;
+                        /** @description The plugins of the Widget integration */
+                        plugins?: string;
                         /** @description Whether the Widget integration is streaming */
                         stream?: boolean;
                         /** @description Whether the Widget integration is verbose */
@@ -13521,26 +13527,7 @@ export interface operations {
                         voiceOut?: boolean;
                         /** @description Whether the Widget integration displays powered by ChatBotKit */
                         poweredBy?: boolean;
-                    } & ({
-                        /** @description The ID of the bot this configuration is using */
-                        botId?: string;
-                    } | {
-                        /**
-                         * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
-                         */
-                        model?: string;
-                        /** @description The backstory this configuration is using */
-                        backstory?: string;
-                        /** @description The id of the dataset this configuration is using */
-                        datasetId?: string;
-                        /** @description The id of the skillset this configuration is using */
-                        skillsetId?: string;
-                        /** @description The privacy flag for this configuration */
-                        privacy?: boolean;
-                        /** @description The moderation flag for this configuration */
-                        moderation?: boolean;
-                    });
+                    };
                 };
             };
             /** @description An error response */
@@ -13612,6 +13599,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The theme of the Widget integration */
                     theme?: string;
                     /** @description The default layout of the Widget integration */
@@ -13630,6 +13619,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description The language of the Widget integration */
                     language?: string;
+                    /** @description The plugins of the Widget integration */
+                    plugins?: string;
                     /** @description Whether the Widget integration is streaming */
                     stream?: boolean;
                     /** @description Whether the Widget integration is verbose */
@@ -13666,26 +13657,7 @@ export interface operations {
                     voiceOut?: boolean;
                     /** @description Whether the Widget integration displays powered by ChatBotKit */
                     poweredBy?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -13730,6 +13702,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
                     /** @description The theme of the Widget integration */
                     theme?: string;
                     /** @description The default layout of the Widget integration */
@@ -13748,6 +13722,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description The language of the Widget integration */
                     language?: string;
+                    /** @description The plugins of the Widget integration */
+                    plugins?: string;
                     /** @description Whether the Widget integration is streaming */
                     stream?: boolean;
                     /** @description Whether the Widget integration is verbose */
@@ -13784,26 +13760,7 @@ export interface operations {
                     voiceOut?: boolean;
                     /** @description Whether the Widget integration displays powered by ChatBotKit */
                     poweredBy?: boolean;
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
-                     * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
-                     */
-                    model?: string;
-                    /** @description The backstory this configuration is using */
-                    backstory?: string;
-                    /** @description The id of the dataset this configuration is using */
-                    datasetId?: string;
-                    /** @description The id of the skillset this configuration is using */
-                    skillsetId?: string;
-                    /** @description The privacy flag for this configuration */
-                    privacy?: boolean;
-                    /** @description The moderation flag for this configuration */
-                    moderation?: boolean;
-                });
+                };
             };
         };
         responses: {
@@ -13850,7 +13807,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        items: ({
+                        items: {
                             /** @description The associated name */
                             name?: string;
                             /** @description The associated description */
@@ -13865,6 +13822,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The theme of the Widget integration */
                             theme?: string;
                             /** @description The default layout of the Widget integration */
@@ -13883,6 +13842,8 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description The language of the Widget integration */
                             language?: string;
+                            /** @description The plugins of the Widget integration */
+                            plugins?: string;
                             /** @description Whether the Widget integration is streaming */
                             stream?: boolean;
                             /** @description Whether the Widget integration is verbose */
@@ -13919,26 +13880,7 @@ export interface operations {
                             voiceOut?: boolean;
                             /** @description Whether the Widget integration displays powered by ChatBotKit */
                             poweredBy?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        }))[];
+                        }[];
                     };
                     "application/jsonl": {
                         /**
@@ -13946,7 +13888,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration or reference */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -13962,6 +13904,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
                             /** @description The theme of the Widget integration */
                             theme?: string;
                             /** @description The default layout of the Widget integration */
@@ -13980,6 +13924,8 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description The language of the Widget integration */
                             language?: string;
+                            /** @description The plugins of the Widget integration */
+                            plugins?: string;
                             /** @description Whether the Widget integration is streaming */
                             stream?: boolean;
                             /** @description Whether the Widget integration is verbose */
@@ -14016,26 +13962,7 @@ export interface operations {
                             voiceOut?: boolean;
                             /** @description Whether the Widget integration displays powered by ChatBotKit */
                             poweredBy?: boolean;
-                        } & ({
-                            /** @description The ID of the bot this configuration is using */
-                            botId?: string;
-                        } | {
-                            /**
-                             * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
-                             */
-                            model?: string;
-                            /** @description The backstory this configuration is using */
-                            backstory?: string;
-                            /** @description The id of the dataset this configuration is using */
-                            datasetId?: string;
-                            /** @description The id of the skillset this configuration is using */
-                            skillsetId?: string;
-                            /** @description The privacy flag for this configuration */
-                            privacy?: boolean;
-                            /** @description The moderation flag for this configuration */
-                            moderation?: boolean;
-                        });
+                        };
                     };
                 };
             };
@@ -14180,6 +14107,420 @@ export interface operations {
                             /** @description The alias of the item */
                             alias: string;
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    deleteMemory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                memoryId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The memory was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted memory */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchMemory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                memoryId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The memory was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The contact associated with the memory */
+                        contactId?: string;
+                        /** @description The bot associated with the memory */
+                        botId?: string;
+                        /** @description The text of the memory */
+                        text?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    updateMemory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                memoryId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The contact associated with the memory */
+                    contactId?: string;
+                    /** @description The bot associated with the memory */
+                    botId?: string;
+                    /** @description The text of the memory */
+                    text?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The memory was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated memory */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    createMemory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The contact associated with the memory */
+                    contactId?: string;
+                    /** @description The bot associated with the memory */
+                    botId?: string;
+                    /** @description The text of the memory */
+                    text?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The memory was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created memory */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    exportMemories: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of memories was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the memory */
+                            contactId?: string;
+                            /** @description The bot associated with the memory */
+                            botId?: string;
+                            /** @description The text of the memory */
+                            text?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the memory */
+                            contactId?: string;
+                            /** @description The bot associated with the memory */
+                            botId?: string;
+                            /** @description The text of the memory */
+                            text?: string;
+                        };
+                    };
+                    "text/csv": string;
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listMemories: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of memories was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the memory */
+                            contactId?: string;
+                            /** @description The bot associated with the memory */
+                            botId?: string;
+                            /** @description The text of the memory */
+                            text?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the memory */
+                            contactId?: string;
+                            /** @description The bot associated with the memory */
+                            botId?: string;
+                            /** @description The text of the memory */
+                            text?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    searchMemory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The keyword/phrase to search for */
+                    search: string;
+                    /** @description The ID of the contact to filter memories by */
+                    contactId?: string;
+                    /** @description The ID of the bot to filter memories by */
+                    botId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description An array of memories matching the search query */
+                        items: {
+                            id: string;
+                            text: string;
+                            meta?: Record<string, never>;
+                        }[];
                     };
                 };
             };
@@ -14817,6 +15158,82 @@ export interface operations {
             };
         };
     };
+    listPlatformExamples: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of examples was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            keywords?: string[];
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            keywords?: string[];
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     listPlatformModels: {
         parameters: {
             query?: {
@@ -14985,6 +15402,248 @@ export interface operations {
             };
         };
     };
+    deletePolicy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The policy was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted policy */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchPolicy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The policy was fetched successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The policy type */
+                        type?: string;
+                        /** @description The policy configuration as JSON */
+                        config?: Record<string, never>;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    updatePolicy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /**
+                     * @description The policy type
+                     * @enum {string}
+                     */
+                    type?: "retention";
+                    /** @description The policy configuration as JSON */
+                    config?: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description The policy was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated policy */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    createPolicy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /**
+                     * @description The policy type
+                     * @enum {string}
+                     */
+                    type?: "retention";
+                    /** @description The policy configuration as JSON */
+                    config?: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description The policy was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created policy */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPolicies: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of policies was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The policy type */
+                            type?: string;
+                            /** @description The policy configuration as JSON */
+                            config?: Record<string, never>;
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     deleteSecret: {
         parameters: {
             query?: never;
@@ -15064,7 +15723,7 @@ export interface operations {
                          * @description The type of the secret
                          * @enum {string}
                          */
-                        type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                        type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                         /** @description The config of the secret */
                         config?: Record<string, never>;
                         /**
@@ -15115,7 +15774,7 @@ export interface operations {
                      * @description The type of the secret
                      * @enum {string}
                      */
-                    type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                    type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                     /** @description The value of the secret */
                     value?: string;
                     /** @description The config of the secret */
@@ -15179,7 +15838,7 @@ export interface operations {
                      * @description The type of the secret
                      * @enum {string}
                      */
-                    type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                    type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                     /** @description The value of the secret */
                     value?: string;
                     /** @description The config of the secret */
@@ -15260,7 +15919,7 @@ export interface operations {
                              * @description The type of the secret
                              * @enum {string}
                              */
-                            type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                            type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                             /** @description The config of the secret */
                             config?: Record<string, never>;
                             /**
@@ -15301,7 +15960,7 @@ export interface operations {
                              * @description The type of the secret
                              * @enum {string}
                              */
-                            type?: "plain" | "basic" | "bearer" | "oauth" | "template";
+                            type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                             /** @description The config of the secret */
                             config?: Record<string, never>;
                             /**
@@ -15398,6 +16057,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the secret associated with the ability */
                         secretId?: string;
+                        /** @description The ID of the file associated with the ability */
+                        fileId?: string;
                         /** @description The ID of the bot associated with the ability */
                         botId?: string;
                         /** @description The instruction of the skillset ability */
@@ -15439,6 +16100,8 @@ export interface operations {
                     };
                     /** @description The ID of the secret associated with the ability */
                     secretId?: string;
+                    /** @description The ID of the file associated with the ability */
+                    fileId?: string;
                     /** @description The ID of the bot associated with the ability */
                     botId?: string;
                     /** @description The text to update the ability with */
@@ -15492,6 +16155,8 @@ export interface operations {
                     };
                     /** @description The ID of the secret associated with the ability */
                     secretId?: string;
+                    /** @description The ID of the file associated with the ability */
+                    fileId?: string;
                     /** @description The ID of the bot associated with the ability */
                     botId?: string;
                     /** @description The instruction of the ability */
@@ -15562,6 +16227,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
+                            /** @description The ID of the file associated with the ability */
+                            fileId?: string;
                             /** @description The ID of the bot associated with the ability */
                             botId?: string;
                             instruction: string;
@@ -15591,6 +16258,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
+                            /** @description The ID of the file associated with the ability */
+                            fileId?: string;
                             /** @description The ID of the bot associated with the ability */
                             botId?: string;
                             instruction: string;
@@ -15649,6 +16318,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
+                            /** @description The ID of the file associated with the ability */
+                            fileId?: string;
                             /** @description The ID of the bot associated with the ability */
                             botId?: string;
                             instruction: string;
@@ -15678,6 +16349,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
+                            /** @description The ID of the file associated with the ability */
+                            fileId?: string;
                             /** @description The ID of the bot associated with the ability */
                             botId?: string;
                             instruction: string;
@@ -16061,6 +16734,40 @@ export interface operations {
             };
         };
     };
+    triggerTask: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                taskId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The task was triggered successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the triggered task */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     updateTask: {
         parameters: {
             query?: never;
@@ -16087,6 +16794,8 @@ export interface operations {
                     botId?: string;
                     /** @description The schedule of the task */
                     schedule?: string;
+                    /** @description The session duration of the Widget integration */
+                    sessionDuration?: number;
                 };
             };
         };
@@ -16138,6 +16847,8 @@ export interface operations {
                     botId?: string;
                     /** @description The schedule of the task */
                     schedule?: string;
+                    /** @description The session duration of the Widget integration */
+                    sessionDuration?: number;
                 };
             };
         };
@@ -16323,6 +17034,81 @@ export interface operations {
                             botId?: string;
                             /** @description The schedule of the task */
                             schedule?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listTeams: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: Record<string, never>;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of teams was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
                         };
                     };
                 };
