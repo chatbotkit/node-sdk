@@ -159,7 +159,14 @@ export async function deleteDataset(client, datasetId) {
 
 /**
  * @typedef {{
- *   records: {id: string, text: string}[]
+ *   id: string,
+ *   records: {
+ *     id: string,
+ *     text: string,
+ *     score: number,
+ *     source?: string,
+ *     meta?: Record<string,any>
+ *   }[]
  * }} DatasetSearchResponse
  *
  * @param {ChatBotKitClient} client
