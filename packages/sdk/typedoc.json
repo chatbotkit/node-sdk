@@ -75,6 +75,8 @@
     "./src/partner/v1.js",
     "./src/platform/ability/index.js",
     "./src/platform/ability/v1.js",
+    "./src/platform/example/index.js",
+    "./src/platform/example/v1.js",
     "./src/platform/index.js",
     "./src/platform/model/index.js",
     "./src/platform/model/v1.js",

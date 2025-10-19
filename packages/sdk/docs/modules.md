@@ -76,6 +76,8 @@
 - [platform](modules/platform.md)
 - [platform/ability](modules/platform_ability.md)
 - [platform/ability/v1](modules/platform_ability_v1.md)
+- [platform/example](modules/platform_example.md)
+- [platform/example/v1](modules/platform_example_v1.md)
 - [platform/model](modules/platform_model.md)
 - [platform/model/v1](modules/platform_model_v1.md)
 - [platform/secret](modules/platform_secret.md)

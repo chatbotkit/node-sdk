@@ -5,7 +5,7 @@ export class PlatformClient extends ChatBotKitClient {
     /**
      * @type {PlatformModelClient} model client
      */
-    user: PlatformModelClient;
+    model: PlatformModelClient;
     /**
      * @type {PlatformAbilityClient} ability client
      */
@@ -15,9 +15,14 @@ export class PlatformClient extends ChatBotKitClient {
      * @type {PlatformSecretClient} secret client
      */
     secrets: PlatformSecretClient;
+    /**
+     * @type {PlatformExampleClient} example client
+     */
+    example: PlatformExampleClient;
 }
 export default PlatformClient;
 import { ChatBotKitClient } from '../client.js';
 import { PlatformModelClient } from './model/index.js';
 import { PlatformAbilityClient } from './ability/index.js';
 import { PlatformSecretClient } from './secret/index.js';
+import { PlatformExampleClient } from './example/index.js';

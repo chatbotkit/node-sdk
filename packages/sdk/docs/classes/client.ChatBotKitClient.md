@@ -74,6 +74,8 @@
 
   ↳ [`PlatformAbilityClient`](platform_ability.PlatformAbilityClient.md)
 
+  ↳ [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
+
   ↳ [`PlatformClient`](platform.PlatformClient.md)
 
   ↳ [`PlatformModelClient`](platform_model.PlatformModelClient.md)

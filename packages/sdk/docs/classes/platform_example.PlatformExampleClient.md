@@ -1,39 +1,33 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [platform](../modules/platform.md) / PlatformClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [platform/example](../modules/platform_example.md) / PlatformExampleClient
 
-# Class: PlatformClient
+# Class: PlatformExampleClient
 
-[platform](../modules/platform.md).PlatformClient
+[platform/example](../modules/platform_example.md).PlatformExampleClient
 
-Platform client.
+Platform example client.
 
 ## Hierarchy
 
 - [`ChatBotKitClient`](client.ChatBotKitClient.md)
 
-  ↳ **`PlatformClient`**
+  ↳ **`PlatformExampleClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](platform.PlatformClient.md#constructor)
-
-### Properties
-
-- [ability](platform.PlatformClient.md#ability)
-- [example](platform.PlatformClient.md#example)
-- [model](platform.PlatformClient.md#model)
-- [secrets](platform.PlatformClient.md#secrets)
+- [constructor](platform_example.PlatformExampleClient.md#constructor)
 
 ### Methods
 
-- [clientFetch](platform.PlatformClient.md#clientfetch)
+- [clientFetch](platform_example.PlatformExampleClient.md#clientfetch)
+- [list](platform_example.PlatformExampleClient.md#list)
 
 ## Constructors
 
 ### constructor
 
-• **new PlatformClient**(`options`): [`PlatformClient`](platform.PlatformClient.md)
+• **new PlatformExampleClient**(`options`): [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
 
 #### Parameters
 
@@ -43,7 +37,7 @@ Platform client.
 
 #### Returns
 
-[`PlatformClient`](platform.PlatformClient.md)
+[`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
 
 #### Overrides
 
@@ -51,51 +45,7 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L14)
-
-## Properties
-
-### ability
-
-• **ability**: [`PlatformAbilityClient`](platform_ability.PlatformAbilityClient.md)
-
-#### Defined in
-
-[platform/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L25)
-
-___
-
-### example
-
-• **example**: [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
-
-#### Defined in
-
-[platform/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L36)
-
-___
-
-### model
-
-• **model**: [`PlatformModelClient`](platform_model.PlatformModelClient.md)
-
-#### Defined in
-
-[platform/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L20)
-
-___
-
-### secrets
-
-• **secrets**: [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
-
-**`Note`**
-
-overlapping name with the `secret` property
-
-#### Defined in
-
-[platform/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L31)
+[platform/example/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L17)
 
 ## Methods
 
@@ -144,3 +94,25 @@ overlapping name with the `secret` property
 #### Defined in
 
 [client.js:331](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L331)
+
+___
+
+### list
+
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformExampleListResponse`](../modules/platform_example_v1.md#platformexamplelistresponse), [`PlatformExampleListStreamItemType`](../modules/platform_example_v1.md#platformexampleliststreamitemtype)\>
+
+Retrieves a list of all platform examples.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request?` | [`PlatformExampleListRequest`](../modules/platform_example_v1.md#platformexamplelistrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformExampleListResponse`](../modules/platform_example_v1.md#platformexamplelistresponse), [`PlatformExampleListStreamItemType`](../modules/platform_example_v1.md#platformexampleliststreamitemtype)\>
+
+#### Defined in
+
+[platform/example/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L27)
