@@ -144,6 +144,80 @@ function extractClientMethods(resourcePath) {
 }
 
 /**
+ * Extract typedef fields from JSDoc comments in v1.js files
+ */
+function extractTypedefFields(resourcePath, typeName) {
+  const v1Path = path.join(SDK_SRC_PATH, resourcePath, 'v1.js')
+
+  if (!fs.existsSync(v1Path)) {
+    return []
+  }
+
+  const content = fs.readFileSync(v1Path, 'utf8')
+
+  // Find the typedef block for the given type
+  // Match: @typedef {{ ... }} TypeName or @typedef {BaseType & { ... }} TypeName
+  const typedefRegex = new RegExp(
+    `@typedef\\s+\\{[^}]*\\{([^}]+)\\}[^}]*\\}\\s+${typeName}\\b`,
+    's'
+  )
+  const typedefMatch = content.match(typedefRegex)
+
+  if (!typedefMatch) {
+    return []
+  }
+
+  // Get the content between the inner braces
+  const typedefContent = typedefMatch[1]
+
+  // Remove JSDoc asterisks and clean up
+  const cleanedContent = typedefContent.replace(/^\s*\*\s*/gm, '')
+
+  // Extract property definitions
+  // Format: propertyName?: type,
+  const propertyRegex = /(\w+)(\?)?\s*:\s*([^,\n]+)/g
+  const fields = []
+  let propMatch
+
+  while ((propMatch = propertyRegex.exec(cleanedContent)) !== null) {
+    fields.push({
+      name: propMatch[1],
+      optional: !!propMatch[2],
+      type: propMatch[3].trim(),
+    })
+  }
+
+  return fields
+}
+
+/**
+ * Compare SDK fields with OpenAPI schema fields
+ */
+function compareFields(sdkFields, apiFields) {
+  const missing = []
+  const extra = []
+
+  const sdkFieldNames = new Set(sdkFields.map((f) => f.name))
+  const apiFieldNames = new Set(apiFields.map((f) => f.name))
+
+  // Find missing fields (in API but not in SDK)
+  for (const apiField of apiFields) {
+    if (!sdkFieldNames.has(apiField.name)) {
+      missing.push(apiField)
+    }
+  }
+
+  // Find extra fields (in SDK but not in API)
+  for (const sdkField of sdkFields) {
+    if (!apiFieldNames.has(sdkField.name)) {
+      extra.push(sdkField)
+    }
+  }
+
+  return { missing, extra }
+}
+
+/**
  * Extract fields from request/response schemas
  */
 function extractSchemaFields(schema, spec, visited = new Set()) {
@@ -223,6 +297,7 @@ function generateCoverageReport() {
   let implementedEndpoints = 0
   let missingClients = []
   let missingMethods = []
+  let missingFields = []
   let implementedClients = []
 
   const sortedResources = Object.keys(groups).sort()
@@ -251,6 +326,81 @@ function generateCoverageReport() {
 
       if (clientMethods.includes(expectedFunctionName)) {
         implementedEndpoints++
+
+        // Check fields for implemented methods
+        if (endpoint.requestSchema || endpoint.responseSchema) {
+          // Determine the typedef name based on the operation
+          // Common patterns: {Resource}CreateRequest, {Resource}FetchResponse, etc.
+          const resourceName =
+            resource.split('/').pop().charAt(0).toUpperCase() +
+            resource.split('/').pop().slice(1)
+
+          // Try to find request/response typedefs
+          let requestTypeName = null
+          let responseTypeName = null
+
+          // Extract action from operation ID (e.g., createBot -> Create, listBots -> List)
+          const actionMatch = endpoint.operationId.match(
+            /^(\w+?)(?:[A-Z]\w+)?$/
+          )
+          if (actionMatch) {
+            let action = actionMatch[1]
+            // If the action contains the resource name, try to extract just the verb
+            // E.g., "listBots" -> "list", "createBot" -> "create"
+            const verbMatch = endpoint.operationId.match(
+              new RegExp(`^(\\w+?)${resourceName}s?$`, 'i')
+            )
+            if (verbMatch) {
+              action = verbMatch[1]
+            }
+
+            action = action.charAt(0).toUpperCase() + action.slice(1)
+
+            // Common typedef naming patterns
+            requestTypeName = `${resourceName}${action}Request`
+            responseTypeName = `${resourceName}${action}Response`
+          }
+
+          // Check request fields
+          if (endpoint.requestSchema && requestTypeName) {
+            const apiFields = extractSchemaFields(endpoint.requestSchema, spec)
+            const sdkFields = extractTypedefFields(resource, requestTypeName)
+
+            if (sdkFields.length > 0 && apiFields.length > 0) {
+              const { missing } = compareFields(sdkFields, apiFields)
+
+              if (missing.length > 0) {
+                missingFields.push({
+                  resource,
+                  method: expectedFunctionName,
+                  typedef: requestTypeName,
+                  fieldType: 'request',
+                  fields: missing,
+                })
+              }
+            }
+          }
+
+          // Check response fields
+          if (endpoint.responseSchema && responseTypeName) {
+            const apiFields = extractSchemaFields(endpoint.responseSchema, spec)
+            const sdkFields = extractTypedefFields(resource, responseTypeName)
+
+            if (sdkFields.length > 0 && apiFields.length > 0) {
+              const { missing } = compareFields(sdkFields, apiFields)
+
+              if (missing.length > 0) {
+                missingFields.push({
+                  resource,
+                  method: expectedFunctionName,
+                  typedef: responseTypeName,
+                  fieldType: 'response',
+                  fields: missing,
+                })
+              }
+            }
+          }
+        }
       } else {
         missingMethods.push({
           resource,
@@ -280,14 +430,22 @@ function generateCoverageReport() {
     100
   ).toFixed(1)
   const coverageColor =
-    coveragePercent >= 90
+    Number(coveragePercent) >= 90
       ? colors.green
-      : coveragePercent >= 70
+      : Number(coveragePercent) >= 70
       ? colors.yellow
       : colors.red
   console.log(
-    `  Coverage: ${coverageColor}${colors.bold}${coveragePercent}%${colors.reset}\n`
+    `  Coverage: ${coverageColor}${colors.bold}${coveragePercent}%${colors.reset}`
   )
+
+  if (missingFields.length > 0) {
+    console.log(
+      `  ${colors.yellow}Missing Fields: ${colors.bold}${missingFields.length}${colors.reset}`
+    )
+  }
+
+  console.log()
 
   // Print missing clients
   if (missingClients.length > 0) {
@@ -335,6 +493,42 @@ function generateCoverageReport() {
     console.log()
   }
 
+  // Print missing fields
+  if (missingFields.length > 0) {
+    console.log(
+      `${colors.bold}${colors.magenta}Missing Fields (${missingFields.length} methods affected):${colors.reset}`
+    )
+
+    // Group by resource
+    const fieldsByResource = {}
+    for (const item of missingFields) {
+      if (!fieldsByResource[item.resource]) {
+        fieldsByResource[item.resource] = []
+      }
+      fieldsByResource[item.resource].push(item)
+    }
+
+    for (const [resource, items] of Object.entries(fieldsByResource)) {
+      console.log(
+        `  ${colors.magenta}●${colors.reset} ${colors.bold}${resource}${colors.reset}`
+      )
+      for (const { method, typedef, fieldType, fields } of items) {
+        console.log(
+          `    ${colors.gray}${method}() → ${typedef} (${fieldType})${colors.reset}`
+        )
+        for (const field of fields) {
+          const requiredBadge = field.required
+            ? `${colors.red}required${colors.reset}`
+            : 'optional'
+          console.log(
+            `      ${colors.magenta}•${colors.reset} ${field.name} ${colors.gray}(${requiredBadge})${colors.reset}`
+          )
+        }
+      }
+    }
+    console.log()
+  }
+
   // Print implemented clients
   if (implementedClients.length > 0) {
     console.log(
@@ -362,7 +556,11 @@ function generateCoverageReport() {
   }
 
   // Exit code
-  if (missingClients.length > 0 || missingMethods.length > 0) {
+  if (
+    missingClients.length > 0 ||
+    missingMethods.length > 0 ||
+    missingFields.length > 0
+  ) {
     console.log(
       `${colors.yellow}${colors.bold}⚠ API coverage is incomplete${colors.reset}\n`
     )
