@@ -957,6 +957,7 @@
     "build:exports": "node ../../scripts/create-standard-exports.js",
     "build:types": "tsc -p tsconfig.types.json",
     "check": "tsc -p tsconfig.check.json",
+    "check:api-coverage": "node scripts/check-api-coverage.js",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",

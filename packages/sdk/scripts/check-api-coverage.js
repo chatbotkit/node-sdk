@@ -15,7 +15,7 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const SDK_SRC_PATH = path.join(__dirname, '../packages/sdk/src')
+const SDK_SRC_PATH = path.join(__dirname, '../src')
 const OPENAPI_SPEC_PATH = path.join(SDK_SRC_PATH, 'types/api/v1.json')
 
 // Color codes for terminal output
