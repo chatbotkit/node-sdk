@@ -148,7 +148,8 @@ export async function deleteBlueprint(client, blueprintId) {
 
 /**
  * @typedef {{
- *   id: string
+ *   id: string,
+ *   resources: Record<string,any>
  * }} BlueprintCloneResponse
  *
  * @param {ChatBotKitClient} client
