@@ -1,13 +1,6 @@
 #!/usr/bin/env node
 
 /* eslint-disable */
-
-/**
- * API Coverage Checker
- *
- * This script compares the OpenAPI specification with the SDK implementation
- * to detect missing clients, methods, and fields.
- */
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -18,7 +11,6 @@ const __dirname = path.dirname(__filename)
 const SDK_SRC_PATH = path.join(__dirname, '../src')
 const OPENAPI_SPEC_PATH = path.join(SDK_SRC_PATH, 'types/api/v1.json')
 
-// Color codes for terminal output
 const colors = {
   reset: '\x1b[0m',
   red: '\x1b[31m',
@@ -36,6 +28,7 @@ const colors = {
  */
 function loadOpenAPISpec() {
   const spec = JSON.parse(fs.readFileSync(OPENAPI_SPEC_PATH, 'utf8'))
+
   return spec
 }
 
