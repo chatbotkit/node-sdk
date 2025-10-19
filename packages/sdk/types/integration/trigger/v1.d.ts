@@ -8,27 +8,13 @@
  */
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   authenticate?: boolean,
  *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
  *   sessionDuration?: number,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} TriggerIntegrationOptions
  *
  * @typedef {TriggerIntegrationOptions & {
@@ -58,7 +44,7 @@
  * @param {TriggerIntegrationListRequest} [request]
  * @returns {ResponsePromise<TriggerIntegrationListResponse,TriggerIntegrationListStreamType>}
  */
-export function listTriggerIntegrations(client: ChatBotKitClient, request?: TriggerIntegrationListRequest | undefined): ResponsePromise<TriggerIntegrationListResponse, TriggerIntegrationListStreamType>;
+export function listTriggerIntegrations(client: ChatBotKitClient, request?: TriggerIntegrationListRequest): ResponsePromise<TriggerIntegrationListResponse, TriggerIntegrationListStreamType>;
 /**
  * @typedef {TriggerIntegrationInstance & {
  * }} TriggerIntegrationFetchResponse
@@ -130,27 +116,16 @@ export function setupTriggerIntegration(client: ChatBotKitClient, triggerId: str
  * @returns {Promise<TriggerIntegrationInvokeResponse>}
  */
 export function invokeTriggerIntegration(client: ChatBotKitClient, triggerId: string, request: TriggerIntegrationInvokeRequest): Promise<TriggerIntegrationInvokeResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type BotRef = {
-    botId?: string;
-};
-export type BotConfig = {
-    backstory?: string;
-    model?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-};
-export type BotRefOrConfig = BotRef | BotConfig;
-export type TriggerIntegrationOptions = BotRefOrConfig & {
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
+export type TriggerIntegrationOptions = {
     name?: string;
     description?: string;
     authenticate?: boolean;
     triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
     sessionDuration?: number;
     meta?: Record<string, any>;
+    botId?: string;
 };
 export type TriggerIntegrationInstance = TriggerIntegrationOptions & {
     id: string;
@@ -159,7 +134,7 @@ export type TriggerIntegrationInstance = TriggerIntegrationOptions & {
 };
 export type TriggerIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -167,19 +142,19 @@ export type TriggerIntegrationListResponse = {
     items: TriggerIntegrationInstance[];
 };
 export type TriggerIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: TriggerIntegrationInstance;
 };
 export type TriggerIntegrationListStreamType = TriggerIntegrationListStreamItem;
 export type TriggerIntegrationFetchResponse = TriggerIntegrationInstance & {};
 export type TriggerIntegrationCreateRequest = TriggerIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type TriggerIntegrationCreateResponse = {
     id: string;
 };
 export type TriggerIntegrationUpdateRequest = TriggerIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type TriggerIntegrationUpdateResponse = {
     id: string;

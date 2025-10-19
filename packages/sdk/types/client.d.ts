@@ -29,17 +29,17 @@ export class ResponsePromise<T, U> {
         retryDelay?: number;
         retryTimeout?: boolean;
         fetchFn?: FetchFunction;
-    }, cacheMap?: Map<string, Promise<T>> | undefined);
+    }, cacheMap?: Map<string, Promise<T>>);
     url: string | URL;
     request: {
         method: string;
         headers: Record<string, any>;
         data?: any;
-        timeout?: number | undefined;
-        retries?: number | undefined;
-        retryDelay?: number | undefined;
-        retryTimeout?: boolean | undefined;
-        fetchFn?: FetchFunction | undefined;
+        timeout?: number;
+        retries?: number;
+        retryDelay?: number;
+        retryTimeout?: boolean;
+        fetchFn?: FetchFunction;
     };
     decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
@@ -58,15 +58,15 @@ export class ResponsePromise<T, U> {
      * }} [params]
      */
     getRequest(params?: {
-        method?: string | undefined;
-        headers?: Record<string, any> | undefined;
+        method?: string;
+        headers?: Record<string, any>;
         data?: any;
-        timeout?: number | undefined;
-        retries?: number | undefined;
-        retryDelay?: number | undefined;
-        retryTimeout?: boolean | undefined;
-        fetchFn?: FetchFunction | undefined;
-    } | undefined): Promise<Response>;
+        timeout?: number;
+        retries?: number;
+        retryDelay?: number;
+        retryTimeout?: boolean;
+        fetchFn?: FetchFunction;
+    }): Promise<Response>;
     getFetchPromise(): Promise<Response>;
     getStreamPromise(): Promise<Response>;
     /**
@@ -91,7 +91,7 @@ export class ResponsePromise<T, U> {
      * @param {string} [key]
      * @returns {Promise<T>}
      */
-    cache(key?: string | undefined): Promise<T>;
+    cache(key?: string): Promise<T>;
     get [Symbol.toStringTag](): string;
 }
 /**
@@ -150,26 +150,26 @@ export class ChatBotKitClient {
      * @returns {ResponsePromise<T,U>}
      */
     clientFetch<T, U>(path: string, options?: {
-        method?: string | undefined;
-        headers?: Record<string, any> | undefined;
-        query?: Record<string, any> | undefined;
-        record?: Record<string, any> | undefined;
-        buffer?: ArrayBuffer | undefined;
+        method?: string;
+        headers?: Record<string, any>;
+        query?: Record<string, any>;
+        record?: Record<string, any>;
+        buffer?: ArrayBuffer;
         file?: {
-            name?: string | undefined;
-            type?: string | undefined;
+            name?: string;
+            type?: string;
             data: string | ArrayBuffer;
-        } | undefined;
-        external?: boolean | undefined;
-        endpoint?: string | undefined;
-        timeout?: number | undefined;
-        retries?: number | undefined;
-        retryDelay?: number | undefined;
-        retryTimeout?: boolean | undefined;
-        fetchFn?: FetchFunction | undefined;
-    } | undefined): ResponsePromise<T, U>;
+        };
+        external?: boolean;
+        endpoint?: string;
+        timeout?: number;
+        retries?: number;
+        retryDelay?: number;
+        retryTimeout?: boolean;
+        fetchFn?: FetchFunction;
+    }): ResponsePromise<T, U>;
 }
-export type FetchFunction = import('@chatbotkit/fetch').FetchFn<import('@chatbotkit/fetch').withRetryOptions & import('@chatbotkit/fetch').withTimeoutOptions>;
+export type FetchFunction = import("@chatbotkit/fetch").FetchFn<import("@chatbotkit/fetch").withRetryOptions & import("@chatbotkit/fetch").withTimeoutOptions>;
 export type ChatBotKitClientOptions = {
     /**
      * A token to authenticate with the API

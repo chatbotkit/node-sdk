@@ -44,9 +44,9 @@
  * @param {TaskListRequest} [request]
  * @returns {ResponsePromise<TaskListResponse,TaskListStreamType>}
  */
-export function listTasks(client: ChatBotKitClient, contactId: string, request?: TaskListRequest | undefined): ResponsePromise<TaskListResponse, TaskListStreamType>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export function listTasks(client: ChatBotKitClient, contactId: string, request?: TaskListRequest): ResponsePromise<TaskListResponse, TaskListStreamType>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type TaskOptions = {
     name?: string;
     description?: string;
@@ -62,7 +62,7 @@ export type TaskInstance = TaskOptions & {
 };
 export type TaskListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -70,7 +70,7 @@ export type TaskListResponse = {
     items: TaskInstance[];
 };
 export type TaskListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: TaskInstance;
 };
 export type TaskListStreamType = TaskListStreamItemType;

@@ -40,7 +40,7 @@
  * @param {BlueprintListRequest} [request]
  * @returns {ResponsePromise<BlueprintListResponse,BlueprintListStreamType>}
  */
-export function listBlueprints(client: ChatBotKitClient, request?: BlueprintListRequest | undefined): ResponsePromise<BlueprintListResponse, BlueprintListStreamType>;
+export function listBlueprints(client: ChatBotKitClient, request?: BlueprintListRequest): ResponsePromise<BlueprintListResponse, BlueprintListStreamType>;
 /**
  * @typedef {BlueprintInstance & {
  * }} BlueprintFetchResponse
@@ -97,8 +97,8 @@ export function deleteBlueprint(client: ChatBotKitClient, blueprintId: string): 
  * @returns {Promise<BlueprintCloneResponse>}
  */
 export function cloneBlueprint(client: ChatBotKitClient, blueprintId: string): Promise<BlueprintCloneResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type BlueprintOptions = {
     name?: string;
     description?: string;
@@ -111,7 +111,7 @@ export type BlueprintInstance = BlueprintOptions & {
 };
 export type BlueprintListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -119,7 +119,7 @@ export type BlueprintListResponse = {
     items: BlueprintInstance[];
 };
 export type BlueprintListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: BlueprintInstance;
 };
 export type BlueprintListStreamType = BlueprintListStreamItemType;

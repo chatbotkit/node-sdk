@@ -6,9 +6,6 @@
 
 ### Type Aliases
 
-- [BotConfig](integration_telegram_v1.md#botconfig)
-- [BotRef](integration_telegram_v1.md#botref)
-- [BotRefOrConfig](integration_telegram_v1.md#botreforconfig)
 - [ChatBotKitClient](integration_telegram_v1.md#chatbotkitclient)
 - [ResponsePromise](integration_telegram_v1.md#responsepromise)
 - [TelegramIntegrationCreateRequest](integration_telegram_v1.md#telegramintegrationcreaterequest)
@@ -36,60 +33,13 @@
 
 ## Type Aliases
 
-### BotConfig
-
-Ƭ **BotConfig**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `datasetId?` | `string` |
-| `model?` | `string` |
-| `moderation?` | `boolean` |
-| `privacy?` | `boolean` |
-| `skillsetId?` | `string` |
-
-#### Defined in
-
-[integration/telegram/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L25)
-
-___
-
-### BotRef
-
-Ƭ **BotRef**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-
-#### Defined in
-
-[integration/telegram/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L16)
-
-___
-
-### BotRefOrConfig
-
-Ƭ **BotRefOrConfig**\<\>: [`BotRef`](integration_telegram_v1.md#botref) \| [`BotConfig`](integration_telegram_v1.md#botconfig)
-
-#### Defined in
-
-[integration/telegram/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L27)
-
-___
-
 ### ChatBotKitClient
 
 Ƭ **ChatBotKitClient**\<\>: [`client`](client.md)
 
 #### Defined in
 
-[integration/telegram/v1.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L4)
+[integration/telegram/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L2)
 
 ___
 
@@ -106,7 +56,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L10)
+[integration/telegram/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L8)
 
 ___
 
@@ -116,7 +66,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L94)
+[integration/telegram/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L83)
 
 ___
 
@@ -132,7 +82,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L98)
+[integration/telegram/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L87)
 
 ___
 
@@ -148,7 +98,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L153)
+[integration/telegram/v1.js:138](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L138)
 
 ___
 
@@ -158,7 +108,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L75)
+[integration/telegram/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L64)
 
 ___
 
@@ -168,7 +118,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L43)
+[integration/telegram/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L27)
 
 ___
 
@@ -187,7 +137,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L47)
+[integration/telegram/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L36)
 
 ___
 
@@ -203,7 +153,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L49)
+[integration/telegram/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L38)
 
 ___
 
@@ -220,7 +170,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L54)
+[integration/telegram/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L43)
 
 ___
 
@@ -230,17 +180,30 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L56)
+[integration/telegram/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L45)
 
 ___
 
 ### TelegramIntegrationOptions
 
-Ƭ **TelegramIntegrationOptions**\<\>: [`BotRefOrConfig`](integration_telegram_v1.md#botreforconfig) & \{ `attachments?`: `boolean` ; `botToken?`: `string` ; `contactCollection?`: `boolean` ; `description?`: `string` ; `meta?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> ; `name?`: `string` ; `sessionDuration?`: `number`  }
+Ƭ **TelegramIntegrationOptions**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `attachments?` | `boolean` |
+| `botId?` | `string` |
+| `botToken?` | `string` |
+| `contactCollection?` | `boolean` |
+| `description?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `name?` | `string` |
+| `sessionDuration?` | `number` |
 
 #### Defined in
 
-[integration/telegram/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L37)
+[integration/telegram/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L21)
 
 ___
 
@@ -256,7 +219,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L174)
+[integration/telegram/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L159)
 
 ___
 
@@ -266,7 +229,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:123](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L123)
+[integration/telegram/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L110)
 
 ___
 
@@ -282,7 +245,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L127)
+[integration/telegram/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L114)
 
 ## Functions
 
@@ -303,7 +266,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L104)
+[integration/telegram/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L93)
 
 ___
 
@@ -324,7 +287,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L159)
+[integration/telegram/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L144)
 
 ___
 
@@ -345,7 +308,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L81)
+[integration/telegram/v1.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L70)
 
 ___
 
@@ -366,7 +329,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L62)
+[integration/telegram/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L51)
 
 ___
 
@@ -387,7 +350,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:180](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L180)
+[integration/telegram/v1.js:165](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L165)
 
 ___
 
@@ -409,4 +372,4 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L134)
+[integration/telegram/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L121)

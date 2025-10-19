@@ -63,7 +63,7 @@
  * @param {WidgetIntegrationListRequest} [request]
  * @returns {ResponsePromise<WidgetIntegrationListResponse,WidgetIntegrationListStreamType>}
  */
-export function listWidgetIntegrations(client: ChatBotKitClient, request?: WidgetIntegrationListRequest | undefined): ResponsePromise<WidgetIntegrationListResponse, WidgetIntegrationListStreamType>;
+export function listWidgetIntegrations(client: ChatBotKitClient, request?: WidgetIntegrationListRequest): ResponsePromise<WidgetIntegrationListResponse, WidgetIntegrationListStreamType>;
 /**
  * @typedef {WidgetInegrationInstance & {
  * }} WidgetIntegrationFetchResponse
@@ -110,8 +110,8 @@ export function updateWidgetIntegration(client: ChatBotKitClient, widgetId: stri
  * @returns {Promise<WidgetIntegrationDeleteResponse>}
  */
 export function deleteWidgetIntegration(client: ChatBotKitClient, widgetId: string): Promise<WidgetIntegrationDeleteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type WidgetIntegrationOptions = {
     name?: string;
     description?: string;
@@ -147,7 +147,7 @@ export type WidgetInegrationInstance = WidgetIntegrationOptions & {
 };
 export type WidgetIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -155,7 +155,7 @@ export type WidgetIntegrationListResponse = {
     items: WidgetInegrationInstance[];
 };
 export type WidgetIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: WidgetInegrationInstance;
 };
 export type WidgetIntegrationListStreamType = WidgetIntegrationListStreamItem;

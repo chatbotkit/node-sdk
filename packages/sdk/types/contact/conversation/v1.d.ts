@@ -48,9 +48,9 @@
  * @param {ConversationListRequest} [request]
  * @returns {ResponsePromise<ConversationListResponse,ConversationListStreamType>}
  */
-export function listConversations(client: ChatBotKitClient, contactId: string, request?: ConversationListRequest | undefined): ResponsePromise<ConversationListResponse, ConversationListStreamType>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export function listConversations(client: ChatBotKitClient, contactId: string, request?: ConversationListRequest): ResponsePromise<ConversationListResponse, ConversationListStreamType>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type ConversationOptions = {
     name?: string;
     description?: string;
@@ -70,7 +70,7 @@ export type ConversationInstance = ConversationOptions & {
 };
 export type ConversationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -78,7 +78,7 @@ export type ConversationListResponse = {
     items: ConversationInstance[];
 };
 export type ConversationListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: ConversationInstance;
 };
 export type ConversationListStreamType = ConversationListStreamItemType;

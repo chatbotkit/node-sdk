@@ -41,7 +41,7 @@
  * @param {PartnerUserListRequest} [request]
  * @returns {ResponsePromise<PartnerUserListResponse,PartnerUserListStreamType>}
  */
-export function listPartnerUsers(client: ChatBotKitClient, request?: PartnerUserListRequest | undefined): ResponsePromise<PartnerUserListResponse, PartnerUserListStreamType>;
+export function listPartnerUsers(client: ChatBotKitClient, request?: PartnerUserListRequest): ResponsePromise<PartnerUserListResponse, PartnerUserListStreamType>;
 /**
  * @typedef {PartnerUserInstance & {
  * }} PartnerUserFetchResponse
@@ -88,8 +88,8 @@ export function updatePartnerUser(client: ChatBotKitClient, userId: string, requ
  * @returns {Promise<PartnerUserDeleteResponse>}
  */
 export function deletePartnerUser(client: ChatBotKitClient, userId: string): Promise<PartnerUserDeleteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type PartnerUserOptions = {
     name?: string;
     image?: string;
@@ -103,7 +103,7 @@ export type PartnerUserInstance = PartnerUserOptions & {
 };
 export type PartnerUserListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -111,7 +111,7 @@ export type PartnerUserListResponse = {
     items: PartnerUserInstance[];
 };
 export type PartnerUserListStreamItem = {
-    type: 'item';
+    type: "item";
     data: PartnerUserInstance;
 };
 export type PartnerUserListStreamType = PartnerUserListStreamItem;

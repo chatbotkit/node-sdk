@@ -9,6 +9,6 @@ export class BotSessionClient extends ChatBotKitClient {
      * @param {import('./v1.js').BotSessionCreateRequest} request
      * @returns {Promise<import('./v1.js').BotSessionCreateResponse>}
      */
-    create(botId: string, request: import('./v1.js').BotSessionCreateRequest): Promise<import('./v1.js').BotSessionCreateResponse>;
+    create(botId: string, request: import("./v1.js").BotSessionCreateRequest): Promise<import("./v1.js").BotSessionCreateResponse>;
 }
 import { ChatBotKitClient } from '../../client.js';

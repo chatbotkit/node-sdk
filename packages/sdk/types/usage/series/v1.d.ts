@@ -24,8 +24,8 @@
  * @returns {ResponsePromise<UsageSeriesFetchResponse,never>}
  */
 export function fetchUsageSeries(client: ChatBotKitClient): ResponsePromise<UsageSeriesFetchResponse, never>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type UsageSeriesOptions = {
     tokens: {
         date: number;

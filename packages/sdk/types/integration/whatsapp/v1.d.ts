@@ -8,21 +8,6 @@
  */
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   phoneNumberId?: string,
@@ -30,7 +15,8 @@
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   attachments?: boolean,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} WhatsAppIntegrationOptions
  *
  * @typedef {WhatsAppIntegrationOptions & {
@@ -61,7 +47,7 @@
  * @param {WhatsAppIntegrationListRequest} [request]
  * @returns {ResponsePromise<WhatsAppIntegrationListResponse,WhatsAppIntegrationListStreamType>}
  */
-export function listWhatsAppIntegrations(client: ChatBotKitClient, request?: WhatsAppIntegrationListRequest | undefined): ResponsePromise<WhatsAppIntegrationListResponse, WhatsAppIntegrationListStreamType>;
+export function listWhatsAppIntegrations(client: ChatBotKitClient, request?: WhatsAppIntegrationListRequest): ResponsePromise<WhatsAppIntegrationListResponse, WhatsAppIntegrationListStreamType>;
 /**
  * @typedef {WhatsAppIntegrationInstance & {
  * }} WhatsAppIntegrationFetchResponse
@@ -120,21 +106,9 @@ export function deleteWhatsAppIntegration(client: ChatBotKitClient, whatsappId: 
  * @returns {Promise<WhatsAppIntegrationSetupResponse>}
  */
 export function setupWhatsAppIntegration(client: ChatBotKitClient, whatsappId: string): Promise<WhatsAppIntegrationSetupResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type BotRef = {
-    botId?: string;
-};
-export type BotConfig = {
-    backstory?: string;
-    model?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-};
-export type BotRefOrConfig = BotRef | BotConfig;
-export type WhatsAppIntegrationOptions = BotRefOrConfig & {
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
+export type WhatsAppIntegrationOptions = {
     name?: string;
     description?: string;
     phoneNumberId?: string;
@@ -143,6 +117,7 @@ export type WhatsAppIntegrationOptions = BotRefOrConfig & {
     sessionDuration?: number;
     attachments?: boolean;
     meta?: Record<string, any>;
+    botId?: string;
 };
 export type WhatsAppIntegrationInstance = WhatsAppIntegrationOptions & {
     id: string;
@@ -152,7 +127,7 @@ export type WhatsAppIntegrationInstance = WhatsAppIntegrationOptions & {
 };
 export type WhatsAppIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -160,19 +135,19 @@ export type WhatsAppIntegrationListResponse = {
     items: WhatsAppIntegrationInstance[];
 };
 export type WhatsAppIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: WhatsAppIntegrationInstance;
 };
 export type WhatsAppIntegrationListStreamType = WhatsAppIntegrationListStreamItem;
 export type WhatsAppIntegrationFetchResponse = WhatsAppIntegrationInstance & {};
 export type WhatsAppIntegrationCreateRequest = WhatsAppIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type WhatsAppIntegrationCreateResponse = {
     id: string;
 };
 export type WhatsAppIntegrationUpdateRequest = WhatsAppIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type WhatsAppIntegrationUpdateResponse = {
     id: string;

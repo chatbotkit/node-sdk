@@ -45,7 +45,7 @@
  * @param {BotListRequest} [request]
  * @returns {ResponsePromise<BotListResponse,BotListStreamType>}
  */
-export function listBots(client: ChatBotKitClient, request?: BotListRequest | undefined): ResponsePromise<BotListResponse, BotListStreamType>;
+export function listBots(client: ChatBotKitClient, request?: BotListRequest): ResponsePromise<BotListResponse, BotListStreamType>;
 /**
  * @typedef {BotInstance & {
  * }} BotFetchResponse
@@ -124,8 +124,8 @@ export function upvoteBot(client: ChatBotKitClient, botId: string, request: BotU
  * @returns {Promise<BotDownvoteResponse>}
  */
 export function downvoteBot(client: ChatBotKitClient, botId: string, request: BotDownvoteRequest): Promise<BotDownvoteResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type BotOptions = {
     name?: string;
     description?: string;
@@ -133,7 +133,7 @@ export type BotOptions = {
     model?: string;
     datasetId?: string;
     skillsetId?: string;
-    visibility?: 'private' | 'protected' | 'public';
+    visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
 };
 export type BotInstance = BotOptions & {
@@ -143,7 +143,7 @@ export type BotInstance = BotOptions & {
 };
 export type BotListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -151,19 +151,19 @@ export type BotListResponse = {
     items: BotInstance[];
 };
 export type BotListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: BotInstance;
 };
 export type BotListStreamType = BotListStreamItemType;
 export type BotFetchResponse = BotInstance & {};
 export type BotCreateRequest = BotOptions & {
-    model?: import('../model/v1.js').Model;
+    model?: import("../model/v1.js").Model;
 };
 export type BotCreateResponse = {
     id: string;
 };
 export type BotUpdateRequest = BotOptions & {
-    model?: import('../model/v1.js').Model;
+    model?: import("../model/v1.js").Model;
 };
 export type BotUpdateResponse = {
     id: string;

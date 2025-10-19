@@ -40,9 +40,9 @@
  * @param {PlatformSecretListRequest} [request]
  * @returns {ResponsePromise<PlatformSecretListResponse,PlatformSecretListStreamType>}
  */
-export function listPlatformSecrets(client: ChatBotKitClient, request?: PlatformSecretListRequest | undefined): ResponsePromise<PlatformSecretListResponse, PlatformSecretListStreamType>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export function listPlatformSecrets(client: ChatBotKitClient, request?: PlatformSecretListRequest): ResponsePromise<PlatformSecretListResponse, PlatformSecretListStreamType>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type PlatformSecretOptions = {
     name?: string;
     description?: string;
@@ -55,7 +55,7 @@ export type PlatformSecretInstance = PlatformSecretOptions & {
 };
 export type PlatformSecretListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -63,7 +63,7 @@ export type PlatformSecretListResponse = {
     items: PlatformSecretInstance[];
 };
 export type PlatformSecretListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: PlatformSecretInstance;
 };
 export type PlatformSecretListStreamType = PlatformSecretListStreamItemType;

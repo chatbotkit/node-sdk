@@ -47,7 +47,7 @@
  * @param {SitemapIntegrationListRequest} [request]
  * @returns {ResponsePromise<SitemapIntegrationListResponse,SitemapIntegrationListStreamType>}
  */
-export function listSitemapIntegrations(client: ChatBotKitClient, request?: SitemapIntegrationListRequest | undefined): ResponsePromise<SitemapIntegrationListResponse, SitemapIntegrationListStreamType>;
+export function listSitemapIntegrations(client: ChatBotKitClient, request?: SitemapIntegrationListRequest): ResponsePromise<SitemapIntegrationListResponse, SitemapIntegrationListStreamType>;
 /**
  * @typedef {SitemapInegrationInstance & {
  * }} SitemapIntegrationFetchResponse
@@ -103,8 +103,8 @@ export function deleteSitemapIntegration(client: ChatBotKitClient, sitemapId: st
  * @returns {Promise<SitemapIntegrationSyncResponse>}
  */
 export function syncSitemapIntegration(client: ChatBotKitClient, sitemapId: string): Promise<SitemapIntegrationSyncResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SitemapIntegrationOptions = {
     name?: string;
     description?: string;
@@ -124,7 +124,7 @@ export type SitemapInegrationInstance = SitemapIntegrationOptions & {
 };
 export type SitemapIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -132,7 +132,7 @@ export type SitemapIntegrationListResponse = {
     items: SitemapInegrationInstance[];
 };
 export type SitemapIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: SitemapInegrationInstance;
 };
 export type SitemapIntegrationListStreamType = SitemapIntegrationListStreamItem;

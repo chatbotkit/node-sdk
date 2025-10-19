@@ -44,7 +44,7 @@
  * @param {NotionIntegrationListRequest} [request]
  * @returns {ResponsePromise<NotionIntegrationListResponse,NotionIntegrationListStreamType>}
  */
-export function listNotionIntegrations(client: ChatBotKitClient, request?: NotionIntegrationListRequest | undefined): ResponsePromise<NotionIntegrationListResponse, NotionIntegrationListStreamType>;
+export function listNotionIntegrations(client: ChatBotKitClient, request?: NotionIntegrationListRequest): ResponsePromise<NotionIntegrationListResponse, NotionIntegrationListStreamType>;
 /**
  * @typedef {NotionInegrationInstance & {
  * }} NotionIntegrationFetchResponse
@@ -100,8 +100,8 @@ export function deleteNotionIntegration(client: ChatBotKitClient, notionId: stri
  * @returns {Promise<NotionIntegrationSyncResponse>}
  */
 export function syncNotionIntegration(client: ChatBotKitClient, notionId: string): Promise<NotionIntegrationSyncResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type NotionIntegrationOptions = {
     name?: string;
     description?: string;
@@ -118,7 +118,7 @@ export type NotionInegrationInstance = NotionIntegrationOptions & {
 };
 export type NotionIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -126,7 +126,7 @@ export type NotionIntegrationListResponse = {
     items: NotionInegrationInstance[];
 };
 export type NotionIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: NotionInegrationInstance;
 };
 export type NotionIntegrationListStreamType = NotionIntegrationListStreamItem;

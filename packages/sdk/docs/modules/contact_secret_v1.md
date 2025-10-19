@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L106)
+[contact/secret/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L111)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L27)
+[contact/secret/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L32)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L29)
+[contact/secret/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L34)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L34)
+[contact/secret/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L39)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L36)
+[contact/secret/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L41)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L57)
+[contact/secret/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L62)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L82)
+[contact/secret/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L87)
 
 ## Functions
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L113)
+[contact/secret/v1.js:118](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L118)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L43)
+[contact/secret/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L48)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L64)
+[contact/secret/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L69)
 
 ___
 
@@ -282,4 +282,4 @@ ___
 
 #### Defined in
 
-[contact/secret/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L89)
+[contact/secret/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L94)

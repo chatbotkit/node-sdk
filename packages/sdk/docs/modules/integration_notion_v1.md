@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L75)
+[integration/notion/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L80)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L79)
+[integration/notion/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L84)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L129)
+[integration/notion/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L134)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L58)
+[integration/notion/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L63)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L30)
+[integration/notion/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L35)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L32)
+[integration/notion/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L37)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L37)
+[integration/notion/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L42)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L39)
+[integration/notion/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L44)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:150](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L150)
+[integration/notion/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L155)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L101)
+[integration/notion/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L106)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L105)
+[integration/notion/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L110)
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L85)
+[integration/notion/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L90)
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L135)
+[integration/notion/v1.js:140](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L140)
 
 ___
 
@@ -307,7 +307,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L64)
+[integration/notion/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L69)
 
 ___
 
@@ -328,7 +328,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L45)
+[integration/notion/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L50)
 
 ___
 
@@ -349,7 +349,7 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L156)
+[integration/notion/v1.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L161)
 
 ___
 
@@ -371,4 +371,4 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L112)
+[integration/notion/v1.js:117](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L117)

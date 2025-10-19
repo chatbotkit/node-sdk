@@ -13,9 +13,9 @@ export class UsageClient extends ChatBotKitClient {
      *
      * @returns {ResponsePromise<import('./v1.js').UsageFetchResponse,never>}
      */
-    fetch(): ResponsePromise<import('./v1.js').UsageFetchResponse, never>;
+    fetch(): ResponsePromise<import("./v1.js").UsageFetchResponse, never>;
 }
 export default UsageClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../client.js';
 import { UsageSeriesClient } from './series/index.js';

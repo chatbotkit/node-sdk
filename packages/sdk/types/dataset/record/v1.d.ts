@@ -43,7 +43,7 @@
  * @param {DatasetRecordListRequest} [request]
  * @returns {ResponsePromise<DatasetRecordListResponse,DatasetRecordListStreamType>}
  */
-export function listDatasetRecords(client: ChatBotKitClient, datasetId: string, request?: DatasetRecordListRequest | undefined): ResponsePromise<DatasetRecordListResponse, DatasetRecordListStreamType>;
+export function listDatasetRecords(client: ChatBotKitClient, datasetId: string, request?: DatasetRecordListRequest): ResponsePromise<DatasetRecordListResponse, DatasetRecordListStreamType>;
 /**
  * @typedef {DatasetRecordInstance & {
  * }} DatasetRecordFetchResponse
@@ -94,8 +94,8 @@ export function updateDatasetRecord(client: ChatBotKitClient, datasetId: string,
  * @returns {Promise<DatasetRecordDeleteResponse>}
  */
 export function deleteDatasetRecord(client: ChatBotKitClient, datasetId: string, recordId: string): Promise<DatasetRecordDeleteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type DatasetRecordOptions = {
     name?: string;
     description?: string;
@@ -110,7 +110,7 @@ export type DatasetRecordInstance = DatasetRecordOptions & {
 };
 export type DatasetRecordListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -118,7 +118,7 @@ export type DatasetRecordListResponse = {
     items: DatasetRecordInstance[];
 };
 export type DatasetRecordListStreamItem = {
-    type: 'item';
+    type: "item";
     data: DatasetRecordInstance;
 };
 export type DatasetRecordListStreamType = DatasetRecordListStreamItem;

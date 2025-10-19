@@ -38,7 +38,7 @@
  * @param {PartnerUserTokenListRequest} [request]
  * @returns {ResponsePromise<PartnerUserTokenListResponse,PartnerUserTokenListStreamType>}
  */
-export function listPartnerUserTokens(client: ChatBotKitClient, userId: string, request?: PartnerUserTokenListRequest | undefined): ResponsePromise<PartnerUserTokenListResponse, PartnerUserTokenListStreamType>;
+export function listPartnerUserTokens(client: ChatBotKitClient, userId: string, request?: PartnerUserTokenListRequest): ResponsePromise<PartnerUserTokenListResponse, PartnerUserTokenListStreamType>;
 /**
  * @typedef {PartnerUserTokenOptions & {
  * }} PartnerUserTokenCreateRequest
@@ -66,8 +66,8 @@ export function createPartnerUserToken(client: ChatBotKitClient, userId: string,
  * @returns {Promise<PartnerUserTokenDeleteResponse>}
  */
 export function deletePartnerUserToken(client: ChatBotKitClient, userId: string, tokenId: string): Promise<PartnerUserTokenDeleteResponse>;
-export type ChatBotKitClient = import('../../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../../client.js").ResponsePromise<T, U>;
 export type PartnerUserTokenOptions = {};
 export type PartnerUserTokenInstance = PartnerUserTokenOptions & {
     id: string;
@@ -76,7 +76,7 @@ export type PartnerUserTokenInstance = PartnerUserTokenOptions & {
 };
 export type PartnerUserTokenListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -84,7 +84,7 @@ export type PartnerUserTokenListResponse = {
     items: PartnerUserTokenInstance[];
 };
 export type PartnerUserTokenListStreamItem = {
-    type: 'item';
+    type: "item";
     data: PartnerUserTokenInstance;
 };
 export type PartnerUserTokenListStreamType = PartnerUserTokenListStreamItem;

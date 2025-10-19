@@ -39,7 +39,7 @@
  * @param {FileListRequest} [request]
  * @returns {ResponsePromise<FileListResponse,FileListStreamType>}
  */
-export function listFiles(client: ChatBotKitClient, request?: FileListRequest | undefined): ResponsePromise<FileListResponse, FileListStreamType>;
+export function listFiles(client: ChatBotKitClient, request?: FileListRequest): ResponsePromise<FileListResponse, FileListStreamType>;
 /**
  * @typedef {FileInstance & {
  * }} FileFetchResponse
@@ -105,6 +105,7 @@ export function deleteFile(client: ChatBotKitClient, fileId: string): Promise<Fi
 export function uploadFile(client: ChatBotKitClient, fileId: string, request: FileUploadRequest): Promise<FileUploadResponse>;
 /**
  * @typedef {{
+ *   headers: Headers,
  *   data: ArrayBuffer
  * }} FileDownloadResponse
  *
@@ -113,8 +114,8 @@ export function uploadFile(client: ChatBotKitClient, fileId: string, request: Fi
  * @returns {Promise<FileDownloadResponse>}
  */
 export function downloadFile(client: ChatBotKitClient, fileId: string): Promise<FileDownloadResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type FileOptions = {
     name?: string;
     description?: string;
@@ -127,7 +128,7 @@ export type FileInstance = FileOptions & {
 };
 export type FileListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -135,7 +136,7 @@ export type FileListResponse = {
     items: FileInstance[];
 };
 export type FileListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: FileInstance;
 };
 export type FileListStreamType = FileListStreamItemType;

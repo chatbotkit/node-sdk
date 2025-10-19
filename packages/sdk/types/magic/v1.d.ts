@@ -29,8 +29,8 @@
  * @returns {ResponsePromise<MagicGenerateResponse,MagicGenerateStreamType>}
  */
 export function generateMagic(client: ChatBotKitClient, magicId: string, request: MagicGenerateRequest): ResponsePromise<MagicGenerateResponse, MagicGenerateStreamType>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type MagicGenerateRequest = {
     text: string;
 };
@@ -41,7 +41,7 @@ export type MagicGenerateResponse = {
     };
 };
 export type MagicGenerateStreamResult = {
-    type: 'result';
+    type: "result";
     data: MagicGenerateResponse;
 };
 export type MagicGenerateStreamType = MagicGenerateStreamResult;

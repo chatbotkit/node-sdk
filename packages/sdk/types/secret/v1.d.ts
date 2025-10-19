@@ -11,7 +11,7 @@
  *   name?: string,
  *   description?: string,
  *   kind?: 'shared'|'personal',
- *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template',
+ *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template'|'reference',
  *   value?: string,
  *   meta?: Record<string,any>
  * }} SecretOptions
@@ -43,7 +43,7 @@
  * @param {SecretListRequest} [request]
  * @returns {ResponsePromise<SecretListResponse,SecretListStreamType>}
  */
-export function listSecrets(client: ChatBotKitClient, request?: SecretListRequest | undefined): ResponsePromise<SecretListResponse, SecretListStreamType>;
+export function listSecrets(client: ChatBotKitClient, request?: SecretListRequest): ResponsePromise<SecretListResponse, SecretListStreamType>;
 /**
  * @typedef {SecretInstance & {
  * }} SecretFetchResponse
@@ -90,13 +90,13 @@ export function updateSecret(client: ChatBotKitClient, secretId: string, request
  * @returns {Promise<SecretDeleteResponse>}
  */
 export function deleteSecret(client: ChatBotKitClient, secretId: string): Promise<SecretDeleteResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type SecretOptions = {
     name?: string;
     description?: string;
-    kind?: 'shared' | 'personal';
-    type?: 'plain' | 'basic' | 'bearer' | 'oauth' | 'template';
+    kind?: "shared" | "personal";
+    type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
     value?: string;
     meta?: Record<string, any>;
 };
@@ -107,7 +107,7 @@ export type SecretInstance = SecretOptions & {
 };
 export type SecretListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -115,7 +115,7 @@ export type SecretListResponse = {
     items: SecretInstance[];
 };
 export type SecretListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: SecretInstance;
 };
 export type SecretListStreamType = SecretListStreamItemType;

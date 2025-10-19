@@ -42,7 +42,7 @@
  * @param {SecretListRequest} [request]
  * @returns {ResponsePromise<SecretListResponse,SecretListStreamType>}
  */
-export function listSecrets(client: ChatBotKitClient, contactId: string, request?: SecretListRequest | undefined): ResponsePromise<SecretListResponse, SecretListStreamType>;
+export function listSecrets(client: ChatBotKitClient, contactId: string, request?: SecretListRequest): ResponsePromise<SecretListResponse, SecretListStreamType>;
 /**
  * @typedef {{
  *   id: string
@@ -79,8 +79,8 @@ export function verifySecret(client: ChatBotKitClient, contactId: string, secret
  * @returns {ResponsePromise<SecretAuthenticateResponse,never>}
  */
 export function authenticateSecret(client: ChatBotKitClient, contactId: string, secretId: string): ResponsePromise<SecretAuthenticateResponse, never>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SecretOptions = {
     name?: string;
     description?: string;
@@ -94,7 +94,7 @@ export type SecretInstance = SecretOptions & {
 };
 export type SecretListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -102,7 +102,7 @@ export type SecretListResponse = {
     items: SecretInstance[];
 };
 export type SecretListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: SecretInstance;
 };
 export type SecretListStreamType = SecretListStreamItemType;
@@ -111,9 +111,9 @@ export type SecretRevokeResponse = {
 };
 export type SecretVerifyResponse = {
     id: string;
-    status: 'unauthenticated' | 'authenticated';
+    status: "unauthenticated" | "authenticated";
     action?: {
-        type: 'authenticate';
+        type: "authenticate";
         url: string;
     };
 };

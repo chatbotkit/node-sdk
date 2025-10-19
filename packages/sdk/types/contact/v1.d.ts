@@ -45,7 +45,7 @@
  * @param {ContactListRequest} [request]
  * @returns {ResponsePromise<ContactListResponse,ContactListStreamType>}
  */
-export function listContacts(client: ChatBotKitClient, request?: ContactListRequest | undefined): ResponsePromise<ContactListResponse, ContactListStreamType>;
+export function listContacts(client: ChatBotKitClient, request?: ContactListRequest): ResponsePromise<ContactListResponse, ContactListStreamType>;
 /**
  * @typedef {ContactInstance & {
  * }} ContactFetchResponse
@@ -106,8 +106,8 @@ export function deleteContact(client: ChatBotKitClient, contactId: string): Prom
  * @returns {Promise<ContactEnsureResponse>}
  */
 export function ensureContact(client: ChatBotKitClient, request: ContactEnsureRequest): Promise<ContactEnsureResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type ContactOptions = {
     name?: string;
     description?: string;
@@ -125,7 +125,7 @@ export type ContactInstance = ContactOptions & {
 };
 export type ContactListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -133,7 +133,7 @@ export type ContactListResponse = {
     items: ContactInstance[];
 };
 export type ContactListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: ContactInstance;
 };
 export type ContactListStreamType = ContactListStreamItemType;

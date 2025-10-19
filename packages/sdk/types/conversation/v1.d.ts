@@ -67,7 +67,7 @@
  * @param {ConversationListRequest} [request]
  * @returns {ResponsePromise<ConversationListResponse,ConversationListStreamType>}
  */
-export function listConversations(client: ChatBotKitClient, request?: ConversationListRequest | undefined): ResponsePromise<ConversationListResponse, ConversationListStreamType>;
+export function listConversations(client: ChatBotKitClient, request?: ConversationListRequest): ResponsePromise<ConversationListResponse, ConversationListStreamType>;
 /**
  * @typedef {ConversationInstance & {
  * }} ConversationFetchResponse
@@ -284,8 +284,8 @@ export function upvoteConversation(client: ChatBotKitClient, conversationId: str
  * @returns {Promise<ConversationDownvoteResponse>}
  */
 export function downvoteConversation(client: ChatBotKitClient, conversationId: string, request: ConversationDownvoteRequest): Promise<ConversationDownvoteResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type ConversationOptions = {
     name?: string;
     description?: string;
@@ -303,7 +303,7 @@ export type ConversationInstance = ConversationOptions & {
     createdAt: number;
     updatedAt: number;
 };
-export type MessageType = 'user' | 'bot' | 'reasoning' | 'context' | 'instruction' | 'backstory' | 'activity';
+export type MessageType = "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
 export type Message = {
     type: MessageType;
     text: string;
@@ -322,7 +322,7 @@ export type Entity = {
 };
 export type ConversationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -330,19 +330,19 @@ export type ConversationListResponse = {
     items: ConversationInstance[];
 };
 export type ConversationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: ConversationInstance;
 };
 export type ConversationListStreamType = ConversationListStreamItem;
 export type ConversationFetchResponse = ConversationInstance & {};
 export type ConversationCreateRequest = ConversationOptions & {
-    model?: import('../model/v1.js').Model;
+    model?: import("../model/v1.js").Model;
 };
 export type ConversationCreateResponse = {
     id: string;
 };
 export type ConversationUpdateRequest = ConversationOptions & {
-    model?: import('../model/v1.js').Model;
+    model?: import("../model/v1.js").Model;
 };
 export type ConversationUpdateResponse = {
     id: string;
@@ -353,7 +353,7 @@ export type ConversationDeleteResponse = {
 export type ConversationCompleteRequest = {
     botId?: string;
     backstory?: string;
-    model?: import('../model/v1.js').Model;
+    model?: import("../model/v1.js").Model;
     messages?: Message[];
     datasetId?: string;
     skillsetId?: string;
@@ -376,17 +376,17 @@ export type ConversationCompleteResponse = {
     };
 };
 export type ConversationCompleteStreamResult = {
-    type: 'result';
+    type: "result";
     data: ConversationCompleteResponse;
 };
 export type ConversationCompleteStreamToken = {
-    type: 'token';
+    type: "token";
     data: {
         token: string;
     };
 };
 export type ConversationCompleteMessage = {
-    type: 'message';
+    type: "message";
     data: Message;
 };
 export type ConversationCompleteStreamType = ConversationCompleteStreamResult | ConversationCompleteStreamToken | ConversationCompleteMessage;
@@ -402,15 +402,15 @@ export type ConversationCompleteMessageResponse = {
     };
 };
 export type ConversationCompleteMessageStreamResult = {
-    type: 'result';
+    type: "result";
     data: ConversationCompleteMessageResponse;
 };
 export type ConversationCompleteMessageStreamMessage = {
-    type: 'message';
+    type: "message";
     data: Message;
 };
 export type ConversationCompleteMessageStreamToken = {
-    type: 'token';
+    type: "token";
     data: {
         token: string;
     };
@@ -425,7 +425,7 @@ export type ConversationSendMessageResponse = {
     entities: Entity[];
 };
 export type ConversationSendMessageStreamResult = {
-    type: 'result';
+    type: "result";
     data: ConversationSendMessageResponse;
 };
 export type ConversationSendMessageStreamType = ConversationSendMessageStreamResult;
@@ -438,15 +438,15 @@ export type ConversationReceiveMessageResponse = {
     };
 };
 export type ConversationReceiveMessageStreamResult = {
-    type: 'result';
+    type: "result";
     data: ConversationReceiveMessageResponse;
 };
 export type ConversationReceiveMessageStreamMessage = {
-    type: 'message';
+    type: "message";
     data: Message;
 };
 export type ConversationReceiveMessageStreamToken = {
-    type: 'token';
+    type: "token";
     data: {
         token: string;
     };

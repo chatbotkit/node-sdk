@@ -22,7 +22,7 @@ export type ModelConfig = {
     presencePenalty?: number;
     seed?: number;
     interactionMaxMessages?: number;
-    region?: 'us' | 'eu';
+    region?: "us" | "eu";
 };
 export type Model = string | {
     name: string;

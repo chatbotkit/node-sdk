@@ -8,21 +8,6 @@
  */
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   signingSecret?: string,
@@ -30,7 +15,8 @@
  *   visibleMessages?: number,
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} SlackIntegrationOptions
  *
  * @typedef {SlackIntegrationOptions & {
@@ -60,7 +46,7 @@
  * @param {SlackIntegrationListRequest} [request]
  * @returns {ResponsePromise<SlackIntegrationListResponse,SlackIntegrationListStreamType>}
  */
-export function listSlackIntegrations(client: ChatBotKitClient, request?: SlackIntegrationListRequest | undefined): ResponsePromise<SlackIntegrationListResponse, SlackIntegrationListStreamType>;
+export function listSlackIntegrations(client: ChatBotKitClient, request?: SlackIntegrationListRequest): ResponsePromise<SlackIntegrationListResponse, SlackIntegrationListStreamType>;
 /**
  * @typedef {SlackIntegrationInstance & {
  * }} SlackIntegrationFetchResponse
@@ -119,21 +105,9 @@ export function deleteSlackIntegration(client: ChatBotKitClient, slackId: string
  * @returns {Promise<SlackIntegrationSetupResponse>}
  */
 export function setupSlackIntegration(client: ChatBotKitClient, slackId: string): Promise<SlackIntegrationSetupResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type BotRef = {
-    botId?: string;
-};
-export type BotConfig = {
-    backstory?: string;
-    model?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-};
-export type BotRefOrConfig = BotRef | BotConfig;
-export type SlackIntegrationOptions = BotRefOrConfig & {
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
+export type SlackIntegrationOptions = {
     name?: string;
     description?: string;
     signingSecret?: string;
@@ -142,6 +116,7 @@ export type SlackIntegrationOptions = BotRefOrConfig & {
     contactCollection?: boolean;
     sessionDuration?: number;
     meta?: Record<string, any>;
+    botId?: string;
 };
 export type SlackIntegrationInstance = SlackIntegrationOptions & {
     id: string;
@@ -150,7 +125,7 @@ export type SlackIntegrationInstance = SlackIntegrationOptions & {
 };
 export type SlackIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -158,19 +133,19 @@ export type SlackIntegrationListResponse = {
     items: SlackIntegrationInstance[];
 };
 export type SlackIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: SlackIntegrationInstance;
 };
 export type SlackIntegrationListStreamType = SlackIntegrationListStreamItem;
 export type SlackIntegrationFetchResponse = SlackIntegrationInstance & {};
 export type SlackIntegrationCreateRequest = SlackIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type SlackIntegrationCreateResponse = {
     id: string;
 };
 export type SlackIntegrationUpdateRequest = SlackIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type SlackIntegrationUpdateResponse = {
     id: string;

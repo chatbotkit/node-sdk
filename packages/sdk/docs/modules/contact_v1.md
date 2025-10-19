@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L77)
+[contact/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L82)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L81)
+[contact/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L86)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:131](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L131)
+[contact/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L136)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L152)
+[contact/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L157)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L156)
+[contact/v1.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L161)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L59)
+[contact/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L64)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L31)
+[contact/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L36)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L33)
+[contact/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L38)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L38)
+[contact/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L43)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L40)
+[contact/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L45)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L103)
+[contact/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L108)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L107)
+[contact/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L112)
 
 ___
 
@@ -277,7 +277,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L87)
+[contact/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L92)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L137)
+[contact/v1.js:142](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L142)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L162)
+[contact/v1.js:167](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L167)
 
 ___
 
@@ -340,7 +340,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L65)
+[contact/v1.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L70)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[contact/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L46)
+[contact/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L51)
 
 ___
 
@@ -383,4 +383,4 @@ ___
 
 #### Defined in
 
-[contact/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L114)
+[contact/v1.js:119](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L119)

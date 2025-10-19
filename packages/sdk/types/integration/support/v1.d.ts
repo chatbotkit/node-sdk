@@ -44,7 +44,7 @@
  * @param {SupportIntegrationListRequest} [request]
  * @returns {ResponsePromise<SupportIntegrationListResponse,SupportIntegrationListStreamType>}
  */
-export function listSupportIntegrations(client: ChatBotKitClient, request?: SupportIntegrationListRequest | undefined): ResponsePromise<SupportIntegrationListResponse, SupportIntegrationListStreamType>;
+export function listSupportIntegrations(client: ChatBotKitClient, request?: SupportIntegrationListRequest): ResponsePromise<SupportIntegrationListResponse, SupportIntegrationListStreamType>;
 /**
  * @typedef {SupportInegrationInstance & {
  * }} SupportIntegrationFetchResponse
@@ -90,8 +90,8 @@ export function updateSupportIntegration(client: ChatBotKitClient, supportId: st
  * @returns {Promise<SupportIntegrationDeleteResponse>}
  */
 export function deleteSupportIntegration(client: ChatBotKitClient, supportId: string): Promise<SupportIntegrationDeleteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SupportIntegrationOptions = {
     name?: string;
     description?: string;
@@ -108,7 +108,7 @@ export type SupportInegrationInstance = SupportIntegrationOptions & {
 };
 export type SupportIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -116,7 +116,7 @@ export type SupportIntegrationListResponse = {
     items: SupportInegrationInstance[];
 };
 export type SupportIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: SupportInegrationInstance;
 };
 export type SupportIntegrationListStreamType = SupportIntegrationListStreamItem;

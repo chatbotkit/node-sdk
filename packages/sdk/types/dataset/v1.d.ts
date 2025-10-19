@@ -49,7 +49,7 @@
  * @param {DatasetListRequest} [request]
  * @returns {ResponsePromise<DatasetListResponse,DatasetListStreamType>}
  */
-export function listDatasets(client: ChatBotKitClient, request?: DatasetListRequest | undefined): ResponsePromise<DatasetListResponse, DatasetListStreamType>;
+export function listDatasets(client: ChatBotKitClient, request?: DatasetListRequest): ResponsePromise<DatasetListResponse, DatasetListStreamType>;
 /**
  * @typedef {DatasetInstance & {
  * }} DatasetFetchResponse
@@ -108,8 +108,8 @@ export function deleteDataset(client: ChatBotKitClient, datasetId: string): Prom
  * @returns {Promise<DatasetSearchResponse>}
  */
 export function searchDataset(client: ChatBotKitClient, datasetId: string, search: string): Promise<DatasetSearchResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type DatasetOptions = {
     name?: string;
     description?: string;
@@ -121,7 +121,7 @@ export type DatasetOptions = {
     matchInstruction?: string;
     mismatchInstruction?: string;
     separators?: string;
-    visibility?: 'private' | 'protected' | 'public';
+    visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
 };
 export type DatasetInstance = DatasetOptions & {
@@ -131,7 +131,7 @@ export type DatasetInstance = DatasetOptions & {
 };
 export type DatasetListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -139,7 +139,7 @@ export type DatasetListResponse = {
     items: DatasetInstance[];
 };
 export type DatasetListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: DatasetInstance;
 };
 export type DatasetListStreamType = DatasetListStreamItemType;

@@ -8,28 +8,14 @@
  */
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   accessToken?: string,
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   attachments?: boolean,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} MessengerIntegrationOptions
  *
  * @typedef {MessengerIntegrationOptions & {
@@ -60,7 +46,7 @@
  * @param {MessengerIntegrationListRequest} [request]
  * @returns {ResponsePromise<MessengerIntegrationListResponse,MessengerIntegrationListStreamType>}
  */
-export function listMessengerIntegrations(client: ChatBotKitClient, request?: MessengerIntegrationListRequest | undefined): ResponsePromise<MessengerIntegrationListResponse, MessengerIntegrationListStreamType>;
+export function listMessengerIntegrations(client: ChatBotKitClient, request?: MessengerIntegrationListRequest): ResponsePromise<MessengerIntegrationListResponse, MessengerIntegrationListStreamType>;
 /**
  * @typedef {MessengerIntegrationInstance & {
  * }} MessengerIntegrationFetchResponse
@@ -119,21 +105,9 @@ export function deleteMessengerIntegration(client: ChatBotKitClient, messengerId
  * @returns {Promise<MessengerIntegrationSetupResponse>}
  */
 export function setupMessengerIntegration(client: ChatBotKitClient, messengerId: string): Promise<MessengerIntegrationSetupResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type BotRef = {
-    botId?: string;
-};
-export type BotConfig = {
-    backstory?: string;
-    model?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-};
-export type BotRefOrConfig = BotRef | BotConfig;
-export type MessengerIntegrationOptions = BotRefOrConfig & {
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
+export type MessengerIntegrationOptions = {
     name?: string;
     description?: string;
     accessToken?: string;
@@ -141,6 +115,7 @@ export type MessengerIntegrationOptions = BotRefOrConfig & {
     sessionDuration?: number;
     attachments?: boolean;
     meta?: Record<string, any>;
+    botId?: string;
 };
 export type MessengerIntegrationInstance = MessengerIntegrationOptions & {
     id: string;
@@ -150,7 +125,7 @@ export type MessengerIntegrationInstance = MessengerIntegrationOptions & {
 };
 export type MessengerIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -158,19 +133,19 @@ export type MessengerIntegrationListResponse = {
     items: MessengerIntegrationInstance[];
 };
 export type MessengerIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: MessengerIntegrationInstance;
 };
 export type MessengerIntegrationListStreamType = MessengerIntegrationListStreamItem;
 export type MessengerIntegrationFetchResponse = MessengerIntegrationInstance & {};
 export type MessengerIntegrationCreateRequest = MessengerIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type MessengerIntegrationCreateResponse = {
     id: string;
 };
 export type MessengerIntegrationUpdateRequest = MessengerIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type MessengerIntegrationUpdateResponse = {
     id: string;

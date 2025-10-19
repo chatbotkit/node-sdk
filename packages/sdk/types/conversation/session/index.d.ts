@@ -9,7 +9,7 @@ export class ConversationSessionClient extends ChatBotKitClient {
      * @param {import('./v1.js').ConversationSessionCreateRequest} request
      * @returns {Promise<import('./v1.js').ConversationSessionCreateResponse>}
      */
-    create(conversationId: string, request: import('./v1.js').ConversationSessionCreateRequest): Promise<import('./v1.js').ConversationSessionCreateResponse>;
+    create(conversationId: string, request: import("./v1.js").ConversationSessionCreateRequest): Promise<import("./v1.js").ConversationSessionCreateResponse>;
 }
 export default ConversationSessionClient;
 import { ChatBotKitClient } from '../../client.js';

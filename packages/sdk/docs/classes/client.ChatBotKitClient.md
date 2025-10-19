@@ -120,7 +120,7 @@
 
 #### Defined in
 
-[client.js:276](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L276)
+[client.js:277](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L277)
 
 ## Methods
 
@@ -164,4 +164,4 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:331](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L331)

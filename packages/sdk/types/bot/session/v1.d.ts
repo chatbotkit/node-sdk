@@ -18,7 +18,7 @@
  * @returns {Promise<BotSessionCreateResponse>}
  */
 export function createBotSession(client: ChatBotKitClient, botId: string, request: BotSessionCreateRequest): Promise<BotSessionCreateResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type BotSessionCreateRequest = {
     durationInSeconds?: number;
 };

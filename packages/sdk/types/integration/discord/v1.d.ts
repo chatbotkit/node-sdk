@@ -8,21 +8,6 @@
  */
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   appId?: string,
@@ -31,7 +16,8 @@
  *   handle?: string,
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} DiscordIntegrationOptions
  *
  * @typedef {DiscordIntegrationOptions & {
@@ -61,7 +47,7 @@
  * @param {DiscordIntegrationListRequest} [request]
  * @returns {ResponsePromise<DiscordIntegrationListResponse,DiscordIntegrationListStreamType>}
  */
-export function listDiscordIntegrations(client: ChatBotKitClient, request?: DiscordIntegrationListRequest | undefined): ResponsePromise<DiscordIntegrationListResponse, DiscordIntegrationListStreamType>;
+export function listDiscordIntegrations(client: ChatBotKitClient, request?: DiscordIntegrationListRequest): ResponsePromise<DiscordIntegrationListResponse, DiscordIntegrationListStreamType>;
 /**
  * @typedef {DiscordIntegrationInstance & {
  * }} DiscordIntegrationFetchResponse
@@ -120,21 +106,9 @@ export function deleteDiscordIntegration(client: ChatBotKitClient, discordId: st
  * @returns {Promise<DiscordIntegrationSetupResponse>}
  */
 export function setupDiscordIntegration(client: ChatBotKitClient, discordId: string): Promise<DiscordIntegrationSetupResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type BotRef = {
-    botId?: string;
-};
-export type BotConfig = {
-    backstory?: string;
-    model?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-};
-export type BotRefOrConfig = BotRef | BotConfig;
-export type DiscordIntegrationOptions = BotRefOrConfig & {
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
+export type DiscordIntegrationOptions = {
     name?: string;
     description?: string;
     appId?: string;
@@ -144,6 +118,7 @@ export type DiscordIntegrationOptions = BotRefOrConfig & {
     contactCollection?: boolean;
     sessionDuration?: number;
     meta?: Record<string, any>;
+    botId?: string;
 };
 export type DiscordIntegrationInstance = DiscordIntegrationOptions & {
     id: string;
@@ -152,7 +127,7 @@ export type DiscordIntegrationInstance = DiscordIntegrationOptions & {
 };
 export type DiscordIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -160,19 +135,19 @@ export type DiscordIntegrationListResponse = {
     items: DiscordIntegrationInstance[];
 };
 export type DiscordIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: DiscordIntegrationInstance;
 };
 export type DiscordIntegrationListStreamType = DiscordIntegrationListStreamItem;
 export type DiscordIntegrationFetchResponse = DiscordIntegrationInstance & {};
 export type DiscordIntegrationCreateRequest = DiscordIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type DiscordIntegrationCreateResponse = {
     id: string;
 };
 export type DiscordIntegrationUpdateRequest = DiscordIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type DiscordIntegrationUpdateResponse = {
     id: string;

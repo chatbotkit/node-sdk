@@ -8,26 +8,12 @@
  */
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} EmailIntegrationOptions
  *
  * @typedef {EmailIntegrationOptions & {
@@ -57,7 +43,7 @@
  * @param {EmailIntegrationListRequest} [request]
  * @returns {ResponsePromise<EmailIntegrationListResponse,EmailIntegrationListStreamType>}
  */
-export function listEmailIntegrations(client: ChatBotKitClient, request?: EmailIntegrationListRequest | undefined): ResponsePromise<EmailIntegrationListResponse, EmailIntegrationListStreamType>;
+export function listEmailIntegrations(client: ChatBotKitClient, request?: EmailIntegrationListRequest): ResponsePromise<EmailIntegrationListResponse, EmailIntegrationListStreamType>;
 /**
  * @typedef {EmailIntegrationInstance & {
  * }} EmailIntegrationFetchResponse
@@ -116,26 +102,15 @@ export function deleteEmailIntegration(client: ChatBotKitClient, emailId: string
  * @returns {Promise<EmailIntegrationSetupResponse>}
  */
 export function setupEmailIntegration(client: ChatBotKitClient, emailId: string): Promise<EmailIntegrationSetupResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type BotRef = {
-    botId?: string;
-};
-export type BotConfig = {
-    backstory?: string;
-    model?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-};
-export type BotRefOrConfig = BotRef | BotConfig;
-export type EmailIntegrationOptions = BotRefOrConfig & {
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
+export type EmailIntegrationOptions = {
     name?: string;
     description?: string;
     contactCollection?: boolean;
     sessionDuration?: number;
     meta?: Record<string, any>;
+    botId?: string;
 };
 export type EmailIntegrationInstance = EmailIntegrationOptions & {
     id: string;
@@ -144,7 +119,7 @@ export type EmailIntegrationInstance = EmailIntegrationOptions & {
 };
 export type EmailIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -152,19 +127,19 @@ export type EmailIntegrationListResponse = {
     items: EmailIntegrationInstance[];
 };
 export type EmailIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: EmailIntegrationInstance;
 };
 export type EmailIntegrationListStreamType = EmailIntegrationListStreamItem;
 export type EmailIntegrationFetchResponse = EmailIntegrationInstance & {};
 export type EmailIntegrationCreateRequest = EmailIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type EmailIntegrationCreateResponse = {
     id: string;
 };
 export type EmailIntegrationUpdateRequest = EmailIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
+    model?: import("../../model/v1.js").Model;
 };
 export type EmailIntegrationUpdateResponse = {
     id: string;

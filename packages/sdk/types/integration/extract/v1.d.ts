@@ -44,7 +44,7 @@
  * @param {ExtractIntegrationListRequest} [request]
  * @returns {ResponsePromise<ExtractIntegrationListResponse,ExtractIntegrationListStreamType>}
  */
-export function listExtractIntegrations(client: ChatBotKitClient, request?: ExtractIntegrationListRequest | undefined): ResponsePromise<ExtractIntegrationListResponse, ExtractIntegrationListStreamType>;
+export function listExtractIntegrations(client: ChatBotKitClient, request?: ExtractIntegrationListRequest): ResponsePromise<ExtractIntegrationListResponse, ExtractIntegrationListStreamType>;
 /**
  * @typedef {ExtractInegrationInstance & {
  * }} ExtractIntegrationFetchResponse
@@ -90,8 +90,8 @@ export function updateExtractIntegration(client: ChatBotKitClient, extractId: st
  * @returns {Promise<ExtractIntegrationDeleteResponse>}
  */
 export function deleteExtractIntegration(client: ChatBotKitClient, extractId: string): Promise<ExtractIntegrationDeleteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type ExtractIntegrationOptions = {
     name?: string;
     description?: string;
@@ -108,7 +108,7 @@ export type ExtractInegrationInstance = ExtractIntegrationOptions & {
 };
 export type ExtractIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -116,7 +116,7 @@ export type ExtractIntegrationListResponse = {
     items: ExtractInegrationInstance[];
 };
 export type ExtractIntegrationListStreamItem = {
-    type: 'item';
+    type: "item";
     data: ExtractInegrationInstance;
 };
 export type ExtractIntegrationListStreamType = ExtractIntegrationListStreamItem;

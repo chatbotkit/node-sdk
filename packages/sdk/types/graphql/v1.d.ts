@@ -30,20 +30,20 @@
  * @returns {Promise<GraphqlResponse>}
  */
 export function call(client: ChatBotKitClient, body: GraphqlRequest): Promise<GraphqlResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type GraphqlRequest = {
     query: string;
     variables?: {
         [key: string]: unknown;
-    } | undefined;
-    operationName?: string | undefined;
+    };
+    operationName?: string;
 };
 export type GraphqlResponse = {
     data?: {
         [key: string]: unknown;
-    } | undefined;
+    };
     errors?: {
         message: string;
-    }[] | undefined;
+    }[];
 };

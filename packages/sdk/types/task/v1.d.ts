@@ -43,7 +43,7 @@
  * @param {TaskListRequest} [request]
  * @returns {ResponsePromise<TaskListResponse,TaskListStreamType>}
  */
-export function listTasks(client: ChatBotKitClient, request?: TaskListRequest | undefined): ResponsePromise<TaskListResponse, TaskListStreamType>;
+export function listTasks(client: ChatBotKitClient, request?: TaskListRequest): ResponsePromise<TaskListResponse, TaskListStreamType>;
 /**
  * @typedef {TaskInstance & {
  * }} TaskFetchResponse
@@ -90,8 +90,8 @@ export function updateTask(client: ChatBotKitClient, taskId: string, request: Ta
  * @returns {Promise<TaskDeleteResponse>}
  */
 export function deleteTask(client: ChatBotKitClient, taskId: string): Promise<TaskDeleteResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type TaskOptions = {
     name?: string;
     description?: string;
@@ -107,7 +107,7 @@ export type TaskInstance = TaskOptions & {
 };
 export type TaskListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -115,7 +115,7 @@ export type TaskListResponse = {
     items: TaskInstance[];
 };
 export type TaskListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: TaskInstance;
 };
 export type TaskListStreamType = TaskListStreamItemType;

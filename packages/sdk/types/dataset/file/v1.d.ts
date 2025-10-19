@@ -30,7 +30,7 @@
  * @param {DatasetFileListRequest} [request]
  * @returns {ResponsePromise<DatasetFileListResponse,DatasetFileListStreamType>}
  */
-export function listDatasetFiles(client: ChatBotKitClient, datasetId: string, request?: DatasetFileListRequest | undefined): ResponsePromise<DatasetFileListResponse, DatasetFileListStreamType>;
+export function listDatasetFiles(client: ChatBotKitClient, datasetId: string, request?: DatasetFileListRequest): ResponsePromise<DatasetFileListResponse, DatasetFileListStreamType>;
 /**
  * @typedef {{
  *   type: 'source'
@@ -75,12 +75,12 @@ export function detachDatasetFile(client: ChatBotKitClient, datasetId: string, f
  * @returns {Promise<DatasetFileSyncResponse>}
  */
 export function syncDatasetFile(client: ChatBotKitClient, datasetId: string, fileId: string, request: DatasetFileSyncRequest): Promise<DatasetFileSyncResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type DatasetFileInstance = import('../../file/v1.js').FileInstance;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
+export type DatasetFileInstance = import("../../file/v1.js").FileInstance;
 export type DatasetFileListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -88,12 +88,12 @@ export type DatasetFileListResponse = {
     items: DatasetFileInstance[];
 };
 export type DatasetFileListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: DatasetFileInstance;
 };
 export type DatasetFileListStreamType = DatasetFileListStreamItemType;
 export type DatasetFileAttachRequest = {
-    type: 'source';
+    type: "source";
 };
 export type DatasetFileAttachResponse = {
     id: string;

@@ -43,7 +43,7 @@
  * @param {SkillsetAbilityListRequest} [request]
  * @returns {ResponsePromise<SkillsetAbilityListResponse,SkillsetAbilityListStreamType>}
  */
-export function listSkillsetAbilities(client: ChatBotKitClient, skillsetId: string, request?: SkillsetAbilityListRequest | undefined): ResponsePromise<SkillsetAbilityListResponse, SkillsetAbilityListStreamType>;
+export function listSkillsetAbilities(client: ChatBotKitClient, skillsetId: string, request?: SkillsetAbilityListRequest): ResponsePromise<SkillsetAbilityListResponse, SkillsetAbilityListStreamType>;
 /**
  * @typedef {SkillsetAbilityInstance & {
  * }} SkillsetAbilityFetchResponse
@@ -94,8 +94,8 @@ export function updateSkillsetAbility(client: ChatBotKitClient, skillsetId: stri
  * @returns {Promise<SkillsetAbilityDeleteResponse>}
  */
 export function deleteSkillsetAbility(client: ChatBotKitClient, skillsetId: string, abilityId: string): Promise<SkillsetAbilityDeleteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SkillsetAbilityOptions = {
     secretId?: string;
     name: string;
@@ -110,7 +110,7 @@ export type SkillsetAbilityInstance = SkillsetAbilityOptions & {
 };
 export type SkillsetAbilityListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -118,7 +118,7 @@ export type SkillsetAbilityListResponse = {
     items: SkillsetAbilityInstance[];
 };
 export type SkillsetAbilityListStreamItem = {
-    type: 'item';
+    type: "item";
     data: SkillsetAbilityInstance;
 };
 export type SkillsetAbilityListStreamType = SkillsetAbilityListStreamItem;

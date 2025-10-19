@@ -43,7 +43,7 @@
  * @param {ConversationMessageListRequest} [request]
  * @returns {ResponsePromise<ConversationMessageListResponse,ConversationMessageListStreamType>}
  */
-export function listConversationMessages(client: ChatBotKitClient, conversationId: string, request?: ConversationMessageListRequest | undefined): ResponsePromise<ConversationMessageListResponse, ConversationMessageListStreamType>;
+export function listConversationMessages(client: ChatBotKitClient, conversationId: string, request?: ConversationMessageListRequest): ResponsePromise<ConversationMessageListResponse, ConversationMessageListStreamType>;
 /**
  * @typedef {ConversationMessageInstance & {
  * }} ConversationMessageFetchResponse
@@ -126,9 +126,9 @@ export function upvoteConversationMessage(client: ChatBotKitClient, conversation
  * @returns {Promise<ConversationMessageDownvoteResponse>}
  */
 export function downvoteConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string, request: ConversationMessageDownvoteRequest): Promise<ConversationMessageDownvoteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type ConversationMessageType = 'user' | 'bot' | 'reasoning' | 'context' | 'instruction' | 'backstory' | 'activity';
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
+export type ConversationMessageType = "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
 export type ConversationMessageOptions = {
     type: ConversationMessageType;
     text: string;
@@ -141,7 +141,7 @@ export type ConversationMessageInstance = ConversationMessageOptions & {
 };
 export type ConversationMessageListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -149,7 +149,7 @@ export type ConversationMessageListResponse = {
     items: ConversationMessageInstance[];
 };
 export type ConversationMessageListStreamItem = {
-    type: 'item';
+    type: "item";
     data: ConversationMessageInstance;
 };
 export type ConversationMessageListStreamType = ConversationMessageListStreamItem;

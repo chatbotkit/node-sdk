@@ -40,9 +40,9 @@
  * @param {PlatformAbilityListRequest} [request]
  * @returns {ResponsePromise<PlatformAbilityListResponse,PlatformAbilityListStreamType>}
  */
-export function listPlatformAbilities(client: ChatBotKitClient, request?: PlatformAbilityListRequest | undefined): ResponsePromise<PlatformAbilityListResponse, PlatformAbilityListStreamType>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export function listPlatformAbilities(client: ChatBotKitClient, request?: PlatformAbilityListRequest): ResponsePromise<PlatformAbilityListResponse, PlatformAbilityListStreamType>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type PlatformAbilityOptions = {
     name?: string;
     description?: string;
@@ -55,7 +55,7 @@ export type PlatformAbilityInstance = PlatformAbilityOptions & {
 };
 export type PlatformAbilityListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
@@ -63,7 +63,7 @@ export type PlatformAbilityListResponse = {
     items: PlatformAbilityInstance[];
 };
 export type PlatformAbilityListStreamItemType = {
-    type: 'item';
+    type: "item";
     data: PlatformAbilityInstance;
 };
 export type PlatformAbilityListStreamType = PlatformAbilityListStreamItemType;
