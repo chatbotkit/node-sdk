@@ -1,5 +1,3 @@
-import { buildModelString } from '../../model/v1.js'
-
 /**
  * @typedef {import('../../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -12,28 +10,14 @@ import { buildModelString } from '../../model/v1.js'
 
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   botToken?: string,
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   attachments?: boolean,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} TelegramIntegrationOptions
  *
  * @typedef {TelegramIntegrationOptions & {
@@ -114,8 +98,6 @@ export async function createTelegramIntegration(client, request) {
     /** @type {import('../../types/api/v1.js').operations['createTelegramIntegration']['requestBody']['content']['application/json']} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -144,8 +126,6 @@ export async function updateTelegramIntegration(client, telegramId, request) {
     /** @type {import('../../types/api/v1.js').operations['updateTelegramIntegration']['requestBody']['content']['application/json']} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 

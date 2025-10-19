@@ -1,5 +1,3 @@
-import { buildModelString } from '../../model/v1.js'
-
 /**
  * @typedef {import('../../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -12,21 +10,6 @@ import { buildModelString } from '../../model/v1.js'
 
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   signingSecret?: string,
@@ -34,7 +17,8 @@ import { buildModelString } from '../../model/v1.js'
  *   visibleMessages?: number,
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} SlackIntegrationOptions
  *
  * @typedef {SlackIntegrationOptions & {
@@ -115,8 +99,6 @@ export async function createSlackIntegration(client, request) {
     /** @type {import('../../types/api/v1.js').operations['createSlackIntegration']['requestBody']['content']['application/json']} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -145,8 +127,6 @@ export async function updateSlackIntegration(client, slackId, request) {
     /** @type {import('../../types/api/v1.js').operations['updateSlackIntegration']['requestBody']['content']['application/json']} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 

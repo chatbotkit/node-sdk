@@ -1,5 +1,3 @@
-import { buildModelString } from '../../model/v1.js'
-
 /**
  * @typedef {import('../../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -12,26 +10,12 @@ import { buildModelString } from '../../model/v1.js'
 
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} EmailIntegrationOptions
  *
  * @typedef {EmailIntegrationOptions & {
@@ -112,8 +96,6 @@ export async function createEmailIntegration(client, request) {
     /** @type {import('../../types/api/v1.js').operations['createEmailIntegration']['requestBody']['content']['application/json']} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -142,8 +124,6 @@ export async function updateEmailIntegration(client, emailId, request) {
     /** @type {import('../../types/api/v1.js').operations['updateEmailIntegration']['requestBody']['content']['application/json']} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 

@@ -1,5 +1,3 @@
-import { buildModelString } from '../../model/v1.js'
-
 /**
  * @typedef {import('../../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -12,21 +10,6 @@ import { buildModelString } from '../../model/v1.js'
 
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
- *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
- *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
  *   name?: string,
  *   description?: string,
  *   phoneNumberId?: string,
@@ -34,7 +17,8 @@ import { buildModelString } from '../../model/v1.js'
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   attachments?: boolean,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string
  * }} WhatsAppIntegrationOptions
  *
  * @typedef {WhatsAppIntegrationOptions & {
@@ -116,8 +100,6 @@ export async function createWhatsAppIntegration(client, request) {
     /** @type {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['requestBody']['content']['application/json']} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -146,8 +128,6 @@ export async function updateWhatsAppIntegration(client, whatsappId, request) {
     /** @type {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['requestBody']['content']['application/json']} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
