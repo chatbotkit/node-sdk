@@ -3,6 +3,7 @@
 /* eslint-disable */
 import fs from 'fs'
 import path from 'path'
+import ts from 'typescript'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -144,7 +145,7 @@ function extractClientMethods(resourcePath) {
 }
 
 /**
- * Extract typedef fields from JSDoc comments in v1.js files
+ * Extract typedef fields from JSDoc comments using TypeScript compiler API
  */
 function extractTypedefFields(resourcePath, typeName) {
   const v1Path = path.join(SDK_SRC_PATH, resourcePath, 'v1.js')
@@ -153,41 +154,137 @@ function extractTypedefFields(resourcePath, typeName) {
     return []
   }
 
-  const content = fs.readFileSync(v1Path, 'utf8')
+  const sourceCode = fs.readFileSync(v1Path, 'utf8')
 
-  // Find the typedef block for the given type
-  // Match: @typedef {{ ... }} TypeName or @typedef {BaseType & { ... }} TypeName
-  const typedefRegex = new RegExp(
-    `@typedef\\s+\\{[^}]*\\{([^}]+)\\}[^}]*\\}\\s+${typeName}\\b`,
-    's'
+  // Create a source file using TypeScript compiler API
+  const sourceFile = ts.createSourceFile(
+    v1Path,
+    sourceCode,
+    ts.ScriptTarget.Latest,
+    true
   )
-  const typedefMatch = content.match(typedefRegex)
 
-  if (!typedefMatch) {
+  const typedefs = new Map()
+
+  // Visit all nodes to find JSDoc typedef tags
+  function visit(node) {
+    // Check for JSDoc comments
+    if (node.jsDoc) {
+      for (const jsDoc of node.jsDoc) {
+        if (jsDoc.tags) {
+          for (const tag of jsDoc.tags) {
+            if (
+              tag.kind === ts.SyntaxKind.JSDocTypedefTag &&
+              tag.name?.getText()
+            ) {
+              const typedefName = tag.name.getText()
+              const fields = extractFieldsFromTypeNode(
+                tag.typeExpression,
+                typedefs
+              )
+              typedefs.set(typedefName, fields)
+            }
+          }
+        }
+      }
+    }
+
+    ts.forEachChild(node, visit)
+  }
+
+  /**
+   * Extract fields from a TypeScript type node (handles JSDoc types)
+   */
+  function extractFieldsFromTypeNode(typeNode, typedefs) {
+    if (!typeNode) return []
+
+    const fields = []
+
+    // Handle JSDocTypeExpression wrapper
+    if (typeNode.kind === ts.SyntaxKind.JSDocTypeExpression) {
+      return extractFieldsFromTypeNode(typeNode.type, typedefs)
+    }
+
+    // Handle TypeLiteral (object with properties)
+    if (typeNode.kind === ts.SyntaxKind.TypeLiteral) {
+      for (const member of typeNode.members) {
+        if (member.kind === ts.SyntaxKind.PropertySignature) {
+          fields.push({
+            name: member.name.getText(),
+            optional: !!member.questionToken,
+            type: member.type ? member.type.getText() : 'any',
+          })
+        }
+      }
+    }
+
+    // Handle IntersectionType (BaseType & { ... })
+    if (typeNode.kind === ts.SyntaxKind.IntersectionType) {
+      for (const type of typeNode.types) {
+        // If it's a reference to another typedef, resolve it
+        if (type.kind === ts.SyntaxKind.TypeReference) {
+          const referencedTypeName = type.typeName.getText()
+          // Check if we've already parsed this type
+          if (typedefs.has(referencedTypeName)) {
+            fields.push(...typedefs.get(referencedTypeName))
+          } else {
+            // Will be resolved in second pass
+            fields.push({ _reference: referencedTypeName })
+          }
+        } else {
+          // Extract fields from inline type
+          fields.push(...extractFieldsFromTypeNode(type, typedefs))
+        }
+      }
+    }
+
+    // Handle TypeReference (references to other types)
+    if (typeNode.kind === ts.SyntaxKind.TypeReference) {
+      const referencedTypeName = typeNode.typeName.getText()
+      if (typedefs.has(referencedTypeName)) {
+        fields.push(...typedefs.get(referencedTypeName))
+      }
+    }
+
+    return fields
+  }
+
+  // First pass: collect all typedefs
+  visit(sourceFile)
+
+  // Second pass: resolve references
+  function resolveReferences(fields) {
+    const resolved = []
+    for (const field of fields) {
+      if (field._reference) {
+        if (typedefs.has(field._reference)) {
+          resolved.push(...resolveReferences(typedefs.get(field._reference)))
+        }
+      } else {
+        resolved.push(field)
+      }
+    }
+    return resolved
+  }
+
+  // Get the requested typedef
+  if (!typedefs.has(typeName)) {
     return []
   }
 
-  // Get the content between the inner braces
-  const typedefContent = typedefMatch[1]
+  const fields = resolveReferences(typedefs.get(typeName))
 
-  // Remove JSDoc asterisks and clean up
-  const cleanedContent = typedefContent.replace(/^\s*\*\s*/gm, '')
-
-  // Extract property definitions
-  // Format: propertyName?: type,
-  const propertyRegex = /(\w+)(\?)?\s*:\s*([^,\n]+)/g
-  const fields = []
-  let propMatch
-
-  while ((propMatch = propertyRegex.exec(cleanedContent)) !== null) {
-    fields.push({
-      name: propMatch[1],
-      optional: !!propMatch[2],
-      type: propMatch[3].trim(),
-    })
+  // Remove duplicates (can happen with intersection types)
+  const uniqueFields = []
+  const seen = new Set()
+  for (const field of fields) {
+    if (!seen.has(field.name)) {
+      seen.add(field.name)
+      uniqueFields.push(field)
+    }
   }
 
-  return fields
+  return uniqueFields
 }
 
 /**
