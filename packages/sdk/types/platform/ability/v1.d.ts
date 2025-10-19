@@ -20,7 +20,12 @@
  * }} PlatformAbilityInstance
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PlatformAbilityListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} PlatformAbilityListRequest
  *
  * @typedef {{items: PlatformAbilityInstance[]}} PlatformAbilityListResponse
  *

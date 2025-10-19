@@ -46,7 +46,12 @@
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} WidgetIntegrationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} WidgetIntegrationListRequest
  *
  * @typedef {{items: WidgetInegrationInstance[]}} WidgetIntegrationListResponse
  *

@@ -26,7 +26,12 @@
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} TaskListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} TaskListRequest
  *
  * @typedef {{items: TaskInstance[]}} TaskListResponse
  *

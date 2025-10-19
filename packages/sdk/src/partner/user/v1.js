@@ -24,7 +24,12 @@
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PartnerUserListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} PartnerUserListRequest
  *
  * @typedef {{items: PartnerUserInstance[]}} PartnerUserListResponse
  *

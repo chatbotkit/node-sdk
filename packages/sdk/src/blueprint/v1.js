@@ -23,7 +23,12 @@
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} BlueprintListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} BlueprintListRequest
  *
  * @typedef {{items: BlueprintInstance[]}} BlueprintListResponse
  *

@@ -45,7 +45,12 @@ import { buildModelString } from '../../model/v1.js'
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} MessengerIntegrationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} MessengerIntegrationListRequest
  *
  * @typedef {{items: MessengerIntegrationInstance[]}} MessengerIntegrationListResponse
  *

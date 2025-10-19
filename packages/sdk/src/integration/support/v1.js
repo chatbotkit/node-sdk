@@ -27,7 +27,12 @@
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} SupportIntegrationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} SupportIntegrationListRequest
  *
  * @typedef {{items: SupportInegrationInstance[]}} SupportIntegrationListResponse
  *

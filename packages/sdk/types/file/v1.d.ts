@@ -20,7 +20,12 @@
  * }} FileInstance
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} FileListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} FileListRequest
  * @typedef {{items: FileInstance[]}} FileListResponse
  *
  * @typedef {{

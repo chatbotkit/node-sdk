@@ -41,7 +41,12 @@
  * }} DiscordIntegrationInstance
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} DiscordIntegrationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} DiscordIntegrationListRequest
  *
  * @typedef {{items: DiscordIntegrationInstance[]}} DiscordIntegrationListResponse
  *

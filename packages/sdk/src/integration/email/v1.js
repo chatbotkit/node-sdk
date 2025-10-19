@@ -42,7 +42,12 @@ import { buildModelString } from '../../model/v1.js'
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} EmailIntegrationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} EmailIntegrationListRequest
  *
  * @typedef {{items: EmailIntegrationInstance[]}} EmailIntegrationListResponse
  *

@@ -20,7 +20,12 @@
  * }} PlatformModelInstance
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PlatformModelListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} PlatformModelListRequest
  *
  * @typedef {{items: PlatformModelInstance[]}} PlatformModelListResponse
  *

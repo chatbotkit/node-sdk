@@ -39,7 +39,12 @@
  * }} TelegramIntegrationInstance
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} TelegramIntegrationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} TelegramIntegrationListRequest
  *
  * @typedef {{items: TelegramIntegrationInstance[]}} TelegramIntegrationListResponse
  *

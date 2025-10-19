@@ -23,7 +23,12 @@
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PlatformSecretListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} PlatformSecretListRequest
  *
  * @typedef {{items: PlatformSecretInstance[]}} PlatformSecretListResponse
  *

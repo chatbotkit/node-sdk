@@ -21,7 +21,12 @@
  * }} SecretInstance
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} SecretListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} SecretListRequest
  *
  * @typedef {{items: SecretInstance[]}} SecretListResponse
  *

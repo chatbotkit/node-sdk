@@ -25,7 +25,12 @@
  * }} ContactInstance
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ContactListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} ContactListRequest
  *
  * @typedef {{items: ContactInstance[]}} ContactListResponse
  *

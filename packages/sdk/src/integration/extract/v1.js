@@ -27,7 +27,12 @@
  */
 
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ExtractIntegrationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} ExtractIntegrationListRequest
  *
  * @typedef {{items: ExtractInegrationInstance[]}} ExtractIntegrationListResponse
  *

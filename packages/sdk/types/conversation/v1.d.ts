@@ -47,7 +47,12 @@
  * }} Entity
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ConversationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} ConversationListRequest
  *
  * @typedef {{items: ConversationInstance[]}} ConversationListResponse
  *

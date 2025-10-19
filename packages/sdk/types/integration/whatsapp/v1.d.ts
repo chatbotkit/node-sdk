@@ -41,7 +41,12 @@
  * }} WhatsAppIntegrationInstance
  */
 /**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} WhatsAppIntegrationListRequest
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} WhatsAppIntegrationListRequest
  *
  * @typedef {{items: WhatsAppIntegrationInstance[]}} WhatsAppIntegrationListResponse
  *
