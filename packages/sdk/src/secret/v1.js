@@ -13,7 +13,7 @@
  *   name?: string,
  *   description?: string,
  *   kind?: 'shared'|'personal',
- *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template',
+ *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template'|'reference',
  *   value?: string,
  *   meta?: Record<string,any>
  * }} SecretOptions
