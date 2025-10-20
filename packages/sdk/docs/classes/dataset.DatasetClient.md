@@ -249,7 +249,7 @@ Updates a dataset.
 | Name | Type |
 | :------ | :------ |
 | `datasetId` | `string` |
-| `request` | [`DatasetOptions`](../modules/dataset_v1.md#datasetoptions) |
+| `request` | [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`DatasetOptions`](../modules/dataset_v1.md#datasetoptions), ``"store"``\> |
 
 #### Returns
 

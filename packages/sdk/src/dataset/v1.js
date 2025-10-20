@@ -111,7 +111,7 @@ export async function createDataset(client, request) {
 }
 
 /**
- * @typedef {DatasetOptions & {
+ * @typedef {Omit<DatasetOptions,'store'> & {
  * }} DatasetUpdateRequest
  *
  * @typedef {{

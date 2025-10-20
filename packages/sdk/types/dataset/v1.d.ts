@@ -76,7 +76,7 @@ export function fetchDataset(client: ChatBotKitClient, datasetId: string): Respo
  */
 export function createDataset(client: ChatBotKitClient, request: DatasetCreateRequest): Promise<DatasetCreateResponse>;
 /**
- * @typedef {DatasetOptions & {
+ * @typedef {Omit<DatasetOptions,'store'> & {
  * }} DatasetUpdateRequest
  *
  * @typedef {{
@@ -161,7 +161,7 @@ export type DatasetCreateRequest = DatasetOptions & {
 export type DatasetCreateResponse = {
     id: string;
 };
-export type DatasetUpdateRequest = DatasetOptions & {};
+export type DatasetUpdateRequest = Omit<DatasetOptions, "store"> & {};
 export type DatasetUpdateResponse = {
     id: string;
 };

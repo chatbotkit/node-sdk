@@ -215,7 +215,7 @@ ___
 
 ### DatasetUpdateRequest
 
-Ƭ **DatasetUpdateRequest**\<\>: [`DatasetOptions`](dataset_v1.md#datasetoptions) & {}
+Ƭ **DatasetUpdateRequest**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`DatasetOptions`](dataset_v1.md#datasetoptions), ``"store"``\> & {}
 
 #### Defined in
 
@@ -372,7 +372,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
-| `request` | [`DatasetOptions`](dataset_v1.md#datasetoptions) |
+| `request` | [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`DatasetOptions`](dataset_v1.md#datasetoptions), ``"store"``\> |
 
 #### Returns
 
