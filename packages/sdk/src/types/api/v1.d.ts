@@ -3861,6 +3861,11 @@ export interface components {
             /** @description The tokens used in this exchange */
             token: number;
         };
+        /**
+         * @description The policy type
+         * @enum {string}
+         */
+        PolicyType: "retention";
         /** @description Limits information */
         Limits: {
             /** @description The tokens limit */
@@ -15466,10 +15471,15 @@ export interface operations {
                         meta?: {
                             [key: string]: unknown;
                         };
-                        /** @description The policy type */
-                        type?: string;
+                        /**
+                         * @description The policy type
+                         * @enum {string}
+                         */
+                        type: "retention";
                         /** @description The policy configuration as JSON */
-                        config?: Record<string, never>;
+                        config?: {
+                            [key: string]: unknown;
+                        };
                     };
                 };
             };
@@ -15510,7 +15520,9 @@ export interface operations {
                      */
                     type?: "retention";
                     /** @description The policy configuration as JSON */
-                    config?: Record<string, never>;
+                    config?: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -15560,9 +15572,11 @@ export interface operations {
                      * @description The policy type
                      * @enum {string}
                      */
-                    type?: "retention";
+                    type: "retention";
                     /** @description The policy configuration as JSON */
-                    config?: Record<string, never>;
+                    config?: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -15625,10 +15639,15 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The policy type */
-                            type?: string;
+                            /**
+                             * @description The policy type
+                             * @enum {string}
+                             */
+                            type: "retention";
                             /** @description The policy configuration as JSON */
-                            config?: Record<string, never>;
+                            config?: {
+                                [key: string]: unknown;
+                            };
                         }[];
                     };
                     "application/jsonl": {
@@ -15653,12 +15672,15 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The contact associated with the memory */
-                            contactId?: string;
-                            /** @description The bot associated with the memory */
-                            botId?: string;
-                            /** @description The text of the memory */
-                            text?: string;
+                            /**
+                             * @description The policy type
+                             * @enum {string}
+                             */
+                            type: "retention";
+                            /** @description The policy configuration as JSON */
+                            config?: {
+                                [key: string]: unknown;
+                            };
                         };
                     };
                 };

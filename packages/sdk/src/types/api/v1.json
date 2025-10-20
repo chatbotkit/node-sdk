@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1760919881378)"
+    "version": "v1 (build 1760922383486)"
   },
   "servers": [
     {
@@ -338,6 +338,13 @@
         },
         "required": [
           "token"
+        ]
+      },
+      "PolicyType": {
+        "type": "string",
+        "description": "The policy type",
+        "enum": [
+          "retention"
         ]
       },
       "Limits": {
@@ -23715,14 +23722,22 @@
                       "$$ref": "#/components/schemas/Meta"
                     },
                     "type": {
+                      "type": "string",
                       "description": "The policy type",
-                      "type": "string"
+                      "enum": [
+                        "retention"
+                      ],
+                      "$$ref": "#/components/schemas/PolicyType"
                     },
                     "config": {
                       "description": "The policy configuration as JSON",
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": true
                     }
-                  }
+                  },
+                  "required": [
+                    "type"
+                  ]
                 }
               }
             }
@@ -23786,15 +23801,17 @@
                     "$$ref": "#/components/schemas/Meta"
                   },
                   "type": {
-                    "description": "The policy type",
                     "type": "string",
+                    "description": "The policy type",
                     "enum": [
                       "retention"
-                    ]
+                    ],
+                    "$$ref": "#/components/schemas/PolicyType"
                   },
                   "config": {
                     "description": "The policy configuration as JSON",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -23869,17 +23886,22 @@
                     "$$ref": "#/components/schemas/Meta"
                   },
                   "type": {
-                    "description": "The policy type",
                     "type": "string",
+                    "description": "The policy type",
                     "enum": [
                       "retention"
-                    ]
+                    ],
+                    "$$ref": "#/components/schemas/PolicyType"
                   },
                   "config": {
                     "description": "The policy configuration as JSON",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
-                }
+                },
+                "required": [
+                  "type"
+                ]
               }
             }
           }
@@ -24001,18 +24023,24 @@
                             "description": "The timestamp (ms) when the instance was updated"
                           },
                           "type": {
+                            "type": "string",
                             "description": "The policy type",
-                            "type": "string"
+                            "enum": [
+                              "retention"
+                            ],
+                            "$$ref": "#/components/schemas/PolicyType"
                           },
                           "config": {
                             "description": "The policy configuration as JSON",
-                            "type": "object"
+                            "type": "object",
+                            "additionalProperties": true
                           }
                         },
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "type"
                         ]
                       }
                     }
@@ -24065,24 +24093,26 @@
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
                             },
-                            "contactId": {
+                            "type": {
                               "type": "string",
-                              "description": "The contact associated with the memory"
+                              "description": "The policy type",
+                              "enum": [
+                                "retention"
+                              ],
+                              "$$ref": "#/components/schemas/PolicyType"
                             },
-                            "botId": {
-                              "type": "string",
-                              "description": "The bot associated with the memory"
-                            },
-                            "text": {
-                              "type": "string",
-                              "description": "The text of the memory"
+                            "config": {
+                              "description": "The policy configuration as JSON",
+                              "type": "object",
+                              "additionalProperties": true
                             }
                           },
-                          "$$ref": "#/paths/~1memory~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "$$ref": "#/paths/~1policy~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "type"
                           ]
                         }
                       },
