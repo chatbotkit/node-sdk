@@ -2,6 +2,7 @@ import { ChatBotKitClient } from '../../client.js'
 import {
   createSkillsetAbility,
   deleteSkillsetAbility,
+  exportSkillsetAbilities,
   fetchSkillsetAbility,
   listSkillsetAbilities,
   updateSkillsetAbility,
@@ -33,6 +34,17 @@ export class SkillsetAbilityClient extends ChatBotKitClient {
    */
   list(skillsetId, request) {
     return listSkillsetAbilities(this, skillsetId, request)
+  }
+
+  /**
+   * Exports abilities.
+   *
+   * @param {string} skillsetId
+   * @param {import('./v1.js').SkillsetAbilityExportRequest} [request]
+   * @returns {ResponsePromise<import('./v1.js').SkillsetAbilityExportResponse,import('./v1.js').SkillsetAbilityExportStreamType>}
+   */
+  export(skillsetId, request) {
+    return exportSkillsetAbilities(this, skillsetId, request)
   }
 
   /**

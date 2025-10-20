@@ -11,6 +11,8 @@
 /**
  * @typedef {{
  *   secretId?: string,
+ *   fileId?: string,
+ *   botId?: string,
  *   name: string,
  *   description: string,
  *   instruction: string,
@@ -51,6 +53,39 @@ export function listSkillsetAbilities(client, skillsetId, request) {
 
   /** @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/json']} T */
   /** @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
+  const response = client.clientFetch(url, { query: request })
+
+  return response
+}
+
+/**
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} SkillsetAbilityExportRequest
+ *
+ * @typedef {{items: SkillsetAbilityInstance[]}} SkillsetAbilityExportResponse
+ *
+ * @typedef {{
+ *   type: 'item',
+ *   data: SkillsetAbilityInstance
+ * }} SkillsetAbilityExportStreamItemType
+ *
+ * @typedef {SkillsetAbilityExportStreamItemType} SkillsetAbilityExportStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} skillsetId
+ * @param {SkillsetAbilityExportRequest} [request]
+ * @returns {ResponsePromise<SkillsetAbilityExportResponse,SkillsetAbilityExportStreamType>}
+ */
+export function exportSkillsetAbilities(client, skillsetId, request) {
+  let url = `/api/v1/skillset/${skillsetId}/ability/export`
+
+  /** @typedef {import('../../types/api/v1.js').operations['exportSkillsetAbilities']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../../types/api/v1.js').operations['exportSkillsetAbilities']['responses']['200']['content']['application/jsonl']} U */
   /** @type {ResponsePromise<T,U>} */
   const response = client.clientFetch(url, { query: request })
 
