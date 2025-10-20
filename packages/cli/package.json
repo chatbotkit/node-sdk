@@ -229,6 +229,10 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "typedoc": "^0.25.3",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc-plugin-mdn-links": "^3.1.18",
     "typescript": "^5.9",
     "@types/js-yaml": "^4.0.9"
   }
