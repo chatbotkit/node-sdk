@@ -10,6 +10,10 @@
 - [DatasetRecordCreateRequest](dataset_record_v1.md#datasetrecordcreaterequest)
 - [DatasetRecordCreateResponse](dataset_record_v1.md#datasetrecordcreateresponse)
 - [DatasetRecordDeleteResponse](dataset_record_v1.md#datasetrecorddeleteresponse)
+- [DatasetRecordExportRequest](dataset_record_v1.md#datasetrecordexportrequest)
+- [DatasetRecordExportResponse](dataset_record_v1.md#datasetrecordexportresponse)
+- [DatasetRecordExportStreamItemType](dataset_record_v1.md#datasetrecordexportstreamitemtype)
+- [DatasetRecordExportStreamType](dataset_record_v1.md#datasetrecordexportstreamtype)
 - [DatasetRecordFetchResponse](dataset_record_v1.md#datasetrecordfetchresponse)
 - [DatasetRecordInstance](dataset_record_v1.md#datasetrecordinstance)
 - [DatasetRecordListRequest](dataset_record_v1.md#datasetrecordlistrequest)
@@ -25,6 +29,7 @@
 
 - [createDatasetRecord](dataset_record_v1.md#createdatasetrecord)
 - [deleteDatasetRecord](dataset_record_v1.md#deletedatasetrecord)
+- [exportDatasetRecords](dataset_record_v1.md#exportdatasetrecords)
 - [fetchDatasetRecord](dataset_record_v1.md#fetchdatasetrecord)
 - [listDatasetRecords](dataset_record_v1.md#listdatasetrecords)
 - [updateDatasetRecord](dataset_record_v1.md#updatedatasetrecord)
@@ -80,6 +85,68 @@ ___
 #### Defined in
 
 [dataset/record/v1.js:142](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L142)
+
+___
+
+### DatasetRecordExportRequest
+
+Ƭ **DatasetRecordExportRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `cursor?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
+| `order?` | ``"desc"`` \| ``"asc"`` |
+| `take?` | `number` |
+
+#### Defined in
+
+[dataset/record/v1.js:167](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L167)
+
+___
+
+### DatasetRecordExportResponse
+
+Ƭ **DatasetRecordExportResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `items` | [`DatasetRecordInstance`](dataset_record_v1.md#datasetrecordinstance)[] |
+
+#### Defined in
+
+[dataset/record/v1.js:169](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L169)
+
+___
+
+### DatasetRecordExportStreamItemType
+
+Ƭ **DatasetRecordExportStreamItemType**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`DatasetRecordInstance`](dataset_record_v1.md#datasetrecordinstance) |
+| `type` | ``"item"`` |
+
+#### Defined in
+
+[dataset/record/v1.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L174)
+
+___
+
+### DatasetRecordExportStreamType
+
+Ƭ **DatasetRecordExportStreamType**\<\>: [`DatasetRecordExportStreamItemType`](dataset_record_v1.md#datasetrecordexportstreamitemtype)
+
+#### Defined in
+
+[dataset/record/v1.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L176)
 
 ___
 
@@ -269,6 +336,28 @@ ___
 #### Defined in
 
 [dataset/record/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L149)
+
+___
+
+### exportDatasetRecords
+
+▸ **exportDatasetRecords**(`client`, `datasetId`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DatasetRecordExportResponse`](dataset_record_v1.md#datasetrecordexportresponse), [`DatasetRecordExportStreamItemType`](dataset_record_v1.md#datasetrecordexportstreamitemtype)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `datasetId` | `string` |
+| `request?` | [`DatasetRecordExportRequest`](dataset_record_v1.md#datasetrecordexportrequest) |
+
+#### Returns
+
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DatasetRecordExportResponse`](dataset_record_v1.md#datasetrecordexportresponse), [`DatasetRecordExportStreamItemType`](dataset_record_v1.md#datasetrecordexportstreamitemtype)\>
+
+#### Defined in
+
+[dataset/record/v1.js:183](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L183)
 
 ___
 

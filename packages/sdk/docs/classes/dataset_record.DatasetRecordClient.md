@@ -23,6 +23,7 @@ Dataset record client.
 - [clientFetch](dataset_record.DatasetRecordClient.md#clientfetch)
 - [create](dataset_record.DatasetRecordClient.md#create)
 - [delete](dataset_record.DatasetRecordClient.md#delete)
+- [export](dataset_record.DatasetRecordClient.md#export)
 - [fetch](dataset_record.DatasetRecordClient.md#fetch)
 - [list](dataset_record.DatasetRecordClient.md#list)
 - [update](dataset_record.DatasetRecordClient.md#update)
@@ -49,7 +50,7 @@ Dataset record client.
 
 #### Defined in
 
-[dataset/record/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L23)
+[dataset/record/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L24)
 
 ## Methods
 
@@ -120,7 +121,7 @@ Creates a new record.
 
 #### Defined in
 
-[dataset/record/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L56)
+[dataset/record/index.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L57)
 
 ___
 
@@ -143,7 +144,30 @@ Deletes the record.
 
 #### Defined in
 
-[dataset/record/index.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L79)
+[dataset/record/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L80)
+
+___
+
+### export
+
+▸ **export**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordExportResponse`](../modules/dataset_record_v1.md#datasetrecordexportresponse), [`DatasetRecordExportStreamItemType`](../modules/dataset_record_v1.md#datasetrecordexportstreamitemtype)\>
+
+Exports records.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `datasetId` | `string` |
+| `request?` | [`DatasetRecordExportRequest`](../modules/dataset_record_v1.md#datasetrecordexportrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordExportResponse`](../modules/dataset_record_v1.md#datasetrecordexportresponse), [`DatasetRecordExportStreamItemType`](../modules/dataset_record_v1.md#datasetrecordexportstreamitemtype)\>
+
+#### Defined in
+
+[dataset/record/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L91)
 
 ___
 
@@ -166,7 +190,7 @@ Fetches a record.
 
 #### Defined in
 
-[dataset/record/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L45)
+[dataset/record/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L46)
 
 ___
 
@@ -189,7 +213,7 @@ Retrieves a list of all records.
 
 #### Defined in
 
-[dataset/record/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L34)
+[dataset/record/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L35)
 
 ___
 
@@ -213,4 +237,4 @@ Updates a record.
 
 #### Defined in
 
-[dataset/record/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L68)
+[dataset/record/index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L69)

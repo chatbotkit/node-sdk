@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L178)
+[task/v1.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L179)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:183](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L183)
+[task/v1.js:184](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L184)
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L189)
+[task/v1.js:190](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L190)
 
 ___
 

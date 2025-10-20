@@ -48,6 +48,14 @@ export class DatasetRecordClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').DatasetRecordDeleteResponse>}
      */
     delete(datasetId: string, recordId: string): Promise<import("./v1.js").DatasetRecordDeleteResponse>;
+    /**
+     * Exports records.
+     *
+     * @param {string} datasetId
+     * @param {import('./v1.js').DatasetRecordExportRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').DatasetRecordExportResponse,import('./v1.js').DatasetRecordExportStreamType>}
+     */
+    export(datasetId: string, request?: import("./v1.js").DatasetRecordExportRequest): ResponsePromise<import("./v1.js").DatasetRecordExportResponse, import("./v1.js").DatasetRecordExportStreamType>;
 }
 export default DatasetRecordClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
