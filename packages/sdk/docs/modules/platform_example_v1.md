@@ -7,6 +7,7 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_example_v1.md#chatbotkitclient)
+- [PlatformExampleCloneResponse](platform_example_v1.md#platformexamplecloneresponse)
 - [PlatformExampleInstance](platform_example_v1.md#platformexampleinstance)
 - [PlatformExampleListRequest](platform_example_v1.md#platformexamplelistrequest)
 - [PlatformExampleListResponse](platform_example_v1.md#platformexamplelistresponse)
@@ -17,6 +18,7 @@
 
 ### Functions
 
+- [clonePlatformExample](platform_example_v1.md#cloneplatformexample)
 - [listPlatformExamples](platform_example_v1.md#listplatformexamples)
 
 ## Type Aliases
@@ -28,6 +30,22 @@
 #### Defined in
 
 [platform/example/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L2)
+
+___
+
+### PlatformExampleCloneResponse
+
+Ƭ **PlatformExampleCloneResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `resources` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, \{ `description?`: `string` ; `id`: `string` ; `name?`: `string`  }[]\> |
+
+#### Defined in
+
+[platform/example/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L63)
 
 ___
 
@@ -141,6 +159,27 @@ ___
 [platform/example/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L8)
 
 ## Functions
+
+### clonePlatformExample
+
+▸ **clonePlatformExample**(`client`, `exampleId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleCloneResponse`](platform_example_v1.md#platformexamplecloneresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `exampleId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleCloneResponse`](platform_example_v1.md#platformexamplecloneresponse)\>
+
+#### Defined in
+
+[platform/example/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L69)
+
+___
 
 ### listPlatformExamples
 

@@ -46,6 +46,8 @@
 
   ↳ [`ExtractIntegrationClient`](integration_extract.ExtractIntegrationClient.md)
 
+  ↳ [`McpServerIntegrationClient`](integration_mcpserver.McpServerIntegrationClient.md)
+
   ↳ [`MessengerIntegrationClient`](integration_messenger.MessengerIntegrationClient.md)
 
   ↳ [`NotionIntegrationClient`](integration_notion.NotionIntegrationClient.md)
@@ -59,6 +61,8 @@
   ↳ [`TelegramIntegrationClient`](integration_telegram.TelegramIntegrationClient.md)
 
   ↳ [`TriggerIntegrationClient`](integration_trigger.TriggerIntegrationClient.md)
+
+  ↳ [`TwilioIntegrationClient`](integration_twilio.TwilioIntegrationClient.md)
 
   ↳ [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
 

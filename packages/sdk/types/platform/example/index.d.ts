@@ -14,6 +14,13 @@ export class PlatformExampleClient extends ChatBotKitClient {
      * @returns {ResponsePromise<import('./v1.js').PlatformExampleListResponse,import('./v1.js').PlatformExampleListStreamType>}
      */
     list(request?: import("./v1.js").PlatformExampleListRequest): ResponsePromise<import("./v1.js").PlatformExampleListResponse, import("./v1.js").PlatformExampleListStreamType>;
+    /**
+     * Clones a platform example.
+     *
+     * @param {string} exampleId
+     * @returns {Promise<import('./v1.js').PlatformExampleCloneResponse>}
+     */
+    clone(exampleId: string): Promise<import("./v1.js").PlatformExampleCloneResponse>;
 }
 export default PlatformExampleClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

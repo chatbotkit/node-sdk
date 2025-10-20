@@ -44,6 +44,16 @@
  * @returns {ResponsePromise<PlatformExampleListResponse,PlatformExampleListStreamType>}
  */
 export function listPlatformExamples(client: ChatBotKitClient, request?: PlatformExampleListRequest): ResponsePromise<PlatformExampleListResponse, PlatformExampleListStreamType>;
+/**
+ * @typedef {{
+ *   resources: Record<string,{id: string, name?: string, description?: string}[]>
+ * }} PlatformExampleCloneResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} exampleId
+ * @returns {Promise<PlatformExampleCloneResponse>}
+ */
+export function clonePlatformExample(client: ChatBotKitClient, exampleId: string): Promise<PlatformExampleCloneResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type PlatformExampleOptions = {
@@ -73,3 +83,10 @@ export type PlatformExampleListStreamItemType = {
     data: PlatformExampleInstance;
 };
 export type PlatformExampleListStreamType = PlatformExampleListStreamItemType;
+export type PlatformExampleCloneResponse = {
+    resources: Record<string, {
+        id: string;
+        name?: string;
+        description?: string;
+    }[]>;
+};

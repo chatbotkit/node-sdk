@@ -21,6 +21,7 @@ Platform example client.
 ### Methods
 
 - [clientFetch](platform_example.PlatformExampleClient.md#clientfetch)
+- [clone](platform_example.PlatformExampleClient.md#clone)
 - [list](platform_example.PlatformExampleClient.md#list)
 
 ## Constructors
@@ -94,6 +95,28 @@ Platform example client.
 #### Defined in
 
 [client.js:331](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L331)
+
+___
+
+### clone
+
+▸ **clone**(`exampleId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleCloneResponse`](../modules/platform_example_v1.md#platformexamplecloneresponse)\>
+
+Clones a platform example.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `exampleId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleCloneResponse`](../modules/platform_example_v1.md#platformexamplecloneresponse)\>
+
+#### Defined in
+
+[platform/example/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L37)
 
 ___
 
