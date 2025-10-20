@@ -3157,6 +3157,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/example/{exampleId}/clone": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Clone a platform example */
+        post: operations["clonePlatformExample"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/example/list": {
         parameters: {
             query?: never;
@@ -15147,6 +15164,50 @@ export interface operations {
                                 description: string;
                                 operand?: string;
                                 required?: boolean;
+                            }[];
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    clonePlatformExample: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                exampleId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The example was cloned successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description A map of resource types to arrays of created resources */
+                        resources: {
+                            [key: string]: {
+                                id?: string;
+                                name?: string;
+                                description?: string;
                             }[];
                         };
                     };

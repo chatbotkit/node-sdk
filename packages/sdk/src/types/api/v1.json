@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1760924171118)"
+    "version": "v1 (build 1760958472971)"
   },
   "servers": [
     {
@@ -23034,6 +23034,90 @@
           }
         },
         "__originalOperationId": "listPlatformAbilities",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/example/{exampleId}/clone": {
+      "post": {
+        "operationId": "clonePlatformExample",
+        "summary": "Clone a platform example",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "exampleId",
+            "required": true,
+            "schema": {
+              "description": "The ID (slug) of the example to clone",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The example was cloned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resources": {
+                      "description": "A map of resource types to arrays of created resources",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "resources"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "clonePlatformExample",
         "security": [
           {
             "BearerAuth": []
