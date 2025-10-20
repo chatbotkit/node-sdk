@@ -11,6 +11,7 @@ import { MagicClient } from './magic/index.js'
 import { MemoryClient } from './memory/index.js'
 import { PartnerClient } from './partner/index.js'
 import { PlatformClient } from './platform/index.js'
+import { PolicyClient } from './policy/index.js'
 import { SecretClient } from './secret/index.js'
 import { SkillsetClient } from './skillset/index.js'
 import { TaskClient } from './task/index.js'
@@ -29,6 +30,7 @@ export { ContactClient }
 export { SecretClient }
 export { TeamClient }
 export { MemoryClient }
+export { PolicyClient }
 export { GraphqlClient }
 
 export class ChatBotKit extends ChatBotKitClient {
@@ -52,6 +54,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.task = new TaskClient(options)
     this.conversation = new ConversationClient(options)
     this.memory = new MemoryClient(options)
+    this.policy = new PolicyClient(options)
 
     // @note overlapping name with the `secret` property
     this.secrets = new SecretClient(options)
