@@ -969,7 +969,8 @@
     "postpack": "node ../../scripts/create-standard-exports.js",
     "prepack": "node ../../scripts/create-dist-exports.js",
     "test": "true",
-    "update:api-types": "node scripts/export-api.js https://api.chatbotkit.com/v1/spec.json src/types/api/v1.json"
+    "update:api-types": "node scripts/export-api.js https://api.chatbotkit.com/v1/spec.json src/types/api/v1.json",
+    "resolve:api-types": "node scripts/resolve-api.js src/types/api/v1.json src/types/api/v1.json"
   },
   "types": "./types/index.d.ts",
   "dependencies": {
