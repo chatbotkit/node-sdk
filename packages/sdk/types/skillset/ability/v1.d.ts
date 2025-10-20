@@ -9,6 +9,8 @@
 /**
  * @typedef {{
  *   secretId?: string,
+ *   fileId?: string,
+ *   botId?: string,
  *   name: string,
  *   description: string,
  *   instruction: string,
@@ -44,6 +46,29 @@
  * @returns {ResponsePromise<SkillsetAbilityListResponse,SkillsetAbilityListStreamType>}
  */
 export function listSkillsetAbilities(client: ChatBotKitClient, skillsetId: string, request?: SkillsetAbilityListRequest): ResponsePromise<SkillsetAbilityListResponse, SkillsetAbilityListStreamType>;
+/**
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} SkillsetAbilityExportRequest
+ *
+ * @typedef {{items: SkillsetAbilityInstance[]}} SkillsetAbilityExportResponse
+ *
+ * @typedef {{
+ *   type: 'item',
+ *   data: SkillsetAbilityInstance
+ * }} SkillsetAbilityExportStreamItemType
+ *
+ * @typedef {SkillsetAbilityExportStreamItemType} SkillsetAbilityExportStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} skillsetId
+ * @param {SkillsetAbilityExportRequest} [request]
+ * @returns {ResponsePromise<SkillsetAbilityExportResponse,SkillsetAbilityExportStreamType>}
+ */
+export function exportSkillsetAbilities(client: ChatBotKitClient, skillsetId: string, request?: SkillsetAbilityExportRequest): ResponsePromise<SkillsetAbilityExportResponse, SkillsetAbilityExportStreamType>;
 /**
  * @typedef {SkillsetAbilityInstance & {
  * }} SkillsetAbilityFetchResponse
@@ -98,6 +123,8 @@ export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SkillsetAbilityOptions = {
     secretId?: string;
+    fileId?: string;
+    botId?: string;
     name: string;
     description: string;
     instruction: string;
@@ -122,6 +149,20 @@ export type SkillsetAbilityListStreamItem = {
     data: SkillsetAbilityInstance;
 };
 export type SkillsetAbilityListStreamType = SkillsetAbilityListStreamItem;
+export type SkillsetAbilityExportRequest = {
+    cursor?: string;
+    order?: "desc" | "asc";
+    take?: number;
+    meta?: Record<string, string>;
+};
+export type SkillsetAbilityExportResponse = {
+    items: SkillsetAbilityInstance[];
+};
+export type SkillsetAbilityExportStreamItemType = {
+    type: "item";
+    data: SkillsetAbilityInstance;
+};
+export type SkillsetAbilityExportStreamType = SkillsetAbilityExportStreamItemType;
 export type SkillsetAbilityFetchResponse = SkillsetAbilityInstance & {};
 export type SkillsetAbilityCreateRequest = SkillsetAbilityOptions & {};
 export type SkillsetAbilityCreateResponse = {

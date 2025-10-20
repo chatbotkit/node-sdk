@@ -1,0 +1,211 @@
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [policy](../modules/policy.md) / PolicyClient
+
+# Class: PolicyClient
+
+[policy](../modules/policy.md).PolicyClient
+
+Policy client.
+
+## Hierarchy
+
+- [`ChatBotKitClient`](client.ChatBotKitClient.md)
+
+  ↳ **`PolicyClient`**
+
+## Table of contents
+
+### Constructors
+
+- [constructor](policy.PolicyClient.md#constructor)
+
+### Methods
+
+- [clientFetch](policy.PolicyClient.md#clientfetch)
+- [create](policy.PolicyClient.md#create)
+- [delete](policy.PolicyClient.md#delete)
+- [fetch](policy.PolicyClient.md#fetch)
+- [list](policy.PolicyClient.md#list)
+- [update](policy.PolicyClient.md#update)
+
+## Constructors
+
+### constructor
+
+• **new PolicyClient**(`options`): [`PolicyClient`](policy.PolicyClient.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | [`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md) |
+
+#### Returns
+
+[`PolicyClient`](policy.PolicyClient.md)
+
+#### Overrides
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[constructor](client.ChatBotKitClient.md#constructor)
+
+#### Defined in
+
+policy/index.js:23
+
+## Methods
+
+### clientFetch
+
+▸ **clientFetch**\<`T`, `U`\>(`path`, `options?`): [`ResponsePromise`](client.ResponsePromise.md)\<`T`, `U`\>
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+| `U` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `path` | `string` |
+| `options?` | `Object` |
+| `options.buffer?` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
+| `options.endpoint?` | `string` |
+| `options.external?` | `boolean` |
+| `options.fetchFn?` | [`FetchFunction`](../modules/client.md#fetchfunction) |
+| `options.file?` | `Object` |
+| `options.file.data` | `string` \| [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
+| `options.file.name?` | `string` |
+| `options.file.type?` | `string` |
+| `options.headers?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.method?` | `string` |
+| `options.query?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.record?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `options.retries?` | `number` |
+| `options.retryDelay?` | `number` |
+| `options.retryTimeout?` | `boolean` |
+| `options.timeout?` | `number` |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<`T`, `U`\>
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[clientFetch](client.ChatBotKitClient.md#clientfetch)
+
+#### Defined in
+
+[client.js:331](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L331)
+
+___
+
+### create
+
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyCreateResponse`](../modules/policy_v1.md#policycreateresponse)\>
+
+Creates a new policy.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | [`PolicyOptions`](../modules/policy_v1.md#policyoptions) |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyCreateResponse`](../modules/policy_v1.md#policycreateresponse)\>
+
+#### Defined in
+
+policy/index.js:53
+
+___
+
+### delete
+
+▸ **delete**(`policyId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyDeleteResponse`](../modules/policy_v1.md#policydeleteresponse)\>
+
+Deletes the policy.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `policyId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyDeleteResponse`](../modules/policy_v1.md#policydeleteresponse)\>
+
+#### Defined in
+
+policy/index.js:74
+
+___
+
+### fetch
+
+▸ **fetch**(`policyId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PolicyFetchResponse`](../modules/policy_v1.md#policyfetchresponse), `never`\>
+
+Fetches a policy.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `policyId` | `string` |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<[`PolicyFetchResponse`](../modules/policy_v1.md#policyfetchresponse), `never`\>
+
+#### Defined in
+
+policy/index.js:43
+
+___
+
+### list
+
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PolicyListResponse`](../modules/policy_v1.md#policylistresponse), [`PolicyListStreamItemType`](../modules/policy_v1.md#policyliststreamitemtype)\>
+
+Retrieves a list of all policies.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request?` | [`PolicyListRequest`](../modules/policy_v1.md#policylistrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<[`PolicyListResponse`](../modules/policy_v1.md#policylistresponse), [`PolicyListStreamItemType`](../modules/policy_v1.md#policyliststreamitemtype)\>
+
+#### Defined in
+
+policy/index.js:33
+
+___
+
+### update
+
+▸ **update**(`policyId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyUpdateResponse`](../modules/policy_v1.md#policyupdateresponse)\>
+
+Updates a policy.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `policyId` | `string` |
+| `request` | [`PolicyOptions`](../modules/policy_v1.md#policyoptions) |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyUpdateResponse`](../modules/policy_v1.md#policyupdateresponse)\>
+
+#### Defined in
+
+policy/index.js:64

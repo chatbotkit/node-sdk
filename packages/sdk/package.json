@@ -844,6 +844,26 @@
       "types": "./types/platform/v1.d.ts",
       "import": "./src/platform/v1.js"
     },
+    "./policy": {
+      "types": "./types/policy/index.d.ts",
+      "import": "./src/policy/index.js"
+    },
+    "./policy/index": {
+      "types": "./types/policy/index.d.ts",
+      "import": "./src/policy/index.js"
+    },
+    "./policy/index.js": {
+      "types": "./types/policy/index.d.ts",
+      "import": "./src/policy/index.js"
+    },
+    "./policy/v1": {
+      "types": "./types/policy/v1.d.ts",
+      "import": "./src/policy/v1.js"
+    },
+    "./policy/v1.js": {
+      "types": "./types/policy/v1.d.ts",
+      "import": "./src/policy/v1.js"
+    },
     "./secret": {
       "types": "./types/secret/index.d.ts",
       "import": "./src/secret/index.js"

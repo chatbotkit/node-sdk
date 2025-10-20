@@ -23,6 +23,7 @@ Skillset ability client.
 - [clientFetch](skillset_ability.SkillsetAbilityClient.md#clientfetch)
 - [create](skillset_ability.SkillsetAbilityClient.md#create)
 - [delete](skillset_ability.SkillsetAbilityClient.md#delete)
+- [export](skillset_ability.SkillsetAbilityClient.md#export)
 - [fetch](skillset_ability.SkillsetAbilityClient.md#fetch)
 - [list](skillset_ability.SkillsetAbilityClient.md#list)
 - [update](skillset_ability.SkillsetAbilityClient.md#update)
@@ -49,7 +50,7 @@ Skillset ability client.
 
 #### Defined in
 
-[skillset/ability/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L23)
+[skillset/ability/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L24)
 
 ## Methods
 
@@ -120,7 +121,7 @@ Creates a new ability.
 
 #### Defined in
 
-[skillset/ability/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L56)
+[skillset/ability/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L68)
 
 ___
 
@@ -143,7 +144,30 @@ Deletes the ability.
 
 #### Defined in
 
-[skillset/ability/index.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L79)
+[skillset/ability/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L91)
+
+___
+
+### export
+
+▸ **export**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityExportResponse`](../modules/skillset_ability_v1.md#skillsetabilityexportresponse), [`SkillsetAbilityExportStreamItemType`](../modules/skillset_ability_v1.md#skillsetabilityexportstreamitemtype)\>
+
+Exports abilities.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `skillsetId` | `string` |
+| `request?` | [`SkillsetAbilityExportRequest`](../modules/skillset_ability_v1.md#skillsetabilityexportrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityExportResponse`](../modules/skillset_ability_v1.md#skillsetabilityexportresponse), [`SkillsetAbilityExportStreamItemType`](../modules/skillset_ability_v1.md#skillsetabilityexportstreamitemtype)\>
+
+#### Defined in
+
+[skillset/ability/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L46)
 
 ___
 
@@ -166,7 +190,7 @@ Fetches a ability.
 
 #### Defined in
 
-[skillset/ability/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L45)
+[skillset/ability/index.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L57)
 
 ___
 
@@ -189,7 +213,7 @@ Retrieves a list of all abilities.
 
 #### Defined in
 
-[skillset/ability/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L34)
+[skillset/ability/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L35)
 
 ___
 
@@ -213,4 +237,4 @@ Updates an ability.
 
 #### Defined in
 
-[skillset/ability/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L68)
+[skillset/ability/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L80)

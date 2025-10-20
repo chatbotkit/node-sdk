@@ -1,8 +1,8 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [index](../modules/index.md) / TeamClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [team](../modules/team.md) / TeamClient
 
 # Class: TeamClient
 
-[index](../modules/index.md).TeamClient
+[team](../modules/team.md).TeamClient
 
 Team client.
 
@@ -16,18 +16,18 @@ Team client.
 
 ### Constructors
 
-- [constructor](index.TeamClient.md#constructor)
+- [constructor](team.TeamClient.md#constructor)
 
 ### Methods
 
-- [clientFetch](index.TeamClient.md#clientfetch)
-- [list](index.TeamClient.md#list)
+- [clientFetch](team.TeamClient.md#clientfetch)
+- [list](team.TeamClient.md#list)
 
 ## Constructors
 
 ### constructor
 
-• **new TeamClient**(`options`): [`TeamClient`](index.TeamClient.md)
+• **new TeamClient**(`options`): [`TeamClient`](team.TeamClient.md)
 
 #### Parameters
 
@@ -37,7 +37,7 @@ Team client.
 
 #### Returns
 
-[`TeamClient`](index.TeamClient.md)
+[`TeamClient`](team.TeamClient.md)
 
 #### Overrides
 
@@ -99,7 +99,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<`TeamListResponse`, `TeamListStreamItemType`\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TeamListResponse`](../modules/team_v1.md#teamlistresponse), [`TeamListStreamItemType`](../modules/team_v1.md#teamliststreamitemtype)\>
 
 Retrieves a list of all teams.
 
@@ -107,11 +107,11 @@ Retrieves a list of all teams.
 
 | Name | Type |
 | :------ | :------ |
-| `request?` | `TeamListRequest` |
+| `request?` | [`TeamListRequest`](../modules/team_v1.md#teamlistrequest) |
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<`TeamListResponse`, `TeamListStreamItemType`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<[`TeamListResponse`](../modules/team_v1.md#teamlistresponse), [`TeamListStreamItemType`](../modules/team_v1.md#teamliststreamitemtype)\>
 
 #### Defined in
 

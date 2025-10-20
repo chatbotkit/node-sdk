@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[skillset/ability/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L13)
+[skillset/ability/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L14)

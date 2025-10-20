@@ -66,6 +66,8 @@
 
   ↳ [`MagicClient`](magic.MagicClient.md)
 
+  ↳ [`MemoryClient`](memory.MemoryClient.md)
+
   ↳ [`PartnerClient`](partner.PartnerClient.md)
 
   ↳ [`PartnerUserClient`](partner_user.PartnerUserClient.md)
@@ -82,6 +84,8 @@
 
   ↳ [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
 
+  ↳ [`PolicyClient`](policy.PolicyClient.md)
+
   ↳ [`SecretClient`](secret.SecretClient.md)
 
   ↳ [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
@@ -90,13 +94,11 @@
 
   ↳ [`TaskClient`](task.TaskClient.md)
 
+  ↳ [`TeamClient`](team.TeamClient.md)
+
   ↳ [`UsageClient`](usage.UsageClient.md)
 
   ↳ [`UsageSeriesClient`](usage_series.UsageSeriesClient.md)
-
-  ↳ [`TeamClient`](index.TeamClient.md)
-
-  ↳ [`MemoryClient`](index.MemoryClient.md)
 
 ## Table of contents
 

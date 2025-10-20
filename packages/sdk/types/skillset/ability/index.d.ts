@@ -16,6 +16,14 @@ export class SkillsetAbilityClient extends ChatBotKitClient {
      */
     list(skillsetId: string, request?: import("./v1.js").SkillsetAbilityListRequest): ResponsePromise<import("./v1.js").SkillsetAbilityListResponse, import("./v1.js").SkillsetAbilityListStreamType>;
     /**
+     * Exports abilities.
+     *
+     * @param {string} skillsetId
+     * @param {import('./v1.js').SkillsetAbilityExportRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').SkillsetAbilityExportResponse,import('./v1.js').SkillsetAbilityExportStreamType>}
+     */
+    export(skillsetId: string, request?: import("./v1.js").SkillsetAbilityExportRequest): ResponsePromise<import("./v1.js").SkillsetAbilityExportResponse, import("./v1.js").SkillsetAbilityExportStreamType>;
+    /**
      * Fetches a ability.
      *
      * @param {string} skillsetId
