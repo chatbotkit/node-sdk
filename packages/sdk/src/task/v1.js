@@ -164,7 +164,8 @@ export async function triggerTask(client, taskId) {
 
   /** @type {import('../types/api/v1.js').operations['triggerTask']['responses']['200']['content']['application/json']} */
   const response = await client.clientFetch(url, {
-    method: 'POST',
+    /** @type {import('../types/api/v1.js').operations['triggerTask']['requestBody']['content']['application/json']} */
+    record: {},
   })
 
   return response
