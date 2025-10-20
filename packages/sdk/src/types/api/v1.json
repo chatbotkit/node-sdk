@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1760963646066)"
+    "version": "v1 (build 1760995194354)"
   },
   "servers": [
     {
@@ -25439,12 +25439,7 @@
                     "description": "The instruction of the ability",
                     "type": "string"
                   }
-                },
-                "required": [
-                  "name",
-                  "description",
-                  "instruction"
-                ]
+                }
               }
             }
           }

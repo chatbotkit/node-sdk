@@ -16389,9 +16389,9 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The associated name */
-                    name: string;
+                    name?: string;
                     /** @description The associated description */
-                    description: string;
+                    description?: string;
                     /** @description Meta data information */
                     meta?: {
                         [key: string]: unknown;
@@ -16403,7 +16403,7 @@ export interface operations {
                     /** @description The ID of the bot associated with the ability */
                     botId?: string;
                     /** @description The instruction of the ability */
-                    instruction: string;
+                    instruction?: string;
                 };
             };
         };

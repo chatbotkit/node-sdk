@@ -13,9 +13,9 @@
  *   secretId?: string,
  *   fileId?: string,
  *   botId?: string,
- *   name: string,
- *   description: string,
- *   instruction: string,
+ *   name?: string,
+ *   description?: string,
+ *   instruction?: string,
  *   meta?: Record<string,any>
  * }} SkillsetAbilityOptions
  *

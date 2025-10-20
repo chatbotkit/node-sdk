@@ -258,11 +258,11 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `botId?` | `string` |
-| `description` | `string` |
+| `description?` | `string` |
 | `fileId?` | `string` |
-| `instruction` | `string` |
+| `instruction?` | `string` |
 | `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name` | `string` |
+| `name?` | `string` |
 | `secretId?` | `string` |
 
 #### Defined in
