@@ -167,3 +167,22 @@ export async function cloneBlueprint(client, blueprintId) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   id: string,
+ *   resources: Record<string,any>
+ * }} BlueprintListResourcesResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId
+ * @returns {Promise<BlueprintListResourcesResponse>}
+ */
+export async function listBlueprintResources(client, blueprintId) {
+  const url = `/api/v1/blueprint/${blueprintId}/resource/list`
+
+  /** @type {import('../types/api/v1.js').operations['listBlueprintResources']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url)
+
+  return response
+}
