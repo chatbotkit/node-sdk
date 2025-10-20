@@ -4,8 +4,8 @@ import {
   createBlueprint,
   deleteBlueprint,
   fetchBlueprint,
-  listBlueprints,
   listBlueprintResources,
+  listBlueprints,
   updateBlueprint,
 } from './v1.js'
 
