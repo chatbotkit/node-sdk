@@ -95,43 +95,31 @@ function groupEndpointsByResource(endpoints) {
       // If we just skipped a dynamic part, the next part might be a nested resource
       if (skipNext) {
         skipNext = false
-        // Check if this is a nested resource (not an action word)
-        const isAction = [
-          'create',
-          'list',
-          'fetch',
-          'update',
-          'delete',
-          'export',
-          'search',
-          'ensure',
-          'attach',
-          'detach',
-          'sync',
-          'setup',
-          'clone',
-          'upsert',
-          'upload',
-          'authenticate',
-          'revoke',
-          'verify',
-          'downvote',
-          'upvote',
-          'synthesize',
-          'generate',
-        ].includes(part)
+        
+        // List of known action words that indicate endpoint actions, not nested resources
+        const actionWords = [
+          'create', 'list', 'fetch', 'update', 'delete', 'export', 'search', 'ensure',
+          'attach', 'detach', 'sync', 'setup', 'clone', 'upsert', 'upload',
+          'authenticate', 'revoke', 'verify', 'downvote', 'upvote', 'synthesize',
+          'generate', 'invoke', 'complete', 'usage'
+        ]
+        
+        const isAction = actionWords.includes(part)
 
         if (!isAction) {
-          // This is a nested resource (e.g., 'record', 'file', 'ability')
+          // This is a nested resource (e.g., 'record', 'file', 'ability', 'message', 'token')
+          // These typically have their own subdirectories with index.js and v1.js
           resourceParts.push(part)
           continue
         } else {
-          // This is an action after a dynamic param, we're done
+          // This is an action word after a dynamic param (e.g., /trigger/{id}/invoke)
+          // This is just a method on the parent resource, not a nested resource
+          // Stop here - don't include the action in the resource path
           break
         }
       }
 
-      // Stop at action words (unless it's part of a nested resource)
+      // Stop at action words at the end of paths (e.g., /bot/list)
       const isAction = [
         'create',
         'list',
