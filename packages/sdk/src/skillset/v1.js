@@ -13,7 +13,8 @@
  *   name?: string,
  *   description?: string,
  *   visibility?: 'private'|'protected'|'public'
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} SkillsetOptions
  *
  * @typedef {SkillsetOptions & {

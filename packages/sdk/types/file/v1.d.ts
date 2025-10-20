@@ -11,7 +11,8 @@
  *   name?: string,
  *   description?: string,
  *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} FileOptions
  *
  * @typedef {FileOptions & {
@@ -138,6 +139,7 @@ export type FileOptions = {
     description?: string;
     visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type FileInstance = FileOptions & {
     id: string;

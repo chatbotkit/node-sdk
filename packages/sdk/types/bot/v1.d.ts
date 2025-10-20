@@ -17,7 +17,8 @@
  *   privacy?: boolean,
  *   moderation?: boolean,
  *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} BotOptions
  *
  * @typedef {BotOptions & {
@@ -141,6 +142,7 @@ export type BotOptions = {
     moderation?: boolean;
     visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type BotInstance = BotOptions & {
     id: string;

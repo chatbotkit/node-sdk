@@ -15,7 +15,8 @@
  *   sessionDuration?: number,
  *   attachments?: boolean,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} TelegramIntegrationOptions
  *
  * @typedef {TelegramIntegrationOptions & {
@@ -115,6 +116,7 @@ export type TelegramIntegrationOptions = {
     attachments?: boolean;
     meta?: Record<string, any>;
     botId?: string;
+    blueprintId?: string;
 };
 export type TelegramIntegrationInstance = TelegramIntegrationOptions & {
     id: string;

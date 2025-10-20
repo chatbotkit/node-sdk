@@ -17,7 +17,8 @@
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} DiscordIntegrationOptions
  *
  * @typedef {DiscordIntegrationOptions & {
@@ -119,6 +120,7 @@ export type DiscordIntegrationOptions = {
     sessionDuration?: number;
     meta?: Record<string, any>;
     botId?: string;
+    blueprintId?: string;
 };
 export type DiscordIntegrationInstance = DiscordIntegrationOptions & {
     id: string;

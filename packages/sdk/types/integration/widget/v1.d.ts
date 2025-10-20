@@ -33,7 +33,9 @@
  *   messagePeek?: boolean,
  *   poweredBy?: boolean,
  *   sessionDuration?: number,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string
  * }} WidgetIntegrationOptions
  *
  * @typedef {WidgetIntegrationOptions & {
@@ -149,6 +151,8 @@ export type WidgetIntegrationOptions = {
     poweredBy?: boolean;
     sessionDuration?: number;
     meta?: Record<string, any>;
+    botId?: string;
+    blueprintId?: string;
 };
 export type WidgetInegrationInstance = WidgetIntegrationOptions & {
     id: string;

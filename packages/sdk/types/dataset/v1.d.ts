@@ -21,6 +21,7 @@
  *   separators?: string,
  *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} DatasetOptions
  *
  * @typedef {DatasetOptions & {
@@ -132,6 +133,7 @@ export type DatasetOptions = {
     separators?: string;
     visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type DatasetInstance = DatasetOptions & {
     id: string;

@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L45)
+[integration/widget/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L47)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L100)
+[integration/widget/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L102)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L104)
+[integration/widget/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L106)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L154)
+[integration/widget/v1.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L156)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L82)
+[integration/widget/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L84)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L54)
+[integration/widget/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L56)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L56)
+[integration/widget/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L58)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L61)
+[integration/widget/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L63)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L63)
+[integration/widget/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L65)
 
 ___
 
@@ -194,6 +194,8 @@ ___
 | :------ | :------ |
 | `attachments?` | `boolean` |
 | `autoScroll?` | `boolean` |
+| `blueprintId?` | `string` |
+| `botId?` | `string` |
 | `contactCollection?` | `boolean` |
 | `description?` | `string` |
 | `exportConversation?` | `boolean` |
@@ -221,7 +223,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L39)
+[integration/widget/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L41)
 
 ___
 
@@ -237,7 +239,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L175)
+[integration/widget/v1.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L177)
 
 ___
 
@@ -247,7 +249,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L126)
+[integration/widget/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L128)
 
 ___
 
@@ -263,7 +265,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L130)
+[integration/widget/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L132)
 
 ## Functions
 
@@ -284,7 +286,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L110)
+[integration/widget/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L112)
 
 ___
 
@@ -305,7 +307,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L160)
+[integration/widget/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L162)
 
 ___
 
@@ -326,7 +328,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L88)
+[integration/widget/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L90)
 
 ___
 
@@ -347,7 +349,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L69)
+[integration/widget/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L71)
 
 ___
 
@@ -368,7 +370,7 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L181)
+[integration/widget/v1.js:183](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L183)
 
 ___
 
@@ -390,4 +392,4 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L137)
+[integration/widget/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L139)

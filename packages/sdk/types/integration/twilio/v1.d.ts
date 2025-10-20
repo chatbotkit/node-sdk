@@ -13,7 +13,8 @@
  *   meta?: Record<string,any>,
  *   botId?: string,
  *   contactCollection?: boolean,
- *   sessionDuration?: number
+ *   sessionDuration?: number,
+ *   blueprintId?: string
  * }} TwilioIntegrationOptions
  *
  * @typedef {TwilioIntegrationOptions & {
@@ -111,6 +112,7 @@ export type TwilioIntegrationOptions = {
     botId?: string;
     contactCollection?: boolean;
     sessionDuration?: number;
+    blueprintId?: string;
 };
 export type TwilioIntegrationInstance = TwilioIntegrationOptions & {
     id: string;

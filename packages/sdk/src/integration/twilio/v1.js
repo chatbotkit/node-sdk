@@ -15,7 +15,8 @@
  *   meta?: Record<string,any>,
  *   botId?: string,
  *   contactCollection?: boolean,
- *   sessionDuration?: number
+ *   sessionDuration?: number,
+ *   blueprintId?: string
  * }} TwilioIntegrationOptions
  *
  * @typedef {TwilioIntegrationOptions & {

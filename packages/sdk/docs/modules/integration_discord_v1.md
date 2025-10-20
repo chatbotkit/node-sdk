@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L85)
+[integration/discord/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L86)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L89)
+[integration/discord/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L90)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:140](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L140)
+[integration/discord/v1.js:141](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L141)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L66)
+[integration/discord/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L67)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L29)
+[integration/discord/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L30)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L38)
+[integration/discord/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L39)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L40)
+[integration/discord/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L41)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L45)
+[integration/discord/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L46)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L47)
+[integration/discord/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L48)
 
 ___
 
@@ -176,6 +176,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `appId?` | `string` |
+| `blueprintId?` | `string` |
 | `botId?` | `string` |
 | `botToken?` | `string` |
 | `contactCollection?` | `boolean` |
@@ -188,7 +189,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L23)
+[integration/discord/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L24)
 
 ___
 
@@ -204,7 +205,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L161)
+[integration/discord/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L162)
 
 ___
 
@@ -214,7 +215,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L112)
+[integration/discord/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L113)
 
 ___
 
@@ -230,7 +231,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L116)
+[integration/discord/v1.js:117](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L117)
 
 ___
 
@@ -268,7 +269,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L95)
+[integration/discord/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L96)
 
 ___
 
@@ -289,7 +290,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L146)
+[integration/discord/v1.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L147)
 
 ___
 
@@ -310,7 +311,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L72)
+[integration/discord/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L73)
 
 ___
 
@@ -331,7 +332,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L53)
+[integration/discord/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L54)
 
 ___
 
@@ -352,7 +353,7 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:167](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L167)
+[integration/discord/v1.js:168](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L168)
 
 ___
 
@@ -374,4 +375,4 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:123](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L123)
+[integration/discord/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L124)

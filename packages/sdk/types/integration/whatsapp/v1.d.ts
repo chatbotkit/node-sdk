@@ -16,7 +16,8 @@
  *   sessionDuration?: number,
  *   attachments?: boolean,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} WhatsAppIntegrationOptions
  *
  * @typedef {WhatsAppIntegrationOptions & {
@@ -118,6 +119,7 @@ export type WhatsAppIntegrationOptions = {
     attachments?: boolean;
     meta?: Record<string, any>;
     botId?: string;
+    blueprintId?: string;
 };
 export type WhatsAppIntegrationInstance = WhatsAppIntegrationOptions & {
     id: string;

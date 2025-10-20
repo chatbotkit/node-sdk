@@ -16,7 +16,8 @@
  *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
  *   sessionDuration?: number,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} TriggerIntegrationOptions
  *
  * @typedef {TriggerIntegrationOptions & {

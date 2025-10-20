@@ -14,7 +14,8 @@
  *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
  *   sessionDuration?: number,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} TriggerIntegrationOptions
  *
  * @typedef {TriggerIntegrationOptions & {
@@ -126,6 +127,7 @@ export type TriggerIntegrationOptions = {
     sessionDuration?: number;
     meta?: Record<string, any>;
     botId?: string;
+    blueprintId?: string;
 };
 export type TriggerIntegrationInstance = TriggerIntegrationOptions & {
     id: string;

@@ -14,7 +14,8 @@
  *   schema?: Record<string,any>,
  *   syncSchedule?: string,
  *   expiresIn?: number
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} ExtractIntegrationOptions
  *
  * @typedef {ExtractIntegrationOptions & {
@@ -100,6 +101,7 @@ export type ExtractIntegrationOptions = {
     syncSchedule?: string;
     expiresIn?: number;
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type ExtractInegrationInstance = ExtractIntegrationOptions & {
     id: string;

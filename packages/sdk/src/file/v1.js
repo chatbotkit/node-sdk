@@ -15,7 +15,8 @@ import { getBuffer } from '../buffer.js'
  *   name?: string,
  *   description?: string,
  *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} FileOptions
  *
  * @typedef {FileOptions & {

@@ -18,7 +18,8 @@
  *   sessionDuration?: number,
  *   attachments?: boolean,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} WhatsAppIntegrationOptions
  *
  * @typedef {WhatsAppIntegrationOptions & {

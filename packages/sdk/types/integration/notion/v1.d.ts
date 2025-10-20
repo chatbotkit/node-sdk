@@ -14,7 +14,8 @@
  *   token?: string,
  *   syncSchedule?: string,
  *   expiresIn?: number
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} NotionIntegrationOptions
  *
  * @typedef {NotionIntegrationOptions & {
@@ -110,6 +111,7 @@ export type NotionIntegrationOptions = {
     syncSchedule?: string;
     expiresIn?: number;
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type NotionInegrationInstance = NotionIntegrationOptions & {
     id: string;

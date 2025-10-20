@@ -21,7 +21,8 @@ import { buildModelString } from '../model/v1.js'
  *   privacy?: boolean,
  *   moderation?: boolean,
  *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} BotOptions
  *
  * @typedef {BotOptions & {

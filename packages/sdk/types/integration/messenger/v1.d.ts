@@ -15,7 +15,8 @@
  *   sessionDuration?: number,
  *   attachments?: boolean,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} MessengerIntegrationOptions
  *
  * @typedef {MessengerIntegrationOptions & {
@@ -116,6 +117,7 @@ export type MessengerIntegrationOptions = {
     attachments?: boolean;
     meta?: Record<string, any>;
     botId?: string;
+    blueprintId?: string;
 };
 export type MessengerIntegrationInstance = MessengerIntegrationOptions & {
     id: string;

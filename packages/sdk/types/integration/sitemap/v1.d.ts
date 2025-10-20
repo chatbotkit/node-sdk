@@ -17,7 +17,8 @@
  *   javascript?: boolean,
  *   syncSchedule?: string,
  *   expiresIn?: number
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} SitemapIntegrationOptions
  *
  * @typedef {SitemapIntegrationOptions & {
@@ -116,6 +117,7 @@ export type SitemapIntegrationOptions = {
     syncSchedule?: string;
     expiresIn?: number;
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type SitemapInegrationInstance = SitemapIntegrationOptions & {
     id: string;

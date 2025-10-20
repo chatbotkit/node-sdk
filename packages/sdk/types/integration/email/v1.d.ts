@@ -13,7 +13,8 @@
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} EmailIntegrationOptions
  *
  * @typedef {EmailIntegrationOptions & {
@@ -111,6 +112,7 @@ export type EmailIntegrationOptions = {
     sessionDuration?: number;
     meta?: Record<string, any>;
     botId?: string;
+    blueprintId?: string;
 };
 export type EmailIntegrationInstance = EmailIntegrationOptions & {
     id: string;

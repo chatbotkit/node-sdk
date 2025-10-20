@@ -15,7 +15,8 @@
  *   value?: string,
  *   config?: Record<string,any>,
  *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} SecretOptions
  *
  * @typedef {SecretOptions & {
@@ -103,6 +104,7 @@ export type SecretOptions = {
     config?: Record<string, any>;
     visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type SecretInstance = SecretOptions & {
     id: string;

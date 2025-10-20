@@ -23,6 +23,7 @@
  *   separators?: string,
  *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} DatasetOptions
  *
  * @typedef {DatasetOptions & {

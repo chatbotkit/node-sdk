@@ -17,7 +17,8 @@
  *   value?: string,
  *   config?: Record<string,any>,
  *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} SecretOptions
  *
  * @typedef {SecretOptions & {

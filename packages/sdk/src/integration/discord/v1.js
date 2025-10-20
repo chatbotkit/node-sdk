@@ -19,7 +19,8 @@
  *   contactCollection?: boolean,
  *   sessionDuration?: number,
  *   meta?: Record<string,any>,
- *   botId?: string
+ *   botId?: string,
+ *   blueprintId?: string
  * }} DiscordIntegrationOptions
  *
  * @typedef {DiscordIntegrationOptions & {

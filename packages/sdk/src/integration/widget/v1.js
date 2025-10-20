@@ -35,7 +35,9 @@
  *   messagePeek?: boolean,
  *   poweredBy?: boolean,
  *   sessionDuration?: number,
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string
  * }} WidgetIntegrationOptions
  *
  * @typedef {WidgetIntegrationOptions & {

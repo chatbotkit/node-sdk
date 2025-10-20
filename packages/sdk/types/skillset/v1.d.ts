@@ -11,7 +11,8 @@
  *   name?: string,
  *   description?: string,
  *   visibility?: 'private'|'protected'|'public'
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} SkillsetOptions
  *
  * @typedef {SkillsetOptions & {
@@ -95,6 +96,7 @@ export type SkillsetOptions = {
     description?: string;
     visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type SkillsetInstance = SkillsetOptions & {
     id: string;

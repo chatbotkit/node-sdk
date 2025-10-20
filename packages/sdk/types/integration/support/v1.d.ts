@@ -14,7 +14,8 @@
  *   email?: string,
  *   syncSchedule?: string,
  *   expiresIn?: number
- *   meta?: Record<string,any>
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} SupportIntegrationOptions
  *
  * @typedef {SupportIntegrationOptions & {
@@ -100,6 +101,7 @@ export type SupportIntegrationOptions = {
     syncSchedule?: string;
     expiresIn?: number;
     meta?: Record<string, any>;
+    blueprintId?: string;
 };
 export type SupportInegrationInstance = SupportIntegrationOptions & {
     id: string;
