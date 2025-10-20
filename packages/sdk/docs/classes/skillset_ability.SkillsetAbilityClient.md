@@ -174,7 +174,7 @@ ___
 
 ▸ **list**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityListResponse`](../modules/skillset_ability_v1.md#skillsetabilitylistresponse), [`SkillsetAbilityListStreamItem`](../modules/skillset_ability_v1.md#skillsetabilityliststreamitem)\>
 
-Retrieves a list of all abilitys.
+Retrieves a list of all abilities.
 
 #### Parameters
 

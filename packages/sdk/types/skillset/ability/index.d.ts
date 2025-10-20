@@ -8,7 +8,7 @@
  */
 export class SkillsetAbilityClient extends ChatBotKitClient {
     /**
-     * Retrieves a list of all abilitys.
+     * Retrieves a list of all abilities.
      *
      * @param {string} skillsetId
      * @param {import('./v1.js').SkillsetAbilityListRequest} [request]
