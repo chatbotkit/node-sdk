@@ -85,7 +85,6 @@ export function fetchDataset(client, datasetId) {
 
 /**
  * @typedef {DatasetOptions & {
- *   store?: string
  * }} DatasetCreateRequest
  *
  * @typedef {{
