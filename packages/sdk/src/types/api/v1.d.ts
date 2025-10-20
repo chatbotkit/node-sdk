@@ -3174,6 +3174,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/example/{exampleId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a platform example */
+        get: operations["fetchPlatformExample"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/example/list": {
         parameters: {
             query?: never;
@@ -3185,6 +3202,23 @@ export interface paths {
         get: operations["listPlatformExamples"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/example/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform examples using semantic similarity */
+        post: operations["searchPlatformExamples"];
         delete?: never;
         options?: never;
         head?: never;
@@ -15224,6 +15258,53 @@ export interface operations {
             };
         };
     };
+    fetchPlatformExample: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                exampleId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The example was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name: string;
+                        /** @description The associated description */
+                        description: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        keywords?: string[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     listPlatformExamples: {
         parameters: {
             query?: {
@@ -15286,6 +15367,45 @@ export interface operations {
                             updatedAt: number;
                             keywords?: string[];
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    searchPlatformExamples: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant examples */
+                    search: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description An array of examples matching the search query */
+                        items: unknown[];
                     };
                 };
             };

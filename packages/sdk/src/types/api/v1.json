@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1760959238704)"
+    "version": "v1 (build 1760963646066)"
   },
   "servers": [
     {
@@ -23128,6 +23128,95 @@
         ]
       }
     },
+    "/platform/example/{exampleId}/fetch": {
+      "get": {
+        "operationId": "fetchPlatformExample",
+        "summary": "Fetch a platform example",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "exampleId",
+            "required": true,
+            "schema": {
+              "description": "The ID (slug) of the example to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The example was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Instance list properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "keywords": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "name",
+                    "description"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchPlatformExample",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/platform/example/list": {
       "get": {
         "operationId": "listPlatformExamples",
@@ -23309,6 +23398,112 @@
           }
         },
         "__originalOperationId": "listPlatformExamples",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/example/search": {
+      "post": {
+        "operationId": "searchPlatformExamples",
+        "summary": "Search platform examples using semantic similarity",
+        "tags": [
+          "Platform"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "description": "The search query to find relevant examples",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "search"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The search was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "description": "An array of examples matching the search query",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "The associated name"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "The associated description"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "description": "Meta data information",
+                          "additionalProperties": true,
+                          "$$ref": "#/components/schemas/Meta"
+                        },
+                        "id": {
+                          "type": "string",
+                          "description": "The instance ID"
+                        },
+                        "createdAt": {
+                          "type": "number",
+                          "description": "The timestamp (ms) when the instance was created"
+                        },
+                        "updatedAt": {
+                          "type": "number",
+                          "description": "The timestamp (ms) when the instance was updated"
+                        },
+                        "keywords": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "createdAt",
+                        "updatedAt",
+                        "name",
+                        "description"
+                      ],
+                      "items": null
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "searchPlatformExamples",
         "security": [
           {
             "BearerAuth": []
