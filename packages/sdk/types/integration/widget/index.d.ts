@@ -40,6 +40,13 @@ export class WidgetIntegrationClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').WidgetIntegrationDeleteResponse>}
      */
     delete(widgetId: string): Promise<import("./v1.js").WidgetIntegrationDeleteResponse>;
+    /**
+     * Sets up a widget integration.
+     *
+     * @param {string} widgetId
+     * @returns {Promise<import('./v1.js').WidgetIntegrationSetupResponse>}
+     */
+    setup(widgetId: string): Promise<import("./v1.js").WidgetIntegrationSetupResponse>;
 }
 export default WidgetIntegrationClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

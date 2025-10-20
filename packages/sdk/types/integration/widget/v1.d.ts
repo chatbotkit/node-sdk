@@ -110,6 +110,16 @@ export function updateWidgetIntegration(client: ChatBotKitClient, widgetId: stri
  * @returns {Promise<WidgetIntegrationDeleteResponse>}
  */
 export function deleteWidgetIntegration(client: ChatBotKitClient, widgetId: string): Promise<WidgetIntegrationDeleteResponse>;
+/**
+ * @typedef {{
+ *   id: string
+ * }} WidgetIntegrationSetupResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} widgetId
+ * @returns {Promise<WidgetIntegrationSetupResponse>}
+ */
+export function setupWidgetIntegration(client: ChatBotKitClient, widgetId: string): Promise<WidgetIntegrationSetupResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type WidgetIntegrationOptions = {
@@ -169,5 +179,8 @@ export type WidgetIntegrationUpdateResponse = {
     id: string;
 };
 export type WidgetIntegrationDeleteResponse = {
+    id: string;
+};
+export type WidgetIntegrationSetupResponse = {
     id: string;
 };
