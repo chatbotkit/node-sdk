@@ -82,10 +82,10 @@ function groupEndpointsByResource(endpoints) {
     // Find the resource parts, including those after dynamic parameters
     const resourceParts = []
     let skipNext = false
-    
+
     for (let i = 0; i < pathParts.length; i++) {
       const part = pathParts[i]
-      
+
       // Skip dynamic parts like {id}
       if (part.startsWith('{')) {
         skipNext = true
@@ -120,7 +120,7 @@ function groupEndpointsByResource(endpoints) {
           'synthesize',
           'generate',
         ].includes(part)
-        
+
         if (!isAction) {
           // This is a nested resource (e.g., 'record', 'file', 'ability')
           resourceParts.push(part)
