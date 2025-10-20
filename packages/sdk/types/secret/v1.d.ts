@@ -13,6 +13,8 @@
  *   kind?: 'shared'|'personal',
  *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template'|'reference',
  *   value?: string,
+ *   config?: Record<string,any>,
+ *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>
  * }} SecretOptions
  *
@@ -98,6 +100,8 @@ export type SecretOptions = {
     kind?: "shared" | "personal";
     type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
     value?: string;
+    config?: Record<string, any>;
+    visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
 };
 export type SecretInstance = SecretOptions & {

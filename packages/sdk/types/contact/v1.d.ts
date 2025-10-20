@@ -14,6 +14,7 @@
  *   email?: string,
  *   phone?: string,
  *   nick?: string,
+ *   preferences?: string,
  *   verifiedAt?: number,
  *   meta?: Record<string,any>
  * }} ContactOptions
@@ -115,6 +116,7 @@ export type ContactOptions = {
     email?: string;
     phone?: string;
     nick?: string;
+    preferences?: string;
     verifiedAt?: number;
     meta?: Record<string, any>;
 };

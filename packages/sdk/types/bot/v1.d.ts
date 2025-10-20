@@ -14,6 +14,8 @@
  *   model?: string,
  *   datasetId?: string,
  *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
  *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>
  * }} BotOptions
@@ -96,7 +98,8 @@ export function updateBot(client: ChatBotKitClient, botId: string, request: BotU
 export function deleteBot(client: ChatBotKitClient, botId: string): Promise<BotDeleteResponse>;
 /**
  * @typedef {{
- *   value?: number
+ *   value?: number,
+ *   reason?: string
  * }} BotUpvoteRequest
  *
  * @typedef {{
@@ -111,7 +114,8 @@ export function deleteBot(client: ChatBotKitClient, botId: string): Promise<BotD
 export function upvoteBot(client: ChatBotKitClient, botId: string, request: BotUpvoteRequest): Promise<BotUpvoteResponse>;
 /**
  * @typedef {{
- *   value?: number
+ *   value?: number,
+ *   reason?: string
  * }} BotDownvoteRequest
  *
  * @typedef {{
@@ -133,6 +137,8 @@ export type BotOptions = {
     model?: string;
     datasetId?: string;
     skillsetId?: string;
+    privacy?: boolean;
+    moderation?: boolean;
     visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
 };
@@ -173,12 +179,14 @@ export type BotDeleteResponse = {
 };
 export type BotUpvoteRequest = {
     value?: number;
+    reason?: string;
 };
 export type BotUpvoteResponse = {
     id: string;
 };
 export type BotDownvoteRequest = {
     value?: number;
+    reason?: string;
 };
 export type BotDownvoteResponse = {
     id: string;

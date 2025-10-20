@@ -13,6 +13,7 @@
  *   contactId?: string,
  *   botId?: string,
  *   schedule?: string,
+ *   sessionDuration?: number,
  *   meta?: Record<string,any>
  * }} TaskOptions
  *
@@ -98,6 +99,7 @@ export type TaskOptions = {
     contactId?: string;
     botId?: string;
     schedule?: string;
+    sessionDuration?: number;
     meta?: Record<string, any>;
 };
 export type TaskInstance = TaskOptions & {

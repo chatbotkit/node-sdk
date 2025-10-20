@@ -11,6 +11,7 @@
  *   name?: string,
  *   description?: string,
  *   store?: string,
+ *   reranker?: string,
  *   recordMaxTokens?: number,
  *   searchMinScore?: number,
  *   searchMaxRecords?: number,
@@ -99,7 +100,14 @@ export function updateDataset(client: ChatBotKitClient, datasetId: string, reque
 export function deleteDataset(client: ChatBotKitClient, datasetId: string): Promise<DatasetDeleteResponse>;
 /**
  * @typedef {{
- *   records: {id: string, text: string}[]
+ *   id: string,
+ *   records: {
+ *     id: string,
+ *     text: string,
+ *     score: number,
+ *     source?: string,
+ *     meta?: Record<string,any>
+ *   }[]
  * }} DatasetSearchResponse
  *
  * @param {ChatBotKitClient} client
@@ -114,6 +122,7 @@ export type DatasetOptions = {
     name?: string;
     description?: string;
     store?: string;
+    reranker?: string;
     recordMaxTokens?: number;
     searchMinScore?: number;
     searchMaxRecords?: number;
@@ -158,8 +167,12 @@ export type DatasetDeleteResponse = {
     id: string;
 };
 export type DatasetSearchResponse = {
+    id: string;
     records: {
         id: string;
         text: string;
+        score: number;
+        source?: string;
+        meta?: Record<string, any>;
     }[];
 };
