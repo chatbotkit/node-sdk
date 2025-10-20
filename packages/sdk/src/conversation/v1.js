@@ -391,7 +391,8 @@ export function receiveConversationMessage(client, conversationId, request) {
 
 /**
  * @typedef {{
- *   value?: number
+ *   value?: number,
+ *   reason?: string
  * }} ConversationUpvoteRequest
  *
  * @typedef {{
@@ -423,7 +424,8 @@ export async function upvoteConversation(client, conversationId, request) {
 
 /**
  * @typedef {{
- *   value?: number
+ *   value?: number,
+ *   reason?: string
  * }} ConversationDownvoteRequest
  *
  * @typedef {{
