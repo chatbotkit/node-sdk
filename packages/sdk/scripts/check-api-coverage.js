@@ -76,15 +76,62 @@ function groupEndpointsByResource(endpoints) {
 
   for (const endpoint of endpoints) {
     // Extract resource from path (e.g., /bot/list -> bot, /integration/discord/list -> integration/discord)
+    // Handle nested resources like /dataset/{datasetId}/record/list -> dataset/record
     const pathParts = endpoint.path.split('/').filter(Boolean)
 
-    // Find the first dynamic part or action
+    // Find the resource parts, including those after dynamic parameters
     const resourceParts = []
-    for (const part of pathParts) {
-      // Stop at dynamic parts like {id}
-      if (part.startsWith('{')) break
+    let skipNext = false
+    
+    for (let i = 0; i < pathParts.length; i++) {
+      const part = pathParts[i]
+      
+      // Skip dynamic parts like {id}
+      if (part.startsWith('{')) {
+        skipNext = true
+        continue
+      }
 
-      // Stop at common action words (unless it's part of a nested resource like integration/discord)
+      // If we just skipped a dynamic part, the next part might be a nested resource
+      if (skipNext) {
+        skipNext = false
+        // Check if this is a nested resource (not an action word)
+        const isAction = [
+          'create',
+          'list',
+          'fetch',
+          'update',
+          'delete',
+          'export',
+          'search',
+          'ensure',
+          'attach',
+          'detach',
+          'sync',
+          'setup',
+          'clone',
+          'upsert',
+          'upload',
+          'authenticate',
+          'revoke',
+          'verify',
+          'downvote',
+          'upvote',
+          'synthesize',
+          'generate',
+        ].includes(part)
+        
+        if (!isAction) {
+          // This is a nested resource (e.g., 'record', 'file', 'ability')
+          resourceParts.push(part)
+          continue
+        } else {
+          // This is an action after a dynamic param, we're done
+          break
+        }
+      }
+
+      // Stop at action words (unless it's part of a nested resource)
       const isAction = [
         'create',
         'list',
