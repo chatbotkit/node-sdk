@@ -112,6 +112,7 @@ function groupEndpointsByResource(endpoints) {
           'setup',
           'clone',
           'upsert',
+          'trigger',
           'upload',
           'authenticate',
           'revoke',
