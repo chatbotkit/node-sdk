@@ -15,6 +15,7 @@
 - [PlatformExampleListStreamItemType](platform_example_v1.md#platformexampleliststreamitemtype)
 - [PlatformExampleListStreamType](platform_example_v1.md#platformexampleliststreamtype)
 - [PlatformExampleOptions](platform_example_v1.md#platformexampleoptions)
+- [PlatformExampleSearchRequest](platform_example_v1.md#platformexamplesearchrequest)
 - [PlatformExampleSearchResponse](platform_example_v1.md#platformexamplesearchresponse)
 - [ResponsePromise](platform_example_v1.md#responsepromise)
 
@@ -49,7 +50,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L103)
+[platform/example/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L107)
 
 ___
 
@@ -157,6 +158,22 @@ ___
 
 ___
 
+### PlatformExampleSearchRequest
+
+Ƭ **PlatformExampleSearchRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `search` | `string` |
+
+#### Defined in
+
+[platform/example/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L80)
+
+___
+
 ### PlatformExampleSearchResponse
 
 Ƭ **PlatformExampleSearchResponse**\<\>: `Object`
@@ -169,7 +186,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L80)
+[platform/example/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L84)
 
 ___
 
@@ -207,7 +224,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L109)
+[platform/example/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L113)
 
 ___
 
@@ -255,14 +272,14 @@ ___
 
 ### searchPlatformExamples
 
-▸ **searchPlatformExamples**(`client`, `search`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](platform_example_v1.md#platformexamplesearchresponse)\>
+▸ **searchPlatformExamples**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](platform_example_v1.md#platformexamplesearchresponse)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `search` | `string` |
+| `request` | [`PlatformExampleSearchRequest`](platform_example_v1.md#platformexamplesearchrequest) |
 
 #### Returns
 
@@ -270,4 +287,4 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L86)
+[platform/example/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L90)

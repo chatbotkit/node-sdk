@@ -54,14 +54,18 @@ export function listPlatformExamples(client: ChatBotKitClient, request?: Platfor
 export function fetchPlatformExample(client: ChatBotKitClient, exampleId: string): ResponsePromise<PlatformExampleFetchResponse, never>;
 /**
  * @typedef {{
+ *   search: string
+ * }} PlatformExampleSearchRequest
+ *
+ * @typedef {{
  *   items: PlatformExampleInstance[]
  * }} PlatformExampleSearchResponse
  *
  * @param {ChatBotKitClient} client
- * @param {string} search
+ * @param {PlatformExampleSearchRequest} request
  * @returns {Promise<PlatformExampleSearchResponse>}
  */
-export function searchPlatformExamples(client: ChatBotKitClient, search: string): Promise<PlatformExampleSearchResponse>;
+export function searchPlatformExamples(client: ChatBotKitClient, request: PlatformExampleSearchRequest): Promise<PlatformExampleSearchResponse>;
 /**
  * @typedef {{
  *   resources: Record<string,{id: string, name?: string, description?: string}[]>
@@ -102,6 +106,9 @@ export type PlatformExampleListStreamItemType = {
 };
 export type PlatformExampleListStreamType = PlatformExampleListStreamItemType;
 export type PlatformExampleFetchResponse = PlatformExampleInstance;
+export type PlatformExampleSearchRequest = {
+    search: string;
+};
 export type PlatformExampleSearchResponse = {
     items: PlatformExampleInstance[];
 };

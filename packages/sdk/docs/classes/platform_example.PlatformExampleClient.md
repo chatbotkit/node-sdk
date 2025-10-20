@@ -168,7 +168,7 @@ ___
 
 ### search
 
-▸ **search**(`search`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](../modules/platform_example_v1.md#platformexamplesearchresponse)\>
+▸ **search**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](../modules/platform_example_v1.md#platformexamplesearchresponse)\>
 
 Searches platform examples.
 
@@ -176,7 +176,7 @@ Searches platform examples.
 
 | Name | Type |
 | :------ | :------ |
-| `search` | `string` |
+| `request` | [`PlatformExampleSearchRequest`](../modules/platform_example_v1.md#platformexamplesearchrequest) |
 
 #### Returns
 

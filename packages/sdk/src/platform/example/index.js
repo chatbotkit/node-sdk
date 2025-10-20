@@ -46,11 +46,11 @@ export class PlatformExampleClient extends ChatBotKitClient {
   /**
    * Searches platform examples.
    *
-   * @param {string} search
+   * @param {import('./v1.js').PlatformExampleSearchRequest} request
    * @returns {Promise<import('./v1.js').PlatformExampleSearchResponse>}
    */
-  search(search) {
-    return searchPlatformExamples(this, search)
+  search(request) {
+    return searchPlatformExamples(this, request)
   }
 
   /**
