@@ -42,10 +42,11 @@
 | Name | Type |
 | :------ | :------ |
 | `id` | `string` |
+| `resources` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 
 #### Defined in
 
-[blueprint/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L152)
+[blueprint/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L153)
 
 ___
 
@@ -261,7 +262,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L158)
+[blueprint/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L159)
 
 ___
 
