@@ -157,3 +157,36 @@ export async function deleteDatasetRecord(client, datasetId, recordId) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} DatasetRecordExportRequest
+ *
+ * @typedef {{items: DatasetRecordInstance[]}} DatasetRecordExportResponse
+ *
+ * @typedef {{
+ *   type: 'item',
+ *   data: DatasetRecordInstance
+ * }} DatasetRecordExportStreamItemType
+ *
+ * @typedef {DatasetRecordExportStreamItemType} DatasetRecordExportStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} datasetId
+ * @param {DatasetRecordExportRequest} [request]
+ * @returns {ResponsePromise<DatasetRecordExportResponse,DatasetRecordExportStreamType>}
+ */
+export function exportDatasetRecords(client, datasetId, request) {
+  let url = `/api/v1/dataset/${datasetId}/record/export`
+
+  /** @typedef {import('../../types/api/v1.js').operations['exportDatasetRecords']['responses']['200']['content']['application/json']} T */
+  /** @typedef {import('../../types/api/v1.js').operations['exportDatasetRecords']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<T,U>} */
+  const response = client.clientFetch(url, { query: request })
+
+  return response
+}
