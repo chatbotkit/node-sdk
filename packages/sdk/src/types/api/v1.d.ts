@@ -15631,6 +15631,36 @@ export interface operations {
                             config?: Record<string, never>;
                         }[];
                     };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the memory */
+                            contactId?: string;
+                            /** @description The bot associated with the memory */
+                            botId?: string;
+                            /** @description The text of the memory */
+                            text?: string;
+                        };
+                    };
                 };
             };
             /** @description An error response */
