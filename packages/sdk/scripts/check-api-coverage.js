@@ -95,15 +95,36 @@ function groupEndpointsByResource(endpoints) {
       // If we just skipped a dynamic part, the next part might be a nested resource
       if (skipNext) {
         skipNext = false
-        
+
         // List of known action words that indicate endpoint actions, not nested resources
         const actionWords = [
-          'create', 'list', 'fetch', 'update', 'delete', 'export', 'search', 'ensure',
-          'attach', 'detach', 'sync', 'setup', 'clone', 'upsert', 'upload',
-          'authenticate', 'revoke', 'verify', 'downvote', 'upvote', 'synthesize',
-          'generate', 'invoke', 'complete', 'usage'
+          'create',
+          'list',
+          'fetch',
+          'update',
+          'delete',
+          'export',
+          'search',
+          'ensure',
+          'attach',
+          'detach',
+          'sync',
+          'setup',
+          'clone',
+          'upsert',
+          'upload',
+          'authenticate',
+          'revoke',
+          'verify',
+          'downvote',
+          'upvote',
+          'synthesize',
+          'generate',
+          'invoke',
+          'complete',
+          'usage',
         ]
-        
+
         const isAction = actionWords.includes(part)
 
         if (!isAction) {
