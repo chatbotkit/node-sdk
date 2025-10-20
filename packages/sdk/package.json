@@ -448,6 +448,26 @@
       "types": "./types/integration/index.d.ts",
       "import": "./src/integration/index.js"
     },
+    "./integration/mcpserver": {
+      "types": "./types/integration/mcpserver/index.d.ts",
+      "import": "./src/integration/mcpserver/index.js"
+    },
+    "./integration/mcpserver/index": {
+      "types": "./types/integration/mcpserver/index.d.ts",
+      "import": "./src/integration/mcpserver/index.js"
+    },
+    "./integration/mcpserver/index.js": {
+      "types": "./types/integration/mcpserver/index.d.ts",
+      "import": "./src/integration/mcpserver/index.js"
+    },
+    "./integration/mcpserver/v1": {
+      "types": "./types/integration/mcpserver/v1.d.ts",
+      "import": "./src/integration/mcpserver/v1.js"
+    },
+    "./integration/mcpserver/v1.js": {
+      "types": "./types/integration/mcpserver/v1.d.ts",
+      "import": "./src/integration/mcpserver/v1.js"
+    },
     "./integration/messenger": {
       "types": "./types/integration/messenger/index.d.ts",
       "import": "./src/integration/messenger/index.js"
@@ -587,6 +607,26 @@
     "./integration/trigger/v1.js": {
       "types": "./types/integration/trigger/v1.d.ts",
       "import": "./src/integration/trigger/v1.js"
+    },
+    "./integration/twilio": {
+      "types": "./types/integration/twilio/index.d.ts",
+      "import": "./src/integration/twilio/index.js"
+    },
+    "./integration/twilio/index": {
+      "types": "./types/integration/twilio/index.d.ts",
+      "import": "./src/integration/twilio/index.js"
+    },
+    "./integration/twilio/index.js": {
+      "types": "./types/integration/twilio/index.d.ts",
+      "import": "./src/integration/twilio/index.js"
+    },
+    "./integration/twilio/v1": {
+      "types": "./types/integration/twilio/v1.d.ts",
+      "import": "./src/integration/twilio/v1.js"
+    },
+    "./integration/twilio/v1.js": {
+      "types": "./types/integration/twilio/v1.d.ts",
+      "import": "./src/integration/twilio/v1.js"
     },
     "./integration/whatsapp": {
       "types": "./types/integration/whatsapp/index.d.ts",
