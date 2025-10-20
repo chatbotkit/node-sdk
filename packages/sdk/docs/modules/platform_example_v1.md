@@ -8,18 +8,22 @@
 
 - [ChatBotKitClient](platform_example_v1.md#chatbotkitclient)
 - [PlatformExampleCloneResponse](platform_example_v1.md#platformexamplecloneresponse)
+- [PlatformExampleFetchResponse](platform_example_v1.md#platformexamplefetchresponse)
 - [PlatformExampleInstance](platform_example_v1.md#platformexampleinstance)
 - [PlatformExampleListRequest](platform_example_v1.md#platformexamplelistrequest)
 - [PlatformExampleListResponse](platform_example_v1.md#platformexamplelistresponse)
 - [PlatformExampleListStreamItemType](platform_example_v1.md#platformexampleliststreamitemtype)
 - [PlatformExampleListStreamType](platform_example_v1.md#platformexampleliststreamtype)
 - [PlatformExampleOptions](platform_example_v1.md#platformexampleoptions)
+- [PlatformExampleSearchResponse](platform_example_v1.md#platformexamplesearchresponse)
 - [ResponsePromise](platform_example_v1.md#responsepromise)
 
 ### Functions
 
 - [clonePlatformExample](platform_example_v1.md#cloneplatformexample)
+- [fetchPlatformExample](platform_example_v1.md#fetchplatformexample)
 - [listPlatformExamples](platform_example_v1.md#listplatformexamples)
+- [searchPlatformExamples](platform_example_v1.md#searchplatformexamples)
 
 ## Type Aliases
 
@@ -45,7 +49,17 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L63)
+[platform/example/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L103)
+
+___
+
+### PlatformExampleFetchResponse
+
+Ƭ **PlatformExampleFetchResponse**\<\>: [`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance)
+
+#### Defined in
+
+[platform/example/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L61)
 
 ___
 
@@ -143,6 +157,22 @@ ___
 
 ___
 
+### PlatformExampleSearchResponse
+
+Ƭ **PlatformExampleSearchResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `items` | [`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance)[] |
+
+#### Defined in
+
+[platform/example/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L80)
+
+___
+
 ### ResponsePromise
 
 Ƭ **ResponsePromise**\<`T`, `U`\>: [`client`](client.md)
@@ -177,7 +207,28 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L69)
+[platform/example/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L109)
+
+___
+
+### fetchPlatformExample
+
+▸ **fetchPlatformExample**(`client`, `exampleId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance), `never`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `exampleId` | `string` |
+
+#### Returns
+
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance), `never`\>
+
+#### Defined in
+
+[platform/example/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L67)
 
 ___
 
@@ -199,3 +250,24 @@ ___
 #### Defined in
 
 [platform/example/v1.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L49)
+
+___
+
+### searchPlatformExamples
+
+▸ **searchPlatformExamples**(`client`, `search`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](platform_example_v1.md#platformexamplesearchresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `search` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](platform_example_v1.md#platformexamplesearchresponse)\>
+
+#### Defined in
+
+[platform/example/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L86)

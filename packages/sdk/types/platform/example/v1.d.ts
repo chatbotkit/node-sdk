@@ -45,6 +45,24 @@
  */
 export function listPlatformExamples(client: ChatBotKitClient, request?: PlatformExampleListRequest): ResponsePromise<PlatformExampleListResponse, PlatformExampleListStreamType>;
 /**
+ * @typedef {PlatformExampleInstance} PlatformExampleFetchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} exampleId
+ * @returns {ResponsePromise<PlatformExampleFetchResponse,never>}
+ */
+export function fetchPlatformExample(client: ChatBotKitClient, exampleId: string): ResponsePromise<PlatformExampleFetchResponse, never>;
+/**
+ * @typedef {{
+ *   items: PlatformExampleInstance[]
+ * }} PlatformExampleSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} search
+ * @returns {Promise<PlatformExampleSearchResponse>}
+ */
+export function searchPlatformExamples(client: ChatBotKitClient, search: string): Promise<PlatformExampleSearchResponse>;
+/**
  * @typedef {{
  *   resources: Record<string,{id: string, name?: string, description?: string}[]>
  * }} PlatformExampleCloneResponse
@@ -83,6 +101,10 @@ export type PlatformExampleListStreamItemType = {
     data: PlatformExampleInstance;
 };
 export type PlatformExampleListStreamType = PlatformExampleListStreamItemType;
+export type PlatformExampleFetchResponse = PlatformExampleInstance;
+export type PlatformExampleSearchResponse = {
+    items: PlatformExampleInstance[];
+};
 export type PlatformExampleCloneResponse = {
     resources: Record<string, {
         id: string;
