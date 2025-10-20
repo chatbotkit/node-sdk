@@ -15205,7 +15205,7 @@ export interface operations {
                         /** @description A map of resource types to arrays of created resources */
                         resources: {
                             [key: string]: {
-                                id?: string;
+                                id: string;
                                 name?: string;
                                 description?: string;
                             }[];

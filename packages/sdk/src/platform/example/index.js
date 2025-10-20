@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../../client.js'
-import { listPlatformExamples } from './v1.js'
+import { listPlatformExamples, clonePlatformExample } from './v1.js'
 
 /**
  * @template T
@@ -26,6 +26,16 @@ export class PlatformExampleClient extends ChatBotKitClient {
    */
   list(request) {
     return listPlatformExamples(this, request)
+  }
+
+  /**
+   * Clones a platform example.
+   *
+   * @param {string} exampleId
+   * @returns {Promise<import('./v1.js').PlatformExampleCloneResponse>}
+   */
+  clone(exampleId) {
+    return clonePlatformExample(this, exampleId)
   }
 }
 

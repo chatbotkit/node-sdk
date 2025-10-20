@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1760958472971)"
+    "version": "v1 (build 1760959238704)"
   },
   "servers": [
     {
@@ -23095,7 +23095,10 @@
                             "description": {
                               "type": "string"
                             }
-                          }
+                          },
+                          "required": [
+                            "id"
+                          ]
                         }
                       }
                     }

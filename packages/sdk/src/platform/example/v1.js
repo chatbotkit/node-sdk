@@ -56,3 +56,24 @@ export function listPlatformExamples(client, request) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   resources: Record<string,{id: string, name?: string, description?: string}[]>
+ * }} PlatformExampleCloneResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} exampleId
+ * @returns {Promise<PlatformExampleCloneResponse>}
+ */
+export async function clonePlatformExample(client, exampleId) {
+  const url = `/api/v1/platform/example/${exampleId}/clone`
+
+  /** @type {import('../../types/api/v1.js').operations['clonePlatformExample']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    /** @type {import('../../types/api/v1.js').operations['clonePlatformExample']['requestBody']['content']['application/json']} */
+    record: {},
+  })
+
+  return response
+}
