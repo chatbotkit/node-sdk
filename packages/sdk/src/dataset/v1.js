@@ -12,7 +12,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
- *   store?: string,
+ *   store: string,
  *   reranker?: string,
  *   recordMaxTokens?: number,
  *   searchMinScore?: number,
@@ -85,6 +85,7 @@ export function fetchDataset(client, datasetId) {
 
 /**
  * @typedef {DatasetOptions & {
+ *   store?: string
  * }} DatasetCreateRequest
  *
  * @typedef {{

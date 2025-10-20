@@ -187,7 +187,7 @@ ___
 | `searchMaxTokens?` | `number` |
 | `searchMinScore?` | `number` |
 | `separators?` | `string` |
-| `store?` | `string` |
+| `store` | `string` |
 | `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
 
 #### Defined in

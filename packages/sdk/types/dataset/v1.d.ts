@@ -10,7 +10,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
- *   store?: string,
+ *   store: string,
  *   reranker?: string,
  *   recordMaxTokens?: number,
  *   searchMinScore?: number,
@@ -122,7 +122,7 @@ export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>
 export type DatasetOptions = {
     name?: string;
     description?: string;
-    store?: string;
+    store: string;
     reranker?: string;
     recordMaxTokens?: number;
     searchMinScore?: number;

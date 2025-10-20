@@ -7902,7 +7902,7 @@ export interface operations {
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
                         /** @description The storage class for the dataset */
-                        store?: string;
+                        store: string;
                         /** @description The reranker class for the dataset */
                         reranker?: string;
                         /** @description The total number of tokens for each record */
@@ -8692,7 +8692,7 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The storage class for the dataset */
-                            store?: string;
+                            store: string;
                             /** @description The reranker class for the dataset */
                             reranker?: string;
                             /** @description The total number of tokens for each record */
@@ -8739,7 +8739,7 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The storage class for the dataset */
-                            store?: string;
+                            store: string;
                             /** @description The reranker class for the dataset */
                             reranker?: string;
                             /** @description The total number of tokens for each record */
