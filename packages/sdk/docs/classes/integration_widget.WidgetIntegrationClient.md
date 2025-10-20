@@ -27,6 +27,7 @@
 - [delete](integration_widget.WidgetIntegrationClient.md#delete)
 - [fetch](integration_widget.WidgetIntegrationClient.md#fetch)
 - [list](integration_widget.WidgetIntegrationClient.md#list)
+- [setup](integration_widget.WidgetIntegrationClient.md#setup)
 - [update](integration_widget.WidgetIntegrationClient.md#update)
 
 ## Constructors
@@ -51,7 +52,7 @@
 
 #### Defined in
 
-[integration/widget/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L20)
+[integration/widget/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L21)
 
 ## Methods
 
@@ -121,7 +122,7 @@ Creates a new widget integration.
 
 #### Defined in
 
-[integration/widget/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L50)
+[integration/widget/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L51)
 
 ___
 
@@ -143,7 +144,7 @@ Deletes a widget integration.
 
 #### Defined in
 
-[integration/widget/index.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L71)
+[integration/widget/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L72)
 
 ___
 
@@ -165,7 +166,7 @@ Fetches a widget integration.
 
 #### Defined in
 
-[integration/widget/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L40)
+[integration/widget/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L41)
 
 ___
 
@@ -187,7 +188,29 @@ Retrieves a list of all widget integrations.
 
 #### Defined in
 
-[integration/widget/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L30)
+[integration/widget/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L31)
+
+___
+
+### setup
+
+▸ **setup**(`widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationSetupResponse`](../modules/integration_widget_v1.md#widgetintegrationsetupresponse)\>
+
+Sets up a widget integration.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `widgetId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationSetupResponse`](../modules/integration_widget_v1.md#widgetintegrationsetupresponse)\>
+
+#### Defined in
+
+[integration/widget/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L82)
 
 ___
 
@@ -210,4 +233,4 @@ Updates a widget integration.
 
 #### Defined in
 
-[integration/widget/index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L61)
+[integration/widget/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L62)

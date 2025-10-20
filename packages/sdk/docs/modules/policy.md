@@ -27,4 +27,4 @@
 
 #### Defined in
 
-policy/index.js:13
+[policy/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L13)

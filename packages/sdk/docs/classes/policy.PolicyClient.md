@@ -49,7 +49,7 @@ Policy client.
 
 #### Defined in
 
-policy/index.js:23
+[policy/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L23)
 
 ## Methods
 
@@ -119,7 +119,7 @@ Creates a new policy.
 
 #### Defined in
 
-policy/index.js:53
+[policy/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L53)
 
 ___
 
@@ -141,7 +141,7 @@ Deletes the policy.
 
 #### Defined in
 
-policy/index.js:74
+[policy/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L74)
 
 ___
 
@@ -163,7 +163,7 @@ Fetches a policy.
 
 #### Defined in
 
-policy/index.js:43
+[policy/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L43)
 
 ___
 
@@ -185,7 +185,7 @@ Retrieves a list of all policies.
 
 #### Defined in
 
-policy/index.js:33
+[policy/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L33)
 
 ___
 
@@ -208,4 +208,4 @@ Updates a policy.
 
 #### Defined in
 
-policy/index.js:64
+[policy/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L64)
