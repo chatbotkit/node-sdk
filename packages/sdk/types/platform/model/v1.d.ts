@@ -24,7 +24,6 @@
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
- *   meta?: Record<string,string>
  * }} PlatformModelListRequest
  *
  * @typedef {{items: PlatformModelInstance[]}} PlatformModelListResponse
@@ -57,7 +56,6 @@ export type PlatformModelListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
-    meta?: Record<string, string>;
 };
 export type PlatformModelListResponse = {
     items: PlatformModelInstance[];

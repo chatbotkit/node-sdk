@@ -27,7 +27,6 @@
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
- *   meta?: Record<string,string>
  * }} PlatformExampleListRequest
  *
  * @typedef {{items: PlatformExampleInstance[]}} PlatformExampleListResponse
@@ -95,7 +94,6 @@ export type PlatformExampleListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
-    meta?: Record<string, string>;
 };
 export type PlatformExampleListResponse = {
     items: PlatformExampleInstance[];

@@ -50,13 +50,12 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
 #### Defined in
 
-[platform/model/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L31)
+[platform/model/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L30)
 
 ___
 
@@ -72,7 +71,7 @@ ___
 
 #### Defined in
 
-[platform/model/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L33)
+[platform/model/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L32)
 
 ___
 
@@ -89,7 +88,7 @@ ___
 
 #### Defined in
 
-[platform/model/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L38)
+[platform/model/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L37)
 
 ___
 
@@ -99,7 +98,7 @@ ___
 
 #### Defined in
 
-[platform/model/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L40)
+[platform/model/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L39)
 
 ___
 
@@ -155,4 +154,4 @@ ___
 
 #### Defined in
 
-[platform/model/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L46)
+[platform/model/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L45)

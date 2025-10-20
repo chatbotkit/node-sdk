@@ -24,7 +24,6 @@
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
- *   meta?: Record<string,string>
  * }} PlatformAbilityListRequest
  *
  * @typedef {{items: PlatformAbilityInstance[]}} PlatformAbilityListResponse
@@ -57,7 +56,6 @@ export type PlatformAbilityListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
-    meta?: Record<string, string>;
 };
 export type PlatformAbilityListResponse = {
     items: PlatformAbilityInstance[];
