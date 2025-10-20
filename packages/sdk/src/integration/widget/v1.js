@@ -168,3 +168,23 @@ export async function deleteWidgetIntegration(client, widgetId) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   id: string
+ * }} WidgetIntegrationSetupResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} widgetId
+ * @returns {Promise<WidgetIntegrationSetupResponse>}
+ */
+export async function setupWidgetIntegration(client, widgetId) {
+  const url = `/api/v1/integration/widget/${widgetId}/setup`
+
+  /** @type {import('../../types/api/v1.js').operations['setupWidgetIntegration']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    method: 'POST',
+  })
+
+  return response
+}
