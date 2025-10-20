@@ -15725,7 +15725,9 @@ export interface operations {
                          */
                         type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                         /** @description The config of the secret */
-                        config?: Record<string, never>;
+                        config?: {
+                            [key: string]: unknown;
+                        };
                         /**
                          * @description The visibility of the secret
                          * @enum {string}
@@ -15778,7 +15780,9 @@ export interface operations {
                     /** @description The value of the secret */
                     value?: string;
                     /** @description The config of the secret */
-                    config?: Record<string, never>;
+                    config?: {
+                        [key: string]: unknown;
+                    };
                     /**
                      * @description The visibility of the secret
                      * @enum {string}
@@ -15842,7 +15846,9 @@ export interface operations {
                     /** @description The value of the secret */
                     value?: string;
                     /** @description The config of the secret */
-                    config?: string;
+                    config?: {
+                        [key: string]: unknown;
+                    };
                     /**
                      * @description The visibility of the secret
                      * @enum {string}
@@ -15921,7 +15927,9 @@ export interface operations {
                              */
                             type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                             /** @description The config of the secret */
-                            config?: Record<string, never>;
+                            config?: {
+                                [key: string]: unknown;
+                            };
                             /**
                              * @description The visibility of the secret
                              * @enum {string}
@@ -15962,7 +15970,9 @@ export interface operations {
                              */
                             type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                             /** @description The config of the secret */
-                            config?: Record<string, never>;
+                            config?: {
+                                [key: string]: unknown;
+                            };
                             /**
                              * @description The visibility of the secret
                              * @enum {string}

@@ -15,6 +15,8 @@
  *   kind?: 'shared'|'personal',
  *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template'|'reference',
  *   value?: string,
+ *   config?: Record<string,any>,
+ *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>
  * }} SecretOptions
  *

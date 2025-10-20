@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1760882616904)"
+    "version": "v1 (build 1760918444692)"
   },
   "servers": [
     {
@@ -24186,7 +24186,8 @@
                     },
                     "config": {
                       "description": "The config of the secret",
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": true
                     },
                     "visibility": {
                       "type": "string",
@@ -24293,7 +24294,8 @@
                   },
                   "config": {
                     "description": "The config of the secret",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   },
                   "visibility": {
                     "type": "string",
@@ -24405,7 +24407,8 @@
                   },
                   "config": {
                     "description": "The config of the secret",
-                    "type": "string"
+                    "type": "object",
+                    "additionalProperties": true
                   },
                   "visibility": {
                     "type": "string",
@@ -24562,7 +24565,8 @@
                           },
                           "config": {
                             "description": "The config of the secret",
-                            "type": "object"
+                            "type": "object",
+                            "additionalProperties": true
                           },
                           "visibility": {
                             "type": "string",
@@ -24655,7 +24659,8 @@
                             },
                             "config": {
                               "description": "The config of the secret",
-                              "type": "object"
+                              "type": "object",
+                              "additionalProperties": true
                             },
                             "visibility": {
                               "type": "string",
