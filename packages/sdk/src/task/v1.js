@@ -149,3 +149,51 @@ export async function deleteTask(client, taskId) {
 
   return response
 }
+
+/**
+ * @typedef {{
+ *   id: string
+ * }} TaskTriggerResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} taskId
+ * @returns {Promise<TaskTriggerResponse>}
+ */
+export async function triggerTask(client, taskId) {
+  const url = `/api/v1/task/${taskId}/trigger`
+
+  /** @type {import('../types/api/v1.js').operations['triggerTask']['responses']['200']['content']['application/json']} */
+  const response = await client.clientFetch(url, {
+    method: 'POST',
+  })
+
+  return response
+}
+
+/**
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number
+ * }} TaskExportRequest
+ *
+ * @typedef {{
+ *   type: 'item',
+ *   data: TaskInstance
+ * }} TaskExportStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {TaskExportRequest} [request]
+ * @returns {ResponsePromise<never,TaskExportStreamType>}
+ */
+export function exportTasks(client, request) {
+  const url = `/api/v1/task/export`
+
+  /** @typedef {import('../types/api/v1.js').operations['exportTasks']['responses']['200']['content']['application/jsonl']} U */
+  /** @type {ResponsePromise<never,U>} */
+  const response = client.clientFetch(url, {
+    query: request,
+  })
+
+  return response
+}

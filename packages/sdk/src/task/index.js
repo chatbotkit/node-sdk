@@ -2,8 +2,10 @@ import { ChatBotKitClient } from '../client.js'
 import {
   createTask,
   deleteTask,
+  exportTasks,
   fetchTask,
   listTasks,
+  triggerTask,
   updateTask,
 } from './v1.js'
 
@@ -32,6 +34,16 @@ export class TaskClient extends ChatBotKitClient {
    */
   list(request) {
     return listTasks(this, request)
+  }
+
+  /**
+   * Exports tasks.
+   *
+   * @param {import('./v1.js').TaskExportRequest} [request]
+   * @returns {ResponsePromise<never,import('./v1.js').TaskExportStreamType>}
+   */
+  export(request) {
+    return exportTasks(this, request)
   }
 
   /**
@@ -73,6 +85,16 @@ export class TaskClient extends ChatBotKitClient {
    */
   delete(taskId) {
     return deleteTask(this, taskId)
+  }
+
+  /**
+   * Triggers a task.
+   *
+   * @param {string} taskId
+   * @returns {Promise<import('./v1.js').TaskTriggerResponse>}
+   */
+  trigger(taskId) {
+    return triggerTask(this, taskId)
   }
 }
 
