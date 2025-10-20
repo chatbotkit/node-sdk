@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../../client.js'
-import { listPlatformExamples, clonePlatformExample } from './v1.js'
+import { clonePlatformExample, listPlatformExamples } from './v1.js'
 
 /**
  * @template T
