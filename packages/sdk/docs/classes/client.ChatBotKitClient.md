@@ -94,6 +94,10 @@
 
   ↳ [`UsageSeriesClient`](usage_series.UsageSeriesClient.md)
 
+  ↳ [`TeamClient`](index.TeamClient.md)
+
+  ↳ [`MemoryClient`](index.MemoryClient.md)
+
 ## Table of contents
 
 ### Constructors

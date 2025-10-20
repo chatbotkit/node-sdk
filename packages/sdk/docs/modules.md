@@ -40,6 +40,7 @@
 - [file/v1](modules/file_v1.md)
 - [graphql](modules/graphql.md)
 - [graphql/v1](modules/graphql_v1.md)
+- [index](modules/index.md)
 - [integration/discord](modules/integration_discord.md)
 - [integration/discord/v1](modules/integration_discord_v1.md)
 - [integration/email](modules/integration_email.md)

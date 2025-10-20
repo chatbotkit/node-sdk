@@ -256,7 +256,8 @@ export function sendConversationMessage(client: ChatBotKitClient, conversationId
 export function receiveConversationMessage(client: ChatBotKitClient, conversationId: string, request: ConversationReceiveMessageRequest): ResponsePromise<ConversationReceiveMessageResponse, ConversationReceiveMessageStreamType>;
 /**
  * @typedef {{
- *   value?: number
+ *   value?: number,
+ *   reason?: string
  * }} ConversationUpvoteRequest
  *
  * @typedef {{
@@ -271,7 +272,8 @@ export function receiveConversationMessage(client: ChatBotKitClient, conversatio
 export function upvoteConversation(client: ChatBotKitClient, conversationId: string, request: ConversationUpvoteRequest): Promise<ConversationUpvoteResponse>;
 /**
  * @typedef {{
- *   value?: number
+ *   value?: number,
+ *   reason?: string
  * }} ConversationDownvoteRequest
  *
  * @typedef {{
@@ -454,12 +456,14 @@ export type ConversationReceiveMessageStreamToken = {
 export type ConversationReceiveMessageStreamType = ConversationReceiveMessageStreamResult | ConversationReceiveMessageStreamMessage | ConversationReceiveMessageStreamToken;
 export type ConversationUpvoteRequest = {
     value?: number;
+    reason?: string;
 };
 export type ConversationUpvoteResponse = {
     id: string;
 };
 export type ConversationDownvoteRequest = {
     value?: number;
+    reason?: string;
 };
 export type ConversationDownvoteResponse = {
     id: string;

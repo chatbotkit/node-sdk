@@ -15,6 +15,13 @@ export class TaskClient extends ChatBotKitClient {
      */
     list(request?: import("./v1.js").TaskListRequest): ResponsePromise<import("./v1.js").TaskListResponse, import("./v1.js").TaskListStreamType>;
     /**
+     * Exports tasks.
+     *
+     * @param {import('./v1.js').TaskExportRequest} [request]
+     * @returns {ResponsePromise<never,import('./v1.js').TaskExportStreamType>}
+     */
+    export(request?: import("./v1.js").TaskExportRequest): ResponsePromise<never, import("./v1.js").TaskExportStreamType>;
+    /**
      * Fetches a task.
      *
      * @param {string} taskId
@@ -43,6 +50,13 @@ export class TaskClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').TaskDeleteResponse>}
      */
     delete(taskId: string): Promise<import("./v1.js").TaskDeleteResponse>;
+    /**
+     * Triggers a task.
+     *
+     * @param {string} taskId
+     * @returns {Promise<import('./v1.js').TaskTriggerResponse>}
+     */
+    trigger(taskId: string): Promise<import("./v1.js").TaskTriggerResponse>;
 }
 export default TaskClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;

@@ -13,6 +13,7 @@
 - [BlueprintFetchResponse](blueprint_v1.md#blueprintfetchresponse)
 - [BlueprintInstance](blueprint_v1.md#blueprintinstance)
 - [BlueprintListRequest](blueprint_v1.md#blueprintlistrequest)
+- [BlueprintListResourcesResponse](blueprint_v1.md#blueprintlistresourcesresponse)
 - [BlueprintListResponse](blueprint_v1.md#blueprintlistresponse)
 - [BlueprintListStreamItemType](blueprint_v1.md#blueprintliststreamitemtype)
 - [BlueprintListStreamType](blueprint_v1.md#blueprintliststreamtype)
@@ -28,6 +29,7 @@
 - [createBlueprint](blueprint_v1.md#createblueprint)
 - [deleteBlueprint](blueprint_v1.md#deleteblueprint)
 - [fetchBlueprint](blueprint_v1.md#fetchblueprint)
+- [listBlueprintResources](blueprint_v1.md#listblueprintresources)
 - [listBlueprints](blueprint_v1.md#listblueprints)
 - [updateBlueprint](blueprint_v1.md#updateblueprint)
 
@@ -128,6 +130,23 @@ ___
 #### Defined in
 
 [blueprint/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L31)
+
+___
+
+### BlueprintListResourcesResponse
+
+Ƭ **BlueprintListResourcesResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+| `resources` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+
+#### Defined in
+
+[blueprint/v1.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L175)
 
 ___
 
@@ -326,6 +345,27 @@ ___
 #### Defined in
 
 [blueprint/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L65)
+
+___
+
+### listBlueprintResources
+
+▸ **listBlueprintResources**(`client`, `blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintListResourcesResponse`](blueprint_v1.md#blueprintlistresourcesresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `blueprintId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintListResourcesResponse`](blueprint_v1.md#blueprintlistresourcesresponse)\>
+
+#### Defined in
+
+[blueprint/v1.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L181)
 
 ___
 

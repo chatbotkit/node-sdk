@@ -21,6 +21,7 @@
 - [FileListStreamItemType](file_v1.md#fileliststreamitemtype)
 - [FileListStreamType](file_v1.md#fileliststreamtype)
 - [FileOptions](file_v1.md#fileoptions)
+- [FileSyncResponse](file_v1.md#filesyncresponse)
 - [FileUpdateRequest](file_v1.md#fileupdaterequest)
 - [FileUpdateResponse](file_v1.md#fileupdateresponse)
 - [FileUploadRequest](file_v1.md#fileuploadrequest)
@@ -34,6 +35,7 @@
 - [downloadFile](file_v1.md#downloadfile)
 - [fetchFile](file_v1.md#fetchfile)
 - [listFiles](file_v1.md#listfiles)
+- [syncFile](file_v1.md#syncfile)
 - [updateFile](file_v1.md#updatefile)
 - [uploadFile](file_v1.md#uploadfile)
 
@@ -61,7 +63,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L78)
+[file/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L79)
 
 ___
 
@@ -77,7 +79,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L82)
+[file/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L83)
 
 ___
 
@@ -93,7 +95,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L132)
+[file/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L133)
 
 ___
 
@@ -107,10 +109,11 @@ ___
 | :------ | :------ |
 | `data` | [`ArrayBuffer`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer ) |
 | `headers` | [`Headers`]( https://developer.mozilla.org/docs/Web/API/Headers ) |
+| `url` | `string` |
 
 #### Defined in
 
-[file/v1.js:208](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L208)
+[file/v1.js:215](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L215)
 
 ___
 
@@ -120,7 +123,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L60)
+[file/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L61)
 
 ___
 
@@ -139,7 +142,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L33)
+[file/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L34)
 
 ___
 
@@ -155,7 +158,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L34)
+[file/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L35)
 
 ___
 
@@ -172,7 +175,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L39)
+[file/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L40)
 
 ___
 
@@ -182,7 +185,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L41)
+[file/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L42)
 
 ___
 
@@ -197,10 +200,27 @@ ___
 | `description?` | `string` |
 | `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `name?` | `string` |
+| `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
 
 #### Defined in
 
-[file/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L18)
+[file/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L19)
+
+___
+
+### FileSyncResponse
+
+Ƭ **FileSyncResponse**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+#### Defined in
+
+[file/v1.js:233](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L233)
 
 ___
 
@@ -210,7 +230,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L104)
+[file/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L105)
 
 ___
 
@@ -226,7 +246,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L108)
+[file/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L109)
 
 ___
 
@@ -244,7 +264,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L155)
+[file/v1.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L156)
 
 ___
 
@@ -257,10 +277,14 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `id` | `string` |
+| `uploadRequest?` | \{ `headers`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> ; `method`: `string` ; `url`: `string`  } |
+| `uploadRequest.headers` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
+| `uploadRequest.method` | `string` |
+| `uploadRequest.url` | `string` |
 
 #### Defined in
 
-[file/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L159)
+[file/v1.js:165](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L165)
 
 ___
 
@@ -298,7 +322,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L88)
+[file/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L89)
 
 ___
 
@@ -319,7 +343,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:138](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L138)
+[file/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L139)
 
 ___
 
@@ -340,7 +364,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:214](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L214)
+[file/v1.js:221](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L221)
 
 ___
 
@@ -361,7 +385,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L66)
+[file/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L67)
 
 ___
 
@@ -382,7 +406,28 @@ ___
 
 #### Defined in
 
-[file/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L47)
+[file/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L48)
+
+___
+
+### syncFile
+
+▸ **syncFile**(`client`, `fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileSyncResponse`](file_v1.md#filesyncresponse)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `fileId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileSyncResponse`](file_v1.md#filesyncresponse)\>
+
+#### Defined in
+
+[file/v1.js:239](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L239)
 
 ___
 
@@ -404,7 +449,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:115](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L115)
+[file/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L116)
 
 ___
 
@@ -426,4 +471,4 @@ ___
 
 #### Defined in
 
-[file/v1.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L166)
+[file/v1.js:172](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L172)

@@ -50,6 +50,13 @@ export class BlueprintClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').BlueprintCloneResponse>}
      */
     clone(blueprintId: string): Promise<import("./v1.js").BlueprintCloneResponse>;
+    /**
+     * Lists all resources for a blueprint.
+     *
+     * @param {string} blueprintId
+     * @returns {Promise<import('./v1.js').BlueprintListResourcesResponse>}
+     */
+    listResources(blueprintId: string): Promise<import("./v1.js").BlueprintListResourcesResponse>;
 }
 export default BlueprintClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;

@@ -10,6 +10,7 @@
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>
  * }} FileOptions
  *
@@ -94,7 +95,12 @@ export function deleteFile(client: ChatBotKitClient, fileId: string): Promise<Fi
  * }} FileUploadRequest
  *
  * @typedef {{
- *   id: string
+ *   id: string,
+ *   uploadRequest?: {
+ *     url: string,
+ *     method: string,
+ *     headers: Record<string,string>
+ *   }
  * }} FileUploadResponse
  *
  * @param {ChatBotKitClient} client
@@ -105,6 +111,7 @@ export function deleteFile(client: ChatBotKitClient, fileId: string): Promise<Fi
 export function uploadFile(client: ChatBotKitClient, fileId: string, request: FileUploadRequest): Promise<FileUploadResponse>;
 /**
  * @typedef {{
+ *   url: string,
  *   headers: Headers,
  *   data: ArrayBuffer
  * }} FileDownloadResponse
@@ -114,11 +121,22 @@ export function uploadFile(client: ChatBotKitClient, fileId: string, request: Fi
  * @returns {Promise<FileDownloadResponse>}
  */
 export function downloadFile(client: ChatBotKitClient, fileId: string): Promise<FileDownloadResponse>;
+/**
+ * @typedef {{
+ *   id: string
+ * }} FileSyncResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} fileId
+ * @returns {Promise<FileSyncResponse>}
+ */
+export function syncFile(client: ChatBotKitClient, fileId: string): Promise<FileSyncResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type FileOptions = {
     name?: string;
     description?: string;
+    visibility?: "private" | "protected" | "public";
     meta?: Record<string, any>;
 };
 export type FileInstance = FileOptions & {
@@ -159,8 +177,17 @@ export type FileUploadRequest = {
 };
 export type FileUploadResponse = {
     id: string;
+    uploadRequest?: {
+        url: string;
+        method: string;
+        headers: Record<string, string>;
+    };
 };
 export type FileDownloadResponse = {
+    url: string;
     headers: Headers;
     data: ArrayBuffer;
+};
+export type FileSyncResponse = {
+    id: string;
 };

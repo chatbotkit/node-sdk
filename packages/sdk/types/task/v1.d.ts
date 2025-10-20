@@ -91,6 +91,33 @@ export function updateTask(client: ChatBotKitClient, taskId: string, request: Ta
  * @returns {Promise<TaskDeleteResponse>}
  */
 export function deleteTask(client: ChatBotKitClient, taskId: string): Promise<TaskDeleteResponse>;
+/**
+ * @typedef {{
+ *   id: string
+ * }} TaskTriggerResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} taskId
+ * @returns {Promise<TaskTriggerResponse>}
+ */
+export function triggerTask(client: ChatBotKitClient, taskId: string): Promise<TaskTriggerResponse>;
+/**
+ * @typedef {{
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number
+ * }} TaskExportRequest
+ *
+ * @typedef {{
+ *   type: 'item',
+ *   data: TaskInstance
+ * }} TaskExportStreamType
+ *
+ * @param {ChatBotKitClient} client
+ * @param {TaskExportRequest} [request]
+ * @returns {ResponsePromise<never,TaskExportStreamType>}
+ */
+export function exportTasks(client: ChatBotKitClient, request?: TaskExportRequest): ResponsePromise<never, TaskExportStreamType>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type TaskOptions = {
@@ -132,4 +159,16 @@ export type TaskUpdateResponse = {
 };
 export type TaskDeleteResponse = {
     id: string;
+};
+export type TaskTriggerResponse = {
+    id: string;
+};
+export type TaskExportRequest = {
+    cursor?: string;
+    order?: "desc" | "asc";
+    take?: number;
+};
+export type TaskExportStreamType = {
+    type: "item";
+    data: TaskInstance;
 };

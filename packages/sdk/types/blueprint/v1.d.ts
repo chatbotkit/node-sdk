@@ -98,6 +98,17 @@ export function deleteBlueprint(client: ChatBotKitClient, blueprintId: string): 
  * @returns {Promise<BlueprintCloneResponse>}
  */
 export function cloneBlueprint(client: ChatBotKitClient, blueprintId: string): Promise<BlueprintCloneResponse>;
+/**
+ * @typedef {{
+ *   id: string,
+ *   resources: Record<string,any>
+ * }} BlueprintListResourcesResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId
+ * @returns {Promise<BlueprintListResourcesResponse>}
+ */
+export function listBlueprintResources(client: ChatBotKitClient, blueprintId: string): Promise<BlueprintListResourcesResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type BlueprintOptions = {
@@ -137,6 +148,10 @@ export type BlueprintDeleteResponse = {
     id: string;
 };
 export type BlueprintCloneResponse = {
+    id: string;
+    resources: Record<string, any>;
+};
+export type BlueprintListResourcesResponse = {
     id: string;
     resources: Record<string, any>;
 };

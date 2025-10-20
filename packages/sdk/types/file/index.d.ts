@@ -58,6 +58,13 @@ export class FileClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').FileDownloadResponse>}
      */
     download(fileId: string): Promise<import("./v1.js").FileDownloadResponse>;
+    /**
+     * Syncs a file.
+     *
+     * @param {string} fileId
+     * @returns {Promise<import('./v1.js').FileSyncResponse>}
+     */
+    sync(fileId: string): Promise<import("./v1.js").FileSyncResponse>;
 }
 export default FileClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;

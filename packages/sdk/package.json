@@ -648,6 +648,26 @@
       "types": "./types/magic/v1.d.ts",
       "import": "./src/magic/v1.js"
     },
+    "./memory": {
+      "types": "./types/memory/index.d.ts",
+      "import": "./src/memory/index.js"
+    },
+    "./memory/index": {
+      "types": "./types/memory/index.d.ts",
+      "import": "./src/memory/index.js"
+    },
+    "./memory/index.js": {
+      "types": "./types/memory/index.d.ts",
+      "import": "./src/memory/index.js"
+    },
+    "./memory/v1": {
+      "types": "./types/memory/v1.d.ts",
+      "import": "./src/memory/v1.js"
+    },
+    "./memory/v1.js": {
+      "types": "./types/memory/v1.d.ts",
+      "import": "./src/memory/v1.js"
+    },
     "./model/v1": {
       "types": "./types/model/v1.d.ts",
       "import": "./src/model/v1.js"
@@ -903,6 +923,26 @@
     "./task/v1.js": {
       "types": "./types/task/v1.d.ts",
       "import": "./src/task/v1.js"
+    },
+    "./team": {
+      "types": "./types/team/index.d.ts",
+      "import": "./src/team/index.js"
+    },
+    "./team/index": {
+      "types": "./types/team/index.d.ts",
+      "import": "./src/team/index.js"
+    },
+    "./team/index.js": {
+      "types": "./types/team/index.d.ts",
+      "import": "./src/team/index.js"
+    },
+    "./team/v1": {
+      "types": "./types/team/v1.d.ts",
+      "import": "./src/team/v1.js"
+    },
+    "./team/v1.js": {
+      "types": "./types/team/v1.d.ts",
+      "import": "./src/team/v1.js"
     },
     "./usage": {
       "types": "./types/usage/index.d.ts",

@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[file/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L24)
+[file/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L25)
 
 ___
 

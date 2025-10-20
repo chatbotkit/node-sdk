@@ -314,11 +314,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
+| `reason?` | `string` |
 | `value?` | `number` |
 
 #### Defined in
 
-[conversation/v1.js:427](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L427)
+[conversation/v1.js:429](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L429)
 
 ___
 
@@ -334,7 +335,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:431](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L431)
+[conversation/v1.js:433](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L433)
 
 ___
 
@@ -631,11 +632,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
+| `reason?` | `string` |
 | `value?` | `number` |
 
 #### Defined in
 
-[conversation/v1.js:395](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L395)
+[conversation/v1.js:396](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L396)
 
 ___
 
@@ -651,7 +653,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:399](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L399)
+[conversation/v1.js:400](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L400)
 
 ___
 
@@ -826,7 +828,7 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:438](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L438)
+[conversation/v1.js:440](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L440)
 
 ___
 
@@ -956,4 +958,4 @@ ___
 
 #### Defined in
 
-[conversation/v1.js:406](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L406)
+[conversation/v1.js:407](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L407)
