@@ -45,7 +45,7 @@ ___
 
 ### DatasetCreateRequest
 
-Ƭ **DatasetCreateRequest**\<\>: [`DatasetOptions`](dataset_v1.md#datasetoptions) & \{ `store?`: `string`  }
+Ƭ **DatasetCreateRequest**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`DatasetOptions`](dataset_v1.md#datasetoptions), ``"store"``\> & \{ `store?`: `string`  }
 
 #### Defined in
 

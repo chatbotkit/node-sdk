@@ -84,7 +84,7 @@ export function fetchDataset(client, datasetId) {
 }
 
 /**
- * @typedef {DatasetOptions & {
+ * @typedef {Omit<DatasetOptions,'store'> & {
  *   store?: string
  * }} DatasetCreateRequest
  *
