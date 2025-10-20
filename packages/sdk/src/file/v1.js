@@ -14,6 +14,7 @@ import { getBuffer } from '../buffer.js'
  * @typedef {{
  *   name?: string,
  *   description?: string,
+ *   visibility?: 'private'|'protected'|'public',
  *   meta?: Record<string,any>
  * }} FileOptions
  *
@@ -155,7 +156,12 @@ export async function deleteFile(client, fileId) {
  * }} FileUploadRequest
  *
  * @typedef {{
- *   id: string
+ *   id: string,
+ *   uploadRequest?: {
+ *     url: string,
+ *     method: string,
+ *     headers: Record<string,string>
+ *   }
  * }} FileUploadResponse
  *
  * @param {ChatBotKitClient} client
@@ -203,6 +209,7 @@ export async function uploadFile(client, fileId, request) {
 
 /**
  * @typedef {{
+ *   url: string,
  *   headers: Headers,
  *   data: ArrayBuffer
  * }} FileDownloadResponse
