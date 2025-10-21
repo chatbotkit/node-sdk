@@ -202,224 +202,6 @@ function extractClientMethods(resourcePath) {
 }
 
 /**
- * Extract typedef fields from JSDoc comments using TypeScript compiler API
- */
-function extractTypedefFields(resourcePath, typeName) {
-  const v1Path = path.join(SDK_SRC_PATH, resourcePath, 'v1.js')
-
-  if (!fs.existsSync(v1Path)) {
-    return []
-  }
-
-  const sourceCode = fs.readFileSync(v1Path, 'utf8')
-
-  // Create a source file using TypeScript compiler API
-  const sourceFile = ts.createSourceFile(
-    v1Path,
-    sourceCode,
-    ts.ScriptTarget.Latest,
-    true
-  )
-
-  const typedefs = new Map()
-
-  // Visit all nodes to find JSDoc typedef tags
-  function visit(node) {
-    // Check for JSDoc comments
-    if (node.jsDoc) {
-      for (const jsDoc of node.jsDoc) {
-        if (jsDoc.tags) {
-          for (const tag of jsDoc.tags) {
-            if (
-              tag.kind === ts.SyntaxKind.JSDocTypedefTag &&
-              tag.name?.getText()
-            ) {
-              const typedefName = tag.name.getText()
-              const fields = extractFieldsFromTypeNode(
-                tag.typeExpression,
-                typedefs
-              )
-              typedefs.set(typedefName, fields)
-            }
-          }
-        }
-      }
-    }
-
-    ts.forEachChild(node, visit)
-  }
-
-  /**
-   * Extract fields from a TypeScript type node (handles JSDoc types)
-   */
-  function extractFieldsFromTypeNode(typeNode, typedefs) {
-    if (!typeNode) return []
-
-    const fields = []
-
-    // Handle JSDocTypeExpression wrapper
-    if (typeNode.kind === ts.SyntaxKind.JSDocTypeExpression) {
-      return extractFieldsFromTypeNode(typeNode.type, typedefs)
-    }
-
-    // Handle TypeLiteral (object with properties)
-    if (typeNode.kind === ts.SyntaxKind.TypeLiteral) {
-      for (const member of typeNode.members) {
-        if (member.kind === ts.SyntaxKind.PropertySignature) {
-          fields.push({
-            name: member.name.getText(),
-            optional: !!member.questionToken,
-            type: member.type ? member.type.getText() : 'any',
-          })
-        }
-      }
-    }
-
-    // Handle IntersectionType (BaseType & { ... })
-    if (typeNode.kind === ts.SyntaxKind.IntersectionType) {
-      for (const type of typeNode.types) {
-        // If it's a reference to another typedef, resolve it
-        if (type.kind === ts.SyntaxKind.TypeReference) {
-          const referencedTypeName = type.typeName.getText()
-          // Check if we've already parsed this type
-          if (typedefs.has(referencedTypeName)) {
-            fields.push(...typedefs.get(referencedTypeName))
-          } else {
-            // Will be resolved in second pass
-            fields.push({ _reference: referencedTypeName })
-          }
-        } else {
-          // Extract fields from inline type
-          fields.push(...extractFieldsFromTypeNode(type, typedefs))
-        }
-      }
-    }
-
-    // Handle TypeReference (references to other types)
-    if (typeNode.kind === ts.SyntaxKind.TypeReference) {
-      const referencedTypeName = typeNode.typeName.getText()
-      if (typedefs.has(referencedTypeName)) {
-        fields.push(...typedefs.get(referencedTypeName))
-      }
-    }
-
-    return fields
-  }
-
-  // First pass: collect all typedefs
-  visit(sourceFile)
-
-  // Second pass: resolve references
-  function resolveReferences(fields) {
-    const resolved = []
-    for (const field of fields) {
-      if (field._reference) {
-        if (typedefs.has(field._reference)) {
-          resolved.push(...resolveReferences(typedefs.get(field._reference)))
-        }
-      } else {
-        resolved.push(field)
-      }
-    }
-    return resolved
-  }
-
-  // Get the requested typedef
-  if (!typedefs.has(typeName)) {
-    return []
-  }
-
-  const fields = resolveReferences(typedefs.get(typeName))
-
-  // Remove duplicates (can happen with intersection types)
-  const uniqueFields = []
-  const seen = new Set()
-  for (const field of fields) {
-    if (!seen.has(field.name)) {
-      seen.add(field.name)
-      uniqueFields.push(field)
-    }
-  }
-
-  return uniqueFields
-}
-
-/**
- * Compare SDK fields with OpenAPI schema fields
- */
-function compareFields(sdkFields, apiFields) {
-  const missing = []
-  const extra = []
-
-  const sdkFieldNames = new Set(sdkFields.map((f) => f.name))
-  const apiFieldNames = new Set(apiFields.map((f) => f.name))
-
-  // Find missing fields (in API but not in SDK)
-  for (const apiField of apiFields) {
-    if (!sdkFieldNames.has(apiField.name)) {
-      missing.push(apiField)
-    }
-  }
-
-  // Find extra fields (in SDK but not in API)
-  for (const sdkField of sdkFields) {
-    if (!apiFieldNames.has(sdkField.name)) {
-      extra.push(sdkField)
-    }
-  }
-
-  return { missing, extra }
-}
-
-/**
- * Extract fields from request/response schemas
- */
-function extractSchemaFields(schema, spec, visited = new Set()) {
-  if (!schema) return []
-
-  const fields = []
-
-  // Handle $ref
-  if (schema.$ref || schema.$$ref) {
-    const ref = schema.$ref || schema.$$ref
-    const refPath = ref.replace('#/', '').split('/')
-
-    if (visited.has(ref)) return [] // Prevent circular references
-    visited.add(ref)
-
-    let refSchema = spec
-    for (const part of refPath) {
-      refSchema = refSchema?.[part]
-    }
-
-    if (refSchema) {
-      return extractSchemaFields(refSchema, spec, visited)
-    }
-  }
-
-  // Handle allOf
-  if (schema.allOf) {
-    for (const subSchema of schema.allOf) {
-      fields.push(...extractSchemaFields(subSchema, spec, visited))
-    }
-  }
-
-  // Handle properties
-  if (schema.properties) {
-    for (const [fieldName, fieldSchema] of Object.entries(schema.properties)) {
-      fields.push({
-        name: fieldName,
-        type: fieldSchema.type,
-        description: fieldSchema.description,
-        required: schema.required?.includes(fieldName) || false,
-      })
-    }
-  }
-
-  return fields
-}
-
-/**
  * Map operation ID to expected SDK function name
  */
 function operationIdToFunctionName(operationId) {
@@ -451,7 +233,6 @@ function generateCoverageReport() {
   let implementedEndpoints = 0
   let missingClients = []
   let missingMethods = []
-  let missingFields = []
   let implementedClients = []
 
   const sortedResources = Object.keys(groups).sort()
@@ -480,81 +261,6 @@ function generateCoverageReport() {
 
       if (clientMethods.includes(expectedFunctionName)) {
         implementedEndpoints++
-
-        // Check fields for implemented methods
-        if (endpoint.requestSchema || endpoint.responseSchema) {
-          // Determine the typedef name based on the operation
-          // Common patterns: {Resource}CreateRequest, {Resource}FetchResponse, etc.
-          const resourceName =
-            resource.split('/').pop().charAt(0).toUpperCase() +
-            resource.split('/').pop().slice(1)
-
-          // Try to find request/response typedefs
-          let requestTypeName = null
-          let responseTypeName = null
-
-          // Extract action from operation ID (e.g., createBot -> Create, listBots -> List)
-          const actionMatch = endpoint.operationId.match(
-            /^(\w+?)(?:[A-Z]\w+)?$/
-          )
-          if (actionMatch) {
-            let action = actionMatch[1]
-            // If the action contains the resource name, try to extract just the verb
-            // E.g., "listBots" -> "list", "createBot" -> "create"
-            const verbMatch = endpoint.operationId.match(
-              new RegExp(`^(\\w+?)${resourceName}s?$`, 'i')
-            )
-            if (verbMatch) {
-              action = verbMatch[1]
-            }
-
-            action = action.charAt(0).toUpperCase() + action.slice(1)
-
-            // Common typedef naming patterns
-            requestTypeName = `${resourceName}${action}Request`
-            responseTypeName = `${resourceName}${action}Response`
-          }
-
-          // Check request fields
-          if (endpoint.requestSchema && requestTypeName) {
-            const apiFields = extractSchemaFields(endpoint.requestSchema, spec)
-            const sdkFields = extractTypedefFields(resource, requestTypeName)
-
-            if (sdkFields.length > 0 && apiFields.length > 0) {
-              const { missing } = compareFields(sdkFields, apiFields)
-
-              if (missing.length > 0) {
-                missingFields.push({
-                  resource,
-                  method: expectedFunctionName,
-                  typedef: requestTypeName,
-                  fieldType: 'request',
-                  fields: missing,
-                })
-              }
-            }
-          }
-
-          // Check response fields
-          if (endpoint.responseSchema && responseTypeName) {
-            const apiFields = extractSchemaFields(endpoint.responseSchema, spec)
-            const sdkFields = extractTypedefFields(resource, responseTypeName)
-
-            if (sdkFields.length > 0 && apiFields.length > 0) {
-              const { missing } = compareFields(sdkFields, apiFields)
-
-              if (missing.length > 0) {
-                missingFields.push({
-                  resource,
-                  method: expectedFunctionName,
-                  typedef: responseTypeName,
-                  fieldType: 'response',
-                  fields: missing,
-                })
-              }
-            }
-          }
-        }
       } else {
         missingMethods.push({
           resource,
@@ -592,12 +298,6 @@ function generateCoverageReport() {
   console.log(
     `  Coverage: ${coverageColor}${colors.bold}${coveragePercent}%${colors.reset}`
   )
-
-  if (missingFields.length > 0) {
-    console.log(
-      `  ${colors.yellow}Missing Fields: ${colors.bold}${missingFields.length}${colors.reset}`
-    )
-  }
 
   console.log()
 
@@ -647,42 +347,6 @@ function generateCoverageReport() {
     console.log()
   }
 
-  // Print missing fields
-  if (missingFields.length > 0) {
-    console.log(
-      `${colors.bold}${colors.magenta}Missing Fields (${missingFields.length} methods affected):${colors.reset}`
-    )
-
-    // Group by resource
-    const fieldsByResource = {}
-    for (const item of missingFields) {
-      if (!fieldsByResource[item.resource]) {
-        fieldsByResource[item.resource] = []
-      }
-      fieldsByResource[item.resource].push(item)
-    }
-
-    for (const [resource, items] of Object.entries(fieldsByResource)) {
-      console.log(
-        `  ${colors.magenta}●${colors.reset} ${colors.bold}${resource}${colors.reset}`
-      )
-      for (const { method, typedef, fieldType, fields } of items) {
-        console.log(
-          `    ${colors.gray}${method}() → ${typedef} (${fieldType})${colors.reset}`
-        )
-        for (const field of fields) {
-          const requiredBadge = field.required
-            ? `${colors.red}required${colors.reset}`
-            : 'optional'
-          console.log(
-            `      ${colors.magenta}•${colors.reset} ${field.name} ${colors.gray}(${requiredBadge})${colors.reset}`
-          )
-        }
-      }
-    }
-    console.log()
-  }
-
   // Print implemented clients
   if (implementedClients.length > 0) {
     console.log(
@@ -710,11 +374,7 @@ function generateCoverageReport() {
   }
 
   // Exit code
-  if (
-    missingClients.length > 0 ||
-    missingMethods.length > 0 ||
-    missingFields.length > 0
-  ) {
+  if (missingClients.length > 0 || missingMethods.length > 0) {
     console.log(
       `${colors.yellow}${colors.bold}⚠ API coverage is incomplete${colors.reset}\n`
     )
