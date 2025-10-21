@@ -10,38 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactId?: string,
- *   botId?: string,
- *   schedule?: string,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>
- * }} TaskOptions
- *
- * @typedef {TaskOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} TaskInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} TaskListRequest
  *
- * @typedef {{items: TaskInstance[]}} TaskListResponse
+ * @typedef {import('../types/api/v1.js').operations['listTasks']['responses']['200']['content']['application/json']} TaskListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: TaskInstance
- * }} TaskListStreamItemType
- *
- * @typedef {TaskListStreamItemType} TaskListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listTasks']['responses']['200']['content']['application/jsonl']} TaskListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {TaskListRequest} [request]
@@ -50,17 +27,14 @@
 export function listTasks(client, request) {
   let url = `/api/v1/task/list`
 
-  /** @typedef {import('../types/api/v1.js').operations['listTasks']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['listTasks']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<TaskListResponse,TaskListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {TaskInstance & {
- * }} TaskFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchTask']['responses']['200']['content']['application/json']} TaskFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -69,20 +43,26 @@ export function listTasks(client, request) {
 export function fetchTask(client, taskId) {
   const url = `/api/v1/task/${taskId}/fetch`
 
-  /** @typedef {import('../types/api/v1.js').operations['fetchTask']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<TaskFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {TaskOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   contactId?: string,
+ *   botId?: string,
+ *   schedule?: string,
+ *   sessionDuration?: number,
+ *   meta?: Record<string,any>
  * }} TaskCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} TaskCreateResponse
+ * @typedef {import('../types/api/v1.js').operations['createTask']['requestBody']['content']['application/json']} TaskCreateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['createTask']['responses']['200']['content']['application/json']} TaskCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {TaskCreateRequest} request
@@ -91,9 +71,9 @@ export function fetchTask(client, taskId) {
 export async function createTask(client, request) {
   const url = `/api/v1/task/create`
 
-  /** @type {import('../types/api/v1.js').operations['createTask']['responses']['200']['content']['application/json']} */
+  /** @type {TaskCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['createTask']['requestBody']['content']['application/json']} */
+    /** @type {TaskCreateRequestBody} */
     record: {
       ...request,
     },
@@ -103,12 +83,19 @@ export async function createTask(client, request) {
 }
 
 /**
- * @typedef {TaskOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   contactId?: string,
+ *   botId?: string,
+ *   schedule?: string,
+ *   sessionDuration?: number,
+ *   meta?: Record<string,any>
  * }} TaskUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} TaskUpdateResponse
+ * @typedef {import('../types/api/v1.js').operations['updateTask']['requestBody']['content']['application/json']} TaskUpdateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateTask']['responses']['200']['content']['application/json']} TaskUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -118,9 +105,9 @@ export async function createTask(client, request) {
 export async function updateTask(client, taskId, request) {
   const url = `/api/v1/task/${taskId}/update`
 
-  /** @type {import('../types/api/v1.js').operations['updateTask']['responses']['200']['content']['application/json']} */
+  /** @type {TaskUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['updateTask']['requestBody']['content']['application/json']} */
+    /** @type {TaskUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -130,9 +117,9 @@ export async function updateTask(client, taskId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} TaskDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteTask']['requestBody']['content']['application/json']} TaskDeleteRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteTask']['responses']['200']['content']['application/json']} TaskDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -141,9 +128,9 @@ export async function updateTask(client, taskId, request) {
 export async function deleteTask(client, taskId) {
   const url = `/api/v1/task/${taskId}/delete`
 
-  /** @type {import('../types/api/v1.js').operations['deleteTask']['responses']['200']['content']['application/json']} */
+  /** @type {TaskDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['deleteTask']['requestBody']['content']['application/json']} */
+    /** @type {TaskDeleteRequestBody} */
     record: {},
   })
 
@@ -151,9 +138,9 @@ export async function deleteTask(client, taskId) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} TaskTriggerResponse
+ * @typedef {import('../types/api/v1.js').operations['triggerTask']['requestBody']['content']['application/json']} TaskTriggerRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['triggerTask']['responses']['200']['content']['application/json']} TaskTriggerResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -162,9 +149,9 @@ export async function deleteTask(client, taskId) {
 export async function triggerTask(client, taskId) {
   const url = `/api/v1/task/${taskId}/trigger`
 
-  /** @type {import('../types/api/v1.js').operations['triggerTask']['responses']['200']['content']['application/json']} */
+  /** @type {TaskTriggerResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['triggerTask']['requestBody']['content']['application/json']} */
+    /** @type {TaskTriggerRequestBody} */
     record: {},
   })
 
@@ -178,10 +165,7 @@ export async function triggerTask(client, taskId) {
  *   take?: number
  * }} TaskExportRequest
  *
- * @typedef {{
- *   type: 'item',
- *   data: TaskInstance
- * }} TaskExportStreamType
+ * @typedef {import('../types/api/v1.js').operations['exportTasks']['responses']['200']['content']['application/jsonl']} TaskExportStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {TaskExportRequest} [request]
@@ -190,8 +174,7 @@ export async function triggerTask(client, taskId) {
 export function exportTasks(client, request) {
   const url = `/api/v1/task/export`
 
-  /** @typedef {import('../types/api/v1.js').operations['exportTasks']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<never,U>} */
+  /** @type {ResponsePromise<never,TaskExportStreamType>} */
   const response = client.clientFetch(url, {
     query: request,
   })

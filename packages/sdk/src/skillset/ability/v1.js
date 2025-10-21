@@ -10,38 +10,15 @@
 
 /**
  * @typedef {{
- *   secretId?: string,
- *   fileId?: string,
- *   botId?: string,
- *   name?: string,
- *   description?: string,
- *   instruction?: string,
- *   meta?: Record<string,any>
- * }} SkillsetAbilityOptions
- *
- * @typedef {SkillsetAbilityOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} SkillsetAbilityInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} SkillsetAbilityListRequest
  *
- * @typedef {{items: SkillsetAbilityInstance[]}} SkillsetAbilityListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/json']} SkillsetAbilityListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: SkillsetAbilityInstance
- * }} SkillsetAbilityListStreamItem
- *
- * @typedef {SkillsetAbilityListStreamItem} SkillsetAbilityListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/jsonl']} SkillsetAbilityListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -51,9 +28,7 @@
 export function listSkillsetAbilities(client, skillsetId, request) {
   let url = `/api/v1/skillset/${skillsetId}/ability/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listSkillsetAbilities']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<SkillsetAbilityListResponse,SkillsetAbilityListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
@@ -67,14 +42,9 @@ export function listSkillsetAbilities(client, skillsetId, request) {
  *   meta?: Record<string,string>
  * }} SkillsetAbilityExportRequest
  *
- * @typedef {{items: SkillsetAbilityInstance[]}} SkillsetAbilityExportResponse
+ * @typedef {import('../../types/api/v1.js').operations['exportSkillsetAbilities']['responses']['200']['content']['application/json']} SkillsetAbilityExportResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: SkillsetAbilityInstance
- * }} SkillsetAbilityExportStreamItemType
- *
- * @typedef {SkillsetAbilityExportStreamItemType} SkillsetAbilityExportStreamType
+ * @typedef {import('../../types/api/v1.js').operations['exportSkillsetAbilities']['responses']['200']['content']['application/jsonl']} SkillsetAbilityExportStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -84,17 +54,14 @@ export function listSkillsetAbilities(client, skillsetId, request) {
 export function exportSkillsetAbilities(client, skillsetId, request) {
   let url = `/api/v1/skillset/${skillsetId}/ability/export`
 
-  /** @typedef {import('../../types/api/v1.js').operations['exportSkillsetAbilities']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['exportSkillsetAbilities']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<SkillsetAbilityExportResponse,SkillsetAbilityExportStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {SkillsetAbilityInstance & {
- * }} SkillsetAbilityFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -104,20 +71,26 @@ export function exportSkillsetAbilities(client, skillsetId, request) {
 export function fetchSkillsetAbility(client, skillsetId, abilityId) {
   const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/fetch`
 
-  /** @typedef {import('../../types/api/v1.js').operations['fetchSkillsetAbility']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<SkillsetAbilityFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {SkillsetAbilityOptions & {
+ * @typedef {{
+ *   secretId?: string,
+ *   fileId?: string,
+ *   botId?: string,
+ *   name?: string,
+ *   description?: string,
+ *   instruction?: string,
+ *   meta?: Record<string,any>
  * }} SkillsetAbilityCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} SkillsetAbilityCreateResponse
+ * @typedef {import('../../types/api/v1.js').operations['createSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityCreateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -127,9 +100,9 @@ export function fetchSkillsetAbility(client, skillsetId, abilityId) {
 export async function createSkillsetAbility(client, skillsetId, request) {
   const url = `/api/v1/skillset/${skillsetId}/ability/create`
 
-  /** @type {import('../../types/api/v1.js').operations['createSkillsetAbility']['responses']['200']['content']['application/json']} */
+  /** @type {SkillsetAbilityCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['createSkillsetAbility']['requestBody']['content']['application/json']} */
+    /** @type {SkillsetAbilityCreateRequestBody} */
     record: {
       ...request,
     },
@@ -139,12 +112,19 @@ export async function createSkillsetAbility(client, skillsetId, request) {
 }
 
 /**
- * @typedef {SkillsetAbilityOptions & {
+ * @typedef {{
+ *   secretId?: string,
+ *   fileId?: string,
+ *   botId?: string,
+ *   name?: string,
+ *   description?: string,
+ *   instruction?: string,
+ *   meta?: Record<string,any>
  * }} SkillsetAbilityUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} SkillsetAbilityUpdateResponse
+ * @typedef {import('../../types/api/v1.js').operations['updateSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityUpdateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -160,9 +140,9 @@ export async function updateSkillsetAbility(
 ) {
   const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/update`
 
-  /** @type {import('../../types/api/v1.js').operations['updateSkillsetAbility']['responses']['200']['content']['application/json']} */
+  /** @type {SkillsetAbilityUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['updateSkillsetAbility']['requestBody']['content']['application/json']} */
+    /** @type {SkillsetAbilityUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -172,9 +152,9 @@ export async function updateSkillsetAbility(
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} SkillsetAbilityDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityDeleteRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -184,9 +164,9 @@ export async function updateSkillsetAbility(
 export async function deleteSkillsetAbility(client, skillsetId, abilityId) {
   const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/delete`
 
-  /** @type {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['responses']['200']['content']['application/json']} */
+  /** @type {SkillsetAbilityDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['requestBody']['content']['application/json']} */
+    /** @type {SkillsetAbilityDeleteRequestBody} */
     record: {},
   })
 

@@ -10,36 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>,
- *   type: 'retention',
- *   config?: Record<string,any>
- * }} PolicyOptions
- *
- * @typedef {PolicyOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} PolicyInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} PolicyListRequest
  *
- * @typedef {{items: PolicyInstance[]}} PolicyListResponse
+ * @typedef {import('../types/api/v1.js').operations['listPolicies']['responses']['200']['content']['application/json']} PolicyListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: PolicyInstance
- * }} PolicyListStreamItemType
- *
- * @typedef {PolicyListStreamItemType} PolicyListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listPolicies']['responses']['200']['content']['application/jsonl']} PolicyListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PolicyListRequest} [request]
@@ -48,18 +27,14 @@
 export function listPolicies(client, request) {
   let url = `/api/v1/policy/list`
 
-  /** @typedef {import('../types/api/v1.js').operations['listPolicies']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['listPolicies']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<PolicyListResponse,PolicyListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {PolicyOptions & {
- *   type: string
- * }} PolicyFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchPolicy']['responses']['200']['content']['application/json']} PolicyFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} policyId
@@ -68,20 +43,24 @@ export function listPolicies(client, request) {
 export function fetchPolicy(client, policyId) {
   const url = `/api/v1/policy/${policyId}/fetch`
 
-  /** @typedef {import('../types/api/v1.js').operations['fetchPolicy']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<PolicyFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {PolicyOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   meta?: Record<string,any>,
+ *   type: 'retention',
+ *   config?: Record<string,any>
  * }} PolicyCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} PolicyCreateResponse
+ * @typedef {import('../types/api/v1.js').operations['createPolicy']['requestBody']['content']['application/json']} PolicyCreateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['createPolicy']['responses']['200']['content']['application/json']} PolicyCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {PolicyCreateRequest} request
@@ -90,9 +69,9 @@ export function fetchPolicy(client, policyId) {
 export async function createPolicy(client, request) {
   const url = `/api/v1/policy/create`
 
-  /** @type {import('../types/api/v1.js').operations['createPolicy']['responses']['200']['content']['application/json']} */
+  /** @type {PolicyCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['createPolicy']['requestBody']['content']['application/json']} */
+    /** @type {PolicyCreateRequestBody} */
     record: {
       ...request,
     },
@@ -102,12 +81,17 @@ export async function createPolicy(client, request) {
 }
 
 /**
- * @typedef {PolicyOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   meta?: Record<string,any>,
+ *   type?: 'retention',
+ *   config?: Record<string,any>
  * }} PolicyUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} PolicyUpdateResponse
+ * @typedef {import('../types/api/v1.js').operations['updatePolicy']['requestBody']['content']['application/json']} PolicyUpdateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['updatePolicy']['responses']['200']['content']['application/json']} PolicyUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} policyId
@@ -117,9 +101,9 @@ export async function createPolicy(client, request) {
 export async function updatePolicy(client, policyId, request) {
   const url = `/api/v1/policy/${policyId}/update`
 
-  /** @type {import('../types/api/v1.js').operations['updatePolicy']['responses']['200']['content']['application/json']} */
+  /** @type {PolicyUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['updatePolicy']['requestBody']['content']['application/json']} */
+    /** @type {PolicyUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -129,9 +113,9 @@ export async function updatePolicy(client, policyId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} PolicyDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deletePolicy']['requestBody']['content']['application/json']} PolicyDeleteRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['deletePolicy']['responses']['200']['content']['application/json']} PolicyDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} policyId
@@ -140,9 +124,9 @@ export async function updatePolicy(client, policyId, request) {
 export async function deletePolicy(client, policyId) {
   const url = `/api/v1/policy/${policyId}/delete`
 
-  /** @type {import('../types/api/v1.js').operations['deletePolicy']['responses']['200']['content']['application/json']} */
+  /** @type {PolicyDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['deletePolicy']['requestBody']['content']['application/json']} */
+    /** @type {PolicyDeleteRequestBody} */
     record: {},
   })
 
