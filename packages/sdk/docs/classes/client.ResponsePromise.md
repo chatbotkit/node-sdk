@@ -81,47 +81,53 @@
 
 #### Defined in
 
-[client.js:225](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L225)
+[client.js:239](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L239)
 
 ___
 
 ### catch
 
-▸ **catch**(`fn`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
+▸ **catch**\<`TResult`\>(`fn?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T` \| `TResult`\>
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `TResult` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `fn` | (...`args`: `any`[]) => `any` |
+| `fn?` | (`reason`: `any`) => `TResult` \| `PromiseLike`\<`TResult`\> |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`any`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T` \| `TResult`\>
 
 #### Defined in
 
-[client.js:196](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L196)
+[client.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L200)
 
 ___
 
 ### finally
 
-▸ **finally**(`fn`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
+▸ **finally**(`fn?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `fn` | (...`args`: `any`[]) => `any` |
+| `fn?` | () => `void` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Response`]( https://developer.mozilla.org/docs/Web/API/Response )\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>
 
 #### Defined in
 
-[client.js:203](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L203)
+[client.js:208](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L208)
 
 ___
 
@@ -163,25 +169,32 @@ ___
 
 #### Defined in
 
-[client.js:210](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L210)
+[client.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L224)
 
 ___
 
 ### then
 
-▸ **then**(`onSuccess`, `onFail`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>
+▸ **then**\<`TResult1`, `TResult2`\>(`onSuccess?`, `onFail?`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`TResult1` \| `TResult2`\>
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `TResult1` |
+| `TResult2` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `onSuccess` | (...`args`: `any`[]) => `any` |
-| `onFail` | (...`args`: `any`[]) => `any` |
+| `onSuccess?` | (`value`: `T`) => `TResult1` \| `PromiseLike`\<`TResult1`\> |
+| `onFail?` | (`reason`: `any`) => `TResult2` \| `PromiseLike`\<`TResult2`\> |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`T`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`TResult1` \| `TResult2`\>
 
 #### Defined in
 
-[client.js:173](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L173)
+[client.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L175)

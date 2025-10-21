@@ -70,19 +70,24 @@ export class ResponsePromise<T, U> {
     getFetchPromise(): Promise<Response>;
     getStreamPromise(): Promise<Response>;
     /**
-     * @param {(...args: any[]) => any} onSuccess
-     * @param {(...args: any[]) => any} onFail
+     * @template TResult1
+     * @template TResult2
+     * @param {((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null} [onSuccess]
+     * @param {((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null} [onFail]
+     * @returns {Promise<TResult1 | TResult2>}
+     */
+    then<TResult1, TResult2>(onSuccess?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onFail?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promise<TResult1 | TResult2>;
+    /**
+     * @template TResult
+     * @param {((reason: any) => TResult | PromiseLike<TResult>) | undefined | null} [fn]
+     * @returns {Promise<T | TResult>}
+     */
+    catch<TResult>(fn?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): Promise<T | TResult>;
+    /**
+     * @param {(() => void) | undefined | null} [fn]
      * @returns {Promise<T>}
      */
-    then(onSuccess: (...args: any[]) => any, onFail: (...args: any[]) => any): Promise<T>;
-    /**
-     * @param {(...args: any[]) => any} fn
-     */
-    catch(fn: (...args: any[]) => any): Promise<any>;
-    /**
-     * @param {(...args: any[]) => any} fn
-     */
-    finally(fn: (...args: any[]) => any): Promise<Response>;
+    finally(fn?: (() => void) | undefined | null): Promise<T>;
     /**
      * @returns {AsyncGenerator<U>}
      */

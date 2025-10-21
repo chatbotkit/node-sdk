@@ -93,7 +93,7 @@ Ability client.
 
 #### Defined in
 
-[client.js:331](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L331)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 

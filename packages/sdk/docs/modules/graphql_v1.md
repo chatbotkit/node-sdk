@@ -54,7 +54,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `data?` | \{ `[key: string]`: `unknown`;  } |
-| `errors?` | \{ `message`: `string`  }[] |
+| `errors?` | \{ `message?`: `string`  }[] |
 
 #### Defined in
 

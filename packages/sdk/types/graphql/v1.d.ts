@@ -20,7 +20,7 @@
  *     [key: string]: unknown
  *   },
  *   errors?: {
- *     message: string
+ *     message?: string
  *   }[]
  * }} GraphqlResponse
  */
@@ -44,6 +44,6 @@ export type GraphqlResponse = {
         [key: string]: unknown;
     };
     errors?: {
-        message: string;
+        message?: string;
     }[];
 };
