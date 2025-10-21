@@ -7,15 +7,14 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_example_v1.md#chatbotkitclient)
+- [PlatformExampleCloneRequestBody](platform_example_v1.md#platformexampleclonerequestbody)
 - [PlatformExampleCloneResponse](platform_example_v1.md#platformexamplecloneresponse)
 - [PlatformExampleFetchResponse](platform_example_v1.md#platformexamplefetchresponse)
-- [PlatformExampleInstance](platform_example_v1.md#platformexampleinstance)
 - [PlatformExampleListRequest](platform_example_v1.md#platformexamplelistrequest)
 - [PlatformExampleListResponse](platform_example_v1.md#platformexamplelistresponse)
-- [PlatformExampleListStreamItemType](platform_example_v1.md#platformexampleliststreamitemtype)
 - [PlatformExampleListStreamType](platform_example_v1.md#platformexampleliststreamtype)
-- [PlatformExampleOptions](platform_example_v1.md#platformexampleoptions)
 - [PlatformExampleSearchRequest](platform_example_v1.md#platformexamplesearchrequest)
+- [PlatformExampleSearchRequestBody](platform_example_v1.md#platformexamplesearchrequestbody)
 - [PlatformExampleSearchResponse](platform_example_v1.md#platformexamplesearchresponse)
 - [ResponsePromise](platform_example_v1.md#responsepromise)
 
@@ -38,39 +37,33 @@
 
 ___
 
-### PlatformExampleCloneResponse
+### PlatformExampleCloneRequestBody
 
-Ƭ **PlatformExampleCloneResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `resources` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, \{ `description?`: `string` ; `id`: `string` ; `name?`: `string`  }[]\> |
+Ƭ **PlatformExampleCloneRequestBody**\<\>: `operations`[``"clonePlatformExample"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[platform/example/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L106)
+[platform/example/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L79)
+
+___
+
+### PlatformExampleCloneResponse
+
+Ƭ **PlatformExampleCloneResponse**\<\>: `operations`[``"clonePlatformExample"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[platform/example/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L81)
 
 ___
 
 ### PlatformExampleFetchResponse
 
-Ƭ **PlatformExampleFetchResponse**\<\>: [`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance)
+Ƭ **PlatformExampleFetchResponse**\<\>: `operations`[``"fetchPlatformExample"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[platform/example/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L60)
-
-___
-
-### PlatformExampleInstance
-
-Ƭ **PlatformExampleInstance**\<\>: [`PlatformExampleOptions`](platform_example_v1.md#platformexampleoptions) & \{ `createdAt`: `number` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[platform/example/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L25)
+[platform/example/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L36)
 
 ___
 
@@ -88,68 +81,23 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L33)
+[platform/example/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L16)
 
 ___
 
 ### PlatformExampleListResponse
 
-Ƭ **PlatformExampleListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance)[] |
+Ƭ **PlatformExampleListResponse**\<\>: `operations`[``"listPlatformExamples"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[platform/example/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L35)
-
-___
-
-### PlatformExampleListStreamItemType
-
-Ƭ **PlatformExampleListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[platform/example/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L40)
+[platform/example/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L18)
 
 ___
 
 ### PlatformExampleListStreamType
 
-Ƭ **PlatformExampleListStreamType**\<\>: [`PlatformExampleListStreamItemType`](platform_example_v1.md#platformexampleliststreamitemtype)
-
-#### Defined in
-
-[platform/example/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L42)
-
-___
-
-### PlatformExampleOptions
-
-Ƭ **PlatformExampleOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `category?` | `string` |
-| `config?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `description?` | `string` |
-| `id` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `tags?` | `string`[] |
+Ƭ **PlatformExampleListStreamType**\<\>: `operations`[``"listPlatformExamples"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
@@ -169,23 +117,27 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L79)
+[platform/example/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L54)
+
+___
+
+### PlatformExampleSearchRequestBody
+
+Ƭ **PlatformExampleSearchRequestBody**\<\>: `operations`[``"searchPlatformExamples"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[platform/example/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L56)
 
 ___
 
 ### PlatformExampleSearchResponse
 
-Ƭ **PlatformExampleSearchResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance)[] |
+Ƭ **PlatformExampleSearchResponse**\<\>: `operations`[``"searchPlatformExamples"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[platform/example/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L83)
+[platform/example/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L58)
 
 ___
 
@@ -208,7 +160,7 @@ ___
 
 ### clonePlatformExample
 
-▸ **clonePlatformExample**(`client`, `exampleId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleCloneResponse`](platform_example_v1.md#platformexamplecloneresponse)\>
+▸ **clonePlatformExample**(`client`, `exampleId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -219,17 +171,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleCloneResponse`](platform_example_v1.md#platformexamplecloneresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[platform/example/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L112)
+[platform/example/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L87)
 
 ___
 
 ### fetchPlatformExample
 
-▸ **fetchPlatformExample**(`client`, `exampleId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance), `never`\>
+▸ **fetchPlatformExample**(`client`, `exampleId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -240,17 +192,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformExampleInstance`](platform_example_v1.md#platformexampleinstance), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[platform/example/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L66)
+[platform/example/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L42)
 
 ___
 
 ### listPlatformExamples
 
-▸ **listPlatformExamples**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformExampleListResponse`](platform_example_v1.md#platformexamplelistresponse), [`PlatformExampleListStreamItemType`](platform_example_v1.md#platformexampleliststreamitemtype)\>
+▸ **listPlatformExamples**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -261,17 +213,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformExampleListResponse`](platform_example_v1.md#platformexamplelistresponse), [`PlatformExampleListStreamItemType`](platform_example_v1.md#platformexampleliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[platform/example/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L48)
+[platform/example/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L26)
 
 ___
 
 ### searchPlatformExamples
 
-▸ **searchPlatformExamples**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](platform_example_v1.md#platformexamplesearchresponse)\>
+▸ **searchPlatformExamples**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -282,8 +234,8 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](platform_example_v1.md#platformexamplesearchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[platform/example/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L89)
+[platform/example/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L64)

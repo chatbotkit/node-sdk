@@ -102,7 +102,7 @@ ___
 
 ### clone
 
-▸ **clone**(`exampleId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleCloneResponse`](../modules/platform_example_v1.md#platformexamplecloneresponse)\>
+▸ **clone**(`exampleId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Clones a platform example.
 
@@ -114,7 +114,7 @@ Clones a platform example.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleCloneResponse`](../modules/platform_example_v1.md#platformexamplecloneresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -124,7 +124,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`exampleId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformExampleInstance`](../modules/platform_example_v1.md#platformexampleinstance), `never`\>
+▸ **fetch**(`exampleId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a platform example.
 
@@ -136,7 +136,7 @@ Fetches a platform example.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformExampleInstance`](../modules/platform_example_v1.md#platformexampleinstance), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -146,7 +146,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformExampleListResponse`](../modules/platform_example_v1.md#platformexamplelistresponse), [`PlatformExampleListStreamItemType`](../modules/platform_example_v1.md#platformexampleliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all platform examples.
 
@@ -158,7 +158,7 @@ Retrieves a list of all platform examples.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformExampleListResponse`](../modules/platform_example_v1.md#platformexamplelistresponse), [`PlatformExampleListStreamItemType`](../modules/platform_example_v1.md#platformexampleliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -168,7 +168,7 @@ ___
 
 ### search
 
-▸ **search**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](../modules/platform_example_v1.md#platformexamplesearchresponse)\>
+▸ **search**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Searches platform examples.
 
@@ -180,7 +180,7 @@ Searches platform examples.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PlatformExampleSearchResponse`](../modules/platform_example_v1.md#platformexamplesearchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
