@@ -1,3 +1,5 @@
+// @todo fix types
+
 /**
  * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */

@@ -50,24 +50,13 @@ export function fetchDiscordIntegration(client, discordId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   appId?: string,
- *   botToken?: string,
- *   publicKey?: string,
- *   handle?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} DiscordIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationCreateResponse
+ * @typedef {DiscordIntegrationCreateRequestBody} DiscordIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationCreateResponseBody
+ *
+ * @typedef {DiscordIntegrationCreateResponseBody} DiscordIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {DiscordIntegrationCreateRequest} request
@@ -76,7 +65,7 @@ export function fetchDiscordIntegration(client, discordId) {
 export async function createDiscordIntegration(client, request) {
   const url = `/api/v1/integration/discord/create`
 
-  /** @type {DiscordIntegrationCreateResponse} */
+  /** @type {DiscordIntegrationCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DiscordIntegrationCreateRequestBody} */
     record: {
@@ -88,24 +77,13 @@ export async function createDiscordIntegration(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   appId?: string,
- *   botToken?: string,
- *   publicKey?: string,
- *   handle?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} DiscordIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationUpdateResponse
+ * @typedef {DiscordIntegrationUpdateRequestBody} DiscordIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationUpdateResponseBody
+ *
+ * @typedef {DiscordIntegrationUpdateResponseBody} DiscordIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
@@ -115,7 +93,7 @@ export async function createDiscordIntegration(client, request) {
 export async function updateDiscordIntegration(client, discordId, request) {
   const url = `/api/v1/integration/discord/${discordId}/update`
 
-  /** @type {DiscordIntegrationUpdateResponse} */
+  /** @type {DiscordIntegrationUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DiscordIntegrationUpdateRequestBody} */
     record: {
@@ -129,7 +107,11 @@ export async function updateDiscordIntegration(client, discordId, request) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationDeleteResponse
+ * @typedef {DiscordIntegrationDeleteRequestBody} DiscordIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationDeleteResponseBody
+ *
+ * @typedef {DiscordIntegrationDeleteResponseBody} DiscordIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
@@ -138,7 +120,7 @@ export async function updateDiscordIntegration(client, discordId, request) {
 export async function deleteDiscordIntegration(client, discordId) {
   const url = `/api/v1/integration/discord/${discordId}/delete`
 
-  /** @type {DiscordIntegrationDeleteResponse} */
+  /** @type {DiscordIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DiscordIntegrationDeleteRequestBody} */
     record: {},
@@ -150,7 +132,11 @@ export async function deleteDiscordIntegration(client, discordId) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationSetupRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['setupDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationSetupResponse
+ * @typedef {DiscordIntegrationSetupRequestBody} DiscordIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationSetupResponseBody
+ *
+ * @typedef {DiscordIntegrationSetupResponseBody} DiscordIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
@@ -159,7 +145,7 @@ export async function deleteDiscordIntegration(client, discordId) {
 export async function setupDiscordIntegration(client, discordId) {
   const url = `/api/v1/integration/discord/${discordId}/setup`
 
-  /** @type {DiscordIntegrationSetupResponse} */
+  /** @type {DiscordIntegrationSetupResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DiscordIntegrationSetupRequestBody} */
     record: {},

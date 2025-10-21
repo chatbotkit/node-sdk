@@ -1,5 +1,7 @@
 import { buildModelString } from '../model/v1.js'
 
+// @todo requires type refactoring
+
 /**
  * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */

@@ -3,14 +3,13 @@
  */
 
 /**
- * @typedef {{
- *   durationInSeconds?: number
- * }} ConversationSessionCreateRequest
+ * @typedef {import('../../types/api/v1.js').operations['createConversationSession']['requestBody']['content']['application/json']} ConversationSessionCreateRequestBody
  *
- * @typedef {{
- *   token: string,
- *   expiresAt: number
- * }} ConversationSessionCreateResponse
+ * @typedef {ConversationSessionCreateRequestBody} ConversationSessionCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createConversationSession']['responses']['200']['content']['application/json']} ConversationSessionCreateResponseBody
+ *
+ * @typedef {ConversationSessionCreateResponseBody} ConversationSessionCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -24,9 +23,9 @@ export async function createConversationSession(
 ) {
   const url = `/api/v1/conversation/${conversationId}/session/create`
 
-  /** @type {import('../../types/api/v1.js').operations['createConversationSession']['responses']['200']['content']['application/json']} */
+  /** @type {ConversationSessionCreateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['createConversationSession']['requestBody']['content']['application/json']} */
+    /** @type {ConversationSessionCreateRequestBody} */
     record: {
       ...request,
     },

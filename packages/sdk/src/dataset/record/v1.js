@@ -52,17 +52,13 @@ export function fetchDatasetRecord(client, datasetId, recordId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   text: string,
- *   source?: string,
- *   meta?: Record<string,any>
- * }} DatasetRecordCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createDatasetRecord']['requestBody']['content']['application/json']} DatasetRecordCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordCreateResponse
+ * @typedef {DatasetRecordCreateRequestBody} DatasetRecordCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordCreateResponseBody
+ *
+ * @typedef {DatasetRecordCreateResponseBody} DatasetRecordCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -72,7 +68,7 @@ export function fetchDatasetRecord(client, datasetId, recordId) {
 export async function createDatasetRecord(client, datasetId, request) {
   const url = `/api/v1/dataset/${datasetId}/record/create`
 
-  /** @type {DatasetRecordCreateResponse} */
+  /** @type {DatasetRecordCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DatasetRecordCreateRequestBody} */
     record: {
@@ -84,17 +80,13 @@ export async function createDatasetRecord(client, datasetId, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   text?: string,
- *   source?: string,
- *   meta?: Record<string,any>
- * }} DatasetRecordUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateDatasetRecord']['requestBody']['content']['application/json']} DatasetRecordUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordUpdateResponse
+ * @typedef {DatasetRecordUpdateRequestBody} DatasetRecordUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordUpdateResponseBody
+ *
+ * @typedef {DatasetRecordUpdateResponseBody} DatasetRecordUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -110,7 +102,7 @@ export async function updateDatasetRecord(
 ) {
   const url = `/api/v1/dataset/${datasetId}/record/${recordId}/update`
 
-  /** @type {DatasetRecordUpdateResponse} */
+  /** @type {DatasetRecordUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DatasetRecordUpdateRequestBody} */
     record: {
@@ -124,7 +116,11 @@ export async function updateDatasetRecord(
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteDatasetRecord']['requestBody']['content']['application/json']} DatasetRecordDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordDeleteResponse
+ * @typedef {DatasetRecordDeleteRequestBody} DatasetRecordDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordDeleteResponseBody
+ *
+ * @typedef {DatasetRecordDeleteResponseBody} DatasetRecordDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -134,7 +130,7 @@ export async function updateDatasetRecord(
 export async function deleteDatasetRecord(client, datasetId, recordId) {
   const url = `/api/v1/dataset/${datasetId}/record/${recordId}/delete`
 
-  /** @type {DatasetRecordDeleteResponse} */
+  /** @type {DatasetRecordDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DatasetRecordDeleteRequestBody} */
     record: {},

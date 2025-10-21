@@ -54,15 +54,13 @@ export function fetchConversationMessage(client, conversationId, messageId) {
 }
 
 /**
- * @typedef {{
- *   type: ConversationMessageType,
- *   text: string,
- *   meta?: Record<string,any>
- * }} ConversationMessageCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createConversationMessage']['requestBody']['content']['application/json']} ConversationMessageCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageCreateResponse
+ * @typedef {ConversationMessageCreateRequestBody} ConversationMessageCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageCreateResponseBody
+ *
+ * @typedef {ConversationMessageCreateResponseBody} ConversationMessageCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -76,7 +74,7 @@ export async function createConversationMessage(
 ) {
   const url = `/api/v1/conversation/${conversationId}/message/create`
 
-  /** @type {ConversationMessageCreateResponse} */
+  /** @type {ConversationMessageCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ConversationMessageCreateRequestBody} */
     record: {
@@ -88,15 +86,13 @@ export async function createConversationMessage(
 }
 
 /**
- * @typedef {{
- *   type?: ConversationMessageType,
- *   text?: string,
- *   meta?: Record<string,any>
- * }} ConversationMessageUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateConversationMessage']['requestBody']['content']['application/json']} ConversationMessageUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpdateResponse
+ * @typedef {ConversationMessageUpdateRequestBody} ConversationMessageUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpdateResponseBody
+ *
+ * @typedef {ConversationMessageUpdateResponseBody} ConversationMessageUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -112,7 +108,7 @@ export async function updateConversationMessage(
 ) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/update`
 
-  /** @type {ConversationMessageUpdateResponse} */
+  /** @type {ConversationMessageUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ConversationMessageUpdateRequestBody} */
     record: {
@@ -126,7 +122,11 @@ export async function updateConversationMessage(
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDeleteResponse
+ * @typedef {ConversationMessageDeleteRequestBody} ConversationMessageDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDeleteResponseBody
+ *
+ * @typedef {ConversationMessageDeleteResponseBody} ConversationMessageDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -140,7 +140,7 @@ export async function deleteConversationMessage(
 ) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/delete`
 
-  /** @type {ConversationMessageDeleteResponse} */
+  /** @type {ConversationMessageDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ConversationMessageDeleteRequestBody} */
     record: {},
@@ -150,13 +150,13 @@ export async function deleteConversationMessage(
 }
 
 /**
- * @typedef {{
- *   value?: number
- * }} ConversationMessageUpvoteRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageUpvoteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpvoteResponse
+ * @typedef {ConversationMessageUpvoteRequestBody} ConversationMessageUpvoteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpvoteResponseBody
+ *
+ * @typedef {ConversationMessageUpvoteResponseBody} ConversationMessageUpvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -172,12 +172,10 @@ export async function upvoteConversationMessage(
 ) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/upvote`
 
-  /** @type {ConversationMessageUpvoteResponse} */
+  /** @type {ConversationMessageUpvoteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ConversationMessageUpvoteRequestBody} */
     record: {
-      value: 100, // @todo remove once the type is fixed
-
       ...request,
     },
   })
@@ -186,13 +184,13 @@ export async function upvoteConversationMessage(
 }
 
 /**
- * @typedef {{
- *   value?: number
- * }} ConversationMessageDownvoteRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['downvoteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageDownvoteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['downvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDownvoteResponse
+ * @typedef {ConversationMessageDownvoteRequestBody} ConversationMessageDownvoteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['downvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDownvoteResponseBody
+ *
+ * @typedef {ConversationMessageDownvoteResponseBody} ConversationMessageDownvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -208,12 +206,10 @@ export async function downvoteConversationMessage(
 ) {
   const url = `/api/v1/conversation/${conversationId}/message/${messageId}/downvote`
 
-  /** @type {ConversationMessageDownvoteResponse} */
+  /** @type {ConversationMessageDownvoteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ConversationMessageDownvoteRequestBody} */
     record: {
-      value: -100, // @todo remove once the type is fixed
-
       ...request,
     },
   })

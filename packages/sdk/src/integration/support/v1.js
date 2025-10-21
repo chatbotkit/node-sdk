@@ -50,20 +50,13 @@ export function fetchSupportIntegration(client, supportId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   botId: string,
- *   email?: string,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SupportIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createSupportIntegration']['requestBody']['content']['application/json']} SupportIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationCreateResponse
+ * @typedef {SupportIntegrationCreateRequestBody} SupportIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationCreateResponseBody
+ *
+ * @typedef {SupportIntegrationCreateResponseBody} SupportIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {SupportIntegrationCreateRequest} request
@@ -72,7 +65,7 @@ export function fetchSupportIntegration(client, supportId) {
 export async function createSupportIntegration(client, request) {
   const url = `/api/v1/integration/support/create`
 
-  /** @type {SupportIntegrationCreateResponse} */
+  /** @type {SupportIntegrationCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SupportIntegrationCreateRequestBody} */
     record: {
@@ -84,20 +77,13 @@ export async function createSupportIntegration(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   botId?: string,
- *   email?: string,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SupportIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateSupportIntegration']['requestBody']['content']['application/json']} SupportIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationUpdateResponse
+ * @typedef {SupportIntegrationUpdateRequestBody} SupportIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationUpdateResponseBody
+ *
+ * @typedef {SupportIntegrationUpdateResponseBody} SupportIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} supportId
@@ -107,7 +93,7 @@ export async function createSupportIntegration(client, request) {
 export async function updateSupportIntegration(client, supportId, request) {
   const url = `/api/v1/integration/support/${supportId}/update`
 
-  /** @type {SupportIntegrationUpdateResponse} */
+  /** @type {SupportIntegrationUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SupportIntegrationUpdateRequestBody} */
     record: {
@@ -121,7 +107,11 @@ export async function updateSupportIntegration(client, supportId, request) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteSupportIntegration']['requestBody']['content']['application/json']} SupportIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationDeleteResponse
+ * @typedef {SupportIntegrationDeleteRequestBody} SupportIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationDeleteResponseBody
+ *
+ * @typedef {SupportIntegrationDeleteResponseBody} SupportIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} supportId
@@ -130,7 +120,7 @@ export async function updateSupportIntegration(client, supportId, request) {
 export async function deleteSupportIntegration(client, supportId) {
   const url = `/api/v1/integration/support/${supportId}/delete`
 
-  /** @type {SupportIntegrationDeleteResponse} */
+  /** @type {SupportIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SupportIntegrationDeleteRequestBody} */
     record: {},

@@ -50,22 +50,13 @@ export function fetchMessengerIntegration(client, messengerId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   accessToken?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   attachments?: boolean,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} MessengerIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationCreateResponse
+ * @typedef {MessengerIntegrationCreateRequestBody} MessengerIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationCreateResponseBody
+ *
+ * @typedef {MessengerIntegrationCreateResponseBody} MessengerIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {MessengerIntegrationCreateRequest} request
@@ -74,7 +65,7 @@ export function fetchMessengerIntegration(client, messengerId) {
 export async function createMessengerIntegration(client, request) {
   const url = `/api/v1/integration/messenger/create`
 
-  /** @type {MessengerIntegrationCreateResponse} */
+  /** @type {MessengerIntegrationCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {MessengerIntegrationCreateRequestBody} */
     record: {
@@ -86,22 +77,13 @@ export async function createMessengerIntegration(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   accessToken?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   attachments?: boolean,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} MessengerIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationUpdateResponse
+ * @typedef {MessengerIntegrationUpdateRequestBody} MessengerIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationUpdateResponseBody
+ *
+ * @typedef {MessengerIntegrationUpdateResponseBody} MessengerIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
@@ -111,7 +93,7 @@ export async function createMessengerIntegration(client, request) {
 export async function updateMessengerIntegration(client, messengerId, request) {
   const url = `/api/v1/integration/messenger/${messengerId}/update`
 
-  /** @type {MessengerIntegrationUpdateResponse} */
+  /** @type {MessengerIntegrationUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {MessengerIntegrationUpdateRequestBody} */
     record: {
@@ -125,7 +107,11 @@ export async function updateMessengerIntegration(client, messengerId, request) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationDeleteResponse
+ * @typedef {MessengerIntegrationDeleteRequestBody} MessengerIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationDeleteResponseBody
+ *
+ * @typedef {MessengerIntegrationDeleteResponseBody} MessengerIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
@@ -134,7 +120,7 @@ export async function updateMessengerIntegration(client, messengerId, request) {
 export async function deleteMessengerIntegration(client, messengerId) {
   const url = `/api/v1/integration/messenger/${messengerId}/delete`
 
-  /** @type {MessengerIntegrationDeleteResponse} */
+  /** @type {MessengerIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {MessengerIntegrationDeleteRequestBody} */
     record: {},
@@ -146,7 +132,11 @@ export async function deleteMessengerIntegration(client, messengerId) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationSetupRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['setupMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationSetupResponse
+ * @typedef {MessengerIntegrationSetupRequestBody} MessengerIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationSetupResponseBody
+ *
+ * @typedef {MessengerIntegrationSetupResponseBody} MessengerIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
@@ -155,7 +145,7 @@ export async function deleteMessengerIntegration(client, messengerId) {
 export async function setupMessengerIntegration(client, messengerId) {
   const url = `/api/v1/integration/messenger/${messengerId}/setup`
 
-  /** @type {MessengerIntegrationSetupResponse} */
+  /** @type {MessengerIntegrationSetupResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {MessengerIntegrationSetupRequestBody} */
     record: {},

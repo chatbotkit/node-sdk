@@ -1,5 +1,7 @@
 import { getBuffer } from '../buffer.js'
 
+// @todo improve types
+
 /**
  * @typedef {import('../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -52,17 +54,13 @@ export function fetchFile(client, fileId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} FileCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createFile']['requestBody']['content']['application/json']} FileCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createFile']['responses']['200']['content']['application/json']} FileCreateResponse
+ * @typedef {FileCreateRequestBody} FileCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createFile']['responses']['200']['content']['application/json']} FileCreateResponseBody
+ *
+ * @typedef {FileCreateResponseBody} FileCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {FileCreateRequest} request
@@ -71,7 +69,7 @@ export function fetchFile(client, fileId) {
 export async function createFile(client, request) {
   const url = `/api/v1/file/create`
 
-  /** @type {FileCreateResponse} */
+  /** @type {FileCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {FileCreateRequestBody} */
     record: {
@@ -83,17 +81,13 @@ export async function createFile(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} FileUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateFile']['requestBody']['content']['application/json']} FileUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateFile']['responses']['200']['content']['application/json']} FileUpdateResponse
+ * @typedef {FileUpdateRequestBody} FileUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateFile']['responses']['200']['content']['application/json']} FileUpdateResponseBody
+ *
+ * @typedef {FileUpdateResponseBody} FileUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
@@ -103,7 +97,7 @@ export async function createFile(client, request) {
 export async function updateFile(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/update`
 
-  /** @type {FileUpdateResponse} */
+  /** @type {FileUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {FileUpdateRequestBody} */
     record: {
@@ -117,7 +111,11 @@ export async function updateFile(client, fileId, request) {
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteFile']['requestBody']['content']['application/json']} FileDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteFile']['responses']['200']['content']['application/json']} FileDeleteResponse
+ * @typedef {FileDeleteRequestBody} FileDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteFile']['responses']['200']['content']['application/json']} FileDeleteResponseBody
+ *
+ * @typedef {FileDeleteResponseBody} FileDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
@@ -126,7 +124,7 @@ export async function updateFile(client, fileId, request) {
 export async function deleteFile(client, fileId) {
   const url = `/api/v1/file/${fileId}/delete`
 
-  /** @type {FileDeleteResponse} */
+  /** @type {FileDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {FileDeleteRequestBody} */
     record: {},
@@ -136,15 +134,17 @@ export async function deleteFile(client, fileId) {
 }
 
 /**
+ * @typedef {import('../types/api/v1.js').operations['uploadFile']['requestBody']['content']['application/json']} FileUploadRequestBody
+ *
  * @typedef {{
  *   data: string|ArrayBuffer
  *   type: string,
  *   name?: string,
  * }} FileUploadRequest
  *
- * @typedef {import('../types/api/v1.js').operations['uploadFile']['requestBody']['content']['application/json']} FileUploadRequestBody
+ * @typedef {import('../types/api/v1.js').operations['uploadFile']['responses']['200']['content']['application/json']} FileUploadResponseBody
  *
- * @typedef {import('../types/api/v1.js').operations['uploadFile']['responses']['200']['content']['application/json']} FileUploadResponse
+ * @typedef {FileUploadResponseBody} FileUploadResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
@@ -156,7 +156,7 @@ export async function uploadFile(client, fileId, request) {
 
   const buffer = getBuffer(request.data)
 
-  /** @type {FileUploadResponse} */
+  /** @type {FileUploadResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {FileUploadRequestBody} */
     record: {

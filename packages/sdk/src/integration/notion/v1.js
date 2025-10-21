@@ -50,20 +50,13 @@ export function fetchNotionIntegration(client, notionId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   datasetId: string,
- *   token?: string,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} NotionIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationCreateResponse
+ * @typedef {NotionIntegrationCreateRequestBody} NotionIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationCreateResponseBody
+ *
+ * @typedef {NotionIntegrationCreateResponseBody} NotionIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {NotionIntegrationCreateRequest} request
@@ -72,7 +65,7 @@ export function fetchNotionIntegration(client, notionId) {
 export async function createNotionIntegration(client, request) {
   const url = `/api/v1/integration/notion/create`
 
-  /** @type {NotionIntegrationCreateResponse} */
+  /** @type {NotionIntegrationCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {NotionIntegrationCreateRequestBody} */
     record: {
@@ -84,20 +77,13 @@ export async function createNotionIntegration(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   datasetId?: string,
- *   token?: string,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} NotionIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationUpdateResponse
+ * @typedef {NotionIntegrationUpdateRequestBody} NotionIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationUpdateResponseBody
+ *
+ * @typedef {NotionIntegrationUpdateResponseBody} NotionIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
@@ -107,7 +93,7 @@ export async function createNotionIntegration(client, request) {
 export async function updateNotionIntegration(client, notionId, request) {
   const url = `/api/v1/integration/notion/${notionId}/update`
 
-  /** @type {NotionIntegrationUpdateResponse} */
+  /** @type {NotionIntegrationUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {NotionIntegrationUpdateRequestBody} */
     record: {
@@ -121,7 +107,11 @@ export async function updateNotionIntegration(client, notionId, request) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationDeleteResponse
+ * @typedef {NotionIntegrationDeleteRequestBody} NotionIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationDeleteResponseBody
+ *
+ * @typedef {NotionIntegrationDeleteResponseBody} NotionIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
@@ -130,7 +120,7 @@ export async function updateNotionIntegration(client, notionId, request) {
 export async function deleteNotionIntegration(client, notionId) {
   const url = `/api/v1/integration/notion/${notionId}/delete`
 
-  /** @type {NotionIntegrationDeleteResponse} */
+  /** @type {NotionIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {NotionIntegrationDeleteRequestBody} */
     record: {},
@@ -142,7 +132,11 @@ export async function deleteNotionIntegration(client, notionId) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['syncNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationSyncRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['syncNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationSyncResponse
+ * @typedef {NotionIntegrationSyncRequestBody} NotionIntegrationSyncRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['syncNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationSyncResponseBody
+ *
+ * @typedef {NotionIntegrationSyncResponseBody} NotionIntegrationSyncResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
@@ -151,7 +145,7 @@ export async function deleteNotionIntegration(client, notionId) {
 export async function syncNotionIntegration(client, notionId) {
   const url = `/api/v1/integration/notion/${notionId}/sync`
 
-  /** @type {NotionIntegrationSyncResponse} */
+  /** @type {NotionIntegrationSyncResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {NotionIntegrationSyncRequestBody} */
     record: {},

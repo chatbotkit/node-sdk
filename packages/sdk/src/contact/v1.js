@@ -50,21 +50,13 @@ export function fetchContact(client, contactId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   fingerprint?: string,
- *   email?: string,
- *   phone?: string,
- *   nick?: string,
- *   preferences?: string,
- *   verifiedAt?: number,
- *   meta?: Record<string,any>
- * }} ContactCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createContact']['requestBody']['content']['application/json']} ContactCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createContact']['responses']['200']['content']['application/json']} ContactCreateResponse
+ * @typedef {ContactCreateRequestBody} ContactCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createContact']['responses']['200']['content']['application/json']} ContactCreateResponseBody
+ *
+ * @typedef {ContactCreateResponseBody} ContactCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ContactCreateRequest} request
@@ -73,7 +65,7 @@ export function fetchContact(client, contactId) {
 export async function createContact(client, request) {
   const url = `/api/v1/contact/create`
 
-  /** @type {ContactCreateResponse} */
+  /** @type {ContactCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ContactCreateRequestBody} */
     record: {
@@ -85,21 +77,13 @@ export async function createContact(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   fingerprint?: string,
- *   email?: string,
- *   phone?: string,
- *   nick?: string,
- *   preferences?: string,
- *   verifiedAt?: number,
- *   meta?: Record<string,any>
- * }} ContactUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateContact']['requestBody']['content']['application/json']} ContactUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateContact']['responses']['200']['content']['application/json']} ContactUpdateResponse
+ * @typedef {ContactUpdateRequestBody} ContactUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateContact']['responses']['200']['content']['application/json']} ContactUpdateResponseBody
+ *
+ * @typedef {ContactUpdateResponseBody} ContactUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -109,7 +93,7 @@ export async function createContact(client, request) {
 export async function updateContact(client, contactId, request) {
   const url = `/api/v1/contact/${contactId}/update`
 
-  /** @type {ContactUpdateResponse} */
+  /** @type {ContactUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ContactUpdateRequestBody} */
     record: {
@@ -123,7 +107,11 @@ export async function updateContact(client, contactId, request) {
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteContact']['requestBody']['content']['application/json']} ContactDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteContact']['responses']['200']['content']['application/json']} ContactDeleteResponse
+ * @typedef {ContactDeleteRequestBody} ContactDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteContact']['responses']['200']['content']['application/json']} ContactDeleteResponseBody
+ *
+ * @typedef {ContactDeleteResponseBody} ContactDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -132,7 +120,7 @@ export async function updateContact(client, contactId, request) {
 export async function deleteContact(client, contactId) {
   const url = `/api/v1/contact/${contactId}/delete`
 
-  /** @type {ContactDeleteResponse} */
+  /** @type {ContactDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ContactDeleteRequestBody} */
     record: {},
@@ -142,21 +130,13 @@ export async function deleteContact(client, contactId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   fingerprint: string,
- *   email?: string,
- *   phone?: string,
- *   nick?: string,
- *   preferences?: string,
- *   verifiedAt?: number,
- *   meta?: Record<string,any>
- * }} ContactEnsureRequest
- *
  * @typedef {import('../types/api/v1.js').operations['ensureContact']['requestBody']['content']['application/json']} ContactEnsureRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['ensureContact']['responses']['200']['content']['application/json']} ContactEnsureResponse
+ * @typedef {ContactEnsureRequestBody} ContactEnsureRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['ensureContact']['responses']['200']['content']['application/json']} ContactEnsureResponseBody
+ *
+ * @typedef {ContactEnsureResponseBody} ContactEnsureResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ContactEnsureRequest} request
@@ -165,7 +145,7 @@ export async function deleteContact(client, contactId) {
 export async function ensureContact(client, request) {
   const url = `/api/v1/contact/ensure`
 
-  /** @type {ContactEnsureResponse} */
+  /** @type {ContactEnsureResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ContactEnsureRequestBody} */
     record: {

@@ -50,17 +50,13 @@ export function fetchMcpServerIntegration(client, mcpserverId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>,
- *   blueprintId?: string,
- *   skillsetId?: string
- * }} McpServerIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createMcpServerIntegration']['requestBody']['content']['application/json']} McpServerIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationCreateResponse
+ * @typedef {McpServerIntegrationCreateRequestBody} McpServerIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationCreateResponseBody
+ *
+ * @typedef {McpServerIntegrationCreateResponseBody} McpServerIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {McpServerIntegrationCreateRequest} request
@@ -69,7 +65,7 @@ export function fetchMcpServerIntegration(client, mcpserverId) {
 export async function createMcpServerIntegration(client, request) {
   const url = `/api/v1/integration/mcpserver/create`
 
-  /** @type {McpServerIntegrationCreateResponse} */
+  /** @type {McpServerIntegrationCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {McpServerIntegrationCreateRequestBody} */
     record: {
@@ -81,17 +77,13 @@ export async function createMcpServerIntegration(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>,
- *   blueprintId?: string,
- *   skillsetId?: string
- * }} McpServerIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateMcpServerIntegration']['requestBody']['content']['application/json']} McpServerIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationUpdateResponse
+ * @typedef {McpServerIntegrationUpdateRequestBody} McpServerIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationUpdateResponseBody
+ *
+ * @typedef {McpServerIntegrationUpdateResponseBody} McpServerIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} mcpserverId
@@ -101,7 +93,7 @@ export async function createMcpServerIntegration(client, request) {
 export async function updateMcpServerIntegration(client, mcpserverId, request) {
   const url = `/api/v1/integration/mcpserver/${mcpserverId}/update`
 
-  /** @type {McpServerIntegrationUpdateResponse} */
+  /** @type {McpServerIntegrationUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {McpServerIntegrationUpdateRequestBody} */
     record: {
@@ -115,7 +107,11 @@ export async function updateMcpServerIntegration(client, mcpserverId, request) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteMcpServerIntegration']['requestBody']['content']['application/json']} McpServerIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationDeleteResponse
+ * @typedef {McpServerIntegrationDeleteRequestBody} McpServerIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationDeleteResponseBody
+ *
+ * @typedef {McpServerIntegrationDeleteResponseBody} McpServerIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} mcpserverId
@@ -124,7 +120,7 @@ export async function updateMcpServerIntegration(client, mcpserverId, request) {
 export async function deleteMcpServerIntegration(client, mcpserverId) {
   const url = `/api/v1/integration/mcpserver/${mcpserverId}/delete`
 
-  /** @type {McpServerIntegrationDeleteResponse} */
+  /** @type {McpServerIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {McpServerIntegrationDeleteRequestBody} */
     record: {},
