@@ -51,22 +51,22 @@ This tracks the progress of applying the type pattern from `SDK_TYPE_PATTERN.md`
 - ❌ `src/platform/model/v1.js` - **TODO**
 - ❌ `src/platform/secret/v1.js` - **TODO**
 
-## Integrations (15 files)
+## Integrations (14 files) ✅ COMPLETED
 
 - ✅ `src/integration/discord/v1.js` - Completed
 - ✅ `src/integration/email/v1.js` - Completed
 - ✅ `src/integration/extract/v1.js` - Completed
 - ✅ `src/integration/mcpserver/v1.js` - Completed
 - ✅ `src/integration/messenger/v1.js` - Completed
-- ❌ `src/integration/notion/v1.js` - **IN PROGRESS**
-- ❌ `src/integration/sitemap/v1.js` - **IN PROGRESS**
+- ✅ `src/integration/notion/v1.js` - Completed
+- ✅ `src/integration/sitemap/v1.js` - Completed
 - ✅ `src/integration/slack/v1.js` - Completed
-- ❌ `src/integration/support/v1.js` - **IN PROGRESS**
-- ❌ `src/integration/telegram/v1.js` - **IN PROGRESS**
-- ❌ `src/integration/trigger/v1.js` - **IN PROGRESS**
-- ❌ `src/integration/twilio/v1.js` - **IN PROGRESS**
-- ❌ `src/integration/whatsapp/v1.js` - **IN PROGRESS**
-- ❌ `src/integration/widget/v1.js` - **IN PROGRESS**
+- ✅ `src/integration/support/v1.js` - Completed
+- ✅ `src/integration/telegram/v1.js` - Completed
+- ✅ `src/integration/trigger/v1.js` - Completed
+- ✅ `src/integration/twilio/v1.js` - Completed
+- ✅ `src/integration/whatsapp/v1.js` - Completed
+- `src/integration/widget/v1.js` - Not Started
 
 ---
 
