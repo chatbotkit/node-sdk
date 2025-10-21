@@ -32,17 +32,13 @@ export function listPolicies(client: ChatBotKitClient, request?: PolicyListReque
  */
 export function fetchPolicy(client: ChatBotKitClient, policyId: string): ResponsePromise<PolicyFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>,
- *   type: 'retention',
- *   config?: Record<string,any>
- * }} PolicyCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createPolicy']['requestBody']['content']['application/json']} PolicyCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createPolicy']['responses']['200']['content']['application/json']} PolicyCreateResponse
+ * @typedef {PolicyCreateRequestBody} PolicyCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createPolicy']['responses']['200']['content']['application/json']} PolicyCreateResponseBody
+ *
+ * @typedef {PolicyCreateResponseBody} PolicyCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {PolicyCreateRequest} request
@@ -50,17 +46,13 @@ export function fetchPolicy(client: ChatBotKitClient, policyId: string): Respons
  */
 export function createPolicy(client: ChatBotKitClient, request: PolicyCreateRequest): Promise<PolicyCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>,
- *   type?: 'retention',
- *   config?: Record<string,any>
- * }} PolicyUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updatePolicy']['requestBody']['content']['application/json']} PolicyUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updatePolicy']['responses']['200']['content']['application/json']} PolicyUpdateResponse
+ * @typedef {PolicyUpdateRequestBody} PolicyUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updatePolicy']['responses']['200']['content']['application/json']} PolicyUpdateResponseBody
+ *
+ * @typedef {PolicyUpdateResponseBody} PolicyUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} policyId
@@ -71,7 +63,11 @@ export function updatePolicy(client: ChatBotKitClient, policyId: string, request
 /**
  * @typedef {import('../types/api/v1.js').operations['deletePolicy']['requestBody']['content']['application/json']} PolicyDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deletePolicy']['responses']['200']['content']['application/json']} PolicyDeleteResponse
+ * @typedef {PolicyDeleteRequestBody} PolicyDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deletePolicy']['responses']['200']['content']['application/json']} PolicyDeleteResponseBody
+ *
+ * @typedef {PolicyDeleteResponseBody} PolicyDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} policyId
@@ -89,23 +85,15 @@ export type PolicyListRequest = {
 export type PolicyListResponse = import("../types/api/v1.js").operations["listPolicies"]["responses"]["200"]["content"]["application/json"];
 export type PolicyListStreamType = import("../types/api/v1.js").operations["listPolicies"]["responses"]["200"]["content"]["application/jsonl"];
 export type PolicyFetchResponse = import("../types/api/v1.js").operations["fetchPolicy"]["responses"]["200"]["content"]["application/json"];
-export type PolicyCreateRequest = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-    type: "retention";
-    config?: Record<string, any>;
-};
 export type PolicyCreateRequestBody = import("../types/api/v1.js").operations["createPolicy"]["requestBody"]["content"]["application/json"];
-export type PolicyCreateResponse = import("../types/api/v1.js").operations["createPolicy"]["responses"]["200"]["content"]["application/json"];
-export type PolicyUpdateRequest = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-    type?: "retention";
-    config?: Record<string, any>;
-};
+export type PolicyCreateRequest = PolicyCreateRequestBody;
+export type PolicyCreateResponseBody = import("../types/api/v1.js").operations["createPolicy"]["responses"]["200"]["content"]["application/json"];
+export type PolicyCreateResponse = PolicyCreateResponseBody;
 export type PolicyUpdateRequestBody = import("../types/api/v1.js").operations["updatePolicy"]["requestBody"]["content"]["application/json"];
-export type PolicyUpdateResponse = import("../types/api/v1.js").operations["updatePolicy"]["responses"]["200"]["content"]["application/json"];
+export type PolicyUpdateRequest = PolicyUpdateRequestBody;
+export type PolicyUpdateResponseBody = import("../types/api/v1.js").operations["updatePolicy"]["responses"]["200"]["content"]["application/json"];
+export type PolicyUpdateResponse = PolicyUpdateResponseBody;
 export type PolicyDeleteRequestBody = import("../types/api/v1.js").operations["deletePolicy"]["requestBody"]["content"]["application/json"];
-export type PolicyDeleteResponse = import("../types/api/v1.js").operations["deletePolicy"]["responses"]["200"]["content"]["application/json"];
+export type PolicyDeleteRequest = PolicyDeleteRequestBody;
+export type PolicyDeleteResponseBody = import("../types/api/v1.js").operations["deletePolicy"]["responses"]["200"]["content"]["application/json"];
+export type PolicyDeleteResponse = PolicyDeleteResponseBody;

@@ -101,7 +101,7 @@ ___
 
 ### create
 
-▸ **create**(`userId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserTokenCreateResponse`](../modules/partner_user_token_v1.md#partnerusertokencreateresponse)\>
+▸ **create**(`userId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new user token.
 
@@ -110,11 +110,11 @@ Creates a new user token.
 | Name | Type |
 | :------ | :------ |
 | `userId` | `string` |
-| `request` | [`PartnerUserTokenOptions`](../modules/partner_user_token_v1.md#partnerusertokenoptions) |
+| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserTokenCreateResponse`](../modules/partner_user_token_v1.md#partnerusertokencreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -124,7 +124,7 @@ ___
 
 ### delete
 
-▸ **delete**(`userId`, `tokenId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserTokenDeleteResponse`](../modules/partner_user_token_v1.md#partnerusertokendeleteresponse)\>
+▸ **delete**(`userId`, `tokenId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the user token.
 
@@ -137,7 +137,7 @@ Deletes the user token.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserTokenDeleteResponse`](../modules/partner_user_token_v1.md#partnerusertokendeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -147,7 +147,7 @@ ___
 
 ### list
 
-▸ **list**(`userId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PartnerUserTokenListResponse`](../modules/partner_user_token_v1.md#partnerusertokenlistresponse), [`PartnerUserTokenListStreamItem`](../modules/partner_user_token_v1.md#partnerusertokenliststreamitem)\>
+▸ **list**(`userId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all user tokens.
 
@@ -160,7 +160,7 @@ Retrieves a list of all user tokens.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PartnerUserTokenListResponse`](../modules/partner_user_token_v1.md#partnerusertokenlistresponse), [`PartnerUserTokenListStreamItem`](../modules/partner_user_token_v1.md#partnerusertokenliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

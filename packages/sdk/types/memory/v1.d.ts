@@ -34,18 +34,13 @@ export function listMemories(client: ChatBotKitClient, request?: MemoryListReque
  */
 export function fetchMemory(client: ChatBotKitClient, memoryId: string): ResponsePromise<MemoryFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   text?: string,
- *   meta?: Record<string,any>,
- *   contactId?: string,
- *   botId?: string
- * }} MemoryCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createMemory']['requestBody']['content']['application/json']} MemoryCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createMemory']['responses']['200']['content']['application/json']} MemoryCreateResponse
+ * @typedef {MemoryCreateRequestBody} MemoryCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createMemory']['responses']['200']['content']['application/json']} MemoryCreateResponseBody
+ *
+ * @typedef {MemoryCreateResponseBody} MemoryCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {MemoryCreateRequest} request
@@ -53,18 +48,13 @@ export function fetchMemory(client: ChatBotKitClient, memoryId: string): Respons
  */
 export function createMemory(client: ChatBotKitClient, request: MemoryCreateRequest): Promise<MemoryCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   text?: string,
- *   meta?: Record<string,any>,
- *   contactId?: string,
- *   botId?: string
- * }} MemoryUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateMemory']['requestBody']['content']['application/json']} MemoryUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateMemory']['responses']['200']['content']['application/json']} MemoryUpdateResponse
+ * @typedef {MemoryUpdateRequestBody} MemoryUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateMemory']['responses']['200']['content']['application/json']} MemoryUpdateResponseBody
+ *
+ * @typedef {MemoryUpdateResponseBody} MemoryUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} memoryId
@@ -75,7 +65,11 @@ export function updateMemory(client: ChatBotKitClient, memoryId: string, request
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteMemory']['requestBody']['content']['application/json']} MemoryDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteMemory']['responses']['200']['content']['application/json']} MemoryDeleteResponse
+ * @typedef {MemoryDeleteRequestBody} MemoryDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteMemory']['responses']['200']['content']['application/json']} MemoryDeleteResponseBody
+ *
+ * @typedef {MemoryDeleteResponseBody} MemoryDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} memoryId
@@ -102,15 +96,13 @@ export function deleteMemory(client: ChatBotKitClient, memoryId: string): Promis
  */
 export function exportMemories(client: ChatBotKitClient, request?: MemoryExportRequest): ResponsePromise<MemoryExportResponse, MemoryExportStreamType>;
 /**
- * @typedef {{
- *   search: string,
- *   contactId?: string,
- *   botId?: string
- * }} MemorySearchRequest
- *
  * @typedef {import('../types/api/v1.js').operations['searchMemory']['requestBody']['content']['application/json']} MemorySearchRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['searchMemory']['responses']['200']['content']['application/json']} MemorySearchResponse
+ * @typedef {MemorySearchRequestBody} MemorySearchRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['searchMemory']['responses']['200']['content']['application/json']} MemorySearchResponseBody
+ *
+ * @typedef {MemorySearchResponseBody} MemorySearchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {MemorySearchRequest} request
@@ -130,28 +122,18 @@ export type MemoryListRequest = {
 export type MemoryListResponse = import("../types/api/v1.js").operations["listMemories"]["responses"]["200"]["content"]["application/json"];
 export type MemoryListStreamType = import("../types/api/v1.js").operations["listMemories"]["responses"]["200"]["content"]["application/jsonl"];
 export type MemoryFetchResponse = import("../types/api/v1.js").operations["fetchMemory"]["responses"]["200"]["content"]["application/json"];
-export type MemoryCreateRequest = {
-    name?: string;
-    description?: string;
-    text?: string;
-    meta?: Record<string, any>;
-    contactId?: string;
-    botId?: string;
-};
 export type MemoryCreateRequestBody = import("../types/api/v1.js").operations["createMemory"]["requestBody"]["content"]["application/json"];
-export type MemoryCreateResponse = import("../types/api/v1.js").operations["createMemory"]["responses"]["200"]["content"]["application/json"];
-export type MemoryUpdateRequest = {
-    name?: string;
-    description?: string;
-    text?: string;
-    meta?: Record<string, any>;
-    contactId?: string;
-    botId?: string;
-};
+export type MemoryCreateRequest = MemoryCreateRequestBody;
+export type MemoryCreateResponseBody = import("../types/api/v1.js").operations["createMemory"]["responses"]["200"]["content"]["application/json"];
+export type MemoryCreateResponse = MemoryCreateResponseBody;
 export type MemoryUpdateRequestBody = import("../types/api/v1.js").operations["updateMemory"]["requestBody"]["content"]["application/json"];
-export type MemoryUpdateResponse = import("../types/api/v1.js").operations["updateMemory"]["responses"]["200"]["content"]["application/json"];
+export type MemoryUpdateRequest = MemoryUpdateRequestBody;
+export type MemoryUpdateResponseBody = import("../types/api/v1.js").operations["updateMemory"]["responses"]["200"]["content"]["application/json"];
+export type MemoryUpdateResponse = MemoryUpdateResponseBody;
 export type MemoryDeleteRequestBody = import("../types/api/v1.js").operations["deleteMemory"]["requestBody"]["content"]["application/json"];
-export type MemoryDeleteResponse = import("../types/api/v1.js").operations["deleteMemory"]["responses"]["200"]["content"]["application/json"];
+export type MemoryDeleteRequest = MemoryDeleteRequestBody;
+export type MemoryDeleteResponseBody = import("../types/api/v1.js").operations["deleteMemory"]["responses"]["200"]["content"]["application/json"];
+export type MemoryDeleteResponse = MemoryDeleteResponseBody;
 export type MemoryExportRequest = {
     cursor?: string;
     order?: "desc" | "asc";
@@ -162,10 +144,7 @@ export type MemoryExportRequest = {
 };
 export type MemoryExportResponse = import("../types/api/v1.js").operations["exportMemories"]["responses"]["200"]["content"]["application/json"];
 export type MemoryExportStreamType = import("../types/api/v1.js").operations["exportMemories"]["responses"]["200"]["content"]["application/jsonl"];
-export type MemorySearchRequest = {
-    search: string;
-    contactId?: string;
-    botId?: string;
-};
 export type MemorySearchRequestBody = import("../types/api/v1.js").operations["searchMemory"]["requestBody"]["content"]["application/json"];
-export type MemorySearchResponse = import("../types/api/v1.js").operations["searchMemory"]["responses"]["200"]["content"]["application/json"];
+export type MemorySearchRequest = MemorySearchRequestBody;
+export type MemorySearchResponseBody = import("../types/api/v1.js").operations["searchMemory"]["responses"]["200"]["content"]["application/json"];
+export type MemorySearchResponse = MemorySearchResponseBody;

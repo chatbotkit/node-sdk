@@ -6,13 +6,18 @@
 
 ### Type Aliases
 
+- [BlueprintCloneRequest](blueprint_v1.md#blueprintclonerequest)
 - [BlueprintCloneRequestBody](blueprint_v1.md#blueprintclonerequestbody)
 - [BlueprintCloneResponse](blueprint_v1.md#blueprintcloneresponse)
+- [BlueprintCloneResponseBody](blueprint_v1.md#blueprintcloneresponsebody)
 - [BlueprintCreateRequest](blueprint_v1.md#blueprintcreaterequest)
 - [BlueprintCreateRequestBody](blueprint_v1.md#blueprintcreaterequestbody)
 - [BlueprintCreateResponse](blueprint_v1.md#blueprintcreateresponse)
+- [BlueprintCreateResponseBody](blueprint_v1.md#blueprintcreateresponsebody)
+- [BlueprintDeleteRequest](blueprint_v1.md#blueprintdeleterequest)
 - [BlueprintDeleteRequestBody](blueprint_v1.md#blueprintdeleterequestbody)
 - [BlueprintDeleteResponse](blueprint_v1.md#blueprintdeleteresponse)
+- [BlueprintDeleteResponseBody](blueprint_v1.md#blueprintdeleteresponsebody)
 - [BlueprintFetchResponse](blueprint_v1.md#blueprintfetchresponse)
 - [BlueprintListRequest](blueprint_v1.md#blueprintlistrequest)
 - [BlueprintListResourcesResponse](blueprint_v1.md#blueprintlistresourcesresponse)
@@ -21,6 +26,7 @@
 - [BlueprintUpdateRequest](blueprint_v1.md#blueprintupdaterequest)
 - [BlueprintUpdateRequestBody](blueprint_v1.md#blueprintupdaterequestbody)
 - [BlueprintUpdateResponse](blueprint_v1.md#blueprintupdateresponse)
+- [BlueprintUpdateResponseBody](blueprint_v1.md#blueprintupdateresponsebody)
 - [ChatBotKitClient](blueprint_v1.md#chatbotkitclient)
 - [ResponsePromise](blueprint_v1.md#responsepromise)
 
@@ -36,6 +42,16 @@
 
 ## Type Aliases
 
+### BlueprintCloneRequest
+
+Ƭ **BlueprintCloneRequest**\<\>: [`BlueprintCloneRequestBody`](blueprint_v1.md#blueprintclonerequestbody)
+
+#### Defined in
+
+[blueprint/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L135)
+
+___
+
 ### BlueprintCloneRequestBody
 
 Ƭ **BlueprintCloneRequestBody**\<\>: `operations`[``"cloneBlueprint"``][``"requestBody"``][``"content"``][``"application/json"``]
@@ -48,29 +64,31 @@ ___
 
 ### BlueprintCloneResponse
 
-Ƭ **BlueprintCloneResponse**\<\>: `operations`[``"cloneBlueprint"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **BlueprintCloneResponse**\<\>: [`BlueprintCloneResponseBody`](blueprint_v1.md#blueprintcloneresponsebody)
 
 #### Defined in
 
-[blueprint/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L135)
+[blueprint/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L139)
+
+___
+
+### BlueprintCloneResponseBody
+
+Ƭ **BlueprintCloneResponseBody**\<\>: `operations`[``"cloneBlueprint"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[blueprint/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L137)
 
 ___
 
 ### BlueprintCreateRequest
 
-Ƭ **BlueprintCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
+Ƭ **BlueprintCreateRequest**\<\>: [`BlueprintCreateRequestBody`](blueprint_v1.md#blueprintcreaterequestbody)
 
 #### Defined in
 
-[blueprint/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L57)
+[blueprint/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L55)
 
 ___
 
@@ -80,17 +98,37 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L59)
+[blueprint/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L53)
 
 ___
 
 ### BlueprintCreateResponse
 
-Ƭ **BlueprintCreateResponse**\<\>: `operations`[``"createBlueprint"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **BlueprintCreateResponse**\<\>: [`BlueprintCreateResponseBody`](blueprint_v1.md#blueprintcreateresponsebody)
 
 #### Defined in
 
-[blueprint/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L61)
+[blueprint/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L59)
+
+___
+
+### BlueprintCreateResponseBody
+
+Ƭ **BlueprintCreateResponseBody**\<\>: `operations`[``"createBlueprint"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[blueprint/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L57)
+
+___
+
+### BlueprintDeleteRequest
+
+Ƭ **BlueprintDeleteRequest**\<\>: [`BlueprintDeleteRequestBody`](blueprint_v1.md#blueprintdeleterequestbody)
+
+#### Defined in
+
+[blueprint/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L110)
 
 ___
 
@@ -100,17 +138,27 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L112)
+[blueprint/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L108)
 
 ___
 
 ### BlueprintDeleteResponse
 
-Ƭ **BlueprintDeleteResponse**\<\>: `operations`[``"deleteBlueprint"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **BlueprintDeleteResponse**\<\>: [`BlueprintDeleteResponseBody`](blueprint_v1.md#blueprintdeleteresponsebody)
 
 #### Defined in
 
 [blueprint/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L114)
+
+___
+
+### BlueprintDeleteResponseBody
+
+Ƭ **BlueprintDeleteResponseBody**\<\>: `operations`[``"deleteBlueprint"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[blueprint/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L112)
 
 ___
 
@@ -149,7 +197,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L154)
+[blueprint/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L158)
 
 ___
 
@@ -175,19 +223,11 @@ ___
 
 ### BlueprintUpdateRequest
 
-Ƭ **BlueprintUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
+Ƭ **BlueprintUpdateRequest**\<\>: [`BlueprintUpdateRequestBody`](blueprint_v1.md#blueprintupdaterequestbody)
 
 #### Defined in
 
-[blueprint/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L86)
+[blueprint/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L82)
 
 ___
 
@@ -197,17 +237,27 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L88)
+[blueprint/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L80)
 
 ___
 
 ### BlueprintUpdateResponse
 
-Ƭ **BlueprintUpdateResponse**\<\>: `operations`[``"updateBlueprint"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **BlueprintUpdateResponse**\<\>: [`BlueprintUpdateResponseBody`](blueprint_v1.md#blueprintupdateresponsebody)
 
 #### Defined in
 
-[blueprint/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L90)
+[blueprint/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L86)
+
+___
+
+### BlueprintUpdateResponseBody
+
+Ƭ **BlueprintUpdateResponseBody**\<\>: `operations`[``"updateBlueprint"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[blueprint/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L84)
 
 ___
 
@@ -255,7 +305,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:141](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L141)
+[blueprint/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L145)
 
 ___
 
@@ -268,7 +318,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`BlueprintCreateRequest`](blueprint_v1.md#blueprintcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -276,7 +326,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L67)
+[blueprint/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L65)
 
 ___
 
@@ -339,7 +389,7 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L160)
+[blueprint/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L164)
 
 ___
 
@@ -374,7 +424,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `blueprintId` | `string` |
-| `request` | [`BlueprintUpdateRequest`](blueprint_v1.md#blueprintupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -382,4 +432,4 @@ ___
 
 #### Defined in
 
-[blueprint/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L97)
+[blueprint/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L93)

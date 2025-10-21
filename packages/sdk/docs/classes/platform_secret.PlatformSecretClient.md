@@ -99,7 +99,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformSecretListResponse`](../modules/platform_secret_v1.md#platformsecretlistresponse), [`PlatformSecretListStreamItemType`](../modules/platform_secret_v1.md#platformsecretliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all platform secrets.
 
@@ -111,7 +111,7 @@ Retrieves a list of all platform secrets.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformSecretListResponse`](../modules/platform_secret_v1.md#platformsecretlistresponse), [`PlatformSecretListStreamItemType`](../modules/platform_secret_v1.md#platformsecretliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

@@ -111,7 +111,7 @@ Creates a new policy.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`PolicyCreateRequest`](../modules/policy_v1.md#policycreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -200,7 +200,7 @@ Updates a policy.
 | Name | Type |
 | :------ | :------ |
 | `policyId` | `string` |
-| `request` | [`PolicyUpdateRequest`](../modules/policy_v1.md#policyupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

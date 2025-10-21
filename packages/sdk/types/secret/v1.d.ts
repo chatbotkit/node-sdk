@@ -32,21 +32,13 @@ export function listSecrets(client: ChatBotKitClient, request?: SecretListReques
  */
 export function fetchSecret(client: ChatBotKitClient, secretId: string): ResponsePromise<SecretFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   kind?: 'shared'|'personal',
- *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template'|'reference',
- *   value?: string,
- *   config?: Record<string,any>,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SecretCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createSecret']['requestBody']['content']['application/json']} SecretCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createSecret']['responses']['200']['content']['application/json']} SecretCreateResponse
+ * @typedef {SecretCreateRequestBody} SecretCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createSecret']['responses']['200']['content']['application/json']} SecretCreateResponseBody
+ *
+ * @typedef {SecretCreateResponseBody} SecretCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {SecretCreateRequest} request
@@ -54,21 +46,13 @@ export function fetchSecret(client: ChatBotKitClient, secretId: string): Respons
  */
 export function createSecret(client: ChatBotKitClient, request: SecretCreateRequest): Promise<SecretCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   kind?: 'shared'|'personal',
- *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template'|'reference',
- *   value?: string,
- *   config?: Record<string,any>,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SecretUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateSecret']['requestBody']['content']['application/json']} SecretUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateSecret']['responses']['200']['content']['application/json']} SecretUpdateResponse
+ * @typedef {SecretUpdateRequestBody} SecretUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateSecret']['responses']['200']['content']['application/json']} SecretUpdateResponseBody
+ *
+ * @typedef {SecretUpdateResponseBody} SecretUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
@@ -79,7 +63,11 @@ export function updateSecret(client: ChatBotKitClient, secretId: string, request
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteSecret']['requestBody']['content']['application/json']} SecretDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteSecret']['responses']['200']['content']['application/json']} SecretDeleteResponse
+ * @typedef {SecretDeleteRequestBody} SecretDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteSecret']['responses']['200']['content']['application/json']} SecretDeleteResponseBody
+ *
+ * @typedef {SecretDeleteResponseBody} SecretDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
@@ -97,31 +85,15 @@ export type SecretListRequest = {
 export type SecretListResponse = import("../types/api/v1.js").operations["listSecrets"]["responses"]["200"]["content"]["application/json"];
 export type SecretListStreamType = import("../types/api/v1.js").operations["listSecrets"]["responses"]["200"]["content"]["application/jsonl"];
 export type SecretFetchResponse = import("../types/api/v1.js").operations["fetchSecret"]["responses"]["200"]["content"]["application/json"];
-export type SecretCreateRequest = {
-    name?: string;
-    description?: string;
-    kind?: "shared" | "personal";
-    type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
-    value?: string;
-    config?: Record<string, any>;
-    visibility?: "private" | "protected" | "public";
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
 export type SecretCreateRequestBody = import("../types/api/v1.js").operations["createSecret"]["requestBody"]["content"]["application/json"];
-export type SecretCreateResponse = import("../types/api/v1.js").operations["createSecret"]["responses"]["200"]["content"]["application/json"];
-export type SecretUpdateRequest = {
-    name?: string;
-    description?: string;
-    kind?: "shared" | "personal";
-    type?: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
-    value?: string;
-    config?: Record<string, any>;
-    visibility?: "private" | "protected" | "public";
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
+export type SecretCreateRequest = SecretCreateRequestBody;
+export type SecretCreateResponseBody = import("../types/api/v1.js").operations["createSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretCreateResponse = SecretCreateResponseBody;
 export type SecretUpdateRequestBody = import("../types/api/v1.js").operations["updateSecret"]["requestBody"]["content"]["application/json"];
-export type SecretUpdateResponse = import("../types/api/v1.js").operations["updateSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretUpdateRequest = SecretUpdateRequestBody;
+export type SecretUpdateResponseBody = import("../types/api/v1.js").operations["updateSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretUpdateResponse = SecretUpdateResponseBody;
 export type SecretDeleteRequestBody = import("../types/api/v1.js").operations["deleteSecret"]["requestBody"]["content"]["application/json"];
-export type SecretDeleteResponse = import("../types/api/v1.js").operations["deleteSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretDeleteRequest = SecretDeleteRequestBody;
+export type SecretDeleteResponseBody = import("../types/api/v1.js").operations["deleteSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretDeleteResponse = SecretDeleteResponseBody;

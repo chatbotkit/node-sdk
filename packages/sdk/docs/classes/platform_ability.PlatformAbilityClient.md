@@ -99,7 +99,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformAbilityListResponse`](../modules/platform_ability_v1.md#platformabilitylistresponse), [`PlatformAbilityListStreamItemType`](../modules/platform_ability_v1.md#platformabilityliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all platform abilities.
 
@@ -111,7 +111,7 @@ Retrieves a list of all platform abilities.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformAbilityListResponse`](../modules/platform_ability_v1.md#platformabilitylistresponse), [`PlatformAbilityListStreamItemType`](../modules/platform_ability_v1.md#platformabilityliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

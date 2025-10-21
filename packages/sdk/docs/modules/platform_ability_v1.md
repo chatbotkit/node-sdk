@@ -7,12 +7,9 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_ability_v1.md#chatbotkitclient)
-- [PlatformAbilityInstance](platform_ability_v1.md#platformabilityinstance)
 - [PlatformAbilityListRequest](platform_ability_v1.md#platformabilitylistrequest)
 - [PlatformAbilityListResponse](platform_ability_v1.md#platformabilitylistresponse)
-- [PlatformAbilityListStreamItemType](platform_ability_v1.md#platformabilityliststreamitemtype)
 - [PlatformAbilityListStreamType](platform_ability_v1.md#platformabilityliststreamtype)
-- [PlatformAbilityOptions](platform_ability_v1.md#platformabilityoptions)
 - [ResponsePromise](platform_ability_v1.md#responsepromise)
 
 ### Functions
@@ -31,16 +28,6 @@
 
 ___
 
-### PlatformAbilityInstance
-
-Ƭ **PlatformAbilityInstance**\<\>: [`PlatformAbilityOptions`](platform_ability_v1.md#platformabilityoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[platform/ability/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L22)
-
-___
-
 ### PlatformAbilityListRequest
 
 Ƭ **PlatformAbilityListRequest**\<\>: `Object`
@@ -50,73 +37,33 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
 #### Defined in
 
-[platform/ability/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L30)
+[platform/ability/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L17)
 
 ___
 
 ### PlatformAbilityListResponse
 
-Ƭ **PlatformAbilityListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`PlatformAbilityInstance`](platform_ability_v1.md#platformabilityinstance)[] |
+Ƭ **PlatformAbilityListResponse**\<\>: `operations`[``"listPlatformAbilities"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[platform/ability/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L32)
-
-___
-
-### PlatformAbilityListStreamItemType
-
-Ƭ **PlatformAbilityListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`PlatformAbilityInstance`](platform_ability_v1.md#platformabilityinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[platform/ability/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L37)
+[platform/ability/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L19)
 
 ___
 
 ### PlatformAbilityListStreamType
 
-Ƭ **PlatformAbilityListStreamType**\<\>: [`PlatformAbilityListStreamItemType`](platform_ability_v1.md#platformabilityliststreamitemtype)
+Ƭ **PlatformAbilityListStreamType**\<\>: `operations`[``"listPlatformAbilities"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[platform/ability/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L39)
-
-___
-
-### PlatformAbilityOptions
-
-Ƭ **PlatformAbilityOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-
-#### Defined in
-
-[platform/ability/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L16)
+[platform/ability/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L21)
 
 ___
 
@@ -139,7 +86,7 @@ ___
 
 ### listPlatformAbilities
 
-▸ **listPlatformAbilities**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformAbilityListResponse`](platform_ability_v1.md#platformabilitylistresponse), [`PlatformAbilityListStreamItemType`](platform_ability_v1.md#platformabilityliststreamitemtype)\>
+▸ **listPlatformAbilities**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -150,8 +97,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformAbilityListResponse`](platform_ability_v1.md#platformabilitylistresponse), [`PlatformAbilityListStreamItemType`](platform_ability_v1.md#platformabilityliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[platform/ability/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L45)
+[platform/ability/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L27)

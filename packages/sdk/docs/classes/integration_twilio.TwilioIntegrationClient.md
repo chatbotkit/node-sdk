@@ -114,7 +114,7 @@ Creates a new twilio integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`TwilioIntegrationCreateRequest`](../modules/integration_twilio_v1.md#twiliointegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a twilio integration.
 | Name | Type |
 | :------ | :------ |
 | `twilioId` | `string` |
-| `request` | [`TwilioIntegrationUpdateRequest`](../modules/integration_twilio_v1.md#twiliointegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

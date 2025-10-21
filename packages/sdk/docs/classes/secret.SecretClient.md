@@ -111,7 +111,7 @@ Creates a new secret.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SecretCreateRequest`](../modules/secret_v1.md#secretcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -200,7 +200,7 @@ Updates a secret.
 | Name | Type |
 | :------ | :------ |
 | `secretId` | `string` |
-| `request` | [`SecretUpdateRequest`](../modules/secret_v1.md#secretupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

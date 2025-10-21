@@ -170,7 +170,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `botId` | `string` |
-| `request` | [`BotDownvoteRequest`](../modules/bot_v1.md#botdownvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -258,7 +258,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `botId` | `string` |
-| `request` | [`BotUpvoteRequest`](../modules/bot_v1.md#botupvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 

@@ -7,8 +7,10 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_example_v1.md#chatbotkitclient)
+- [PlatformExampleCloneRequest](platform_example_v1.md#platformexampleclonerequest)
 - [PlatformExampleCloneRequestBody](platform_example_v1.md#platformexampleclonerequestbody)
 - [PlatformExampleCloneResponse](platform_example_v1.md#platformexamplecloneresponse)
+- [PlatformExampleCloneResponseBody](platform_example_v1.md#platformexamplecloneresponsebody)
 - [PlatformExampleFetchResponse](platform_example_v1.md#platformexamplefetchresponse)
 - [PlatformExampleListRequest](platform_example_v1.md#platformexamplelistrequest)
 - [PlatformExampleListResponse](platform_example_v1.md#platformexamplelistresponse)
@@ -16,6 +18,7 @@
 - [PlatformExampleSearchRequest](platform_example_v1.md#platformexamplesearchrequest)
 - [PlatformExampleSearchRequestBody](platform_example_v1.md#platformexamplesearchrequestbody)
 - [PlatformExampleSearchResponse](platform_example_v1.md#platformexamplesearchresponse)
+- [PlatformExampleSearchResponseBody](platform_example_v1.md#platformexamplesearchresponsebody)
 - [ResponsePromise](platform_example_v1.md#responsepromise)
 
 ### Functions
@@ -37,6 +40,16 @@
 
 ___
 
+### PlatformExampleCloneRequest
+
+Ƭ **PlatformExampleCloneRequest**\<\>: [`PlatformExampleCloneRequestBody`](platform_example_v1.md#platformexampleclonerequestbody)
+
+#### Defined in
+
+[platform/example/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L81)
+
+___
+
 ### PlatformExampleCloneRequestBody
 
 Ƭ **PlatformExampleCloneRequestBody**\<\>: `operations`[``"clonePlatformExample"``][``"requestBody"``][``"content"``][``"application/json"``]
@@ -49,11 +62,21 @@ ___
 
 ### PlatformExampleCloneResponse
 
-Ƭ **PlatformExampleCloneResponse**\<\>: `operations`[``"clonePlatformExample"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **PlatformExampleCloneResponse**\<\>: [`PlatformExampleCloneResponseBody`](platform_example_v1.md#platformexamplecloneresponsebody)
 
 #### Defined in
 
-[platform/example/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L81)
+[platform/example/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L85)
+
+___
+
+### PlatformExampleCloneResponseBody
+
+Ƭ **PlatformExampleCloneResponseBody**\<\>: `operations`[``"clonePlatformExample"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[platform/example/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L83)
 
 ___
 
@@ -107,13 +130,7 @@ ___
 
 ### PlatformExampleSearchRequest
 
-Ƭ **PlatformExampleSearchRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `search` | `string` |
+Ƭ **PlatformExampleSearchRequest**\<\>: [`PlatformExampleSearchRequestBody`](platform_example_v1.md#platformexamplesearchrequestbody)
 
 #### Defined in
 
@@ -127,17 +144,27 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L56)
+[platform/example/v1.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L52)
 
 ___
 
 ### PlatformExampleSearchResponse
 
-Ƭ **PlatformExampleSearchResponse**\<\>: `operations`[``"searchPlatformExamples"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **PlatformExampleSearchResponse**\<\>: [`PlatformExampleSearchResponseBody`](platform_example_v1.md#platformexamplesearchresponsebody)
 
 #### Defined in
 
 [platform/example/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L58)
+
+___
+
+### PlatformExampleSearchResponseBody
+
+Ƭ **PlatformExampleSearchResponseBody**\<\>: `operations`[``"searchPlatformExamples"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[platform/example/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L56)
 
 ___
 
@@ -175,7 +202,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L87)
+[platform/example/v1.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L91)
 
 ___
 
@@ -230,7 +257,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`PlatformExampleSearchRequest`](platform_example_v1.md#platformexamplesearchrequest) |
+| `request` | `Object` |
 
 #### Returns
 

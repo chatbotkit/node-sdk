@@ -106,7 +106,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationCreateResponse`](../modules/integration_widget_v1.md#widgetintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new widget integration.
 
@@ -114,11 +114,11 @@ Creates a new widget integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`WidgetIntegrationOptions`](../modules/integration_widget_v1.md#widgetintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationCreateResponse`](../modules/integration_widget_v1.md#widgetintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationDeleteResponse`](../modules/integration_widget_v1.md#widgetintegrationdeleteresponse)\>
+▸ **delete**(`widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a widget integration.
 
@@ -140,7 +140,7 @@ Deletes a widget integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationDeleteResponse`](../modules/integration_widget_v1.md#widgetintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`widgetId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`WidgetIntegrationFetchResponse`](../modules/integration_widget_v1.md#widgetintegrationfetchresponse), `never`\>
+▸ **fetch**(`widgetId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a widget integration.
 
@@ -162,7 +162,7 @@ Fetches a widget integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`WidgetIntegrationFetchResponse`](../modules/integration_widget_v1.md#widgetintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`WidgetIntegrationListResponse`](../modules/integration_widget_v1.md#widgetintegrationlistresponse), [`WidgetIntegrationListStreamItem`](../modules/integration_widget_v1.md#widgetintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all widget integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all widget integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`WidgetIntegrationListResponse`](../modules/integration_widget_v1.md#widgetintegrationlistresponse), [`WidgetIntegrationListStreamItem`](../modules/integration_widget_v1.md#widgetintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### setup
 
-▸ **setup**(`widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationSetupResponse`](../modules/integration_widget_v1.md#widgetintegrationsetupresponse)\>
+▸ **setup**(`widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Sets up a widget integration.
 
@@ -206,7 +206,7 @@ Sets up a widget integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationSetupResponse`](../modules/integration_widget_v1.md#widgetintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`widgetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationUpdateResponse`](../modules/integration_widget_v1.md#widgetintegrationupdateresponse)\>
+▸ **update**(`widgetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a widget integration.
 
@@ -225,11 +225,11 @@ Updates a widget integration.
 | Name | Type |
 | :------ | :------ |
 | `widgetId` | `string` |
-| `request` | [`WidgetIntegrationOptions`](../modules/integration_widget_v1.md#widgetintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationUpdateResponse`](../modules/integration_widget_v1.md#widgetintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

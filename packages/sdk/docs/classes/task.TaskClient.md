@@ -113,7 +113,7 @@ Creates a new task.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`TaskCreateRequest`](../modules/task_v1.md#taskcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -246,7 +246,7 @@ Updates a task.
 | Name | Type |
 | :------ | :------ |
 | `taskId` | `string` |
-| `request` | [`TaskUpdateRequest`](../modules/task_v1.md#taskupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

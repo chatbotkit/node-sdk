@@ -32,19 +32,13 @@ export function listTasks(client: ChatBotKitClient, request?: TaskListRequest): 
  */
 export function fetchTask(client: ChatBotKitClient, taskId: string): ResponsePromise<TaskFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactId?: string,
- *   botId?: string,
- *   schedule?: string,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>
- * }} TaskCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createTask']['requestBody']['content']['application/json']} TaskCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createTask']['responses']['200']['content']['application/json']} TaskCreateResponse
+ * @typedef {TaskCreateRequestBody} TaskCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createTask']['responses']['200']['content']['application/json']} TaskCreateResponseBody
+ *
+ * @typedef {TaskCreateResponseBody} TaskCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {TaskCreateRequest} request
@@ -52,19 +46,13 @@ export function fetchTask(client: ChatBotKitClient, taskId: string): ResponsePro
  */
 export function createTask(client: ChatBotKitClient, request: TaskCreateRequest): Promise<TaskCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactId?: string,
- *   botId?: string,
- *   schedule?: string,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>
- * }} TaskUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateTask']['requestBody']['content']['application/json']} TaskUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateTask']['responses']['200']['content']['application/json']} TaskUpdateResponse
+ * @typedef {TaskUpdateRequestBody} TaskUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateTask']['responses']['200']['content']['application/json']} TaskUpdateResponseBody
+ *
+ * @typedef {TaskUpdateResponseBody} TaskUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -75,7 +63,11 @@ export function updateTask(client: ChatBotKitClient, taskId: string, request: Ta
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteTask']['requestBody']['content']['application/json']} TaskDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteTask']['responses']['200']['content']['application/json']} TaskDeleteResponse
+ * @typedef {TaskDeleteRequestBody} TaskDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteTask']['responses']['200']['content']['application/json']} TaskDeleteResponseBody
+ *
+ * @typedef {TaskDeleteResponseBody} TaskDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -85,7 +77,11 @@ export function deleteTask(client: ChatBotKitClient, taskId: string): Promise<Ta
 /**
  * @typedef {import('../types/api/v1.js').operations['triggerTask']['requestBody']['content']['application/json']} TaskTriggerRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['triggerTask']['responses']['200']['content']['application/json']} TaskTriggerResponse
+ * @typedef {TaskTriggerRequestBody} TaskTriggerRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['triggerTask']['responses']['200']['content']['application/json']} TaskTriggerResponseBody
+ *
+ * @typedef {TaskTriggerResponseBody} TaskTriggerResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -117,32 +113,22 @@ export type TaskListRequest = {
 export type TaskListResponse = import("../types/api/v1.js").operations["listTasks"]["responses"]["200"]["content"]["application/json"];
 export type TaskListStreamType = import("../types/api/v1.js").operations["listTasks"]["responses"]["200"]["content"]["application/jsonl"];
 export type TaskFetchResponse = import("../types/api/v1.js").operations["fetchTask"]["responses"]["200"]["content"]["application/json"];
-export type TaskCreateRequest = {
-    name?: string;
-    description?: string;
-    contactId?: string;
-    botId?: string;
-    schedule?: string;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-};
 export type TaskCreateRequestBody = import("../types/api/v1.js").operations["createTask"]["requestBody"]["content"]["application/json"];
-export type TaskCreateResponse = import("../types/api/v1.js").operations["createTask"]["responses"]["200"]["content"]["application/json"];
-export type TaskUpdateRequest = {
-    name?: string;
-    description?: string;
-    contactId?: string;
-    botId?: string;
-    schedule?: string;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-};
+export type TaskCreateRequest = TaskCreateRequestBody;
+export type TaskCreateResponseBody = import("../types/api/v1.js").operations["createTask"]["responses"]["200"]["content"]["application/json"];
+export type TaskCreateResponse = TaskCreateResponseBody;
 export type TaskUpdateRequestBody = import("../types/api/v1.js").operations["updateTask"]["requestBody"]["content"]["application/json"];
-export type TaskUpdateResponse = import("../types/api/v1.js").operations["updateTask"]["responses"]["200"]["content"]["application/json"];
+export type TaskUpdateRequest = TaskUpdateRequestBody;
+export type TaskUpdateResponseBody = import("../types/api/v1.js").operations["updateTask"]["responses"]["200"]["content"]["application/json"];
+export type TaskUpdateResponse = TaskUpdateResponseBody;
 export type TaskDeleteRequestBody = import("../types/api/v1.js").operations["deleteTask"]["requestBody"]["content"]["application/json"];
-export type TaskDeleteResponse = import("../types/api/v1.js").operations["deleteTask"]["responses"]["200"]["content"]["application/json"];
+export type TaskDeleteRequest = TaskDeleteRequestBody;
+export type TaskDeleteResponseBody = import("../types/api/v1.js").operations["deleteTask"]["responses"]["200"]["content"]["application/json"];
+export type TaskDeleteResponse = TaskDeleteResponseBody;
 export type TaskTriggerRequestBody = import("../types/api/v1.js").operations["triggerTask"]["requestBody"]["content"]["application/json"];
-export type TaskTriggerResponse = import("../types/api/v1.js").operations["triggerTask"]["responses"]["200"]["content"]["application/json"];
+export type TaskTriggerRequest = TaskTriggerRequestBody;
+export type TaskTriggerResponseBody = import("../types/api/v1.js").operations["triggerTask"]["responses"]["200"]["content"]["application/json"];
+export type TaskTriggerResponse = TaskTriggerResponseBody;
 export type TaskExportRequest = {
     cursor?: string;
     order?: "desc" | "asc";

@@ -117,7 +117,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserCreateResponse`](../modules/partner_user_v1.md#partnerusercreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new user.
 
@@ -125,11 +125,11 @@ Creates a new user.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`PartnerUserOptions`](../modules/partner_user_v1.md#partneruseroptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserCreateResponse`](../modules/partner_user_v1.md#partnerusercreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -139,7 +139,7 @@ ___
 
 ### delete
 
-▸ **delete**(`userId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserDeleteResponse`](../modules/partner_user_v1.md#partneruserdeleteresponse)\>
+▸ **delete**(`userId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the user.
 
@@ -151,7 +151,7 @@ Deletes the user.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserDeleteResponse`](../modules/partner_user_v1.md#partneruserdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -161,7 +161,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`userId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse), `never`\>
+▸ **fetch**(`userId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a user.
 
@@ -173,7 +173,7 @@ Fetches a user.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PartnerUserFetchResponse`](../modules/partner_user_v1.md#partneruserfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -183,7 +183,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PartnerUserListResponse`](../modules/partner_user_v1.md#partneruserlistresponse), [`PartnerUserListStreamItem`](../modules/partner_user_v1.md#partneruserliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all users.
 
@@ -195,7 +195,7 @@ Retrieves a list of all users.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PartnerUserListResponse`](../modules/partner_user_v1.md#partneruserlistresponse), [`PartnerUserListStreamItem`](../modules/partner_user_v1.md#partneruserliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -205,7 +205,7 @@ ___
 
 ### update
 
-▸ **update**(`userId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserUpdateResponse`](../modules/partner_user_v1.md#partneruserupdateresponse)\>
+▸ **update**(`userId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates the user.
 
@@ -214,11 +214,11 @@ Updates the user.
 | Name | Type |
 | :------ | :------ |
 | `userId` | `string` |
-| `request` | [`PartnerUserOptions`](../modules/partner_user_v1.md#partneruseroptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PartnerUserUpdateResponse`](../modules/partner_user_v1.md#partneruserupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

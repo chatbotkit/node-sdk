@@ -125,7 +125,7 @@ Creates a new skillset.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SkillsetCreateRequest`](../modules/skillset_v1.md#skillsetcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -214,7 +214,7 @@ Updates a skillset.
 | Name | Type |
 | :------ | :------ |
 | `skillsetId` | `string` |
-| `request` | [`SkillsetUpdateRequest`](../modules/skillset_v1.md#skillsetupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

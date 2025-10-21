@@ -32,22 +32,13 @@ export function listTwilioIntegrations(client: ChatBotKitClient, request?: Twili
  */
 export function fetchTwilioIntegration(client: ChatBotKitClient, twilioId: string): ResponsePromise<TwilioIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   accountSid?: string,
- *   authToken?: string,
- *   phoneNumber?: string,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} TwilioIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationCreateResponse
+ * @typedef {TwilioIntegrationCreateRequestBody} TwilioIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationCreateResponseBody
+ *
+ * @typedef {TwilioIntegrationCreateResponseBody} TwilioIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {TwilioIntegrationCreateRequest} request
@@ -55,22 +46,13 @@ export function fetchTwilioIntegration(client: ChatBotKitClient, twilioId: strin
  */
 export function createTwilioIntegration(client: ChatBotKitClient, request: TwilioIntegrationCreateRequest): Promise<TwilioIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   accountSid?: string,
- *   authToken?: string,
- *   phoneNumber?: string,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} TwilioIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationUpdateResponse
+ * @typedef {TwilioIntegrationUpdateRequestBody} TwilioIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationUpdateResponseBody
+ *
+ * @typedef {TwilioIntegrationUpdateResponseBody} TwilioIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
@@ -81,7 +63,11 @@ export function updateTwilioIntegration(client: ChatBotKitClient, twilioId: stri
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationDeleteResponse
+ * @typedef {TwilioIntegrationDeleteRequestBody} TwilioIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationDeleteResponseBody
+ *
+ * @typedef {TwilioIntegrationDeleteResponseBody} TwilioIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
@@ -91,7 +77,11 @@ export function deleteTwilioIntegration(client: ChatBotKitClient, twilioId: stri
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationSetupRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['setupTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationSetupResponse
+ * @typedef {TwilioIntegrationSetupRequestBody} TwilioIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationSetupResponseBody
+ *
+ * @typedef {TwilioIntegrationSetupResponseBody} TwilioIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
@@ -109,35 +99,19 @@ export type TwilioIntegrationListRequest = {
 export type TwilioIntegrationListResponse = import("../../types/api/v1.js").operations["listTwilioIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type TwilioIntegrationListStreamType = import("../../types/api/v1.js").operations["listTwilioIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type TwilioIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
-export type TwilioIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    accountSid?: string;
-    authToken?: string;
-    phoneNumber?: string;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
 export type TwilioIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createTwilioIntegration"]["requestBody"]["content"]["application/json"];
-export type TwilioIntegrationCreateResponse = import("../../types/api/v1.js").operations["createTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
-export type TwilioIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    accountSid?: string;
-    authToken?: string;
-    phoneNumber?: string;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
+export type TwilioIntegrationCreateRequest = TwilioIntegrationCreateRequestBody;
+export type TwilioIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TwilioIntegrationCreateResponse = TwilioIntegrationCreateResponseBody;
 export type TwilioIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateTwilioIntegration"]["requestBody"]["content"]["application/json"];
-export type TwilioIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TwilioIntegrationUpdateRequest = TwilioIntegrationUpdateRequestBody;
+export type TwilioIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TwilioIntegrationUpdateResponse = TwilioIntegrationUpdateResponseBody;
 export type TwilioIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteTwilioIntegration"]["requestBody"]["content"]["application/json"];
-export type TwilioIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TwilioIntegrationDeleteRequest = TwilioIntegrationDeleteRequestBody;
+export type TwilioIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TwilioIntegrationDeleteResponse = TwilioIntegrationDeleteResponseBody;
 export type TwilioIntegrationSetupRequestBody = import("../../types/api/v1.js").operations["setupTwilioIntegration"]["requestBody"]["content"]["application/json"];
-export type TwilioIntegrationSetupResponse = import("../../types/api/v1.js").operations["setupTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TwilioIntegrationSetupRequest = TwilioIntegrationSetupRequestBody;
+export type TwilioIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupTwilioIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TwilioIntegrationSetupResponse = TwilioIntegrationSetupResponseBody;

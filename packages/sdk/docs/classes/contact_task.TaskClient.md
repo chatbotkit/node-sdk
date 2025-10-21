@@ -99,7 +99,7 @@ ___
 
 ### list
 
-▸ **list**(`contactId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TaskListResponse`](../modules/contact_task_v1.md#tasklistresponse), [`TaskListStreamItemType`](../modules/contact_task_v1.md#taskliststreamitemtype)\>
+▸ **list**(`contactId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all contact tasks.
 
@@ -112,7 +112,7 @@ Retrieves a list of all contact tasks.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TaskListResponse`](../modules/contact_task_v1.md#tasklistresponse), [`TaskListStreamItemType`](../modules/contact_task_v1.md#taskliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

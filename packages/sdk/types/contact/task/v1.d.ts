@@ -8,36 +8,15 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactId?: string,
- *   botId?: string,
- *   schedule?: string
- *   meta?: Record<string,any>
- * }} TaskOptions
- *
- * @typedef {TaskOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} TaskInstance
- */
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} TaskListRequest
  *
- * @typedef {{items: TaskInstance[]}} TaskListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listContactTasks']['responses']['200']['content']['application/json']} TaskListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: TaskInstance
- * }} TaskListStreamItemType
- *
- * @typedef {TaskListStreamItemType} TaskListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listContactTasks']['responses']['200']['content']['application/jsonl']} TaskListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -47,30 +26,11 @@
 export function listTasks(client: ChatBotKitClient, contactId: string, request?: TaskListRequest): ResponsePromise<TaskListResponse, TaskListStreamType>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
-export type TaskOptions = {
-    name?: string;
-    description?: string;
-    contactId?: string;
-    botId?: string;
-    schedule?: string;
-    meta?: Record<string, any>;
-};
-export type TaskInstance = TaskOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
 export type TaskListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type TaskListResponse = {
-    items: TaskInstance[];
-};
-export type TaskListStreamItemType = {
-    type: "item";
-    data: TaskInstance;
-};
-export type TaskListStreamType = TaskListStreamItemType;
+export type TaskListResponse = import("../../types/api/v1.js").operations["listContactTasks"]["responses"]["200"]["content"]["application/json"];
+export type TaskListStreamType = import("../../types/api/v1.js").operations["listContactTasks"]["responses"]["200"]["content"]["application/jsonl"];

@@ -11,8 +11,11 @@
 - [SecretCreateRequest](secret_v1.md#secretcreaterequest)
 - [SecretCreateRequestBody](secret_v1.md#secretcreaterequestbody)
 - [SecretCreateResponse](secret_v1.md#secretcreateresponse)
+- [SecretCreateResponseBody](secret_v1.md#secretcreateresponsebody)
+- [SecretDeleteRequest](secret_v1.md#secretdeleterequest)
 - [SecretDeleteRequestBody](secret_v1.md#secretdeleterequestbody)
 - [SecretDeleteResponse](secret_v1.md#secretdeleteresponse)
+- [SecretDeleteResponseBody](secret_v1.md#secretdeleteresponsebody)
 - [SecretFetchResponse](secret_v1.md#secretfetchresponse)
 - [SecretListRequest](secret_v1.md#secretlistrequest)
 - [SecretListResponse](secret_v1.md#secretlistresponse)
@@ -20,6 +23,7 @@
 - [SecretUpdateRequest](secret_v1.md#secretupdaterequest)
 - [SecretUpdateRequestBody](secret_v1.md#secretupdaterequestbody)
 - [SecretUpdateResponse](secret_v1.md#secretupdateresponse)
+- [SecretUpdateResponseBody](secret_v1.md#secretupdateresponsebody)
 
 ### Functions
 
@@ -60,25 +64,11 @@ ___
 
 ### SecretCreateRequest
 
-Ƭ **SecretCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `config?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `description?` | `string` |
-| `kind?` | ``"shared"`` \| ``"personal"`` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `type?` | ``"plain"`` \| ``"basic"`` \| ``"bearer"`` \| ``"oauth"`` \| ``"template"`` \| ``"reference"`` |
-| `value?` | `string` |
-| `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
+Ƭ **SecretCreateRequest**\<\>: [`SecretCreateRequestBody`](secret_v1.md#secretcreaterequestbody)
 
 #### Defined in
 
-[secret/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L63)
+[secret/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L55)
 
 ___
 
@@ -88,17 +78,37 @@ ___
 
 #### Defined in
 
-[secret/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L65)
+[secret/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L53)
 
 ___
 
 ### SecretCreateResponse
 
-Ƭ **SecretCreateResponse**\<\>: `operations`[``"createSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SecretCreateResponse**\<\>: [`SecretCreateResponseBody`](secret_v1.md#secretcreateresponsebody)
 
 #### Defined in
 
-[secret/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L67)
+[secret/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L59)
+
+___
+
+### SecretCreateResponseBody
+
+Ƭ **SecretCreateResponseBody**\<\>: `operations`[``"createSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L57)
+
+___
+
+### SecretDeleteRequest
+
+Ƭ **SecretDeleteRequest**\<\>: [`SecretDeleteRequestBody`](secret_v1.md#secretdeleterequestbody)
+
+#### Defined in
+
+[secret/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L110)
 
 ___
 
@@ -108,17 +118,27 @@ ___
 
 #### Defined in
 
-[secret/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L124)
+[secret/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L108)
 
 ___
 
 ### SecretDeleteResponse
 
-Ƭ **SecretDeleteResponse**\<\>: `operations`[``"deleteSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SecretDeleteResponse**\<\>: [`SecretDeleteResponseBody`](secret_v1.md#secretdeleteresponsebody)
 
 #### Defined in
 
-[secret/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L126)
+[secret/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L114)
+
+___
+
+### SecretDeleteResponseBody
+
+Ƭ **SecretDeleteResponseBody**\<\>: `operations`[``"deleteSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L112)
 
 ___
 
@@ -173,25 +193,11 @@ ___
 
 ### SecretUpdateRequest
 
-Ƭ **SecretUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `config?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `description?` | `string` |
-| `kind?` | ``"shared"`` \| ``"personal"`` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `type?` | ``"plain"`` \| ``"basic"`` \| ``"bearer"`` \| ``"oauth"`` \| ``"template"`` \| ``"reference"`` |
-| `value?` | `string` |
-| `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
+Ƭ **SecretUpdateRequest**\<\>: [`SecretUpdateRequestBody`](secret_v1.md#secretupdaterequestbody)
 
 #### Defined in
 
-[secret/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L98)
+[secret/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L82)
 
 ___
 
@@ -201,17 +207,27 @@ ___
 
 #### Defined in
 
-[secret/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L100)
+[secret/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L80)
 
 ___
 
 ### SecretUpdateResponse
 
-Ƭ **SecretUpdateResponse**\<\>: `operations`[``"updateSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SecretUpdateResponse**\<\>: [`SecretUpdateResponseBody`](secret_v1.md#secretupdateresponsebody)
 
 #### Defined in
 
-[secret/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L102)
+[secret/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L86)
+
+___
+
+### SecretUpdateResponseBody
+
+Ƭ **SecretUpdateResponseBody**\<\>: `operations`[``"updateSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L84)
 
 ## Functions
 
@@ -224,7 +240,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`SecretCreateRequest`](secret_v1.md#secretcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -232,7 +248,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L73)
+[secret/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L65)
 
 ___
 
@@ -253,7 +269,7 @@ ___
 
 #### Defined in
 
-[secret/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L132)
+[secret/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L120)
 
 ___
 
@@ -309,7 +325,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `secretId` | `string` |
-| `request` | [`SecretUpdateRequest`](secret_v1.md#secretupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -317,4 +333,4 @@ ___
 
 #### Defined in
 
-[secret/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L109)
+[secret/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L93)

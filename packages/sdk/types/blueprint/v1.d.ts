@@ -32,15 +32,13 @@ export function listBlueprints(client: ChatBotKitClient, request?: BlueprintList
  */
 export function fetchBlueprint(client: ChatBotKitClient, blueprintId: string): ResponsePromise<BlueprintFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} BlueprintCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createBlueprint']['requestBody']['content']['application/json']} BlueprintCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createBlueprint']['responses']['200']['content']['application/json']} BlueprintCreateResponse
+ * @typedef {BlueprintCreateRequestBody} BlueprintCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createBlueprint']['responses']['200']['content']['application/json']} BlueprintCreateResponseBody
+ *
+ * @typedef {BlueprintCreateResponseBody} BlueprintCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {BlueprintCreateRequest} request
@@ -48,15 +46,13 @@ export function fetchBlueprint(client: ChatBotKitClient, blueprintId: string): R
  */
 export function createBlueprint(client: ChatBotKitClient, request: BlueprintCreateRequest): Promise<BlueprintCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} BlueprintUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateBlueprint']['requestBody']['content']['application/json']} BlueprintUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateBlueprint']['responses']['200']['content']['application/json']} BlueprintUpdateResponse
+ * @typedef {BlueprintUpdateRequestBody} BlueprintUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateBlueprint']['responses']['200']['content']['application/json']} BlueprintUpdateResponseBody
+ *
+ * @typedef {BlueprintUpdateResponseBody} BlueprintUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
@@ -67,7 +63,11 @@ export function updateBlueprint(client: ChatBotKitClient, blueprintId: string, r
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteBlueprint']['requestBody']['content']['application/json']} BlueprintDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteBlueprint']['responses']['200']['content']['application/json']} BlueprintDeleteResponse
+ * @typedef {BlueprintDeleteRequestBody} BlueprintDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteBlueprint']['responses']['200']['content']['application/json']} BlueprintDeleteResponseBody
+ *
+ * @typedef {BlueprintDeleteResponseBody} BlueprintDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
@@ -77,7 +77,11 @@ export function deleteBlueprint(client: ChatBotKitClient, blueprintId: string): 
 /**
  * @typedef {import('../types/api/v1.js').operations['cloneBlueprint']['requestBody']['content']['application/json']} BlueprintCloneRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['cloneBlueprint']['responses']['200']['content']['application/json']} BlueprintCloneResponse
+ * @typedef {BlueprintCloneRequestBody} BlueprintCloneRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['cloneBlueprint']['responses']['200']['content']['application/json']} BlueprintCloneResponseBody
+ *
+ * @typedef {BlueprintCloneResponseBody} BlueprintCloneResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
@@ -103,22 +107,20 @@ export type BlueprintListRequest = {
 export type BlueprintListResponse = import("../types/api/v1.js").operations["listBlueprints"]["responses"]["200"]["content"]["application/json"];
 export type BlueprintListStreamType = import("../types/api/v1.js").operations["listBlueprints"]["responses"]["200"]["content"]["application/jsonl"];
 export type BlueprintFetchResponse = import("../types/api/v1.js").operations["fetchBlueprint"]["responses"]["200"]["content"]["application/json"];
-export type BlueprintCreateRequest = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-};
 export type BlueprintCreateRequestBody = import("../types/api/v1.js").operations["createBlueprint"]["requestBody"]["content"]["application/json"];
-export type BlueprintCreateResponse = import("../types/api/v1.js").operations["createBlueprint"]["responses"]["200"]["content"]["application/json"];
-export type BlueprintUpdateRequest = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-};
+export type BlueprintCreateRequest = BlueprintCreateRequestBody;
+export type BlueprintCreateResponseBody = import("../types/api/v1.js").operations["createBlueprint"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintCreateResponse = BlueprintCreateResponseBody;
 export type BlueprintUpdateRequestBody = import("../types/api/v1.js").operations["updateBlueprint"]["requestBody"]["content"]["application/json"];
-export type BlueprintUpdateResponse = import("../types/api/v1.js").operations["updateBlueprint"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintUpdateRequest = BlueprintUpdateRequestBody;
+export type BlueprintUpdateResponseBody = import("../types/api/v1.js").operations["updateBlueprint"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintUpdateResponse = BlueprintUpdateResponseBody;
 export type BlueprintDeleteRequestBody = import("../types/api/v1.js").operations["deleteBlueprint"]["requestBody"]["content"]["application/json"];
-export type BlueprintDeleteResponse = import("../types/api/v1.js").operations["deleteBlueprint"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintDeleteRequest = BlueprintDeleteRequestBody;
+export type BlueprintDeleteResponseBody = import("../types/api/v1.js").operations["deleteBlueprint"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintDeleteResponse = BlueprintDeleteResponseBody;
 export type BlueprintCloneRequestBody = import("../types/api/v1.js").operations["cloneBlueprint"]["requestBody"]["content"]["application/json"];
-export type BlueprintCloneResponse = import("../types/api/v1.js").operations["cloneBlueprint"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintCloneRequest = BlueprintCloneRequestBody;
+export type BlueprintCloneResponseBody = import("../types/api/v1.js").operations["cloneBlueprint"]["responses"]["200"]["content"]["application/json"];
+export type BlueprintCloneResponse = BlueprintCloneResponseBody;
 export type BlueprintListResourcesResponse = import("../types/api/v1.js").operations["listBlueprintResources"]["responses"]["200"]["content"]["application/json"];

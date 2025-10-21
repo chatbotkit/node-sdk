@@ -7,12 +7,9 @@
 ### Type Aliases
 
 - [ChatBotKitClient](contact_conversation_v1.md#chatbotkitclient)
-- [ConversationInstance](contact_conversation_v1.md#conversationinstance)
 - [ConversationListRequest](contact_conversation_v1.md#conversationlistrequest)
 - [ConversationListResponse](contact_conversation_v1.md#conversationlistresponse)
-- [ConversationListStreamItemType](contact_conversation_v1.md#conversationliststreamitemtype)
 - [ConversationListStreamType](contact_conversation_v1.md#conversationliststreamtype)
-- [ConversationOptions](contact_conversation_v1.md#conversationoptions)
 - [ResponsePromise](contact_conversation_v1.md#responsepromise)
 
 ### Functions
@@ -31,16 +28,6 @@
 
 ___
 
-### ConversationInstance
-
-Ƭ **ConversationInstance**\<\>: [`ConversationOptions`](contact_conversation_v1.md#conversationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[contact/conversation/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L29)
-
-___
-
 ### ConversationListRequest
 
 Ƭ **ConversationListRequest**\<\>: `Object`
@@ -56,75 +43,27 @@ ___
 
 #### Defined in
 
-[contact/conversation/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L38)
+[contact/conversation/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L17)
 
 ___
 
 ### ConversationListResponse
 
-Ƭ **ConversationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`ConversationInstance`](contact_conversation_v1.md#conversationinstance)[] |
+Ƭ **ConversationListResponse**\<\>: `operations`[``"listContactConversations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[contact/conversation/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L40)
-
-___
-
-### ConversationListStreamItemType
-
-Ƭ **ConversationListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`ConversationInstance`](contact_conversation_v1.md#conversationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[contact/conversation/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L45)
+[contact/conversation/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L19)
 
 ___
 
 ### ConversationListStreamType
 
-Ƭ **ConversationListStreamType**\<\>: [`ConversationListStreamItemType`](contact_conversation_v1.md#conversationliststreamitemtype)
+Ƭ **ConversationListStreamType**\<\>: `operations`[``"listContactConversations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[contact/conversation/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L47)
-
-___
-
-### ConversationOptions
-
-Ƭ **ConversationOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `botId?` | `string` |
-| `contactId?` | `string` |
-| `datasetId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | `string` |
-| `name?` | `string` |
-| `skillsetId?` | `string` |
-| `taskId?` | `string` |
-
-#### Defined in
-
-[contact/conversation/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L23)
+[contact/conversation/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L21)
 
 ___
 
@@ -147,7 +86,7 @@ ___
 
 ### listConversations
 
-▸ **listConversations**(`client`, `contactId`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ConversationListResponse`](contact_conversation_v1.md#conversationlistresponse), [`ConversationListStreamItemType`](contact_conversation_v1.md#conversationliststreamitemtype)\>
+▸ **listConversations**(`client`, `contactId`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -159,8 +98,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ConversationListResponse`](contact_conversation_v1.md#conversationlistresponse), [`ConversationListStreamItemType`](contact_conversation_v1.md#conversationliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[contact/conversation/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L54)
+[contact/conversation/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L28)

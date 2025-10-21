@@ -11,17 +11,23 @@
 - [TwilioIntegrationCreateRequest](integration_twilio_v1.md#twiliointegrationcreaterequest)
 - [TwilioIntegrationCreateRequestBody](integration_twilio_v1.md#twiliointegrationcreaterequestbody)
 - [TwilioIntegrationCreateResponse](integration_twilio_v1.md#twiliointegrationcreateresponse)
+- [TwilioIntegrationCreateResponseBody](integration_twilio_v1.md#twiliointegrationcreateresponsebody)
+- [TwilioIntegrationDeleteRequest](integration_twilio_v1.md#twiliointegrationdeleterequest)
 - [TwilioIntegrationDeleteRequestBody](integration_twilio_v1.md#twiliointegrationdeleterequestbody)
 - [TwilioIntegrationDeleteResponse](integration_twilio_v1.md#twiliointegrationdeleteresponse)
+- [TwilioIntegrationDeleteResponseBody](integration_twilio_v1.md#twiliointegrationdeleteresponsebody)
 - [TwilioIntegrationFetchResponse](integration_twilio_v1.md#twiliointegrationfetchresponse)
 - [TwilioIntegrationListRequest](integration_twilio_v1.md#twiliointegrationlistrequest)
 - [TwilioIntegrationListResponse](integration_twilio_v1.md#twiliointegrationlistresponse)
 - [TwilioIntegrationListStreamType](integration_twilio_v1.md#twiliointegrationliststreamtype)
+- [TwilioIntegrationSetupRequest](integration_twilio_v1.md#twiliointegrationsetuprequest)
 - [TwilioIntegrationSetupRequestBody](integration_twilio_v1.md#twiliointegrationsetuprequestbody)
 - [TwilioIntegrationSetupResponse](integration_twilio_v1.md#twiliointegrationsetupresponse)
+- [TwilioIntegrationSetupResponseBody](integration_twilio_v1.md#twiliointegrationsetupresponsebody)
 - [TwilioIntegrationUpdateRequest](integration_twilio_v1.md#twiliointegrationupdaterequest)
 - [TwilioIntegrationUpdateRequestBody](integration_twilio_v1.md#twiliointegrationupdaterequestbody)
 - [TwilioIntegrationUpdateResponse](integration_twilio_v1.md#twiliointegrationupdateresponse)
+- [TwilioIntegrationUpdateResponseBody](integration_twilio_v1.md#twiliointegrationupdateresponsebody)
 
 ### Functions
 
@@ -63,26 +69,11 @@ ___
 
 ### TwilioIntegrationCreateRequest
 
-Ƭ **TwilioIntegrationCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `accountSid?` | `string` |
-| `authToken?` | `string` |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | [`model/v1`](model_v1.md) |
-| `name?` | `string` |
-| `phoneNumber?` | `string` |
-| `sessionDuration?` | `number` |
+Ƭ **TwilioIntegrationCreateRequest**\<\>: [`TwilioIntegrationCreateRequestBody`](integration_twilio_v1.md#twiliointegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/twilio/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L64)
+[integration/twilio/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L55)
 
 ___
 
@@ -92,17 +83,37 @@ ___
 
 #### Defined in
 
-[integration/twilio/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L66)
+[integration/twilio/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L53)
 
 ___
 
 ### TwilioIntegrationCreateResponse
 
-Ƭ **TwilioIntegrationCreateResponse**\<\>: `operations`[``"createTwilioIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TwilioIntegrationCreateResponse**\<\>: [`TwilioIntegrationCreateResponseBody`](integration_twilio_v1.md#twiliointegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/twilio/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L68)
+[integration/twilio/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L59)
+
+___
+
+### TwilioIntegrationCreateResponseBody
+
+Ƭ **TwilioIntegrationCreateResponseBody**\<\>: `operations`[``"createTwilioIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/twilio/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L57)
+
+___
+
+### TwilioIntegrationDeleteRequest
+
+Ƭ **TwilioIntegrationDeleteRequest**\<\>: [`TwilioIntegrationDeleteRequestBody`](integration_twilio_v1.md#twiliointegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/twilio/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L110)
 
 ___
 
@@ -112,17 +123,27 @@ ___
 
 #### Defined in
 
-[integration/twilio/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L126)
+[integration/twilio/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L108)
 
 ___
 
 ### TwilioIntegrationDeleteResponse
 
-Ƭ **TwilioIntegrationDeleteResponse**\<\>: `operations`[``"deleteTwilioIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TwilioIntegrationDeleteResponse**\<\>: [`TwilioIntegrationDeleteResponseBody`](integration_twilio_v1.md#twiliointegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/twilio/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L128)
+[integration/twilio/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L114)
+
+___
+
+### TwilioIntegrationDeleteResponseBody
+
+Ƭ **TwilioIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteTwilioIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/twilio/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L112)
 
 ___
 
@@ -175,48 +196,53 @@ ___
 
 ___
 
+### TwilioIntegrationSetupRequest
+
+Ƭ **TwilioIntegrationSetupRequest**\<\>: [`TwilioIntegrationSetupRequestBody`](integration_twilio_v1.md#twiliointegrationsetuprequestbody)
+
+#### Defined in
+
+[integration/twilio/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L135)
+
+___
+
 ### TwilioIntegrationSetupRequestBody
 
 Ƭ **TwilioIntegrationSetupRequestBody**\<\>: `operations`[``"setupTwilioIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/twilio/v1.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L147)
+[integration/twilio/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L133)
 
 ___
 
 ### TwilioIntegrationSetupResponse
 
-Ƭ **TwilioIntegrationSetupResponse**\<\>: `operations`[``"setupTwilioIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TwilioIntegrationSetupResponse**\<\>: [`TwilioIntegrationSetupResponseBody`](integration_twilio_v1.md#twiliointegrationsetupresponsebody)
 
 #### Defined in
 
-[integration/twilio/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L149)
+[integration/twilio/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L139)
+
+___
+
+### TwilioIntegrationSetupResponseBody
+
+Ƭ **TwilioIntegrationSetupResponseBody**\<\>: `operations`[``"setupTwilioIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/twilio/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L137)
 
 ___
 
 ### TwilioIntegrationUpdateRequest
 
-Ƭ **TwilioIntegrationUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `accountSid?` | `string` |
-| `authToken?` | `string` |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | [`model/v1`](model_v1.md) |
-| `name?` | `string` |
-| `phoneNumber?` | `string` |
-| `sessionDuration?` | `number` |
+Ƭ **TwilioIntegrationUpdateRequest**\<\>: [`TwilioIntegrationUpdateRequestBody`](integration_twilio_v1.md#twiliointegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/twilio/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L100)
+[integration/twilio/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L82)
 
 ___
 
@@ -226,17 +252,27 @@ ___
 
 #### Defined in
 
-[integration/twilio/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L102)
+[integration/twilio/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L80)
 
 ___
 
 ### TwilioIntegrationUpdateResponse
 
-Ƭ **TwilioIntegrationUpdateResponse**\<\>: `operations`[``"updateTwilioIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TwilioIntegrationUpdateResponse**\<\>: [`TwilioIntegrationUpdateResponseBody`](integration_twilio_v1.md#twiliointegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/twilio/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L104)
+[integration/twilio/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L86)
+
+___
+
+### TwilioIntegrationUpdateResponseBody
+
+Ƭ **TwilioIntegrationUpdateResponseBody**\<\>: `operations`[``"updateTwilioIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/twilio/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L84)
 
 ## Functions
 
@@ -249,7 +285,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`TwilioIntegrationCreateRequest`](integration_twilio_v1.md#twiliointegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -257,7 +293,7 @@ ___
 
 #### Defined in
 
-[integration/twilio/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L74)
+[integration/twilio/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L65)
 
 ___
 
@@ -278,7 +314,7 @@ ___
 
 #### Defined in
 
-[integration/twilio/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L134)
+[integration/twilio/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L120)
 
 ___
 
@@ -341,7 +377,7 @@ ___
 
 #### Defined in
 
-[integration/twilio/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L155)
+[integration/twilio/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L145)
 
 ___
 
@@ -355,7 +391,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `twilioId` | `string` |
-| `request` | [`TwilioIntegrationUpdateRequest`](integration_twilio_v1.md#twiliointegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -363,4 +399,4 @@ ___
 
 #### Defined in
 
-[integration/twilio/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L111)
+[integration/twilio/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L93)

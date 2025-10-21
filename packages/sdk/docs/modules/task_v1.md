@@ -11,19 +11,25 @@
 - [TaskCreateRequest](task_v1.md#taskcreaterequest)
 - [TaskCreateRequestBody](task_v1.md#taskcreaterequestbody)
 - [TaskCreateResponse](task_v1.md#taskcreateresponse)
+- [TaskCreateResponseBody](task_v1.md#taskcreateresponsebody)
+- [TaskDeleteRequest](task_v1.md#taskdeleterequest)
 - [TaskDeleteRequestBody](task_v1.md#taskdeleterequestbody)
 - [TaskDeleteResponse](task_v1.md#taskdeleteresponse)
+- [TaskDeleteResponseBody](task_v1.md#taskdeleteresponsebody)
 - [TaskExportRequest](task_v1.md#taskexportrequest)
 - [TaskExportStreamType](task_v1.md#taskexportstreamtype)
 - [TaskFetchResponse](task_v1.md#taskfetchresponse)
 - [TaskListRequest](task_v1.md#tasklistrequest)
 - [TaskListResponse](task_v1.md#tasklistresponse)
 - [TaskListStreamType](task_v1.md#taskliststreamtype)
+- [TaskTriggerRequest](task_v1.md#tasktriggerrequest)
 - [TaskTriggerRequestBody](task_v1.md#tasktriggerrequestbody)
 - [TaskTriggerResponse](task_v1.md#tasktriggerresponse)
+- [TaskTriggerResponseBody](task_v1.md#tasktriggerresponsebody)
 - [TaskUpdateRequest](task_v1.md#taskupdaterequest)
 - [TaskUpdateRequestBody](task_v1.md#taskupdaterequestbody)
 - [TaskUpdateResponse](task_v1.md#taskupdateresponse)
+- [TaskUpdateResponseBody](task_v1.md#taskupdateresponsebody)
 
 ### Functions
 
@@ -66,23 +72,11 @@ ___
 
 ### TaskCreateRequest
 
-Ƭ **TaskCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-| `contactId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `schedule?` | `string` |
-| `sessionDuration?` | `number` |
+Ƭ **TaskCreateRequest**\<\>: [`TaskCreateRequestBody`](task_v1.md#taskcreaterequestbody)
 
 #### Defined in
 
-[task/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L61)
+[task/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L55)
 
 ___
 
@@ -92,17 +86,37 @@ ___
 
 #### Defined in
 
-[task/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L63)
+[task/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L53)
 
 ___
 
 ### TaskCreateResponse
 
-Ƭ **TaskCreateResponse**\<\>: `operations`[``"createTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TaskCreateResponse**\<\>: [`TaskCreateResponseBody`](task_v1.md#taskcreateresponsebody)
 
 #### Defined in
 
-[task/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L65)
+[task/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L59)
+
+___
+
+### TaskCreateResponseBody
+
+Ƭ **TaskCreateResponseBody**\<\>: `operations`[``"createTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L57)
+
+___
+
+### TaskDeleteRequest
+
+Ƭ **TaskDeleteRequest**\<\>: [`TaskDeleteRequestBody`](task_v1.md#taskdeleterequestbody)
+
+#### Defined in
+
+[task/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L110)
 
 ___
 
@@ -112,17 +126,27 @@ ___
 
 #### Defined in
 
-[task/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L120)
+[task/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L108)
 
 ___
 
 ### TaskDeleteResponse
 
-Ƭ **TaskDeleteResponse**\<\>: `operations`[``"deleteTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TaskDeleteResponse**\<\>: [`TaskDeleteResponseBody`](task_v1.md#taskdeleteresponsebody)
 
 #### Defined in
 
-[task/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L122)
+[task/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L114)
+
+___
+
+### TaskDeleteResponseBody
+
+Ƭ **TaskDeleteResponseBody**\<\>: `operations`[``"deleteTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L112)
 
 ___
 
@@ -140,7 +164,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L166)
+[task/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L162)
 
 ___
 
@@ -150,7 +174,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:168](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L168)
+[task/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L164)
 
 ___
 
@@ -203,45 +227,53 @@ ___
 
 ___
 
+### TaskTriggerRequest
+
+Ƭ **TaskTriggerRequest**\<\>: [`TaskTriggerRequestBody`](task_v1.md#tasktriggerrequestbody)
+
+#### Defined in
+
+[task/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L135)
+
+___
+
 ### TaskTriggerRequestBody
 
 Ƭ **TaskTriggerRequestBody**\<\>: `operations`[``"triggerTask"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[task/v1.js:141](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L141)
+[task/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L133)
 
 ___
 
 ### TaskTriggerResponse
 
-Ƭ **TaskTriggerResponse**\<\>: `operations`[``"triggerTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TaskTriggerResponse**\<\>: [`TaskTriggerResponseBody`](task_v1.md#tasktriggerresponsebody)
 
 #### Defined in
 
-[task/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L143)
+[task/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L139)
+
+___
+
+### TaskTriggerResponseBody
+
+Ƭ **TaskTriggerResponseBody**\<\>: `operations`[``"triggerTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L137)
 
 ___
 
 ### TaskUpdateRequest
 
-Ƭ **TaskUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-| `contactId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `schedule?` | `string` |
-| `sessionDuration?` | `number` |
+Ƭ **TaskUpdateRequest**\<\>: [`TaskUpdateRequestBody`](task_v1.md#taskupdaterequestbody)
 
 #### Defined in
 
-[task/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L94)
+[task/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L82)
 
 ___
 
@@ -251,17 +283,27 @@ ___
 
 #### Defined in
 
-[task/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L96)
+[task/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L80)
 
 ___
 
 ### TaskUpdateResponse
 
-Ƭ **TaskUpdateResponse**\<\>: `operations`[``"updateTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TaskUpdateResponse**\<\>: [`TaskUpdateResponseBody`](task_v1.md#taskupdateresponsebody)
 
 #### Defined in
 
-[task/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L98)
+[task/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L86)
+
+___
+
+### TaskUpdateResponseBody
+
+Ƭ **TaskUpdateResponseBody**\<\>: `operations`[``"updateTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L84)
 
 ## Functions
 
@@ -274,7 +316,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`TaskCreateRequest`](task_v1.md#taskcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -282,7 +324,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L71)
+[task/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L65)
 
 ___
 
@@ -303,7 +345,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L128)
+[task/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L120)
 
 ___
 
@@ -324,7 +366,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L174)
+[task/v1.js:170](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L170)
 
 ___
 
@@ -387,7 +429,7 @@ ___
 
 #### Defined in
 
-[task/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L149)
+[task/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L145)
 
 ___
 
@@ -401,7 +443,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `taskId` | `string` |
-| `request` | [`TaskUpdateRequest`](task_v1.md#taskupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -409,4 +451,4 @@ ___
 
 #### Defined in
 
-[task/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L105)
+[task/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L93)

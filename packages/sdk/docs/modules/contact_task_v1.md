@@ -8,12 +8,9 @@
 
 - [ChatBotKitClient](contact_task_v1.md#chatbotkitclient)
 - [ResponsePromise](contact_task_v1.md#responsepromise)
-- [TaskInstance](contact_task_v1.md#taskinstance)
 - [TaskListRequest](contact_task_v1.md#tasklistrequest)
 - [TaskListResponse](contact_task_v1.md#tasklistresponse)
-- [TaskListStreamItemType](contact_task_v1.md#taskliststreamitemtype)
 - [TaskListStreamType](contact_task_v1.md#taskliststreamtype)
-- [TaskOptions](contact_task_v1.md#taskoptions)
 
 ### Functions
 
@@ -48,16 +45,6 @@ ___
 
 ___
 
-### TaskInstance
-
-Ƭ **TaskInstance**\<\>: [`TaskOptions`](contact_task_v1.md#taskoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[contact/task/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L25)
-
-___
-
 ### TaskListRequest
 
 Ƭ **TaskListRequest**\<\>: `Object`
@@ -73,77 +60,33 @@ ___
 
 #### Defined in
 
-[contact/task/v1.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L34)
+[contact/task/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L17)
 
 ___
 
 ### TaskListResponse
 
-Ƭ **TaskListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`TaskInstance`](contact_task_v1.md#taskinstance)[] |
-
-#### Defined in
-
-[contact/task/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L36)
-
-___
-
-### TaskListStreamItemType
-
-Ƭ **TaskListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`TaskInstance`](contact_task_v1.md#taskinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[contact/task/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L41)
-
-___
-
-### TaskListStreamType
-
-Ƭ **TaskListStreamType**\<\>: [`TaskListStreamItemType`](contact_task_v1.md#taskliststreamitemtype)
-
-#### Defined in
-
-[contact/task/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L43)
-
-___
-
-### TaskOptions
-
-Ƭ **TaskOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-| `contactId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `schedule?` | `string` |
+Ƭ **TaskListResponse**\<\>: `operations`[``"listContactTasks"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
 [contact/task/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L19)
 
+___
+
+### TaskListStreamType
+
+Ƭ **TaskListStreamType**\<\>: `operations`[``"listContactTasks"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
+
+#### Defined in
+
+[contact/task/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L21)
+
 ## Functions
 
 ### listTasks
 
-▸ **listTasks**(`client`, `contactId`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TaskListResponse`](contact_task_v1.md#tasklistresponse), [`TaskListStreamItemType`](contact_task_v1.md#taskliststreamitemtype)\>
+▸ **listTasks**(`client`, `contactId`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -155,8 +98,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TaskListResponse`](contact_task_v1.md#tasklistresponse), [`TaskListStreamItemType`](contact_task_v1.md#taskliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[contact/task/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L50)
+[contact/task/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L28)

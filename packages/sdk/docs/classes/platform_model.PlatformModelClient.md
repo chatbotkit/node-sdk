@@ -99,7 +99,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformModelListResponse`](../modules/platform_model_v1.md#platformmodellistresponse), [`PlatformModelListStreamItemType`](../modules/platform_model_v1.md#platformmodelliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all platform models.
 
@@ -111,7 +111,7 @@ Retrieves a list of all platform models.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformModelListResponse`](../modules/platform_model_v1.md#platformmodellistresponse), [`PlatformModelListStreamItemType`](../modules/platform_model_v1.md#platformmodelliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

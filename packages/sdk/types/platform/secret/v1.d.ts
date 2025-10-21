@@ -8,32 +8,14 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} PlatformSecretOptions
- *
- * @typedef {PlatformSecretOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} PlatformSecretInstance
- */
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  * }} PlatformSecretListRequest
  *
- * @typedef {{items: PlatformSecretInstance[]}} PlatformSecretListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformSecrets']['responses']['200']['content']['application/json']} PlatformSecretListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: PlatformSecretInstance
- * }} PlatformSecretListStreamItemType
- *
- * @typedef {PlatformSecretListStreamItemType} PlatformSecretListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformSecrets']['responses']['200']['content']['application/jsonl']} PlatformSecretListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformSecretListRequest} [request]
@@ -42,26 +24,10 @@
 export function listPlatformSecrets(client: ChatBotKitClient, request?: PlatformSecretListRequest): ResponsePromise<PlatformSecretListResponse, PlatformSecretListStreamType>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
-export type PlatformSecretOptions = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-};
-export type PlatformSecretInstance = PlatformSecretOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
 export type PlatformSecretListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
 };
-export type PlatformSecretListResponse = {
-    items: PlatformSecretInstance[];
-};
-export type PlatformSecretListStreamItemType = {
-    type: "item";
-    data: PlatformSecretInstance;
-};
-export type PlatformSecretListStreamType = PlatformSecretListStreamItemType;
+export type PlatformSecretListResponse = import("../../types/api/v1.js").operations["listPlatformSecrets"]["responses"]["200"]["content"]["application/json"];
+export type PlatformSecretListStreamType = import("../../types/api/v1.js").operations["listPlatformSecrets"]["responses"]["200"]["content"]["application/jsonl"];

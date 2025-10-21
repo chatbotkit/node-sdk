@@ -7,12 +7,9 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_model_v1.md#chatbotkitclient)
-- [PlatformModelInstance](platform_model_v1.md#platformmodelinstance)
 - [PlatformModelListRequest](platform_model_v1.md#platformmodellistrequest)
 - [PlatformModelListResponse](platform_model_v1.md#platformmodellistresponse)
-- [PlatformModelListStreamItemType](platform_model_v1.md#platformmodelliststreamitemtype)
 - [PlatformModelListStreamType](platform_model_v1.md#platformmodelliststreamtype)
-- [PlatformModelOptions](platform_model_v1.md#platformmodeloptions)
 - [ResponsePromise](platform_model_v1.md#responsepromise)
 
 ### Functions
@@ -31,16 +28,6 @@
 
 ___
 
-### PlatformModelInstance
-
-Ƭ **PlatformModelInstance**\<\>: [`PlatformModelOptions`](platform_model_v1.md#platformmodeloptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[platform/model/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L22)
-
-___
-
 ### PlatformModelListRequest
 
 Ƭ **PlatformModelListRequest**\<\>: `Object`
@@ -50,73 +37,33 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cursor?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\> |
 | `order?` | ``"desc"`` \| ``"asc"`` |
 | `take?` | `number` |
 
 #### Defined in
 
-[platform/model/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L30)
+[platform/model/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L17)
 
 ___
 
 ### PlatformModelListResponse
 
-Ƭ **PlatformModelListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`PlatformModelInstance`](platform_model_v1.md#platformmodelinstance)[] |
+Ƭ **PlatformModelListResponse**\<\>: `operations`[``"listPlatformModels"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[platform/model/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L32)
-
-___
-
-### PlatformModelListStreamItemType
-
-Ƭ **PlatformModelListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`PlatformModelInstance`](platform_model_v1.md#platformmodelinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[platform/model/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L37)
+[platform/model/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L19)
 
 ___
 
 ### PlatformModelListStreamType
 
-Ƭ **PlatformModelListStreamType**\<\>: [`PlatformModelListStreamItemType`](platform_model_v1.md#platformmodelliststreamitemtype)
+Ƭ **PlatformModelListStreamType**\<\>: `operations`[``"listPlatformModels"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[platform/model/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L39)
-
-___
-
-### PlatformModelOptions
-
-Ƭ **PlatformModelOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-
-#### Defined in
-
-[platform/model/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L16)
+[platform/model/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L21)
 
 ___
 
@@ -139,7 +86,7 @@ ___
 
 ### listPlatformModels
 
-▸ **listPlatformModels**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformModelListResponse`](platform_model_v1.md#platformmodellistresponse), [`PlatformModelListStreamItemType`](platform_model_v1.md#platformmodelliststreamitemtype)\>
+▸ **listPlatformModels**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -150,8 +97,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformModelListResponse`](platform_model_v1.md#platformmodellistresponse), [`PlatformModelListStreamItemType`](platform_model_v1.md#platformmodelliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[platform/model/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L45)
+[platform/model/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/model/v1.js#L27)

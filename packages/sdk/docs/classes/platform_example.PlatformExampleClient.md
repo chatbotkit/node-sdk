@@ -176,7 +176,7 @@ Searches platform examples.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`PlatformExampleSearchRequest`](../modules/platform_example_v1.md#platformexamplesearchrequest) |
+| `request` | `Object` |
 
 #### Returns
 

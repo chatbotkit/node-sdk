@@ -10,8 +10,11 @@
 - [PolicyCreateRequest](policy_v1.md#policycreaterequest)
 - [PolicyCreateRequestBody](policy_v1.md#policycreaterequestbody)
 - [PolicyCreateResponse](policy_v1.md#policycreateresponse)
+- [PolicyCreateResponseBody](policy_v1.md#policycreateresponsebody)
+- [PolicyDeleteRequest](policy_v1.md#policydeleterequest)
 - [PolicyDeleteRequestBody](policy_v1.md#policydeleterequestbody)
 - [PolicyDeleteResponse](policy_v1.md#policydeleteresponse)
+- [PolicyDeleteResponseBody](policy_v1.md#policydeleteresponsebody)
 - [PolicyFetchResponse](policy_v1.md#policyfetchresponse)
 - [PolicyListRequest](policy_v1.md#policylistrequest)
 - [PolicyListResponse](policy_v1.md#policylistresponse)
@@ -19,6 +22,7 @@
 - [PolicyUpdateRequest](policy_v1.md#policyupdaterequest)
 - [PolicyUpdateRequestBody](policy_v1.md#policyupdaterequestbody)
 - [PolicyUpdateResponse](policy_v1.md#policyupdateresponse)
+- [PolicyUpdateResponseBody](policy_v1.md#policyupdateresponsebody)
 - [ResponsePromise](policy_v1.md#responsepromise)
 
 ### Functions
@@ -43,21 +47,11 @@ ___
 
 ### PolicyCreateRequest
 
-Ƭ **PolicyCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `config?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `type` | ``"retention"`` |
+Ƭ **PolicyCreateRequest**\<\>: [`PolicyCreateRequestBody`](policy_v1.md#policycreaterequestbody)
 
 #### Defined in
 
-[policy/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L59)
+[policy/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L55)
 
 ___
 
@@ -67,17 +61,37 @@ ___
 
 #### Defined in
 
-[policy/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L61)
+[policy/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L53)
 
 ___
 
 ### PolicyCreateResponse
 
-Ƭ **PolicyCreateResponse**\<\>: `operations`[``"createPolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **PolicyCreateResponse**\<\>: [`PolicyCreateResponseBody`](policy_v1.md#policycreateresponsebody)
 
 #### Defined in
 
-[policy/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L63)
+[policy/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L59)
+
+___
+
+### PolicyCreateResponseBody
+
+Ƭ **PolicyCreateResponseBody**\<\>: `operations`[``"createPolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[policy/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L57)
+
+___
+
+### PolicyDeleteRequest
+
+Ƭ **PolicyDeleteRequest**\<\>: [`PolicyDeleteRequestBody`](policy_v1.md#policydeleterequestbody)
+
+#### Defined in
+
+[policy/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L110)
 
 ___
 
@@ -87,17 +101,27 @@ ___
 
 #### Defined in
 
-[policy/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L116)
+[policy/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L108)
 
 ___
 
 ### PolicyDeleteResponse
 
-Ƭ **PolicyDeleteResponse**\<\>: `operations`[``"deletePolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **PolicyDeleteResponse**\<\>: [`PolicyDeleteResponseBody`](policy_v1.md#policydeleteresponsebody)
 
 #### Defined in
 
-[policy/v1.js:118](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L118)
+[policy/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L114)
+
+___
+
+### PolicyDeleteResponseBody
+
+Ƭ **PolicyDeleteResponseBody**\<\>: `operations`[``"deletePolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[policy/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L112)
 
 ___
 
@@ -152,21 +176,11 @@ ___
 
 ### PolicyUpdateRequest
 
-Ƭ **PolicyUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `config?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `type?` | ``"retention"`` |
+Ƭ **PolicyUpdateRequest**\<\>: [`PolicyUpdateRequestBody`](policy_v1.md#policyupdaterequestbody)
 
 #### Defined in
 
-[policy/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L90)
+[policy/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L82)
 
 ___
 
@@ -176,17 +190,27 @@ ___
 
 #### Defined in
 
-[policy/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L92)
+[policy/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L80)
 
 ___
 
 ### PolicyUpdateResponse
 
-Ƭ **PolicyUpdateResponse**\<\>: `operations`[``"updatePolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **PolicyUpdateResponse**\<\>: [`PolicyUpdateResponseBody`](policy_v1.md#policyupdateresponsebody)
 
 #### Defined in
 
-[policy/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L94)
+[policy/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L86)
+
+___
+
+### PolicyUpdateResponseBody
+
+Ƭ **PolicyUpdateResponseBody**\<\>: `operations`[``"updatePolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[policy/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L84)
 
 ___
 
@@ -216,7 +240,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`PolicyCreateRequest`](policy_v1.md#policycreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -224,7 +248,7 @@ ___
 
 #### Defined in
 
-[policy/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L69)
+[policy/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L65)
 
 ___
 
@@ -245,7 +269,7 @@ ___
 
 #### Defined in
 
-[policy/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L124)
+[policy/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L120)
 
 ___
 
@@ -301,7 +325,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `policyId` | `string` |
-| `request` | [`PolicyUpdateRequest`](policy_v1.md#policyupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -309,4 +333,4 @@ ___
 
 #### Defined in
 
-[policy/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L101)
+[policy/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L93)

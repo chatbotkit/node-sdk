@@ -135,7 +135,7 @@ Creates a new blueprint.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`BlueprintCreateRequest`](../modules/blueprint_v1.md#blueprintcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -246,7 +246,7 @@ Updates a blueprint.
 | Name | Type |
 | :------ | :------ |
 | `blueprintId` | `string` |
-| `request` | [`BlueprintUpdateRequest`](../modules/blueprint_v1.md#blueprintupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

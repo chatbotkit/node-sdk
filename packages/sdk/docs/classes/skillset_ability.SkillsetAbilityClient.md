@@ -113,7 +113,7 @@ Creates a new ability.
 | Name | Type |
 | :------ | :------ |
 | `skillsetId` | `string` |
-| `request` | [`SkillsetAbilityCreateRequest`](../modules/skillset_ability_v1.md#skillsetabilitycreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -229,7 +229,7 @@ Updates an ability.
 | :------ | :------ |
 | `skillsetId` | `string` |
 | `abilityId` | `string` |
-| `request` | [`SkillsetAbilityUpdateRequest`](../modules/skillset_ability_v1.md#skillsetabilityupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

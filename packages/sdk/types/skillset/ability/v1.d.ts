@@ -52,19 +52,13 @@ export function exportSkillsetAbilities(client: ChatBotKitClient, skillsetId: st
  */
 export function fetchSkillsetAbility(client: ChatBotKitClient, skillsetId: string, abilityId: string): ResponsePromise<SkillsetAbilityFetchResponse, never>;
 /**
- * @typedef {{
- *   secretId?: string,
- *   fileId?: string,
- *   botId?: string,
- *   name?: string,
- *   description?: string,
- *   instruction?: string,
- *   meta?: Record<string,any>
- * }} SkillsetAbilityCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityCreateResponse
+ * @typedef {SkillsetAbilityCreateRequestBody} SkillsetAbilityCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityCreateResponseBody
+ *
+ * @typedef {SkillsetAbilityCreateResponseBody} SkillsetAbilityCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -73,19 +67,13 @@ export function fetchSkillsetAbility(client: ChatBotKitClient, skillsetId: strin
  */
 export function createSkillsetAbility(client: ChatBotKitClient, skillsetId: string, request: SkillsetAbilityCreateRequest): Promise<SkillsetAbilityCreateResponse>;
 /**
- * @typedef {{
- *   secretId?: string,
- *   fileId?: string,
- *   botId?: string,
- *   name?: string,
- *   description?: string,
- *   instruction?: string,
- *   meta?: Record<string,any>
- * }} SkillsetAbilityUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityUpdateResponse
+ * @typedef {SkillsetAbilityUpdateRequestBody} SkillsetAbilityUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityUpdateResponseBody
+ *
+ * @typedef {SkillsetAbilityUpdateResponseBody} SkillsetAbilityUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -97,7 +85,11 @@ export function updateSkillsetAbility(client: ChatBotKitClient, skillsetId: stri
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityDeleteResponse
+ * @typedef {SkillsetAbilityDeleteRequestBody} SkillsetAbilityDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityDeleteResponseBody
+ *
+ * @typedef {SkillsetAbilityDeleteResponseBody} SkillsetAbilityDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -124,27 +116,15 @@ export type SkillsetAbilityExportRequest = {
 export type SkillsetAbilityExportResponse = import("../../types/api/v1.js").operations["exportSkillsetAbilities"]["responses"]["200"]["content"]["application/json"];
 export type SkillsetAbilityExportStreamType = import("../../types/api/v1.js").operations["exportSkillsetAbilities"]["responses"]["200"]["content"]["application/jsonl"];
 export type SkillsetAbilityFetchResponse = import("../../types/api/v1.js").operations["fetchSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
-export type SkillsetAbilityCreateRequest = {
-    secretId?: string;
-    fileId?: string;
-    botId?: string;
-    name?: string;
-    description?: string;
-    instruction?: string;
-    meta?: Record<string, any>;
-};
 export type SkillsetAbilityCreateRequestBody = import("../../types/api/v1.js").operations["createSkillsetAbility"]["requestBody"]["content"]["application/json"];
-export type SkillsetAbilityCreateResponse = import("../../types/api/v1.js").operations["createSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
-export type SkillsetAbilityUpdateRequest = {
-    secretId?: string;
-    fileId?: string;
-    botId?: string;
-    name?: string;
-    description?: string;
-    instruction?: string;
-    meta?: Record<string, any>;
-};
+export type SkillsetAbilityCreateRequest = SkillsetAbilityCreateRequestBody;
+export type SkillsetAbilityCreateResponseBody = import("../../types/api/v1.js").operations["createSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetAbilityCreateResponse = SkillsetAbilityCreateResponseBody;
 export type SkillsetAbilityUpdateRequestBody = import("../../types/api/v1.js").operations["updateSkillsetAbility"]["requestBody"]["content"]["application/json"];
-export type SkillsetAbilityUpdateResponse = import("../../types/api/v1.js").operations["updateSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetAbilityUpdateRequest = SkillsetAbilityUpdateRequestBody;
+export type SkillsetAbilityUpdateResponseBody = import("../../types/api/v1.js").operations["updateSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetAbilityUpdateResponse = SkillsetAbilityUpdateResponseBody;
 export type SkillsetAbilityDeleteRequestBody = import("../../types/api/v1.js").operations["deleteSkillsetAbility"]["requestBody"]["content"]["application/json"];
-export type SkillsetAbilityDeleteResponse = import("../../types/api/v1.js").operations["deleteSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetAbilityDeleteRequest = SkillsetAbilityDeleteRequestBody;
+export type SkillsetAbilityDeleteResponseBody = import("../../types/api/v1.js").operations["deleteSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetAbilityDeleteResponse = SkillsetAbilityDeleteResponseBody;

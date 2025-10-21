@@ -7,12 +7,9 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_secret_v1.md#chatbotkitclient)
-- [PlatformSecretInstance](platform_secret_v1.md#platformsecretinstance)
 - [PlatformSecretListRequest](platform_secret_v1.md#platformsecretlistrequest)
 - [PlatformSecretListResponse](platform_secret_v1.md#platformsecretlistresponse)
-- [PlatformSecretListStreamItemType](platform_secret_v1.md#platformsecretliststreamitemtype)
 - [PlatformSecretListStreamType](platform_secret_v1.md#platformsecretliststreamtype)
-- [PlatformSecretOptions](platform_secret_v1.md#platformsecretoptions)
 - [ResponsePromise](platform_secret_v1.md#responsepromise)
 
 ### Functions
@@ -31,16 +28,6 @@
 
 ___
 
-### PlatformSecretInstance
-
-Ƭ **PlatformSecretInstance**\<\>: [`PlatformSecretOptions`](platform_secret_v1.md#platformsecretoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[platform/secret/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L22)
-
-___
-
 ### PlatformSecretListRequest
 
 Ƭ **PlatformSecretListRequest**\<\>: `Object`
@@ -55,68 +42,27 @@ ___
 
 #### Defined in
 
-[platform/secret/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L30)
+[platform/secret/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L16)
 
 ___
 
 ### PlatformSecretListResponse
 
-Ƭ **PlatformSecretListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`PlatformSecretInstance`](platform_secret_v1.md#platformsecretinstance)[] |
+Ƭ **PlatformSecretListResponse**\<\>: `operations`[``"listPlatformSecrets"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[platform/secret/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L32)
-
-___
-
-### PlatformSecretListStreamItemType
-
-Ƭ **PlatformSecretListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`PlatformSecretInstance`](platform_secret_v1.md#platformsecretinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[platform/secret/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L37)
+[platform/secret/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L18)
 
 ___
 
 ### PlatformSecretListStreamType
 
-Ƭ **PlatformSecretListStreamType**\<\>: [`PlatformSecretListStreamItemType`](platform_secret_v1.md#platformsecretliststreamitemtype)
+Ƭ **PlatformSecretListStreamType**\<\>: `operations`[``"listPlatformSecrets"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[platform/secret/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L39)
-
-___
-
-### PlatformSecretOptions
-
-Ƭ **PlatformSecretOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-
-#### Defined in
-
-[platform/secret/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L16)
+[platform/secret/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L20)
 
 ___
 
@@ -139,7 +85,7 @@ ___
 
 ### listPlatformSecrets
 
-▸ **listPlatformSecrets**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformSecretListResponse`](platform_secret_v1.md#platformsecretlistresponse), [`PlatformSecretListStreamItemType`](platform_secret_v1.md#platformsecretliststreamitemtype)\>
+▸ **listPlatformSecrets**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -150,8 +96,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PlatformSecretListResponse`](platform_secret_v1.md#platformsecretlistresponse), [`PlatformSecretListStreamItemType`](platform_secret_v1.md#platformsecretliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[platform/secret/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L45)
+[platform/secret/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L26)

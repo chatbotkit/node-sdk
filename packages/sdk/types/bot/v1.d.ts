@@ -32,23 +32,15 @@ export function listBots(client: ChatBotKitClient, request?: BotListRequest): Re
  */
 export function fetchBot(client: ChatBotKitClient, botId: string): ResponsePromise<BotFetchResponse, never>;
 /**
- * @typedef {{
- *   model?: import('../model/v1.js').Model,
- *   name?: string,
- *   description?: string,
- *   backstory?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} BotCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} BotCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} BotCreateResponse
+ * @typedef {Omit<BotCreateRequestBody,'model'> & {
+ *   model: import('../model/v1.js').Model
+ * }} BotCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} BotCreateResponseBody
+ *
+ * @typedef {BotCreateResponseBody} BotCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {BotCreateRequest} request
@@ -56,23 +48,15 @@ export function fetchBot(client: ChatBotKitClient, botId: string): ResponsePromi
  */
 export function createBot(client: ChatBotKitClient, request: BotCreateRequest): Promise<BotCreateResponse>;
 /**
- * @typedef {{
- *   model?: import('../model/v1.js').Model,
- *   name?: string,
- *   description?: string,
- *   backstory?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} BotUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateBot']['requestBody']['content']['application/json']} BotUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateBot']['responses']['200']['content']['application/json']} BotUpdateResponse
+ * @typedef {Omit<BotUpdateRequestBody,'model'> & {
+ *   model?: import('../model/v1.js').Model
+ * }} BotUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateBot']['responses']['200']['content']['application/json']} BotUpdateResponseBody
+ *
+ * @typedef {BotUpdateResponseBody} BotUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -83,7 +67,11 @@ export function updateBot(client: ChatBotKitClient, botId: string, request: BotU
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteBot']['requestBody']['content']['application/json']} BotDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteBot']['responses']['200']['content']['application/json']} BotDeleteResponse
+ * @typedef {BotDeleteRequestBody} BotDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteBot']['responses']['200']['content']['application/json']} BotDeleteResponseBody
+ *
+ * @typedef {BotDeleteResponseBody} BotDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -91,14 +79,13 @@ export function updateBot(client: ChatBotKitClient, botId: string, request: BotU
  */
 export function deleteBot(client: ChatBotKitClient, botId: string): Promise<BotDeleteResponse>;
 /**
- * @typedef {{
- *   value?: number,
- *   reason?: string
- * }} BotUpvoteRequest
- *
  * @typedef {import('../types/api/v1.js').operations['upvoteBot']['requestBody']['content']['application/json']} BotUpvoteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['upvoteBot']['responses']['200']['content']['application/json']} BotUpvoteResponse
+ * @typedef {BotUpvoteRequestBody} BotUpvoteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['upvoteBot']['responses']['200']['content']['application/json']} BotUpvoteResponseBody
+ *
+ * @typedef {BotUpvoteResponseBody} BotUpvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -107,14 +94,13 @@ export function deleteBot(client: ChatBotKitClient, botId: string): Promise<BotD
  */
 export function upvoteBot(client: ChatBotKitClient, botId: string, request: BotUpvoteRequest): Promise<BotUpvoteResponse>;
 /**
- * @typedef {{
- *   value?: number,
- *   reason?: string
- * }} BotDownvoteRequest
- *
  * @typedef {import('../types/api/v1.js').operations['downvoteBot']['requestBody']['content']['application/json']} BotDownvoteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['downvoteBot']['responses']['200']['content']['application/json']} BotDownvoteResponse
+ * @typedef {BotDownvoteRequestBody} BotDownvoteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['downvoteBot']['responses']['200']['content']['application/json']} BotDownvoteResponseBody
+ *
+ * @typedef {BotDownvoteResponseBody} BotDownvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -133,47 +119,27 @@ export type BotListRequest = {
 export type BotListResponse = import("../types/api/v1.js").operations["listBots"]["responses"]["200"]["content"]["application/json"];
 export type BotListStreamType = import("../types/api/v1.js").operations["listBots"]["responses"]["200"]["content"]["application/jsonl"];
 export type BotFetchResponse = import("../types/api/v1.js").operations["fetchBot"]["responses"]["200"]["content"]["application/json"];
-export type BotCreateRequest = {
-    model?: import("../model/v1.js").Model;
-    name?: string;
-    description?: string;
-    backstory?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-    visibility?: "private" | "protected" | "public";
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
 export type BotCreateRequestBody = import("../types/api/v1.js").operations["createBot"]["requestBody"]["content"]["application/json"];
-export type BotCreateResponse = import("../types/api/v1.js").operations["createBot"]["responses"]["200"]["content"]["application/json"];
-export type BotUpdateRequest = {
-    model?: import("../model/v1.js").Model;
-    name?: string;
-    description?: string;
-    backstory?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-    visibility?: "private" | "protected" | "public";
-    meta?: Record<string, any>;
-    blueprintId?: string;
+export type BotCreateRequest = Omit<BotCreateRequestBody, "model"> & {
+    model: import("../model/v1.js").Model;
 };
+export type BotCreateResponseBody = import("../types/api/v1.js").operations["createBot"]["responses"]["200"]["content"]["application/json"];
+export type BotCreateResponse = BotCreateResponseBody;
 export type BotUpdateRequestBody = import("../types/api/v1.js").operations["updateBot"]["requestBody"]["content"]["application/json"];
-export type BotUpdateResponse = import("../types/api/v1.js").operations["updateBot"]["responses"]["200"]["content"]["application/json"];
+export type BotUpdateRequest = Omit<BotUpdateRequestBody, "model"> & {
+    model?: import("../model/v1.js").Model;
+};
+export type BotUpdateResponseBody = import("../types/api/v1.js").operations["updateBot"]["responses"]["200"]["content"]["application/json"];
+export type BotUpdateResponse = BotUpdateResponseBody;
 export type BotDeleteRequestBody = import("../types/api/v1.js").operations["deleteBot"]["requestBody"]["content"]["application/json"];
-export type BotDeleteResponse = import("../types/api/v1.js").operations["deleteBot"]["responses"]["200"]["content"]["application/json"];
-export type BotUpvoteRequest = {
-    value?: number;
-    reason?: string;
-};
+export type BotDeleteRequest = BotDeleteRequestBody;
+export type BotDeleteResponseBody = import("../types/api/v1.js").operations["deleteBot"]["responses"]["200"]["content"]["application/json"];
+export type BotDeleteResponse = BotDeleteResponseBody;
 export type BotUpvoteRequestBody = import("../types/api/v1.js").operations["upvoteBot"]["requestBody"]["content"]["application/json"];
-export type BotUpvoteResponse = import("../types/api/v1.js").operations["upvoteBot"]["responses"]["200"]["content"]["application/json"];
-export type BotDownvoteRequest = {
-    value?: number;
-    reason?: string;
-};
+export type BotUpvoteRequest = BotUpvoteRequestBody;
+export type BotUpvoteResponseBody = import("../types/api/v1.js").operations["upvoteBot"]["responses"]["200"]["content"]["application/json"];
+export type BotUpvoteResponse = BotUpvoteResponseBody;
 export type BotDownvoteRequestBody = import("../types/api/v1.js").operations["downvoteBot"]["requestBody"]["content"]["application/json"];
-export type BotDownvoteResponse = import("../types/api/v1.js").operations["downvoteBot"]["responses"]["200"]["content"]["application/json"];
+export type BotDownvoteRequest = BotDownvoteRequestBody;
+export type BotDownvoteResponseBody = import("../types/api/v1.js").operations["downvoteBot"]["responses"]["200"]["content"]["application/json"];
+export type BotDownvoteResponse = BotDownvoteResponseBody;

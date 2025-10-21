@@ -10,8 +10,11 @@
 - [MemoryCreateRequest](memory_v1.md#memorycreaterequest)
 - [MemoryCreateRequestBody](memory_v1.md#memorycreaterequestbody)
 - [MemoryCreateResponse](memory_v1.md#memorycreateresponse)
+- [MemoryCreateResponseBody](memory_v1.md#memorycreateresponsebody)
+- [MemoryDeleteRequest](memory_v1.md#memorydeleterequest)
 - [MemoryDeleteRequestBody](memory_v1.md#memorydeleterequestbody)
 - [MemoryDeleteResponse](memory_v1.md#memorydeleteresponse)
+- [MemoryDeleteResponseBody](memory_v1.md#memorydeleteresponsebody)
 - [MemoryExportRequest](memory_v1.md#memoryexportrequest)
 - [MemoryExportResponse](memory_v1.md#memoryexportresponse)
 - [MemoryExportStreamType](memory_v1.md#memoryexportstreamtype)
@@ -22,9 +25,11 @@
 - [MemorySearchRequest](memory_v1.md#memorysearchrequest)
 - [MemorySearchRequestBody](memory_v1.md#memorysearchrequestbody)
 - [MemorySearchResponse](memory_v1.md#memorysearchresponse)
+- [MemorySearchResponseBody](memory_v1.md#memorysearchresponsebody)
 - [MemoryUpdateRequest](memory_v1.md#memoryupdaterequest)
 - [MemoryUpdateRequestBody](memory_v1.md#memoryupdaterequestbody)
 - [MemoryUpdateResponse](memory_v1.md#memoryupdateresponse)
+- [MemoryUpdateResponseBody](memory_v1.md#memoryupdateresponsebody)
 - [ResponsePromise](memory_v1.md#responsepromise)
 
 ### Functions
@@ -51,22 +56,11 @@ ___
 
 ### MemoryCreateRequest
 
-Ƭ **MemoryCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-| `contactId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `text?` | `string` |
+Ƭ **MemoryCreateRequest**\<\>: [`MemoryCreateRequestBody`](memory_v1.md#memorycreaterequestbody)
 
 #### Defined in
 
-[memory/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L62)
+[memory/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L57)
 
 ___
 
@@ -76,17 +70,37 @@ ___
 
 #### Defined in
 
-[memory/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L64)
+[memory/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L55)
 
 ___
 
 ### MemoryCreateResponse
 
-Ƭ **MemoryCreateResponse**\<\>: `operations`[``"createMemory"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **MemoryCreateResponse**\<\>: [`MemoryCreateResponseBody`](memory_v1.md#memorycreateresponsebody)
 
 #### Defined in
 
-[memory/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L66)
+[memory/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L61)
+
+___
+
+### MemoryCreateResponseBody
+
+Ƭ **MemoryCreateResponseBody**\<\>: `operations`[``"createMemory"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[memory/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L59)
+
+___
+
+### MemoryDeleteRequest
+
+Ƭ **MemoryDeleteRequest**\<\>: [`MemoryDeleteRequestBody`](memory_v1.md#memorydeleterequestbody)
+
+#### Defined in
+
+[memory/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L112)
 
 ___
 
@@ -96,17 +110,27 @@ ___
 
 #### Defined in
 
-[memory/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L120)
+[memory/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L110)
 
 ___
 
 ### MemoryDeleteResponse
 
-Ƭ **MemoryDeleteResponse**\<\>: `operations`[``"deleteMemory"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **MemoryDeleteResponse**\<\>: [`MemoryDeleteResponseBody`](memory_v1.md#memorydeleteresponsebody)
 
 #### Defined in
 
-[memory/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L122)
+[memory/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L116)
+
+___
+
+### MemoryDeleteResponseBody
+
+Ƭ **MemoryDeleteResponseBody**\<\>: `operations`[``"deleteMemory"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[memory/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L114)
 
 ___
 
@@ -127,7 +151,7 @@ ___
 
 #### Defined in
 
-[memory/v1.js:148](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L148)
+[memory/v1.js:142](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L142)
 
 ___
 
@@ -137,7 +161,7 @@ ___
 
 #### Defined in
 
-[memory/v1.js:150](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L150)
+[memory/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L144)
 
 ___
 
@@ -147,7 +171,7 @@ ___
 
 #### Defined in
 
-[memory/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L152)
+[memory/v1.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L146)
 
 ___
 
@@ -204,19 +228,11 @@ ___
 
 ### MemorySearchRequest
 
-Ƭ **MemorySearchRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-| `contactId?` | `string` |
-| `search` | `string` |
+Ƭ **MemorySearchRequest**\<\>: [`MemorySearchRequestBody`](memory_v1.md#memorysearchrequestbody)
 
 #### Defined in
 
-[memory/v1.js:172](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L172)
+[memory/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L164)
 
 ___
 
@@ -226,38 +242,37 @@ ___
 
 #### Defined in
 
-[memory/v1.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L174)
+[memory/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L162)
 
 ___
 
 ### MemorySearchResponse
 
-Ƭ **MemorySearchResponse**\<\>: `operations`[``"searchMemory"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **MemorySearchResponse**\<\>: [`MemorySearchResponseBody`](memory_v1.md#memorysearchresponsebody)
 
 #### Defined in
 
-[memory/v1.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L176)
+[memory/v1.js:168](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L168)
+
+___
+
+### MemorySearchResponseBody
+
+Ƭ **MemorySearchResponseBody**\<\>: `operations`[``"searchMemory"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[memory/v1.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L166)
 
 ___
 
 ### MemoryUpdateRequest
 
-Ƭ **MemoryUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-| `contactId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `text?` | `string` |
+Ƭ **MemoryUpdateRequest**\<\>: [`MemoryUpdateRequestBody`](memory_v1.md#memoryupdaterequestbody)
 
 #### Defined in
 
-[memory/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L94)
+[memory/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L84)
 
 ___
 
@@ -267,17 +282,27 @@ ___
 
 #### Defined in
 
-[memory/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L96)
+[memory/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L82)
 
 ___
 
 ### MemoryUpdateResponse
 
-Ƭ **MemoryUpdateResponse**\<\>: `operations`[``"updateMemory"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **MemoryUpdateResponse**\<\>: [`MemoryUpdateResponseBody`](memory_v1.md#memoryupdateresponsebody)
 
 #### Defined in
 
-[memory/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L98)
+[memory/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L88)
+
+___
+
+### MemoryUpdateResponseBody
+
+Ƭ **MemoryUpdateResponseBody**\<\>: `operations`[``"updateMemory"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[memory/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L86)
 
 ___
 
@@ -307,7 +332,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`MemoryCreateRequest`](memory_v1.md#memorycreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -315,7 +340,7 @@ ___
 
 #### Defined in
 
-[memory/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L72)
+[memory/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L67)
 
 ___
 
@@ -336,7 +361,7 @@ ___
 
 #### Defined in
 
-[memory/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L128)
+[memory/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L122)
 
 ___
 
@@ -357,7 +382,7 @@ ___
 
 #### Defined in
 
-[memory/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L158)
+[memory/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L152)
 
 ___
 
@@ -412,7 +437,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`MemorySearchRequest`](memory_v1.md#memorysearchrequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -420,7 +445,7 @@ ___
 
 #### Defined in
 
-[memory/v1.js:182](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L182)
+[memory/v1.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L174)
 
 ___
 
@@ -434,7 +459,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `memoryId` | `string` |
-| `request` | [`MemoryUpdateRequest`](memory_v1.md#memoryupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -442,4 +467,4 @@ ___
 
 #### Defined in
 
-[memory/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L105)
+[memory/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L95)

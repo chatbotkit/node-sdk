@@ -113,7 +113,7 @@ Creates a new memory.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`MemoryCreateRequest`](../modules/memory_v1.md#memorycreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -223,7 +223,7 @@ Searches for memories.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`MemorySearchRequest`](../modules/memory_v1.md#memorysearchrequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -246,7 +246,7 @@ Updates a memory.
 | Name | Type |
 | :------ | :------ |
 | `memoryId` | `string` |
-| `request` | [`MemoryUpdateRequest`](../modules/memory_v1.md#memoryupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

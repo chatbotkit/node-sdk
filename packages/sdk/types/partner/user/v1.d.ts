@@ -8,34 +8,15 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   image?: string,
- *   email?: string,
- *   meta?: Record<string,any>
- * }} PartnerUserOptions
- *
- * @typedef {PartnerUserOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} PartnerUserInstance
- */
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} PartnerUserListRequest
  *
- * @typedef {{items: PartnerUserInstance[]}} PartnerUserListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/json']} PartnerUserListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: PartnerUserInstance
- * }} PartnerUserListStreamItem
- *
- * @typedef {PartnerUserListStreamItem} PartnerUserListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/jsonl']} PartnerUserListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PartnerUserListRequest} [request]
@@ -43,8 +24,7 @@
  */
 export function listPartnerUsers(client: ChatBotKitClient, request?: PartnerUserListRequest): ResponsePromise<PartnerUserListResponse, PartnerUserListStreamType>;
 /**
- * @typedef {PartnerUserInstance & {
- * }} PartnerUserFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchPartnerUser']['responses']['200']['content']['application/json']} PartnerUserFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
@@ -52,12 +32,13 @@ export function listPartnerUsers(client: ChatBotKitClient, request?: PartnerUser
  */
 export function fetchPartnerUser(client: ChatBotKitClient, userId: string): ResponsePromise<PartnerUserFetchResponse, never>;
 /**
- * @typedef {PartnerUserOptions & {
- * }} PartnerUserCreateRequest
+ * @typedef {import('../../types/api/v1.js').operations['createPartnerUser']['requestBody']['content']['application/json']} PartnerUserCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} PartnerUserCreateResponse
+ * @typedef {PartnerUserCreateRequestBody} PartnerUserCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createPartnerUser']['responses']['200']['content']['application/json']} PartnerUserCreateResponseBody
+ *
+ * @typedef {PartnerUserCreateResponseBody} PartnerUserCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {PartnerUserCreateRequest} request
@@ -65,12 +46,13 @@ export function fetchPartnerUser(client: ChatBotKitClient, userId: string): Resp
  */
 export function createPartnerUser(client: ChatBotKitClient, request: PartnerUserCreateRequest): Promise<PartnerUserCreateResponse>;
 /**
- * @typedef {PartnerUserOptions & {
- * }} PartnerUserUpdateRequest
+ * @typedef {import('../../types/api/v1.js').operations['updatePartnerUser']['requestBody']['content']['application/json']} PartnerUserUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} PartnerUserUpdateResponse
+ * @typedef {PartnerUserUpdateRequestBody} PartnerUserUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updatePartnerUser']['responses']['200']['content']['application/json']} PartnerUserUpdateResponseBody
+ *
+ * @typedef {PartnerUserUpdateResponseBody} PartnerUserUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
@@ -79,9 +61,13 @@ export function createPartnerUser(client: ChatBotKitClient, request: PartnerUser
  */
 export function updatePartnerUser(client: ChatBotKitClient, userId: string, request: PartnerUserUpdateRequest): Promise<PartnerUserUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} PartnerUserDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deletePartnerUser']['requestBody']['content']['application/json']} PartnerUserDeleteRequestBody
+ *
+ * @typedef {PartnerUserDeleteRequestBody} PartnerUserDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deletePartnerUser']['responses']['200']['content']['application/json']} PartnerUserDeleteResponseBody
+ *
+ * @typedef {PartnerUserDeleteResponseBody} PartnerUserDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
@@ -90,40 +76,24 @@ export function updatePartnerUser(client: ChatBotKitClient, userId: string, requ
 export function deletePartnerUser(client: ChatBotKitClient, userId: string): Promise<PartnerUserDeleteResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
-export type PartnerUserOptions = {
-    name?: string;
-    image?: string;
-    email?: string;
-    meta?: Record<string, any>;
-};
-export type PartnerUserInstance = PartnerUserOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
 export type PartnerUserListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type PartnerUserListResponse = {
-    items: PartnerUserInstance[];
-};
-export type PartnerUserListStreamItem = {
-    type: "item";
-    data: PartnerUserInstance;
-};
-export type PartnerUserListStreamType = PartnerUserListStreamItem;
-export type PartnerUserFetchResponse = PartnerUserInstance & {};
-export type PartnerUserCreateRequest = PartnerUserOptions & {};
-export type PartnerUserCreateResponse = {
-    id: string;
-};
-export type PartnerUserUpdateRequest = PartnerUserOptions & {};
-export type PartnerUserUpdateResponse = {
-    id: string;
-};
-export type PartnerUserDeleteResponse = {
-    id: string;
-};
+export type PartnerUserListResponse = import("../../types/api/v1.js").operations["listPartnerUsers"]["responses"]["200"]["content"]["application/json"];
+export type PartnerUserListStreamType = import("../../types/api/v1.js").operations["listPartnerUsers"]["responses"]["200"]["content"]["application/jsonl"];
+export type PartnerUserFetchResponse = import("../../types/api/v1.js").operations["fetchPartnerUser"]["responses"]["200"]["content"]["application/json"];
+export type PartnerUserCreateRequestBody = import("../../types/api/v1.js").operations["createPartnerUser"]["requestBody"]["content"]["application/json"];
+export type PartnerUserCreateRequest = PartnerUserCreateRequestBody;
+export type PartnerUserCreateResponseBody = import("../../types/api/v1.js").operations["createPartnerUser"]["responses"]["200"]["content"]["application/json"];
+export type PartnerUserCreateResponse = PartnerUserCreateResponseBody;
+export type PartnerUserUpdateRequestBody = import("../../types/api/v1.js").operations["updatePartnerUser"]["requestBody"]["content"]["application/json"];
+export type PartnerUserUpdateRequest = PartnerUserUpdateRequestBody;
+export type PartnerUserUpdateResponseBody = import("../../types/api/v1.js").operations["updatePartnerUser"]["responses"]["200"]["content"]["application/json"];
+export type PartnerUserUpdateResponse = PartnerUserUpdateResponseBody;
+export type PartnerUserDeleteRequestBody = import("../../types/api/v1.js").operations["deletePartnerUser"]["requestBody"]["content"]["application/json"];
+export type PartnerUserDeleteRequest = PartnerUserDeleteRequestBody;
+export type PartnerUserDeleteResponseBody = import("../../types/api/v1.js").operations["deletePartnerUser"]["responses"]["200"]["content"]["application/json"];
+export type PartnerUserDeleteResponse = PartnerUserDeleteResponseBody;

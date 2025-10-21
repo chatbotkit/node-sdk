@@ -99,7 +99,7 @@ ___
 
 ### list
 
-▸ **list**(`contactId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationListResponse`](../modules/contact_conversation_v1.md#conversationlistresponse), [`ConversationListStreamItemType`](../modules/contact_conversation_v1.md#conversationliststreamitemtype)\>
+▸ **list**(`contactId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all contact conversations.
 
@@ -112,7 +112,7 @@ Retrieves a list of all contact conversations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationListResponse`](../modules/contact_conversation_v1.md#conversationlistresponse), [`ConversationListStreamItemType`](../modules/contact_conversation_v1.md#conversationliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

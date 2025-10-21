@@ -31,13 +31,13 @@ export function listPlatformExamples(client: ChatBotKitClient, request?: Platfor
  */
 export function fetchPlatformExample(client: ChatBotKitClient, exampleId: string): ResponsePromise<PlatformExampleFetchResponse, never>;
 /**
- * @typedef {{
- *   search: string
- * }} PlatformExampleSearchRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['searchPlatformExamples']['requestBody']['content']['application/json']} PlatformExampleSearchRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['searchPlatformExamples']['responses']['200']['content']['application/json']} PlatformExampleSearchResponse
+ * @typedef {PlatformExampleSearchRequestBody} PlatformExampleSearchRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['searchPlatformExamples']['responses']['200']['content']['application/json']} PlatformExampleSearchResponseBody
+ *
+ * @typedef {PlatformExampleSearchResponseBody} PlatformExampleSearchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformExampleSearchRequest} request
@@ -47,7 +47,11 @@ export function searchPlatformExamples(client: ChatBotKitClient, request: Platfo
 /**
  * @typedef {import('../../types/api/v1.js').operations['clonePlatformExample']['requestBody']['content']['application/json']} PlatformExampleCloneRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['clonePlatformExample']['responses']['200']['content']['application/json']} PlatformExampleCloneResponse
+ * @typedef {PlatformExampleCloneRequestBody} PlatformExampleCloneRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['clonePlatformExample']['responses']['200']['content']['application/json']} PlatformExampleCloneResponseBody
+ *
+ * @typedef {PlatformExampleCloneResponseBody} PlatformExampleCloneResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} exampleId
@@ -64,10 +68,11 @@ export type PlatformExampleListRequest = {
 export type PlatformExampleListResponse = import("../../types/api/v1.js").operations["listPlatformExamples"]["responses"]["200"]["content"]["application/json"];
 export type PlatformExampleListStreamType = import("../../types/api/v1.js").operations["listPlatformExamples"]["responses"]["200"]["content"]["application/jsonl"];
 export type PlatformExampleFetchResponse = import("../../types/api/v1.js").operations["fetchPlatformExample"]["responses"]["200"]["content"]["application/json"];
-export type PlatformExampleSearchRequest = {
-    search: string;
-};
 export type PlatformExampleSearchRequestBody = import("../../types/api/v1.js").operations["searchPlatformExamples"]["requestBody"]["content"]["application/json"];
-export type PlatformExampleSearchResponse = import("../../types/api/v1.js").operations["searchPlatformExamples"]["responses"]["200"]["content"]["application/json"];
+export type PlatformExampleSearchRequest = PlatformExampleSearchRequestBody;
+export type PlatformExampleSearchResponseBody = import("../../types/api/v1.js").operations["searchPlatformExamples"]["responses"]["200"]["content"]["application/json"];
+export type PlatformExampleSearchResponse = PlatformExampleSearchResponseBody;
 export type PlatformExampleCloneRequestBody = import("../../types/api/v1.js").operations["clonePlatformExample"]["requestBody"]["content"]["application/json"];
-export type PlatformExampleCloneResponse = import("../../types/api/v1.js").operations["clonePlatformExample"]["responses"]["200"]["content"]["application/json"];
+export type PlatformExampleCloneRequest = PlatformExampleCloneRequestBody;
+export type PlatformExampleCloneResponseBody = import("../../types/api/v1.js").operations["clonePlatformExample"]["responses"]["200"]["content"]["application/json"];
+export type PlatformExampleCloneResponse = PlatformExampleCloneResponseBody;

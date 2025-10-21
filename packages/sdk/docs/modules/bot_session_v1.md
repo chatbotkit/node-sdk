@@ -7,7 +7,9 @@
 ### Type Aliases
 
 - [BotSessionCreateRequest](bot_session_v1.md#botsessioncreaterequest)
+- [BotSessionCreateRequestBody](bot_session_v1.md#botsessioncreaterequestbody)
 - [BotSessionCreateResponse](bot_session_v1.md#botsessioncreateresponse)
+- [BotSessionCreateResponseBody](bot_session_v1.md#botsessioncreateresponsebody)
 - [ChatBotKitClient](bot_session_v1.md#chatbotkitclient)
 
 ### Functions
@@ -18,13 +20,7 @@
 
 ### BotSessionCreateRequest
 
-Ƭ **BotSessionCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `durationInSeconds?` | `number` |
+Ƭ **BotSessionCreateRequest**\<\>: [`BotSessionCreateRequestBody`](bot_session_v1.md#botsessioncreaterequestbody)
 
 #### Defined in
 
@@ -32,21 +28,33 @@
 
 ___
 
-### BotSessionCreateResponse
+### BotSessionCreateRequestBody
 
-Ƭ **BotSessionCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `conversationId` | `string` |
-| `expiresAt` | `number` |
-| `token` | `string` |
+Ƭ **BotSessionCreateRequestBody**\<\>: `operations`[``"createBotSession"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[bot/session/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/v1.js#L14)
+[bot/session/v1.js:6](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/v1.js#L6)
+
+___
+
+### BotSessionCreateResponse
+
+Ƭ **BotSessionCreateResponse**\<\>: [`BotSessionCreateResponseBody`](bot_session_v1.md#botsessioncreateresponsebody)
+
+#### Defined in
+
+[bot/session/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/v1.js#L12)
+
+___
+
+### BotSessionCreateResponseBody
+
+Ƭ **BotSessionCreateResponseBody**\<\>: `operations`[``"createBotSession"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/session/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/v1.js#L10)
 
 ___
 
@@ -62,7 +70,7 @@ ___
 
 ### createBotSession
 
-▸ **createBotSession**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotSessionCreateResponse`](bot_session_v1.md#botsessioncreateresponse)\>
+▸ **createBotSession**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -70,12 +78,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `botId` | `string` |
-| `request` | [`BotSessionCreateRequest`](bot_session_v1.md#botsessioncreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotSessionCreateResponse`](bot_session_v1.md#botsessioncreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[bot/session/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/v1.js#L21)
+[bot/session/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/v1.js#L19)
