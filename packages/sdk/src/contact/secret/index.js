@@ -39,7 +39,7 @@ export class SecretClient extends ChatBotKitClient {
    *
    * @param {string} contactId
    * @param {string} secretId
-   * @returns {ResponsePromise<import('./v1.js').SecretRevokeResponse,never>}
+   * @returns {Promise<import('./v1.js').SecretRevokeResponse>}
    */
   revoke(contactId, secretId) {
     return revokeSecret(this, contactId, secretId)
@@ -50,7 +50,7 @@ export class SecretClient extends ChatBotKitClient {
    *
    * @param {string} contactId
    * @param {string} secretId
-   * @returns {ResponsePromise<import('./v1.js').SecretVerifyResponse,never>}
+   * @returns {Promise<import('./v1.js').SecretVerifyResponse>}
    */
   verify(contactId, secretId) {
     return verifySecret(this, contactId, secretId)
@@ -61,7 +61,7 @@ export class SecretClient extends ChatBotKitClient {
    *
    * @param {string} contactId
    * @param {string} secretId
-   * @returns {ResponsePromise<import('./v1.js').SecretAuthenticateResponse,never>}
+   * @returns {Promise<import('./v1.js').SecretAuthenticateResponse>}
    */
   authenticate(contactId, secretId) {
     return authenticateSecret(this, contactId, secretId)
