@@ -47,7 +47,7 @@
 
 ### BotCreateRequest
 
-Ƭ **BotCreateRequest**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`BotCreateRequestBody`](bot_v1.md#botcreaterequestbody), ``"model"``\> & \{ `model`: [`model/v1`](model_v1.md)  }
+Ƭ **BotCreateRequest**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`BotCreateRequestBody`](bot_v1.md#botcreaterequestbody), ``"model"``\> & \{ `model?`: [`model/v1`](model_v1.md)  }
 
 #### Defined in
 

@@ -35,7 +35,7 @@ export function fetchBot(client: ChatBotKitClient, botId: string): ResponsePromi
  * @typedef {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} BotCreateRequestBody
  *
  * @typedef {Omit<BotCreateRequestBody,'model'> & {
- *   model: import('../model/v1.js').Model
+ *   model?: import('../model/v1.js').Model
  * }} BotCreateRequest
  *
  * @typedef {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} BotCreateResponseBody
@@ -121,7 +121,7 @@ export type BotListStreamType = import("../types/api/v1.js").operations["listBot
 export type BotFetchResponse = import("../types/api/v1.js").operations["fetchBot"]["responses"]["200"]["content"]["application/json"];
 export type BotCreateRequestBody = import("../types/api/v1.js").operations["createBot"]["requestBody"]["content"]["application/json"];
 export type BotCreateRequest = Omit<BotCreateRequestBody, "model"> & {
-    model: import("../model/v1.js").Model;
+    model?: import("../model/v1.js").Model;
 };
 export type BotCreateResponseBody = import("../types/api/v1.js").operations["createBot"]["responses"]["200"]["content"]["application/json"];
 export type BotCreateResponse = BotCreateResponseBody;

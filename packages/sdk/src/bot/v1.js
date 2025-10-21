@@ -55,7 +55,7 @@ export function fetchBot(client, botId) {
  * @typedef {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} BotCreateRequestBody
  *
  * @typedef {Omit<BotCreateRequestBody,'model'> & {
- *   model: import('../model/v1.js').Model
+ *   model?: import('../model/v1.js').Model
  * }} BotCreateRequest
  *
  * @typedef {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} BotCreateResponseBody
