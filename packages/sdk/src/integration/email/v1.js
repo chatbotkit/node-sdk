@@ -10,38 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string
- * }} EmailIntegrationOptions
- *
- * @typedef {EmailIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number,
- * }} EmailIntegrationInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} EmailIntegrationListRequest
  *
- * @typedef {{items: EmailIntegrationInstance[]}} EmailIntegrationListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listEmailIntegrations']['responses']['200']['content']['application/json']} EmailIntegrationListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: EmailIntegrationInstance
- * }} EmailIntegrationListStreamItem
- *
- * @typedef {EmailIntegrationListStreamItem} EmailIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listEmailIntegrations']['responses']['200']['content']['application/jsonl']} EmailIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {EmailIntegrationListRequest} [request]
@@ -50,17 +27,14 @@
 export function listEmailIntegrations(client, request) {
   let url = `/api/v1/integration/email/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listEmailIntegrations']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listEmailIntegrations']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<EmailIntegrationListResponse,EmailIntegrationListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {EmailIntegrationInstance & {
- * }} EmailIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
@@ -69,21 +43,27 @@ export function listEmailIntegrations(client, request) {
 export function fetchEmailIntegration(client, emailId) {
   const url = `/api/v1/integration/email/${emailId}/fetch`
 
-  /** @typedef {import('../../types/api/v1.js').operations['fetchEmailIntegration']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<EmailIntegrationFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {EmailIntegrationOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   contactCollection?: boolean,
+ *   sessionDuration?: number,
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string,
  *   model?: import('../../model/v1.js').Model
  * }} EmailIntegrationCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} EmailIntegrationCreateResponse
+ * @typedef {import('../../types/api/v1.js').operations['createEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationCreateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {EmailIntegrationCreateRequest} request
@@ -92,9 +72,9 @@ export function fetchEmailIntegration(client, emailId) {
 export async function createEmailIntegration(client, request) {
   const url = `/api/v1/integration/email/create`
 
-  /** @type {import('../../types/api/v1.js').operations['createEmailIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {EmailIntegrationCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['createEmailIntegration']['requestBody']['content']['application/json']} */
+    /** @type {EmailIntegrationCreateRequestBody} */
     record: {
       ...request,
     },
@@ -104,13 +84,20 @@ export async function createEmailIntegration(client, request) {
 }
 
 /**
- * @typedef {EmailIntegrationOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   contactCollection?: boolean,
+ *   sessionDuration?: number,
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string,
  *   model?: import('../../model/v1.js').Model
  * }} EmailIntegrationUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} EmailIntegrationUpdateResponse
+ * @typedef {import('../../types/api/v1.js').operations['updateEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationUpdateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
@@ -120,9 +107,9 @@ export async function createEmailIntegration(client, request) {
 export async function updateEmailIntegration(client, emailId, request) {
   const url = `/api/v1/integration/email/${emailId}/update`
 
-  /** @type {import('../../types/api/v1.js').operations['updateEmailIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {EmailIntegrationUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['updateEmailIntegration']['requestBody']['content']['application/json']} */
+    /** @type {EmailIntegrationUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -132,9 +119,9 @@ export async function updateEmailIntegration(client, emailId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} EmailIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationDeleteRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
@@ -143,9 +130,9 @@ export async function updateEmailIntegration(client, emailId, request) {
 export async function deleteEmailIntegration(client, emailId) {
   const url = `/api/v1/integration/email/${emailId}/delete`
 
-  /** @type {import('../../types/api/v1.js').operations['deleteEmailIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {EmailIntegrationDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['deleteEmailIntegration']['requestBody']['content']['application/json']} */
+    /** @type {EmailIntegrationDeleteRequestBody} */
     record: {},
   })
 
@@ -153,9 +140,9 @@ export async function deleteEmailIntegration(client, emailId) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} EmailIntegrationSetupResponse
+ * @typedef {import('../../types/api/v1.js').operations['setupEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationSetupRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
@@ -164,9 +151,9 @@ export async function deleteEmailIntegration(client, emailId) {
 export async function setupEmailIntegration(client, emailId) {
   const url = `/api/v1/integration/email/${emailId}/setup`
 
-  /** @type {import('../../types/api/v1.js').operations['setupEmailIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {EmailIntegrationSetupResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['setupEmailIntegration']['requestBody']['content']['application/json']} */
+    /** @type {EmailIntegrationSetupRequestBody} */
     record: {},
   })
 

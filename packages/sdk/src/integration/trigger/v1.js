@@ -10,39 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   authenticate?: boolean,
- *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string
- * }} TriggerIntegrationOptions
- *
- * @typedef {TriggerIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number,
- * }} TriggerIntegrationInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} TriggerIntegrationListRequest
  *
- * @typedef {{items: TriggerIntegrationInstance[]}} TriggerIntegrationListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listTriggerIntegrations']['responses']['200']['content']['application/json']} TriggerIntegrationListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: TriggerIntegrationInstance
- * }} TriggerIntegrationListStreamItem
- *
- * @typedef {TriggerIntegrationListStreamItem} TriggerIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listTriggerIntegrations']['responses']['200']['content']['application/jsonl']} TriggerIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {TriggerIntegrationListRequest} [request]
@@ -51,17 +27,14 @@
 export function listTriggerIntegrations(client, request) {
   let url = `/api/v1/integration/trigger/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listTriggerIntegrations']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listTriggerIntegrations']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<TriggerIntegrationListResponse,TriggerIntegrationListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {TriggerIntegrationInstance & {
- * }} TriggerIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -70,21 +43,28 @@ export function listTriggerIntegrations(client, request) {
 export function fetchTriggerIntegration(client, triggerId) {
   const url = `/api/v1/integration/trigger/${triggerId}/fetch`
 
-  /** @typedef {import('../../types/api/v1.js').operations['fetchTriggerIntegration']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<TriggerIntegrationFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {TriggerIntegrationOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   authenticate?: boolean,
+ *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
+ *   sessionDuration?: number,
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string,
  *   model?: import('../../model/v1.js').Model
  * }} TriggerIntegrationCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} TriggerIntegrationCreateResponse
+ * @typedef {import('../../types/api/v1.js').operations['createTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationCreateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {TriggerIntegrationCreateRequest} request
@@ -93,9 +73,9 @@ export function fetchTriggerIntegration(client, triggerId) {
 export async function createTriggerIntegration(client, request) {
   const url = `/api/v1/integration/trigger/create`
 
-  /** @type {import('../../types/api/v1.js').operations['createTriggerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TriggerIntegrationCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['createTriggerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TriggerIntegrationCreateRequestBody} */
     record: {
       ...request,
     },
@@ -105,13 +85,21 @@ export async function createTriggerIntegration(client, request) {
 }
 
 /**
- * @typedef {TriggerIntegrationOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   authenticate?: boolean,
+ *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
+ *   sessionDuration?: number,
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string,
  *   model?: import('../../model/v1.js').Model
  * }} TriggerIntegrationUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} TriggerIntegrationUpdateResponse
+ * @typedef {import('../../types/api/v1.js').operations['updateTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationUpdateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -121,9 +109,9 @@ export async function createTriggerIntegration(client, request) {
 export async function updateTriggerIntegration(client, triggerId, request) {
   const url = `/api/v1/integration/trigger/${triggerId}/update`
 
-  /** @type {import('../../types/api/v1.js').operations['updateTriggerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TriggerIntegrationUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['updateTriggerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TriggerIntegrationUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -133,9 +121,9 @@ export async function updateTriggerIntegration(client, triggerId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} TriggerIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationDeleteRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -144,9 +132,9 @@ export async function updateTriggerIntegration(client, triggerId, request) {
 export async function deleteTriggerIntegration(client, triggerId) {
   const url = `/api/v1/integration/trigger/${triggerId}/delete`
 
-  /** @type {import('../../types/api/v1.js').operations['deleteTriggerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TriggerIntegrationDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['deleteTriggerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TriggerIntegrationDeleteRequestBody} */
     record: {},
   })
 
@@ -154,9 +142,9 @@ export async function deleteTriggerIntegration(client, triggerId) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} TriggerIntegrationSetupResponse
+ * @typedef {import('../../types/api/v1.js').operations['setupTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationSetupRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -165,9 +153,9 @@ export async function deleteTriggerIntegration(client, triggerId) {
 export async function setupTriggerIntegration(client, triggerId) {
   const url = `/api/v1/integration/trigger/${triggerId}/setup`
 
-  /** @type {import('../../types/api/v1.js').operations['setupTriggerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TriggerIntegrationSetupResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['setupTriggerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TriggerIntegrationSetupRequestBody} */
     record: {},
   })
 
@@ -177,9 +165,9 @@ export async function setupTriggerIntegration(client, triggerId) {
 /**
  * @typedef {object} TriggerIntegrationInvokeRequest
  *
- * @typedef {{
- *   id: string
- * }} TriggerIntegrationInvokeResponse
+ * @typedef {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationInvokeRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationInvokeResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -189,9 +177,9 @@ export async function setupTriggerIntegration(client, triggerId) {
 export async function invokeTriggerIntegration(client, triggerId, request) {
   const url = `/api/v1/integration/trigger/${triggerId}/invoke`
 
-  /** @type {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TriggerIntegrationInvokeResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TriggerIntegrationInvokeRequestBody} */
     record: {
       ...request,
     },

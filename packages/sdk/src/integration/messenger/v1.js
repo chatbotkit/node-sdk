@@ -10,41 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   accessToken?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   attachments?: boolean,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string
- * }} MessengerIntegrationOptions
- *
- * @typedef {MessengerIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number,
- *   verifyToken: string
- * }} MessengerIntegrationInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} MessengerIntegrationListRequest
  *
- * @typedef {{items: MessengerIntegrationInstance[]}} MessengerIntegrationListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listMessengerIntegrations']['responses']['200']['content']['application/json']} MessengerIntegrationListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: MessengerIntegrationInstance
- * }} MessengerIntegrationListStreamItem
- *
- * @typedef {MessengerIntegrationListStreamItem} MessengerIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listMessengerIntegrations']['responses']['200']['content']['application/jsonl']} MessengerIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {MessengerIntegrationListRequest} [request]
@@ -53,17 +27,14 @@
 export function listMessengerIntegrations(client, request) {
   let url = `/api/v1/integration/messenger/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listMessengerIntegrations']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listMessengerIntegrations']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<MessengerIntegrationListResponse,MessengerIntegrationListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {MessengerIntegrationInstance & {
- * }} MessengerIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
@@ -72,21 +43,29 @@ export function listMessengerIntegrations(client, request) {
 export function fetchMessengerIntegration(client, messengerId) {
   const url = `/api/v1/integration/messenger/${messengerId}/fetch`
 
-  /** @typedef {import('../../types/api/v1.js').operations['fetchMessengerIntegration']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<MessengerIntegrationFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {MessengerIntegrationOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   accessToken?: string,
+ *   contactCollection?: boolean,
+ *   sessionDuration?: number,
+ *   attachments?: boolean,
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string,
  *   model?: import('../../model/v1.js').Model
  * }} MessengerIntegrationCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} MessengerIntegrationCreateResponse
+ * @typedef {import('../../types/api/v1.js').operations['createMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationCreateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {MessengerIntegrationCreateRequest} request
@@ -95,9 +74,9 @@ export function fetchMessengerIntegration(client, messengerId) {
 export async function createMessengerIntegration(client, request) {
   const url = `/api/v1/integration/messenger/create`
 
-  /** @type {import('../../types/api/v1.js').operations['createMessengerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {MessengerIntegrationCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['createMessengerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {MessengerIntegrationCreateRequestBody} */
     record: {
       ...request,
     },
@@ -107,13 +86,22 @@ export async function createMessengerIntegration(client, request) {
 }
 
 /**
- * @typedef {MessengerIntegrationOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   accessToken?: string,
+ *   contactCollection?: boolean,
+ *   sessionDuration?: number,
+ *   attachments?: boolean,
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string,
  *   model?: import('../../model/v1.js').Model
  * }} MessengerIntegrationUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} MessengerIntegrationUpdateResponse
+ * @typedef {import('../../types/api/v1.js').operations['updateMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationUpdateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
@@ -123,9 +111,9 @@ export async function createMessengerIntegration(client, request) {
 export async function updateMessengerIntegration(client, messengerId, request) {
   const url = `/api/v1/integration/messenger/${messengerId}/update`
 
-  /** @type {import('../../types/api/v1.js').operations['updateMessengerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {MessengerIntegrationUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['updateMessengerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {MessengerIntegrationUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -135,9 +123,9 @@ export async function updateMessengerIntegration(client, messengerId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} MessengerIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationDeleteRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
@@ -146,9 +134,9 @@ export async function updateMessengerIntegration(client, messengerId, request) {
 export async function deleteMessengerIntegration(client, messengerId) {
   const url = `/api/v1/integration/messenger/${messengerId}/delete`
 
-  /** @type {import('../../types/api/v1.js').operations['deleteMessengerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {MessengerIntegrationDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['deleteMessengerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {MessengerIntegrationDeleteRequestBody} */
     record: {},
   })
 
@@ -156,9 +144,9 @@ export async function deleteMessengerIntegration(client, messengerId) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} MessengerIntegrationSetupResponse
+ * @typedef {import('../../types/api/v1.js').operations['setupMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationSetupRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupMessengerIntegration']['responses']['200']['content']['application/json']} MessengerIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
@@ -167,9 +155,9 @@ export async function deleteMessengerIntegration(client, messengerId) {
 export async function setupMessengerIntegration(client, messengerId) {
   const url = `/api/v1/integration/messenger/${messengerId}/setup`
 
-  /** @type {import('../../types/api/v1.js').operations['setupMessengerIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {MessengerIntegrationSetupResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['setupMessengerIntegration']['requestBody']['content']['application/json']} */
+    /** @type {MessengerIntegrationSetupRequestBody} */
     record: {},
   })
 

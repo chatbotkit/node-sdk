@@ -10,38 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   blueprintId?: string
- * }} TwilioIntegrationOptions
- *
- * @typedef {TwilioIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} TwilioIntegrationInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} TwilioIntegrationListRequest
  *
- * @typedef {{items: TwilioIntegrationInstance[]}} TwilioIntegrationListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listTwilioIntegrations']['responses']['200']['content']['application/json']} TwilioIntegrationListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: TwilioIntegrationInstance
- * }} TwilioIntegrationListStreamItem
- *
- * @typedef {TwilioIntegrationListStreamItem} TwilioIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listTwilioIntegrations']['responses']['200']['content']['application/jsonl']} TwilioIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {TwilioIntegrationListRequest} [request]
@@ -50,17 +27,14 @@
 export function listTwilioIntegrations(client, request) {
   let url = `/api/v1/integration/twilio/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listTwilioIntegrations']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listTwilioIntegrations']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<TwilioIntegrationListResponse,TwilioIntegrationListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {TwilioIntegrationInstance & {
- * }} TwilioIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
@@ -69,21 +43,29 @@ export function listTwilioIntegrations(client, request) {
 export function fetchTwilioIntegration(client, twilioId) {
   const url = `/api/v1/integration/twilio/${twilioId}/fetch`
 
-  /** @typedef {import('../../types/api/v1.js').operations['fetchTwilioIntegration']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<TwilioIntegrationFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {TwilioIntegrationOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   accountSid?: string,
+ *   authToken?: string,
+ *   phoneNumber?: string,
+ *   sessionDuration?: number,
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string,
  *   model?: import('../../model/v1.js').Model
  * }} TwilioIntegrationCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} TwilioIntegrationCreateResponse
+ * @typedef {import('../../types/api/v1.js').operations['createTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationCreateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {TwilioIntegrationCreateRequest} request
@@ -92,9 +74,9 @@ export function fetchTwilioIntegration(client, twilioId) {
 export async function createTwilioIntegration(client, request) {
   const url = `/api/v1/integration/twilio/create`
 
-  /** @type {import('../../types/api/v1.js').operations['createTwilioIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TwilioIntegrationCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['createTwilioIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TwilioIntegrationCreateRequestBody} */
     record: {
       ...request,
     },
@@ -104,13 +86,22 @@ export async function createTwilioIntegration(client, request) {
 }
 
 /**
- * @typedef {TwilioIntegrationOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   accountSid?: string,
+ *   authToken?: string,
+ *   phoneNumber?: string,
+ *   sessionDuration?: number,
+ *   meta?: Record<string,any>,
+ *   botId?: string,
+ *   blueprintId?: string,
  *   model?: import('../../model/v1.js').Model
  * }} TwilioIntegrationUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} TwilioIntegrationUpdateResponse
+ * @typedef {import('../../types/api/v1.js').operations['updateTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationUpdateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
@@ -120,9 +111,9 @@ export async function createTwilioIntegration(client, request) {
 export async function updateTwilioIntegration(client, twilioId, request) {
   const url = `/api/v1/integration/twilio/${twilioId}/update`
 
-  /** @type {import('../../types/api/v1.js').operations['updateTwilioIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TwilioIntegrationUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['updateTwilioIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TwilioIntegrationUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -132,9 +123,9 @@ export async function updateTwilioIntegration(client, twilioId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} TwilioIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationDeleteRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
@@ -143,9 +134,9 @@ export async function updateTwilioIntegration(client, twilioId, request) {
 export async function deleteTwilioIntegration(client, twilioId) {
   const url = `/api/v1/integration/twilio/${twilioId}/delete`
 
-  /** @type {import('../../types/api/v1.js').operations['deleteTwilioIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TwilioIntegrationDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['deleteTwilioIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TwilioIntegrationDeleteRequestBody} */
     record: {},
   })
 
@@ -153,9 +144,9 @@ export async function deleteTwilioIntegration(client, twilioId) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} TwilioIntegrationSetupResponse
+ * @typedef {import('../../types/api/v1.js').operations['setupTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationSetupRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupTwilioIntegration']['responses']['200']['content']['application/json']} TwilioIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
@@ -164,9 +155,9 @@ export async function deleteTwilioIntegration(client, twilioId) {
 export async function setupTwilioIntegration(client, twilioId) {
   const url = `/api/v1/integration/twilio/${twilioId}/setup`
 
-  /** @type {import('../../types/api/v1.js').operations['setupTwilioIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TwilioIntegrationSetupResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['setupTwilioIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TwilioIntegrationSetupRequestBody} */
     record: {},
   })
 
