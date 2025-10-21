@@ -104,7 +104,7 @@ ___
 
 ### create
 
-▸ **create**(`skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityCreateResponse`](../modules/skillset_ability_v1.md#skillsetabilitycreateresponse)\>
+▸ **create**(`skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new ability.
 
@@ -113,11 +113,11 @@ Creates a new ability.
 | Name | Type |
 | :------ | :------ |
 | `skillsetId` | `string` |
-| `request` | [`SkillsetAbilityOptions`](../modules/skillset_ability_v1.md#skillsetabilityoptions) |
+| `request` | [`SkillsetAbilityCreateRequest`](../modules/skillset_ability_v1.md#skillsetabilitycreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityCreateResponse`](../modules/skillset_ability_v1.md#skillsetabilitycreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -127,7 +127,7 @@ ___
 
 ### delete
 
-▸ **delete**(`skillsetId`, `abilityId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityDeleteResponse`](../modules/skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
+▸ **delete**(`skillsetId`, `abilityId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the ability.
 
@@ -140,7 +140,7 @@ Deletes the ability.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityDeleteResponse`](../modules/skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### export
 
-▸ **export**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityExportResponse`](../modules/skillset_ability_v1.md#skillsetabilityexportresponse), [`SkillsetAbilityExportStreamItemType`](../modules/skillset_ability_v1.md#skillsetabilityexportstreamitemtype)\>
+▸ **export**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Exports abilities.
 
@@ -163,7 +163,7 @@ Exports abilities.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityExportResponse`](../modules/skillset_ability_v1.md#skillsetabilityexportresponse), [`SkillsetAbilityExportStreamItemType`](../modules/skillset_ability_v1.md#skillsetabilityexportstreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -173,7 +173,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`skillsetId`, `abilityId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse), `never`\>
+▸ **fetch**(`skillsetId`, `abilityId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a ability.
 
@@ -186,7 +186,7 @@ Fetches a ability.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -196,7 +196,7 @@ ___
 
 ### list
 
-▸ **list**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityListResponse`](../modules/skillset_ability_v1.md#skillsetabilitylistresponse), [`SkillsetAbilityListStreamItem`](../modules/skillset_ability_v1.md#skillsetabilityliststreamitem)\>
+▸ **list**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all abilities.
 
@@ -209,7 +209,7 @@ Retrieves a list of all abilities.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityListResponse`](../modules/skillset_ability_v1.md#skillsetabilitylistresponse), [`SkillsetAbilityListStreamItem`](../modules/skillset_ability_v1.md#skillsetabilityliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -219,7 +219,7 @@ ___
 
 ### update
 
-▸ **update**(`skillsetId`, `abilityId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityUpdateResponse`](../modules/skillset_ability_v1.md#skillsetabilityupdateresponse)\>
+▸ **update**(`skillsetId`, `abilityId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates an ability.
 
@@ -229,11 +229,11 @@ Updates an ability.
 | :------ | :------ |
 | `skillsetId` | `string` |
 | `abilityId` | `string` |
-| `request` | [`SkillsetAbilityOptions`](../modules/skillset_ability_v1.md#skillsetabilityoptions) |
+| `request` | [`SkillsetAbilityUpdateRequest`](../modules/skillset_ability_v1.md#skillsetabilityupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityUpdateResponse`](../modules/skillset_ability_v1.md#skillsetabilityupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

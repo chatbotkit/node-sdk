@@ -4,9 +4,9 @@ This tracks the progress of applying the type pattern from `SDK_TYPE_PATTERN.md`
 
 ## Progress Summary
 
-- ✅ **20 files completed**
-- ❌ **27 files remaining**
-- 📊 **43% complete**
+- ✅ **28 files completed**
+- ❌ **19 files remaining**
+- 📊 **60% complete**
 
 ---
 
@@ -22,19 +22,19 @@ This tracks the progress of applying the type pattern from `SDK_TYPE_PATTERN.md`
 - ✅ `src/graphql/v1.js` - Completed
 - ✅ `src/magic/v1.js` - Completed
 - ✅ `src/team/v1.js` - Completed
-- ❌ `src/conversation/v1.js` - **TODO** (456 lines, 11 functions - largest file)
-- ❌ `src/dataset/v1.js` - **TODO** (190 lines, 6 functions)
-- ❌ `src/policy/v1.js` - **TODO** (5 functions)
-- ❌ `src/task/v1.js` - **TODO** (7 functions)
-- ❌ `src/secret/v1.js` - **TODO** (5 functions)
+- ✅ `src/conversation/v1.js` - Completed (456 lines, 11 functions)
+- ✅ `src/dataset/v1.js` - Completed (190 lines, 6 functions)
+- ✅ `src/policy/v1.js` - Completed (5 functions)
+- ✅ `src/task/v1.js` - Completed (7 functions)
+- ✅ `src/secret/v1.js` - Completed (5 functions)
 
 ## Nested Resources
 
 - ✅ `src/dataset/file/v1.js` - Completed
 - ✅ `src/usage/series/v1.js` - Completed
-- ❌ `src/conversation/message/v1.js` - **TODO**
-- ❌ `src/dataset/record/v1.js` - **TODO**
-- ❌ `src/skillset/ability/v1.js` - **TODO**
+- ✅ `src/conversation/message/v1.js` - Completed
+- ✅ `src/dataset/record/v1.js` - Completed
+- ✅ `src/skillset/ability/v1.js` - Completed
 - ❌ `src/contact/conversation/v1.js` - **TODO**
 - ❌ `src/contact/task/v1.js` - **TODO**
 - ❌ `src/contact/secret/v1.js` - **TODO**

@@ -104,7 +104,7 @@ ___
 
 ### create
 
-▸ **create**(`datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordCreateResponse`](../modules/dataset_record_v1.md#datasetrecordcreateresponse)\>
+▸ **create**(`datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new record.
 
@@ -113,11 +113,11 @@ Creates a new record.
 | Name | Type |
 | :------ | :------ |
 | `datasetId` | `string` |
-| `request` | [`DatasetRecordOptions`](../modules/dataset_record_v1.md#datasetrecordoptions) |
+| `request` | [`DatasetRecordCreateRequest`](../modules/dataset_record_v1.md#datasetrecordcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordCreateResponse`](../modules/dataset_record_v1.md#datasetrecordcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -127,7 +127,7 @@ ___
 
 ### delete
 
-▸ **delete**(`datasetId`, `recordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordDeleteResponse`](../modules/dataset_record_v1.md#datasetrecorddeleteresponse)\>
+▸ **delete**(`datasetId`, `recordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the record.
 
@@ -140,7 +140,7 @@ Deletes the record.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordDeleteResponse`](../modules/dataset_record_v1.md#datasetrecorddeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### export
 
-▸ **export**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordExportResponse`](../modules/dataset_record_v1.md#datasetrecordexportresponse), [`DatasetRecordExportStreamItemType`](../modules/dataset_record_v1.md#datasetrecordexportstreamitemtype)\>
+▸ **export**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Exports records.
 
@@ -163,7 +163,7 @@ Exports records.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordExportResponse`](../modules/dataset_record_v1.md#datasetrecordexportresponse), [`DatasetRecordExportStreamItemType`](../modules/dataset_record_v1.md#datasetrecordexportstreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -173,7 +173,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`datasetId`, `recordId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordFetchResponse`](../modules/dataset_record_v1.md#datasetrecordfetchresponse), `never`\>
+▸ **fetch**(`datasetId`, `recordId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a record.
 
@@ -186,7 +186,7 @@ Fetches a record.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordFetchResponse`](../modules/dataset_record_v1.md#datasetrecordfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -196,7 +196,7 @@ ___
 
 ### list
 
-▸ **list**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordListResponse`](../modules/dataset_record_v1.md#datasetrecordlistresponse), [`DatasetRecordListStreamItem`](../modules/dataset_record_v1.md#datasetrecordliststreamitem)\>
+▸ **list**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all records.
 
@@ -209,7 +209,7 @@ Retrieves a list of all records.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordListResponse`](../modules/dataset_record_v1.md#datasetrecordlistresponse), [`DatasetRecordListStreamItem`](../modules/dataset_record_v1.md#datasetrecordliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -219,7 +219,7 @@ ___
 
 ### update
 
-▸ **update**(`datasetId`, `recordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordUpdateResponse`](../modules/dataset_record_v1.md#datasetrecordupdateresponse)\>
+▸ **update**(`datasetId`, `recordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a record.
 
@@ -229,11 +229,11 @@ Updates a record.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `recordId` | `string` |
-| `request` | [`DatasetRecordOptions`](../modules/dataset_record_v1.md#datasetrecordoptions) |
+| `request` | [`DatasetRecordUpdateRequest`](../modules/dataset_record_v1.md#datasetrecordupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordUpdateResponse`](../modules/dataset_record_v1.md#datasetrecordupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

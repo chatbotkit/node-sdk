@@ -105,7 +105,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskCreateResponse`](../modules/task_v1.md#taskcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new task.
 
@@ -113,11 +113,11 @@ Creates a new task.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`TaskOptions`](../modules/task_v1.md#taskoptions) |
+| `request` | [`TaskCreateRequest`](../modules/task_v1.md#taskcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskCreateResponse`](../modules/task_v1.md#taskcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -127,7 +127,7 @@ ___
 
 ### delete
 
-▸ **delete**(`taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskDeleteResponse`](../modules/task_v1.md#taskdeleteresponse)\>
+▸ **delete**(`taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the task.
 
@@ -139,7 +139,7 @@ Deletes the task.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskDeleteResponse`](../modules/task_v1.md#taskdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -149,7 +149,7 @@ ___
 
 ### export
 
-▸ **export**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<`never`, [`TaskExportStreamType`](../modules/task_v1.md#taskexportstreamtype)\>
+▸ **export**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<`never`, {}\>
 
 Exports tasks.
 
@@ -161,7 +161,7 @@ Exports tasks.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<`never`, [`TaskExportStreamType`](../modules/task_v1.md#taskexportstreamtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<`never`, {}\>
 
 #### Defined in
 
@@ -171,7 +171,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`taskId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TaskFetchResponse`](../modules/task_v1.md#taskfetchresponse), `never`\>
+▸ **fetch**(`taskId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a task.
 
@@ -183,7 +183,7 @@ Fetches a task.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TaskFetchResponse`](../modules/task_v1.md#taskfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -193,7 +193,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TaskListResponse`](../modules/task_v1.md#tasklistresponse), [`TaskListStreamItemType`](../modules/task_v1.md#taskliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all tasks.
 
@@ -205,7 +205,7 @@ Retrieves a list of all tasks.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TaskListResponse`](../modules/task_v1.md#tasklistresponse), [`TaskListStreamItemType`](../modules/task_v1.md#taskliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -215,7 +215,7 @@ ___
 
 ### trigger
 
-▸ **trigger**(`taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskTriggerResponse`](../modules/task_v1.md#tasktriggerresponse)\>
+▸ **trigger**(`taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Triggers a task.
 
@@ -227,7 +227,7 @@ Triggers a task.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskTriggerResponse`](../modules/task_v1.md#tasktriggerresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -237,7 +237,7 @@ ___
 
 ### update
 
-▸ **update**(`taskId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskUpdateResponse`](../modules/task_v1.md#taskupdateresponse)\>
+▸ **update**(`taskId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a task.
 
@@ -246,11 +246,11 @@ Updates a task.
 | Name | Type |
 | :------ | :------ |
 | `taskId` | `string` |
-| `request` | [`TaskOptions`](../modules/task_v1.md#taskoptions) |
+| `request` | [`TaskUpdateRequest`](../modules/task_v1.md#taskupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskUpdateResponse`](../modules/task_v1.md#taskupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

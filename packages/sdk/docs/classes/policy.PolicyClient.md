@@ -103,7 +103,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyCreateResponse`](../modules/policy_v1.md#policycreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new policy.
 
@@ -111,11 +111,11 @@ Creates a new policy.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`PolicyOptions`](../modules/policy_v1.md#policyoptions) |
+| `request` | [`PolicyCreateRequest`](../modules/policy_v1.md#policycreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyCreateResponse`](../modules/policy_v1.md#policycreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -125,7 +125,7 @@ ___
 
 ### delete
 
-▸ **delete**(`policyId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyDeleteResponse`](../modules/policy_v1.md#policydeleteresponse)\>
+▸ **delete**(`policyId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the policy.
 
@@ -137,7 +137,7 @@ Deletes the policy.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyDeleteResponse`](../modules/policy_v1.md#policydeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -147,7 +147,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`policyId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PolicyFetchResponse`](../modules/policy_v1.md#policyfetchresponse), `never`\>
+▸ **fetch**(`policyId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a policy.
 
@@ -159,7 +159,7 @@ Fetches a policy.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PolicyFetchResponse`](../modules/policy_v1.md#policyfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -169,7 +169,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PolicyListResponse`](../modules/policy_v1.md#policylistresponse), [`PolicyListStreamItemType`](../modules/policy_v1.md#policyliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all policies.
 
@@ -181,7 +181,7 @@ Retrieves a list of all policies.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PolicyListResponse`](../modules/policy_v1.md#policylistresponse), [`PolicyListStreamItemType`](../modules/policy_v1.md#policyliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -191,7 +191,7 @@ ___
 
 ### update
 
-▸ **update**(`policyId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyUpdateResponse`](../modules/policy_v1.md#policyupdateresponse)\>
+▸ **update**(`policyId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a policy.
 
@@ -200,11 +200,11 @@ Updates a policy.
 | Name | Type |
 | :------ | :------ |
 | `policyId` | `string` |
-| `request` | [`PolicyOptions`](../modules/policy_v1.md#policyoptions) |
+| `request` | [`PolicyUpdateRequest`](../modules/policy_v1.md#policyupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyUpdateResponse`](../modules/policy_v1.md#policyupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

@@ -103,7 +103,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretCreateResponse`](../modules/secret_v1.md#secretcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new secret.
 
@@ -111,11 +111,11 @@ Creates a new secret.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SecretOptions`](../modules/secret_v1.md#secretoptions) |
+| `request` | [`SecretCreateRequest`](../modules/secret_v1.md#secretcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretCreateResponse`](../modules/secret_v1.md#secretcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -125,7 +125,7 @@ ___
 
 ### delete
 
-▸ **delete**(`secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretDeleteResponse`](../modules/secret_v1.md#secretdeleteresponse)\>
+▸ **delete**(`secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the secret.
 
@@ -137,7 +137,7 @@ Deletes the secret.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretDeleteResponse`](../modules/secret_v1.md#secretdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -147,7 +147,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretFetchResponse`](../modules/secret_v1.md#secretfetchresponse), `never`\>
+▸ **fetch**(`secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a secret.
 
@@ -159,7 +159,7 @@ Fetches a secret.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretFetchResponse`](../modules/secret_v1.md#secretfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -169,7 +169,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretListResponse`](../modules/secret_v1.md#secretlistresponse), [`SecretListStreamItemType`](../modules/secret_v1.md#secretliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all secrets.
 
@@ -181,7 +181,7 @@ Retrieves a list of all secrets.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretListResponse`](../modules/secret_v1.md#secretlistresponse), [`SecretListStreamItemType`](../modules/secret_v1.md#secretliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -191,7 +191,7 @@ ___
 
 ### update
 
-▸ **update**(`secretId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretUpdateResponse`](../modules/secret_v1.md#secretupdateresponse)\>
+▸ **update**(`secretId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a secret.
 
@@ -200,11 +200,11 @@ Updates a secret.
 | Name | Type |
 | :------ | :------ |
 | `secretId` | `string` |
-| `request` | [`SecretOptions`](../modules/secret_v1.md#secretoptions) |
+| `request` | [`SecretUpdateRequest`](../modules/secret_v1.md#secretupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretUpdateResponse`](../modules/secret_v1.md#secretupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

@@ -9,16 +9,16 @@
 - [ChatBotKitClient](secret_v1.md#chatbotkitclient)
 - [ResponsePromise](secret_v1.md#responsepromise)
 - [SecretCreateRequest](secret_v1.md#secretcreaterequest)
+- [SecretCreateRequestBody](secret_v1.md#secretcreaterequestbody)
 - [SecretCreateResponse](secret_v1.md#secretcreateresponse)
+- [SecretDeleteRequestBody](secret_v1.md#secretdeleterequestbody)
 - [SecretDeleteResponse](secret_v1.md#secretdeleteresponse)
 - [SecretFetchResponse](secret_v1.md#secretfetchresponse)
-- [SecretInstance](secret_v1.md#secretinstance)
 - [SecretListRequest](secret_v1.md#secretlistrequest)
 - [SecretListResponse](secret_v1.md#secretlistresponse)
-- [SecretListStreamItemType](secret_v1.md#secretliststreamitemtype)
 - [SecretListStreamType](secret_v1.md#secretliststreamtype)
-- [SecretOptions](secret_v1.md#secretoptions)
 - [SecretUpdateRequest](secret_v1.md#secretupdaterequest)
+- [SecretUpdateRequestBody](secret_v1.md#secretupdaterequestbody)
 - [SecretUpdateResponse](secret_v1.md#secretupdateresponse)
 
 ### Functions
@@ -60,49 +60,31 @@ ___
 
 ### SecretCreateRequest
 
-Ƭ **SecretCreateRequest**\<\>: [`SecretOptions`](secret_v1.md#secretoptions) & {}
-
-#### Defined in
-
-[secret/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L83)
-
-___
-
-### SecretCreateResponse
-
-Ƭ **SecretCreateResponse**\<\>: `Object`
+Ƭ **SecretCreateRequest**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `id` | `string` |
+| `blueprintId?` | `string` |
+| `config?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `description?` | `string` |
+| `kind?` | ``"shared"`` \| ``"personal"`` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `name?` | `string` |
+| `type?` | ``"plain"`` \| ``"basic"`` \| ``"bearer"`` \| ``"oauth"`` \| ``"template"`` \| ``"reference"`` |
+| `value?` | `string` |
+| `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
 
 #### Defined in
 
-[secret/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L87)
+[secret/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L63)
 
 ___
 
-### SecretDeleteResponse
+### SecretCreateRequestBody
 
-Ƭ **SecretDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[secret/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L137)
-
-___
-
-### SecretFetchResponse
-
-Ƭ **SecretFetchResponse**\<\>: [`SecretInstance`](secret_v1.md#secretinstance) & {}
+Ƭ **SecretCreateRequestBody**\<\>: `operations`[``"createSecret"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -110,13 +92,43 @@ ___
 
 ___
 
-### SecretInstance
+### SecretCreateResponse
 
-Ƭ **SecretInstance**\<\>: [`SecretOptions`](secret_v1.md#secretoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **SecretCreateResponse**\<\>: `operations`[``"createSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[secret/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L28)
+[secret/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L67)
+
+___
+
+### SecretDeleteRequestBody
+
+Ƭ **SecretDeleteRequestBody**\<\>: `operations`[``"deleteSecret"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L124)
+
+___
+
+### SecretDeleteResponse
+
+Ƭ **SecretDeleteResponse**\<\>: `operations`[``"deleteSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L126)
+
+___
+
+### SecretFetchResponse
+
+Ƭ **SecretFetchResponse**\<\>: `operations`[``"fetchSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L37)
 
 ___
 
@@ -135,56 +147,33 @@ ___
 
 #### Defined in
 
-[secret/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L37)
+[secret/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L17)
 
 ___
 
 ### SecretListResponse
 
-Ƭ **SecretListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`SecretInstance`](secret_v1.md#secretinstance)[] |
+Ƭ **SecretListResponse**\<\>: `operations`[``"listSecrets"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[secret/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L39)
-
-___
-
-### SecretListStreamItemType
-
-Ƭ **SecretListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`SecretInstance`](secret_v1.md#secretinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[secret/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L44)
+[secret/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L19)
 
 ___
 
 ### SecretListStreamType
 
-Ƭ **SecretListStreamType**\<\>: [`SecretListStreamItemType`](secret_v1.md#secretliststreamitemtype)
+Ƭ **SecretListStreamType**\<\>: `operations`[``"listSecrets"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[secret/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L46)
+[secret/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L21)
 
 ___
 
-### SecretOptions
+### SecretUpdateRequest
 
-Ƭ **SecretOptions**\<\>: `Object`
+Ƭ **SecretUpdateRequest**\<\>: `Object`
 
 #### Type declaration
 
@@ -202,60 +191,54 @@ ___
 
 #### Defined in
 
-[secret/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L22)
+[secret/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L98)
 
 ___
 
-### SecretUpdateRequest
+### SecretUpdateRequestBody
 
-Ƭ **SecretUpdateRequest**\<\>: [`SecretOptions`](secret_v1.md#secretoptions) & {}
+Ƭ **SecretUpdateRequestBody**\<\>: `operations`[``"updateSecret"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[secret/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L109)
+[secret/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L100)
 
 ___
 
 ### SecretUpdateResponse
 
-Ƭ **SecretUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **SecretUpdateResponse**\<\>: `operations`[``"updateSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[secret/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L113)
+[secret/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L102)
 
 ## Functions
 
 ### createSecret
 
-▸ **createSecret**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretCreateResponse`](secret_v1.md#secretcreateresponse)\>
+▸ **createSecret**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`SecretOptions`](secret_v1.md#secretoptions) |
+| `request` | [`SecretCreateRequest`](secret_v1.md#secretcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretCreateResponse`](secret_v1.md#secretcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[secret/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L93)
+[secret/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L73)
 
 ___
 
 ### deleteSecret
 
-▸ **deleteSecret**(`client`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretDeleteResponse`](secret_v1.md#secretdeleteresponse)\>
+▸ **deleteSecret**(`client`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -266,17 +249,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretDeleteResponse`](secret_v1.md#secretdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[secret/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L143)
+[secret/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L132)
 
 ___
 
 ### fetchSecret
 
-▸ **fetchSecret**(`client`, `secretId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretFetchResponse`](secret_v1.md#secretfetchresponse), `never`\>
+▸ **fetchSecret**(`client`, `secretId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -287,17 +270,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretFetchResponse`](secret_v1.md#secretfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[secret/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L71)
+[secret/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L43)
 
 ___
 
 ### listSecrets
 
-▸ **listSecrets**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretListResponse`](secret_v1.md#secretlistresponse), [`SecretListStreamItemType`](secret_v1.md#secretliststreamitemtype)\>
+▸ **listSecrets**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -308,17 +291,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SecretListResponse`](secret_v1.md#secretlistresponse), [`SecretListStreamItemType`](secret_v1.md#secretliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[secret/v1.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L52)
+[secret/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L27)
 
 ___
 
 ### updateSecret
 
-▸ **updateSecret**(`client`, `secretId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretUpdateResponse`](secret_v1.md#secretupdateresponse)\>
+▸ **updateSecret**(`client`, `secretId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -326,12 +309,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `secretId` | `string` |
-| `request` | [`SecretOptions`](secret_v1.md#secretoptions) |
+| `request` | [`SecretUpdateRequest`](secret_v1.md#secretupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SecretUpdateResponse`](secret_v1.md#secretupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[secret/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L120)
+[secret/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L109)

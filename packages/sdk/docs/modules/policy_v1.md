@@ -8,16 +8,16 @@
 
 - [ChatBotKitClient](policy_v1.md#chatbotkitclient)
 - [PolicyCreateRequest](policy_v1.md#policycreaterequest)
+- [PolicyCreateRequestBody](policy_v1.md#policycreaterequestbody)
 - [PolicyCreateResponse](policy_v1.md#policycreateresponse)
+- [PolicyDeleteRequestBody](policy_v1.md#policydeleterequestbody)
 - [PolicyDeleteResponse](policy_v1.md#policydeleteresponse)
 - [PolicyFetchResponse](policy_v1.md#policyfetchresponse)
-- [PolicyInstance](policy_v1.md#policyinstance)
 - [PolicyListRequest](policy_v1.md#policylistrequest)
 - [PolicyListResponse](policy_v1.md#policylistresponse)
-- [PolicyListStreamItemType](policy_v1.md#policyliststreamitemtype)
 - [PolicyListStreamType](policy_v1.md#policyliststreamtype)
-- [PolicyOptions](policy_v1.md#policyoptions)
 - [PolicyUpdateRequest](policy_v1.md#policyupdaterequest)
+- [PolicyUpdateRequestBody](policy_v1.md#policyupdaterequestbody)
 - [PolicyUpdateResponse](policy_v1.md#policyupdateresponse)
 - [ResponsePromise](policy_v1.md#responsepromise)
 
@@ -43,63 +43,71 @@ ___
 
 ### PolicyCreateRequest
 
-Ƭ **PolicyCreateRequest**\<\>: [`PolicyOptions`](policy_v1.md#policyoptions) & {}
+Ƭ **PolicyCreateRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `config?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `description?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `name?` | `string` |
+| `type` | ``"retention"`` |
 
 #### Defined in
 
-[policy/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L80)
+[policy/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L59)
+
+___
+
+### PolicyCreateRequestBody
+
+Ƭ **PolicyCreateRequestBody**\<\>: `operations`[``"createPolicy"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[policy/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L61)
 
 ___
 
 ### PolicyCreateResponse
 
-Ƭ **PolicyCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **PolicyCreateResponse**\<\>: `operations`[``"createPolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[policy/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L84)
+[policy/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L63)
+
+___
+
+### PolicyDeleteRequestBody
+
+Ƭ **PolicyDeleteRequestBody**\<\>: `operations`[``"deletePolicy"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[policy/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L116)
 
 ___
 
 ### PolicyDeleteResponse
 
-Ƭ **PolicyDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **PolicyDeleteResponse**\<\>: `operations`[``"deletePolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[policy/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L134)
+[policy/v1.js:118](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L118)
 
 ___
 
 ### PolicyFetchResponse
 
-Ƭ **PolicyFetchResponse**\<\>: [`PolicyOptions`](policy_v1.md#policyoptions) & \{ `type`: `string`  }
+Ƭ **PolicyFetchResponse**\<\>: `operations`[``"fetchPolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[policy/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L62)
-
-___
-
-### PolicyInstance
-
-Ƭ **PolicyInstance**\<\>: [`PolicyOptions`](policy_v1.md#policyoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[policy/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L24)
+[policy/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L37)
 
 ___
 
@@ -118,56 +126,33 @@ ___
 
 #### Defined in
 
-[policy/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L33)
+[policy/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L17)
 
 ___
 
 ### PolicyListResponse
 
-Ƭ **PolicyListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`PolicyInstance`](policy_v1.md#policyinstance)[] |
+Ƭ **PolicyListResponse**\<\>: `operations`[``"listPolicies"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[policy/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L35)
-
-___
-
-### PolicyListStreamItemType
-
-Ƭ **PolicyListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`PolicyInstance`](policy_v1.md#policyinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[policy/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L40)
+[policy/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L19)
 
 ___
 
 ### PolicyListStreamType
 
-Ƭ **PolicyListStreamType**\<\>: [`PolicyListStreamItemType`](policy_v1.md#policyliststreamitemtype)
+Ƭ **PolicyListStreamType**\<\>: `operations`[``"listPolicies"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[policy/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L42)
+[policy/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L21)
 
 ___
 
-### PolicyOptions
+### PolicyUpdateRequest
 
-Ƭ **PolicyOptions**\<\>: `Object`
+Ƭ **PolicyUpdateRequest**\<\>: `Object`
 
 #### Type declaration
 
@@ -177,37 +162,31 @@ ___
 | `description?` | `string` |
 | `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
 | `name?` | `string` |
-| `type` | ``"retention"`` |
+| `type?` | ``"retention"`` |
 
 #### Defined in
 
-[policy/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L18)
+[policy/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L90)
 
 ___
 
-### PolicyUpdateRequest
+### PolicyUpdateRequestBody
 
-Ƭ **PolicyUpdateRequest**\<\>: [`PolicyOptions`](policy_v1.md#policyoptions) & {}
+Ƭ **PolicyUpdateRequestBody**\<\>: `operations`[``"updatePolicy"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[policy/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L106)
+[policy/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L92)
 
 ___
 
 ### PolicyUpdateResponse
 
-Ƭ **PolicyUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **PolicyUpdateResponse**\<\>: `operations`[``"updatePolicy"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[policy/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L110)
+[policy/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L94)
 
 ___
 
@@ -230,28 +209,28 @@ ___
 
 ### createPolicy
 
-▸ **createPolicy**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyCreateResponse`](policy_v1.md#policycreateresponse)\>
+▸ **createPolicy**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`PolicyOptions`](policy_v1.md#policyoptions) |
+| `request` | [`PolicyCreateRequest`](policy_v1.md#policycreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyCreateResponse`](policy_v1.md#policycreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[policy/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L90)
+[policy/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L69)
 
 ___
 
 ### deletePolicy
 
-▸ **deletePolicy**(`client`, `policyId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyDeleteResponse`](policy_v1.md#policydeleteresponse)\>
+▸ **deletePolicy**(`client`, `policyId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -262,17 +241,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyDeleteResponse`](policy_v1.md#policydeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[policy/v1.js:140](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L140)
+[policy/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L124)
 
 ___
 
 ### fetchPolicy
 
-▸ **fetchPolicy**(`client`, `policyId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PolicyFetchResponse`](policy_v1.md#policyfetchresponse), `never`\>
+▸ **fetchPolicy**(`client`, `policyId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -283,17 +262,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PolicyFetchResponse`](policy_v1.md#policyfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[policy/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L68)
+[policy/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L43)
 
 ___
 
 ### listPolicies
 
-▸ **listPolicies**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PolicyListResponse`](policy_v1.md#policylistresponse), [`PolicyListStreamItemType`](policy_v1.md#policyliststreamitemtype)\>
+▸ **listPolicies**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -304,17 +283,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`PolicyListResponse`](policy_v1.md#policylistresponse), [`PolicyListStreamItemType`](policy_v1.md#policyliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[policy/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L48)
+[policy/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L27)
 
 ___
 
 ### updatePolicy
 
-▸ **updatePolicy**(`client`, `policyId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyUpdateResponse`](policy_v1.md#policyupdateresponse)\>
+▸ **updatePolicy**(`client`, `policyId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -322,12 +301,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `policyId` | `string` |
-| `request` | [`PolicyOptions`](policy_v1.md#policyoptions) |
+| `request` | [`PolicyUpdateRequest`](policy_v1.md#policyupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`PolicyUpdateResponse`](policy_v1.md#policyupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[policy/v1.js:117](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L117)
+[policy/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L101)

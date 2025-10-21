@@ -129,7 +129,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetCreateResponse`](../modules/dataset_v1.md#datasetcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new dataset.
 
@@ -141,7 +141,7 @@ Creates a new dataset.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetCreateResponse`](../modules/dataset_v1.md#datasetcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -151,7 +151,7 @@ ___
 
 ### delete
 
-▸ **delete**(`datasetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetDeleteResponse`](../modules/dataset_v1.md#datasetdeleteresponse)\>
+▸ **delete**(`datasetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the dataset.
 
@@ -163,7 +163,7 @@ Deletes the dataset.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetDeleteResponse`](../modules/dataset_v1.md#datasetdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -173,7 +173,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`datasetId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetFetchResponse`](../modules/dataset_v1.md#datasetfetchresponse), `never`\>
+▸ **fetch**(`datasetId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a dataset.
 
@@ -185,7 +185,7 @@ Fetches a dataset.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetFetchResponse`](../modules/dataset_v1.md#datasetfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -195,7 +195,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetListResponse`](../modules/dataset_v1.md#datasetlistresponse), [`DatasetListStreamItemType`](../modules/dataset_v1.md#datasetliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all datasets.
 
@@ -207,7 +207,7 @@ Retrieves a list of all datasets.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetListResponse`](../modules/dataset_v1.md#datasetlistresponse), [`DatasetListStreamItemType`](../modules/dataset_v1.md#datasetliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -217,7 +217,7 @@ ___
 
 ### search
 
-▸ **search**(`datasetId`, `search`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
+▸ **search**(`datasetId`, `search`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Searches the dataset.
 
@@ -230,7 +230,7 @@ Searches the dataset.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetSearchResponse`](../modules/dataset_v1.md#datasetsearchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -240,7 +240,7 @@ ___
 
 ### update
 
-▸ **update**(`datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetUpdateResponse`](../modules/dataset_v1.md#datasetupdateresponse)\>
+▸ **update**(`datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a dataset.
 
@@ -249,11 +249,11 @@ Updates a dataset.
 | Name | Type |
 | :------ | :------ |
 | `datasetId` | `string` |
-| `request` | [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`DatasetOptions`](../modules/dataset_v1.md#datasetoptions), ``"store"``\> |
+| `request` | [`DatasetUpdateRequest`](../modules/dataset_v1.md#datasetupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetUpdateResponse`](../modules/dataset_v1.md#datasetupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

@@ -10,33 +10,15 @@
  * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'activity'} ConversationMessageType
  *
  * @typedef {{
- *   type: ConversationMessageType,
- *   text: string,
- *   meta?: Record<string,any>
- * }} ConversationMessageOptions
- *
- * @typedef {ConversationMessageOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} ConversationMessageInstance
- */
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} ConversationMessageListRequest
  *
- * @typedef {{items: ConversationMessageInstance[]}} ConversationMessageListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listConversationMessages']['responses']['200']['content']['application/json']} ConversationMessageListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: ConversationMessageInstance
- * }} ConversationMessageListStreamItem
- *
- * @typedef {ConversationMessageListStreamItem} ConversationMessageListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listConversationMessages']['responses']['200']['content']['application/jsonl']} ConversationMessageListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -45,8 +27,7 @@
  */
 export function listConversationMessages(client: ChatBotKitClient, conversationId: string, request?: ConversationMessageListRequest): ResponsePromise<ConversationMessageListResponse, ConversationMessageListStreamType>;
 /**
- * @typedef {ConversationMessageInstance & {
- * }} ConversationMessageFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -55,12 +36,15 @@ export function listConversationMessages(client: ChatBotKitClient, conversationI
  */
 export function fetchConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string): ResponsePromise<ConversationMessageFetchResponse, never>;
 /**
- * @typedef {ConversationMessageOptions & {
+ * @typedef {{
+ *   type: ConversationMessageType,
+ *   text: string,
+ *   meta?: Record<string,any>
  * }} ConversationMessageCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} ConversationMessageCreateResponse
+ * @typedef {import('../../types/api/v1.js').operations['createConversationMessage']['requestBody']['content']['application/json']} ConversationMessageCreateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -69,12 +53,15 @@ export function fetchConversationMessage(client: ChatBotKitClient, conversationI
  */
 export function createConversationMessage(client: ChatBotKitClient, conversationId: string, request: ConversationMessageCreateRequest): Promise<ConversationMessageCreateResponse>;
 /**
- * @typedef {ConversationMessageOptions & {
+ * @typedef {{
+ *   type?: ConversationMessageType,
+ *   text?: string,
+ *   meta?: Record<string,any>
  * }} ConversationMessageUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} ConversationMessageUpdateResponse
+ * @typedef {import('../../types/api/v1.js').operations['updateConversationMessage']['requestBody']['content']['application/json']} ConversationMessageUpdateRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -84,9 +71,9 @@ export function createConversationMessage(client: ChatBotKitClient, conversation
  */
 export function updateConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string, request: ConversationMessageUpdateRequest): Promise<ConversationMessageUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} ConversationMessageDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageDeleteRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -99,9 +86,9 @@ export function deleteConversationMessage(client: ChatBotKitClient, conversation
  *   value?: number
  * }} ConversationMessageUpvoteRequest
  *
- * @typedef {{
- *   id: string
- * }} ConversationMessageUpvoteResponse
+ * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageUpvoteRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -115,9 +102,9 @@ export function upvoteConversationMessage(client: ChatBotKitClient, conversation
  *   value?: number
  * }} ConversationMessageDownvoteRequest
  *
- * @typedef {{
- *   id: string
- * }} ConversationMessageDownvoteResponse
+ * @typedef {import('../../types/api/v1.js').operations['downvoteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageDownvoteRequestBody
+ *
+ * @typedef {import('../../types/api/v1.js').operations['downvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDownvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -129,51 +116,38 @@ export function downvoteConversationMessage(client: ChatBotKitClient, conversati
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type ConversationMessageType = "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
-export type ConversationMessageOptions = {
-    type: ConversationMessageType;
-    text: string;
-    meta?: Record<string, any>;
-};
-export type ConversationMessageInstance = ConversationMessageOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
 export type ConversationMessageListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type ConversationMessageListResponse = {
-    items: ConversationMessageInstance[];
+export type ConversationMessageListResponse = import("../../types/api/v1.js").operations["listConversationMessages"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageListStreamType = import("../../types/api/v1.js").operations["listConversationMessages"]["responses"]["200"]["content"]["application/jsonl"];
+export type ConversationMessageFetchResponse = import("../../types/api/v1.js").operations["fetchConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageCreateRequest = {
+    type: ConversationMessageType;
+    text: string;
+    meta?: Record<string, any>;
 };
-export type ConversationMessageListStreamItem = {
-    type: "item";
-    data: ConversationMessageInstance;
+export type ConversationMessageCreateRequestBody = import("../../types/api/v1.js").operations["createConversationMessage"]["requestBody"]["content"]["application/json"];
+export type ConversationMessageCreateResponse = import("../../types/api/v1.js").operations["createConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageUpdateRequest = {
+    type?: ConversationMessageType;
+    text?: string;
+    meta?: Record<string, any>;
 };
-export type ConversationMessageListStreamType = ConversationMessageListStreamItem;
-export type ConversationMessageFetchResponse = ConversationMessageInstance & {};
-export type ConversationMessageCreateRequest = ConversationMessageOptions & {};
-export type ConversationMessageCreateResponse = {
-    id: string;
-};
-export type ConversationMessageUpdateRequest = ConversationMessageOptions & {};
-export type ConversationMessageUpdateResponse = {
-    id: string;
-};
-export type ConversationMessageDeleteResponse = {
-    id: string;
-};
+export type ConversationMessageUpdateRequestBody = import("../../types/api/v1.js").operations["updateConversationMessage"]["requestBody"]["content"]["application/json"];
+export type ConversationMessageUpdateResponse = import("../../types/api/v1.js").operations["updateConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageDeleteRequestBody = import("../../types/api/v1.js").operations["deleteConversationMessage"]["requestBody"]["content"]["application/json"];
+export type ConversationMessageDeleteResponse = import("../../types/api/v1.js").operations["deleteConversationMessage"]["responses"]["200"]["content"]["application/json"];
 export type ConversationMessageUpvoteRequest = {
     value?: number;
 };
-export type ConversationMessageUpvoteResponse = {
-    id: string;
-};
+export type ConversationMessageUpvoteRequestBody = import("../../types/api/v1.js").operations["upvoteConversationMessage"]["requestBody"]["content"]["application/json"];
+export type ConversationMessageUpvoteResponse = import("../../types/api/v1.js").operations["upvoteConversationMessage"]["responses"]["200"]["content"]["application/json"];
 export type ConversationMessageDownvoteRequest = {
     value?: number;
 };
-export type ConversationMessageDownvoteResponse = {
-    id: string;
-};
+export type ConversationMessageDownvoteRequestBody = import("../../types/api/v1.js").operations["downvoteConversationMessage"]["requestBody"]["content"]["application/json"];
+export type ConversationMessageDownvoteResponse = import("../../types/api/v1.js").operations["downvoteConversationMessage"]["responses"]["200"]["content"]["application/json"];
