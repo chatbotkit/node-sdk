@@ -50,19 +50,13 @@ export function fetchTask(client, taskId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactId?: string,
- *   botId?: string,
- *   schedule?: string,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>
- * }} TaskCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createTask']['requestBody']['content']['application/json']} TaskCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createTask']['responses']['200']['content']['application/json']} TaskCreateResponse
+ * @typedef {TaskCreateRequestBody} TaskCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createTask']['responses']['200']['content']['application/json']} TaskCreateResponseBody
+ *
+ * @typedef {TaskCreateResponseBody} TaskCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {TaskCreateRequest} request
@@ -71,7 +65,7 @@ export function fetchTask(client, taskId) {
 export async function createTask(client, request) {
   const url = `/api/v1/task/create`
 
-  /** @type {TaskCreateResponse} */
+  /** @type {TaskCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TaskCreateRequestBody} */
     record: {
@@ -83,19 +77,13 @@ export async function createTask(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactId?: string,
- *   botId?: string,
- *   schedule?: string,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>
- * }} TaskUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateTask']['requestBody']['content']['application/json']} TaskUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateTask']['responses']['200']['content']['application/json']} TaskUpdateResponse
+ * @typedef {TaskUpdateRequestBody} TaskUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateTask']['responses']['200']['content']['application/json']} TaskUpdateResponseBody
+ *
+ * @typedef {TaskUpdateResponseBody} TaskUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -105,7 +93,7 @@ export async function createTask(client, request) {
 export async function updateTask(client, taskId, request) {
   const url = `/api/v1/task/${taskId}/update`
 
-  /** @type {TaskUpdateResponse} */
+  /** @type {TaskUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TaskUpdateRequestBody} */
     record: {
@@ -119,7 +107,11 @@ export async function updateTask(client, taskId, request) {
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteTask']['requestBody']['content']['application/json']} TaskDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteTask']['responses']['200']['content']['application/json']} TaskDeleteResponse
+ * @typedef {TaskDeleteRequestBody} TaskDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteTask']['responses']['200']['content']['application/json']} TaskDeleteResponseBody
+ *
+ * @typedef {TaskDeleteResponseBody} TaskDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -128,7 +120,7 @@ export async function updateTask(client, taskId, request) {
 export async function deleteTask(client, taskId) {
   const url = `/api/v1/task/${taskId}/delete`
 
-  /** @type {TaskDeleteResponse} */
+  /** @type {TaskDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TaskDeleteRequestBody} */
     record: {},
@@ -140,7 +132,11 @@ export async function deleteTask(client, taskId) {
 /**
  * @typedef {import('../types/api/v1.js').operations['triggerTask']['requestBody']['content']['application/json']} TaskTriggerRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['triggerTask']['responses']['200']['content']['application/json']} TaskTriggerResponse
+ * @typedef {TaskTriggerRequestBody} TaskTriggerRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['triggerTask']['responses']['200']['content']['application/json']} TaskTriggerResponseBody
+ *
+ * @typedef {TaskTriggerResponseBody} TaskTriggerResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
@@ -149,7 +145,7 @@ export async function deleteTask(client, taskId) {
 export async function triggerTask(client, taskId) {
   const url = `/api/v1/task/${taskId}/trigger`
 
-  /** @type {TaskTriggerResponse} */
+  /** @type {TaskTriggerResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TaskTriggerRequestBody} */
     record: {},

@@ -51,7 +51,7 @@ This tracks the progress of applying the type pattern from `SDK_TYPE_PATTERN.md`
 - ❌ `src/platform/model/v1.js` - **TODO**
 - ❌ `src/platform/secret/v1.js` - **TODO**
 
-## Integrations (14 files) ✅ COMPLETED
+## Integrations (14 files)
 
 - ✅ `src/integration/discord/v1.js` - Completed
 - ✅ `src/integration/email/v1.js` - Completed
@@ -66,7 +66,7 @@ This tracks the progress of applying the type pattern from `SDK_TYPE_PATTERN.md`
 - ✅ `src/integration/trigger/v1.js` - Completed
 - ✅ `src/integration/twilio/v1.js` - Completed
 - ✅ `src/integration/whatsapp/v1.js` - Completed
-- `src/integration/widget/v1.js` - Not Started
+- ❌ `src/integration/widget/v1.js` - **TODO**
 
 ---
 

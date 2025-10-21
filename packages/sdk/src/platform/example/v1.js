@@ -49,13 +49,13 @@ export function fetchPlatformExample(client, exampleId) {
 }
 
 /**
- * @typedef {{
- *   search: string
- * }} PlatformExampleSearchRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['searchPlatformExamples']['requestBody']['content']['application/json']} PlatformExampleSearchRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['searchPlatformExamples']['responses']['200']['content']['application/json']} PlatformExampleSearchResponse
+ * @typedef {PlatformExampleSearchRequestBody} PlatformExampleSearchRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['searchPlatformExamples']['responses']['200']['content']['application/json']} PlatformExampleSearchResponseBody
+ *
+ * @typedef {PlatformExampleSearchResponseBody} PlatformExampleSearchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformExampleSearchRequest} request
@@ -64,7 +64,7 @@ export function fetchPlatformExample(client, exampleId) {
 export async function searchPlatformExamples(client, request) {
   const url = `/api/v1/platform/example/search`
 
-  /** @type {PlatformExampleSearchResponse} */
+  /** @type {PlatformExampleSearchResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {PlatformExampleSearchRequestBody} */
     record: {
@@ -78,7 +78,11 @@ export async function searchPlatformExamples(client, request) {
 /**
  * @typedef {import('../../types/api/v1.js').operations['clonePlatformExample']['requestBody']['content']['application/json']} PlatformExampleCloneRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['clonePlatformExample']['responses']['200']['content']['application/json']} PlatformExampleCloneResponse
+ * @typedef {PlatformExampleCloneRequestBody} PlatformExampleCloneRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['clonePlatformExample']['responses']['200']['content']['application/json']} PlatformExampleCloneResponseBody
+ *
+ * @typedef {PlatformExampleCloneResponseBody} PlatformExampleCloneResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} exampleId
@@ -87,7 +91,7 @@ export async function searchPlatformExamples(client, request) {
 export async function clonePlatformExample(client, exampleId) {
   const url = `/api/v1/platform/example/${exampleId}/clone`
 
-  /** @type {PlatformExampleCloneResponse} */
+  /** @type {PlatformExampleCloneResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {PlatformExampleCloneRequestBody} */
     record: {},

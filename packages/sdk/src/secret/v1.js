@@ -50,21 +50,13 @@ export function fetchSecret(client, secretId) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   kind?: 'shared'|'personal',
- *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template'|'reference',
- *   value?: string,
- *   config?: Record<string,any>,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SecretCreateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['createSecret']['requestBody']['content']['application/json']} SecretCreateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['createSecret']['responses']['200']['content']['application/json']} SecretCreateResponse
+ * @typedef {SecretCreateRequestBody} SecretCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createSecret']['responses']['200']['content']['application/json']} SecretCreateResponseBody
+ *
+ * @typedef {SecretCreateResponseBody} SecretCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {SecretCreateRequest} request
@@ -73,7 +65,7 @@ export function fetchSecret(client, secretId) {
 export async function createSecret(client, request) {
   const url = `/api/v1/secret/create`
 
-  /** @type {SecretCreateResponse} */
+  /** @type {SecretCreateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SecretCreateRequestBody} */
     record: {
@@ -85,21 +77,13 @@ export async function createSecret(client, request) {
 }
 
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   kind?: 'shared'|'personal',
- *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template'|'reference',
- *   value?: string,
- *   config?: Record<string,any>,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SecretUpdateRequest
- *
  * @typedef {import('../types/api/v1.js').operations['updateSecret']['requestBody']['content']['application/json']} SecretUpdateRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['updateSecret']['responses']['200']['content']['application/json']} SecretUpdateResponse
+ * @typedef {SecretUpdateRequestBody} SecretUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateSecret']['responses']['200']['content']['application/json']} SecretUpdateResponseBody
+ *
+ * @typedef {SecretUpdateResponseBody} SecretUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
@@ -109,7 +93,7 @@ export async function createSecret(client, request) {
 export async function updateSecret(client, secretId, request) {
   const url = `/api/v1/secret/${secretId}/update`
 
-  /** @type {SecretUpdateResponse} */
+  /** @type {SecretUpdateResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SecretUpdateRequestBody} */
     record: {
@@ -123,7 +107,11 @@ export async function updateSecret(client, secretId, request) {
 /**
  * @typedef {import('../types/api/v1.js').operations['deleteSecret']['requestBody']['content']['application/json']} SecretDeleteRequestBody
  *
- * @typedef {import('../types/api/v1.js').operations['deleteSecret']['responses']['200']['content']['application/json']} SecretDeleteResponse
+ * @typedef {SecretDeleteRequestBody} SecretDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteSecret']['responses']['200']['content']['application/json']} SecretDeleteResponseBody
+ *
+ * @typedef {SecretDeleteResponseBody} SecretDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
@@ -132,7 +120,7 @@ export async function updateSecret(client, secretId, request) {
 export async function deleteSecret(client, secretId) {
   const url = `/api/v1/secret/${secretId}/delete`
 
-  /** @type {SecretDeleteResponse} */
+  /** @type {SecretDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SecretDeleteRequestBody} */
     record: {},
