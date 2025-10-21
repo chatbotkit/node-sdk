@@ -10,11 +10,15 @@
 - [ConversationMessageCreateRequest](conversation_message_v1.md#conversationmessagecreaterequest)
 - [ConversationMessageCreateRequestBody](conversation_message_v1.md#conversationmessagecreaterequestbody)
 - [ConversationMessageCreateResponse](conversation_message_v1.md#conversationmessagecreateresponse)
+- [ConversationMessageCreateResponseBody](conversation_message_v1.md#conversationmessagecreateresponsebody)
+- [ConversationMessageDeleteRequest](conversation_message_v1.md#conversationmessagedeleterequest)
 - [ConversationMessageDeleteRequestBody](conversation_message_v1.md#conversationmessagedeleterequestbody)
 - [ConversationMessageDeleteResponse](conversation_message_v1.md#conversationmessagedeleteresponse)
+- [ConversationMessageDeleteResponseBody](conversation_message_v1.md#conversationmessagedeleteresponsebody)
 - [ConversationMessageDownvoteRequest](conversation_message_v1.md#conversationmessagedownvoterequest)
 - [ConversationMessageDownvoteRequestBody](conversation_message_v1.md#conversationmessagedownvoterequestbody)
 - [ConversationMessageDownvoteResponse](conversation_message_v1.md#conversationmessagedownvoteresponse)
+- [ConversationMessageDownvoteResponseBody](conversation_message_v1.md#conversationmessagedownvoteresponsebody)
 - [ConversationMessageFetchResponse](conversation_message_v1.md#conversationmessagefetchresponse)
 - [ConversationMessageListRequest](conversation_message_v1.md#conversationmessagelistrequest)
 - [ConversationMessageListResponse](conversation_message_v1.md#conversationmessagelistresponse)
@@ -23,9 +27,11 @@
 - [ConversationMessageUpdateRequest](conversation_message_v1.md#conversationmessageupdaterequest)
 - [ConversationMessageUpdateRequestBody](conversation_message_v1.md#conversationmessageupdaterequestbody)
 - [ConversationMessageUpdateResponse](conversation_message_v1.md#conversationmessageupdateresponse)
+- [ConversationMessageUpdateResponseBody](conversation_message_v1.md#conversationmessageupdateresponsebody)
 - [ConversationMessageUpvoteRequest](conversation_message_v1.md#conversationmessageupvoterequest)
 - [ConversationMessageUpvoteRequestBody](conversation_message_v1.md#conversationmessageupvoterequestbody)
 - [ConversationMessageUpvoteResponse](conversation_message_v1.md#conversationmessageupvoteresponse)
+- [ConversationMessageUpvoteResponseBody](conversation_message_v1.md#conversationmessageupvoteresponsebody)
 - [ResponsePromise](conversation_message_v1.md#responsepromise)
 
 ### Functions
@@ -52,19 +58,11 @@ ___
 
 ### ConversationMessageCreateRequest
 
-Ƭ **ConversationMessageCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `text` | `string` |
-| `type` | [`ConversationMessageType`](conversation_message_v1.md#conversationmessagetype) |
+Ƭ **ConversationMessageCreateRequest**\<\>: [`ConversationMessageCreateRequestBody`](conversation_message_v1.md#conversationmessagecreaterequestbody)
 
 #### Defined in
 
-[conversation/message/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L61)
+[conversation/message/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L59)
 
 ___
 
@@ -74,17 +72,37 @@ ___
 
 #### Defined in
 
-[conversation/message/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L63)
+[conversation/message/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L57)
 
 ___
 
 ### ConversationMessageCreateResponse
 
-Ƭ **ConversationMessageCreateResponse**\<\>: `operations`[``"createConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **ConversationMessageCreateResponse**\<\>: [`ConversationMessageCreateResponseBody`](conversation_message_v1.md#conversationmessagecreateresponsebody)
 
 #### Defined in
 
-[conversation/message/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L65)
+[conversation/message/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L63)
+
+___
+
+### ConversationMessageCreateResponseBody
+
+Ƭ **ConversationMessageCreateResponseBody**\<\>: `operations`[``"createConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[conversation/message/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L61)
+
+___
+
+### ConversationMessageDeleteRequest
+
+Ƭ **ConversationMessageDeleteRequest**\<\>: [`ConversationMessageDeleteRequestBody`](conversation_message_v1.md#conversationmessagedeleterequestbody)
+
+#### Defined in
+
+[conversation/message/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L125)
 
 ___
 
@@ -94,13 +112,13 @@ ___
 
 #### Defined in
 
-[conversation/message/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L127)
+[conversation/message/v1.js:123](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L123)
 
 ___
 
 ### ConversationMessageDeleteResponse
 
-Ƭ **ConversationMessageDeleteResponse**\<\>: `operations`[``"deleteConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **ConversationMessageDeleteResponse**\<\>: [`ConversationMessageDeleteResponseBody`](conversation_message_v1.md#conversationmessagedeleteresponsebody)
 
 #### Defined in
 
@@ -108,19 +126,23 @@ ___
 
 ___
 
-### ConversationMessageDownvoteRequest
+### ConversationMessageDeleteResponseBody
 
-Ƭ **ConversationMessageDownvoteRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `value?` | `number` |
+Ƭ **ConversationMessageDeleteResponseBody**\<\>: `operations`[``"deleteConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[conversation/message/v1.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L191)
+[conversation/message/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L127)
+
+___
+
+### ConversationMessageDownvoteRequest
+
+Ƭ **ConversationMessageDownvoteRequest**\<\>: [`ConversationMessageDownvoteRequestBody`](conversation_message_v1.md#conversationmessagedownvoterequestbody)
+
+#### Defined in
+
+[conversation/message/v1.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L189)
 
 ___
 
@@ -130,17 +152,27 @@ ___
 
 #### Defined in
 
-[conversation/message/v1.js:193](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L193)
+[conversation/message/v1.js:187](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L187)
 
 ___
 
 ### ConversationMessageDownvoteResponse
 
-Ƭ **ConversationMessageDownvoteResponse**\<\>: `operations`[``"downvoteConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **ConversationMessageDownvoteResponse**\<\>: [`ConversationMessageDownvoteResponseBody`](conversation_message_v1.md#conversationmessagedownvoteresponsebody)
 
 #### Defined in
 
-[conversation/message/v1.js:195](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L195)
+[conversation/message/v1.js:193](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L193)
+
+___
+
+### ConversationMessageDownvoteResponseBody
+
+Ƭ **ConversationMessageDownvoteResponseBody**\<\>: `operations`[``"downvoteConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[conversation/message/v1.js:191](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L191)
 
 ___
 
@@ -205,19 +237,11 @@ ___
 
 ### ConversationMessageUpdateRequest
 
-Ƭ **ConversationMessageUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `text?` | `string` |
-| `type?` | [`ConversationMessageType`](conversation_message_v1.md#conversationmessagetype) |
+Ƭ **ConversationMessageUpdateRequest**\<\>: [`ConversationMessageUpdateRequestBody`](conversation_message_v1.md#conversationmessageupdaterequestbody)
 
 #### Defined in
 
-[conversation/message/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L95)
+[conversation/message/v1.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L91)
 
 ___
 
@@ -227,29 +251,33 @@ ___
 
 #### Defined in
 
-[conversation/message/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L97)
+[conversation/message/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L89)
 
 ___
 
 ### ConversationMessageUpdateResponse
 
-Ƭ **ConversationMessageUpdateResponse**\<\>: `operations`[``"updateConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **ConversationMessageUpdateResponse**\<\>: [`ConversationMessageUpdateResponseBody`](conversation_message_v1.md#conversationmessageupdateresponsebody)
 
 #### Defined in
 
-[conversation/message/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L99)
+[conversation/message/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L95)
+
+___
+
+### ConversationMessageUpdateResponseBody
+
+Ƭ **ConversationMessageUpdateResponseBody**\<\>: `operations`[``"updateConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[conversation/message/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L93)
 
 ___
 
 ### ConversationMessageUpvoteRequest
 
-Ƭ **ConversationMessageUpvoteRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `value?` | `number` |
+Ƭ **ConversationMessageUpvoteRequest**\<\>: [`ConversationMessageUpvoteRequestBody`](conversation_message_v1.md#conversationmessageupvoterequestbody)
 
 #### Defined in
 
@@ -263,17 +291,27 @@ ___
 
 #### Defined in
 
-[conversation/message/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L157)
+[conversation/message/v1.js:153](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L153)
 
 ___
 
 ### ConversationMessageUpvoteResponse
 
-Ƭ **ConversationMessageUpvoteResponse**\<\>: `operations`[``"upvoteConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **ConversationMessageUpvoteResponse**\<\>: [`ConversationMessageUpvoteResponseBody`](conversation_message_v1.md#conversationmessageupvoteresponsebody)
 
 #### Defined in
 
 [conversation/message/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L159)
+
+___
+
+### ConversationMessageUpvoteResponseBody
+
+Ƭ **ConversationMessageUpvoteResponseBody**\<\>: `operations`[``"upvoteConversationMessage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[conversation/message/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L157)
 
 ___
 
@@ -304,7 +342,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `conversationId` | `string` |
-| `request` | [`ConversationMessageCreateRequest`](conversation_message_v1.md#conversationmessagecreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -312,7 +350,7 @@ ___
 
 #### Defined in
 
-[conversation/message/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L72)
+[conversation/message/v1.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L70)
 
 ___
 
@@ -349,7 +387,7 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `conversationId` | `string` |
 | `messageId` | `string` |
-| `request` | [`ConversationMessageDownvoteRequest`](conversation_message_v1.md#conversationmessagedownvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -357,7 +395,7 @@ ___
 
 #### Defined in
 
-[conversation/message/v1.js:203](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L203)
+[conversation/message/v1.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L201)
 
 ___
 
@@ -416,7 +454,7 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `conversationId` | `string` |
 | `messageId` | `string` |
-| `request` | [`ConversationMessageUpdateRequest`](conversation_message_v1.md#conversationmessageupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -424,7 +462,7 @@ ___
 
 #### Defined in
 
-[conversation/message/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L107)
+[conversation/message/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L103)
 
 ___
 
@@ -439,7 +477,7 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `conversationId` | `string` |
 | `messageId` | `string` |
-| `request` | [`ConversationMessageUpvoteRequest`](conversation_message_v1.md#conversationmessageupvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 

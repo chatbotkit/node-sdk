@@ -8,7 +8,9 @@
 
 - [ChatBotKitClient](conversation_session_v1.md#chatbotkitclient)
 - [ConversationSessionCreateRequest](conversation_session_v1.md#conversationsessioncreaterequest)
+- [ConversationSessionCreateRequestBody](conversation_session_v1.md#conversationsessioncreaterequestbody)
 - [ConversationSessionCreateResponse](conversation_session_v1.md#conversationsessioncreateresponse)
+- [ConversationSessionCreateResponseBody](conversation_session_v1.md#conversationsessioncreateresponsebody)
 
 ### Functions
 
@@ -28,13 +30,7 @@ ___
 
 ### ConversationSessionCreateRequest
 
-Ƭ **ConversationSessionCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `durationInSeconds?` | `number` |
+Ƭ **ConversationSessionCreateRequest**\<\>: [`ConversationSessionCreateRequestBody`](conversation_session_v1.md#conversationsessioncreaterequestbody)
 
 #### Defined in
 
@@ -42,26 +38,39 @@ ___
 
 ___
 
-### ConversationSessionCreateResponse
+### ConversationSessionCreateRequestBody
 
-Ƭ **ConversationSessionCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `expiresAt` | `number` |
-| `token` | `string` |
+Ƭ **ConversationSessionCreateRequestBody**\<\>: `operations`[``"createConversationSession"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[conversation/session/v1.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/session/v1.js#L13)
+[conversation/session/v1.js:6](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/session/v1.js#L6)
+
+___
+
+### ConversationSessionCreateResponse
+
+Ƭ **ConversationSessionCreateResponse**\<\>: [`ConversationSessionCreateResponseBody`](conversation_session_v1.md#conversationsessioncreateresponsebody)
+
+#### Defined in
+
+[conversation/session/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/session/v1.js#L12)
+
+___
+
+### ConversationSessionCreateResponseBody
+
+Ƭ **ConversationSessionCreateResponseBody**\<\>: `operations`[``"createConversationSession"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[conversation/session/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/session/v1.js#L10)
 
 ## Functions
 
 ### createConversationSession
 
-▸ **createConversationSession**(`client`, `conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationSessionCreateResponse`](conversation_session_v1.md#conversationsessioncreateresponse)\>
+▸ **createConversationSession**(`client`, `conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -69,12 +78,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `conversationId` | `string` |
-| `request` | [`ConversationSessionCreateRequest`](conversation_session_v1.md#conversationsessioncreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationSessionCreateResponse`](conversation_session_v1.md#conversationsessioncreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[conversation/session/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/session/v1.js#L20)
+[conversation/session/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/session/v1.js#L19)

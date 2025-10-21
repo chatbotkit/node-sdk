@@ -113,7 +113,7 @@ Creates a new record.
 | Name | Type |
 | :------ | :------ |
 | `datasetId` | `string` |
-| `request` | [`DatasetRecordCreateRequest`](../modules/dataset_record_v1.md#datasetrecordcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -229,7 +229,7 @@ Updates a record.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `recordId` | `string` |
-| `request` | [`DatasetRecordUpdateRequest`](../modules/dataset_record_v1.md#datasetrecordupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

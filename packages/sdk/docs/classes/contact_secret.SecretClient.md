@@ -54,7 +54,7 @@ Contact secret client.
 
 ### authenticate
 
-▸ **authenticate**(`contactId`, `secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretAuthenticateResponse`](../modules/contact_secret_v1.md#secretauthenticateresponse), `never`\>
+▸ **authenticate**(`contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Authenticates the contact secret.
 
@@ -67,7 +67,7 @@ Authenticates the contact secret.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretAuthenticateResponse`](../modules/contact_secret_v1.md#secretauthenticateresponse), `never`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -125,7 +125,7 @@ ___
 
 ### list
 
-▸ **list**(`contactId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretListResponse`](../modules/contact_secret_v1.md#secretlistresponse), [`SecretListStreamItemType`](../modules/contact_secret_v1.md#secretliststreamitemtype)\>
+▸ **list**(`contactId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all contact secrets.
 
@@ -138,7 +138,7 @@ Retrieves a list of all contact secrets.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretListResponse`](../modules/contact_secret_v1.md#secretlistresponse), [`SecretListStreamItemType`](../modules/contact_secret_v1.md#secretliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -148,7 +148,7 @@ ___
 
 ### revoke
 
-▸ **revoke**(`contactId`, `secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretRevokeResponse`](../modules/contact_secret_v1.md#secretrevokeresponse), `never`\>
+▸ **revoke**(`contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Revokes the contact secret.
 
@@ -161,7 +161,7 @@ Revokes the contact secret.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretRevokeResponse`](../modules/contact_secret_v1.md#secretrevokeresponse), `never`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -171,7 +171,7 @@ ___
 
 ### verify
 
-▸ **verify**(`contactId`, `secretId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SecretVerifyResponse`](../modules/contact_secret_v1.md#secretverifyresponse), `never`\>
+▸ **verify**(`contactId`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Verifies the contact secret.
 
@@ -184,7 +184,7 @@ Verifies the contact secret.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SecretVerifyResponse`](../modules/contact_secret_v1.md#secretverifyresponse), `never`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

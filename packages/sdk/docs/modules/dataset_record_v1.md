@@ -10,8 +10,11 @@
 - [DatasetRecordCreateRequest](dataset_record_v1.md#datasetrecordcreaterequest)
 - [DatasetRecordCreateRequestBody](dataset_record_v1.md#datasetrecordcreaterequestbody)
 - [DatasetRecordCreateResponse](dataset_record_v1.md#datasetrecordcreateresponse)
+- [DatasetRecordCreateResponseBody](dataset_record_v1.md#datasetrecordcreateresponsebody)
+- [DatasetRecordDeleteRequest](dataset_record_v1.md#datasetrecorddeleterequest)
 - [DatasetRecordDeleteRequestBody](dataset_record_v1.md#datasetrecorddeleterequestbody)
 - [DatasetRecordDeleteResponse](dataset_record_v1.md#datasetrecorddeleteresponse)
+- [DatasetRecordDeleteResponseBody](dataset_record_v1.md#datasetrecorddeleteresponsebody)
 - [DatasetRecordExportRequest](dataset_record_v1.md#datasetrecordexportrequest)
 - [DatasetRecordExportResponse](dataset_record_v1.md#datasetrecordexportresponse)
 - [DatasetRecordExportStreamType](dataset_record_v1.md#datasetrecordexportstreamtype)
@@ -22,6 +25,7 @@
 - [DatasetRecordUpdateRequest](dataset_record_v1.md#datasetrecordupdaterequest)
 - [DatasetRecordUpdateRequestBody](dataset_record_v1.md#datasetrecordupdaterequestbody)
 - [DatasetRecordUpdateResponse](dataset_record_v1.md#datasetrecordupdateresponse)
+- [DatasetRecordUpdateResponseBody](dataset_record_v1.md#datasetrecordupdateresponsebody)
 - [ResponsePromise](dataset_record_v1.md#responsepromise)
 
 ### Functions
@@ -47,21 +51,11 @@ ___
 
 ### DatasetRecordCreateRequest
 
-Ƭ **DatasetRecordCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `source?` | `string` |
-| `text` | `string` |
+Ƭ **DatasetRecordCreateRequest**\<\>: [`DatasetRecordCreateRequestBody`](dataset_record_v1.md#datasetrecordcreaterequestbody)
 
 #### Defined in
 
-[dataset/record/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L61)
+[dataset/record/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L57)
 
 ___
 
@@ -71,17 +65,37 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L63)
+[dataset/record/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L55)
 
 ___
 
 ### DatasetRecordCreateResponse
 
-Ƭ **DatasetRecordCreateResponse**\<\>: `operations`[``"createDatasetRecord"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **DatasetRecordCreateResponse**\<\>: [`DatasetRecordCreateResponseBody`](dataset_record_v1.md#datasetrecordcreateresponsebody)
 
 #### Defined in
 
-[dataset/record/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L65)
+[dataset/record/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L61)
+
+___
+
+### DatasetRecordCreateResponseBody
+
+Ƭ **DatasetRecordCreateResponseBody**\<\>: `operations`[``"createDatasetRecord"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/record/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L59)
+
+___
+
+### DatasetRecordDeleteRequest
+
+Ƭ **DatasetRecordDeleteRequest**\<\>: [`DatasetRecordDeleteRequestBody`](dataset_record_v1.md#datasetrecorddeleterequestbody)
+
+#### Defined in
+
+[dataset/record/v1.js:119](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L119)
 
 ___
 
@@ -91,17 +105,27 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L125)
+[dataset/record/v1.js:117](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L117)
 
 ___
 
 ### DatasetRecordDeleteResponse
 
-Ƭ **DatasetRecordDeleteResponse**\<\>: `operations`[``"deleteDatasetRecord"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **DatasetRecordDeleteResponse**\<\>: [`DatasetRecordDeleteResponseBody`](dataset_record_v1.md#datasetrecorddeleteresponsebody)
 
 #### Defined in
 
-[dataset/record/v1.js:127](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L127)
+[dataset/record/v1.js:123](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L123)
+
+___
+
+### DatasetRecordDeleteResponseBody
+
+Ƭ **DatasetRecordDeleteResponseBody**\<\>: `operations`[``"deleteDatasetRecord"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/record/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L121)
 
 ___
 
@@ -120,7 +144,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L152)
+[dataset/record/v1.js:148](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L148)
 
 ___
 
@@ -130,7 +154,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L154)
+[dataset/record/v1.js:150](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L150)
 
 ___
 
@@ -140,7 +164,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L156)
+[dataset/record/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L152)
 
 ___
 
@@ -195,21 +219,11 @@ ___
 
 ### DatasetRecordUpdateRequest
 
-Ƭ **DatasetRecordUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `source?` | `string` |
-| `text?` | `string` |
+Ƭ **DatasetRecordUpdateRequest**\<\>: [`DatasetRecordUpdateRequestBody`](dataset_record_v1.md#datasetrecordupdaterequestbody)
 
 #### Defined in
 
-[dataset/record/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L93)
+[dataset/record/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L85)
 
 ___
 
@@ -219,17 +233,27 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L95)
+[dataset/record/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L83)
 
 ___
 
 ### DatasetRecordUpdateResponse
 
-Ƭ **DatasetRecordUpdateResponse**\<\>: `operations`[``"updateDatasetRecord"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **DatasetRecordUpdateResponse**\<\>: [`DatasetRecordUpdateResponseBody`](dataset_record_v1.md#datasetrecordupdateresponsebody)
 
 #### Defined in
 
-[dataset/record/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L97)
+[dataset/record/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L89)
+
+___
+
+### DatasetRecordUpdateResponseBody
+
+Ƭ **DatasetRecordUpdateResponseBody**\<\>: `operations`[``"updateDatasetRecord"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/record/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L87)
 
 ___
 
@@ -260,7 +284,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
-| `request` | [`DatasetRecordCreateRequest`](dataset_record_v1.md#datasetrecordcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -268,7 +292,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L72)
+[dataset/record/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L68)
 
 ___
 
@@ -290,7 +314,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L134)
+[dataset/record/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L130)
 
 ___
 
@@ -312,7 +336,7 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:163](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L163)
+[dataset/record/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L159)
 
 ___
 
@@ -371,7 +395,7 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
 | `recordId` | `string` |
-| `request` | [`DatasetRecordUpdateRequest`](dataset_record_v1.md#datasetrecordupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -379,4 +403,4 @@ ___
 
 #### Defined in
 
-[dataset/record/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L105)
+[dataset/record/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L97)

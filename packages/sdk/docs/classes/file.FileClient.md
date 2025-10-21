@@ -114,7 +114,7 @@ Creates a new file.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`FileCreateRequest`](../modules/file_v1.md#filecreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -247,7 +247,7 @@ Updates a file.
 | Name | Type |
 | :------ | :------ |
 | `fileId` | `string` |
-| `request` | [`FileUpdateRequest`](../modules/file_v1.md#fileupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

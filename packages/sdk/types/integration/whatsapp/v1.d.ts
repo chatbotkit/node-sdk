@@ -32,23 +32,13 @@ export function listWhatsAppIntegrations(client: ChatBotKitClient, request?: Wha
  */
 export function fetchWhatsAppIntegration(client: ChatBotKitClient, whatsappId: string): ResponsePromise<WhatsAppIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   phoneNumberId?: string,
- *   accessToken?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   attachments?: boolean,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} WhatsAppIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['requestBody']['content']['application/json']} WhatsAppIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['responses']['200']['content']['application/json']} WhatsAppIntegrationCreateResponse
+ * @typedef {WhatsAppIntegrationCreateRequestBody} WhatsAppIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createWhatsAppIntegration']['responses']['200']['content']['application/json']} WhatsAppIntegrationCreateResponseBody
+ *
+ * @typedef {WhatsAppIntegrationCreateResponseBody} WhatsAppIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {WhatsAppIntegrationCreateRequest} request
@@ -56,23 +46,13 @@ export function fetchWhatsAppIntegration(client: ChatBotKitClient, whatsappId: s
  */
 export function createWhatsAppIntegration(client: ChatBotKitClient, request: WhatsAppIntegrationCreateRequest): Promise<WhatsAppIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   phoneNumberId?: string,
- *   accessToken?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   attachments?: boolean,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} WhatsAppIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['requestBody']['content']['application/json']} WhatsAppIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['responses']['200']['content']['application/json']} WhatsAppIntegrationUpdateResponse
+ * @typedef {WhatsAppIntegrationUpdateRequestBody} WhatsAppIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateWhatsAppIntegration']['responses']['200']['content']['application/json']} WhatsAppIntegrationUpdateResponseBody
+ *
+ * @typedef {WhatsAppIntegrationUpdateResponseBody} WhatsAppIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
@@ -83,7 +63,11 @@ export function updateWhatsAppIntegration(client: ChatBotKitClient, whatsappId: 
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteWhatsAppIntegration']['requestBody']['content']['application/json']} WhatsAppIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteWhatsAppIntegration']['responses']['200']['content']['application/json']} WhatsAppIntegrationDeleteResponse
+ * @typedef {WhatsAppIntegrationDeleteRequestBody} WhatsAppIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteWhatsAppIntegration']['responses']['200']['content']['application/json']} WhatsAppIntegrationDeleteResponseBody
+ *
+ * @typedef {WhatsAppIntegrationDeleteResponseBody} WhatsAppIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
@@ -93,7 +77,11 @@ export function deleteWhatsAppIntegration(client: ChatBotKitClient, whatsappId: 
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupWhatsAppIntegration']['requestBody']['content']['application/json']} WhatsAppIntegrationSetupRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['setupWhatsAppIntegration']['responses']['200']['content']['application/json']} WhatsAppIntegrationSetupResponse
+ * @typedef {WhatsAppIntegrationSetupRequestBody} WhatsAppIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupWhatsAppIntegration']['responses']['200']['content']['application/json']} WhatsAppIntegrationSetupResponseBody
+ *
+ * @typedef {WhatsAppIntegrationSetupResponseBody} WhatsAppIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
@@ -111,37 +99,19 @@ export type WhatsAppIntegrationListRequest = {
 export type WhatsAppIntegrationListResponse = import("../../types/api/v1.js").operations["listWhatsAppIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type WhatsAppIntegrationListStreamType = import("../../types/api/v1.js").operations["listWhatsAppIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type WhatsAppIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
-export type WhatsAppIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    phoneNumberId?: string;
-    accessToken?: string;
-    contactCollection?: boolean;
-    sessionDuration?: number;
-    attachments?: boolean;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
 export type WhatsAppIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createWhatsAppIntegration"]["requestBody"]["content"]["application/json"];
-export type WhatsAppIntegrationCreateResponse = import("../../types/api/v1.js").operations["createWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
-export type WhatsAppIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    phoneNumberId?: string;
-    accessToken?: string;
-    contactCollection?: boolean;
-    sessionDuration?: number;
-    attachments?: boolean;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
+export type WhatsAppIntegrationCreateRequest = WhatsAppIntegrationCreateRequestBody;
+export type WhatsAppIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WhatsAppIntegrationCreateResponse = WhatsAppIntegrationCreateResponseBody;
 export type WhatsAppIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateWhatsAppIntegration"]["requestBody"]["content"]["application/json"];
-export type WhatsAppIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WhatsAppIntegrationUpdateRequest = WhatsAppIntegrationUpdateRequestBody;
+export type WhatsAppIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WhatsAppIntegrationUpdateResponse = WhatsAppIntegrationUpdateResponseBody;
 export type WhatsAppIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteWhatsAppIntegration"]["requestBody"]["content"]["application/json"];
-export type WhatsAppIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WhatsAppIntegrationDeleteRequest = WhatsAppIntegrationDeleteRequestBody;
+export type WhatsAppIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WhatsAppIntegrationDeleteResponse = WhatsAppIntegrationDeleteResponseBody;
 export type WhatsAppIntegrationSetupRequestBody = import("../../types/api/v1.js").operations["setupWhatsAppIntegration"]["requestBody"]["content"]["application/json"];
-export type WhatsAppIntegrationSetupResponse = import("../../types/api/v1.js").operations["setupWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WhatsAppIntegrationSetupRequest = WhatsAppIntegrationSetupRequestBody;
+export type WhatsAppIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupWhatsAppIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WhatsAppIntegrationSetupResponse = WhatsAppIntegrationSetupResponseBody;

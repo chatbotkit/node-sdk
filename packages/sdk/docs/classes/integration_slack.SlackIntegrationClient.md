@@ -114,7 +114,7 @@ Creates a new slack integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SlackIntegrationCreateRequest`](../modules/integration_slack_v1.md#slackintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a slack integration.
 | Name | Type |
 | :------ | :------ |
 | `slackId` | `string` |
-| `request` | [`SlackIntegrationUpdateRequest`](../modules/integration_slack_v1.md#slackintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

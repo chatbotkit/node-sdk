@@ -10,15 +10,18 @@
 - [DatasetFileAttachRequest](dataset_file_v1.md#datasetfileattachrequest)
 - [DatasetFileAttachRequestBody](dataset_file_v1.md#datasetfileattachrequestbody)
 - [DatasetFileAttachResponse](dataset_file_v1.md#datasetfileattachresponse)
+- [DatasetFileAttachResponseBody](dataset_file_v1.md#datasetfileattachresponsebody)
 - [DatasetFileDetachRequest](dataset_file_v1.md#datasetfiledetachrequest)
 - [DatasetFileDetachRequestBody](dataset_file_v1.md#datasetfiledetachrequestbody)
 - [DatasetFileDetachResponse](dataset_file_v1.md#datasetfiledetachresponse)
+- [DatasetFileDetachResponseBody](dataset_file_v1.md#datasetfiledetachresponsebody)
 - [DatasetFileListRequest](dataset_file_v1.md#datasetfilelistrequest)
 - [DatasetFileListResponse](dataset_file_v1.md#datasetfilelistresponse)
 - [DatasetFileListStreamType](dataset_file_v1.md#datasetfileliststreamtype)
 - [DatasetFileSyncRequest](dataset_file_v1.md#datasetfilesyncrequest)
 - [DatasetFileSyncRequestBody](dataset_file_v1.md#datasetfilesyncrequestbody)
 - [DatasetFileSyncResponse](dataset_file_v1.md#datasetfilesyncresponse)
+- [DatasetFileSyncResponseBody](dataset_file_v1.md#datasetfilesyncresponsebody)
 - [ResponsePromise](dataset_file_v1.md#responsepromise)
 
 ### Functions
@@ -42,13 +45,7 @@ ___
 
 ### DatasetFileAttachRequest
 
-Ƭ **DatasetFileAttachRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `type` | ``"source"`` |
+Ƭ **DatasetFileAttachRequest**\<\>: [`DatasetFileAttachRequestBody`](dataset_file_v1.md#datasetfileattachrequestbody)
 
 #### Defined in
 
@@ -62,13 +59,13 @@ ___
 
 #### Defined in
 
-[dataset/file/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L42)
+[dataset/file/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L38)
 
 ___
 
 ### DatasetFileAttachResponse
 
-Ƭ **DatasetFileAttachResponse**\<\>: `operations`[``"attachDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **DatasetFileAttachResponse**\<\>: [`DatasetFileAttachResponseBody`](dataset_file_v1.md#datasetfileattachresponsebody)
 
 #### Defined in
 
@@ -76,13 +73,23 @@ ___
 
 ___
 
-### DatasetFileDetachRequest
+### DatasetFileAttachResponseBody
 
-Ƭ **DatasetFileDetachRequest**\<\>: `Object`
+Ƭ **DatasetFileAttachResponseBody**\<\>: `operations`[``"attachDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[dataset/file/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L67)
+[dataset/file/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L42)
+
+___
+
+### DatasetFileDetachRequest
+
+Ƭ **DatasetFileDetachRequest**\<\>: [`DatasetFileDetachRequestBody`](dataset_file_v1.md#datasetfiledetachrequestbody)
+
+#### Defined in
+
+[dataset/file/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L69)
 
 ___
 
@@ -92,13 +99,23 @@ ___
 
 #### Defined in
 
-[dataset/file/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L69)
+[dataset/file/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L67)
 
 ___
 
 ### DatasetFileDetachResponse
 
-Ƭ **DatasetFileDetachResponse**\<\>: `operations`[``"detachDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **DatasetFileDetachResponse**\<\>: [`DatasetFileDetachResponseBody`](dataset_file_v1.md#datasetfiledetachresponsebody)
+
+#### Defined in
+
+[dataset/file/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L73)
+
+___
+
+### DatasetFileDetachResponseBody
+
+Ƭ **DatasetFileDetachResponseBody**\<\>: `operations`[``"detachDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -147,11 +164,11 @@ ___
 
 ### DatasetFileSyncRequest
 
-Ƭ **DatasetFileSyncRequest**\<\>: `Object`
+Ƭ **DatasetFileSyncRequest**\<\>: [`DatasetFileSyncRequestBody`](dataset_file_v1.md#datasetfilesyncrequestbody)
 
 #### Defined in
 
-[dataset/file/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L94)
+[dataset/file/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L98)
 
 ___
 
@@ -167,11 +184,21 @@ ___
 
 ### DatasetFileSyncResponse
 
-Ƭ **DatasetFileSyncResponse**\<\>: `operations`[``"syncDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **DatasetFileSyncResponse**\<\>: [`DatasetFileSyncResponseBody`](dataset_file_v1.md#datasetfilesyncresponsebody)
 
 #### Defined in
 
-[dataset/file/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L98)
+[dataset/file/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L102)
+
+___
+
+### DatasetFileSyncResponseBody
+
+Ƭ **DatasetFileSyncResponseBody**\<\>: `operations`[``"syncDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/file/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L100)
 
 ___
 
@@ -203,7 +230,7 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileAttachRequest`](dataset_file_v1.md#datasetfileattachrequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -226,7 +253,7 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileDetachRequest`](dataset_file_v1.md#datasetfiledetachrequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -234,7 +261,7 @@ ___
 
 #### Defined in
 
-[dataset/file/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L79)
+[dataset/file/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L81)
 
 ___
 
@@ -271,7 +298,7 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileSyncRequest`](dataset_file_v1.md#datasetfilesyncrequest) |
+| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
 
 #### Returns
 
@@ -279,4 +306,4 @@ ___
 
 #### Defined in
 
-[dataset/file/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L106)
+[dataset/file/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L110)

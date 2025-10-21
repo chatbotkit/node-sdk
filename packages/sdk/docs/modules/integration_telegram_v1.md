@@ -11,17 +11,23 @@
 - [TelegramIntegrationCreateRequest](integration_telegram_v1.md#telegramintegrationcreaterequest)
 - [TelegramIntegrationCreateRequestBody](integration_telegram_v1.md#telegramintegrationcreaterequestbody)
 - [TelegramIntegrationCreateResponse](integration_telegram_v1.md#telegramintegrationcreateresponse)
+- [TelegramIntegrationCreateResponseBody](integration_telegram_v1.md#telegramintegrationcreateresponsebody)
+- [TelegramIntegrationDeleteRequest](integration_telegram_v1.md#telegramintegrationdeleterequest)
 - [TelegramIntegrationDeleteRequestBody](integration_telegram_v1.md#telegramintegrationdeleterequestbody)
 - [TelegramIntegrationDeleteResponse](integration_telegram_v1.md#telegramintegrationdeleteresponse)
+- [TelegramIntegrationDeleteResponseBody](integration_telegram_v1.md#telegramintegrationdeleteresponsebody)
 - [TelegramIntegrationFetchResponse](integration_telegram_v1.md#telegramintegrationfetchresponse)
 - [TelegramIntegrationListRequest](integration_telegram_v1.md#telegramintegrationlistrequest)
 - [TelegramIntegrationListResponse](integration_telegram_v1.md#telegramintegrationlistresponse)
 - [TelegramIntegrationListStreamType](integration_telegram_v1.md#telegramintegrationliststreamtype)
+- [TelegramIntegrationSetupRequest](integration_telegram_v1.md#telegramintegrationsetuprequest)
 - [TelegramIntegrationSetupRequestBody](integration_telegram_v1.md#telegramintegrationsetuprequestbody)
 - [TelegramIntegrationSetupResponse](integration_telegram_v1.md#telegramintegrationsetupresponse)
+- [TelegramIntegrationSetupResponseBody](integration_telegram_v1.md#telegramintegrationsetupresponsebody)
 - [TelegramIntegrationUpdateRequest](integration_telegram_v1.md#telegramintegrationupdaterequest)
 - [TelegramIntegrationUpdateRequestBody](integration_telegram_v1.md#telegramintegrationupdaterequestbody)
 - [TelegramIntegrationUpdateResponse](integration_telegram_v1.md#telegramintegrationupdateresponse)
+- [TelegramIntegrationUpdateResponseBody](integration_telegram_v1.md#telegramintegrationupdateresponsebody)
 
 ### Functions
 
@@ -63,26 +69,11 @@ ___
 
 ### TelegramIntegrationCreateRequest
 
-Ƭ **TelegramIntegrationCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `attachments?` | `boolean` |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `botToken?` | `string` |
-| `contactCollection?` | `boolean` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | [`model/v1`](model_v1.md) |
-| `name?` | `string` |
-| `sessionDuration?` | `number` |
+Ƭ **TelegramIntegrationCreateRequest**\<\>: [`TelegramIntegrationCreateRequestBody`](integration_telegram_v1.md#telegramintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/telegram/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L64)
+[integration/telegram/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L55)
 
 ___
 
@@ -92,17 +83,37 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L66)
+[integration/telegram/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L53)
 
 ___
 
 ### TelegramIntegrationCreateResponse
 
-Ƭ **TelegramIntegrationCreateResponse**\<\>: `operations`[``"createTelegramIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TelegramIntegrationCreateResponse**\<\>: [`TelegramIntegrationCreateResponseBody`](integration_telegram_v1.md#telegramintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/telegram/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L68)
+[integration/telegram/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L59)
+
+___
+
+### TelegramIntegrationCreateResponseBody
+
+Ƭ **TelegramIntegrationCreateResponseBody**\<\>: `operations`[``"createTelegramIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/telegram/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L57)
+
+___
+
+### TelegramIntegrationDeleteRequest
+
+Ƭ **TelegramIntegrationDeleteRequest**\<\>: [`TelegramIntegrationDeleteRequestBody`](integration_telegram_v1.md#telegramintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/telegram/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L110)
 
 ___
 
@@ -112,17 +123,27 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L126)
+[integration/telegram/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L108)
 
 ___
 
 ### TelegramIntegrationDeleteResponse
 
-Ƭ **TelegramIntegrationDeleteResponse**\<\>: `operations`[``"deleteTelegramIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TelegramIntegrationDeleteResponse**\<\>: [`TelegramIntegrationDeleteResponseBody`](integration_telegram_v1.md#telegramintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/telegram/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L128)
+[integration/telegram/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L114)
+
+___
+
+### TelegramIntegrationDeleteResponseBody
+
+Ƭ **TelegramIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteTelegramIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/telegram/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L112)
 
 ___
 
@@ -175,48 +196,53 @@ ___
 
 ___
 
+### TelegramIntegrationSetupRequest
+
+Ƭ **TelegramIntegrationSetupRequest**\<\>: [`TelegramIntegrationSetupRequestBody`](integration_telegram_v1.md#telegramintegrationsetuprequestbody)
+
+#### Defined in
+
+[integration/telegram/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L135)
+
+___
+
 ### TelegramIntegrationSetupRequestBody
 
 Ƭ **TelegramIntegrationSetupRequestBody**\<\>: `operations`[``"setupTelegramIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/telegram/v1.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L147)
+[integration/telegram/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L133)
 
 ___
 
 ### TelegramIntegrationSetupResponse
 
-Ƭ **TelegramIntegrationSetupResponse**\<\>: `operations`[``"setupTelegramIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TelegramIntegrationSetupResponse**\<\>: [`TelegramIntegrationSetupResponseBody`](integration_telegram_v1.md#telegramintegrationsetupresponsebody)
 
 #### Defined in
 
-[integration/telegram/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L149)
+[integration/telegram/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L139)
+
+___
+
+### TelegramIntegrationSetupResponseBody
+
+Ƭ **TelegramIntegrationSetupResponseBody**\<\>: `operations`[``"setupTelegramIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/telegram/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L137)
 
 ___
 
 ### TelegramIntegrationUpdateRequest
 
-Ƭ **TelegramIntegrationUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `attachments?` | `boolean` |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `botToken?` | `string` |
-| `contactCollection?` | `boolean` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | [`model/v1`](model_v1.md) |
-| `name?` | `string` |
-| `sessionDuration?` | `number` |
+Ƭ **TelegramIntegrationUpdateRequest**\<\>: [`TelegramIntegrationUpdateRequestBody`](integration_telegram_v1.md#telegramintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/telegram/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L100)
+[integration/telegram/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L82)
 
 ___
 
@@ -226,17 +252,27 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L102)
+[integration/telegram/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L80)
 
 ___
 
 ### TelegramIntegrationUpdateResponse
 
-Ƭ **TelegramIntegrationUpdateResponse**\<\>: `operations`[``"updateTelegramIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **TelegramIntegrationUpdateResponse**\<\>: [`TelegramIntegrationUpdateResponseBody`](integration_telegram_v1.md#telegramintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/telegram/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L104)
+[integration/telegram/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L86)
+
+___
+
+### TelegramIntegrationUpdateResponseBody
+
+Ƭ **TelegramIntegrationUpdateResponseBody**\<\>: `operations`[``"updateTelegramIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/telegram/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L84)
 
 ## Functions
 
@@ -249,7 +285,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`TelegramIntegrationCreateRequest`](integration_telegram_v1.md#telegramintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -257,7 +293,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L74)
+[integration/telegram/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L65)
 
 ___
 
@@ -278,7 +314,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L134)
+[integration/telegram/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L120)
 
 ___
 
@@ -341,7 +377,7 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L155)
+[integration/telegram/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L145)
 
 ___
 
@@ -355,7 +391,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `telegramId` | `string` |
-| `request` | [`TelegramIntegrationUpdateRequest`](integration_telegram_v1.md#telegramintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -363,4 +399,4 @@ ___
 
 #### Defined in
 
-[integration/telegram/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L111)
+[integration/telegram/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/telegram/v1.js#L93)

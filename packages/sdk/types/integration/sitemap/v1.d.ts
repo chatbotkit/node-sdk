@@ -32,23 +32,13 @@ export function listSitemapIntegrations(client: ChatBotKitClient, request?: Site
  */
 export function fetchSitemapIntegration(client: ChatBotKitClient, sitemapId: string): ResponsePromise<SitemapIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   datasetId: string,
- *   url?: string,
- *   glob?: string,
- *   selectors?: string,
- *   javascript?: boolean,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SitemapIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createSitemapIntegration']['requestBody']['content']['application/json']} SitemapIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createSitemapIntegration']['responses']['200']['content']['application/json']} SitemapIntegrationCreateResponse
+ * @typedef {SitemapIntegrationCreateRequestBody} SitemapIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createSitemapIntegration']['responses']['200']['content']['application/json']} SitemapIntegrationCreateResponseBody
+ *
+ * @typedef {SitemapIntegrationCreateResponseBody} SitemapIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {SitemapIntegrationCreateRequest} request
@@ -56,23 +46,13 @@ export function fetchSitemapIntegration(client: ChatBotKitClient, sitemapId: str
  */
 export function createSitemapIntegration(client: ChatBotKitClient, request: SitemapIntegrationCreateRequest): Promise<SitemapIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   datasetId?: string,
- *   url?: string,
- *   glob?: string,
- *   selectors?: string,
- *   javascript?: boolean,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SitemapIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateSitemapIntegration']['requestBody']['content']['application/json']} SitemapIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateSitemapIntegration']['responses']['200']['content']['application/json']} SitemapIntegrationUpdateResponse
+ * @typedef {SitemapIntegrationUpdateRequestBody} SitemapIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateSitemapIntegration']['responses']['200']['content']['application/json']} SitemapIntegrationUpdateResponseBody
+ *
+ * @typedef {SitemapIntegrationUpdateResponseBody} SitemapIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
@@ -83,7 +63,11 @@ export function updateSitemapIntegration(client: ChatBotKitClient, sitemapId: st
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteSitemapIntegration']['requestBody']['content']['application/json']} SitemapIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteSitemapIntegration']['responses']['200']['content']['application/json']} SitemapIntegrationDeleteResponse
+ * @typedef {SitemapIntegrationDeleteRequestBody} SitemapIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteSitemapIntegration']['responses']['200']['content']['application/json']} SitemapIntegrationDeleteResponseBody
+ *
+ * @typedef {SitemapIntegrationDeleteResponseBody} SitemapIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
@@ -93,7 +77,11 @@ export function deleteSitemapIntegration(client: ChatBotKitClient, sitemapId: st
 /**
  * @typedef {import('../../types/api/v1.js').operations['syncSitemapIntegration']['requestBody']['content']['application/json']} SitemapIntegrationSyncRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['syncSitemapIntegration']['responses']['200']['content']['application/json']} SitemapIntegrationSyncResponse
+ * @typedef {SitemapIntegrationSyncRequestBody} SitemapIntegrationSyncRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['syncSitemapIntegration']['responses']['200']['content']['application/json']} SitemapIntegrationSyncResponseBody
+ *
+ * @typedef {SitemapIntegrationSyncResponseBody} SitemapIntegrationSyncResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
@@ -111,37 +99,19 @@ export type SitemapIntegrationListRequest = {
 export type SitemapIntegrationListResponse = import("../../types/api/v1.js").operations["listSitemapIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type SitemapIntegrationListStreamType = import("../../types/api/v1.js").operations["listSitemapIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type SitemapIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
-export type SitemapIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    datasetId: string;
-    url?: string;
-    glob?: string;
-    selectors?: string;
-    javascript?: boolean;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
 export type SitemapIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createSitemapIntegration"]["requestBody"]["content"]["application/json"];
-export type SitemapIntegrationCreateResponse = import("../../types/api/v1.js").operations["createSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
-export type SitemapIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    datasetId?: string;
-    url?: string;
-    glob?: string;
-    selectors?: string;
-    javascript?: boolean;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
+export type SitemapIntegrationCreateRequest = SitemapIntegrationCreateRequestBody;
+export type SitemapIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SitemapIntegrationCreateResponse = SitemapIntegrationCreateResponseBody;
 export type SitemapIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateSitemapIntegration"]["requestBody"]["content"]["application/json"];
-export type SitemapIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SitemapIntegrationUpdateRequest = SitemapIntegrationUpdateRequestBody;
+export type SitemapIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SitemapIntegrationUpdateResponse = SitemapIntegrationUpdateResponseBody;
 export type SitemapIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteSitemapIntegration"]["requestBody"]["content"]["application/json"];
-export type SitemapIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SitemapIntegrationDeleteRequest = SitemapIntegrationDeleteRequestBody;
+export type SitemapIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SitemapIntegrationDeleteResponse = SitemapIntegrationDeleteResponseBody;
 export type SitemapIntegrationSyncRequestBody = import("../../types/api/v1.js").operations["syncSitemapIntegration"]["requestBody"]["content"]["application/json"];
-export type SitemapIntegrationSyncResponse = import("../../types/api/v1.js").operations["syncSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SitemapIntegrationSyncRequest = SitemapIntegrationSyncRequestBody;
+export type SitemapIntegrationSyncResponseBody = import("../../types/api/v1.js").operations["syncSitemapIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SitemapIntegrationSyncResponse = SitemapIntegrationSyncResponseBody;

@@ -32,23 +32,13 @@ export function listSlackIntegrations(client: ChatBotKitClient, request?: SlackI
  */
 export function fetchSlackIntegration(client: ChatBotKitClient, slackId: string): ResponsePromise<SlackIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   signingSecret?: string,
- *   botToken?: string,
- *   visibleMessages?: number,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} SlackIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createSlackIntegration']['requestBody']['content']['application/json']} SlackIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createSlackIntegration']['responses']['200']['content']['application/json']} SlackIntegrationCreateResponse
+ * @typedef {SlackIntegrationCreateRequestBody} SlackIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createSlackIntegration']['responses']['200']['content']['application/json']} SlackIntegrationCreateResponseBody
+ *
+ * @typedef {SlackIntegrationCreateResponseBody} SlackIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {SlackIntegrationCreateRequest} request
@@ -56,23 +46,13 @@ export function fetchSlackIntegration(client: ChatBotKitClient, slackId: string)
  */
 export function createSlackIntegration(client: ChatBotKitClient, request: SlackIntegrationCreateRequest): Promise<SlackIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   signingSecret?: string,
- *   botToken?: string,
- *   visibleMessages?: number,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} SlackIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateSlackIntegration']['requestBody']['content']['application/json']} SlackIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateSlackIntegration']['responses']['200']['content']['application/json']} SlackIntegrationUpdateResponse
+ * @typedef {SlackIntegrationUpdateRequestBody} SlackIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateSlackIntegration']['responses']['200']['content']['application/json']} SlackIntegrationUpdateResponseBody
+ *
+ * @typedef {SlackIntegrationUpdateResponseBody} SlackIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} slackId
@@ -83,7 +63,11 @@ export function updateSlackIntegration(client: ChatBotKitClient, slackId: string
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteSlackIntegration']['requestBody']['content']['application/json']} SlackIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteSlackIntegration']['responses']['200']['content']['application/json']} SlackIntegrationDeleteResponse
+ * @typedef {SlackIntegrationDeleteRequestBody} SlackIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteSlackIntegration']['responses']['200']['content']['application/json']} SlackIntegrationDeleteResponseBody
+ *
+ * @typedef {SlackIntegrationDeleteResponseBody} SlackIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} slackId
@@ -93,7 +77,11 @@ export function deleteSlackIntegration(client: ChatBotKitClient, slackId: string
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupSlackIntegration']['requestBody']['content']['application/json']} SlackIntegrationSetupRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['setupSlackIntegration']['responses']['200']['content']['application/json']} SlackIntegrationSetupResponse
+ * @typedef {SlackIntegrationSetupRequestBody} SlackIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupSlackIntegration']['responses']['200']['content']['application/json']} SlackIntegrationSetupResponseBody
+ *
+ * @typedef {SlackIntegrationSetupResponseBody} SlackIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} slackId
@@ -111,37 +99,19 @@ export type SlackIntegrationListRequest = {
 export type SlackIntegrationListResponse = import("../../types/api/v1.js").operations["listSlackIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type SlackIntegrationListStreamType = import("../../types/api/v1.js").operations["listSlackIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type SlackIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchSlackIntegration"]["responses"]["200"]["content"]["application/json"];
-export type SlackIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    signingSecret?: string;
-    botToken?: string;
-    visibleMessages?: number;
-    contactCollection?: boolean;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
 export type SlackIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createSlackIntegration"]["requestBody"]["content"]["application/json"];
-export type SlackIntegrationCreateResponse = import("../../types/api/v1.js").operations["createSlackIntegration"]["responses"]["200"]["content"]["application/json"];
-export type SlackIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    signingSecret?: string;
-    botToken?: string;
-    visibleMessages?: number;
-    contactCollection?: boolean;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
+export type SlackIntegrationCreateRequest = SlackIntegrationCreateRequestBody;
+export type SlackIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createSlackIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SlackIntegrationCreateResponse = SlackIntegrationCreateResponseBody;
 export type SlackIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateSlackIntegration"]["requestBody"]["content"]["application/json"];
-export type SlackIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateSlackIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SlackIntegrationUpdateRequest = SlackIntegrationUpdateRequestBody;
+export type SlackIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateSlackIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SlackIntegrationUpdateResponse = SlackIntegrationUpdateResponseBody;
 export type SlackIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteSlackIntegration"]["requestBody"]["content"]["application/json"];
-export type SlackIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteSlackIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SlackIntegrationDeleteRequest = SlackIntegrationDeleteRequestBody;
+export type SlackIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteSlackIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SlackIntegrationDeleteResponse = SlackIntegrationDeleteResponseBody;
 export type SlackIntegrationSetupRequestBody = import("../../types/api/v1.js").operations["setupSlackIntegration"]["requestBody"]["content"]["application/json"];
-export type SlackIntegrationSetupResponse = import("../../types/api/v1.js").operations["setupSlackIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SlackIntegrationSetupRequest = SlackIntegrationSetupRequestBody;
+export type SlackIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupSlackIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SlackIntegrationSetupResponse = SlackIntegrationSetupResponseBody;

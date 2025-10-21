@@ -34,17 +34,13 @@ export function listDatasetRecords(client: ChatBotKitClient, datasetId: string, 
  */
 export function fetchDatasetRecord(client: ChatBotKitClient, datasetId: string, recordId: string): ResponsePromise<DatasetRecordFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   text: string,
- *   source?: string,
- *   meta?: Record<string,any>
- * }} DatasetRecordCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createDatasetRecord']['requestBody']['content']['application/json']} DatasetRecordCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordCreateResponse
+ * @typedef {DatasetRecordCreateRequestBody} DatasetRecordCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordCreateResponseBody
+ *
+ * @typedef {DatasetRecordCreateResponseBody} DatasetRecordCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -53,17 +49,13 @@ export function fetchDatasetRecord(client: ChatBotKitClient, datasetId: string, 
  */
 export function createDatasetRecord(client: ChatBotKitClient, datasetId: string, request: DatasetRecordCreateRequest): Promise<DatasetRecordCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   text?: string,
- *   source?: string,
- *   meta?: Record<string,any>
- * }} DatasetRecordUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateDatasetRecord']['requestBody']['content']['application/json']} DatasetRecordUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordUpdateResponse
+ * @typedef {DatasetRecordUpdateRequestBody} DatasetRecordUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordUpdateResponseBody
+ *
+ * @typedef {DatasetRecordUpdateResponseBody} DatasetRecordUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -75,7 +67,11 @@ export function updateDatasetRecord(client: ChatBotKitClient, datasetId: string,
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteDatasetRecord']['requestBody']['content']['application/json']} DatasetRecordDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordDeleteResponse
+ * @typedef {DatasetRecordDeleteRequestBody} DatasetRecordDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteDatasetRecord']['responses']['200']['content']['application/json']} DatasetRecordDeleteResponseBody
+ *
+ * @typedef {DatasetRecordDeleteResponseBody} DatasetRecordDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -112,26 +108,18 @@ export type DatasetRecordListRequest = {
 export type DatasetRecordListResponse = import("../../types/api/v1.js").operations["listDatasetRecords"]["responses"]["200"]["content"]["application/json"];
 export type DatasetRecordListStreamType = import("../../types/api/v1.js").operations["listDatasetRecords"]["responses"]["200"]["content"]["application/jsonl"];
 export type DatasetRecordFetchResponse = import("../../types/api/v1.js").operations["fetchDatasetRecord"]["responses"]["200"]["content"]["application/json"];
-export type DatasetRecordCreateRequest = {
-    name?: string;
-    description?: string;
-    text: string;
-    source?: string;
-    meta?: Record<string, any>;
-};
 export type DatasetRecordCreateRequestBody = import("../../types/api/v1.js").operations["createDatasetRecord"]["requestBody"]["content"]["application/json"];
-export type DatasetRecordCreateResponse = import("../../types/api/v1.js").operations["createDatasetRecord"]["responses"]["200"]["content"]["application/json"];
-export type DatasetRecordUpdateRequest = {
-    name?: string;
-    description?: string;
-    text?: string;
-    source?: string;
-    meta?: Record<string, any>;
-};
+export type DatasetRecordCreateRequest = DatasetRecordCreateRequestBody;
+export type DatasetRecordCreateResponseBody = import("../../types/api/v1.js").operations["createDatasetRecord"]["responses"]["200"]["content"]["application/json"];
+export type DatasetRecordCreateResponse = DatasetRecordCreateResponseBody;
 export type DatasetRecordUpdateRequestBody = import("../../types/api/v1.js").operations["updateDatasetRecord"]["requestBody"]["content"]["application/json"];
-export type DatasetRecordUpdateResponse = import("../../types/api/v1.js").operations["updateDatasetRecord"]["responses"]["200"]["content"]["application/json"];
+export type DatasetRecordUpdateRequest = DatasetRecordUpdateRequestBody;
+export type DatasetRecordUpdateResponseBody = import("../../types/api/v1.js").operations["updateDatasetRecord"]["responses"]["200"]["content"]["application/json"];
+export type DatasetRecordUpdateResponse = DatasetRecordUpdateResponseBody;
 export type DatasetRecordDeleteRequestBody = import("../../types/api/v1.js").operations["deleteDatasetRecord"]["requestBody"]["content"]["application/json"];
-export type DatasetRecordDeleteResponse = import("../../types/api/v1.js").operations["deleteDatasetRecord"]["responses"]["200"]["content"]["application/json"];
+export type DatasetRecordDeleteRequest = DatasetRecordDeleteRequestBody;
+export type DatasetRecordDeleteResponseBody = import("../../types/api/v1.js").operations["deleteDatasetRecord"]["responses"]["200"]["content"]["application/json"];
+export type DatasetRecordDeleteResponse = DatasetRecordDeleteResponseBody;
 export type DatasetRecordExportRequest = {
     cursor?: string;
     order?: "desc" | "asc";

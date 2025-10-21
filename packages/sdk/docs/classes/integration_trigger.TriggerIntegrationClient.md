@@ -115,7 +115,7 @@ Creates a new trigger integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`TriggerIntegrationCreateRequest`](../modules/integration_trigger_v1.md#triggerintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -182,7 +182,7 @@ Invoke a trigger integration.
 | Name | Type |
 | :------ | :------ |
 | `triggerId` | `string` |
-| `request` | `any` |
+| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
 
 #### Returns
 
@@ -249,7 +249,7 @@ Updates a trigger integration.
 | Name | Type |
 | :------ | :------ |
 | `triggerId` | `string` |
-| `request` | [`TriggerIntegrationUpdateRequest`](../modules/integration_trigger_v1.md#triggerintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

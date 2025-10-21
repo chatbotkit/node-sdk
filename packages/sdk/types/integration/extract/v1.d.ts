@@ -32,20 +32,13 @@ export function listExtractIntegrations(client: ChatBotKitClient, request?: Extr
  */
 export function fetchExtractIntegration(client: ChatBotKitClient, extractId: string): ResponsePromise<ExtractIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   botId: string,
- *   schema?: Record<string,any>,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} ExtractIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationCreateResponse
+ * @typedef {ExtractIntegrationCreateRequestBody} ExtractIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationCreateResponseBody
+ *
+ * @typedef {ExtractIntegrationCreateResponseBody} ExtractIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ExtractIntegrationCreateRequest} request
@@ -53,20 +46,13 @@ export function fetchExtractIntegration(client: ChatBotKitClient, extractId: str
  */
 export function createExtractIntegration(client: ChatBotKitClient, request: ExtractIntegrationCreateRequest): Promise<ExtractIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   botId?: string,
- *   schema?: Record<string,any>,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} ExtractIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationUpdateResponse
+ * @typedef {ExtractIntegrationUpdateRequestBody} ExtractIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationUpdateResponseBody
+ *
+ * @typedef {ExtractIntegrationUpdateResponseBody} ExtractIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
@@ -77,7 +63,11 @@ export function updateExtractIntegration(client: ChatBotKitClient, extractId: st
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationDeleteResponse
+ * @typedef {ExtractIntegrationDeleteRequestBody} ExtractIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationDeleteResponseBody
+ *
+ * @typedef {ExtractIntegrationDeleteResponseBody} ExtractIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
@@ -95,29 +85,15 @@ export type ExtractIntegrationListRequest = {
 export type ExtractIntegrationListResponse = import("../../types/api/v1.js").operations["listExtractIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type ExtractIntegrationListStreamType = import("../../types/api/v1.js").operations["listExtractIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type ExtractIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchExtractIntegration"]["responses"]["200"]["content"]["application/json"];
-export type ExtractIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    botId: string;
-    schema?: Record<string, any>;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
 export type ExtractIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createExtractIntegration"]["requestBody"]["content"]["application/json"];
-export type ExtractIntegrationCreateResponse = import("../../types/api/v1.js").operations["createExtractIntegration"]["responses"]["200"]["content"]["application/json"];
-export type ExtractIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    botId?: string;
-    schema?: Record<string, any>;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
+export type ExtractIntegrationCreateRequest = ExtractIntegrationCreateRequestBody;
+export type ExtractIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationCreateResponse = ExtractIntegrationCreateResponseBody;
 export type ExtractIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateExtractIntegration"]["requestBody"]["content"]["application/json"];
-export type ExtractIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationUpdateRequest = ExtractIntegrationUpdateRequestBody;
+export type ExtractIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationUpdateResponse = ExtractIntegrationUpdateResponseBody;
 export type ExtractIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteExtractIntegration"]["requestBody"]["content"]["application/json"];
-export type ExtractIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationDeleteRequest = ExtractIntegrationDeleteRequestBody;
+export type ExtractIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationDeleteResponse = ExtractIntegrationDeleteResponseBody;

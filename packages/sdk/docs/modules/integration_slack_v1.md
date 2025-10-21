@@ -11,17 +11,23 @@
 - [SlackIntegrationCreateRequest](integration_slack_v1.md#slackintegrationcreaterequest)
 - [SlackIntegrationCreateRequestBody](integration_slack_v1.md#slackintegrationcreaterequestbody)
 - [SlackIntegrationCreateResponse](integration_slack_v1.md#slackintegrationcreateresponse)
+- [SlackIntegrationCreateResponseBody](integration_slack_v1.md#slackintegrationcreateresponsebody)
+- [SlackIntegrationDeleteRequest](integration_slack_v1.md#slackintegrationdeleterequest)
 - [SlackIntegrationDeleteRequestBody](integration_slack_v1.md#slackintegrationdeleterequestbody)
 - [SlackIntegrationDeleteResponse](integration_slack_v1.md#slackintegrationdeleteresponse)
+- [SlackIntegrationDeleteResponseBody](integration_slack_v1.md#slackintegrationdeleteresponsebody)
 - [SlackIntegrationFetchResponse](integration_slack_v1.md#slackintegrationfetchresponse)
 - [SlackIntegrationListRequest](integration_slack_v1.md#slackintegrationlistrequest)
 - [SlackIntegrationListResponse](integration_slack_v1.md#slackintegrationlistresponse)
 - [SlackIntegrationListStreamType](integration_slack_v1.md#slackintegrationliststreamtype)
+- [SlackIntegrationSetupRequest](integration_slack_v1.md#slackintegrationsetuprequest)
 - [SlackIntegrationSetupRequestBody](integration_slack_v1.md#slackintegrationsetuprequestbody)
 - [SlackIntegrationSetupResponse](integration_slack_v1.md#slackintegrationsetupresponse)
+- [SlackIntegrationSetupResponseBody](integration_slack_v1.md#slackintegrationsetupresponsebody)
 - [SlackIntegrationUpdateRequest](integration_slack_v1.md#slackintegrationupdaterequest)
 - [SlackIntegrationUpdateRequestBody](integration_slack_v1.md#slackintegrationupdaterequestbody)
 - [SlackIntegrationUpdateResponse](integration_slack_v1.md#slackintegrationupdateresponse)
+- [SlackIntegrationUpdateResponseBody](integration_slack_v1.md#slackintegrationupdateresponsebody)
 
 ### Functions
 
@@ -63,27 +69,11 @@ ___
 
 ### SlackIntegrationCreateRequest
 
-Ƭ **SlackIntegrationCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `botToken?` | `string` |
-| `contactCollection?` | `boolean` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | [`model/v1`](model_v1.md) |
-| `name?` | `string` |
-| `sessionDuration?` | `number` |
-| `signingSecret?` | `string` |
-| `visibleMessages?` | `number` |
+Ƭ **SlackIntegrationCreateRequest**\<\>: [`SlackIntegrationCreateRequestBody`](integration_slack_v1.md#slackintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/slack/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L65)
+[integration/slack/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L55)
 
 ___
 
@@ -93,17 +83,37 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L67)
+[integration/slack/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L53)
 
 ___
 
 ### SlackIntegrationCreateResponse
 
-Ƭ **SlackIntegrationCreateResponse**\<\>: `operations`[``"createSlackIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SlackIntegrationCreateResponse**\<\>: [`SlackIntegrationCreateResponseBody`](integration_slack_v1.md#slackintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/slack/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L69)
+[integration/slack/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L59)
+
+___
+
+### SlackIntegrationCreateResponseBody
+
+Ƭ **SlackIntegrationCreateResponseBody**\<\>: `operations`[``"createSlackIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/slack/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L57)
+
+___
+
+### SlackIntegrationDeleteRequest
+
+Ƭ **SlackIntegrationDeleteRequest**\<\>: [`SlackIntegrationDeleteRequestBody`](integration_slack_v1.md#slackintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/slack/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L110)
 
 ___
 
@@ -113,17 +123,27 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L128)
+[integration/slack/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L108)
 
 ___
 
 ### SlackIntegrationDeleteResponse
 
-Ƭ **SlackIntegrationDeleteResponse**\<\>: `operations`[``"deleteSlackIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SlackIntegrationDeleteResponse**\<\>: [`SlackIntegrationDeleteResponseBody`](integration_slack_v1.md#slackintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/slack/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L130)
+[integration/slack/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L114)
+
+___
+
+### SlackIntegrationDeleteResponseBody
+
+Ƭ **SlackIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteSlackIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/slack/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L112)
 
 ___
 
@@ -176,49 +196,53 @@ ___
 
 ___
 
+### SlackIntegrationSetupRequest
+
+Ƭ **SlackIntegrationSetupRequest**\<\>: [`SlackIntegrationSetupRequestBody`](integration_slack_v1.md#slackintegrationsetuprequestbody)
+
+#### Defined in
+
+[integration/slack/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L135)
+
+___
+
 ### SlackIntegrationSetupRequestBody
 
 Ƭ **SlackIntegrationSetupRequestBody**\<\>: `operations`[``"setupSlackIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/slack/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L149)
+[integration/slack/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L133)
 
 ___
 
 ### SlackIntegrationSetupResponse
 
-Ƭ **SlackIntegrationSetupResponse**\<\>: `operations`[``"setupSlackIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SlackIntegrationSetupResponse**\<\>: [`SlackIntegrationSetupResponseBody`](integration_slack_v1.md#slackintegrationsetupresponsebody)
 
 #### Defined in
 
-[integration/slack/v1.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L151)
+[integration/slack/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L139)
+
+___
+
+### SlackIntegrationSetupResponseBody
+
+Ƭ **SlackIntegrationSetupResponseBody**\<\>: `operations`[``"setupSlackIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/slack/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L137)
 
 ___
 
 ### SlackIntegrationUpdateRequest
 
-Ƭ **SlackIntegrationUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `botToken?` | `string` |
-| `contactCollection?` | `boolean` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | [`model/v1`](model_v1.md) |
-| `name?` | `string` |
-| `sessionDuration?` | `number` |
-| `signingSecret?` | `string` |
-| `visibleMessages?` | `number` |
+Ƭ **SlackIntegrationUpdateRequest**\<\>: [`SlackIntegrationUpdateRequestBody`](integration_slack_v1.md#slackintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/slack/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L102)
+[integration/slack/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L82)
 
 ___
 
@@ -228,17 +252,27 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L104)
+[integration/slack/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L80)
 
 ___
 
 ### SlackIntegrationUpdateResponse
 
-Ƭ **SlackIntegrationUpdateResponse**\<\>: `operations`[``"updateSlackIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SlackIntegrationUpdateResponse**\<\>: [`SlackIntegrationUpdateResponseBody`](integration_slack_v1.md#slackintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/slack/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L106)
+[integration/slack/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L86)
+
+___
+
+### SlackIntegrationUpdateResponseBody
+
+Ƭ **SlackIntegrationUpdateResponseBody**\<\>: `operations`[``"updateSlackIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/slack/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L84)
 
 ## Functions
 
@@ -251,7 +285,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`SlackIntegrationCreateRequest`](integration_slack_v1.md#slackintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -259,7 +293,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L75)
+[integration/slack/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L65)
 
 ___
 
@@ -280,7 +314,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L136)
+[integration/slack/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L120)
 
 ___
 
@@ -343,7 +377,7 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L157)
+[integration/slack/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L145)
 
 ___
 
@@ -357,7 +391,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `slackId` | `string` |
-| `request` | [`SlackIntegrationUpdateRequest`](integration_slack_v1.md#slackintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -365,4 +399,4 @@ ___
 
 #### Defined in
 
-[integration/slack/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L113)
+[integration/slack/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L93)

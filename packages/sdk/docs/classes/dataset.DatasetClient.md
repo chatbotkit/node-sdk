@@ -137,7 +137,7 @@ Creates a new dataset.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`DatasetCreateRequest`](../modules/dataset_v1.md#datasetcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -249,7 +249,7 @@ Updates a dataset.
 | Name | Type |
 | :------ | :------ |
 | `datasetId` | `string` |
-| `request` | [`DatasetUpdateRequest`](../modules/dataset_v1.md#datasetupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

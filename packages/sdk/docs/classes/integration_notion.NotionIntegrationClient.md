@@ -114,7 +114,7 @@ Creates a new notion integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`NotionIntegrationCreateRequest`](../modules/integration_notion_v1.md#notionintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a notion integration.
 | Name | Type |
 | :------ | :------ |
 | `notionId` | `string` |
-| `request` | [`NotionIntegrationUpdateRequest`](../modules/integration_notion_v1.md#notionintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

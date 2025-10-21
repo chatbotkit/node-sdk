@@ -112,7 +112,7 @@ Creates a new contact.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ContactCreateRequest`](../modules/contact_v1.md#contactcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -156,7 +156,7 @@ Ensures a contact exists.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ContactEnsureRequest`](../modules/contact_v1.md#contactensurerequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -223,7 +223,7 @@ Updates a contact.
 | Name | Type |
 | :------ | :------ |
 | `contactId` | `string` |
-| `request` | [`ContactUpdateRequest`](../modules/contact_v1.md#contactupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

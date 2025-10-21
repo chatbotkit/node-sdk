@@ -10,8 +10,11 @@
 - [ExtractIntegrationCreateRequest](integration_extract_v1.md#extractintegrationcreaterequest)
 - [ExtractIntegrationCreateRequestBody](integration_extract_v1.md#extractintegrationcreaterequestbody)
 - [ExtractIntegrationCreateResponse](integration_extract_v1.md#extractintegrationcreateresponse)
+- [ExtractIntegrationCreateResponseBody](integration_extract_v1.md#extractintegrationcreateresponsebody)
+- [ExtractIntegrationDeleteRequest](integration_extract_v1.md#extractintegrationdeleterequest)
 - [ExtractIntegrationDeleteRequestBody](integration_extract_v1.md#extractintegrationdeleterequestbody)
 - [ExtractIntegrationDeleteResponse](integration_extract_v1.md#extractintegrationdeleteresponse)
+- [ExtractIntegrationDeleteResponseBody](integration_extract_v1.md#extractintegrationdeleteresponsebody)
 - [ExtractIntegrationFetchResponse](integration_extract_v1.md#extractintegrationfetchresponse)
 - [ExtractIntegrationListRequest](integration_extract_v1.md#extractintegrationlistrequest)
 - [ExtractIntegrationListResponse](integration_extract_v1.md#extractintegrationlistresponse)
@@ -19,6 +22,7 @@
 - [ExtractIntegrationUpdateRequest](integration_extract_v1.md#extractintegrationupdaterequest)
 - [ExtractIntegrationUpdateRequestBody](integration_extract_v1.md#extractintegrationupdaterequestbody)
 - [ExtractIntegrationUpdateResponse](integration_extract_v1.md#extractintegrationupdateresponse)
+- [ExtractIntegrationUpdateResponseBody](integration_extract_v1.md#extractintegrationupdateresponsebody)
 - [ResponsePromise](integration_extract_v1.md#responsepromise)
 
 ### Functions
@@ -43,24 +47,11 @@ ___
 
 ### ExtractIntegrationCreateRequest
 
-Ƭ **ExtractIntegrationCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `botId` | `string` |
-| `description?` | `string` |
-| `expiresIn?` | `number` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `schema?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `syncSchedule?` | `string` |
+Ƭ **ExtractIntegrationCreateRequest**\<\>: [`ExtractIntegrationCreateRequestBody`](integration_extract_v1.md#extractintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/extract/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L62)
+[integration/extract/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L55)
 
 ___
 
@@ -70,17 +61,37 @@ ___
 
 #### Defined in
 
-[integration/extract/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L64)
+[integration/extract/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L53)
 
 ___
 
 ### ExtractIntegrationCreateResponse
 
-Ƭ **ExtractIntegrationCreateResponse**\<\>: `operations`[``"createExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **ExtractIntegrationCreateResponse**\<\>: [`ExtractIntegrationCreateResponseBody`](integration_extract_v1.md#extractintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/extract/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L66)
+[integration/extract/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L59)
+
+___
+
+### ExtractIntegrationCreateResponseBody
+
+Ƭ **ExtractIntegrationCreateResponseBody**\<\>: `operations`[``"createExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/extract/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L57)
+
+___
+
+### ExtractIntegrationDeleteRequest
+
+Ƭ **ExtractIntegrationDeleteRequest**\<\>: [`ExtractIntegrationDeleteRequestBody`](integration_extract_v1.md#extractintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/extract/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L110)
 
 ___
 
@@ -90,17 +101,27 @@ ___
 
 #### Defined in
 
-[integration/extract/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L122)
+[integration/extract/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L108)
 
 ___
 
 ### ExtractIntegrationDeleteResponse
 
-Ƭ **ExtractIntegrationDeleteResponse**\<\>: `operations`[``"deleteExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **ExtractIntegrationDeleteResponse**\<\>: [`ExtractIntegrationDeleteResponseBody`](integration_extract_v1.md#extractintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/extract/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L124)
+[integration/extract/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L114)
+
+___
+
+### ExtractIntegrationDeleteResponseBody
+
+Ƭ **ExtractIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/extract/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L112)
 
 ___
 
@@ -155,24 +176,11 @@ ___
 
 ### ExtractIntegrationUpdateRequest
 
-Ƭ **ExtractIntegrationUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `description?` | `string` |
-| `expiresIn?` | `number` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `schema?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `syncSchedule?` | `string` |
+Ƭ **ExtractIntegrationUpdateRequest**\<\>: [`ExtractIntegrationUpdateRequestBody`](integration_extract_v1.md#extractintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/extract/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L96)
+[integration/extract/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L82)
 
 ___
 
@@ -182,17 +190,27 @@ ___
 
 #### Defined in
 
-[integration/extract/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L98)
+[integration/extract/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L80)
 
 ___
 
 ### ExtractIntegrationUpdateResponse
 
-Ƭ **ExtractIntegrationUpdateResponse**\<\>: `operations`[``"updateExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **ExtractIntegrationUpdateResponse**\<\>: [`ExtractIntegrationUpdateResponseBody`](integration_extract_v1.md#extractintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/extract/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L100)
+[integration/extract/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L86)
+
+___
+
+### ExtractIntegrationUpdateResponseBody
+
+Ƭ **ExtractIntegrationUpdateResponseBody**\<\>: `operations`[``"updateExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/extract/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L84)
 
 ___
 
@@ -222,7 +240,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`ExtractIntegrationCreateRequest`](integration_extract_v1.md#extractintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -230,7 +248,7 @@ ___
 
 #### Defined in
 
-[integration/extract/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L72)
+[integration/extract/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L65)
 
 ___
 
@@ -251,7 +269,7 @@ ___
 
 #### Defined in
 
-[integration/extract/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L130)
+[integration/extract/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L120)
 
 ___
 
@@ -307,7 +325,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `extractId` | `string` |
-| `request` | [`ExtractIntegrationUpdateRequest`](integration_extract_v1.md#extractintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -315,4 +333,4 @@ ___
 
 #### Defined in
 
-[integration/extract/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L107)
+[integration/extract/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L93)

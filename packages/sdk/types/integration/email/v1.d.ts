@@ -32,20 +32,13 @@ export function listEmailIntegrations(client: ChatBotKitClient, request?: EmailI
  */
 export function fetchEmailIntegration(client: ChatBotKitClient, emailId: string): ResponsePromise<EmailIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} EmailIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationCreateResponse
+ * @typedef {EmailIntegrationCreateRequestBody} EmailIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationCreateResponseBody
+ *
+ * @typedef {EmailIntegrationCreateResponseBody} EmailIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {EmailIntegrationCreateRequest} request
@@ -53,20 +46,13 @@ export function fetchEmailIntegration(client: ChatBotKitClient, emailId: string)
  */
 export function createEmailIntegration(client: ChatBotKitClient, request: EmailIntegrationCreateRequest): Promise<EmailIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} EmailIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationUpdateResponse
+ * @typedef {EmailIntegrationUpdateRequestBody} EmailIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationUpdateResponseBody
+ *
+ * @typedef {EmailIntegrationUpdateResponseBody} EmailIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
@@ -77,7 +63,11 @@ export function updateEmailIntegration(client: ChatBotKitClient, emailId: string
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationDeleteResponse
+ * @typedef {EmailIntegrationDeleteRequestBody} EmailIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationDeleteResponseBody
+ *
+ * @typedef {EmailIntegrationDeleteResponseBody} EmailIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
@@ -87,7 +77,11 @@ export function deleteEmailIntegration(client: ChatBotKitClient, emailId: string
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationSetupRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['setupEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationSetupResponse
+ * @typedef {EmailIntegrationSetupRequestBody} EmailIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupEmailIntegration']['responses']['200']['content']['application/json']} EmailIntegrationSetupResponseBody
+ *
+ * @typedef {EmailIntegrationSetupResponseBody} EmailIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
@@ -105,31 +99,19 @@ export type EmailIntegrationListRequest = {
 export type EmailIntegrationListResponse = import("../../types/api/v1.js").operations["listEmailIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type EmailIntegrationListStreamType = import("../../types/api/v1.js").operations["listEmailIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type EmailIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchEmailIntegration"]["responses"]["200"]["content"]["application/json"];
-export type EmailIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    contactCollection?: boolean;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
 export type EmailIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createEmailIntegration"]["requestBody"]["content"]["application/json"];
-export type EmailIntegrationCreateResponse = import("../../types/api/v1.js").operations["createEmailIntegration"]["responses"]["200"]["content"]["application/json"];
-export type EmailIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    contactCollection?: boolean;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
+export type EmailIntegrationCreateRequest = EmailIntegrationCreateRequestBody;
+export type EmailIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createEmailIntegration"]["responses"]["200"]["content"]["application/json"];
+export type EmailIntegrationCreateResponse = EmailIntegrationCreateResponseBody;
 export type EmailIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateEmailIntegration"]["requestBody"]["content"]["application/json"];
-export type EmailIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateEmailIntegration"]["responses"]["200"]["content"]["application/json"];
+export type EmailIntegrationUpdateRequest = EmailIntegrationUpdateRequestBody;
+export type EmailIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateEmailIntegration"]["responses"]["200"]["content"]["application/json"];
+export type EmailIntegrationUpdateResponse = EmailIntegrationUpdateResponseBody;
 export type EmailIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteEmailIntegration"]["requestBody"]["content"]["application/json"];
-export type EmailIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteEmailIntegration"]["responses"]["200"]["content"]["application/json"];
+export type EmailIntegrationDeleteRequest = EmailIntegrationDeleteRequestBody;
+export type EmailIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteEmailIntegration"]["responses"]["200"]["content"]["application/json"];
+export type EmailIntegrationDeleteResponse = EmailIntegrationDeleteResponseBody;
 export type EmailIntegrationSetupRequestBody = import("../../types/api/v1.js").operations["setupEmailIntegration"]["requestBody"]["content"]["application/json"];
-export type EmailIntegrationSetupResponse = import("../../types/api/v1.js").operations["setupEmailIntegration"]["responses"]["200"]["content"]["application/json"];
+export type EmailIntegrationSetupRequest = EmailIntegrationSetupRequestBody;
+export type EmailIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupEmailIntegration"]["responses"]["200"]["content"]["application/json"];
+export type EmailIntegrationSetupResponse = EmailIntegrationSetupResponseBody;

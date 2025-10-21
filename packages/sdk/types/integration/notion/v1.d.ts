@@ -32,20 +32,13 @@ export function listNotionIntegrations(client: ChatBotKitClient, request?: Notio
  */
 export function fetchNotionIntegration(client: ChatBotKitClient, notionId: string): ResponsePromise<NotionIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   datasetId: string,
- *   token?: string,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} NotionIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationCreateResponse
+ * @typedef {NotionIntegrationCreateRequestBody} NotionIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationCreateResponseBody
+ *
+ * @typedef {NotionIntegrationCreateResponseBody} NotionIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {NotionIntegrationCreateRequest} request
@@ -53,20 +46,13 @@ export function fetchNotionIntegration(client: ChatBotKitClient, notionId: strin
  */
 export function createNotionIntegration(client: ChatBotKitClient, request: NotionIntegrationCreateRequest): Promise<NotionIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   datasetId?: string,
- *   token?: string,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} NotionIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationUpdateResponse
+ * @typedef {NotionIntegrationUpdateRequestBody} NotionIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationUpdateResponseBody
+ *
+ * @typedef {NotionIntegrationUpdateResponseBody} NotionIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
@@ -77,7 +63,11 @@ export function updateNotionIntegration(client: ChatBotKitClient, notionId: stri
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationDeleteResponse
+ * @typedef {NotionIntegrationDeleteRequestBody} NotionIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationDeleteResponseBody
+ *
+ * @typedef {NotionIntegrationDeleteResponseBody} NotionIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
@@ -87,7 +77,11 @@ export function deleteNotionIntegration(client: ChatBotKitClient, notionId: stri
 /**
  * @typedef {import('../../types/api/v1.js').operations['syncNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationSyncRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['syncNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationSyncResponse
+ * @typedef {NotionIntegrationSyncRequestBody} NotionIntegrationSyncRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['syncNotionIntegration']['responses']['200']['content']['application/json']} NotionIntegrationSyncResponseBody
+ *
+ * @typedef {NotionIntegrationSyncResponseBody} NotionIntegrationSyncResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
@@ -105,31 +99,19 @@ export type NotionIntegrationListRequest = {
 export type NotionIntegrationListResponse = import("../../types/api/v1.js").operations["listNotionIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type NotionIntegrationListStreamType = import("../../types/api/v1.js").operations["listNotionIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type NotionIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchNotionIntegration"]["responses"]["200"]["content"]["application/json"];
-export type NotionIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    datasetId: string;
-    token?: string;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
 export type NotionIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createNotionIntegration"]["requestBody"]["content"]["application/json"];
-export type NotionIntegrationCreateResponse = import("../../types/api/v1.js").operations["createNotionIntegration"]["responses"]["200"]["content"]["application/json"];
-export type NotionIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    datasetId?: string;
-    token?: string;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
+export type NotionIntegrationCreateRequest = NotionIntegrationCreateRequestBody;
+export type NotionIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createNotionIntegration"]["responses"]["200"]["content"]["application/json"];
+export type NotionIntegrationCreateResponse = NotionIntegrationCreateResponseBody;
 export type NotionIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateNotionIntegration"]["requestBody"]["content"]["application/json"];
-export type NotionIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateNotionIntegration"]["responses"]["200"]["content"]["application/json"];
+export type NotionIntegrationUpdateRequest = NotionIntegrationUpdateRequestBody;
+export type NotionIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateNotionIntegration"]["responses"]["200"]["content"]["application/json"];
+export type NotionIntegrationUpdateResponse = NotionIntegrationUpdateResponseBody;
 export type NotionIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteNotionIntegration"]["requestBody"]["content"]["application/json"];
-export type NotionIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteNotionIntegration"]["responses"]["200"]["content"]["application/json"];
+export type NotionIntegrationDeleteRequest = NotionIntegrationDeleteRequestBody;
+export type NotionIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteNotionIntegration"]["responses"]["200"]["content"]["application/json"];
+export type NotionIntegrationDeleteResponse = NotionIntegrationDeleteResponseBody;
 export type NotionIntegrationSyncRequestBody = import("../../types/api/v1.js").operations["syncNotionIntegration"]["requestBody"]["content"]["application/json"];
-export type NotionIntegrationSyncResponse = import("../../types/api/v1.js").operations["syncNotionIntegration"]["responses"]["200"]["content"]["application/json"];
+export type NotionIntegrationSyncRequest = NotionIntegrationSyncRequestBody;
+export type NotionIntegrationSyncResponseBody = import("../../types/api/v1.js").operations["syncNotionIntegration"]["responses"]["200"]["content"]["application/json"];
+export type NotionIntegrationSyncResponse = NotionIntegrationSyncResponseBody;

@@ -114,7 +114,7 @@ Creates a new discord integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`DiscordIntegrationCreateRequest`](../modules/integration_discord_v1.md#discordintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a discord integration.
 | Name | Type |
 | :------ | :------ |
 | `discordId` | `string` |
-| `request` | [`DiscordIntegrationUpdateRequest`](../modules/integration_discord_v1.md#discordintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

@@ -113,7 +113,7 @@ Creates a new extract integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ExtractIntegrationCreateRequest`](../modules/integration_extract_v1.md#extractintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -202,7 +202,7 @@ Updates a extract integration.
 | Name | Type |
 | :------ | :------ |
 | `extractId` | `string` |
-| `request` | [`ExtractIntegrationUpdateRequest`](../modules/integration_extract_v1.md#extractintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

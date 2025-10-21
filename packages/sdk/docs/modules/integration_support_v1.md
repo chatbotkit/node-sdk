@@ -11,8 +11,11 @@
 - [SupportIntegrationCreateRequest](integration_support_v1.md#supportintegrationcreaterequest)
 - [SupportIntegrationCreateRequestBody](integration_support_v1.md#supportintegrationcreaterequestbody)
 - [SupportIntegrationCreateResponse](integration_support_v1.md#supportintegrationcreateresponse)
+- [SupportIntegrationCreateResponseBody](integration_support_v1.md#supportintegrationcreateresponsebody)
+- [SupportIntegrationDeleteRequest](integration_support_v1.md#supportintegrationdeleterequest)
 - [SupportIntegrationDeleteRequestBody](integration_support_v1.md#supportintegrationdeleterequestbody)
 - [SupportIntegrationDeleteResponse](integration_support_v1.md#supportintegrationdeleteresponse)
+- [SupportIntegrationDeleteResponseBody](integration_support_v1.md#supportintegrationdeleteresponsebody)
 - [SupportIntegrationFetchResponse](integration_support_v1.md#supportintegrationfetchresponse)
 - [SupportIntegrationListRequest](integration_support_v1.md#supportintegrationlistrequest)
 - [SupportIntegrationListResponse](integration_support_v1.md#supportintegrationlistresponse)
@@ -20,6 +23,7 @@
 - [SupportIntegrationUpdateRequest](integration_support_v1.md#supportintegrationupdaterequest)
 - [SupportIntegrationUpdateRequestBody](integration_support_v1.md#supportintegrationupdaterequestbody)
 - [SupportIntegrationUpdateResponse](integration_support_v1.md#supportintegrationupdateresponse)
+- [SupportIntegrationUpdateResponseBody](integration_support_v1.md#supportintegrationupdateresponsebody)
 
 ### Functions
 
@@ -60,24 +64,11 @@ ___
 
 ### SupportIntegrationCreateRequest
 
-Ƭ **SupportIntegrationCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `botId` | `string` |
-| `description?` | `string` |
-| `email?` | `string` |
-| `expiresIn?` | `number` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `syncSchedule?` | `string` |
+Ƭ **SupportIntegrationCreateRequest**\<\>: [`SupportIntegrationCreateRequestBody`](integration_support_v1.md#supportintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/support/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L62)
+[integration/support/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L55)
 
 ___
 
@@ -87,17 +78,37 @@ ___
 
 #### Defined in
 
-[integration/support/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L64)
+[integration/support/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L53)
 
 ___
 
 ### SupportIntegrationCreateResponse
 
-Ƭ **SupportIntegrationCreateResponse**\<\>: `operations`[``"createSupportIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SupportIntegrationCreateResponse**\<\>: [`SupportIntegrationCreateResponseBody`](integration_support_v1.md#supportintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/support/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L66)
+[integration/support/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L59)
+
+___
+
+### SupportIntegrationCreateResponseBody
+
+Ƭ **SupportIntegrationCreateResponseBody**\<\>: `operations`[``"createSupportIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/support/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L57)
+
+___
+
+### SupportIntegrationDeleteRequest
+
+Ƭ **SupportIntegrationDeleteRequest**\<\>: [`SupportIntegrationDeleteRequestBody`](integration_support_v1.md#supportintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/support/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L110)
 
 ___
 
@@ -107,17 +118,27 @@ ___
 
 #### Defined in
 
-[integration/support/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L122)
+[integration/support/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L108)
 
 ___
 
 ### SupportIntegrationDeleteResponse
 
-Ƭ **SupportIntegrationDeleteResponse**\<\>: `operations`[``"deleteSupportIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SupportIntegrationDeleteResponse**\<\>: [`SupportIntegrationDeleteResponseBody`](integration_support_v1.md#supportintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/support/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L124)
+[integration/support/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L114)
+
+___
+
+### SupportIntegrationDeleteResponseBody
+
+Ƭ **SupportIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteSupportIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/support/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L112)
 
 ___
 
@@ -172,24 +193,11 @@ ___
 
 ### SupportIntegrationUpdateRequest
 
-Ƭ **SupportIntegrationUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `description?` | `string` |
-| `email?` | `string` |
-| `expiresIn?` | `number` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `syncSchedule?` | `string` |
+Ƭ **SupportIntegrationUpdateRequest**\<\>: [`SupportIntegrationUpdateRequestBody`](integration_support_v1.md#supportintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/support/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L96)
+[integration/support/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L82)
 
 ___
 
@@ -199,17 +207,27 @@ ___
 
 #### Defined in
 
-[integration/support/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L98)
+[integration/support/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L80)
 
 ___
 
 ### SupportIntegrationUpdateResponse
 
-Ƭ **SupportIntegrationUpdateResponse**\<\>: `operations`[``"updateSupportIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **SupportIntegrationUpdateResponse**\<\>: [`SupportIntegrationUpdateResponseBody`](integration_support_v1.md#supportintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/support/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L100)
+[integration/support/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L86)
+
+___
+
+### SupportIntegrationUpdateResponseBody
+
+Ƭ **SupportIntegrationUpdateResponseBody**\<\>: `operations`[``"updateSupportIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/support/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L84)
 
 ## Functions
 
@@ -222,7 +240,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`SupportIntegrationCreateRequest`](integration_support_v1.md#supportintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -230,7 +248,7 @@ ___
 
 #### Defined in
 
-[integration/support/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L72)
+[integration/support/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L65)
 
 ___
 
@@ -251,7 +269,7 @@ ___
 
 #### Defined in
 
-[integration/support/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L130)
+[integration/support/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L120)
 
 ___
 
@@ -307,7 +325,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `supportId` | `string` |
-| `request` | [`SupportIntegrationUpdateRequest`](integration_support_v1.md#supportintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -315,4 +333,4 @@ ___
 
 #### Defined in
 
-[integration/support/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L107)
+[integration/support/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/v1.js#L93)

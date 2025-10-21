@@ -113,7 +113,7 @@ Creates a new mcpserver integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`McpServerIntegrationCreateRequest`](../modules/integration_mcpserver_v1.md#mcpserverintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -202,7 +202,7 @@ Updates a mcpserver integration.
 | Name | Type |
 | :------ | :------ |
 | `mcpserverId` | `string` |
-| `request` | [`McpServerIntegrationUpdateRequest`](../modules/integration_mcpserver_v1.md#mcpserverintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

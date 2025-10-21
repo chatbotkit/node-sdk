@@ -114,7 +114,7 @@ Creates a new whatsapp integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`WhatsAppIntegrationCreateRequest`](../modules/integration_whatsapp_v1.md#whatsappintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a whatsapp integration.
 | Name | Type |
 | :------ | :------ |
 | `whatsappId` | `string` |
-| `request` | [`WhatsAppIntegrationUpdateRequest`](../modules/integration_whatsapp_v1.md#whatsappintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

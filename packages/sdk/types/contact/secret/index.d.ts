@@ -20,25 +20,25 @@ export class SecretClient extends ChatBotKitClient {
      *
      * @param {string} contactId
      * @param {string} secretId
-     * @returns {ResponsePromise<import('./v1.js').SecretRevokeResponse,never>}
+     * @returns {Promise<import('./v1.js').SecretRevokeResponse>}
      */
-    revoke(contactId: string, secretId: string): ResponsePromise<import("./v1.js").SecretRevokeResponse, never>;
+    revoke(contactId: string, secretId: string): Promise<import("./v1.js").SecretRevokeResponse>;
     /**
      * Verifies the contact secret.
      *
      * @param {string} contactId
      * @param {string} secretId
-     * @returns {ResponsePromise<import('./v1.js').SecretVerifyResponse,never>}
+     * @returns {Promise<import('./v1.js').SecretVerifyResponse>}
      */
-    verify(contactId: string, secretId: string): ResponsePromise<import("./v1.js").SecretVerifyResponse, never>;
+    verify(contactId: string, secretId: string): Promise<import("./v1.js").SecretVerifyResponse>;
     /**
      * Authenticates the contact secret.
      *
      * @param {string} contactId
      * @param {string} secretId
-     * @returns {ResponsePromise<import('./v1.js').SecretAuthenticateResponse,never>}
+     * @returns {Promise<import('./v1.js').SecretAuthenticateResponse>}
      */
-    authenticate(contactId: string, secretId: string): ResponsePromise<import("./v1.js").SecretAuthenticateResponse, never>;
+    authenticate(contactId: string, secretId: string): Promise<import("./v1.js").SecretAuthenticateResponse>;
 }
 export default SecretClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

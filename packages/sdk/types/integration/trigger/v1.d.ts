@@ -32,21 +32,13 @@ export function listTriggerIntegrations(client: ChatBotKitClient, request?: Trig
  */
 export function fetchTriggerIntegration(client: ChatBotKitClient, triggerId: string): ResponsePromise<TriggerIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   authenticate?: boolean,
- *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} TriggerIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationCreateResponse
+ * @typedef {TriggerIntegrationCreateRequestBody} TriggerIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationCreateResponseBody
+ *
+ * @typedef {TriggerIntegrationCreateResponseBody} TriggerIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {TriggerIntegrationCreateRequest} request
@@ -54,21 +46,13 @@ export function fetchTriggerIntegration(client: ChatBotKitClient, triggerId: str
  */
 export function createTriggerIntegration(client: ChatBotKitClient, request: TriggerIntegrationCreateRequest): Promise<TriggerIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   authenticate?: boolean,
- *   triggerSchedule?: "never"|"quarterhourly"|"halfhourly"|"hourly"|"daily"|"weekly"|"monthly",
- *   sessionDuration?: number,
- *   meta?: Record<string,any>,
- *   botId?: string,
- *   blueprintId?: string,
- *   model?: import('../../model/v1.js').Model
- * }} TriggerIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationUpdateResponse
+ * @typedef {TriggerIntegrationUpdateRequestBody} TriggerIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationUpdateResponseBody
+ *
+ * @typedef {TriggerIntegrationUpdateResponseBody} TriggerIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -79,7 +63,11 @@ export function updateTriggerIntegration(client: ChatBotKitClient, triggerId: st
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationDeleteResponse
+ * @typedef {TriggerIntegrationDeleteRequestBody} TriggerIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationDeleteResponseBody
+ *
+ * @typedef {TriggerIntegrationDeleteResponseBody} TriggerIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -89,7 +77,11 @@ export function deleteTriggerIntegration(client: ChatBotKitClient, triggerId: st
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationSetupRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['setupTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationSetupResponse
+ * @typedef {TriggerIntegrationSetupRequestBody} TriggerIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationSetupResponseBody
+ *
+ * @typedef {TriggerIntegrationSetupResponseBody} TriggerIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -97,11 +89,13 @@ export function deleteTriggerIntegration(client: ChatBotKitClient, triggerId: st
  */
 export function setupTriggerIntegration(client: ChatBotKitClient, triggerId: string): Promise<TriggerIntegrationSetupResponse>;
 /**
- * @typedef {object} TriggerIntegrationInvokeRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationInvokeRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationInvokeResponse
+ * @typedef {TriggerIntegrationInvokeRequestBody} TriggerIntegrationInvokeRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['invokeTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationInvokeResponseBody
+ *
+ * @typedef {TriggerIntegrationInvokeResponseBody} TriggerIntegrationInvokeResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
@@ -120,36 +114,23 @@ export type TriggerIntegrationListRequest = {
 export type TriggerIntegrationListResponse = import("../../types/api/v1.js").operations["listTriggerIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type TriggerIntegrationListStreamType = import("../../types/api/v1.js").operations["listTriggerIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type TriggerIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
-export type TriggerIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    authenticate?: boolean;
-    triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
 export type TriggerIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createTriggerIntegration"]["requestBody"]["content"]["application/json"];
-export type TriggerIntegrationCreateResponse = import("../../types/api/v1.js").operations["createTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
-export type TriggerIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    authenticate?: boolean;
-    triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-    botId?: string;
-    blueprintId?: string;
-    model?: import("../../model/v1.js").Model;
-};
+export type TriggerIntegrationCreateRequest = TriggerIntegrationCreateRequestBody;
+export type TriggerIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationCreateResponse = TriggerIntegrationCreateResponseBody;
 export type TriggerIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateTriggerIntegration"]["requestBody"]["content"]["application/json"];
-export type TriggerIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationUpdateRequest = TriggerIntegrationUpdateRequestBody;
+export type TriggerIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationUpdateResponse = TriggerIntegrationUpdateResponseBody;
 export type TriggerIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteTriggerIntegration"]["requestBody"]["content"]["application/json"];
-export type TriggerIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationDeleteRequest = TriggerIntegrationDeleteRequestBody;
+export type TriggerIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationDeleteResponse = TriggerIntegrationDeleteResponseBody;
 export type TriggerIntegrationSetupRequestBody = import("../../types/api/v1.js").operations["setupTriggerIntegration"]["requestBody"]["content"]["application/json"];
-export type TriggerIntegrationSetupResponse = import("../../types/api/v1.js").operations["setupTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
-export type TriggerIntegrationInvokeRequest = object;
+export type TriggerIntegrationSetupRequest = TriggerIntegrationSetupRequestBody;
+export type TriggerIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationSetupResponse = TriggerIntegrationSetupResponseBody;
 export type TriggerIntegrationInvokeRequestBody = import("../../types/api/v1.js").operations["invokeTriggerIntegration"]["requestBody"]["content"]["application/json"];
-export type TriggerIntegrationInvokeResponse = import("../../types/api/v1.js").operations["invokeTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationInvokeRequest = TriggerIntegrationInvokeRequestBody;
+export type TriggerIntegrationInvokeResponseBody = import("../../types/api/v1.js").operations["invokeTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationInvokeResponse = TriggerIntegrationInvokeResponseBody;

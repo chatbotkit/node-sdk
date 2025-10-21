@@ -64,7 +64,7 @@ Attaches a file.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileAttachRequest`](../modules/dataset_file_v1.md#datasetfileattachrequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -136,7 +136,7 @@ Detach a file.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileDetachRequest`](../modules/dataset_file_v1.md#datasetfiledetachrequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -181,7 +181,7 @@ Sync a file.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileSyncRequest`](../modules/dataset_file_v1.md#datasetfilesyncrequest) |
+| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
 
 #### Returns
 

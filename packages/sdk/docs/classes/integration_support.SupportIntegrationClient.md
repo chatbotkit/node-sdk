@@ -113,7 +113,7 @@ Creates a new support integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SupportIntegrationCreateRequest`](../modules/integration_support_v1.md#supportintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -202,7 +202,7 @@ Updates a support integration.
 | Name | Type |
 | :------ | :------ |
 | `supportId` | `string` |
-| `request` | [`SupportIntegrationUpdateRequest`](../modules/integration_support_v1.md#supportintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

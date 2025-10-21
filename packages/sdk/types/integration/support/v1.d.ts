@@ -32,20 +32,13 @@ export function listSupportIntegrations(client: ChatBotKitClient, request?: Supp
  */
 export function fetchSupportIntegration(client: ChatBotKitClient, supportId: string): ResponsePromise<SupportIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   botId: string,
- *   email?: string,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SupportIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createSupportIntegration']['requestBody']['content']['application/json']} SupportIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationCreateResponse
+ * @typedef {SupportIntegrationCreateRequestBody} SupportIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationCreateResponseBody
+ *
+ * @typedef {SupportIntegrationCreateResponseBody} SupportIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {SupportIntegrationCreateRequest} request
@@ -53,20 +46,13 @@ export function fetchSupportIntegration(client: ChatBotKitClient, supportId: str
  */
 export function createSupportIntegration(client: ChatBotKitClient, request: SupportIntegrationCreateRequest): Promise<SupportIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   botId?: string,
- *   email?: string,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SupportIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateSupportIntegration']['requestBody']['content']['application/json']} SupportIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationUpdateResponse
+ * @typedef {SupportIntegrationUpdateRequestBody} SupportIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationUpdateResponseBody
+ *
+ * @typedef {SupportIntegrationUpdateResponseBody} SupportIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} supportId
@@ -77,7 +63,11 @@ export function updateSupportIntegration(client: ChatBotKitClient, supportId: st
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteSupportIntegration']['requestBody']['content']['application/json']} SupportIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationDeleteResponse
+ * @typedef {SupportIntegrationDeleteRequestBody} SupportIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteSupportIntegration']['responses']['200']['content']['application/json']} SupportIntegrationDeleteResponseBody
+ *
+ * @typedef {SupportIntegrationDeleteResponseBody} SupportIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} supportId
@@ -95,29 +85,15 @@ export type SupportIntegrationListRequest = {
 export type SupportIntegrationListResponse = import("../../types/api/v1.js").operations["listSupportIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type SupportIntegrationListStreamType = import("../../types/api/v1.js").operations["listSupportIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type SupportIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchSupportIntegration"]["responses"]["200"]["content"]["application/json"];
-export type SupportIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    botId: string;
-    email?: string;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
 export type SupportIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createSupportIntegration"]["requestBody"]["content"]["application/json"];
-export type SupportIntegrationCreateResponse = import("../../types/api/v1.js").operations["createSupportIntegration"]["responses"]["200"]["content"]["application/json"];
-export type SupportIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    botId?: string;
-    email?: string;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
+export type SupportIntegrationCreateRequest = SupportIntegrationCreateRequestBody;
+export type SupportIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createSupportIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SupportIntegrationCreateResponse = SupportIntegrationCreateResponseBody;
 export type SupportIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateSupportIntegration"]["requestBody"]["content"]["application/json"];
-export type SupportIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateSupportIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SupportIntegrationUpdateRequest = SupportIntegrationUpdateRequestBody;
+export type SupportIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateSupportIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SupportIntegrationUpdateResponse = SupportIntegrationUpdateResponseBody;
 export type SupportIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteSupportIntegration"]["requestBody"]["content"]["application/json"];
-export type SupportIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteSupportIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SupportIntegrationDeleteRequest = SupportIntegrationDeleteRequestBody;
+export type SupportIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteSupportIntegration"]["responses"]["200"]["content"]["application/json"];
+export type SupportIntegrationDeleteResponse = SupportIntegrationDeleteResponseBody;

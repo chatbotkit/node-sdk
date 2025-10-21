@@ -59,7 +59,7 @@ Executes a GraphQL query.
 
 | Name | Type |
 | :------ | :------ |
-| `input` | [`GraphqlRequest`](../modules/graphql_v1.md#graphqlrequest) |
+| `input` | `Object` |
 
 #### Returns
 

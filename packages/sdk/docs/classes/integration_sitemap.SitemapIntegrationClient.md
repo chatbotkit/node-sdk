@@ -114,7 +114,7 @@ Creates a new sitemap integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SitemapIntegrationCreateRequest`](../modules/integration_sitemap_v1.md#sitemapintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a sitemap integration.
 | Name | Type |
 | :------ | :------ |
 | `sitemapId` | `string` |
-| `request` | [`SitemapIntegrationUpdateRequest`](../modules/integration_sitemap_v1.md#sitemapintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

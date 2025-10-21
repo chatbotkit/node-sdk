@@ -114,7 +114,7 @@ Creates a new messenger integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`MessengerIntegrationCreateRequest`](../modules/integration_messenger_v1.md#messengerintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a messenger integration.
 | Name | Type |
 | :------ | :------ |
 | `messengerId` | `string` |
-| `request` | [`MessengerIntegrationUpdateRequest`](../modules/integration_messenger_v1.md#messengerintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

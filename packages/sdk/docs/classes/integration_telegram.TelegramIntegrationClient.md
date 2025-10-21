@@ -114,7 +114,7 @@ Creates a new telegram integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`TelegramIntegrationCreateRequest`](../modules/integration_telegram_v1.md#telegramintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a telegram integration.
 | Name | Type |
 | :------ | :------ |
 | `telegramId` | `string` |
-| `request` | [`TelegramIntegrationUpdateRequest`](../modules/integration_telegram_v1.md#telegramintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 

@@ -32,17 +32,13 @@ export function listMcpServerIntegrations(client: ChatBotKitClient, request?: Mc
  */
 export function fetchMcpServerIntegration(client: ChatBotKitClient, mcpserverId: string): ResponsePromise<McpServerIntegrationFetchResponse, never>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>,
- *   blueprintId?: string,
- *   skillsetId?: string
- * }} McpServerIntegrationCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createMcpServerIntegration']['requestBody']['content']['application/json']} McpServerIntegrationCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationCreateResponse
+ * @typedef {McpServerIntegrationCreateRequestBody} McpServerIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationCreateResponseBody
+ *
+ * @typedef {McpServerIntegrationCreateResponseBody} McpServerIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {McpServerIntegrationCreateRequest} request
@@ -50,17 +46,13 @@ export function fetchMcpServerIntegration(client: ChatBotKitClient, mcpserverId:
  */
 export function createMcpServerIntegration(client: ChatBotKitClient, request: McpServerIntegrationCreateRequest): Promise<McpServerIntegrationCreateResponse>;
 /**
- * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>,
- *   blueprintId?: string,
- *   skillsetId?: string
- * }} McpServerIntegrationUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateMcpServerIntegration']['requestBody']['content']['application/json']} McpServerIntegrationUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationUpdateResponse
+ * @typedef {McpServerIntegrationUpdateRequestBody} McpServerIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationUpdateResponseBody
+ *
+ * @typedef {McpServerIntegrationUpdateResponseBody} McpServerIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} mcpserverId
@@ -71,7 +63,11 @@ export function updateMcpServerIntegration(client: ChatBotKitClient, mcpserverId
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteMcpServerIntegration']['requestBody']['content']['application/json']} McpServerIntegrationDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationDeleteResponse
+ * @typedef {McpServerIntegrationDeleteRequestBody} McpServerIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteMcpServerIntegration']['responses']['200']['content']['application/json']} McpServerIntegrationDeleteResponseBody
+ *
+ * @typedef {McpServerIntegrationDeleteResponseBody} McpServerIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} mcpserverId
@@ -89,23 +85,15 @@ export type McpServerIntegrationListRequest = {
 export type McpServerIntegrationListResponse = import("../../types/api/v1.js").operations["listMcpServerIntegrations"]["responses"]["200"]["content"]["application/json"];
 export type McpServerIntegrationListStreamType = import("../../types/api/v1.js").operations["listMcpServerIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
 export type McpServerIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchMcpServerIntegration"]["responses"]["200"]["content"]["application/json"];
-export type McpServerIntegrationCreateRequest = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-    skillsetId?: string;
-};
 export type McpServerIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createMcpServerIntegration"]["requestBody"]["content"]["application/json"];
-export type McpServerIntegrationCreateResponse = import("../../types/api/v1.js").operations["createMcpServerIntegration"]["responses"]["200"]["content"]["application/json"];
-export type McpServerIntegrationUpdateRequest = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-    blueprintId?: string;
-    skillsetId?: string;
-};
+export type McpServerIntegrationCreateRequest = McpServerIntegrationCreateRequestBody;
+export type McpServerIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createMcpServerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type McpServerIntegrationCreateResponse = McpServerIntegrationCreateResponseBody;
 export type McpServerIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateMcpServerIntegration"]["requestBody"]["content"]["application/json"];
-export type McpServerIntegrationUpdateResponse = import("../../types/api/v1.js").operations["updateMcpServerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type McpServerIntegrationUpdateRequest = McpServerIntegrationUpdateRequestBody;
+export type McpServerIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateMcpServerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type McpServerIntegrationUpdateResponse = McpServerIntegrationUpdateResponseBody;
 export type McpServerIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteMcpServerIntegration"]["requestBody"]["content"]["application/json"];
-export type McpServerIntegrationDeleteResponse = import("../../types/api/v1.js").operations["deleteMcpServerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type McpServerIntegrationDeleteRequest = McpServerIntegrationDeleteRequestBody;
+export type McpServerIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteMcpServerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type McpServerIntegrationDeleteResponse = McpServerIntegrationDeleteResponseBody;

@@ -114,7 +114,7 @@ Creates a new message.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`ConversationMessageCreateRequest`](../modules/conversation_message_v1.md#conversationmessagecreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -159,7 +159,7 @@ ___
 | :------ | :------ |
 | `conversationId` | `string` |
 | `messageId` | `string` |
-| `request` | [`ConversationMessageDownvoteRequest`](../modules/conversation_message_v1.md#conversationmessagedownvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -229,7 +229,7 @@ Updates a message.
 | :------ | :------ |
 | `conversationId` | `string` |
 | `messageId` | `string` |
-| `request` | [`ConversationMessageUpdateRequest`](../modules/conversation_message_v1.md#conversationmessageupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -251,7 +251,7 @@ ___
 | :------ | :------ |
 | `conversationId` | `string` |
 | `messageId` | `string` |
-| `request` | [`ConversationMessageUpvoteRequest`](../modules/conversation_message_v1.md#conversationmessageupvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 

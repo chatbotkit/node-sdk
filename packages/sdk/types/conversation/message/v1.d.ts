@@ -36,15 +36,13 @@ export function listConversationMessages(client: ChatBotKitClient, conversationI
  */
 export function fetchConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string): ResponsePromise<ConversationMessageFetchResponse, never>;
 /**
- * @typedef {{
- *   type: ConversationMessageType,
- *   text: string,
- *   meta?: Record<string,any>
- * }} ConversationMessageCreateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['createConversationMessage']['requestBody']['content']['application/json']} ConversationMessageCreateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['createConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageCreateResponse
+ * @typedef {ConversationMessageCreateRequestBody} ConversationMessageCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageCreateResponseBody
+ *
+ * @typedef {ConversationMessageCreateResponseBody} ConversationMessageCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -53,15 +51,13 @@ export function fetchConversationMessage(client: ChatBotKitClient, conversationI
  */
 export function createConversationMessage(client: ChatBotKitClient, conversationId: string, request: ConversationMessageCreateRequest): Promise<ConversationMessageCreateResponse>;
 /**
- * @typedef {{
- *   type?: ConversationMessageType,
- *   text?: string,
- *   meta?: Record<string,any>
- * }} ConversationMessageUpdateRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['updateConversationMessage']['requestBody']['content']['application/json']} ConversationMessageUpdateRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['updateConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpdateResponse
+ * @typedef {ConversationMessageUpdateRequestBody} ConversationMessageUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpdateResponseBody
+ *
+ * @typedef {ConversationMessageUpdateResponseBody} ConversationMessageUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -73,7 +69,11 @@ export function updateConversationMessage(client: ChatBotKitClient, conversation
 /**
  * @typedef {import('../../types/api/v1.js').operations['deleteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageDeleteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['deleteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDeleteResponse
+ * @typedef {ConversationMessageDeleteRequestBody} ConversationMessageDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDeleteResponseBody
+ *
+ * @typedef {ConversationMessageDeleteResponseBody} ConversationMessageDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -82,13 +82,13 @@ export function updateConversationMessage(client: ChatBotKitClient, conversation
  */
 export function deleteConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string): Promise<ConversationMessageDeleteResponse>;
 /**
- * @typedef {{
- *   value?: number
- * }} ConversationMessageUpvoteRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageUpvoteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpvoteResponse
+ * @typedef {ConversationMessageUpvoteRequestBody} ConversationMessageUpvoteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageUpvoteResponseBody
+ *
+ * @typedef {ConversationMessageUpvoteResponseBody} ConversationMessageUpvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -98,13 +98,13 @@ export function deleteConversationMessage(client: ChatBotKitClient, conversation
  */
 export function upvoteConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string, request: ConversationMessageUpvoteRequest): Promise<ConversationMessageUpvoteResponse>;
 /**
- * @typedef {{
- *   value?: number
- * }} ConversationMessageDownvoteRequest
- *
  * @typedef {import('../../types/api/v1.js').operations['downvoteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageDownvoteRequestBody
  *
- * @typedef {import('../../types/api/v1.js').operations['downvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDownvoteResponse
+ * @typedef {ConversationMessageDownvoteRequestBody} ConversationMessageDownvoteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['downvoteConversationMessage']['responses']['200']['content']['application/json']} ConversationMessageDownvoteResponseBody
+ *
+ * @typedef {ConversationMessageDownvoteResponseBody} ConversationMessageDownvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
@@ -125,29 +125,23 @@ export type ConversationMessageListRequest = {
 export type ConversationMessageListResponse = import("../../types/api/v1.js").operations["listConversationMessages"]["responses"]["200"]["content"]["application/json"];
 export type ConversationMessageListStreamType = import("../../types/api/v1.js").operations["listConversationMessages"]["responses"]["200"]["content"]["application/jsonl"];
 export type ConversationMessageFetchResponse = import("../../types/api/v1.js").operations["fetchConversationMessage"]["responses"]["200"]["content"]["application/json"];
-export type ConversationMessageCreateRequest = {
-    type: ConversationMessageType;
-    text: string;
-    meta?: Record<string, any>;
-};
 export type ConversationMessageCreateRequestBody = import("../../types/api/v1.js").operations["createConversationMessage"]["requestBody"]["content"]["application/json"];
-export type ConversationMessageCreateResponse = import("../../types/api/v1.js").operations["createConversationMessage"]["responses"]["200"]["content"]["application/json"];
-export type ConversationMessageUpdateRequest = {
-    type?: ConversationMessageType;
-    text?: string;
-    meta?: Record<string, any>;
-};
+export type ConversationMessageCreateRequest = ConversationMessageCreateRequestBody;
+export type ConversationMessageCreateResponseBody = import("../../types/api/v1.js").operations["createConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageCreateResponse = ConversationMessageCreateResponseBody;
 export type ConversationMessageUpdateRequestBody = import("../../types/api/v1.js").operations["updateConversationMessage"]["requestBody"]["content"]["application/json"];
-export type ConversationMessageUpdateResponse = import("../../types/api/v1.js").operations["updateConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageUpdateRequest = ConversationMessageUpdateRequestBody;
+export type ConversationMessageUpdateResponseBody = import("../../types/api/v1.js").operations["updateConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageUpdateResponse = ConversationMessageUpdateResponseBody;
 export type ConversationMessageDeleteRequestBody = import("../../types/api/v1.js").operations["deleteConversationMessage"]["requestBody"]["content"]["application/json"];
-export type ConversationMessageDeleteResponse = import("../../types/api/v1.js").operations["deleteConversationMessage"]["responses"]["200"]["content"]["application/json"];
-export type ConversationMessageUpvoteRequest = {
-    value?: number;
-};
+export type ConversationMessageDeleteRequest = ConversationMessageDeleteRequestBody;
+export type ConversationMessageDeleteResponseBody = import("../../types/api/v1.js").operations["deleteConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageDeleteResponse = ConversationMessageDeleteResponseBody;
 export type ConversationMessageUpvoteRequestBody = import("../../types/api/v1.js").operations["upvoteConversationMessage"]["requestBody"]["content"]["application/json"];
-export type ConversationMessageUpvoteResponse = import("../../types/api/v1.js").operations["upvoteConversationMessage"]["responses"]["200"]["content"]["application/json"];
-export type ConversationMessageDownvoteRequest = {
-    value?: number;
-};
+export type ConversationMessageUpvoteRequest = ConversationMessageUpvoteRequestBody;
+export type ConversationMessageUpvoteResponseBody = import("../../types/api/v1.js").operations["upvoteConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageUpvoteResponse = ConversationMessageUpvoteResponseBody;
 export type ConversationMessageDownvoteRequestBody = import("../../types/api/v1.js").operations["downvoteConversationMessage"]["requestBody"]["content"]["application/json"];
-export type ConversationMessageDownvoteResponse = import("../../types/api/v1.js").operations["downvoteConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageDownvoteRequest = ConversationMessageDownvoteRequestBody;
+export type ConversationMessageDownvoteResponseBody = import("../../types/api/v1.js").operations["downvoteConversationMessage"]["responses"]["200"]["content"]["application/json"];
+export type ConversationMessageDownvoteResponse = ConversationMessageDownvoteResponseBody;

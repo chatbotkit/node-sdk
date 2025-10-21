@@ -10,17 +10,23 @@
 - [EmailIntegrationCreateRequest](integration_email_v1.md#emailintegrationcreaterequest)
 - [EmailIntegrationCreateRequestBody](integration_email_v1.md#emailintegrationcreaterequestbody)
 - [EmailIntegrationCreateResponse](integration_email_v1.md#emailintegrationcreateresponse)
+- [EmailIntegrationCreateResponseBody](integration_email_v1.md#emailintegrationcreateresponsebody)
+- [EmailIntegrationDeleteRequest](integration_email_v1.md#emailintegrationdeleterequest)
 - [EmailIntegrationDeleteRequestBody](integration_email_v1.md#emailintegrationdeleterequestbody)
 - [EmailIntegrationDeleteResponse](integration_email_v1.md#emailintegrationdeleteresponse)
+- [EmailIntegrationDeleteResponseBody](integration_email_v1.md#emailintegrationdeleteresponsebody)
 - [EmailIntegrationFetchResponse](integration_email_v1.md#emailintegrationfetchresponse)
 - [EmailIntegrationListRequest](integration_email_v1.md#emailintegrationlistrequest)
 - [EmailIntegrationListResponse](integration_email_v1.md#emailintegrationlistresponse)
 - [EmailIntegrationListStreamType](integration_email_v1.md#emailintegrationliststreamtype)
+- [EmailIntegrationSetupRequest](integration_email_v1.md#emailintegrationsetuprequest)
 - [EmailIntegrationSetupRequestBody](integration_email_v1.md#emailintegrationsetuprequestbody)
 - [EmailIntegrationSetupResponse](integration_email_v1.md#emailintegrationsetupresponse)
+- [EmailIntegrationSetupResponseBody](integration_email_v1.md#emailintegrationsetupresponsebody)
 - [EmailIntegrationUpdateRequest](integration_email_v1.md#emailintegrationupdaterequest)
 - [EmailIntegrationUpdateRequestBody](integration_email_v1.md#emailintegrationupdaterequestbody)
 - [EmailIntegrationUpdateResponse](integration_email_v1.md#emailintegrationupdateresponse)
+- [EmailIntegrationUpdateResponseBody](integration_email_v1.md#emailintegrationupdateresponsebody)
 - [ResponsePromise](integration_email_v1.md#responsepromise)
 
 ### Functions
@@ -46,24 +52,11 @@ ___
 
 ### EmailIntegrationCreateRequest
 
-Ƭ **EmailIntegrationCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `contactCollection?` | `boolean` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | [`model/v1`](model_v1.md) |
-| `name?` | `string` |
-| `sessionDuration?` | `number` |
+Ƭ **EmailIntegrationCreateRequest**\<\>: [`EmailIntegrationCreateRequestBody`](integration_email_v1.md#emailintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/email/v1.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L62)
+[integration/email/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L55)
 
 ___
 
@@ -73,17 +66,37 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L64)
+[integration/email/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L53)
 
 ___
 
 ### EmailIntegrationCreateResponse
 
-Ƭ **EmailIntegrationCreateResponse**\<\>: `operations`[``"createEmailIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **EmailIntegrationCreateResponse**\<\>: [`EmailIntegrationCreateResponseBody`](integration_email_v1.md#emailintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/email/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L66)
+[integration/email/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L59)
+
+___
+
+### EmailIntegrationCreateResponseBody
+
+Ƭ **EmailIntegrationCreateResponseBody**\<\>: `operations`[``"createEmailIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/email/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L57)
+
+___
+
+### EmailIntegrationDeleteRequest
+
+Ƭ **EmailIntegrationDeleteRequest**\<\>: [`EmailIntegrationDeleteRequestBody`](integration_email_v1.md#emailintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/email/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L110)
 
 ___
 
@@ -93,17 +106,27 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L122)
+[integration/email/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L108)
 
 ___
 
 ### EmailIntegrationDeleteResponse
 
-Ƭ **EmailIntegrationDeleteResponse**\<\>: `operations`[``"deleteEmailIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **EmailIntegrationDeleteResponse**\<\>: [`EmailIntegrationDeleteResponseBody`](integration_email_v1.md#emailintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/email/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L124)
+[integration/email/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L114)
+
+___
+
+### EmailIntegrationDeleteResponseBody
+
+Ƭ **EmailIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteEmailIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/email/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L112)
 
 ___
 
@@ -156,46 +179,53 @@ ___
 
 ___
 
+### EmailIntegrationSetupRequest
+
+Ƭ **EmailIntegrationSetupRequest**\<\>: [`EmailIntegrationSetupRequestBody`](integration_email_v1.md#emailintegrationsetuprequestbody)
+
+#### Defined in
+
+[integration/email/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L135)
+
+___
+
 ### EmailIntegrationSetupRequestBody
 
 Ƭ **EmailIntegrationSetupRequestBody**\<\>: `operations`[``"setupEmailIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/email/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L143)
+[integration/email/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L133)
 
 ___
 
 ### EmailIntegrationSetupResponse
 
-Ƭ **EmailIntegrationSetupResponse**\<\>: `operations`[``"setupEmailIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **EmailIntegrationSetupResponse**\<\>: [`EmailIntegrationSetupResponseBody`](integration_email_v1.md#emailintegrationsetupresponsebody)
 
 #### Defined in
 
-[integration/email/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L145)
+[integration/email/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L139)
+
+___
+
+### EmailIntegrationSetupResponseBody
+
+Ƭ **EmailIntegrationSetupResponseBody**\<\>: `operations`[``"setupEmailIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/email/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L137)
 
 ___
 
 ### EmailIntegrationUpdateRequest
 
-Ƭ **EmailIntegrationUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `botId?` | `string` |
-| `contactCollection?` | `boolean` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | [`model/v1`](model_v1.md) |
-| `name?` | `string` |
-| `sessionDuration?` | `number` |
+Ƭ **EmailIntegrationUpdateRequest**\<\>: [`EmailIntegrationUpdateRequestBody`](integration_email_v1.md#emailintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/email/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L96)
+[integration/email/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L82)
 
 ___
 
@@ -205,17 +235,27 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L98)
+[integration/email/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L80)
 
 ___
 
 ### EmailIntegrationUpdateResponse
 
-Ƭ **EmailIntegrationUpdateResponse**\<\>: `operations`[``"updateEmailIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **EmailIntegrationUpdateResponse**\<\>: [`EmailIntegrationUpdateResponseBody`](integration_email_v1.md#emailintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/email/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L100)
+[integration/email/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L86)
+
+___
+
+### EmailIntegrationUpdateResponseBody
+
+Ƭ **EmailIntegrationUpdateResponseBody**\<\>: `operations`[``"updateEmailIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/email/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L84)
 
 ___
 
@@ -245,7 +285,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`EmailIntegrationCreateRequest`](integration_email_v1.md#emailintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -253,7 +293,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L72)
+[integration/email/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L65)
 
 ___
 
@@ -274,7 +314,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L130)
+[integration/email/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L120)
 
 ___
 
@@ -337,7 +377,7 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L151)
+[integration/email/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L145)
 
 ___
 
@@ -351,7 +391,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `emailId` | `string` |
-| `request` | [`EmailIntegrationUpdateRequest`](integration_email_v1.md#emailintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -359,4 +399,4 @@ ___
 
 #### Defined in
 
-[integration/email/v1.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L107)
+[integration/email/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L93)

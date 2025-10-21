@@ -10,8 +10,11 @@
 - [McpServerIntegrationCreateRequest](integration_mcpserver_v1.md#mcpserverintegrationcreaterequest)
 - [McpServerIntegrationCreateRequestBody](integration_mcpserver_v1.md#mcpserverintegrationcreaterequestbody)
 - [McpServerIntegrationCreateResponse](integration_mcpserver_v1.md#mcpserverintegrationcreateresponse)
+- [McpServerIntegrationCreateResponseBody](integration_mcpserver_v1.md#mcpserverintegrationcreateresponsebody)
+- [McpServerIntegrationDeleteRequest](integration_mcpserver_v1.md#mcpserverintegrationdeleterequest)
 - [McpServerIntegrationDeleteRequestBody](integration_mcpserver_v1.md#mcpserverintegrationdeleterequestbody)
 - [McpServerIntegrationDeleteResponse](integration_mcpserver_v1.md#mcpserverintegrationdeleteresponse)
+- [McpServerIntegrationDeleteResponseBody](integration_mcpserver_v1.md#mcpserverintegrationdeleteresponsebody)
 - [McpServerIntegrationFetchResponse](integration_mcpserver_v1.md#mcpserverintegrationfetchresponse)
 - [McpServerIntegrationListRequest](integration_mcpserver_v1.md#mcpserverintegrationlistrequest)
 - [McpServerIntegrationListResponse](integration_mcpserver_v1.md#mcpserverintegrationlistresponse)
@@ -19,6 +22,7 @@
 - [McpServerIntegrationUpdateRequest](integration_mcpserver_v1.md#mcpserverintegrationupdaterequest)
 - [McpServerIntegrationUpdateRequestBody](integration_mcpserver_v1.md#mcpserverintegrationupdaterequestbody)
 - [McpServerIntegrationUpdateResponse](integration_mcpserver_v1.md#mcpserverintegrationupdateresponse)
+- [McpServerIntegrationUpdateResponseBody](integration_mcpserver_v1.md#mcpserverintegrationupdateresponsebody)
 - [ResponsePromise](integration_mcpserver_v1.md#responsepromise)
 
 ### Functions
@@ -43,21 +47,11 @@ ___
 
 ### McpServerIntegrationCreateRequest
 
-Ƭ **McpServerIntegrationCreateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `skillsetId?` | `string` |
+Ƭ **McpServerIntegrationCreateRequest**\<\>: [`McpServerIntegrationCreateRequestBody`](integration_mcpserver_v1.md#mcpserverintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/mcpserver/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L59)
+[integration/mcpserver/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L55)
 
 ___
 
@@ -67,17 +61,37 @@ ___
 
 #### Defined in
 
-[integration/mcpserver/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L61)
+[integration/mcpserver/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L53)
 
 ___
 
 ### McpServerIntegrationCreateResponse
 
-Ƭ **McpServerIntegrationCreateResponse**\<\>: `operations`[``"createMcpServerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **McpServerIntegrationCreateResponse**\<\>: [`McpServerIntegrationCreateResponseBody`](integration_mcpserver_v1.md#mcpserverintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/mcpserver/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L63)
+[integration/mcpserver/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L59)
+
+___
+
+### McpServerIntegrationCreateResponseBody
+
+Ƭ **McpServerIntegrationCreateResponseBody**\<\>: `operations`[``"createMcpServerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/mcpserver/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L57)
+
+___
+
+### McpServerIntegrationDeleteRequest
+
+Ƭ **McpServerIntegrationDeleteRequest**\<\>: [`McpServerIntegrationDeleteRequestBody`](integration_mcpserver_v1.md#mcpserverintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/mcpserver/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L110)
 
 ___
 
@@ -87,17 +101,27 @@ ___
 
 #### Defined in
 
-[integration/mcpserver/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L116)
+[integration/mcpserver/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L108)
 
 ___
 
 ### McpServerIntegrationDeleteResponse
 
-Ƭ **McpServerIntegrationDeleteResponse**\<\>: `operations`[``"deleteMcpServerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **McpServerIntegrationDeleteResponse**\<\>: [`McpServerIntegrationDeleteResponseBody`](integration_mcpserver_v1.md#mcpserverintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/mcpserver/v1.js:118](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L118)
+[integration/mcpserver/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L114)
+
+___
+
+### McpServerIntegrationDeleteResponseBody
+
+Ƭ **McpServerIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteMcpServerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/mcpserver/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L112)
 
 ___
 
@@ -152,21 +176,11 @@ ___
 
 ### McpServerIntegrationUpdateRequest
 
-Ƭ **McpServerIntegrationUpdateRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `blueprintId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `skillsetId?` | `string` |
+Ƭ **McpServerIntegrationUpdateRequest**\<\>: [`McpServerIntegrationUpdateRequestBody`](integration_mcpserver_v1.md#mcpserverintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/mcpserver/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L90)
+[integration/mcpserver/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L82)
 
 ___
 
@@ -176,17 +190,27 @@ ___
 
 #### Defined in
 
-[integration/mcpserver/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L92)
+[integration/mcpserver/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L80)
 
 ___
 
 ### McpServerIntegrationUpdateResponse
 
-Ƭ **McpServerIntegrationUpdateResponse**\<\>: `operations`[``"updateMcpServerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+Ƭ **McpServerIntegrationUpdateResponse**\<\>: [`McpServerIntegrationUpdateResponseBody`](integration_mcpserver_v1.md#mcpserverintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/mcpserver/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L94)
+[integration/mcpserver/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L86)
+
+___
+
+### McpServerIntegrationUpdateResponseBody
+
+Ƭ **McpServerIntegrationUpdateResponseBody**\<\>: `operations`[``"updateMcpServerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/mcpserver/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L84)
 
 ___
 
@@ -216,7 +240,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`McpServerIntegrationCreateRequest`](integration_mcpserver_v1.md#mcpserverintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -224,7 +248,7 @@ ___
 
 #### Defined in
 
-[integration/mcpserver/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L69)
+[integration/mcpserver/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L65)
 
 ___
 
@@ -245,7 +269,7 @@ ___
 
 #### Defined in
 
-[integration/mcpserver/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L124)
+[integration/mcpserver/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L120)
 
 ___
 
@@ -301,7 +325,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `mcpserverId` | `string` |
-| `request` | [`McpServerIntegrationUpdateRequest`](integration_mcpserver_v1.md#mcpserverintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -309,4 +333,4 @@ ___
 
 #### Defined in
 
-[integration/mcpserver/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L101)
+[integration/mcpserver/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L93)

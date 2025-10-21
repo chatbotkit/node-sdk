@@ -114,7 +114,7 @@ Creates a new email integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`EmailIntegrationCreateRequest`](../modules/integration_email_v1.md#emailintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -225,7 +225,7 @@ Updates a email integration.
 | Name | Type |
 | :------ | :------ |
 | `emailId` | `string` |
-| `request` | [`EmailIntegrationUpdateRequest`](../modules/integration_email_v1.md#emailintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
