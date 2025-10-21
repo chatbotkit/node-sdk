@@ -8,35 +8,15 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   visibility?: 'private'|'protected'|'public'
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} SkillsetOptions
- *
- * @typedef {SkillsetOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} SkillsetInstance
- */
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} SkillsetListRequest
  *
- * @typedef {{items: SkillsetInstance[]}} SkillsetListResponse
+ * @typedef {import('../types/api/v1.js').operations['listSkillsets']['responses']['200']['content']['application/json']} SkillsetListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: SkillsetInstance
- * }} SkillsetListStreamItemType
- *
- * @typedef {SkillsetListStreamItemType} SkillsetListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listSkillsets']['responses']['200']['content']['application/jsonl']} SkillsetListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {SkillsetListRequest} [request]
@@ -44,8 +24,7 @@
  */
 export function listSkillsets(client: ChatBotKitClient, request?: SkillsetListRequest): ResponsePromise<SkillsetListResponse, SkillsetListStreamType>;
 /**
- * @typedef {SkillsetInstance & {
- * }} SkillsetFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchSkillset']['responses']['200']['content']['application/json']} SkillsetFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -53,12 +32,17 @@ export function listSkillsets(client: ChatBotKitClient, request?: SkillsetListRe
  */
 export function fetchSkillset(client: ChatBotKitClient, skillsetId: string): ResponsePromise<SkillsetFetchResponse, never>;
 /**
- * @typedef {SkillsetOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   visibility?: 'private'|'protected'|'public'
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} SkillsetCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} SkillsetCreateResponse
+ * @typedef {import('../types/api/v1.js').operations['createSkillset']['requestBody']['content']['application/json']} SkillsetCreateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['createSkillset']['responses']['200']['content']['application/json']} SkillsetCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {SkillsetCreateRequest} request
@@ -66,12 +50,17 @@ export function fetchSkillset(client: ChatBotKitClient, skillsetId: string): Res
  */
 export function createSkillset(client: ChatBotKitClient, request: SkillsetCreateRequest): Promise<SkillsetCreateResponse>;
 /**
- * @typedef {SkillsetOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   visibility?: 'private'|'protected'|'public'
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} SkillsetUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} SkillsetUpdateResponse
+ * @typedef {import('../types/api/v1.js').operations['updateSkillset']['requestBody']['content']['application/json']} SkillsetUpdateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateSkillset']['responses']['200']['content']['application/json']} SkillsetUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -80,9 +69,9 @@ export function createSkillset(client: ChatBotKitClient, request: SkillsetCreate
  */
 export function updateSkillset(client: ChatBotKitClient, skillsetId: string, request: SkillsetUpdateRequest): Promise<SkillsetUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} SkillsetDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteSkillset']['requestBody']['content']['application/json']} SkillsetDeleteRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteSkillset']['responses']['200']['content']['application/json']} SkillsetDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
@@ -91,41 +80,32 @@ export function updateSkillset(client: ChatBotKitClient, skillsetId: string, req
 export function deleteSkillset(client: ChatBotKitClient, skillsetId: string): Promise<SkillsetDeleteResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
-export type SkillsetOptions = {
-    name?: string;
-    description?: string;
-    visibility?: "private" | "protected" | "public";
-    meta?: Record<string, any>;
-    blueprintId?: string;
-};
-export type SkillsetInstance = SkillsetOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
 export type SkillsetListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type SkillsetListResponse = {
-    items: SkillsetInstance[];
+export type SkillsetListResponse = import("../types/api/v1.js").operations["listSkillsets"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetListStreamType = import("../types/api/v1.js").operations["listSkillsets"]["responses"]["200"]["content"]["application/jsonl"];
+export type SkillsetFetchResponse = import("../types/api/v1.js").operations["fetchSkillset"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetCreateRequest = {
+    name?: string;
+    description?: string;
+    visibility?: "private" | "protected" | "public";
+    meta?: Record<string, any>;
+    blueprintId?: string;
 };
-export type SkillsetListStreamItemType = {
-    type: "item";
-    data: SkillsetInstance;
+export type SkillsetCreateRequestBody = import("../types/api/v1.js").operations["createSkillset"]["requestBody"]["content"]["application/json"];
+export type SkillsetCreateResponse = import("../types/api/v1.js").operations["createSkillset"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetUpdateRequest = {
+    name?: string;
+    description?: string;
+    visibility?: "private" | "protected" | "public";
+    meta?: Record<string, any>;
+    blueprintId?: string;
 };
-export type SkillsetListStreamType = SkillsetListStreamItemType;
-export type SkillsetFetchResponse = SkillsetInstance & {};
-export type SkillsetCreateRequest = SkillsetOptions & {};
-export type SkillsetCreateResponse = {
-    id: string;
-};
-export type SkillsetUpdateRequest = SkillsetOptions & {};
-export type SkillsetUpdateResponse = {
-    id: string;
-};
-export type SkillsetDeleteResponse = {
-    id: string;
-};
+export type SkillsetUpdateRequestBody = import("../types/api/v1.js").operations["updateSkillset"]["requestBody"]["content"]["application/json"];
+export type SkillsetUpdateResponse = import("../types/api/v1.js").operations["updateSkillset"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetDeleteRequestBody = import("../types/api/v1.js").operations["deleteSkillset"]["requestBody"]["content"]["application/json"];
+export type SkillsetDeleteResponse = import("../types/api/v1.js").operations["deleteSkillset"]["responses"]["200"]["content"]["application/json"];

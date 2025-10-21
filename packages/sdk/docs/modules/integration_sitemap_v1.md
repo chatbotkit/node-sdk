@@ -8,18 +8,19 @@
 
 - [ChatBotKitClient](integration_sitemap_v1.md#chatbotkitclient)
 - [ResponsePromise](integration_sitemap_v1.md#responsepromise)
-- [SitemapInegrationInstance](integration_sitemap_v1.md#sitemapinegrationinstance)
 - [SitemapIntegrationCreateRequest](integration_sitemap_v1.md#sitemapintegrationcreaterequest)
+- [SitemapIntegrationCreateRequestBody](integration_sitemap_v1.md#sitemapintegrationcreaterequestbody)
 - [SitemapIntegrationCreateResponse](integration_sitemap_v1.md#sitemapintegrationcreateresponse)
+- [SitemapIntegrationDeleteRequestBody](integration_sitemap_v1.md#sitemapintegrationdeleterequestbody)
 - [SitemapIntegrationDeleteResponse](integration_sitemap_v1.md#sitemapintegrationdeleteresponse)
 - [SitemapIntegrationFetchResponse](integration_sitemap_v1.md#sitemapintegrationfetchresponse)
 - [SitemapIntegrationListRequest](integration_sitemap_v1.md#sitemapintegrationlistrequest)
 - [SitemapIntegrationListResponse](integration_sitemap_v1.md#sitemapintegrationlistresponse)
-- [SitemapIntegrationListStreamItem](integration_sitemap_v1.md#sitemapintegrationliststreamitem)
 - [SitemapIntegrationListStreamType](integration_sitemap_v1.md#sitemapintegrationliststreamtype)
-- [SitemapIntegrationOptions](integration_sitemap_v1.md#sitemapintegrationoptions)
+- [SitemapIntegrationSyncRequestBody](integration_sitemap_v1.md#sitemapintegrationsyncrequestbody)
 - [SitemapIntegrationSyncResponse](integration_sitemap_v1.md#sitemapintegrationsyncresponse)
 - [SitemapIntegrationUpdateRequest](integration_sitemap_v1.md#sitemapintegrationupdaterequest)
+- [SitemapIntegrationUpdateRequestBody](integration_sitemap_v1.md#sitemapintegrationupdaterequestbody)
 - [SitemapIntegrationUpdateResponse](integration_sitemap_v1.md#sitemapintegrationupdateresponse)
 
 ### Functions
@@ -60,65 +61,79 @@ ___
 
 ___
 
-### SitemapInegrationInstance
+### SitemapIntegrationCreateRequest
 
-Ƭ **SitemapInegrationInstance**\<\>: [`SitemapIntegrationOptions`](integration_sitemap_v1.md#sitemapintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **SitemapIntegrationCreateRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `blueprintId?` | `string` |
+| `datasetId` | `string` |
+| `description?` | `string` |
+| `expiresIn?` | `number` |
+| `glob?` | `string` |
+| `javascript?` | `boolean` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `name?` | `string` |
+| `selectors?` | `string` |
+| `syncSchedule?` | `string` |
+| `url?` | `string` |
 
 #### Defined in
 
-[integration/sitemap/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L30)
+[integration/sitemap/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L65)
 
 ___
 
-### SitemapIntegrationCreateRequest
+### SitemapIntegrationCreateRequestBody
 
-Ƭ **SitemapIntegrationCreateRequest**\<\>: [`SitemapIntegrationOptions`](integration_sitemap_v1.md#sitemapintegrationoptions) & \{ `datasetId`: `string`  }
+Ƭ **SitemapIntegrationCreateRequestBody**\<\>: `operations`[``"createSitemapIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/sitemap/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L84)
+[integration/sitemap/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L67)
 
 ___
 
 ### SitemapIntegrationCreateResponse
 
-Ƭ **SitemapIntegrationCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **SitemapIntegrationCreateResponse**\<\>: `operations`[``"createSitemapIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/sitemap/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L88)
+[integration/sitemap/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L69)
+
+___
+
+### SitemapIntegrationDeleteRequestBody
+
+Ƭ **SitemapIntegrationDeleteRequestBody**\<\>: `operations`[``"deleteSitemapIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/sitemap/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L128)
 
 ___
 
 ### SitemapIntegrationDeleteResponse
 
-Ƭ **SitemapIntegrationDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **SitemapIntegrationDeleteResponse**\<\>: `operations`[``"deleteSitemapIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/sitemap/v1.js:138](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L138)
+[integration/sitemap/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L130)
 
 ___
 
 ### SitemapIntegrationFetchResponse
 
-Ƭ **SitemapIntegrationFetchResponse**\<\>: [`SitemapInegrationInstance`](integration_sitemap_v1.md#sitemapinegrationinstance) & {}
+Ƭ **SitemapIntegrationFetchResponse**\<\>: `operations`[``"fetchSitemapIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/sitemap/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L67)
+[integration/sitemap/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L37)
 
 ___
 
@@ -137,56 +152,53 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L39)
+[integration/sitemap/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L17)
 
 ___
 
 ### SitemapIntegrationListResponse
 
-Ƭ **SitemapIntegrationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`SitemapInegrationInstance`](integration_sitemap_v1.md#sitemapinegrationinstance)[] |
+Ƭ **SitemapIntegrationListResponse**\<\>: `operations`[``"listSitemapIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/sitemap/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L41)
-
-___
-
-### SitemapIntegrationListStreamItem
-
-Ƭ **SitemapIntegrationListStreamItem**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`SitemapInegrationInstance`](integration_sitemap_v1.md#sitemapinegrationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[integration/sitemap/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L46)
+[integration/sitemap/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L19)
 
 ___
 
 ### SitemapIntegrationListStreamType
 
-Ƭ **SitemapIntegrationListStreamType**\<\>: [`SitemapIntegrationListStreamItem`](integration_sitemap_v1.md#sitemapintegrationliststreamitem)
+Ƭ **SitemapIntegrationListStreamType**\<\>: `operations`[``"listSitemapIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[integration/sitemap/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L48)
+[integration/sitemap/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L21)
 
 ___
 
-### SitemapIntegrationOptions
+### SitemapIntegrationSyncRequestBody
 
-Ƭ **SitemapIntegrationOptions**\<\>: `Object`
+Ƭ **SitemapIntegrationSyncRequestBody**\<\>: `operations`[``"syncSitemapIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/sitemap/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L149)
+
+___
+
+### SitemapIntegrationSyncResponse
+
+Ƭ **SitemapIntegrationSyncResponse**\<\>: `operations`[``"syncSitemapIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/sitemap/v1.js:151](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L151)
+
+___
+
+### SitemapIntegrationUpdateRequest
+
+Ƭ **SitemapIntegrationUpdateRequest**\<\>: `Object`
 
 #### Type declaration
 
@@ -206,55 +218,33 @@ ___
 
 #### Defined in
 
-[integration/sitemap/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L24)
+[integration/sitemap/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L102)
 
 ___
 
-### SitemapIntegrationSyncResponse
+### SitemapIntegrationUpdateRequestBody
 
-Ƭ **SitemapIntegrationSyncResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **SitemapIntegrationUpdateRequestBody**\<\>: `operations`[``"updateSitemapIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/sitemap/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L159)
-
-___
-
-### SitemapIntegrationUpdateRequest
-
-Ƭ **SitemapIntegrationUpdateRequest**\<\>: [`SitemapIntegrationOptions`](integration_sitemap_v1.md#sitemapintegrationoptions) & {}
-
-#### Defined in
-
-[integration/sitemap/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L110)
+[integration/sitemap/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L104)
 
 ___
 
 ### SitemapIntegrationUpdateResponse
 
-Ƭ **SitemapIntegrationUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **SitemapIntegrationUpdateResponse**\<\>: `operations`[``"updateSitemapIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/sitemap/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L114)
+[integration/sitemap/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L106)
 
 ## Functions
 
 ### createSitemapIntegration
 
-▸ **createSitemapIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationCreateResponse`](integration_sitemap_v1.md#sitemapintegrationcreateresponse)\>
+▸ **createSitemapIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -265,17 +255,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationCreateResponse`](integration_sitemap_v1.md#sitemapintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/sitemap/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L94)
+[integration/sitemap/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L75)
 
 ___
 
 ### deleteSitemapIntegration
 
-▸ **deleteSitemapIntegration**(`client`, `sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationDeleteResponse`](integration_sitemap_v1.md#sitemapintegrationdeleteresponse)\>
+▸ **deleteSitemapIntegration**(`client`, `sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -286,17 +276,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationDeleteResponse`](integration_sitemap_v1.md#sitemapintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/sitemap/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L144)
+[integration/sitemap/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L136)
 
 ___
 
 ### fetchSitemapIntegration
 
-▸ **fetchSitemapIntegration**(`client`, `sitemapId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SitemapIntegrationFetchResponse`](integration_sitemap_v1.md#sitemapintegrationfetchresponse), `never`\>
+▸ **fetchSitemapIntegration**(`client`, `sitemapId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -307,17 +297,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SitemapIntegrationFetchResponse`](integration_sitemap_v1.md#sitemapintegrationfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[integration/sitemap/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L73)
+[integration/sitemap/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L43)
 
 ___
 
 ### listSitemapIntegrations
 
-▸ **listSitemapIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SitemapIntegrationListResponse`](integration_sitemap_v1.md#sitemapintegrationlistresponse), [`SitemapIntegrationListStreamItem`](integration_sitemap_v1.md#sitemapintegrationliststreamitem)\>
+▸ **listSitemapIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -328,17 +318,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SitemapIntegrationListResponse`](integration_sitemap_v1.md#sitemapintegrationlistresponse), [`SitemapIntegrationListStreamItem`](integration_sitemap_v1.md#sitemapintegrationliststreamitem)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[integration/sitemap/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L54)
+[integration/sitemap/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L27)
 
 ___
 
 ### syncSitemapIntegration
 
-▸ **syncSitemapIntegration**(`client`, `sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationSyncResponse`](integration_sitemap_v1.md#sitemapintegrationsyncresponse)\>
+▸ **syncSitemapIntegration**(`client`, `sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -349,17 +339,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationSyncResponse`](integration_sitemap_v1.md#sitemapintegrationsyncresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/sitemap/v1.js:165](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L165)
+[integration/sitemap/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L157)
 
 ___
 
 ### updateSitemapIntegration
 
-▸ **updateSitemapIntegration**(`client`, `sitemapId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationUpdateResponse`](integration_sitemap_v1.md#sitemapintegrationupdateresponse)\>
+▸ **updateSitemapIntegration**(`client`, `sitemapId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -367,12 +357,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `sitemapId` | `string` |
-| `request` | [`SitemapIntegrationOptions`](integration_sitemap_v1.md#sitemapintegrationoptions) |
+| `request` | [`SitemapIntegrationUpdateRequest`](integration_sitemap_v1.md#sitemapintegrationupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationUpdateResponse`](integration_sitemap_v1.md#sitemapintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/sitemap/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L121)
+[integration/sitemap/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L113)

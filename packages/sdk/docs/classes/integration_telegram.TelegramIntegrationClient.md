@@ -106,7 +106,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationCreateResponse`](../modules/integration_telegram_v1.md#telegramintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new telegram integration.
 
@@ -118,7 +118,7 @@ Creates a new telegram integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationCreateResponse`](../modules/integration_telegram_v1.md#telegramintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`telegramId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationDeleteResponse`](../modules/integration_telegram_v1.md#telegramintegrationdeleteresponse)\>
+▸ **delete**(`telegramId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a telegram integration.
 
@@ -140,7 +140,7 @@ Deletes a telegram integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationDeleteResponse`](../modules/integration_telegram_v1.md#telegramintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`telegramId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TelegramIntegrationFetchResponse`](../modules/integration_telegram_v1.md#telegramintegrationfetchresponse), `never`\>
+▸ **fetch**(`telegramId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a telegram integration.
 
@@ -162,7 +162,7 @@ Fetches a telegram integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TelegramIntegrationFetchResponse`](../modules/integration_telegram_v1.md#telegramintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TelegramIntegrationListResponse`](../modules/integration_telegram_v1.md#telegramintegrationlistresponse), [`TelegramIntegrationListStreamItem`](../modules/integration_telegram_v1.md#telegramintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all telegram integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all telegram integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TelegramIntegrationListResponse`](../modules/integration_telegram_v1.md#telegramintegrationlistresponse), [`TelegramIntegrationListStreamItem`](../modules/integration_telegram_v1.md#telegramintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### setup
 
-▸ **setup**(`telegramId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationSetupResponse`](../modules/integration_telegram_v1.md#telegramintegrationsetupresponse)\>
+▸ **setup**(`telegramId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Setups a telegram integration.
 
@@ -206,7 +206,7 @@ Setups a telegram integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationSetupResponse`](../modules/integration_telegram_v1.md#telegramintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`telegramId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationUpdateResponse`](../modules/integration_telegram_v1.md#telegramintegrationupdateresponse)\>
+▸ **update**(`telegramId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a telegram integration.
 
@@ -229,7 +229,7 @@ Updates a telegram integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TelegramIntegrationUpdateResponse`](../modules/integration_telegram_v1.md#telegramintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

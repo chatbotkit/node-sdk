@@ -9,8 +9,6 @@
 - [ChatBotKitClient](usage_v1.md#chatbotkitclient)
 - [ResponsePromise](usage_v1.md#responsepromise)
 - [UsageFetchResponse](usage_v1.md#usagefetchresponse)
-- [UsageInstance](usage_v1.md#usageinstance)
-- [UsageOptions](usage_v1.md#usageoptions)
 
 ### Functions
 
@@ -47,52 +45,17 @@ ___
 
 ### UsageFetchResponse
 
-Ƭ **UsageFetchResponse**\<\>: [`UsageInstance`](usage_v1.md#usageinstance) & {}
+Ƭ **UsageFetchResponse**\<\>: `operations`[``"fetchUsage"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[usage/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L32)
-
-___
-
-### UsageInstance
-
-Ƭ **UsageInstance**\<\>: [`UsageOptions`](usage_v1.md#usageoptions) & {}
-
-#### Defined in
-
-[usage/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L27)
-
-___
-
-### UsageOptions
-
-Ƭ **UsageOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `conversations` | `number` |
-| `database` | \{ `abilities`: `number` ; `datasets`: `number` ; `files`: `number` ; `records`: `number` ; `skillsets`: `number` ; `users`: `number`  } |
-| `database.abilities` | `number` |
-| `database.datasets` | `number` |
-| `database.files` | `number` |
-| `database.records` | `number` |
-| `database.skillsets` | `number` |
-| `database.users` | `number` |
-| `messages` | `number` |
-| `tokens` | `number` |
-
-#### Defined in
-
-[usage/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L24)
+[usage/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L12)
 
 ## Functions
 
 ### fetchUsage
 
-▸ **fetchUsage**(`client`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`UsageOptions`](usage_v1.md#usageoptions), `never`\>
+▸ **fetchUsage**(`client`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -102,8 +65,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`UsageOptions`](usage_v1.md#usageoptions), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[usage/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L37)
+[usage/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L17)

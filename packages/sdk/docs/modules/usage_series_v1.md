@@ -9,8 +9,6 @@
 - [ChatBotKitClient](usage_series_v1.md#chatbotkitclient)
 - [ResponsePromise](usage_series_v1.md#responsepromise)
 - [UsageSeriesFetchResponse](usage_series_v1.md#usageseriesfetchresponse)
-- [UsageSeriesInstance](usage_series_v1.md#usageseriesinstance)
-- [UsageSeriesOptions](usage_series_v1.md#usageseriesoptions)
 
 ### Functions
 
@@ -47,45 +45,17 @@ ___
 
 ### UsageSeriesFetchResponse
 
-Ƭ **UsageSeriesFetchResponse**\<\>: [`UsageSeriesInstance`](usage_series_v1.md#usageseriesinstance) & {}
+Ƭ **UsageSeriesFetchResponse**\<\>: `operations`[``"fetchUsageSeries"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[usage/series/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L24)
-
-___
-
-### UsageSeriesInstance
-
-Ƭ **UsageSeriesInstance**\<\>: [`UsageSeriesOptions`](usage_series_v1.md#usageseriesoptions) & {}
-
-#### Defined in
-
-[usage/series/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L19)
-
-___
-
-### UsageSeriesOptions
-
-Ƭ **UsageSeriesOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `conversations` | \{ `date`: `number` ; `total`: `number`  }[] |
-| `messages` | \{ `date`: `number` ; `total`: `number`  }[] |
-| `tokens` | \{ `date`: `number` ; `total`: `number`  }[] |
-
-#### Defined in
-
-[usage/series/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L16)
+[usage/series/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L12)
 
 ## Functions
 
 ### fetchUsageSeries
 
-▸ **fetchUsageSeries**(`client`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`UsageSeriesOptions`](usage_series_v1.md#usageseriesoptions), `never`\>
+▸ **fetchUsageSeries**(`client`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -95,8 +65,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`UsageSeriesOptions`](usage_series_v1.md#usageseriesoptions), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[usage/series/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L29)
+[usage/series/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L17)

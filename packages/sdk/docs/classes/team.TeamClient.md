@@ -99,7 +99,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TeamListResponse`](../modules/team_v1.md#teamlistresponse), [`TeamListStreamItemType`](../modules/team_v1.md#teamliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all teams.
 
@@ -111,7 +111,7 @@ Retrieves a list of all teams.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TeamListResponse`](../modules/team_v1.md#teamlistresponse), [`TeamListStreamItemType`](../modules/team_v1.md#teamliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

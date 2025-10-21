@@ -106,7 +106,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationCreateResponse`](../modules/integration_discord_v1.md#discordintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new discord integration.
 
@@ -118,7 +118,7 @@ Creates a new discord integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationCreateResponse`](../modules/integration_discord_v1.md#discordintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationDeleteResponse`](../modules/integration_discord_v1.md#discordintegrationdeleteresponse)\>
+▸ **delete**(`discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a discord integration.
 
@@ -140,7 +140,7 @@ Deletes a discord integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationDeleteResponse`](../modules/integration_discord_v1.md#discordintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`discordId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DiscordIntegrationFetchResponse`](../modules/integration_discord_v1.md#discordintegrationfetchresponse), `never`\>
+▸ **fetch**(`discordId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a discord integration.
 
@@ -162,7 +162,7 @@ Fetches a discord integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DiscordIntegrationFetchResponse`](../modules/integration_discord_v1.md#discordintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DiscordIntegrationListResponse`](../modules/integration_discord_v1.md#discordintegrationlistresponse), [`DiscordIntegrationListStreamItem`](../modules/integration_discord_v1.md#discordintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all discord integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all discord integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DiscordIntegrationListResponse`](../modules/integration_discord_v1.md#discordintegrationlistresponse), [`DiscordIntegrationListStreamItem`](../modules/integration_discord_v1.md#discordintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### setup
 
-▸ **setup**(`discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationSetupResponse`](../modules/integration_discord_v1.md#discordintegrationsetupresponse)\>
+▸ **setup**(`discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Setups a discord integration.
 
@@ -206,7 +206,7 @@ Setups a discord integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationSetupResponse`](../modules/integration_discord_v1.md#discordintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`discordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationUpdateResponse`](../modules/integration_discord_v1.md#discordintegrationupdateresponse)\>
+▸ **update**(`discordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a discord integration.
 
@@ -229,7 +229,7 @@ Updates a discord integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationUpdateResponse`](../modules/integration_discord_v1.md#discordintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

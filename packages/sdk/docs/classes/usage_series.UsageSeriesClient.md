@@ -101,13 +101,13 @@ ___
 
 ### fetch
 
-▸ **fetch**(): [`ResponsePromise`](client.ResponsePromise.md)\<[`UsageSeriesOptions`](../modules/usage_series_v1.md#usageseriesoptions), `never`\>
+▸ **fetch**(): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches usage.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`UsageSeriesOptions`](../modules/usage_series_v1.md#usageseriesoptions), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 

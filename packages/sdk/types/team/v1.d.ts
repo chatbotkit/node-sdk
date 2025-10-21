@@ -8,33 +8,15 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} TeamOptions
- *
- * @typedef {TeamOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} TeamInstance
- */
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} TeamListRequest
  *
- * @typedef {{items: TeamInstance[]}} TeamListResponse
+ * @typedef {import('../types/api/v1.js').operations['listTeams']['responses']['200']['content']['application/json']} TeamListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: TeamInstance
- * }} TeamListStreamItemType
- *
- * @typedef {TeamListStreamItemType} TeamListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listTeams']['responses']['200']['content']['application/jsonl']} TeamListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {TeamListRequest} [request]
@@ -43,27 +25,11 @@
 export function listTeams(client: ChatBotKitClient, request?: TeamListRequest): ResponsePromise<TeamListResponse, TeamListStreamType>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
-export type TeamOptions = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-};
-export type TeamInstance = TeamOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
 export type TeamListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type TeamListResponse = {
-    items: TeamInstance[];
-};
-export type TeamListStreamItemType = {
-    type: "item";
-    data: TeamInstance;
-};
-export type TeamListStreamType = TeamListStreamItemType;
+export type TeamListResponse = import("../types/api/v1.js").operations["listTeams"]["responses"]["200"]["content"]["application/json"];
+export type TeamListStreamType = import("../types/api/v1.js").operations["listTeams"]["responses"]["200"]["content"]["application/jsonl"];

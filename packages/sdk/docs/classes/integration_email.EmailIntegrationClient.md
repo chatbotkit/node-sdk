@@ -106,7 +106,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationCreateResponse`](../modules/integration_email_v1.md#emailintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new email integration.
 
@@ -118,7 +118,7 @@ Creates a new email integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationCreateResponse`](../modules/integration_email_v1.md#emailintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`emailId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationDeleteResponse`](../modules/integration_email_v1.md#emailintegrationdeleteresponse)\>
+▸ **delete**(`emailId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a email integration.
 
@@ -140,7 +140,7 @@ Deletes a email integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationDeleteResponse`](../modules/integration_email_v1.md#emailintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`emailId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`EmailIntegrationFetchResponse`](../modules/integration_email_v1.md#emailintegrationfetchresponse), `never`\>
+▸ **fetch**(`emailId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a email integration.
 
@@ -162,7 +162,7 @@ Fetches a email integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`EmailIntegrationFetchResponse`](../modules/integration_email_v1.md#emailintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`EmailIntegrationListResponse`](../modules/integration_email_v1.md#emailintegrationlistresponse), [`EmailIntegrationListStreamItem`](../modules/integration_email_v1.md#emailintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all email integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all email integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`EmailIntegrationListResponse`](../modules/integration_email_v1.md#emailintegrationlistresponse), [`EmailIntegrationListStreamItem`](../modules/integration_email_v1.md#emailintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### setup
 
-▸ **setup**(`emailId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationSetupResponse`](../modules/integration_email_v1.md#emailintegrationsetupresponse)\>
+▸ **setup**(`emailId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Setups a email integration.
 
@@ -206,7 +206,7 @@ Setups a email integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationSetupResponse`](../modules/integration_email_v1.md#emailintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`emailId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationUpdateResponse`](../modules/integration_email_v1.md#emailintegrationupdateresponse)\>
+▸ **update**(`emailId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a email integration.
 
@@ -229,7 +229,7 @@ Updates a email integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`EmailIntegrationUpdateResponse`](../modules/integration_email_v1.md#emailintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

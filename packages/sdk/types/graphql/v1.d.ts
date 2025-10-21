@@ -15,16 +15,10 @@
  *   operationName?: string
  * }} GraphqlRequest
  *
- * @typedef {{
- *   data?: {
- *     [key: string]: unknown
- *   },
- *   errors?: {
- *     message?: string
- *   }[]
- * }} GraphqlResponse
- */
-/**
+ * @typedef {import('../types/api/v1.js').operations['graphql']['requestBody']['content']['application/json']} GraphqlRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['graphql']['responses']['200']['content']['application/json']} GraphqlResponse
+ *
  * @param {ChatBotKitClient} client
  * @param {GraphqlRequest} body
  * @returns {Promise<GraphqlResponse>}
@@ -39,11 +33,5 @@ export type GraphqlRequest = {
     };
     operationName?: string;
 };
-export type GraphqlResponse = {
-    data?: {
-        [key: string]: unknown;
-    };
-    errors?: {
-        message?: string;
-    }[];
-};
+export type GraphqlRequestBody = import("../types/api/v1.js").operations["graphql"]["requestBody"]["content"]["application/json"];
+export type GraphqlResponse = import("../types/api/v1.js").operations["graphql"]["responses"]["200"]["content"]["application/json"];

@@ -8,12 +8,9 @@
 
 - [ChatBotKitClient](team_v1.md#chatbotkitclient)
 - [ResponsePromise](team_v1.md#responsepromise)
-- [TeamInstance](team_v1.md#teaminstance)
 - [TeamListRequest](team_v1.md#teamlistrequest)
 - [TeamListResponse](team_v1.md#teamlistresponse)
-- [TeamListStreamItemType](team_v1.md#teamliststreamitemtype)
 - [TeamListStreamType](team_v1.md#teamliststreamtype)
-- [TeamOptions](team_v1.md#teamoptions)
 
 ### Functions
 
@@ -48,16 +45,6 @@ ___
 
 ___
 
-### TeamInstance
-
-Ƭ **TeamInstance**\<\>: [`TeamOptions`](team_v1.md#teamoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[team/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L22)
-
-___
-
 ### TeamListRequest
 
 Ƭ **TeamListRequest**\<\>: `Object`
@@ -73,74 +60,33 @@ ___
 
 #### Defined in
 
-[team/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L31)
+[team/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L17)
 
 ___
 
 ### TeamListResponse
 
-Ƭ **TeamListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`TeamInstance`](team_v1.md#teaminstance)[] |
+Ƭ **TeamListResponse**\<\>: `operations`[``"listTeams"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[team/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L33)
-
-___
-
-### TeamListStreamItemType
-
-Ƭ **TeamListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`TeamInstance`](team_v1.md#teaminstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[team/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L38)
+[team/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L19)
 
 ___
 
 ### TeamListStreamType
 
-Ƭ **TeamListStreamType**\<\>: [`TeamListStreamItemType`](team_v1.md#teamliststreamitemtype)
+Ƭ **TeamListStreamType**\<\>: `operations`[``"listTeams"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[team/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L40)
-
-___
-
-### TeamOptions
-
-Ƭ **TeamOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-
-#### Defined in
-
-[team/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L16)
+[team/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L21)
 
 ## Functions
 
 ### listTeams
 
-▸ **listTeams**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TeamListResponse`](team_v1.md#teamlistresponse), [`TeamListStreamItemType`](team_v1.md#teamliststreamitemtype)\>
+▸ **listTeams**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -151,8 +97,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TeamListResponse`](team_v1.md#teamlistresponse), [`TeamListStreamItemType`](team_v1.md#teamliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[team/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L46)
+[team/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/team/v1.js#L27)

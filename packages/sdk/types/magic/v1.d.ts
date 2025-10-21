@@ -11,17 +11,9 @@
  *   text: string
  * }} MagicGenerateRequest
  *
- * @typedef {{
- *   text: string,
- *   usage: { token: number }
- * }} MagicGenerateResponse
+ * @typedef {import('../types/api/v1.js').operations['generateMagicFromPrompt']['responses']['200']['content']['application/json']} MagicGenerateResponse
  *
- * @typedef {{
- *   type: 'result',
- *   data: MagicGenerateResponse
- * }} MagicGenerateStreamResult
- *
- * @typedef {MagicGenerateStreamResult} MagicGenerateStreamType
+ * @typedef {import('../types/api/v1.js').operations['generateMagicFromPrompt']['responses']['200']['content']['application/jsonl']} MagicGenerateStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} magicId
@@ -34,14 +26,5 @@ export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>
 export type MagicGenerateRequest = {
     text: string;
 };
-export type MagicGenerateResponse = {
-    text: string;
-    usage: {
-        token: number;
-    };
-};
-export type MagicGenerateStreamResult = {
-    type: "result";
-    data: MagicGenerateResponse;
-};
-export type MagicGenerateStreamType = MagicGenerateStreamResult;
+export type MagicGenerateResponse = import("../types/api/v1.js").operations["generateMagicFromPrompt"]["responses"]["200"]["content"]["application/json"];
+export type MagicGenerateStreamType = import("../types/api/v1.js").operations["generateMagicFromPrompt"]["responses"]["200"]["content"]["application/jsonl"];

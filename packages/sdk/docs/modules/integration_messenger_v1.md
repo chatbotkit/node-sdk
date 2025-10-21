@@ -8,17 +8,18 @@
 
 - [ChatBotKitClient](integration_messenger_v1.md#chatbotkitclient)
 - [MessengerIntegrationCreateRequest](integration_messenger_v1.md#messengerintegrationcreaterequest)
+- [MessengerIntegrationCreateRequestBody](integration_messenger_v1.md#messengerintegrationcreaterequestbody)
 - [MessengerIntegrationCreateResponse](integration_messenger_v1.md#messengerintegrationcreateresponse)
+- [MessengerIntegrationDeleteRequestBody](integration_messenger_v1.md#messengerintegrationdeleterequestbody)
 - [MessengerIntegrationDeleteResponse](integration_messenger_v1.md#messengerintegrationdeleteresponse)
 - [MessengerIntegrationFetchResponse](integration_messenger_v1.md#messengerintegrationfetchresponse)
-- [MessengerIntegrationInstance](integration_messenger_v1.md#messengerintegrationinstance)
 - [MessengerIntegrationListRequest](integration_messenger_v1.md#messengerintegrationlistrequest)
 - [MessengerIntegrationListResponse](integration_messenger_v1.md#messengerintegrationlistresponse)
-- [MessengerIntegrationListStreamItem](integration_messenger_v1.md#messengerintegrationliststreamitem)
 - [MessengerIntegrationListStreamType](integration_messenger_v1.md#messengerintegrationliststreamtype)
-- [MessengerIntegrationOptions](integration_messenger_v1.md#messengerintegrationoptions)
+- [MessengerIntegrationSetupRequestBody](integration_messenger_v1.md#messengerintegrationsetuprequestbody)
 - [MessengerIntegrationSetupResponse](integration_messenger_v1.md#messengerintegrationsetupresponse)
 - [MessengerIntegrationUpdateRequest](integration_messenger_v1.md#messengerintegrationupdaterequest)
+- [MessengerIntegrationUpdateRequestBody](integration_messenger_v1.md#messengerintegrationupdaterequestbody)
 - [MessengerIntegrationUpdateResponse](integration_messenger_v1.md#messengerintegrationupdateresponse)
 - [ResponsePromise](integration_messenger_v1.md#responsepromise)
 
@@ -45,49 +46,32 @@ ___
 
 ### MessengerIntegrationCreateRequest
 
-Ƭ **MessengerIntegrationCreateRequest**\<\>: [`MessengerIntegrationOptions`](integration_messenger_v1.md#messengerintegrationoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
-
-#### Defined in
-
-[integration/messenger/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L85)
-
-___
-
-### MessengerIntegrationCreateResponse
-
-Ƭ **MessengerIntegrationCreateResponse**\<\>: `Object`
+Ƭ **MessengerIntegrationCreateRequest**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `id` | `string` |
+| `accessToken?` | `string` |
+| `attachments?` | `boolean` |
+| `blueprintId?` | `string` |
+| `botId?` | `string` |
+| `contactCollection?` | `boolean` |
+| `description?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `model?` | [`model/v1`](model_v1.md) |
+| `name?` | `string` |
+| `sessionDuration?` | `number` |
 
 #### Defined in
 
-[integration/messenger/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L89)
+[integration/messenger/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L64)
 
 ___
 
-### MessengerIntegrationDeleteResponse
+### MessengerIntegrationCreateRequestBody
 
-Ƭ **MessengerIntegrationDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[integration/messenger/v1.js:140](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L140)
-
-___
-
-### MessengerIntegrationFetchResponse
-
-Ƭ **MessengerIntegrationFetchResponse**\<\>: [`MessengerIntegrationInstance`](integration_messenger_v1.md#messengerintegrationinstance) & {}
+Ƭ **MessengerIntegrationCreateRequestBody**\<\>: `operations`[``"createMessengerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -95,13 +79,43 @@ ___
 
 ___
 
-### MessengerIntegrationInstance
+### MessengerIntegrationCreateResponse
 
-Ƭ **MessengerIntegrationInstance**\<\>: [`MessengerIntegrationOptions`](integration_messenger_v1.md#messengerintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number` ; `verifyToken`: `string`  }
+Ƭ **MessengerIntegrationCreateResponse**\<\>: `operations`[``"createMessengerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/messenger/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L29)
+[integration/messenger/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L68)
+
+___
+
+### MessengerIntegrationDeleteRequestBody
+
+Ƭ **MessengerIntegrationDeleteRequestBody**\<\>: `operations`[``"deleteMessengerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/messenger/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L126)
+
+___
+
+### MessengerIntegrationDeleteResponse
+
+Ƭ **MessengerIntegrationDeleteResponse**\<\>: `operations`[``"deleteMessengerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/messenger/v1.js:128](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L128)
+
+___
+
+### MessengerIntegrationFetchResponse
+
+Ƭ **MessengerIntegrationFetchResponse**\<\>: `operations`[``"fetchMessengerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/messenger/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L37)
 
 ___
 
@@ -120,56 +134,53 @@ ___
 
 #### Defined in
 
-[integration/messenger/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L38)
+[integration/messenger/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L17)
 
 ___
 
 ### MessengerIntegrationListResponse
 
-Ƭ **MessengerIntegrationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`MessengerIntegrationInstance`](integration_messenger_v1.md#messengerintegrationinstance)[] |
+Ƭ **MessengerIntegrationListResponse**\<\>: `operations`[``"listMessengerIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/messenger/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L40)
-
-___
-
-### MessengerIntegrationListStreamItem
-
-Ƭ **MessengerIntegrationListStreamItem**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`MessengerIntegrationInstance`](integration_messenger_v1.md#messengerintegrationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[integration/messenger/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L45)
+[integration/messenger/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L19)
 
 ___
 
 ### MessengerIntegrationListStreamType
 
-Ƭ **MessengerIntegrationListStreamType**\<\>: [`MessengerIntegrationListStreamItem`](integration_messenger_v1.md#messengerintegrationliststreamitem)
+Ƭ **MessengerIntegrationListStreamType**\<\>: `operations`[``"listMessengerIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[integration/messenger/v1.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L47)
+[integration/messenger/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L21)
 
 ___
 
-### MessengerIntegrationOptions
+### MessengerIntegrationSetupRequestBody
 
-Ƭ **MessengerIntegrationOptions**\<\>: `Object`
+Ƭ **MessengerIntegrationSetupRequestBody**\<\>: `operations`[``"setupMessengerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/messenger/v1.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L147)
+
+___
+
+### MessengerIntegrationSetupResponse
+
+Ƭ **MessengerIntegrationSetupResponse**\<\>: `operations`[``"setupMessengerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/messenger/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L149)
+
+___
+
+### MessengerIntegrationUpdateRequest
+
+Ƭ **MessengerIntegrationUpdateRequest**\<\>: `Object`
 
 #### Type declaration
 
@@ -182,54 +193,33 @@ ___
 | `contactCollection?` | `boolean` |
 | `description?` | `string` |
 | `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `model?` | [`model/v1`](model_v1.md) |
 | `name?` | `string` |
 | `sessionDuration?` | `number` |
 
 #### Defined in
 
-[integration/messenger/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L22)
+[integration/messenger/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L100)
 
 ___
 
-### MessengerIntegrationSetupResponse
+### MessengerIntegrationUpdateRequestBody
 
-Ƭ **MessengerIntegrationSetupResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **MessengerIntegrationUpdateRequestBody**\<\>: `operations`[``"updateMessengerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/messenger/v1.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L161)
-
-___
-
-### MessengerIntegrationUpdateRequest
-
-Ƭ **MessengerIntegrationUpdateRequest**\<\>: [`MessengerIntegrationOptions`](integration_messenger_v1.md#messengerintegrationoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
-
-#### Defined in
-
-[integration/messenger/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L112)
+[integration/messenger/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L102)
 
 ___
 
 ### MessengerIntegrationUpdateResponse
 
-Ƭ **MessengerIntegrationUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **MessengerIntegrationUpdateResponse**\<\>: `operations`[``"updateMessengerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/messenger/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L116)
+[integration/messenger/v1.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L104)
 
 ___
 
@@ -252,7 +242,7 @@ ___
 
 ### createMessengerIntegration
 
-▸ **createMessengerIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationCreateResponse`](integration_messenger_v1.md#messengerintegrationcreateresponse)\>
+▸ **createMessengerIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -263,17 +253,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationCreateResponse`](integration_messenger_v1.md#messengerintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/messenger/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L95)
+[integration/messenger/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L74)
 
 ___
 
 ### deleteMessengerIntegration
 
-▸ **deleteMessengerIntegration**(`client`, `messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationDeleteResponse`](integration_messenger_v1.md#messengerintegrationdeleteresponse)\>
+▸ **deleteMessengerIntegration**(`client`, `messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -284,17 +274,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationDeleteResponse`](integration_messenger_v1.md#messengerintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/messenger/v1.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L146)
+[integration/messenger/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L134)
 
 ___
 
 ### fetchMessengerIntegration
 
-▸ **fetchMessengerIntegration**(`client`, `messengerId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`MessengerIntegrationFetchResponse`](integration_messenger_v1.md#messengerintegrationfetchresponse), `never`\>
+▸ **fetchMessengerIntegration**(`client`, `messengerId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -305,17 +295,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`MessengerIntegrationFetchResponse`](integration_messenger_v1.md#messengerintegrationfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[integration/messenger/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L72)
+[integration/messenger/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L43)
 
 ___
 
 ### listMessengerIntegrations
 
-▸ **listMessengerIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`MessengerIntegrationListResponse`](integration_messenger_v1.md#messengerintegrationlistresponse), [`MessengerIntegrationListStreamItem`](integration_messenger_v1.md#messengerintegrationliststreamitem)\>
+▸ **listMessengerIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -326,17 +316,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`MessengerIntegrationListResponse`](integration_messenger_v1.md#messengerintegrationlistresponse), [`MessengerIntegrationListStreamItem`](integration_messenger_v1.md#messengerintegrationliststreamitem)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[integration/messenger/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L53)
+[integration/messenger/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L27)
 
 ___
 
 ### setupMessengerIntegration
 
-▸ **setupMessengerIntegration**(`client`, `messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationSetupResponse`](integration_messenger_v1.md#messengerintegrationsetupresponse)\>
+▸ **setupMessengerIntegration**(`client`, `messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -347,17 +337,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationSetupResponse`](integration_messenger_v1.md#messengerintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/messenger/v1.js:167](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L167)
+[integration/messenger/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L155)
 
 ___
 
 ### updateMessengerIntegration
 
-▸ **updateMessengerIntegration**(`client`, `messengerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationUpdateResponse`](integration_messenger_v1.md#messengerintegrationupdateresponse)\>
+▸ **updateMessengerIntegration**(`client`, `messengerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -369,8 +359,8 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationUpdateResponse`](integration_messenger_v1.md#messengerintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/messenger/v1.js:123](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L123)
+[integration/messenger/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L111)

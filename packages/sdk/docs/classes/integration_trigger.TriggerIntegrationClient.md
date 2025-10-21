@@ -107,7 +107,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationCreateResponse`](../modules/integration_trigger_v1.md#triggerintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new trigger integration.
 
@@ -119,7 +119,7 @@ Creates a new trigger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationCreateResponse`](../modules/integration_trigger_v1.md#triggerintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -129,7 +129,7 @@ ___
 
 ### delete
 
-▸ **delete**(`triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationDeleteResponse`](../modules/integration_trigger_v1.md#triggerintegrationdeleteresponse)\>
+▸ **delete**(`triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a trigger integration.
 
@@ -141,7 +141,7 @@ Deletes a trigger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationDeleteResponse`](../modules/integration_trigger_v1.md#triggerintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -151,7 +151,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`triggerId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TriggerIntegrationFetchResponse`](../modules/integration_trigger_v1.md#triggerintegrationfetchresponse), `never`\>
+▸ **fetch**(`triggerId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a trigger integration.
 
@@ -163,7 +163,7 @@ Fetches a trigger integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TriggerIntegrationFetchResponse`](../modules/integration_trigger_v1.md#triggerintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -173,7 +173,7 @@ ___
 
 ### invoke
 
-▸ **invoke**(`triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationInvokeResponse`](../modules/integration_trigger_v1.md#triggerintegrationinvokeresponse)\>
+▸ **invoke**(`triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Invoke a trigger integration.
 
@@ -186,7 +186,7 @@ Invoke a trigger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationInvokeResponse`](../modules/integration_trigger_v1.md#triggerintegrationinvokeresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -196,7 +196,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TriggerIntegrationListResponse`](../modules/integration_trigger_v1.md#triggerintegrationlistresponse), [`TriggerIntegrationListStreamItem`](../modules/integration_trigger_v1.md#triggerintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all trigger integrations.
 
@@ -208,7 +208,7 @@ Retrieves a list of all trigger integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TriggerIntegrationListResponse`](../modules/integration_trigger_v1.md#triggerintegrationlistresponse), [`TriggerIntegrationListStreamItem`](../modules/integration_trigger_v1.md#triggerintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -218,7 +218,7 @@ ___
 
 ### setup
 
-▸ **setup**(`triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationSetupResponse`](../modules/integration_trigger_v1.md#triggerintegrationsetupresponse)\>
+▸ **setup**(`triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Setups a trigger integration.
 
@@ -230,7 +230,7 @@ Setups a trigger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationSetupResponse`](../modules/integration_trigger_v1.md#triggerintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -240,7 +240,7 @@ ___
 
 ### update
 
-▸ **update**(`triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationUpdateResponse`](../modules/integration_trigger_v1.md#triggerintegrationupdateresponse)\>
+▸ **update**(`triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a trigger integration.
 
@@ -253,7 +253,7 @@ Updates a trigger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationUpdateResponse`](../modules/integration_trigger_v1.md#triggerintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

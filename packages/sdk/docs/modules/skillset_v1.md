@@ -9,16 +9,16 @@
 - [ChatBotKitClient](skillset_v1.md#chatbotkitclient)
 - [ResponsePromise](skillset_v1.md#responsepromise)
 - [SkillsetCreateRequest](skillset_v1.md#skillsetcreaterequest)
+- [SkillsetCreateRequestBody](skillset_v1.md#skillsetcreaterequestbody)
 - [SkillsetCreateResponse](skillset_v1.md#skillsetcreateresponse)
+- [SkillsetDeleteRequestBody](skillset_v1.md#skillsetdeleterequestbody)
 - [SkillsetDeleteResponse](skillset_v1.md#skillsetdeleteresponse)
 - [SkillsetFetchResponse](skillset_v1.md#skillsetfetchresponse)
-- [SkillsetInstance](skillset_v1.md#skillsetinstance)
 - [SkillsetListRequest](skillset_v1.md#skillsetlistrequest)
 - [SkillsetListResponse](skillset_v1.md#skillsetlistresponse)
-- [SkillsetListStreamItemType](skillset_v1.md#skillsetliststreamitemtype)
 - [SkillsetListStreamType](skillset_v1.md#skillsetliststreamtype)
-- [SkillsetOptions](skillset_v1.md#skillsetoptions)
 - [SkillsetUpdateRequest](skillset_v1.md#skillsetupdaterequest)
+- [SkillsetUpdateRequestBody](skillset_v1.md#skillsetupdaterequestbody)
 - [SkillsetUpdateResponse](skillset_v1.md#skillsetupdateresponse)
 
 ### Functions
@@ -60,49 +60,27 @@ ___
 
 ### SkillsetCreateRequest
 
-Ƭ **SkillsetCreateRequest**\<\>: [`SkillsetOptions`](skillset_v1.md#skillsetoptions) & {}
-
-#### Defined in
-
-[skillset/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L79)
-
-___
-
-### SkillsetCreateResponse
-
-Ƭ **SkillsetCreateResponse**\<\>: `Object`
+Ƭ **SkillsetCreateRequest**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `id` | `string` |
+| `blueprintId?` | `string` |
+| `description?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `name?` | `string` |
+| `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
 
 #### Defined in
 
-[skillset/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L83)
+[skillset/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L59)
 
 ___
 
-### SkillsetDeleteResponse
+### SkillsetCreateRequestBody
 
-Ƭ **SkillsetDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[skillset/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L133)
-
-___
-
-### SkillsetFetchResponse
-
-Ƭ **SkillsetFetchResponse**\<\>: [`SkillsetInstance`](skillset_v1.md#skillsetinstance) & {}
+Ƭ **SkillsetCreateRequestBody**\<\>: `operations`[``"createSkillset"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -110,13 +88,43 @@ ___
 
 ___
 
-### SkillsetInstance
+### SkillsetCreateResponse
 
-Ƭ **SkillsetInstance**\<\>: [`SkillsetOptions`](skillset_v1.md#skillsetoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **SkillsetCreateResponse**\<\>: `operations`[``"createSkillset"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[skillset/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L24)
+[skillset/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L63)
+
+___
+
+### SkillsetDeleteRequestBody
+
+Ƭ **SkillsetDeleteRequestBody**\<\>: `operations`[``"deleteSkillset"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[skillset/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L116)
+
+___
+
+### SkillsetDeleteResponse
+
+Ƭ **SkillsetDeleteResponse**\<\>: `operations`[``"deleteSkillset"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[skillset/v1.js:118](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L118)
+
+___
+
+### SkillsetFetchResponse
+
+Ƭ **SkillsetFetchResponse**\<\>: `operations`[``"fetchSkillset"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[skillset/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L37)
 
 ___
 
@@ -135,56 +143,33 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L33)
+[skillset/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L17)
 
 ___
 
 ### SkillsetListResponse
 
-Ƭ **SkillsetListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`SkillsetInstance`](skillset_v1.md#skillsetinstance)[] |
+Ƭ **SkillsetListResponse**\<\>: `operations`[``"listSkillsets"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[skillset/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L35)
-
-___
-
-### SkillsetListStreamItemType
-
-Ƭ **SkillsetListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`SkillsetInstance`](skillset_v1.md#skillsetinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[skillset/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L40)
+[skillset/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L19)
 
 ___
 
 ### SkillsetListStreamType
 
-Ƭ **SkillsetListStreamType**\<\>: [`SkillsetListStreamItemType`](skillset_v1.md#skillsetliststreamitemtype)
+Ƭ **SkillsetListStreamType**\<\>: `operations`[``"listSkillsets"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[skillset/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L42)
+[skillset/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L21)
 
 ___
 
-### SkillsetOptions
+### SkillsetUpdateRequest
 
-Ƭ **SkillsetOptions**\<\>: `Object`
+Ƭ **SkillsetUpdateRequest**\<\>: `Object`
 
 #### Type declaration
 
@@ -198,60 +183,54 @@ ___
 
 #### Defined in
 
-[skillset/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L18)
+[skillset/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L90)
 
 ___
 
-### SkillsetUpdateRequest
+### SkillsetUpdateRequestBody
 
-Ƭ **SkillsetUpdateRequest**\<\>: [`SkillsetOptions`](skillset_v1.md#skillsetoptions) & {}
+Ƭ **SkillsetUpdateRequestBody**\<\>: `operations`[``"updateSkillset"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[skillset/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L105)
+[skillset/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L92)
 
 ___
 
 ### SkillsetUpdateResponse
 
-Ƭ **SkillsetUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **SkillsetUpdateResponse**\<\>: `operations`[``"updateSkillset"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[skillset/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L109)
+[skillset/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L94)
 
 ## Functions
 
 ### createSkillset
 
-▸ **createSkillset**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetCreateResponse`](skillset_v1.md#skillsetcreateresponse)\>
+▸ **createSkillset**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`SkillsetOptions`](skillset_v1.md#skillsetoptions) |
+| `request` | [`SkillsetCreateRequest`](skillset_v1.md#skillsetcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetCreateResponse`](skillset_v1.md#skillsetcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[skillset/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L89)
+[skillset/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L69)
 
 ___
 
 ### deleteSkillset
 
-▸ **deleteSkillset**(`client`, `skillsetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetDeleteResponse`](skillset_v1.md#skillsetdeleteresponse)\>
+▸ **deleteSkillset**(`client`, `skillsetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -262,17 +241,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetDeleteResponse`](skillset_v1.md#skillsetdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[skillset/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L139)
+[skillset/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L124)
 
 ___
 
 ### fetchSkillset
 
-▸ **fetchSkillset**(`client`, `skillsetId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse), `never`\>
+▸ **fetchSkillset**(`client`, `skillsetId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -283,17 +262,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SkillsetFetchResponse`](skillset_v1.md#skillsetfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[skillset/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L67)
+[skillset/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L43)
 
 ___
 
 ### listSkillsets
 
-▸ **listSkillsets**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SkillsetListResponse`](skillset_v1.md#skillsetlistresponse), [`SkillsetListStreamItemType`](skillset_v1.md#skillsetliststreamitemtype)\>
+▸ **listSkillsets**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -304,17 +283,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`SkillsetListResponse`](skillset_v1.md#skillsetlistresponse), [`SkillsetListStreamItemType`](skillset_v1.md#skillsetliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[skillset/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L48)
+[skillset/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L27)
 
 ___
 
 ### updateSkillset
 
-▸ **updateSkillset**(`client`, `skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetUpdateResponse`](skillset_v1.md#skillsetupdateresponse)\>
+▸ **updateSkillset**(`client`, `skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -322,12 +301,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `skillsetId` | `string` |
-| `request` | [`SkillsetOptions`](skillset_v1.md#skillsetoptions) |
+| `request` | [`SkillsetUpdateRequest`](skillset_v1.md#skillsetupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetUpdateResponse`](skillset_v1.md#skillsetupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[skillset/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L116)
+[skillset/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/v1.js#L101)

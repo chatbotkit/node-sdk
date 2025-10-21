@@ -105,7 +105,7 @@ ___
 
 ### clone
 
-▸ **clone**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintCloneResponse`](../modules/blueprint_v1.md#blueprintcloneresponse)\>
+▸ **clone**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Clones a blueprint.
 
@@ -117,7 +117,7 @@ Clones a blueprint.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintCloneResponse`](../modules/blueprint_v1.md#blueprintcloneresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -127,7 +127,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintCreateResponse`](../modules/blueprint_v1.md#blueprintcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new blueprint.
 
@@ -135,11 +135,11 @@ Creates a new blueprint.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`BlueprintOptions`](../modules/blueprint_v1.md#blueprintoptions) |
+| `request` | [`BlueprintCreateRequest`](../modules/blueprint_v1.md#blueprintcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintCreateResponse`](../modules/blueprint_v1.md#blueprintcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -149,7 +149,7 @@ ___
 
 ### delete
 
-▸ **delete**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintDeleteResponse`](../modules/blueprint_v1.md#blueprintdeleteresponse)\>
+▸ **delete**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the blueprint.
 
@@ -161,7 +161,7 @@ Deletes the blueprint.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintDeleteResponse`](../modules/blueprint_v1.md#blueprintdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -171,7 +171,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`blueprintId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintFetchResponse`](../modules/blueprint_v1.md#blueprintfetchresponse), `never`\>
+▸ **fetch**(`blueprintId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a blueprint.
 
@@ -183,7 +183,7 @@ Fetches a blueprint.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintFetchResponse`](../modules/blueprint_v1.md#blueprintfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -193,7 +193,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintListResponse`](../modules/blueprint_v1.md#blueprintlistresponse), [`BlueprintListStreamItemType`](../modules/blueprint_v1.md#blueprintliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all blueprints.
 
@@ -205,7 +205,7 @@ Retrieves a list of all blueprints.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintListResponse`](../modules/blueprint_v1.md#blueprintlistresponse), [`BlueprintListStreamItemType`](../modules/blueprint_v1.md#blueprintliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -215,7 +215,7 @@ ___
 
 ### listResources
 
-▸ **listResources**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintListResourcesResponse`](../modules/blueprint_v1.md#blueprintlistresourcesresponse)\>
+▸ **listResources**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Lists all resources for a blueprint.
 
@@ -227,7 +227,7 @@ Lists all resources for a blueprint.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintListResourcesResponse`](../modules/blueprint_v1.md#blueprintlistresourcesresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -237,7 +237,7 @@ ___
 
 ### update
 
-▸ **update**(`blueprintId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintUpdateResponse`](../modules/blueprint_v1.md#blueprintupdateresponse)\>
+▸ **update**(`blueprintId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a blueprint.
 
@@ -246,11 +246,11 @@ Updates a blueprint.
 | Name | Type |
 | :------ | :------ |
 | `blueprintId` | `string` |
-| `request` | [`BlueprintOptions`](../modules/blueprint_v1.md#blueprintoptions) |
+| `request` | [`BlueprintUpdateRequest`](../modules/blueprint_v1.md#blueprintupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintUpdateResponse`](../modules/blueprint_v1.md#blueprintupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

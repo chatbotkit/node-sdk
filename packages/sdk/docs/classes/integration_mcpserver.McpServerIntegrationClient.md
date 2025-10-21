@@ -105,7 +105,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`McpServerIntegrationCreateResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new mcpserver integration.
 
@@ -113,11 +113,11 @@ Creates a new mcpserver integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`McpServerIntegrationOptions`](../modules/integration_mcpserver_v1.md#mcpserverintegrationoptions) |
+| `request` | [`McpServerIntegrationCreateRequest`](../modules/integration_mcpserver_v1.md#mcpserverintegrationcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`McpServerIntegrationCreateResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -127,7 +127,7 @@ ___
 
 ### delete
 
-▸ **delete**(`mcpserverId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`McpServerIntegrationDeleteResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationdeleteresponse)\>
+▸ **delete**(`mcpserverId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a mcpserver integration.
 
@@ -139,7 +139,7 @@ Deletes a mcpserver integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`McpServerIntegrationDeleteResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -149,7 +149,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`mcpserverId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`McpServerIntegrationFetchResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationfetchresponse), `never`\>
+▸ **fetch**(`mcpserverId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a mcpserver integration.
 
@@ -161,7 +161,7 @@ Fetches a mcpserver integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`McpServerIntegrationFetchResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -171,7 +171,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`McpServerIntegrationListResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationlistresponse), [`McpServerIntegrationListStreamItem`](../modules/integration_mcpserver_v1.md#mcpserverintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all mcpserver integrations.
 
@@ -183,7 +183,7 @@ Retrieves a list of all mcpserver integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`McpServerIntegrationListResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationlistresponse), [`McpServerIntegrationListStreamItem`](../modules/integration_mcpserver_v1.md#mcpserverintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -193,7 +193,7 @@ ___
 
 ### update
 
-▸ **update**(`mcpserverId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`McpServerIntegrationUpdateResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationupdateresponse)\>
+▸ **update**(`mcpserverId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a mcpserver integration.
 
@@ -202,11 +202,11 @@ Updates a mcpserver integration.
 | Name | Type |
 | :------ | :------ |
 | `mcpserverId` | `string` |
-| `request` | [`McpServerIntegrationOptions`](../modules/integration_mcpserver_v1.md#mcpserverintegrationoptions) |
+| `request` | [`McpServerIntegrationUpdateRequest`](../modules/integration_mcpserver_v1.md#mcpserverintegrationupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`McpServerIntegrationUpdateResponse`](../modules/integration_mcpserver_v1.md#mcpserverintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

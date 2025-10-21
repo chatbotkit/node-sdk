@@ -115,13 +115,13 @@ ___
 
 ### fetch
 
-▸ **fetch**(): [`ResponsePromise`](client.ResponsePromise.md)\<[`UsageOptions`](../modules/usage_v1.md#usageoptions), `never`\>
+▸ **fetch**(): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches usage.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`UsageOptions`](../modules/usage_v1.md#usageoptions), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 

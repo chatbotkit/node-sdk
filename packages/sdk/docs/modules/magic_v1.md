@@ -9,7 +9,6 @@
 - [ChatBotKitClient](magic_v1.md#chatbotkitclient)
 - [MagicGenerateRequest](magic_v1.md#magicgeneraterequest)
 - [MagicGenerateResponse](magic_v1.md#magicgenerateresponse)
-- [MagicGenerateStreamResult](magic_v1.md#magicgeneratestreamresult)
 - [MagicGenerateStreamType](magic_v1.md#magicgeneratestreamtype)
 - [ResponsePromise](magic_v1.md#responsepromise)
 
@@ -47,46 +46,21 @@ ___
 
 ### MagicGenerateResponse
 
-Ƭ **MagicGenerateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `text` | `string` |
-| `usage` | \{ `token`: `number`  } |
-| `usage.token` | `number` |
+Ƭ **MagicGenerateResponse**\<\>: `operations`[``"generateMagicFromPrompt"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[magic/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L19)
-
-___
-
-### MagicGenerateStreamResult
-
-Ƭ **MagicGenerateStreamResult**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`MagicGenerateResponse`](magic_v1.md#magicgenerateresponse) |
-| `type` | ``"result"`` |
-
-#### Defined in
-
-[magic/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L24)
+[magic/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L16)
 
 ___
 
 ### MagicGenerateStreamType
 
-Ƭ **MagicGenerateStreamType**\<\>: [`MagicGenerateStreamResult`](magic_v1.md#magicgeneratestreamresult)
+Ƭ **MagicGenerateStreamType**\<\>: `operations`[``"generateMagicFromPrompt"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[magic/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L26)
+[magic/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L18)
 
 ___
 
@@ -109,7 +83,7 @@ ___
 
 ### generateMagic
 
-▸ **generateMagic**(`client`, `magicId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`MagicGenerateResponse`](magic_v1.md#magicgenerateresponse), [`MagicGenerateStreamResult`](magic_v1.md#magicgeneratestreamresult)\>
+▸ **generateMagic**(`client`, `magicId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -121,8 +95,8 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`MagicGenerateResponse`](magic_v1.md#magicgenerateresponse), [`MagicGenerateStreamResult`](magic_v1.md#magicgeneratestreamresult)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[magic/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L33)
+[magic/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L25)

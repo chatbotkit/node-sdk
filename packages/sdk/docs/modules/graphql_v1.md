@@ -8,6 +8,7 @@
 
 - [ChatBotKitClient](graphql_v1.md#chatbotkitclient)
 - [GraphqlRequest](graphql_v1.md#graphqlrequest)
+- [GraphqlRequestBody](graphql_v1.md#graphqlrequestbody)
 - [GraphqlResponse](graphql_v1.md#graphqlresponse)
 - [ResponsePromise](graphql_v1.md#responsepromise)
 
@@ -45,20 +46,23 @@ ___
 
 ___
 
-### GraphqlResponse
+### GraphqlRequestBody
 
-Ƭ **GraphqlResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data?` | \{ `[key: string]`: `unknown`;  } |
-| `errors?` | \{ `message?`: `string`  }[] |
+Ƭ **GraphqlRequestBody**\<\>: `operations`[``"graphql"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[graphql/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L27)
+[graphql/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L20)
+
+___
+
+### GraphqlResponse
+
+Ƭ **GraphqlResponse**\<\>: `operations`[``"graphql"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[graphql/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L22)
 
 ___
 
@@ -81,7 +85,7 @@ ___
 
 ### call
 
-▸ **call**(`client`, `body`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`GraphqlResponse`](graphql_v1.md#graphqlresponse)\>
+▸ **call**(`client`, `body`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -92,8 +96,8 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`GraphqlResponse`](graphql_v1.md#graphqlresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[graphql/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L35)
+[graphql/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L28)

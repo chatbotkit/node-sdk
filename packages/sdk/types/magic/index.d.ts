@@ -14,7 +14,20 @@ export class MagicClient extends ChatBotKitClient {
      * @param {import('./v1.js').MagicGenerateRequest} request
      * @param {import('./v1.js').MagicGenerateRequest|import('./v1.js').MagicGenerateStreamType} request
      */
-    generate(magicId: string, request: import("./v1.js").MagicGenerateRequest): import("../client.js").ResponsePromise<import("./v1.js").MagicGenerateResponse, import("./v1.js").MagicGenerateStreamResult>;
+    generate(magicId: string, request: import("./v1.js").MagicGenerateRequest): import("../client.js").ResponsePromise<{
+        text: string;
+        usage: {
+            token: number;
+        };
+    }, {
+        type: "result";
+        data: {
+            text: string;
+            usage: {
+                token: number;
+            };
+        };
+    }>;
 }
 export default MagicClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;

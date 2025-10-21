@@ -106,7 +106,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TwilioIntegrationCreateResponse`](../modules/integration_twilio_v1.md#twiliointegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new twilio integration.
 
@@ -118,7 +118,7 @@ Creates a new twilio integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TwilioIntegrationCreateResponse`](../modules/integration_twilio_v1.md#twiliointegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`twilioId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TwilioIntegrationDeleteResponse`](../modules/integration_twilio_v1.md#twiliointegrationdeleteresponse)\>
+▸ **delete**(`twilioId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a twilio integration.
 
@@ -140,7 +140,7 @@ Deletes a twilio integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TwilioIntegrationDeleteResponse`](../modules/integration_twilio_v1.md#twiliointegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`twilioId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TwilioIntegrationFetchResponse`](../modules/integration_twilio_v1.md#twiliointegrationfetchresponse), `never`\>
+▸ **fetch**(`twilioId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a twilio integration.
 
@@ -162,7 +162,7 @@ Fetches a twilio integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TwilioIntegrationFetchResponse`](../modules/integration_twilio_v1.md#twiliointegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TwilioIntegrationListResponse`](../modules/integration_twilio_v1.md#twiliointegrationlistresponse), [`TwilioIntegrationListStreamItem`](../modules/integration_twilio_v1.md#twiliointegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all twilio integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all twilio integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TwilioIntegrationListResponse`](../modules/integration_twilio_v1.md#twiliointegrationlistresponse), [`TwilioIntegrationListStreamItem`](../modules/integration_twilio_v1.md#twiliointegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### setup
 
-▸ **setup**(`twilioId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TwilioIntegrationSetupResponse`](../modules/integration_twilio_v1.md#twiliointegrationsetupresponse)\>
+▸ **setup**(`twilioId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Sets up a twilio integration.
 
@@ -206,7 +206,7 @@ Sets up a twilio integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TwilioIntegrationSetupResponse`](../modules/integration_twilio_v1.md#twiliointegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`twilioId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TwilioIntegrationUpdateResponse`](../modules/integration_twilio_v1.md#twiliointegrationupdateresponse)\>
+▸ **update**(`twilioId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a twilio integration.
 
@@ -229,7 +229,7 @@ Updates a twilio integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TwilioIntegrationUpdateResponse`](../modules/integration_twilio_v1.md#twiliointegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

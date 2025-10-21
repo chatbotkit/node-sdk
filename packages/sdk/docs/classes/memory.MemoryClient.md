@@ -105,7 +105,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MemoryCreateResponse`](../modules/memory_v1.md#memorycreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new memory.
 
@@ -113,11 +113,11 @@ Creates a new memory.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`MemoryOptions`](../modules/memory_v1.md#memoryoptions) |
+| `request` | [`MemoryCreateRequest`](../modules/memory_v1.md#memorycreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MemoryCreateResponse`](../modules/memory_v1.md#memorycreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -127,7 +127,7 @@ ___
 
 ### delete
 
-▸ **delete**(`memoryId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MemoryDeleteResponse`](../modules/memory_v1.md#memorydeleteresponse)\>
+▸ **delete**(`memoryId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the memory.
 
@@ -139,7 +139,7 @@ Deletes the memory.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MemoryDeleteResponse`](../modules/memory_v1.md#memorydeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -149,7 +149,7 @@ ___
 
 ### export
 
-▸ **export**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`MemoryExportResponse`](../modules/memory_v1.md#memoryexportresponse), [`MemoryExportStreamItemType`](../modules/memory_v1.md#memoryexportstreamitemtype)\>
+▸ **export**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Exports memories.
 
@@ -161,7 +161,7 @@ Exports memories.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`MemoryExportResponse`](../modules/memory_v1.md#memoryexportresponse), [`MemoryExportStreamItemType`](../modules/memory_v1.md#memoryexportstreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -171,7 +171,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`memoryId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`MemoryFetchResponse`](../modules/memory_v1.md#memoryfetchresponse), `never`\>
+▸ **fetch**(`memoryId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a memory.
 
@@ -183,7 +183,7 @@ Fetches a memory.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`MemoryFetchResponse`](../modules/memory_v1.md#memoryfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -193,7 +193,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`MemoryListResponse`](../modules/memory_v1.md#memorylistresponse), [`MemoryListStreamItemType`](../modules/memory_v1.md#memoryliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all memories.
 
@@ -205,7 +205,7 @@ Retrieves a list of all memories.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`MemoryListResponse`](../modules/memory_v1.md#memorylistresponse), [`MemoryListStreamItemType`](../modules/memory_v1.md#memoryliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -215,7 +215,7 @@ ___
 
 ### search
 
-▸ **search**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MemorySearchResponse`](../modules/memory_v1.md#memorysearchresponse)\>
+▸ **search**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Searches for memories.
 
@@ -227,7 +227,7 @@ Searches for memories.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MemorySearchResponse`](../modules/memory_v1.md#memorysearchresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -237,7 +237,7 @@ ___
 
 ### update
 
-▸ **update**(`memoryId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MemoryUpdateResponse`](../modules/memory_v1.md#memoryupdateresponse)\>
+▸ **update**(`memoryId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a memory.
 
@@ -246,11 +246,11 @@ Updates a memory.
 | Name | Type |
 | :------ | :------ |
 | `memoryId` | `string` |
-| `request` | [`MemoryOptions`](../modules/memory_v1.md#memoryoptions) |
+| `request` | [`MemoryUpdateRequest`](../modules/memory_v1.md#memoryupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MemoryUpdateResponse`](../modules/memory_v1.md#memoryupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

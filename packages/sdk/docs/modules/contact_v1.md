@@ -8,18 +8,19 @@
 
 - [ChatBotKitClient](contact_v1.md#chatbotkitclient)
 - [ContactCreateRequest](contact_v1.md#contactcreaterequest)
+- [ContactCreateRequestBody](contact_v1.md#contactcreaterequestbody)
 - [ContactCreateResponse](contact_v1.md#contactcreateresponse)
+- [ContactDeleteRequestBody](contact_v1.md#contactdeleterequestbody)
 - [ContactDeleteResponse](contact_v1.md#contactdeleteresponse)
 - [ContactEnsureRequest](contact_v1.md#contactensurerequest)
+- [ContactEnsureRequestBody](contact_v1.md#contactensurerequestbody)
 - [ContactEnsureResponse](contact_v1.md#contactensureresponse)
 - [ContactFetchResponse](contact_v1.md#contactfetchresponse)
-- [ContactInstance](contact_v1.md#contactinstance)
 - [ContactListRequest](contact_v1.md#contactlistrequest)
 - [ContactListResponse](contact_v1.md#contactlistresponse)
-- [ContactListStreamItemType](contact_v1.md#contactliststreamitemtype)
 - [ContactListStreamType](contact_v1.md#contactliststreamtype)
-- [ContactOptions](contact_v1.md#contactoptions)
 - [ContactUpdateRequest](contact_v1.md#contactupdaterequest)
+- [ContactUpdateRequestBody](contact_v1.md#contactupdaterequestbody)
 - [ContactUpdateResponse](contact_v1.md#contactupdateresponse)
 - [ResponsePromise](contact_v1.md#responsepromise)
 
@@ -46,75 +47,31 @@ ___
 
 ### ContactCreateRequest
 
-Ƭ **ContactCreateRequest**\<\>: [`ContactOptions`](contact_v1.md#contactoptions) & {}
-
-#### Defined in
-
-[contact/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L83)
-
-___
-
-### ContactCreateResponse
-
-Ƭ **ContactCreateResponse**\<\>: `Object`
+Ƭ **ContactCreateRequest**\<\>: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `id` | `string` |
+| `description?` | `string` |
+| `email?` | `string` |
+| `fingerprint?` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `name?` | `string` |
+| `nick?` | `string` |
+| `phone?` | `string` |
+| `preferences?` | `string` |
+| `verifiedAt?` | `number` |
 
 #### Defined in
 
-[contact/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L87)
+[contact/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L63)
 
 ___
 
-### ContactDeleteResponse
+### ContactCreateRequestBody
 
-Ƭ **ContactDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[contact/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L137)
-
-___
-
-### ContactEnsureRequest
-
-Ƭ **ContactEnsureRequest**\<\>: [`ContactOptions`](contact_v1.md#contactoptions) & \{ `fingerprint`: `string`  }
-
-#### Defined in
-
-[contact/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L158)
-
-___
-
-### ContactEnsureResponse
-
-Ƭ **ContactEnsureResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[contact/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L162)
-
-___
-
-### ContactFetchResponse
-
-Ƭ **ContactFetchResponse**\<\>: [`ContactInstance`](contact_v1.md#contactinstance) & {}
+Ƭ **ContactCreateRequestBody**\<\>: `operations`[``"createContact"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -122,13 +79,87 @@ ___
 
 ___
 
-### ContactInstance
+### ContactCreateResponse
 
-Ƭ **ContactInstance**\<\>: [`ContactOptions`](contact_v1.md#contactoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **ContactCreateResponse**\<\>: `operations`[``"createContact"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[contact/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L28)
+[contact/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L67)
+
+___
+
+### ContactDeleteRequestBody
+
+Ƭ **ContactDeleteRequestBody**\<\>: `operations`[``"deleteContact"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[contact/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L124)
+
+___
+
+### ContactDeleteResponse
+
+Ƭ **ContactDeleteResponse**\<\>: `operations`[``"deleteContact"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[contact/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L126)
+
+___
+
+### ContactEnsureRequest
+
+Ƭ **ContactEnsureRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `description?` | `string` |
+| `email?` | `string` |
+| `fingerprint` | `string` |
+| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+| `name?` | `string` |
+| `nick?` | `string` |
+| `phone?` | `string` |
+| `preferences?` | `string` |
+| `verifiedAt?` | `number` |
+
+#### Defined in
+
+[contact/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L155)
+
+___
+
+### ContactEnsureRequestBody
+
+Ƭ **ContactEnsureRequestBody**\<\>: `operations`[``"ensureContact"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[contact/v1.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L157)
+
+___
+
+### ContactEnsureResponse
+
+Ƭ **ContactEnsureResponse**\<\>: `operations`[``"ensureContact"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[contact/v1.js:159](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L159)
+
+___
+
+### ContactFetchResponse
+
+Ƭ **ContactFetchResponse**\<\>: `operations`[``"fetchContact"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[contact/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L37)
 
 ___
 
@@ -147,56 +178,33 @@ ___
 
 #### Defined in
 
-[contact/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L37)
+[contact/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L17)
 
 ___
 
 ### ContactListResponse
 
-Ƭ **ContactListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`ContactInstance`](contact_v1.md#contactinstance)[] |
+Ƭ **ContactListResponse**\<\>: `operations`[``"listContacts"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[contact/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L39)
-
-___
-
-### ContactListStreamItemType
-
-Ƭ **ContactListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`ContactInstance`](contact_v1.md#contactinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[contact/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L44)
+[contact/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L19)
 
 ___
 
 ### ContactListStreamType
 
-Ƭ **ContactListStreamType**\<\>: [`ContactListStreamItemType`](contact_v1.md#contactliststreamitemtype)
+Ƭ **ContactListStreamType**\<\>: `operations`[``"listContacts"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[contact/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L46)
+[contact/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L21)
 
 ___
 
-### ContactOptions
+### ContactUpdateRequest
 
-Ƭ **ContactOptions**\<\>: `Object`
+Ƭ **ContactUpdateRequest**\<\>: `Object`
 
 #### Type declaration
 
@@ -214,33 +222,27 @@ ___
 
 #### Defined in
 
-[contact/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L22)
+[contact/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L98)
 
 ___
 
-### ContactUpdateRequest
+### ContactUpdateRequestBody
 
-Ƭ **ContactUpdateRequest**\<\>: [`ContactOptions`](contact_v1.md#contactoptions) & {}
+Ƭ **ContactUpdateRequestBody**\<\>: `operations`[``"updateContact"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[contact/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L109)
+[contact/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L100)
 
 ___
 
 ### ContactUpdateResponse
 
-Ƭ **ContactUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **ContactUpdateResponse**\<\>: `operations`[``"updateContact"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[contact/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L113)
+[contact/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L102)
 
 ___
 
@@ -263,28 +265,28 @@ ___
 
 ### createContact
 
-▸ **createContact**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactCreateResponse`](contact_v1.md#contactcreateresponse)\>
+▸ **createContact**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`ContactOptions`](contact_v1.md#contactoptions) |
+| `request` | [`ContactCreateRequest`](contact_v1.md#contactcreaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactCreateResponse`](contact_v1.md#contactcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[contact/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L93)
+[contact/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L73)
 
 ___
 
 ### deleteContact
 
-▸ **deleteContact**(`client`, `contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactDeleteResponse`](contact_v1.md#contactdeleteresponse)\>
+▸ **deleteContact**(`client`, `contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -295,17 +297,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactDeleteResponse`](contact_v1.md#contactdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[contact/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L143)
+[contact/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L132)
 
 ___
 
 ### ensureContact
 
-▸ **ensureContact**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactEnsureResponse`](contact_v1.md#contactensureresponse)\>
+▸ **ensureContact**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -316,17 +318,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactEnsureResponse`](contact_v1.md#contactensureresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[contact/v1.js:168](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L168)
+[contact/v1.js:165](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L165)
 
 ___
 
 ### fetchContact
 
-▸ **fetchContact**(`client`, `contactId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ContactFetchResponse`](contact_v1.md#contactfetchresponse), `never`\>
+▸ **fetchContact**(`client`, `contactId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -337,17 +339,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ContactFetchResponse`](contact_v1.md#contactfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[contact/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L71)
+[contact/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L43)
 
 ___
 
 ### listContacts
 
-▸ **listContacts**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ContactListResponse`](contact_v1.md#contactlistresponse), [`ContactListStreamItemType`](contact_v1.md#contactliststreamitemtype)\>
+▸ **listContacts**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -358,17 +360,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ContactListResponse`](contact_v1.md#contactlistresponse), [`ContactListStreamItemType`](contact_v1.md#contactliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[contact/v1.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L52)
+[contact/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L27)
 
 ___
 
 ### updateContact
 
-▸ **updateContact**(`client`, `contactId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactUpdateResponse`](contact_v1.md#contactupdateresponse)\>
+▸ **updateContact**(`client`, `contactId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -376,12 +378,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `contactId` | `string` |
-| `request` | [`ContactOptions`](contact_v1.md#contactoptions) |
+| `request` | [`ContactUpdateRequest`](contact_v1.md#contactupdaterequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactUpdateResponse`](contact_v1.md#contactupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[contact/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L120)
+[contact/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L109)
