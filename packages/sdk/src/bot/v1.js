@@ -12,42 +12,15 @@ import { buildModelString } from '../model/v1.js'
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean,
- *   visibility?: 'private'|'protected'|'public',
- *   meta?: Record<string,any>,
- *   blueprintId?: string
- * }} BotOptions
- *
- * @typedef {BotOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} BotInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} BotListRequest
  *
- * @typedef {{items: BotInstance[]}} BotListResponse
+ * @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/json']} BotListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: BotInstance
- * }} BotListStreamItemType
- *
- * @typedef {BotListStreamItemType} BotListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/jsonl']} BotListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {BotListRequest} [request]
@@ -56,17 +29,14 @@ import { buildModelString } from '../model/v1.js'
 export function listBots(client, request) {
   let url = `/api/v1/bot/list`
 
-  /** @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['listBots']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<BotListResponse,BotListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {BotInstance & {
- * }} BotFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchBot']['responses']['200']['content']['application/json']} BotFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -75,21 +45,30 @@ export function listBots(client, request) {
 export function fetchBot(client, botId) {
   const url = `/api/v1/bot/${botId}/fetch`
 
-  /** @typedef {import('../types/api/v1.js').operations['fetchBot']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<BotFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {BotOptions & {
+ * @typedef {{
  *   model?: import('../model/v1.js').Model,
+ *   name?: string,
+ *   description?: string,
+ *   backstory?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
+ *   visibility?: 'private'|'protected'|'public',
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} BotCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} BotCreateResponse
+ * @typedef {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} BotCreateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} BotCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {BotCreateRequest} request
@@ -98,9 +77,9 @@ export function fetchBot(client, botId) {
 export async function createBot(client, request) {
   const url = `/api/v1/bot/create`
 
-  /** @type {import('../types/api/v1.js').operations['createBot']['responses']['200']['content']['application/json']} */
+  /** @type {BotCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['createBot']['requestBody']['content']['application/json']} */
+    /** @type {BotCreateRequestBody} */
     record: {
       ...request,
 
@@ -112,13 +91,23 @@ export async function createBot(client, request) {
 }
 
 /**
- * @typedef {BotOptions & {
+ * @typedef {{
  *   model?: import('../model/v1.js').Model,
+ *   name?: string,
+ *   description?: string,
+ *   backstory?: string,
+ *   datasetId?: string,
+ *   skillsetId?: string,
+ *   privacy?: boolean,
+ *   moderation?: boolean,
+ *   visibility?: 'private'|'protected'|'public',
+ *   meta?: Record<string,any>,
+ *   blueprintId?: string
  * }} BotUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} BotUpdateResponse
+ * @typedef {import('../types/api/v1.js').operations['updateBot']['requestBody']['content']['application/json']} BotUpdateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateBot']['responses']['200']['content']['application/json']} BotUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -128,9 +117,9 @@ export async function createBot(client, request) {
 export async function updateBot(client, botId, request) {
   const url = `/api/v1/bot/${botId}/update`
 
-  /** @type {import('../types/api/v1.js').operations['updateBot']['responses']['200']['content']['application/json']} */
+  /** @type {BotUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['updateBot']['requestBody']['content']['application/json']} */
+    /** @type {BotUpdateRequestBody} */
     record: {
       ...request,
 
@@ -142,9 +131,9 @@ export async function updateBot(client, botId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} BotDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteBot']['requestBody']['content']['application/json']} BotDeleteRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteBot']['responses']['200']['content']['application/json']} BotDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -153,9 +142,9 @@ export async function updateBot(client, botId, request) {
 export async function deleteBot(client, botId) {
   const url = `/api/v1/bot/${botId}/delete`
 
-  /** @type {import('../types/api/v1.js').operations['deleteBot']['responses']['200']['content']['application/json']} */
+  /** @type {BotDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['deleteBot']['requestBody']['content']['application/json']} */
+    /** @type {BotDeleteRequestBody} */
     record: {},
   })
 
@@ -168,9 +157,9 @@ export async function deleteBot(client, botId) {
  *   reason?: string
  * }} BotUpvoteRequest
  *
- * @typedef {{
- *   id: string
- * }} BotUpvoteResponse
+ * @typedef {import('../types/api/v1.js').operations['upvoteBot']['requestBody']['content']['application/json']} BotUpvoteRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['upvoteBot']['responses']['200']['content']['application/json']} BotUpvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -180,9 +169,9 @@ export async function deleteBot(client, botId) {
 export async function upvoteBot(client, botId, request) {
   const url = `/api/v1/bot/${botId}/upvote`
 
-  /** @type {import('../types/api/v1.js').operations['upvoteBot']['responses']['200']['content']['application/json']} */
+  /** @type {BotUpvoteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['upvoteBot']['requestBody']['content']['application/json']} */
+    /** @type {BotUpvoteRequestBody} */
     record: {
       value: 100, // @todo remove once the type is fixed
 
@@ -199,9 +188,9 @@ export async function upvoteBot(client, botId, request) {
  *   reason?: string
  * }} BotDownvoteRequest
  *
- * @typedef {{
- *   id: string
- * }} BotDownvoteResponse
+ * @typedef {import('../types/api/v1.js').operations['downvoteBot']['requestBody']['content']['application/json']} BotDownvoteRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['downvoteBot']['responses']['200']['content']['application/json']} BotDownvoteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
@@ -211,9 +200,9 @@ export async function upvoteBot(client, botId, request) {
 export async function downvoteBot(client, botId, request) {
   const url = `/api/v1/bot/${botId}/downvote`
 
-  /** @type {import('../types/api/v1.js').operations['downvoteBot']['responses']['200']['content']['application/json']} */
+  /** @type {BotDownvoteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['downvoteBot']['requestBody']['content']['application/json']} */
+    /** @type {BotDownvoteRequestBody} */
     record: {
       value: -100, // @todo remove once the type is fixed
 

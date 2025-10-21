@@ -9,27 +9,7 @@
  */
 
 /**
- * @typedef {{
- *   tokens: number,
- *   conversations: number,
- *   messages: number,
- *   database: {
- *     datasets: number,
- *     records: number,
- *     skillsets: number,
- *     abilities: number,
- *     files: number,
- *     users: number
- *   }
- * }} UsageOptions
- *
- * @typedef {UsageOptions & {
- * }} UsageInstance
- */
-
-/**
- * @typedef {UsageInstance & {
- * }} UsageFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchUsage']['responses']['200']['content']['application/json']} UsageFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @returns {ResponsePromise<UsageFetchResponse,never>}
@@ -37,8 +17,7 @@
 export function fetchUsage(client) {
   const url = `/api/v1/usage/fetch`
 
-  /** @typedef {import('../types/api/v1.js').operations['fetchUsage']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<UsageFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response

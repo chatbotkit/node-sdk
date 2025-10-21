@@ -10,23 +10,6 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   text?: string,
- *   meta?: Record<string,any>,
- *   contactId?: string,
- *   botId?: string
- * }} MemoryOptions
- *
- * @typedef {MemoryOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} MemoryInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
@@ -35,14 +18,9 @@
  *   botId?: string
  * }} MemoryListRequest
  *
- * @typedef {{items: MemoryInstance[]}} MemoryListResponse
+ * @typedef {import('../types/api/v1.js').operations['listMemories']['responses']['200']['content']['application/json']} MemoryListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: MemoryInstance
- * }} MemoryListStreamItemType
- *
- * @typedef {MemoryListStreamItemType} MemoryListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listMemories']['responses']['200']['content']['application/jsonl']} MemoryListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {MemoryListRequest} [request]
@@ -51,17 +29,14 @@
 export function listMemories(client, request) {
   let url = `/api/v1/memory/list`
 
-  /** @typedef {import('../types/api/v1.js').operations['listMemories']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['listMemories']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<MemoryListResponse,MemoryListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {MemoryInstance & {
- * }} MemoryFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchMemory']['responses']['200']['content']['application/json']} MemoryFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} memoryId
@@ -70,20 +45,25 @@ export function listMemories(client, request) {
 export function fetchMemory(client, memoryId) {
   const url = `/api/v1/memory/${memoryId}/fetch`
 
-  /** @typedef {import('../types/api/v1.js').operations['fetchMemory']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<MemoryFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {MemoryOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   text?: string,
+ *   meta?: Record<string,any>,
+ *   contactId?: string,
+ *   botId?: string
  * }} MemoryCreateRequest
  *
- * @typedef {{
- *   id: string
- * }} MemoryCreateResponse
+ * @typedef {import('../types/api/v1.js').operations['createMemory']['requestBody']['content']['application/json']} MemoryCreateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['createMemory']['responses']['200']['content']['application/json']} MemoryCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {MemoryCreateRequest} request
@@ -92,9 +72,9 @@ export function fetchMemory(client, memoryId) {
 export async function createMemory(client, request) {
   const url = `/api/v1/memory/create`
 
-  /** @type {import('../types/api/v1.js').operations['createMemory']['responses']['200']['content']['application/json']} */
+  /** @type {MemoryCreateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['createMemory']['requestBody']['content']['application/json']} */
+    /** @type {MemoryCreateRequestBody} */
     record: {
       ...request,
     },
@@ -104,12 +84,18 @@ export async function createMemory(client, request) {
 }
 
 /**
- * @typedef {MemoryOptions & {
+ * @typedef {{
+ *   name?: string,
+ *   description?: string,
+ *   text?: string,
+ *   meta?: Record<string,any>,
+ *   contactId?: string,
+ *   botId?: string
  * }} MemoryUpdateRequest
  *
- * @typedef {{
- *   id: string
- * }} MemoryUpdateResponse
+ * @typedef {import('../types/api/v1.js').operations['updateMemory']['requestBody']['content']['application/json']} MemoryUpdateRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateMemory']['responses']['200']['content']['application/json']} MemoryUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} memoryId
@@ -119,9 +105,9 @@ export async function createMemory(client, request) {
 export async function updateMemory(client, memoryId, request) {
   const url = `/api/v1/memory/${memoryId}/update`
 
-  /** @type {import('../types/api/v1.js').operations['updateMemory']['responses']['200']['content']['application/json']} */
+  /** @type {MemoryUpdateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['updateMemory']['requestBody']['content']['application/json']} */
+    /** @type {MemoryUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -131,9 +117,9 @@ export async function updateMemory(client, memoryId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} MemoryDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteMemory']['requestBody']['content']['application/json']} MemoryDeleteRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteMemory']['responses']['200']['content']['application/json']} MemoryDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} memoryId
@@ -142,9 +128,9 @@ export async function updateMemory(client, memoryId, request) {
 export async function deleteMemory(client, memoryId) {
   const url = `/api/v1/memory/${memoryId}/delete`
 
-  /** @type {import('../types/api/v1.js').operations['deleteMemory']['responses']['200']['content']['application/json']} */
+  /** @type {MemoryDeleteResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['deleteMemory']['requestBody']['content']['application/json']} */
+    /** @type {MemoryDeleteRequestBody} */
     record: {},
   })
 
@@ -161,14 +147,9 @@ export async function deleteMemory(client, memoryId) {
  *   botId?: string
  * }} MemoryExportRequest
  *
- * @typedef {{items: MemoryInstance[]}} MemoryExportResponse
+ * @typedef {import('../types/api/v1.js').operations['exportMemories']['responses']['200']['content']['application/json']} MemoryExportResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: MemoryInstance
- * }} MemoryExportStreamItemType
- *
- * @typedef {MemoryExportStreamItemType} MemoryExportStreamType
+ * @typedef {import('../types/api/v1.js').operations['exportMemories']['responses']['200']['content']['application/jsonl']} MemoryExportStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {MemoryExportRequest} [request]
@@ -177,9 +158,7 @@ export async function deleteMemory(client, memoryId) {
 export function exportMemories(client, request) {
   let url = `/api/v1/memory/export`
 
-  /** @typedef {import('../types/api/v1.js').operations['exportMemories']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['exportMemories']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<MemoryExportResponse,MemoryExportStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
@@ -192,15 +171,9 @@ export function exportMemories(client, request) {
  *   botId?: string
  * }} MemorySearchRequest
  *
- * @typedef {{
- *   id: string,
- *   text: string,
- *   meta?: Record<string,any>
- * }} MemorySearchItem
+ * @typedef {import('../types/api/v1.js').operations['searchMemory']['requestBody']['content']['application/json']} MemorySearchRequestBody
  *
- * @typedef {{
- *   items: MemorySearchItem[]
- * }} MemorySearchResponse
+ * @typedef {import('../types/api/v1.js').operations['searchMemory']['responses']['200']['content']['application/json']} MemorySearchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {MemorySearchRequest} request
@@ -209,9 +182,9 @@ export function exportMemories(client, request) {
 export async function searchMemory(client, request) {
   const url = `/api/v1/memory/search`
 
-  /** @type {import('../types/api/v1.js').operations['searchMemory']['responses']['200']['content']['application/json']} */
+  /** @type {MemorySearchResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['searchMemory']['requestBody']['content']['application/json']} */
+    /** @type {MemorySearchRequestBody} */
     record: {
       ...request,
     },

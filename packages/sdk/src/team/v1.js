@@ -10,34 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} TeamOptions
- *
- * @typedef {TeamOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} TeamInstance
- */
-
-/**
- * @typedef {{
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
  * }} TeamListRequest
  *
- * @typedef {{items: TeamInstance[]}} TeamListResponse
+ * @typedef {import('../types/api/v1.js').operations['listTeams']['responses']['200']['content']['application/json']} TeamListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: TeamInstance
- * }} TeamListStreamItemType
- *
- * @typedef {TeamListStreamItemType} TeamListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listTeams']['responses']['200']['content']['application/jsonl']} TeamListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {TeamListRequest} [request]
@@ -46,9 +27,7 @@
 export function listTeams(client, request) {
   let url = `/api/v1/team/list`
 
-  /** @typedef {import('../types/api/v1.js').operations['listTeams']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['listTeams']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<TeamListResponse,TeamListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response

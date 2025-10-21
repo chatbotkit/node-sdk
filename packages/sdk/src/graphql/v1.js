@@ -17,17 +17,10 @@
  *   operationName?: string
  * }} GraphqlRequest
  *
- * @typedef {{
- *   data?: {
- *     [key: string]: unknown
- *   },
- *   errors?: {
- *     message?: string
- *   }[]
- * }} GraphqlResponse
- */
-
-/**
+ * @typedef {import('../types/api/v1.js').operations['graphql']['requestBody']['content']['application/json']} GraphqlRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['graphql']['responses']['200']['content']['application/json']} GraphqlResponse
+ *
  * @param {ChatBotKitClient} client
  * @param {GraphqlRequest} body
  * @returns {Promise<GraphqlResponse>}
@@ -35,11 +28,10 @@
 export async function call(client, body) {
   const url = `/api/v1/graphql`
 
-  /** @typedef {import('../types/api/v1.js').operations['graphql']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
-  const response = client.clientFetch(url, {
+  /** @type {GraphqlResponse} */
+  const response = await client.clientFetch(url, {
     method: 'POST',
-    /** @type {import('../types/api/v1.js').operations['graphql']['requestBody']['content']['application/json']} */
+    /** @type {GraphqlRequestBody} */
     record: {
       ...body,
     },
