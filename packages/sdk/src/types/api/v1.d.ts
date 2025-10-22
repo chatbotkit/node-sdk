@@ -15163,9 +15163,13 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The parameters available for the ability */
                             parameters: {
+                                /** @description The name of the parameter */
                                 name: string;
+                                /** @description The description of the parameter */
                                 description: string;
+                                /** @description The operand type of the parameter */
                                 operand?: string;
                                 required?: boolean;
                             }[];
@@ -15193,9 +15197,13 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The parameters available for the ability */
                             parameters: {
+                                /** @description The name of the parameter */
                                 name: string;
+                                /** @description The description of the parameter */
                                 description: string;
+                                /** @description The operand type of the parameter */
                                 operand?: string;
                                 required?: boolean;
                             }[];
@@ -15239,8 +15247,11 @@ export interface operations {
                         /** @description A map of resource types to arrays of created resources */
                         resources: {
                             [key: string]: {
+                                /** @description The unique identifier of the resource */
                                 id: string;
+                                /** @description The name of the resource */
                                 name?: string;
+                                /** @description The description of the resource */
                                 description?: string;
                             }[];
                         };
@@ -15290,6 +15301,16 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /**
+                         * @description The type of the example
+                         * @enum {string}
+                         */
+                        type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                        /** @description The config details of the example */
+                        config: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The keywords associated with the example */
                         keywords?: string[];
                     };
                 };
@@ -15340,6 +15361,12 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /**
+                             * @description The type of the example
+                             * @enum {string}
+                             */
+                            type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description The keywords associated with the example */
                             keywords?: string[];
                         }[];
                     };
@@ -15365,6 +15392,12 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /**
+                             * @description The type of the example
+                             * @enum {string}
+                             */
+                            type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description The keywords associated with the example */
                             keywords?: string[];
                         };
                     };
@@ -15456,15 +15489,15 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The backstory of the model */
-                            provider?: string;
+                            provider: string;
                             /** @description The model of the model */
-                            family?: string;
+                            family: string;
                             /** @description The maximum number of tokens the model can use */
-                            maxTokens?: number;
+                            maxTokens: number;
                             /** @description The maximum number of tokens the model can accept */
-                            maxInputTokens?: number;
+                            maxInputTokens: number;
                             /** @description The maximum number of tokens the model can generate */
-                            maxOutputTokens?: number;
+                            maxOutputTokens: number;
                         }[];
                     };
                     "application/jsonl": {
@@ -15490,15 +15523,15 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             /** @description The backstory of the model */
-                            provider?: string;
+                            provider: string;
                             /** @description The model of the model */
-                            family?: string;
+                            family: string;
                             /** @description The maximum number of tokens the model can use */
-                            maxTokens?: number;
+                            maxTokens: number;
                             /** @description The maximum number of tokens the model can accept */
-                            maxInputTokens?: number;
+                            maxInputTokens: number;
                             /** @description The maximum number of tokens the model can generate */
-                            maxOutputTokens?: number;
+                            maxOutputTokens: number;
                         };
                     };
                 };
@@ -15549,6 +15582,11 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /**
+                             * @description The type of the secret
+                             * @enum {string}
+                             */
+                            type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                         }[];
                     };
                     "application/jsonl": {
@@ -15573,6 +15611,11 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /**
+                             * @description The type of the secret
+                             * @enum {string}
+                             */
+                            type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                         };
                     };
                 };

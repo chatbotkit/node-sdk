@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1761004565433)"
+    "version": "v1 (build 1761128719002)"
   },
   "servers": [
     {
@@ -22901,17 +22901,21 @@
                             "description": "The timestamp (ms) when the instance was updated"
                           },
                           "parameters": {
+                            "description": "The parameters available for the ability",
                             "type": "array",
                             "items": {
                               "type": "object",
                               "properties": {
                                 "name": {
+                                  "description": "The name of the parameter",
                                   "type": "string"
                                 },
                                 "description": {
+                                  "description": "The description of the parameter",
                                   "type": "string"
                                 },
                                 "operand": {
+                                  "description": "The operand type of the parameter",
                                   "type": "string"
                                 },
                                 "required": {
@@ -22983,17 +22987,21 @@
                               "description": "The timestamp (ms) when the instance was updated"
                             },
                             "parameters": {
+                              "description": "The parameters available for the ability",
                               "type": "array",
                               "items": {
                                 "type": "object",
                                 "properties": {
                                   "name": {
+                                    "description": "The name of the parameter",
                                     "type": "string"
                                   },
                                   "description": {
+                                    "description": "The description of the parameter",
                                     "type": "string"
                                   },
                                   "operand": {
+                                    "description": "The operand type of the parameter",
                                     "type": "string"
                                   },
                                   "required": {
@@ -23090,12 +23098,15 @@
                           "type": "object",
                           "properties": {
                             "id": {
+                              "description": "The unique identifier of the resource",
                               "type": "string"
                             },
                             "name": {
+                              "description": "The name of the resource",
                               "type": "string"
                             },
                             "description": {
+                              "description": "The description of the resource",
                               "type": "string"
                             }
                           },
@@ -23184,7 +23195,30 @@
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
                     },
+                    "type": {
+                      "description": "The type of the example",
+                      "type": "string",
+                      "enum": [
+                        "blueprint",
+                        "widget",
+                        "slack",
+                        "discord",
+                        "whatsapp",
+                        "messenger",
+                        "telegram",
+                        "twilio",
+                        "email",
+                        "trigger"
+                      ]
+                    },
+                    "config": {
+                      "description": "The config details of the example",
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": true
+                    },
                     "keywords": {
+                      "description": "The keywords associated with the example",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -23196,7 +23230,9 @@
                     "createdAt",
                     "updatedAt",
                     "name",
-                    "description"
+                    "description",
+                    "type",
+                    "config"
                   ]
                 }
               }
@@ -23298,7 +23334,24 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "type": {
+                            "description": "The type of the example",
+                            "type": "string",
+                            "enum": [
+                              "blueprint",
+                              "widget",
+                              "slack",
+                              "discord",
+                              "whatsapp",
+                              "messenger",
+                              "telegram",
+                              "twilio",
+                              "email",
+                              "trigger"
+                            ]
+                          },
                           "keywords": {
+                            "description": "The keywords associated with the example",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -23310,7 +23363,8 @@
                           "createdAt",
                           "updatedAt",
                           "name",
-                          "description"
+                          "description",
+                          "type"
                         ]
                       }
                     }
@@ -23363,7 +23417,24 @@
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
                             },
+                            "type": {
+                              "description": "The type of the example",
+                              "type": "string",
+                              "enum": [
+                                "blueprint",
+                                "widget",
+                                "slack",
+                                "discord",
+                                "whatsapp",
+                                "messenger",
+                                "telegram",
+                                "twilio",
+                                "email",
+                                "trigger"
+                              ]
+                            },
                             "keywords": {
+                              "description": "The keywords associated with the example",
                               "type": "array",
                               "items": {
                                 "type": "string"
@@ -23376,7 +23447,8 @@
                             "createdAt",
                             "updatedAt",
                             "name",
-                            "description"
+                            "description",
+                            "type"
                           ]
                         }
                       },
@@ -23472,7 +23544,24 @@
                           "type": "number",
                           "description": "The timestamp (ms) when the instance was updated"
                         },
+                        "type": {
+                          "description": "The type of the example",
+                          "type": "string",
+                          "enum": [
+                            "blueprint",
+                            "widget",
+                            "slack",
+                            "discord",
+                            "whatsapp",
+                            "messenger",
+                            "telegram",
+                            "twilio",
+                            "email",
+                            "trigger"
+                          ]
+                        },
                         "keywords": {
+                          "description": "The keywords associated with the example",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -23484,7 +23573,8 @@
                         "createdAt",
                         "updatedAt",
                         "name",
-                        "description"
+                        "description",
+                        "type"
                       ],
                       "items": null
                     }
@@ -23616,7 +23706,12 @@
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "provider",
+                          "family",
+                          "maxTokens",
+                          "maxInputTokens",
+                          "maxOutputTokens"
                         ]
                       }
                     }
@@ -23694,7 +23789,12 @@
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "provider",
+                            "family",
+                            "maxTokens",
+                            "maxInputTokens",
+                            "maxOutputTokens"
                           ]
                         }
                       },
@@ -23803,12 +23903,26 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of the secret",
+                            "enum": [
+                              "plain",
+                              "basic",
+                              "bearer",
+                              "oauth",
+                              "template",
+                              "reference"
+                            ],
+                            "$$ref": "#/components/schemas/SecretType"
                           }
                         },
                         "required": [
                           "id",
                           "createdAt",
-                          "updatedAt"
+                          "updatedAt",
+                          "type"
                         ]
                       }
                     }
@@ -23860,13 +23974,27 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "type": {
+                              "type": "string",
+                              "description": "The type of the secret",
+                              "enum": [
+                                "plain",
+                                "basic",
+                                "bearer",
+                                "oauth",
+                                "template",
+                                "reference"
+                              ],
+                              "$$ref": "#/components/schemas/SecretType"
                             }
                           },
                           "$$ref": "#/paths/~1platform~1secret~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
-                            "updatedAt"
+                            "updatedAt",
+                            "type"
                           ]
                         }
                       },
