@@ -15,13 +15,6 @@ export class PlatformExampleClient extends ChatBotKitClient {
      */
     list(request?: import("./v1.js").PlatformExampleListRequest): ResponsePromise<import("./v1.js").PlatformExampleListResponse, import("./v1.js").PlatformExampleListStreamType>;
     /**
-     * Fetches a platform example.
-     *
-     * @param {string} exampleId
-     * @returns {ResponsePromise<import('./v1.js').PlatformExampleFetchResponse,never>}
-     */
-    fetch(exampleId: string): ResponsePromise<import("./v1.js").PlatformExampleFetchResponse, never>;
-    /**
      * Searches platform examples.
      *
      * @param {import('./v1.js').PlatformExampleSearchRequest} request

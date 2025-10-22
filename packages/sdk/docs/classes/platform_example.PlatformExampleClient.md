@@ -22,7 +22,6 @@ Platform example client.
 
 - [clientFetch](platform_example.PlatformExampleClient.md#clientfetch)
 - [clone](platform_example.PlatformExampleClient.md#clone)
-- [fetch](platform_example.PlatformExampleClient.md#fetch)
 - [list](platform_example.PlatformExampleClient.md#list)
 - [search](platform_example.PlatformExampleClient.md#search)
 
@@ -48,7 +47,7 @@ Platform example client.
 
 #### Defined in
 
-[platform/example/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L22)
+[platform/example/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L21)
 
 ## Methods
 
@@ -118,29 +117,7 @@ Clones a platform example.
 
 #### Defined in
 
-[platform/example/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L62)
-
-___
-
-### fetch
-
-▸ **fetch**(`exampleId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
-
-Fetches a platform example.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `exampleId` | `string` |
-
-#### Returns
-
-[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
-
-#### Defined in
-
-[platform/example/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L42)
+[platform/example/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L51)
 
 ___
 
@@ -162,7 +139,7 @@ Retrieves a list of all platform examples.
 
 #### Defined in
 
-[platform/example/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L32)
+[platform/example/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L31)
 
 ___
 
@@ -184,4 +161,4 @@ Searches platform examples.
 
 #### Defined in
 
-[platform/example/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L52)
+[platform/example/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L41)

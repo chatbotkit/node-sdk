@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1761134589222)"
+    "version": "v1 (build 1761138434736)"
   },
   "servers": [
     {
@@ -23456,120 +23456,6 @@
         ]
       }
     },
-    "/platform/example/{exampleId}/fetch": {
-      "get": {
-        "operationId": "fetchPlatformExample",
-        "summary": "Fetch a platform example",
-        "tags": [
-          "Platform"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "exampleId",
-            "required": true,
-            "schema": {
-              "description": "The ID (slug) of the example to retrieve",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The example was retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Instance list properties",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "The associated name"
-                    },
-                    "description": {
-                      "type": "string",
-                      "description": "The associated description"
-                    },
-                    "meta": {
-                      "type": "object",
-                      "description": "Meta data information",
-                      "additionalProperties": true,
-                      "$$ref": "#/components/schemas/Meta"
-                    },
-                    "id": {
-                      "type": "string",
-                      "description": "The instance ID"
-                    },
-                    "createdAt": {
-                      "type": "number",
-                      "description": "The timestamp (ms) when the instance was created"
-                    },
-                    "updatedAt": {
-                      "type": "number",
-                      "description": "The timestamp (ms) when the instance was updated"
-                    },
-                    "type": {
-                      "description": "The type of the example",
-                      "type": "string",
-                      "enum": [
-                        "blueprint",
-                        "widget",
-                        "slack",
-                        "discord",
-                        "whatsapp",
-                        "messenger",
-                        "telegram",
-                        "twilio",
-                        "email",
-                        "trigger"
-                      ]
-                    },
-                    "config": {
-                      "description": "The config details of the example",
-                      "type": "object",
-                      "properties": {},
-                      "additionalProperties": true
-                    },
-                    "keywords": {
-                      "description": "The keywords associated with the example",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "createdAt",
-                    "updatedAt",
-                    "name",
-                    "description",
-                    "type",
-                    "config"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "fetchPlatformExample",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
     "/platform/example/list": {
       "get": {
         "operationId": "listPlatformExamples",
@@ -23664,6 +23550,12 @@
                               "trigger"
                             ]
                           },
+                          "config": {
+                            "description": "The config details of the example",
+                            "type": "object",
+                            "properties": {},
+                            "additionalProperties": true
+                          },
                           "keywords": {
                             "description": "The keywords associated with the example",
                             "type": "array",
@@ -23678,7 +23570,8 @@
                           "updatedAt",
                           "name",
                           "description",
-                          "type"
+                          "type",
+                          "config"
                         ]
                       }
                     }
@@ -23747,6 +23640,12 @@
                                 "trigger"
                               ]
                             },
+                            "config": {
+                              "description": "The config details of the example",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            },
                             "keywords": {
                               "description": "The keywords associated with the example",
                               "type": "array",
@@ -23762,7 +23661,8 @@
                             "updatedAt",
                             "name",
                             "description",
-                            "type"
+                            "type",
+                            "config"
                           ]
                         }
                       },
@@ -23876,6 +23776,12 @@
                               "trigger"
                             ]
                           },
+                          "config": {
+                            "description": "The config details of the example",
+                            "type": "object",
+                            "properties": {},
+                            "additionalProperties": true
+                          },
                           "keywords": {
                             "description": "The keywords associated with the example",
                             "type": "array",
@@ -23890,7 +23796,8 @@
                           "updatedAt",
                           "name",
                           "description",
-                          "type"
+                          "type",
+                          "config"
                         ]
                       }
                     }

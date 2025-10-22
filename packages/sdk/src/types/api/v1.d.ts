@@ -3174,23 +3174,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/platform/example/{exampleId}/fetch": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Fetch a platform example */
-        get: operations["fetchPlatformExample"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/platform/example/list": {
         parameters: {
             query?: never;
@@ -15432,63 +15415,6 @@ export interface operations {
             };
         };
     };
-    fetchPlatformExample: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                exampleId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The example was retrieved successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The associated name */
-                        name: string;
-                        /** @description The associated description */
-                        description: string;
-                        /** @description Meta data information */
-                        meta?: {
-                            [key: string]: unknown;
-                        };
-                        /** @description The instance ID */
-                        id: string;
-                        /** @description The timestamp (ms) when the instance was created */
-                        createdAt: number;
-                        /** @description The timestamp (ms) when the instance was updated */
-                        updatedAt: number;
-                        /**
-                         * @description The type of the example
-                         * @enum {string}
-                         */
-                        type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
-                        /** @description The config details of the example */
-                        config: {
-                            [key: string]: unknown;
-                        };
-                        /** @description The keywords associated with the example */
-                        keywords?: string[];
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
     listPlatformExamples: {
         parameters: {
             query?: {
@@ -15529,6 +15455,10 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description The config details of the example */
+                            config: {
+                                [key: string]: unknown;
+                            };
                             /** @description The keywords associated with the example */
                             keywords?: string[];
                         }[];
@@ -15560,6 +15490,10 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description The config details of the example */
+                            config: {
+                                [key: string]: unknown;
+                            };
                             /** @description The keywords associated with the example */
                             keywords?: string[];
                         };
@@ -15620,6 +15554,10 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description The config details of the example */
+                            config: {
+                                [key: string]: unknown;
+                            };
                             /** @description The keywords associated with the example */
                             keywords?: string[];
                         }[];

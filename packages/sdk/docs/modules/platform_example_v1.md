@@ -11,7 +11,6 @@
 - [PlatformExampleCloneRequestBody](platform_example_v1.md#platformexampleclonerequestbody)
 - [PlatformExampleCloneResponse](platform_example_v1.md#platformexamplecloneresponse)
 - [PlatformExampleCloneResponseBody](platform_example_v1.md#platformexamplecloneresponsebody)
-- [PlatformExampleFetchResponse](platform_example_v1.md#platformexamplefetchresponse)
 - [PlatformExampleListItem](platform_example_v1.md#platformexamplelistitem)
 - [PlatformExampleListRequest](platform_example_v1.md#platformexamplelistrequest)
 - [PlatformExampleListResponse](platform_example_v1.md#platformexamplelistresponse)
@@ -25,7 +24,6 @@
 ### Functions
 
 - [clonePlatformExample](platform_example_v1.md#cloneplatformexample)
-- [fetchPlatformExample](platform_example_v1.md#fetchplatformexample)
 - [listPlatformExamples](platform_example_v1.md#listplatformexamples)
 - [searchPlatformExamples](platform_example_v1.md#searchplatformexamples)
 
@@ -47,7 +45,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L83)
+[platform/example/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L67)
 
 ___
 
@@ -57,7 +55,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L81)
+[platform/example/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L65)
 
 ___
 
@@ -67,7 +65,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L87)
+[platform/example/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L71)
 
 ___
 
@@ -77,17 +75,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L85)
-
-___
-
-### PlatformExampleFetchResponse
-
-Ƭ **PlatformExampleFetchResponse**\<\>: `operations`[``"fetchPlatformExample"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
-
-#### Defined in
-
-[platform/example/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L38)
+[platform/example/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L69)
 
 ___
 
@@ -145,7 +133,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L56)
+[platform/example/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L40)
 
 ___
 
@@ -155,7 +143,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L54)
+[platform/example/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L38)
 
 ___
 
@@ -165,7 +153,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:60](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L60)
+[platform/example/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L44)
 
 ___
 
@@ -175,7 +163,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L58)
+[platform/example/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L42)
 
 ___
 
@@ -213,28 +201,7 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L93)
-
-___
-
-### fetchPlatformExample
-
-▸ **fetchPlatformExample**(`client`, `exampleId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `exampleId` | `string` |
-
-#### Returns
-
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
-
-#### Defined in
-
-[platform/example/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L44)
+[platform/example/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L77)
 
 ___
 
@@ -276,4 +243,4 @@ ___
 
 #### Defined in
 
-[platform/example/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L66)
+[platform/example/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L50)

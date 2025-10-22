@@ -25,14 +25,6 @@
  */
 export function listPlatformExamples(client: ChatBotKitClient, request?: PlatformExampleListRequest): ResponsePromise<PlatformExampleListResponse, PlatformExampleListStreamType>;
 /**
- * @typedef {import('../../types/api/v1.js').operations['fetchPlatformExample']['responses']['200']['content']['application/json']} PlatformExampleFetchResponse
- *
- * @param {ChatBotKitClient} client
- * @param {string} exampleId
- * @returns {ResponsePromise<PlatformExampleFetchResponse,never>}
- */
-export function fetchPlatformExample(client: ChatBotKitClient, exampleId: string): ResponsePromise<PlatformExampleFetchResponse, never>;
-/**
  * @typedef {import('../../types/api/v1.js').operations['searchPlatformExamples']['requestBody']['content']['application/json']} PlatformExampleSearchRequestBody
  *
  * @typedef {PlatformExampleSearchRequestBody} PlatformExampleSearchRequest
@@ -70,7 +62,6 @@ export type PlatformExampleListRequest = {
 export type PlatformExampleListResponse = import("../../types/api/v1.js").operations["listPlatformExamples"]["responses"]["200"]["content"]["application/json"];
 export type PlatformExampleListItem = PlatformExampleListResponse["items"][number];
 export type PlatformExampleListStreamType = import("../../types/api/v1.js").operations["listPlatformExamples"]["responses"]["200"]["content"]["application/jsonl"];
-export type PlatformExampleFetchResponse = import("../../types/api/v1.js").operations["fetchPlatformExample"]["responses"]["200"]["content"]["application/json"];
 export type PlatformExampleSearchRequestBody = import("../../types/api/v1.js").operations["searchPlatformExamples"]["requestBody"]["content"]["application/json"];
 export type PlatformExampleSearchRequest = PlatformExampleSearchRequestBody;
 export type PlatformExampleSearchResponseBody = import("../../types/api/v1.js").operations["searchPlatformExamples"]["responses"]["200"]["content"]["application/json"];
