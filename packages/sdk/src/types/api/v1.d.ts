@@ -4753,15 +4753,6 @@ export interface operations {
                         [key: string]: unknown;
                     };
                     /**
-                     * @description The bot visibility
-                     * @enum {string}
-                     */
-                    visibility?: "private" | "protected" | "public";
-                } & ({
-                    /** @description The ID of the bot this configuration is using */
-                    botId?: string;
-                } | {
-                    /**
                      * @description A model definition
                      * @example gpt-4-turbo/temperature=0.7
                      */
@@ -4776,7 +4767,14 @@ export interface operations {
                     privacy?: boolean;
                     /** @description The moderation flag for this configuration */
                     moderation?: boolean;
-                });
+                    /** @description The ID of the blueprint to use for the bot */
+                    blueprintId?: string;
+                    /**
+                     * @description The bot visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
+                };
             };
         };
         responses: {
@@ -4923,6 +4921,8 @@ export interface operations {
                     privacy?: boolean;
                     /** @description The moderation flag for this configuration */
                     moderation?: boolean;
+                    /** @description The ID of the blueprint to use for the bot */
+                    blueprintId?: string;
                     /**
                      * @description The bot visibility
                      * @enum {string}
@@ -8540,6 +8540,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the dataset */
+                    blueprintId?: string;
                     /** @description The reranker class for the dataset */
                     reranker?: string;
                     /** @description The total number of tokens to for each record */
@@ -8606,6 +8608,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the dataset */
+                    blueprintId?: string;
                     /** @description The storage class for the dataset */
                     store?: string;
                     /** @description The reranker class for the dataset */
@@ -8958,6 +8962,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the file */
+                    blueprintId?: string;
                     /**
                      * @description The file visibility
                      * @enum {string}
@@ -9076,6 +9082,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the file */
+                    blueprintId?: string;
                     /**
                      * @description The file visibility
                      * @enum {string}
@@ -15437,8 +15445,29 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description An array of examples matching the search query */
-                        items: unknown[];
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /**
+                             * @description The type of the example
+                             * @enum {string}
+                             */
+                            type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description The keywords associated with the example */
+                            keywords?: string[];
+                        }[];
                     };
                 };
             };
@@ -16043,6 +16072,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the secret */
+                    blueprintId?: string;
                     /**
                      * @description The kind of the secret
                      * @enum {string}
@@ -16109,6 +16140,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the secret */
+                    blueprintId?: string;
                     /**
                      * @description The kind of the secret
                      * @enum {string}
@@ -16384,6 +16417,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the skillset ability */
+                    blueprintId?: string;
                     /** @description The ID of the secret associated with the ability */
                     secretId?: string;
                     /** @description The ID of the file associated with the ability */
@@ -16439,6 +16474,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the skillset ability */
+                    blueprintId?: string;
                     /** @description The ID of the secret associated with the ability */
                     secretId?: string;
                     /** @description The ID of the file associated with the ability */
@@ -16764,6 +16801,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the skillset */
+                    blueprintId?: string;
                     /**
                      * @description The skillset visibility
                      * @enum {string}
@@ -16814,6 +16853,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint to use for the skillset */
+                    blueprintId?: string;
                     /**
                      * @description The skillset visibility
                      * @enum {string}

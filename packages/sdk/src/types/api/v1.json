@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1761128719002)"
+    "version": "v1 (build 1761132180095)"
   },
   "servers": [
     {
@@ -1881,7 +1881,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "A bot configuration or reference",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -1897,6 +1897,37 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "model": {
+                    "type": "string",
+                    "description": "A model definition",
+                    "pattern": "\\w+(?:\\/\\w+=\\w+)*",
+                    "example": "gpt-4-turbo/temperature=0.7",
+                    "$$ref": "#/components/schemas/Model"
+                  },
+                  "backstory": {
+                    "type": "string",
+                    "description": "The backstory this configuration is using"
+                  },
+                  "datasetId": {
+                    "type": "string",
+                    "description": "The id of the dataset this configuration is using"
+                  },
+                  "skillsetId": {
+                    "type": "string",
+                    "description": "The id of the skillset this configuration is using"
+                  },
+                  "privacy": {
+                    "type": "boolean",
+                    "description": "The privacy flag for this configuration"
+                  },
+                  "moderation": {
+                    "type": "boolean",
+                    "description": "The moderation flag for this configuration"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the bot"
+                  },
                   "visibility": {
                     "type": "string",
                     "description": "The bot visibility",
@@ -1907,54 +1938,7 @@
                     ],
                     "$$ref": "#/components/schemas/BotVisibility"
                   }
-                },
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
-                    "properties": {
-                      "botId": {
-                        "type": "string",
-                        "description": "The ID of the bot this configuration is using"
-                      }
-                    },
-                    "$$ref": "#/components/schemas/BotRef"
-                  },
-                  {
-                    "type": "object",
-                    "description": "A bot configuration that can be applied without a dedicated bot instance.",
-                    "properties": {
-                      "model": {
-                        "type": "string",
-                        "description": "A model definition",
-                        "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                        "example": "gpt-4-turbo/temperature=0.7",
-                        "$$ref": "#/components/schemas/Model"
-                      },
-                      "backstory": {
-                        "type": "string",
-                        "description": "The backstory this configuration is using"
-                      },
-                      "datasetId": {
-                        "type": "string",
-                        "description": "The id of the dataset this configuration is using"
-                      },
-                      "skillsetId": {
-                        "type": "string",
-                        "description": "The id of the skillset this configuration is using"
-                      },
-                      "privacy": {
-                        "type": "boolean",
-                        "description": "The privacy flag for this configuration"
-                      },
-                      "moderation": {
-                        "type": "boolean",
-                        "description": "The moderation flag for this configuration"
-                      }
-                    },
-                    "$$ref": "#/components/schemas/BotConfig"
-                  }
-                ]
+                }
               }
             }
           }
@@ -2211,6 +2195,10 @@
                   "moderation": {
                     "type": "boolean",
                     "description": "The moderation flag for this configuration"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the bot"
                   },
                   "visibility": {
                     "type": "string",
@@ -10069,6 +10057,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the dataset"
+                  },
                   "reranker": {
                     "description": "The reranker class for the dataset",
                     "type": "string"
@@ -10182,6 +10174,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the dataset"
                   },
                   "store": {
                     "description": "The storage class for the dataset",
@@ -10865,6 +10861,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the file"
+                  },
                   "visibility": {
                     "type": "string",
                     "description": "The file visibility",
@@ -11096,6 +11096,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the file"
                   },
                   "visibility": {
                     "type": "string",
@@ -23516,67 +23520,69 @@
                   "properties": {
                     "items": {
                       "type": "array",
-                      "description": "An array of examples matching the search query",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "The associated name"
-                        },
-                        "description": {
-                          "type": "string",
-                          "description": "The associated description"
-                        },
-                        "meta": {
-                          "type": "object",
-                          "description": "Meta data information",
-                          "additionalProperties": true,
-                          "$$ref": "#/components/schemas/Meta"
-                        },
-                        "id": {
-                          "type": "string",
-                          "description": "The instance ID"
-                        },
-                        "createdAt": {
-                          "type": "number",
-                          "description": "The timestamp (ms) when the instance was created"
-                        },
-                        "updatedAt": {
-                          "type": "number",
-                          "description": "The timestamp (ms) when the instance was updated"
-                        },
-                        "type": {
-                          "description": "The type of the example",
-                          "type": "string",
-                          "enum": [
-                            "blueprint",
-                            "widget",
-                            "slack",
-                            "discord",
-                            "whatsapp",
-                            "messenger",
-                            "telegram",
-                            "twilio",
-                            "email",
-                            "trigger"
-                          ]
-                        },
-                        "keywords": {
-                          "description": "The keywords associated with the example",
-                          "type": "array",
-                          "items": {
-                            "type": "string"
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "description": "The type of the example",
+                            "type": "string",
+                            "enum": [
+                              "blueprint",
+                              "widget",
+                              "slack",
+                              "discord",
+                              "whatsapp",
+                              "messenger",
+                              "telegram",
+                              "twilio",
+                              "email",
+                              "trigger"
+                            ]
+                          },
+                          "keywords": {
+                            "description": "The keywords associated with the example",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
                           }
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "createdAt",
-                        "updatedAt",
-                        "name",
-                        "description",
-                        "type"
-                      ],
-                      "items": null
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name",
+                          "description",
+                          "type"
+                        ]
+                      }
                     }
                   },
                   "required": [
@@ -24781,6 +24787,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the secret"
+                  },
                   "kind": {
                     "type": "string",
                     "description": "The kind of the secret",
@@ -24893,6 +24903,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the secret"
                   },
                   "kind": {
                     "type": "string",
@@ -25456,6 +25470,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the skillset ability"
+                  },
                   "secretId": {
                     "description": "The ID of the secret associated with the ability",
                     "type": "string"
@@ -25553,6 +25571,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the skillset ability"
                   },
                   "secretId": {
                     "description": "The ID of the secret associated with the ability",
@@ -26249,6 +26271,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the skillset"
+                  },
                   "visibility": {
                     "type": "string",
                     "description": "The skillset visibility",
@@ -26330,6 +26356,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint to use for the skillset"
                   },
                   "visibility": {
                     "type": "string",
