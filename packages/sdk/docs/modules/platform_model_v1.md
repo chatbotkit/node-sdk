@@ -7,7 +7,7 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_model_v1.md#chatbotkitclient)
-- [PlatformModelInstance](platform_model_v1.md#platformmodelinstance)
+- [PlatformModelListItem](platform_model_v1.md#platformmodellistitem)
 - [PlatformModelListRequest](platform_model_v1.md#platformmodellistrequest)
 - [PlatformModelListResponse](platform_model_v1.md#platformmodellistresponse)
 - [PlatformModelListStreamType](platform_model_v1.md#platformmodelliststreamtype)
@@ -29,9 +29,9 @@
 
 ___
 
-### PlatformModelInstance
+### PlatformModelListItem
 
-Ƭ **PlatformModelInstance**\<\>: [`PlatformModelListResponse`](platform_model_v1.md#platformmodellistresponse)[``"items"``][`number`]
+Ƭ **PlatformModelListItem**\<\>: [`PlatformModelListResponse`](platform_model_v1.md#platformmodellistresponse)[``"items"``][`number`]
 
 #### Defined in
 

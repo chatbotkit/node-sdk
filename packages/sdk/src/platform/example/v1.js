@@ -17,7 +17,7 @@
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformExamples']['responses']['200']['content']['application/json']} PlatformExampleListResponse
  *
- * @typedef {PlatformExampleListResponse['items'][number]} PlatformExampleInstance
+ * @typedef {PlatformExampleListResponse['items'][number]} PlatformExampleListItem
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformExamples']['responses']['200']['content']['application/jsonl']} PlatformExampleListStreamType
  *

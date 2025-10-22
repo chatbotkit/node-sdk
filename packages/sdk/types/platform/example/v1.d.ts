@@ -15,7 +15,7 @@
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformExamples']['responses']['200']['content']['application/json']} PlatformExampleListResponse
  *
- * @typedef {PlatformExampleListResponse['items'][number]} PlatformExampleInstance
+ * @typedef {PlatformExampleListResponse['items'][number]} PlatformExampleListItem
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformExamples']['responses']['200']['content']['application/jsonl']} PlatformExampleListStreamType
  *
@@ -68,7 +68,7 @@ export type PlatformExampleListRequest = {
     take?: number;
 };
 export type PlatformExampleListResponse = import("../../types/api/v1.js").operations["listPlatformExamples"]["responses"]["200"]["content"]["application/json"];
-export type PlatformExampleInstance = PlatformExampleListResponse["items"][number];
+export type PlatformExampleListItem = PlatformExampleListResponse["items"][number];
 export type PlatformExampleListStreamType = import("../../types/api/v1.js").operations["listPlatformExamples"]["responses"]["200"]["content"]["application/jsonl"];
 export type PlatformExampleFetchResponse = import("../../types/api/v1.js").operations["fetchPlatformExample"]["responses"]["200"]["content"]["application/json"];
 export type PlatformExampleSearchRequestBody = import("../../types/api/v1.js").operations["searchPlatformExamples"]["requestBody"]["content"]["application/json"];

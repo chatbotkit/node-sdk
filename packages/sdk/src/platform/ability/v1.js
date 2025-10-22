@@ -18,7 +18,7 @@
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/json']} PlatformAbilityListResponse
  *
- * @typedef {PlatformAbilityListResponse['items'][number]} PlatformAbilityInstance
+ * @typedef {PlatformAbilityListResponse['items'][number]} PlatformAbilityListItem
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/jsonl']} PlatformAbilityListStreamType
  *

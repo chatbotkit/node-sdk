@@ -7,7 +7,7 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_secret_v1.md#chatbotkitclient)
-- [PlatformSecretInstance](platform_secret_v1.md#platformsecretinstance)
+- [PlatformSecretListItem](platform_secret_v1.md#platformsecretlistitem)
 - [PlatformSecretListRequest](platform_secret_v1.md#platformsecretlistrequest)
 - [PlatformSecretListResponse](platform_secret_v1.md#platformsecretlistresponse)
 - [PlatformSecretListStreamType](platform_secret_v1.md#platformsecretliststreamtype)
@@ -29,9 +29,9 @@
 
 ___
 
-### PlatformSecretInstance
+### PlatformSecretListItem
 
-Ƭ **PlatformSecretInstance**\<\>: [`PlatformSecretListResponse`](platform_secret_v1.md#platformsecretlistresponse)[``"items"``][`number`]
+Ƭ **PlatformSecretListItem**\<\>: [`PlatformSecretListResponse`](platform_secret_v1.md#platformsecretlistresponse)[``"items"``][`number`]
 
 #### Defined in
 

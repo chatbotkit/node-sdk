@@ -12,7 +12,7 @@
 - [PlatformExampleCloneResponse](platform_example_v1.md#platformexamplecloneresponse)
 - [PlatformExampleCloneResponseBody](platform_example_v1.md#platformexamplecloneresponsebody)
 - [PlatformExampleFetchResponse](platform_example_v1.md#platformexamplefetchresponse)
-- [PlatformExampleInstance](platform_example_v1.md#platformexampleinstance)
+- [PlatformExampleListItem](platform_example_v1.md#platformexamplelistitem)
 - [PlatformExampleListRequest](platform_example_v1.md#platformexamplelistrequest)
 - [PlatformExampleListResponse](platform_example_v1.md#platformexamplelistresponse)
 - [PlatformExampleListStreamType](platform_example_v1.md#platformexampleliststreamtype)
@@ -91,9 +91,9 @@ ___
 
 ___
 
-### PlatformExampleInstance
+### PlatformExampleListItem
 
-Ƭ **PlatformExampleInstance**\<\>: [`PlatformExampleListResponse`](platform_example_v1.md#platformexamplelistresponse)[``"items"``][`number`]
+Ƭ **PlatformExampleListItem**\<\>: [`PlatformExampleListResponse`](platform_example_v1.md#platformexamplelistresponse)[``"items"``][`number`]
 
 #### Defined in
 
