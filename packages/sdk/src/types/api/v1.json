@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1761132180095)"
+    "version": "v1 (build 1761134589222)"
   },
   "servers": [
     {
@@ -494,6 +494,16 @@
             "$$ref": "#/components/schemas/BotConfig"
           }
         ]
+      },
+      "BlueprintProps": {
+        "type": "object",
+        "description": "Blueprint properties",
+        "properties": {
+          "blueprintId": {
+            "type": "string",
+            "description": "The ID of the blueprint"
+          }
+        }
       },
       "InstanceMetaProps": {
         "description": "Instance list properties",
@@ -1517,7 +1527,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -1571,6 +1581,10 @@
                     "moderation": {
                       "type": "boolean",
                       "description": "The moderation flag for this configuration"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "visibility": {
                       "type": "string",
@@ -1881,7 +1895,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -1926,7 +1940,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the bot"
+                    "description": "The ID of the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -2153,7 +2167,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -2198,7 +2212,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the bot"
+                    "description": "The ID of the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -2303,7 +2317,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -2358,6 +2372,10 @@
                             "type": "boolean",
                             "description": "The moderation flag for this configuration"
                           },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
                           "visibility": {
                             "type": "string",
                             "description": "The bot visibility",
@@ -2397,7 +2415,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -2451,6 +2469,10 @@
                             "moderation": {
                               "type": "boolean",
                               "description": "The moderation flag for this configuration"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "visibility": {
                               "type": "string",
@@ -8585,7 +8607,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -8612,6 +8634,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "store": {
                       "description": "The storage class for the dataset",
@@ -9056,7 +9082,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -9083,6 +9109,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "visibility": {
                               "type": "string",
@@ -10041,7 +10071,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -10059,7 +10089,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the dataset"
+                    "description": "The ID of the blueprint"
                   },
                   "reranker": {
                     "description": "The reranker class for the dataset",
@@ -10159,7 +10189,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -10177,7 +10207,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the dataset"
+                    "description": "The ID of the blueprint"
                   },
                   "store": {
                     "description": "The storage class for the dataset",
@@ -10318,7 +10348,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -10345,6 +10375,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "store": {
                             "description": "The storage class for the dataset",
@@ -10422,7 +10456,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -10449,6 +10483,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "store": {
                               "description": "The storage class for the dataset",
@@ -10689,7 +10727,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -10716,6 +10754,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "visibility": {
                       "type": "string",
@@ -10845,7 +10887,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -10863,7 +10905,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the file"
+                    "description": "The ID of the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -11081,7 +11123,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -11099,7 +11141,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the file"
+                    "description": "The ID of the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -11204,7 +11246,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -11231,6 +11273,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "visibility": {
                             "type": "string",
@@ -11271,7 +11317,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -11298,6 +11344,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "visibility": {
                               "type": "string",
@@ -11438,7 +11488,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -11469,6 +11519,10 @@
                     "botId": {
                       "type": "string",
                       "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "appId": {
                       "description": "The Discord application ID",
@@ -11621,6 +11675,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -11720,6 +11778,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -11842,7 +11904,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -11873,6 +11935,10 @@
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "appId": {
                             "description": "The Discord application ID",
@@ -11919,7 +11985,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -11950,6 +12016,10 @@
                             "botId": {
                               "type": "string",
                               "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "appId": {
                               "description": "The Discord application ID",
@@ -12096,7 +12166,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -12127,6 +12197,10 @@
                     "botId": {
                       "type": "string",
                       "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
@@ -12275,6 +12349,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -12362,6 +12440,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -12472,7 +12554,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -12503,6 +12585,10 @@
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
@@ -12545,7 +12631,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -12576,6 +12662,10 @@
                             "botId": {
                               "type": "string",
                               "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "contactCollection": {
                               "description": "Weather to collect contacts",
@@ -12718,7 +12808,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -12745,6 +12835,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "botId": {
                       "description": "The ID of the Bot to use",
@@ -12812,7 +12906,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -12827,6 +12921,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "description": "The ID of the Bot to use",
@@ -12897,7 +12995,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -12912,6 +13010,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "description": "The ID of the Bot to use",
@@ -13019,7 +13121,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -13046,6 +13148,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "botId": {
                             "description": "The ID of the Bot to use",
@@ -13090,7 +13196,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -13117,6 +13223,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "botId": {
                               "description": "The ID of the Bot to use",
@@ -13261,7 +13371,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -13290,8 +13400,8 @@
                       "description": "The timestamp (ms) when the instance was updated"
                     },
                     "blueprintId": {
-                      "description": "The ID of the blueprint",
-                      "type": "string"
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "skillsetId": {
                       "description": "The ID of the skillset",
@@ -13349,7 +13459,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -13366,8 +13476,8 @@
                     "$$ref": "#/components/schemas/Meta"
                   },
                   "blueprintId": {
-                    "description": "The ID of the blueprint",
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "skillsetId": {
                     "description": "The ID of the skillset",
@@ -13429,7 +13539,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -13446,8 +13556,8 @@
                     "$$ref": "#/components/schemas/Meta"
                   },
                   "blueprintId": {
-                    "description": "The ID of the blueprint",
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "skillsetId": {
                     "description": "The ID of the skillset",
@@ -13546,7 +13656,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -13575,8 +13685,8 @@
                             "description": "The timestamp (ms) when the instance was updated"
                           },
                           "blueprintId": {
-                            "description": "The ID of the blueprint",
-                            "type": "string"
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "skillsetId": {
                             "description": "The ID of the skillset",
@@ -13611,7 +13721,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -13640,8 +13750,8 @@
                               "description": "The timestamp (ms) when the instance was updated"
                             },
                             "blueprintId": {
-                              "description": "The ID of the blueprint",
-                              "type": "string"
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "skillsetId": {
                               "description": "The ID of the skillset",
@@ -13776,7 +13886,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -13807,6 +13917,10 @@
                     "botId": {
                       "type": "string",
                       "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "verifyToken": {
                       "description": "The Messenger integration verify token",
@@ -13956,6 +14070,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -14043,6 +14161,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -14153,7 +14275,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -14184,6 +14306,10 @@
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "verifyToken": {
                             "description": "The Messenger integration verify token",
@@ -14227,7 +14353,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -14258,6 +14384,10 @@
                             "botId": {
                               "type": "string",
                               "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "verifyToken": {
                               "description": "The Messenger integration verify token",
@@ -14401,7 +14531,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -14428,6 +14558,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "datasetId": {
                       "description": "The ID of the dataset to sync into",
@@ -14565,7 +14699,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -14580,6 +14714,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "datasetId": {
                     "description": "The ID of the dataset to sync into",
@@ -14653,7 +14791,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -14668,6 +14806,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "datasetId": {
                     "description": "The ID of the dataset to sync into",
@@ -14778,7 +14920,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -14805,6 +14947,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "datasetId": {
                             "description": "The ID of the dataset to sync into",
@@ -14852,7 +14998,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -14879,6 +15025,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "datasetId": {
                               "description": "The ID of the dataset to sync into",
@@ -15026,7 +15176,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -15053,6 +15203,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "datasetId": {
                       "description": "The ID of the dataset used in the Sitemap integration",
@@ -15202,7 +15356,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -15217,6 +15371,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "datasetId": {
                     "description": "The ID of the dataset to use for this Sitemap integration",
@@ -15302,7 +15460,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -15317,6 +15475,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "datasetId": {
                     "description": "The ID of the dataset to use for this Sitemap integration",
@@ -15439,7 +15601,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -15466,6 +15628,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "datasetId": {
                             "description": "The ID of the dataset used in the Sitemap integration",
@@ -15525,7 +15691,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -15552,6 +15718,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "datasetId": {
                               "description": "The ID of the dataset used in the Sitemap integration",
@@ -15711,7 +15881,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -15742,6 +15912,10 @@
                     "botId": {
                       "type": "string",
                       "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
@@ -15898,6 +16072,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -16005,6 +16183,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -16135,7 +16317,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -16166,6 +16348,10 @@
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
@@ -16216,7 +16402,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -16247,6 +16433,10 @@
                             "botId": {
                               "type": "string",
                               "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "contactCollection": {
                               "description": "Weather to collect contacts",
@@ -16397,7 +16587,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -16425,9 +16615,13 @@
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
                     },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
+                    },
                     "botId": {
-                      "description": "The ID of the Bot to use",
-                      "type": "string"
+                      "type": "string",
+                      "description": "The ID of the bot this configuration is using"
                     },
                     "email": {
                       "description": "The email to use",
@@ -16486,7 +16680,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -16502,9 +16696,13 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
-                    "description": "The ID of the Bot to use",
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
                   },
                   "email": {
                     "description": "The email to use",
@@ -16566,7 +16764,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -16582,9 +16780,13 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
-                    "description": "The ID of the Bot to use",
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
                   },
                   "email": {
                     "description": "The email to use",
@@ -16683,7 +16885,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -16711,9 +16913,13 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
                           "botId": {
-                            "description": "The ID of the Bot to use",
-                            "type": "string"
+                            "type": "string",
+                            "description": "The ID of the bot this configuration is using"
                           },
                           "email": {
                             "description": "The email to use",
@@ -16749,7 +16955,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -16777,9 +16983,13 @@
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
                             },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
+                            },
                             "botId": {
-                              "description": "The ID of the Bot to use",
-                              "type": "string"
+                              "type": "string",
+                              "description": "The ID of the bot this configuration is using"
                             },
                             "email": {
                               "description": "The email to use",
@@ -16915,7 +17125,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -16946,6 +17156,10 @@
                     "botId": {
                       "type": "string",
                       "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
@@ -17094,6 +17308,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -17185,6 +17403,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -17299,7 +17521,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -17330,6 +17552,10 @@
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
@@ -17372,7 +17598,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -17403,6 +17629,10 @@
                             "botId": {
                               "type": "string",
                               "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "contactCollection": {
                               "description": "Weather to collect contacts",
@@ -17572,6 +17802,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "botId": {
                       "type": "string",
@@ -17806,6 +18040,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -17903,6 +18141,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -18051,6 +18293,10 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
@@ -18138,6 +18384,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "botId": {
                               "type": "string",
@@ -18299,7 +18549,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -18330,6 +18580,10 @@
                     "botId": {
                       "type": "string",
                       "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
@@ -18474,6 +18728,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -18557,6 +18815,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -18663,7 +18925,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -18694,6 +18956,10 @@
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
@@ -18732,7 +18998,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -18763,6 +19029,10 @@
                             "botId": {
                               "type": "string",
                               "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "contactCollection": {
                               "description": "Weather to collect contacts",
@@ -18901,7 +19171,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -18932,6 +19202,10 @@
                     "botId": {
                       "type": "string",
                       "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "verifyToken": {
                       "description": "The WhatsApp integration verify token",
@@ -19089,6 +19363,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -19184,6 +19462,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -19302,7 +19584,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -19333,6 +19615,10 @@
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "verifyToken": {
                             "description": "The WhatsApp integration verify token",
@@ -19384,7 +19670,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -19415,6 +19701,10 @@
                             "botId": {
                               "type": "string",
                               "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "verifyToken": {
                               "description": "The WhatsApp integration verify token",
@@ -19593,6 +19883,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "botId": {
                       "type": "string",
@@ -19845,6 +20139,10 @@
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
                   },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
                   "botId": {
                     "type": "string",
                     "description": "The ID of the bot this configuration is using"
@@ -20032,6 +20330,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "botId": {
                     "type": "string",
@@ -20270,6 +20572,10 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
                           "botId": {
                             "type": "string",
                             "description": "The ID of the bot this configuration is using"
@@ -20442,6 +20748,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "botId": {
                               "type": "string",
@@ -24124,7 +24434,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance crud properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -24139,6 +24449,10 @@
                       "description": "Meta data information",
                       "additionalProperties": true,
                       "$$ref": "#/components/schemas/Meta"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "type": {
                       "type": "string",
@@ -24203,7 +24517,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -24218,6 +24532,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "type": {
                     "type": "string",
@@ -24288,7 +24606,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -24303,6 +24621,10 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
                   },
                   "type": {
                     "type": "string",
@@ -24413,7 +24735,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -24440,6 +24762,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "type": {
                             "type": "string",
@@ -24484,7 +24810,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -24511,6 +24837,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "type": {
                               "type": "string",
@@ -24655,7 +24985,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -24682,6 +25012,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "kind": {
                       "type": "string",
@@ -24771,7 +25105,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -24789,7 +25123,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the secret"
+                    "description": "The ID of the blueprint"
                   },
                   "kind": {
                     "type": "string",
@@ -24888,7 +25222,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -24906,7 +25240,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the secret"
+                    "description": "The ID of the blueprint"
                   },
                   "kind": {
                     "type": "string",
@@ -25042,7 +25376,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -25069,6 +25403,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "kind": {
                             "type": "string",
@@ -25136,7 +25474,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -25163,6 +25501,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "kind": {
                               "type": "string",
@@ -25348,7 +25690,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -25375,6 +25717,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "secretId": {
                       "description": "The ID of the secret associated with the ability",
@@ -25454,7 +25800,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -25472,7 +25818,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the skillset ability"
+                    "description": "The ID of the blueprint"
                   },
                   "secretId": {
                     "description": "The ID of the secret associated with the ability",
@@ -25556,7 +25902,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -25574,7 +25920,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the skillset ability"
+                    "description": "The ID of the blueprint"
                   },
                   "secretId": {
                     "description": "The ID of the secret associated with the ability",
@@ -25694,7 +26040,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -25721,6 +26067,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "secretId": {
                             "description": "The ID of the secret associated with the ability",
@@ -25769,7 +26119,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -25796,6 +26146,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "secretId": {
                               "description": "The ID of the secret associated with the ability",
@@ -25916,7 +26270,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -25943,6 +26297,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "secretId": {
                             "description": "The ID of the secret associated with the ability",
@@ -25991,7 +26349,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -26018,6 +26376,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "secretId": {
                               "description": "The ID of the secret associated with the ability",
@@ -26166,7 +26528,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "description": "Instance list properties",
+                  "description": "Blueprint properties",
                   "properties": {
                     "name": {
                       "type": "string",
@@ -26193,6 +26555,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
                     },
                     "visibility": {
                       "type": "string",
@@ -26255,7 +26621,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -26273,7 +26639,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the skillset"
+                    "description": "The ID of the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -26341,7 +26707,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "description": "Instance crud properties",
+                "description": "Blueprint properties",
                 "properties": {
                   "name": {
                     "type": "string",
@@ -26359,7 +26725,7 @@
                   },
                   "blueprintId": {
                     "type": "string",
-                    "description": "The ID of the blueprint to use for the skillset"
+                    "description": "The ID of the blueprint"
                   },
                   "visibility": {
                     "type": "string",
@@ -26464,7 +26830,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "Instance list properties",
+                        "description": "Blueprint properties",
                         "properties": {
                           "name": {
                             "type": "string",
@@ -26491,6 +26857,10 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
                           },
                           "visibility": {
                             "type": "string",
@@ -26531,7 +26901,7 @@
                         },
                         "data": {
                           "type": "object",
-                          "description": "Instance list properties",
+                          "description": "Blueprint properties",
                           "properties": {
                             "name": {
                               "type": "string",
@@ -26558,6 +26928,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
                             },
                             "visibility": {
                               "type": "string",

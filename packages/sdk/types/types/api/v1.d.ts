@@ -3992,6 +3992,11 @@ export interface components {
             /** @description The moderation flag for this configuration */
             moderation?: boolean;
         };
+        /** @description Blueprint properties */
+        BlueprintProps: {
+            /** @description The ID of the blueprint */
+            blueprintId?: string;
+        };
         /** @description Instance list properties */
         InstanceMetaProps: {
             /** @description The instance ID */
@@ -4597,6 +4602,8 @@ export interface operations {
                         privacy?: boolean;
                         /** @description The moderation flag for this configuration */
                         moderation?: boolean;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /**
                          * @description The bot visibility
                          * @enum {string}
@@ -4767,7 +4774,7 @@ export interface operations {
                     privacy?: boolean;
                     /** @description The moderation flag for this configuration */
                     moderation?: boolean;
-                    /** @description The ID of the blueprint to use for the bot */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /**
                      * @description The bot visibility
@@ -4921,7 +4928,7 @@ export interface operations {
                     privacy?: boolean;
                     /** @description The moderation flag for this configuration */
                     moderation?: boolean;
-                    /** @description The ID of the blueprint to use for the bot */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /**
                      * @description The bot visibility
@@ -5005,6 +5012,8 @@ export interface operations {
                             privacy?: boolean;
                             /** @description The moderation flag for this configuration */
                             moderation?: boolean;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The bot visibility
                              * @enum {string}
@@ -5018,7 +5027,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -5049,6 +5058,8 @@ export interface operations {
                             privacy?: boolean;
                             /** @description The moderation flag for this configuration */
                             moderation?: boolean;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The bot visibility
                              * @enum {string}
@@ -7901,6 +7912,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The storage class for the dataset */
                         store: string;
                         /** @description The reranker class for the dataset */
@@ -8114,7 +8127,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -8130,6 +8143,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The file visibility
                              * @enum {string}
@@ -8540,7 +8555,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the dataset */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /** @description The reranker class for the dataset */
                     reranker?: string;
@@ -8608,7 +8623,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the dataset */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /** @description The storage class for the dataset */
                     store?: string;
@@ -8695,6 +8710,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The storage class for the dataset */
                             store: string;
                             /** @description The reranker class for the dataset */
@@ -8726,7 +8743,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -8742,6 +8759,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The storage class for the dataset */
                             store: string;
                             /** @description The reranker class for the dataset */
@@ -8885,6 +8904,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /**
                          * @description The file visibility
                          * @enum {string}
@@ -8962,7 +8983,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the file */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /**
                      * @description The file visibility
@@ -9082,7 +9103,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the file */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /**
                      * @description The file visibility
@@ -9151,6 +9172,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The file visibility
                              * @enum {string}
@@ -9164,7 +9187,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -9180,6 +9203,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The file visibility
                              * @enum {string}
@@ -9272,6 +9297,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The Discord application ID */
                         appId?: string;
                         /** @description The Discord command handle */
@@ -9352,6 +9379,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The Discord application ID */
@@ -9411,6 +9440,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The Discord application ID */
@@ -9489,6 +9520,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The Discord application ID */
                             appId?: string;
                             /** @description The Discord command handle */
@@ -9505,7 +9538,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -9523,6 +9556,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The Discord application ID */
                             appId?: string;
                             /** @description The Discord command handle */
@@ -9618,6 +9653,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
@@ -9696,6 +9733,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description Weather to collect contacts */
@@ -9749,6 +9788,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description Weather to collect contacts */
@@ -9821,6 +9862,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
@@ -9835,7 +9878,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -9853,6 +9896,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
@@ -9944,6 +9989,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The ID of the Bot to use */
                         botId: string;
                         /** @description The configured extraction schema */
@@ -9986,6 +10033,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the Bot to use */
                     botId?: string;
                     /** @description The configured extraction schema */
@@ -10039,6 +10088,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the Bot to use */
                     botId?: string;
                     /** @description The configured extraction schema */
@@ -10109,6 +10160,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the Bot to use */
                             botId: string;
                             /** @description The configured extraction schema */
@@ -10125,7 +10178,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -10141,6 +10194,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the Bot to use */
                             botId: string;
                             /** @description The configured extraction schema */
@@ -10399,7 +10454,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -10506,6 +10561,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The Messenger integration verify token */
                         verifyToken: string;
                         /** @description The session duration (in milliseconds) */
@@ -10584,6 +10641,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The Messenger integration access token */
@@ -10637,6 +10696,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The Messenger integration access token */
@@ -10709,6 +10770,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The Messenger integration verify token */
                             verifyToken: string;
                             /** @description The session duration (in milliseconds) */
@@ -10723,7 +10786,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -10741,6 +10804,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The Messenger integration verify token */
                             verifyToken: string;
                             /** @description The session duration (in milliseconds) */
@@ -10832,6 +10897,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The ID of the dataset to sync into */
                         datasetId: string;
                         /** @description The Notion API token */
@@ -10912,6 +10979,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the dataset to sync into */
                     datasetId?: string;
                     /** @description The Notion API token */
@@ -10965,6 +11034,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the dataset to sync into */
                     datasetId?: string;
                     /** @description The Notion API token */
@@ -11035,6 +11106,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the dataset to sync into */
                             datasetId: string;
                             /** @description The Notion API token */
@@ -11051,7 +11124,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -11067,6 +11140,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the dataset to sync into */
                             datasetId: string;
                             /** @description The Notion API token */
@@ -11160,6 +11235,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The ID of the dataset used in the Sitemap integration */
                         datasetId: string;
                         /** @description The URL to use for this Sitemap integration */
@@ -11246,6 +11323,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the dataset to use for this Sitemap integration */
                     datasetId?: string;
                     /** @description The URL to use for this Sitemap integration */
@@ -11305,6 +11384,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the dataset to use for this Sitemap integration */
                     datasetId?: string;
                     /** @description The URL to use for this Sitemap integration */
@@ -11381,6 +11462,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the dataset used in the Sitemap integration */
                             datasetId: string;
                             /** @description The URL to use for this Sitemap integration */
@@ -11403,7 +11486,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -11419,6 +11502,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the dataset used in the Sitemap integration */
                             datasetId: string;
                             /** @description The URL to use for this Sitemap integration */
@@ -11520,6 +11605,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration for the Slack integration */
@@ -11602,6 +11689,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The signing secret for the Slack integration */
@@ -11665,6 +11754,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The signing secret for the Slack integration */
@@ -11747,6 +11838,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration for the Slack integration */
@@ -11765,7 +11858,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -11783,6 +11876,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration for the Slack integration */
@@ -11878,7 +11973,9 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
-                        /** @description The ID of the Bot to use */
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The ID of the bot this configuration is using */
                         botId: string;
                         /** @description The email to use */
                         email?: string;
@@ -11916,7 +12013,9 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the Bot to use */
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The email to use */
                     email?: string;
@@ -11965,7 +12064,9 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the Bot to use */
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The email to use */
                     email?: string;
@@ -12031,7 +12132,9 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The ID of the Bot to use */
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The ID of the bot this configuration is using */
                             botId: string;
                             /** @description The email to use */
                             email?: string;
@@ -12043,7 +12146,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -12059,7 +12162,9 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The ID of the Bot to use */
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The ID of the bot this configuration is using */
                             botId: string;
                             /** @description The email to use */
                             email?: string;
@@ -12150,6 +12255,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
@@ -12228,6 +12335,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The Telegram integration bot token */
@@ -12283,6 +12392,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The Telegram integration bot token */
@@ -12357,6 +12468,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
@@ -12371,7 +12484,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -12389,6 +12502,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
@@ -12480,6 +12595,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
                         /** @description The Trigger integration secret */
@@ -12603,6 +12720,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description When enabled the integration requires authentication */
@@ -12659,6 +12778,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description When enabled the integration requires authentication */
@@ -12732,6 +12853,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                             /** @description The Trigger integration secret */
@@ -12769,6 +12892,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                             /** @description The Trigger integration secret */
@@ -12869,6 +12994,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
@@ -12945,6 +13072,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description Weather to collect contacts */
@@ -12996,6 +13125,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description Weather to collect contacts */
@@ -13066,6 +13197,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
@@ -13078,7 +13211,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -13096,6 +13229,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
@@ -13187,6 +13322,8 @@ export interface operations {
                         updatedAt: number;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The WhatsApp integration verify token */
                         verifyToken: string;
                         /** @description The WhatsApp integration phone number ID */
@@ -13269,6 +13406,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The WhatsApp integration phone number ID */
@@ -13326,6 +13465,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The WhatsApp integration phone number ID */
@@ -13402,6 +13543,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The WhatsApp integration verify token */
                             verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
@@ -13420,7 +13563,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description A bot configuration that can be applied without a dedicated bot instance. */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -13438,6 +13581,8 @@ export interface operations {
                             updatedAt: number;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The WhatsApp integration verify token */
                             verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
@@ -13533,6 +13678,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The ID of the bot this configuration is using */
                         botId?: string;
                         /** @description The theme of the Widget integration */
@@ -13663,6 +13810,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The theme of the Widget integration */
@@ -13766,6 +13915,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
                     /** @description The theme of the Widget integration */
@@ -13886,6 +14037,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                             /** @description The theme of the Widget integration */
@@ -13968,6 +14121,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the bot this configuration is using */
                             botId?: string;
                             /** @description The theme of the Widget integration */
@@ -15724,6 +15879,8 @@ export interface operations {
                         meta?: {
                             [key: string]: unknown;
                         };
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /**
                          * @description The policy type
                          * @enum {string}
@@ -15767,6 +15924,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /**
                      * @description The policy type
                      * @enum {string}
@@ -15821,6 +15980,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /**
                      * @description The policy type
                      * @enum {string}
@@ -15892,6 +16053,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The policy type
                              * @enum {string}
@@ -15909,7 +16072,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -15925,6 +16088,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The policy type
                              * @enum {string}
@@ -16019,6 +16184,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /**
                          * @description The kind of the secret
                          * @enum {string}
@@ -16072,7 +16239,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the secret */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /**
                      * @description The kind of the secret
@@ -16140,7 +16307,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the secret */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /**
                      * @description The kind of the secret
@@ -16225,6 +16392,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The kind of the secret
                              * @enum {string}
@@ -16252,7 +16421,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -16268,6 +16437,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The kind of the secret
                              * @enum {string}
@@ -16374,6 +16545,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The ID of the secret associated with the ability */
                         secretId?: string;
                         /** @description The ID of the file associated with the ability */
@@ -16417,7 +16590,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the skillset ability */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /** @description The ID of the secret associated with the ability */
                     secretId?: string;
@@ -16474,7 +16647,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the skillset ability */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /** @description The ID of the secret associated with the ability */
                     secretId?: string;
@@ -16548,6 +16721,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
                             /** @description The ID of the file associated with the ability */
@@ -16563,7 +16738,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name: string;
@@ -16579,6 +16754,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
                             /** @description The ID of the file associated with the ability */
@@ -16639,6 +16816,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
                             /** @description The ID of the file associated with the ability */
@@ -16654,7 +16833,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name: string;
@@ -16670,6 +16849,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The ID of the secret associated with the ability */
                             secretId?: string;
                             /** @description The ID of the file associated with the ability */
@@ -16762,6 +16943,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /**
                          * @description The skillset visibility
                          * @enum {string}
@@ -16801,7 +16984,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the skillset */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /**
                      * @description The skillset visibility
@@ -16853,7 +17036,7 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
-                    /** @description The ID of the blueprint to use for the skillset */
+                    /** @description The ID of the blueprint */
                     blueprintId?: string;
                     /**
                      * @description The skillset visibility
@@ -16922,6 +17105,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The skillset visibility
                              * @enum {string}
@@ -16935,7 +17120,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -16951,6 +17136,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /**
                              * @description The skillset visibility
                              * @enum {string}
