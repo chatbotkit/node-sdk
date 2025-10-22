@@ -17,6 +17,8 @@
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformExamples']['responses']['200']['content']['application/json']} PlatformExampleListResponse
  *
+ * @typedef {PlatformExampleListResponse['items'][number]} PlatformExampleInstance
+ *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformExamples']['responses']['200']['content']['application/jsonl']} PlatformExampleListStreamType
  *
  * @param {ChatBotKitClient} client

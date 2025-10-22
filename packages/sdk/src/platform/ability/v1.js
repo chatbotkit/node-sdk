@@ -18,6 +18,8 @@
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/json']} PlatformAbilityListResponse
  *
+ * @typedef {PlatformAbilityListResponse['items'][number]} PlatformAbilityInstance
+ *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/jsonl']} PlatformAbilityListStreamType
  *
  * @param {ChatBotKitClient} client
