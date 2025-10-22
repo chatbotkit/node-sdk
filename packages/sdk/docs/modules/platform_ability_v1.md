@@ -7,6 +7,7 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_ability_v1.md#chatbotkitclient)
+- [PlatformAbilityInstance](platform_ability_v1.md#platformabilityinstance)
 - [PlatformAbilityListRequest](platform_ability_v1.md#platformabilitylistrequest)
 - [PlatformAbilityListResponse](platform_ability_v1.md#platformabilitylistresponse)
 - [PlatformAbilityListStreamType](platform_ability_v1.md#platformabilityliststreamtype)
@@ -25,6 +26,16 @@
 #### Defined in
 
 [platform/ability/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L2)
+
+___
+
+### PlatformAbilityInstance
+
+Ƭ **PlatformAbilityInstance**\<\>: [`PlatformAbilityListResponse`](platform_ability_v1.md#platformabilitylistresponse)[``"items"``][`number`]
+
+#### Defined in
+
+[platform/ability/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L21)
 
 ___
 
@@ -63,7 +74,7 @@ ___
 
 #### Defined in
 
-[platform/ability/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L21)
+[platform/ability/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L23)
 
 ___
 
@@ -101,4 +112,4 @@ ___
 
 #### Defined in
 
-[platform/ability/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L27)
+[platform/ability/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L29)

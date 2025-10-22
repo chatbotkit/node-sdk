@@ -15,6 +15,8 @@
  *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformSecrets']['responses']['200']['content']['application/json']} PlatformSecretListResponse
  *
+ * @typedef {PlatformSecretListResponse['items'][number]} PlatformSecretInstance
+ *
  * @typedef {import('../../types/api/v1.js').operations['listPlatformSecrets']['responses']['200']['content']['application/jsonl']} PlatformSecretListStreamType
  *
  * @param {ChatBotKitClient} client
@@ -30,4 +32,5 @@ export type PlatformSecretListRequest = {
     take?: number;
 };
 export type PlatformSecretListResponse = import("../../types/api/v1.js").operations["listPlatformSecrets"]["responses"]["200"]["content"]["application/json"];
+export type PlatformSecretInstance = PlatformSecretListResponse["items"][number];
 export type PlatformSecretListStreamType = import("../../types/api/v1.js").operations["listPlatformSecrets"]["responses"]["200"]["content"]["application/jsonl"];

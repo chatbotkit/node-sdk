@@ -7,6 +7,7 @@
 ### Type Aliases
 
 - [ChatBotKitClient](platform_secret_v1.md#chatbotkitclient)
+- [PlatformSecretInstance](platform_secret_v1.md#platformsecretinstance)
 - [PlatformSecretListRequest](platform_secret_v1.md#platformsecretlistrequest)
 - [PlatformSecretListResponse](platform_secret_v1.md#platformsecretlistresponse)
 - [PlatformSecretListStreamType](platform_secret_v1.md#platformsecretliststreamtype)
@@ -25,6 +26,16 @@
 #### Defined in
 
 [platform/secret/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L2)
+
+___
+
+### PlatformSecretInstance
+
+Ƭ **PlatformSecretInstance**\<\>: [`PlatformSecretListResponse`](platform_secret_v1.md#platformsecretlistresponse)[``"items"``][`number`]
+
+#### Defined in
+
+[platform/secret/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L20)
 
 ___
 
@@ -62,7 +73,7 @@ ___
 
 #### Defined in
 
-[platform/secret/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L20)
+[platform/secret/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L22)
 
 ___
 
@@ -100,4 +111,4 @@ ___
 
 #### Defined in
 
-[platform/secret/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L26)
+[platform/secret/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L28)
