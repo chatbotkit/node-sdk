@@ -3378,6 +3378,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/secret/{secretId}/revoke": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Revoke secret */
+        post: operations["revokeSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/secret/{secretId}/update": {
         parameters: {
             query?: never;
@@ -16238,6 +16255,44 @@ export interface operations {
                          * @enum {string}
                          */
                         visibility?: "private" | "protected" | "public";
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    revokeSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The secret was revoked successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the revoked secret */
+                        id: string;
                     };
                 };
             };

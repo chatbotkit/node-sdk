@@ -1,40 +1,33 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [platform](../modules/platform.md) / PlatformClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [platform/action](../modules/platform_action.md) / PlatformActionClient
 
-# Class: PlatformClient
+# Class: PlatformActionClient
 
-[platform](../modules/platform.md).PlatformClient
+[platform/action](../modules/platform_action.md).PlatformActionClient
 
-Platform client.
+Action client.
 
 ## Hierarchy
 
 - [`ChatBotKitClient`](client.ChatBotKitClient.md)
 
-  ↳ **`PlatformClient`**
+  ↳ **`PlatformActionClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](platform.PlatformClient.md#constructor)
-
-### Properties
-
-- [ability](platform.PlatformClient.md#ability)
-- [action](platform.PlatformClient.md#action)
-- [example](platform.PlatformClient.md#example)
-- [model](platform.PlatformClient.md#model)
-- [secrets](platform.PlatformClient.md#secrets)
+- [constructor](platform_action.PlatformActionClient.md#constructor)
 
 ### Methods
 
-- [clientFetch](platform.PlatformClient.md#clientfetch)
+- [clientFetch](platform_action.PlatformActionClient.md#clientfetch)
+- [list](platform_action.PlatformActionClient.md#list)
 
 ## Constructors
 
 ### constructor
 
-• **new PlatformClient**(`options`): [`PlatformClient`](platform.PlatformClient.md)
+• **new PlatformActionClient**(`options`): [`PlatformActionClient`](platform_action.PlatformActionClient.md)
 
 #### Parameters
 
@@ -44,7 +37,7 @@ Platform client.
 
 #### Returns
 
-[`PlatformClient`](platform.PlatformClient.md)
+[`PlatformActionClient`](platform_action.PlatformActionClient.md)
 
 #### Overrides
 
@@ -52,61 +45,7 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L15)
-
-## Properties
-
-### ability
-
-• **ability**: [`PlatformAbilityClient`](platform_ability.PlatformAbilityClient.md)
-
-#### Defined in
-
-[platform/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L26)
-
-___
-
-### action
-
-• **action**: [`PlatformActionClient`](platform_action.PlatformActionClient.md)
-
-#### Defined in
-
-[platform/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L31)
-
-___
-
-### example
-
-• **example**: [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
-
-#### Defined in
-
-[platform/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L42)
-
-___
-
-### model
-
-• **model**: [`PlatformModelClient`](platform_model.PlatformModelClient.md)
-
-#### Defined in
-
-[platform/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L21)
-
-___
-
-### secrets
-
-• **secrets**: [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
-
-**`Note`**
-
-overlapping name with the `secret` property
-
-#### Defined in
-
-[platform/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L37)
+[platform/action/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/action/index.js#L17)
 
 ## Methods
 
@@ -155,3 +94,25 @@ overlapping name with the `secret` property
 #### Defined in
 
 [client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
+
+___
+
+### list
+
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
+
+Retrieves a list of all platform actions.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request?` | [`PlatformActionListRequest`](../modules/platform_action_v1.md#platformactionlistrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
+
+#### Defined in
+
+[platform/action/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/action/index.js#L27)

@@ -80,6 +80,8 @@
 
   ↳ [`PlatformAbilityClient`](platform_ability.PlatformAbilityClient.md)
 
+  ↳ [`PlatformActionClient`](platform_action.PlatformActionClient.md)
+
   ↳ [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
 
   ↳ [`PlatformClient`](platform.PlatformClient.md)

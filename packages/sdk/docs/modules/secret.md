@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[secret/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L13)
+[secret/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L14)

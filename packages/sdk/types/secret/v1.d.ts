@@ -74,6 +74,20 @@ export function updateSecret(client: ChatBotKitClient, secretId: string, request
  * @returns {Promise<SecretDeleteResponse>}
  */
 export function deleteSecret(client: ChatBotKitClient, secretId: string): Promise<SecretDeleteResponse>;
+/**
+ * @typedef {import('../types/api/v1.js').operations['revokeSecret']['requestBody']['content']['application/json']} SecretRevokeRequestBody
+ *
+ * @typedef {SecretRevokeRequestBody} SecretRevokeRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['revokeSecret']['responses']['200']['content']['application/json']} SecretRevokeResponseBody
+ *
+ * @typedef {SecretRevokeResponseBody} SecretRevokeResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @returns {Promise<SecretRevokeResponse>}
+ */
+export function revokeSecret(client: ChatBotKitClient, secretId: string): Promise<SecretRevokeResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type SecretListRequest = {
@@ -97,3 +111,7 @@ export type SecretDeleteRequestBody = import("../types/api/v1.js").operations["d
 export type SecretDeleteRequest = SecretDeleteRequestBody;
 export type SecretDeleteResponseBody = import("../types/api/v1.js").operations["deleteSecret"]["responses"]["200"]["content"]["application/json"];
 export type SecretDeleteResponse = SecretDeleteResponseBody;
+export type SecretRevokeRequestBody = import("../types/api/v1.js").operations["revokeSecret"]["requestBody"]["content"]["application/json"];
+export type SecretRevokeRequest = SecretRevokeRequestBody;
+export type SecretRevokeResponseBody = import("../types/api/v1.js").operations["revokeSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretRevokeResponse = SecretRevokeResponseBody;

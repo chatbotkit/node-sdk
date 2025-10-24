@@ -25,6 +25,7 @@ Secret client.
 - [delete](secret.SecretClient.md#delete)
 - [fetch](secret.SecretClient.md#fetch)
 - [list](secret.SecretClient.md#list)
+- [revoke](secret.SecretClient.md#revoke)
 - [update](secret.SecretClient.md#update)
 
 ## Constructors
@@ -49,7 +50,7 @@ Secret client.
 
 #### Defined in
 
-[secret/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L23)
+[secret/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L24)
 
 ## Methods
 
@@ -119,7 +120,7 @@ Creates a new secret.
 
 #### Defined in
 
-[secret/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L53)
+[secret/index.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L54)
 
 ___
 
@@ -141,7 +142,7 @@ Deletes the secret.
 
 #### Defined in
 
-[secret/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L74)
+[secret/index.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L75)
 
 ___
 
@@ -163,7 +164,7 @@ Fetches a secret.
 
 #### Defined in
 
-[secret/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L43)
+[secret/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L44)
 
 ___
 
@@ -185,7 +186,29 @@ Retrieves a list of all secrets.
 
 #### Defined in
 
-[secret/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L33)
+[secret/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L34)
+
+___
+
+### revoke
+
+▸ **revoke**(`secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+Revokes a secret.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `secretId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[secret/index.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L85)
 
 ___
 
@@ -208,4 +231,4 @@ Updates a secret.
 
 #### Defined in
 
-[secret/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L64)
+[secret/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L65)

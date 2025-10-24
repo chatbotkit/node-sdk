@@ -82,6 +82,8 @@
 - [platform](modules/platform.md)
 - [platform/ability](modules/platform_ability.md)
 - [platform/ability/v1](modules/platform_ability_v1.md)
+- [platform/action](modules/platform_action.md)
+- [platform/action/v1](modules/platform_action_v1.md)
 - [platform/example](modules/platform_example.md)
 - [platform/example/v1](modules/platform_example_v1.md)
 - [platform/model](modules/platform_model.md)
