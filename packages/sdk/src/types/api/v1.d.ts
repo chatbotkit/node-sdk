@@ -16487,7 +16487,7 @@ export interface operations {
                              */
                             type: "authenticate";
                             /** @description The URL to authenticate the secret */
-                            url?: string;
+                            url: string;
                         };
                     };
                 };
