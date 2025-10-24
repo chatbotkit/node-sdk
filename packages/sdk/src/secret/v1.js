@@ -128,3 +128,28 @@ export async function deleteSecret(client, secretId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../types/api/v1.js').operations['revokeSecret']['requestBody']['content']['application/json']} SecretRevokeRequestBody
+ *
+ * @typedef {SecretRevokeRequestBody} SecretRevokeRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['revokeSecret']['responses']['200']['content']['application/json']} SecretRevokeResponseBody
+ *
+ * @typedef {SecretRevokeResponseBody} SecretRevokeResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @returns {Promise<SecretRevokeResponse>}
+ */
+export async function revokeSecret(client, secretId) {
+  const url = `/api/v1/secret/${secretId}/revoke`
+
+  /** @type {SecretRevokeResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {SecretRevokeRequestBody} */
+    record: {},
+  })
+
+  return response
+}
