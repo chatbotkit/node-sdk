@@ -15,7 +15,7 @@
  * @returns {ResponsePromise<UsageSeriesFetchResponse,never>}
  */
 export function fetchUsageSeries(client) {
-  const url = `/api/v1/usage/fetch`
+  const url = `/api/v1/usage/series/fetch`
 
   /** @type {ResponsePromise<UsageSeriesFetchResponse,never>} */
   const response = client.clientFetch(url)
