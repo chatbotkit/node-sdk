@@ -153,3 +153,53 @@ export async function revokeSecret(client, secretId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../types/api/v1.js').operations['verifySecret']['requestBody']['content']['application/json']} SecretVerifyRequestBody
+ *
+ * @typedef {SecretVerifyRequestBody} SecretVerifyRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['verifySecret']['responses']['200']['content']['application/json']} SecretVerifyResponseBody
+ *
+ * @typedef {SecretVerifyResponseBody} SecretVerifyResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @returns {Promise<SecretVerifyResponse>}
+ */
+export async function verifySecret(client, secretId) {
+  const url = `/api/v1/secret/${secretId}/verify`
+
+  /** @type {SecretVerifyResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {SecretVerifyRequestBody} */
+    record: {},
+  })
+
+  return response
+}
+
+/**
+ * @typedef {import('../types/api/v1.js').operations['authenticateSecret']['requestBody']['content']['application/json']} SecretAuthenticateRequestBody
+ *
+ * @typedef {SecretAuthenticateRequestBody} SecretAuthenticateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['authenticateSecret']['responses']['200']['content']['application/json']} SecretAuthenticateResponseBody
+ *
+ * @typedef {SecretAuthenticateResponseBody} SecretAuthenticateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @returns {Promise<SecretAuthenticateResponse>}
+ */
+export async function authenticateSecret(client, secretId) {
+  const url = `/api/v1/secret/${secretId}/authenticate`
+
+  /** @type {SecretAuthenticateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {SecretAuthenticateRequestBody} */
+    record: {},
+  })
+
+  return response
+}

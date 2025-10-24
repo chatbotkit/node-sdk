@@ -3344,6 +3344,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/secret/{secretId}/authenticate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Authenticate secret */
+        post: operations["authenticateSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/secret/{secretId}/delete": {
         parameters: {
             query?: never;
@@ -3406,6 +3423,23 @@ export interface paths {
         put?: never;
         /** Update secret */
         post: operations["updateSecret"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/secret/{secretId}/verify": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Verify secret */
+        post: operations["verifySecret"];
         delete?: never;
         options?: never;
         head?: never;
@@ -16164,6 +16198,46 @@ export interface operations {
             };
         };
     };
+    authenticateSecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The secret is about to be authenticated */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the secret to authenticate */
+                        id: string;
+                        /** @description The URL to authenticate the secret */
+                        url: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     deleteSecret: {
         parameters: {
             query?: never;
@@ -16363,6 +16437,58 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the updated secret */
                         id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    verifySecret: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                secretId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The secret was verified successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the verified secret */
+                        id: string;
+                        /**
+                         * @description The status of the secret
+                         * @enum {string}
+                         */
+                        status: "unauthenticated" | "authenticated";
+                        action?: {
+                            /**
+                             * @description The type of action to take
+                             * @enum {string}
+                             */
+                            type: "authenticate";
+                            /** @description The value of the secret */
+                            value: string;
+                        };
                     };
                 };
             };

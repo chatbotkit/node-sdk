@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1761336175634)"
+    "version": "v1 (build 1761341987146)"
   },
   "servers": [
     {
@@ -24990,6 +24990,78 @@
         ]
       }
     },
+    "/secret/{secretId}/authenticate": {
+      "post": {
+        "operationId": "authenticateSecret",
+        "summary": "Authenticate secret",
+        "tags": [
+          "Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the secret to authenticate"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The secret is about to be authenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the secret to authenticate",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "The URL to authenticate the secret",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "url"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "authenticateSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/secret/{secretId}/delete": {
       "post": {
         "operationId": "deleteSecret",
@@ -25365,6 +25437,107 @@
           }
         },
         "__originalOperationId": "updateSecret",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/secret/{secretId}/verify": {
+      "post": {
+        "operationId": "verifySecret",
+        "summary": "Verify secret",
+        "tags": [
+          "Secret"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "secretId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The ID of the secret to be verified"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The secret was verified successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the verified secret",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The status of the secret",
+                      "type": "string",
+                      "enum": [
+                        "unauthenticated",
+                        "authenticated"
+                      ]
+                    },
+                    "action": {
+                      "oneOf": [
+                        {
+                          "description": "The action to take next",
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of action to take",
+                              "type": "string",
+                              "enum": [
+                                "authenticate"
+                              ]
+                            },
+                            "value": {
+                              "description": "The value of the secret",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "value"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "verifySecret",
         "security": [
           {
             "BearerAuth": []

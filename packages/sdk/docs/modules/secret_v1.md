@@ -8,6 +8,10 @@
 
 - [ChatBotKitClient](secret_v1.md#chatbotkitclient)
 - [ResponsePromise](secret_v1.md#responsepromise)
+- [SecretAuthenticateRequest](secret_v1.md#secretauthenticaterequest)
+- [SecretAuthenticateRequestBody](secret_v1.md#secretauthenticaterequestbody)
+- [SecretAuthenticateResponse](secret_v1.md#secretauthenticateresponse)
+- [SecretAuthenticateResponseBody](secret_v1.md#secretauthenticateresponsebody)
 - [SecretCreateRequest](secret_v1.md#secretcreaterequest)
 - [SecretCreateRequestBody](secret_v1.md#secretcreaterequestbody)
 - [SecretCreateResponse](secret_v1.md#secretcreateresponse)
@@ -28,15 +32,21 @@
 - [SecretUpdateRequestBody](secret_v1.md#secretupdaterequestbody)
 - [SecretUpdateResponse](secret_v1.md#secretupdateresponse)
 - [SecretUpdateResponseBody](secret_v1.md#secretupdateresponsebody)
+- [SecretVerifyRequest](secret_v1.md#secretverifyrequest)
+- [SecretVerifyRequestBody](secret_v1.md#secretverifyrequestbody)
+- [SecretVerifyResponse](secret_v1.md#secretverifyresponse)
+- [SecretVerifyResponseBody](secret_v1.md#secretverifyresponsebody)
 
 ### Functions
 
+- [authenticateSecret](secret_v1.md#authenticatesecret)
 - [createSecret](secret_v1.md#createsecret)
 - [deleteSecret](secret_v1.md#deletesecret)
 - [fetchSecret](secret_v1.md#fetchsecret)
 - [listSecrets](secret_v1.md#listsecrets)
 - [revokeSecret](secret_v1.md#revokesecret)
 - [updateSecret](secret_v1.md#updatesecret)
+- [verifySecret](secret_v1.md#verifysecret)
 
 ## Type Aliases
 
@@ -64,6 +74,46 @@ ___
 #### Defined in
 
 [secret/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L8)
+
+___
+
+### SecretAuthenticateRequest
+
+Ƭ **SecretAuthenticateRequest**\<\>: [`SecretAuthenticateRequestBody`](secret_v1.md#secretauthenticaterequestbody)
+
+#### Defined in
+
+[secret/v1.js:185](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L185)
+
+___
+
+### SecretAuthenticateRequestBody
+
+Ƭ **SecretAuthenticateRequestBody**\<\>: `operations`[``"authenticateSecret"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:183](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L183)
+
+___
+
+### SecretAuthenticateResponse
+
+Ƭ **SecretAuthenticateResponse**\<\>: [`SecretAuthenticateResponseBody`](secret_v1.md#secretauthenticateresponsebody)
+
+#### Defined in
+
+[secret/v1.js:189](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L189)
+
+___
+
+### SecretAuthenticateResponseBody
+
+Ƭ **SecretAuthenticateResponseBody**\<\>: `operations`[``"authenticateSecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:187](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L187)
 
 ___
 
@@ -274,7 +324,68 @@ ___
 
 [secret/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L84)
 
+___
+
+### SecretVerifyRequest
+
+Ƭ **SecretVerifyRequest**\<\>: [`SecretVerifyRequestBody`](secret_v1.md#secretverifyrequestbody)
+
+#### Defined in
+
+[secret/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L160)
+
+___
+
+### SecretVerifyRequestBody
+
+Ƭ **SecretVerifyRequestBody**\<\>: `operations`[``"verifySecret"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L158)
+
+___
+
+### SecretVerifyResponse
+
+Ƭ **SecretVerifyResponse**\<\>: [`SecretVerifyResponseBody`](secret_v1.md#secretverifyresponsebody)
+
+#### Defined in
+
+[secret/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L164)
+
+___
+
+### SecretVerifyResponseBody
+
+Ƭ **SecretVerifyResponseBody**\<\>: `operations`[``"verifySecret"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[secret/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L162)
+
 ## Functions
+
+### authenticateSecret
+
+▸ **authenticateSecret**(`client`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `secretId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[secret/v1.js:195](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L195)
+
+___
 
 ### createSecret
 
@@ -400,3 +511,24 @@ ___
 #### Defined in
 
 [secret/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L93)
+
+___
+
+### verifySecret
+
+▸ **verifySecret**(`client`, `secretId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `secretId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[secret/v1.js:170](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L170)
