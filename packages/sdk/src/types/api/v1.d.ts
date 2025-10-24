@@ -16486,8 +16486,8 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "authenticate";
-                            /** @description The value of the secret */
-                            value: string;
+                            /** @description The URL to authenticate the secret */
+                            url?: string;
                         };
                     };
                 };
