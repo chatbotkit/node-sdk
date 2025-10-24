@@ -804,6 +804,26 @@
       "types": "./types/platform/ability/v1.d.ts",
       "import": "./src/platform/ability/v1.js"
     },
+    "./platform/action": {
+      "types": "./types/platform/action/index.d.ts",
+      "import": "./src/platform/action/index.js"
+    },
+    "./platform/action/index": {
+      "types": "./types/platform/action/index.d.ts",
+      "import": "./src/platform/action/index.js"
+    },
+    "./platform/action/index.js": {
+      "types": "./types/platform/action/index.d.ts",
+      "import": "./src/platform/action/index.js"
+    },
+    "./platform/action/v1": {
+      "types": "./types/platform/action/v1.d.ts",
+      "import": "./src/platform/action/v1.js"
+    },
+    "./platform/action/v1.js": {
+      "types": "./types/platform/action/v1.d.ts",
+      "import": "./src/platform/action/v1.js"
+    },
     "./platform/example": {
       "types": "./types/platform/example/index.d.ts",
       "import": "./src/platform/example/index.js"

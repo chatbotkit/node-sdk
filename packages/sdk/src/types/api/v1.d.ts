@@ -15420,7 +15420,7 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description References to example abilities from the catalogue */
+                            /** @description Example demonstrating the action usage */
                             examples: string[];
                         }[];
                     };
@@ -15446,7 +15446,7 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description References to example abilities from the catalogue */
+                            /** @description Example demonstrating the action usage */
                             examples: string[];
                         };
                     };

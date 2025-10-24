@@ -21,6 +21,7 @@ Platform client.
 ### Properties
 
 - [ability](platform.PlatformClient.md#ability)
+- [action](platform.PlatformClient.md#action)
 - [example](platform.PlatformClient.md#example)
 - [model](platform.PlatformClient.md#model)
 - [secrets](platform.PlatformClient.md#secrets)
@@ -51,7 +52,7 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L14)
+[platform/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L15)
 
 ## Properties
 
@@ -61,7 +62,17 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L25)
+[platform/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L26)
+
+___
+
+### action
+
+• **action**: `PlatformActionClient`
+
+#### Defined in
+
+[platform/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L31)
 
 ___
 
@@ -71,7 +82,7 @@ ___
 
 #### Defined in
 
-[platform/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L36)
+[platform/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L42)
 
 ___
 
@@ -81,7 +92,7 @@ ___
 
 #### Defined in
 
-[platform/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L20)
+[platform/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L21)
 
 ___
 
@@ -95,7 +106,7 @@ overlapping name with the `secret` property
 
 #### Defined in
 
-[platform/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L31)
+[platform/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L37)
 
 ## Methods
 

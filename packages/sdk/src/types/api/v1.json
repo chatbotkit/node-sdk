@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1761309910590)"
+    "version": "v1 (build 1761310418340)"
   },
   "servers": [
     {
@@ -23445,7 +23445,7 @@
                             "description": "The timestamp (ms) when the instance was updated"
                           },
                           "examples": {
-                            "description": "References to example abilities from the catalogue",
+                            "description": "Example demonstrating the action usage",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -23511,7 +23511,7 @@
                               "description": "The timestamp (ms) when the instance was updated"
                             },
                             "examples": {
-                              "description": "References to example abilities from the catalogue",
+                              "description": "Example demonstrating the action usage",
                               "type": "array",
                               "items": {
                                 "type": "string"
