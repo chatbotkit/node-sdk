@@ -10344,8 +10344,6 @@ export interface operations {
                         blueprintId?: string;
                         /** @description The ID of the skillset */
                         skillsetId?: string;
-                        /** @description The tools used in the integration */
-                        tools?: string;
                     };
                 };
             };
@@ -10384,8 +10382,6 @@ export interface operations {
                     blueprintId?: string;
                     /** @description The ID of the skillset */
                     skillsetId?: string;
-                    /** @description The tools to be used */
-                    tools?: string;
                 };
             };
         };
@@ -10435,8 +10431,6 @@ export interface operations {
                     blueprintId?: string;
                     /** @description The ID of the skillset */
                     skillsetId?: string;
-                    /** @description The tools to be used */
-                    tools?: string;
                 };
             };
         };
@@ -10503,8 +10497,6 @@ export interface operations {
                             blueprintId?: string;
                             /** @description The ID of the skillset */
                             skillsetId?: string;
-                            /** @description The tools used in the integration */
-                            tools?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -10533,8 +10525,6 @@ export interface operations {
                             blueprintId?: string;
                             /** @description The ID of the skillset */
                             skillsetId?: string;
-                            /** @description The tools used in the integration */
-                            tools?: string;
                         };
                     };
                 };
