@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1761345852329)"
+    "version": "v1 (build 1761428618025)"
   },
   "servers": [
     {
@@ -13406,6 +13406,10 @@
                     "skillsetId": {
                       "description": "The ID of the skillset",
                       "type": "string"
+                    },
+                    "tools": {
+                      "description": "The tools used in the integration",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -13481,6 +13485,10 @@
                   },
                   "skillsetId": {
                     "description": "The ID of the skillset",
+                    "type": "string"
+                  },
+                  "tools": {
+                    "description": "The tools to be used",
                     "type": "string"
                   }
                 }
@@ -13561,6 +13569,10 @@
                   },
                   "skillsetId": {
                     "description": "The ID of the skillset",
+                    "type": "string"
+                  },
+                  "tools": {
+                    "description": "The tools to be used",
                     "type": "string"
                   }
                 }
@@ -13691,6 +13703,10 @@
                           "skillsetId": {
                             "description": "The ID of the skillset",
                             "type": "string"
+                          },
+                          "tools": {
+                            "description": "The tools used in the integration",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -13755,6 +13771,10 @@
                             },
                             "skillsetId": {
                               "description": "The ID of the skillset",
+                              "type": "string"
+                            },
+                            "tools": {
+                              "description": "The tools used in the integration",
                               "type": "string"
                             }
                           },
