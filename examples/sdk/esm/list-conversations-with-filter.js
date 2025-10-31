@@ -14,7 +14,11 @@ async function main() {
     .list({ meta: { app: 'algo' } })
     .stream()) {
     console.log(`id: ${JSON.stringify(data.id)}`)
-    console.log(`backstory: ${JSON.stringify(data.backstory)}`)
+
+    if ('backstory' in data) {
+      console.log(`backstory: ${JSON.stringify(data.backstory)}`)
+    }
+
     console.log(`---`)
   }
 }

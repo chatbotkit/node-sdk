@@ -17,7 +17,11 @@ async function main() {
 
   for await (const { data } of client.list().stream()) {
     console.log(`id: ${JSON.stringify(data.id)}`)
-    console.log(`backstory: ${JSON.stringify(data.backstory)}`)
+
+    if ('backstory' in data) {
+      console.log(`backstory: ${JSON.stringify(data.backstory)}`)
+    }
+
     console.log(`---`)
   }
 }

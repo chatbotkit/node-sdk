@@ -79,8 +79,11 @@ async function main() {
 
           messages.push(message)
 
+          // @ts-expect-error meta is unknown
           if (message.meta?.activity?.type === 'request') {
+            // @ts-expect-error meta is unknown
             const name = message.meta.activity.function?.name
+            // @ts-expect-error meta is unknown
             const args = message.meta.activity.function?.arguments
 
             const fn = functions.find((fn) => fn.name === name)
