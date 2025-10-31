@@ -11,7 +11,7 @@ export default function useDeps(deps = []) {
     () => {
       setDepsId((prevId) => prevId + 1)
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
     deps
   )
 
