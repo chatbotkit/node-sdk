@@ -1,5 +1,7 @@
 {
-  "extends": ["../../typedoc.base.json"],
+  "extends": [
+    "../../typedoc.base.json"
+  ],
   "entryPoints": [
     "./src/actions/complete.js",
     "./src/components/AutoScroller.js",
@@ -13,6 +15,7 @@
     "./src/hooks/useConversationManagerState.js",
     "./src/hooks/useConversationManagerStateReducer.js",
     "./src/hooks/useDOMQuerySelector.js",
+    "./src/hooks/useDeps.js",
     "./src/hooks/useWidgetInstance.js",
     "./src/hooks/useWidgetInstanceFunctions.js",
     "./src/hooks/useWidgetInstanceNotifications.js",
@@ -22,6 +25,9 @@
     "./src/utils/stream.js",
     "./src/utils/string.js"
   ],
-  "externalPattern": ["**/node_modules/**", "./types/**"],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
   "readme": "README.md"
 }
