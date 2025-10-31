@@ -1,5 +1,16 @@
 # @chatbotkit/nextauth
 
+## 1.19.0
+
+### Minor Changes
+
+- 502d38b: SDK overhaul
+
+### Patch Changes
+
+- Updated dependencies [502d38b]
+  - @chatbotkit/sdk@1.19.0
+
 ## 1.18.3
 
 ### Patch Changes

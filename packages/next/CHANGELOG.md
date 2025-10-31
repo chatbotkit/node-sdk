@@ -1,5 +1,11 @@
 # @chatbotkit/next
 
+## 1.19.0
+
+### Minor Changes
+
+- 502d38b: SDK overhaul
+
 ## 1.9.0
 
 ### Minor Changes

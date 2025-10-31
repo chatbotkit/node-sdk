@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/fetch",
-  "version": "1.18.3",
+  "version": "1.19.0",
   "description": "Isomorphic implenetation for fetch specifically designed for @chatbotkit/sdk.",
   "license": "ISC",
   "engines": {
