@@ -22,7 +22,7 @@ Re-exports [WidgetFunction](hooks_useWidgetInstance.md#widgetfunction)
 
 ### useWidgetInstanceFunctions
 
-▸ **useWidgetInstanceFunctions**(`params?`): `void`
+▸ **useWidgetInstanceFunctions**(`params?`, `deps?`): [`ChatBotKitWidgetInstance`](hooks_useWidgetInstance.md#chatbotkitwidgetinstance)
 
 #### Parameters
 
@@ -30,11 +30,13 @@ Re-exports [WidgetFunction](hooks_useWidgetInstance.md#widgetfunction)
 | :------ | :------ |
 | `params?` | `Object` |
 | `params.functions?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetFunction`](hooks_useWidgetInstance.md#widgetfunction)\> |
+| `params.selector?` | `string` |
+| `deps?` | `any`[] |
 
 #### Returns
 
-`void`
+[`ChatBotKitWidgetInstance`](hooks_useWidgetInstance.md#chatbotkitwidgetinstance)
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstanceFunctions.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceFunctions.js#L14)
+[packages/react/src/hooks/useWidgetInstanceFunctions.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceFunctions.js#L18)

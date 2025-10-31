@@ -47,7 +47,7 @@ Represents a solution.
 | Name | Type |
 | :------ | :------ |
 | `config` | `Object` |
-| `config.resources?` | (\{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{ model?: string; backstory?: string; datasetId?: string; skillsetId?: string; moderation?: boolean; privacy?: boolean; } ; `slug?`: `string` ; `type?`: ``"bot"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{} ; `slug?`: `string` ; `type?`: ``"dataset"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{} ; `slug?`: `string` ; `type?`: ``"skillset"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{} ; `slug?`: `string` ; `type?`: ``"widgetIntegration"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{ url?: string; datasetId?: string; } ; `slug?`: `string` ; `type?`: ``"sitemapIntegration"``  })[] |
+| `config.resources?` | (\{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{ `backstory?`: `string` ; `datasetId?`: `string` ; `model?`: `string` ; `moderation?`: `boolean` ; `privacy?`: `boolean` ; `skillsetId?`: `string`  } ; `slug?`: `string` ; `type?`: ``"bot"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: {} ; `slug?`: `string` ; `type?`: ``"dataset"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: {} ; `slug?`: `string` ; `type?`: ``"skillset"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: {} ; `slug?`: `string` ; `type?`: ``"widgetIntegration"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{ `datasetId?`: `string` ; `url?`: `string`  } ; `slug?`: `string` ; `type?`: ``"sitemapIntegration"``  })[] |
 | `config.version?` | ``1`` |
 
 #### Returns
@@ -56,7 +56,7 @@ Represents a solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:350](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L350)
+[packages/cli/src/solution/index.js:349](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L349)
 
 ## Accessors
 
@@ -70,7 +70,7 @@ Represents a solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:357](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L357)
+[packages/cli/src/solution/index.js:356](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L356)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:402](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L402)
+[packages/cli/src/solution/index.js:401](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L401)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:393](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L393)
+[packages/cli/src/solution/index.js:392](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L392)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:418](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L418)
+[packages/cli/src/solution/index.js:417](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L417)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:409](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L409)
+[packages/cli/src/solution/index.js:408](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L408)
 
 ___
 
@@ -142,7 +142,7 @@ Get the resources.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:371](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L371)
+[packages/cli/src/solution/index.js:370](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L370)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:470](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L470)
+[packages/cli/src/solution/index.js:469](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L469)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:459](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L459)
+[packages/cli/src/solution/index.js:458](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L458)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:434](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L434)
+[packages/cli/src/solution/index.js:433](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L433)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:425](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L425)
+[packages/cli/src/solution/index.js:424](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L424)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:452](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L452)
+[packages/cli/src/solution/index.js:451](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L451)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:441](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L441)
+[packages/cli/src/solution/index.js:440](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L440)
 
 ## Methods
 
@@ -242,7 +242,7 @@ Sync the solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:479](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L479)
+[packages/cli/src/solution/index.js:478](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L478)
 
 ___
 
@@ -264,7 +264,7 @@ Creates a new solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:505](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L505)
+[packages/cli/src/solution/index.js:504](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L504)
 
 ___
 
@@ -286,7 +286,7 @@ Deletes a solution.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:530](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L530)
+[packages/cli/src/solution/index.js:529](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L529)
 
 ___
 
@@ -302,7 +302,7 @@ Lists solutions.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:489](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L489)
+[packages/cli/src/solution/index.js:488](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L488)
 
 ___
 
@@ -316,7 +316,7 @@ Loads a solution from a configuration object or a file.
 
 | Name | Type |
 | :------ | :------ |
-| `config` | `string` \| \{ `resources?`: (\{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{ model?: string; backstory?: string; datasetId?: string; skillsetId?: string; moderation?: boolean; privacy?: boolean; } ; `slug?`: `string` ; `type?`: ``"bot"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{} ; `slug?`: `string` ; `type?`: ``"dataset"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{} ; `slug?`: `string` ; `type?`: ``"skillset"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{} ; `slug?`: `string` ; `type?`: ``"widgetIntegration"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{ url?: string; datasetId?: string; } ; `slug?`: `string` ; `type?`: ``"sitemapIntegration"``  })[] ; `version?`: ``1``  } |
+| `config` | `string` \| \{ `resources?`: (\{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{ `backstory?`: `string` ; `datasetId?`: `string` ; `model?`: `string` ; `moderation?`: `boolean` ; `privacy?`: `boolean` ; `skillsetId?`: `string`  } ; `slug?`: `string` ; `type?`: ``"bot"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: {} ; `slug?`: `string` ; `type?`: ``"dataset"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: {} ; `slug?`: `string` ; `type?`: ``"skillset"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: {} ; `slug?`: `string` ; `type?`: ``"widgetIntegration"``  } \| \{ `description?`: `string` ; `id?`: `string` ; `name?`: `string` ; `properties?`: \{ `datasetId?`: `string` ; `url?`: `string`  } ; `slug?`: `string` ; `type?`: ``"sitemapIntegration"``  })[] ; `version?`: ``1``  } |
 
 #### Returns
 
@@ -324,7 +324,7 @@ Loads a solution from a configuration object or a file.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:547](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L547)
+[packages/cli/src/solution/index.js:546](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L546)
 
 ___
 
@@ -347,4 +347,4 @@ Saves a solution to a file.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:586](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L586)
+[packages/cli/src/solution/index.js:585](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L585)

@@ -23,14 +23,14 @@ An adapter for NextAuth.js that works with ChatBotKit Partner API.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `options` | `Object` |
-| `options.autoCreateUser?` | `boolean` |
-| `options.autoDeleteUser?` | `boolean` |
-| `options.autoUpdateUser?` | `boolean` |
-| `options.secret` | `string` |
-| `options.store` | [`Store`](../classes/adapter.Store.md) |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `options` | `Object` | `undefined` |
+| `options.autoCreateUser?` | `boolean` | `false` |
+| `options.autoDeleteUser?` | `boolean` | `false` |
+| `options.autoUpdateUser?` | `boolean` | `true` |
+| `options.secret` | `string` | `undefined` |
+| `options.store` | [`Store`](../classes/adapter.Store.md) | `undefined` |
 
 #### Returns
 
