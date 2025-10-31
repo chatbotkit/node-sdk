@@ -17,7 +17,11 @@ async function main() {
 
   for (const conversation of (await client.list()).items) {
     console.log(`id: ${JSON.stringify(conversation.id)}`)
-    console.log(`backstory: ${JSON.stringify(conversation.backstory)}`)
+
+    if ('backstory' in conversation) {
+      console.log(`backstory: ${JSON.stringify(conversation.backstory)}`)
+    }
+
     console.log(`---`)
   }
 }
