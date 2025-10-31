@@ -11,8 +11,8 @@
  * @returns
  */
 export function ChatInput(props: {
-    [name: string]: any;
     onSubmit: () => void;
-    modifierKey?: boolean | undefined;
+    modifierKey?: boolean;
+    [name: string]: any;
 }): import("react/jsx-runtime").JSX.Element;
 export default ChatInput;

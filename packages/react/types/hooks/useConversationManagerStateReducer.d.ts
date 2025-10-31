@@ -57,7 +57,7 @@ export function conversationManagerStateReducer(state: State, action: Action): S
  * @param {Partial<State>} [state]
  * @returns {State}
  */
-export function conversationManagerStateInitial(state?: Partial<State> | undefined): State;
+export function conversationManagerStateInitial(state?: Partial<State>): State;
 /**
  * This is a hook that creates a conversation manager reducer and initializes
  * the state of the conversation manager to the given state or to the default
@@ -66,9 +66,9 @@ export function conversationManagerStateInitial(state?: Partial<State> | undefin
  * @param {Partial<State>} [state]
  * @returns {[State, import('react').Dispatch<Action>]}
  */
-export function useConversationManagerStateReducer(state?: Partial<State> | undefined): [State, import('react').Dispatch<Action>];
+export function useConversationManagerStateReducer(state?: Partial<State>): [State, import("react").Dispatch<Action>];
 export default useConversationManagerStateReducer;
-export type Message = import('@chatbotkit/sdk/conversation/v1').Message & {
+export type Message = import("@chatbotkit/sdk/conversation/v1").Message & {
     id: string;
     createdAt: Date;
 };
@@ -79,27 +79,27 @@ export type State = {
     messages: Message[];
 };
 export type SetThinkingAction = {
-    type: 'setThinking';
+    type: "setThinking";
     data: {
         thinking: boolean;
     };
 };
 export type SetTypingAction = {
-    type: 'setTyping';
+    type: "setTyping";
     data: {
         typing: boolean;
     };
 };
 export type AppendTextAction = {
-    type: 'appendText';
+    type: "appendText";
     data: {
         text: string;
     };
 };
 export type AppendMessageAction = {
-    type: 'appendMessage';
+    type: "appendMessage";
     data: {
-        message: Omit<Message, 'id' | 'createdAt'> & {
+        message: Omit<Message, "id" | "createdAt"> & {
             id?: string;
             createdAt?: Date;
         };

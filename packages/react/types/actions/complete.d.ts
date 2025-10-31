@@ -6,10 +6,10 @@
  * @param {Options} options
  * @returns {import('../utils/stream.js').StreamResult}
  */
-export function streamComplete(options: Options): import('../utils/stream.js').StreamResult;
+export function streamComplete(options: Options): import("../utils/stream.js").StreamResult;
 export default complete;
-export type ReactElement = import('react').ReactElement;
-export type ReactNode = import('react').ReactNode;
+export type ReactElement = import("react").ReactElement;
+export type ReactNode = import("react").ReactNode;
 export type Item = {
     type: string;
     data: object;
@@ -23,12 +23,12 @@ export type ValidatingParametersSchema = {
     }>;
 };
 export type InputMessage = {
-    type: 'bot' | 'user' | 'reasoning' | 'context' | 'instruction' | 'backstory' | 'activity';
+    type: "bot" | "user" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
     text: string;
     meta?: Record<string, any>;
 };
 export type OutputMessage = {
-    type: 'bot' | 'activity';
+    type: "bot" | "activity";
     text: string;
     meta?: Record<string, any>;
 };
@@ -55,15 +55,15 @@ export type InputFunction = {
     name: string;
     description: string;
     parameters: BasicParametersSchema | ValidatingParametersSchema;
-    handler?: ((args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>) | undefined;
+    handler?: (args: HandlerArgs, options: HandlerOptions) => Promise<HandlerResult>;
 };
 export type OnItemHandler = (arg0: Item) => any;
 export type OnStartHandler = () => any;
 export type OnFinishHandler = (arg0: {
     messages: Message[];
 }) => any;
-export type Options = Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest, 'messages' | 'functions'> & {
-    client: import('@chatbotkit/sdk').ConversationClient;
+export type Options = Omit<import("@chatbotkit/sdk/conversation/v1.js").ConversationCompleteRequest, "messages" | "functions"> & {
+    client: import("@chatbotkit/sdk").ConversationClient;
     messages: InputMessage[];
     functions?: (InputFunction | (() => InputFunction | Promise<InputFunction>))[];
     maxRecusion?: number;

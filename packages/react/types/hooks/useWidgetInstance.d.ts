@@ -40,9 +40,11 @@
  *   sendMessage: WidgetSendMessageFn,
  * }} ChatBotKitWidgetInstance
  *
+ * @param {string} [selector]
+ * @param {any[]} [deps]
  * @returns {ChatBotKitWidgetInstance|null}
  */
-export function useWidgetInstance(): ChatBotKitWidgetInstance | null;
+export function useWidgetInstance(selector?: string, deps?: any[]): ChatBotKitWidgetInstance | null;
 export default useWidgetInstance;
 export type WidgetMessage = {
     id: string;

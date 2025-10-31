@@ -1,12 +1,11 @@
 /**
- * @template T
- * @param {string} selector
- * @param {{
- *   waitForElements?: boolean
- * }} [options]
- * @returns {T[]}
+ * @param {string|null|undefined} selector
+ * @param {{ waitForElements?: boolean, disconnectOnFirstMatch?: boolean, parent?: ParentNode }} [options]
+ * @param {any[]} [deps]
+ * @returns {Element[]}
  */
-export function useDOMQuerySelector<T>(selector: string, options?: {
-    waitForElements?: boolean | undefined;
-} | undefined): T[];
-export default useDOMQuerySelector;
+export default function useDOMQuerySelector(selector: string | null | undefined, options?: {
+    waitForElements?: boolean;
+    disconnectOnFirstMatch?: boolean;
+    parent?: ParentNode;
+}, deps?: any[]): Element[];

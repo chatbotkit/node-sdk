@@ -34,8 +34,8 @@ export class Store {
      * @returns {Promise<void>}
      */
     set(key: string, value: any, options?: {
-        px?: number | undefined;
-    } | undefined): Promise<void>;
+        px?: number;
+    }): Promise<void>;
     /**
      * @param {string} key
      * @returns {Promise<void>}

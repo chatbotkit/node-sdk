@@ -71,6 +71,7 @@ export const BotResourceConfigSchema: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"bot">;
     properties: z.ZodObject<{
         model: z.ZodOptional<z.ZodString>;
@@ -80,15 +81,15 @@ export const BotResourceConfigSchema: z.ZodObject<{
         moderation: z.ZodOptional<z.ZodBoolean>;
         privacy: z.ZodOptional<z.ZodBoolean>;
     }, "strip", z.ZodTypeAny, {
-        model?: string | undefined;
         backstory?: string | undefined;
+        model?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
         moderation?: boolean | undefined;
         privacy?: boolean | undefined;
     }, {
-        model?: string | undefined;
         backstory?: string | undefined;
+        model?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
         moderation?: boolean | undefined;
@@ -98,8 +99,8 @@ export const BotResourceConfigSchema: z.ZodObject<{
     type: "bot";
     name: string;
     properties: {
-        model?: string | undefined;
         backstory?: string | undefined;
+        model?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
         moderation?: boolean | undefined;
@@ -112,8 +113,8 @@ export const BotResourceConfigSchema: z.ZodObject<{
     type: "bot";
     name: string;
     properties: {
-        model?: string | undefined;
         backstory?: string | undefined;
+        model?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
         moderation?: boolean | undefined;
@@ -131,6 +132,7 @@ export const DatasetResourceConfigSchema: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"dataset">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
@@ -156,6 +158,7 @@ export const SkillsetResourceConfigSchema: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"skillset">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
@@ -181,6 +184,7 @@ export const WidgetIntegrationResourceConfigSchema: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"widgetIntegration">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
@@ -206,6 +210,7 @@ export const SitemapIntegrationResourceConfigSchema: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"sitemapIntegration">;
     properties: z.ZodObject<{
         url: z.ZodString;
@@ -246,6 +251,7 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"bot">;
     properties: z.ZodObject<{
         model: z.ZodOptional<z.ZodString>;
@@ -255,15 +261,15 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
         moderation: z.ZodOptional<z.ZodBoolean>;
         privacy: z.ZodOptional<z.ZodBoolean>;
     }, "strip", z.ZodTypeAny, {
-        model?: string | undefined;
         backstory?: string | undefined;
+        model?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
         moderation?: boolean | undefined;
         privacy?: boolean | undefined;
     }, {
-        model?: string | undefined;
         backstory?: string | undefined;
+        model?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
         moderation?: boolean | undefined;
@@ -273,8 +279,8 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     type: "bot";
     name: string;
     properties: {
-        model?: string | undefined;
         backstory?: string | undefined;
+        model?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
         moderation?: boolean | undefined;
@@ -287,8 +293,8 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     type: "bot";
     name: string;
     properties: {
-        model?: string | undefined;
         backstory?: string | undefined;
+        model?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
         moderation?: boolean | undefined;
@@ -302,6 +308,7 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"dataset">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
@@ -323,6 +330,7 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"skillset">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
@@ -344,6 +352,7 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"widgetIntegration">;
     properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 }, "strip", z.ZodTypeAny, {
@@ -365,6 +374,7 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
+} & {
     type: z.ZodLiteral<"sitemapIntegration">;
     properties: z.ZodObject<{
         url: z.ZodString;
@@ -407,6 +417,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
+    } & {
         type: z.ZodLiteral<"bot">;
         properties: z.ZodObject<{
             model: z.ZodOptional<z.ZodString>;
@@ -416,15 +427,15 @@ export const SolutionConfigSchema: z.ZodObject<{
             moderation: z.ZodOptional<z.ZodBoolean>;
             privacy: z.ZodOptional<z.ZodBoolean>;
         }, "strip", z.ZodTypeAny, {
-            model?: string | undefined;
             backstory?: string | undefined;
+            model?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             moderation?: boolean | undefined;
             privacy?: boolean | undefined;
         }, {
-            model?: string | undefined;
             backstory?: string | undefined;
+            model?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             moderation?: boolean | undefined;
@@ -434,8 +445,8 @@ export const SolutionConfigSchema: z.ZodObject<{
         type: "bot";
         name: string;
         properties: {
-            model?: string | undefined;
             backstory?: string | undefined;
+            model?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             moderation?: boolean | undefined;
@@ -448,8 +459,8 @@ export const SolutionConfigSchema: z.ZodObject<{
         type: "bot";
         name: string;
         properties: {
-            model?: string | undefined;
             backstory?: string | undefined;
+            model?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             moderation?: boolean | undefined;
@@ -463,6 +474,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
+    } & {
         type: z.ZodLiteral<"dataset">;
         properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
     }, "strip", z.ZodTypeAny, {
@@ -484,6 +496,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
+    } & {
         type: z.ZodLiteral<"skillset">;
         properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
     }, "strip", z.ZodTypeAny, {
@@ -505,6 +518,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
+    } & {
         type: z.ZodLiteral<"widgetIntegration">;
         properties: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
     }, "strip", z.ZodTypeAny, {
@@ -526,6 +540,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         name: z.ZodString;
         description: z.ZodOptional<z.ZodString>;
+    } & {
         type: z.ZodLiteral<"sitemapIntegration">;
         properties: z.ZodObject<{
             url: z.ZodString;
@@ -564,8 +579,8 @@ export const SolutionConfigSchema: z.ZodObject<{
         type: "bot";
         name: string;
         properties: {
-            model?: string | undefined;
             backstory?: string | undefined;
+            model?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             moderation?: boolean | undefined;
@@ -612,8 +627,8 @@ export const SolutionConfigSchema: z.ZodObject<{
         type: "bot";
         name: string;
         properties: {
-            model?: string | undefined;
             backstory?: string | undefined;
+            model?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             moderation?: boolean | undefined;
@@ -671,8 +686,8 @@ export class Resource {
         type: "bot";
         name: string;
         properties: {
-            model?: string | undefined;
             backstory?: string | undefined;
+            model?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             moderation?: boolean | undefined;
@@ -736,7 +751,7 @@ export class Resource {
     /**
      * @returns {import('@chatbotkit/sdk').ChatBotKit}
      */
-    get baseClient(): ChatBotKit;
+    get baseClient(): import("@chatbotkit/sdk").ChatBotKit;
     /**
      * Get the resource client.
      *
@@ -823,8 +838,8 @@ export class Solution {
             type: "bot";
             name: string;
             properties: {
-                model?: string | undefined;
                 backstory?: string | undefined;
+                model?: string | undefined;
                 datasetId?: string | undefined;
                 skillsetId?: string | undefined;
                 moderation?: boolean | undefined;
@@ -869,7 +884,7 @@ export class Solution {
     /**
      * @returns {import('@chatbotkit/sdk').ChatBotKit}
      */
-    get baseClient(): ChatBotKit;
+    get baseClient(): import("@chatbotkit/sdk").ChatBotKit;
     /**
      * Get the resources.
      *
@@ -961,55 +976,7 @@ export namespace Solution {
      * @param {string|SolutionConfig} config
      * @returns {Promise<Solution>}
      */
-    export function load(config: string | {
-        version: 1;
-        resources: ({
-            type: "bot";
-            name: string;
-            properties: {
-                model?: string | undefined;
-                backstory?: string | undefined;
-                datasetId?: string | undefined;
-                skillsetId?: string | undefined;
-                moderation?: boolean | undefined;
-                privacy?: boolean | undefined;
-            };
-            slug?: string | undefined;
-            id?: string | undefined;
-            description?: string | undefined;
-        } | {
-            type: "dataset";
-            name: string;
-            properties: {};
-            slug?: string | undefined;
-            id?: string | undefined;
-            description?: string | undefined;
-        } | {
-            type: "skillset";
-            name: string;
-            properties: {};
-            slug?: string | undefined;
-            id?: string | undefined;
-            description?: string | undefined;
-        } | {
-            type: "widgetIntegration";
-            name: string;
-            properties: {};
-            slug?: string | undefined;
-            id?: string | undefined;
-            description?: string | undefined;
-        } | {
-            type: "sitemapIntegration";
-            name: string;
-            properties: {
-                datasetId: string;
-                url: string;
-            };
-            slug?: string | undefined;
-            id?: string | undefined;
-            description?: string | undefined;
-        })[];
-    }): Promise<Solution>;
+    export function load(config: string | SolutionConfig): Promise<Solution>;
     /**
      * Saves a solution to a file.
      *
@@ -1034,4 +1001,3 @@ export class ArrayBackedObject<T> {
 export type SolutionConfig = z.infer<typeof SolutionConfigSchema>;
 export type ResourceConfig = z.infer<typeof ResourceConfigSchema>;
 import { z } from 'zod';
-import ChatBotKit from '@chatbotkit/sdk';

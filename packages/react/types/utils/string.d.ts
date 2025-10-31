@@ -3,7 +3,7 @@
  * @param {string} [prefix]
  * @returns {string}
  */
-export function getRandomId(prefix?: string | undefined): string;
+export function getRandomId(prefix?: string): string;
 /**
  * @internal
  * @param {string} input
@@ -19,9 +19,9 @@ export function replaceBetween(input: string, begin: number, end: number, replac
  * @param {[string, string][]} replacements
  * @returns {({begin: number, end: number, input: string, output: string}|string)[]}
  */
-export function replaceWithCoordinates(input: string, replacements: [string, string][]): (string | {
+export function replaceWithCoordinates(input: string, replacements: [string, string][]): ({
     begin: number;
     end: number;
     input: string;
     output: string;
-})[];
+} | string)[];
