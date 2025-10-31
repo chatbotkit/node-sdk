@@ -61,23 +61,26 @@ export function useWidgetInstance(selector, deps) {
 
   useEffect(() => {
     if (element) {
-      if (element.readyPromise) {
-        element.readyPromise.then(() => setInstance(element))
+      /** @type {ChatBotKitWidgetInstance} */
+      const widgetElement = /** @type {any} */ (element)
+
+      if (widgetElement.readyPromise) {
+        widgetElement.readyPromise.then(() => setInstance(widgetElement))
 
         return
       }
 
       {
         const onReady = () => {
-          element.removeEventListener('ready', onReady)
+          widgetElement.removeEventListener('ready', onReady)
 
-          setInstance(element)
+          setInstance(widgetElement)
         }
 
-        element.addEventListener('ready', onReady)
+        widgetElement.addEventListener('ready', onReady)
 
         return () => {
-          element?.removeEventListener?.('ready', onReady)
+          widgetElement?.removeEventListener?.('ready', onReady)
         }
       }
     }
