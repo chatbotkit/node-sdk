@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import useDeps from './useDeps.js'
 
 /**
- * @param {string} selector
+ * @param {string|null|undefined} selector
  * @param {{ waitForElements?: boolean, disconnectOnFirstMatch?: boolean, parent?: ParentNode }} [options]
  * @param {any[]} [deps]
  * @returns {Element[]}
