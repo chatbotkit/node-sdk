@@ -28,6 +28,7 @@ function copyDtsFiles(srcDir, destDir) {
     } else if (entry.isFile() && entry.name.endsWith('.d.ts')) {
       fs.copyFileSync(srcPath, destPath)
 
+      // eslint-disable-next-line no-console
       console.log(
         `Copied: ${path.relative(rootDir, srcPath)} -> ${path.relative(
           rootDir,
@@ -41,8 +42,10 @@ function copyDtsFiles(srcDir, destDir) {
 const srcTypesDir = path.join(rootDir, 'src')
 const destTypesDir = path.join(rootDir, 'types')
 
+// eslint-disable-next-line no-console
 console.log('Copying .d.ts files from src to types directory...')
 
 copyDtsFiles(srcTypesDir, destTypesDir)
 
+// eslint-disable-next-line no-console
 console.log('Done!')
