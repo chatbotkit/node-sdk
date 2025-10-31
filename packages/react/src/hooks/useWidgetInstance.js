@@ -51,7 +51,9 @@ import useDOMQuerySelector from './useDOMQuerySelector.js'
  * @returns {ChatBotKitWidgetInstance|null}
  */
 export function useWidgetInstance(selector, deps) {
-  const [instance, setInstance] = useState(null)
+  const [instance, setInstance] = useState(
+    /** @type {ChatBotKitWidgetInstance|null} */ (null)
+  )
 
   const [element] = useDOMQuerySelector(
     selector,
