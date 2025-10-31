@@ -122,6 +122,14 @@
       "types": "./types/hooks/useDOMQuerySelector.d.ts",
       "import": "./src/hooks/useDOMQuerySelector.js"
     },
+    "./hooks/useDeps": {
+      "types": "./types/hooks/useDeps.d.ts",
+      "import": "./src/hooks/useDeps.js"
+    },
+    "./hooks/useDeps.js": {
+      "types": "./types/hooks/useDeps.d.ts",
+      "import": "./src/hooks/useDeps.js"
+    },
     "./hooks/useWidgetInstance": {
       "types": "./types/hooks/useWidgetInstance.d.ts",
       "import": "./src/hooks/useWidgetInstance.js"
