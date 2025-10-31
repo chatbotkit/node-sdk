@@ -131,16 +131,20 @@ export function ChatBotKitPartnerAdapter({
   }
 
   /**
-   * @param {import('@chatbotkit/sdk/partner/user/v1.js').PartnerUserInstance} userInstance
+   * @param {import('@chatbotkit/sdk/partner/user/v1.js').PartnerUserFetchResponse} userInstance
    */
   function serialiseUserInstance(userInstance) {
-    const { meta, ...safeUserInstance } = userInstance
+    const { email, ...safeUserInstance } = userInstance
+
+    if (!email) {
+      throw new Error(`User is missing email field`)
+    }
 
     return {
       ...safeUserInstance,
 
-      email: meta?.email,
-      emailVerified: meta?.emailVerified ? new Date(meta.emailVerified) : null,
+      email: email,
+      emailVerified: new Date(safeUserInstance.createdAt),
     }
   }
 
