@@ -334,7 +334,6 @@ export class SitemapIntegrationResource extends Resource {
   /**
    * @returns {import('@chatbotkit/sdk/integration/sitemap').SitemapIntegrationClient}
    */
-  // @ts-expect-error expected
   get client() {
     return this.baseClient.integration.sitemap
   }
