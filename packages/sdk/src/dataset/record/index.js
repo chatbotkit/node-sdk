@@ -2,6 +2,7 @@ import { ChatBotKitClient } from '../../client.js'
 import {
   createDatasetRecord,
   deleteDatasetRecord,
+  exportDatasetRecords,
   fetchDatasetRecord,
   listDatasetRecords,
   updateDatasetRecord,
@@ -78,6 +79,17 @@ export class DatasetRecordClient extends ChatBotKitClient {
    */
   delete(datasetId, recordId) {
     return deleteDatasetRecord(this, datasetId, recordId)
+  }
+
+  /**
+   * Exports records.
+   *
+   * @param {string} datasetId
+   * @param {import('./v1.js').DatasetRecordExportRequest} [request]
+   * @returns {ResponsePromise<import('./v1.js').DatasetRecordExportResponse,import('./v1.js').DatasetRecordExportStreamType>}
+   */
+  export(datasetId, request) {
+    return exportDatasetRecords(this, datasetId, request)
   }
 }
 

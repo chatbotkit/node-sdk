@@ -1,44 +1,72 @@
 import { useEffect, useState } from 'react'
 
-/**
- * @template T
- * @param {string} selector
- * @param {{
- *   waitForElements?: boolean
- * }} [options]
- * @returns {T[]}
- */
-export function useDOMQuerySelector(selector, options) {
-  const { waitForElements = false } = options || {}
+import useDeps from './useDeps.js'
 
-  const [elements, setElements] = useState(/** @type {T[]} */ ([]))
+/**
+ * @param {string|null|undefined} selector
+ * @param {{ waitForElements?: boolean, disconnectOnFirstMatch?: boolean, parent?: ParentNode }} [options]
+ * @param {any[]} [deps]
+ * @returns {Element[]}
+ */
+export default function useDOMQuerySelector(selector, options, deps) {
+  const {
+    waitForElements = false,
+
+    disconnectOnFirstMatch = true,
+
+    parent = typeof document !== 'undefined'
+      ? document.documentElement
+      : undefined,
+  } = options || {}
+
+  const thisDeps = useDeps(deps)
+
+  const [elements, setElements] = useState(/** @type {Element[]} */ ([]))
 
   useEffect(() => {
-    const elements = document.querySelectorAll(selector)
+    if (!selector) {
+      return
+    }
 
-    setElements(/** @type {T[]} */ (Array.from(elements)))
+    if (!parent) {
+      return
+    }
 
-    if (!elements.length && waitForElements) {
+    const initialElements = parent.querySelectorAll(selector)
+
+    setElements(Array.from(initialElements))
+
+    if (!initialElements.length && waitForElements) {
       const observer = new MutationObserver(() => {
-        const elements = document.querySelectorAll(selector)
+        const elements = parent.querySelectorAll(selector)
 
         if (elements.length) {
-          observer.disconnect()
-        }
+          setElements(Array.from(elements))
 
-        setElements(/** @type {T[]} */ (Array.from(elements)))
+          if (disconnectOnFirstMatch) {
+            try {
+              observer.disconnect()
+            } catch {
+              // just in case
+            }
+          }
+        }
       })
 
-      observer.observe(document.body, {
+      observer.observe(parent, {
         childList: true,
         subtree: true,
       })
 
-      return () => observer.disconnect()
+      return () => {
+        try {
+          observer.disconnect()
+        } catch {
+          // just in case
+        }
+      }
     }
-  }, [selector, waitForElements])
+  }, [selector, waitForElements, disconnectOnFirstMatch, parent, thisDeps])
 
   return elements
 }
-
-export default useDOMQuerySelector

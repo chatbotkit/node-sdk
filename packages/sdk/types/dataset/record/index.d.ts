@@ -14,7 +14,7 @@ export class DatasetRecordClient extends ChatBotKitClient {
      * @param {import('./v1.js').DatasetRecordListRequest} [request]
      * @returns {ResponsePromise<import('./v1.js').DatasetRecordListResponse,import('./v1.js').DatasetRecordListStreamType>}
      */
-    list(datasetId: string, request?: import("./v1.js").DatasetRecordListRequest | undefined): ResponsePromise<import('./v1.js').DatasetRecordListResponse, import('./v1.js').DatasetRecordListStreamType>;
+    list(datasetId: string, request?: import("./v1.js").DatasetRecordListRequest): ResponsePromise<import("./v1.js").DatasetRecordListResponse, import("./v1.js").DatasetRecordListStreamType>;
     /**
      * Fetches a record.
      *
@@ -22,7 +22,7 @@ export class DatasetRecordClient extends ChatBotKitClient {
      * @param {string} recordId
      * @returns {ResponsePromise<import('./v1.js').DatasetRecordFetchResponse,never>}
      */
-    fetch(datasetId: string, recordId: string): ResponsePromise<import('./v1.js').DatasetRecordFetchResponse, never>;
+    fetch(datasetId: string, recordId: string): ResponsePromise<import("./v1.js").DatasetRecordFetchResponse, never>;
     /**
      * Creates a new record.
      *
@@ -30,7 +30,7 @@ export class DatasetRecordClient extends ChatBotKitClient {
      * @param {import('./v1.js').DatasetRecordCreateRequest} request
      * @returns {Promise<import('./v1.js').DatasetRecordCreateResponse>}
      */
-    create(datasetId: string, request: import('./v1.js').DatasetRecordCreateRequest): Promise<import('./v1.js').DatasetRecordCreateResponse>;
+    create(datasetId: string, request: import("./v1.js").DatasetRecordCreateRequest): Promise<import("./v1.js").DatasetRecordCreateResponse>;
     /**
      * Updates a record.
      *
@@ -39,7 +39,7 @@ export class DatasetRecordClient extends ChatBotKitClient {
      * @param {import('./v1.js').DatasetRecordUpdateRequest} request
      * @returns {Promise<import('./v1.js').DatasetRecordUpdateResponse>}
      */
-    update(datasetId: string, recordId: string, request: import('./v1.js').DatasetRecordUpdateRequest): Promise<import('./v1.js').DatasetRecordUpdateResponse>;
+    update(datasetId: string, recordId: string, request: import("./v1.js").DatasetRecordUpdateRequest): Promise<import("./v1.js").DatasetRecordUpdateResponse>;
     /**
      * Deletes the record.
      *
@@ -47,8 +47,16 @@ export class DatasetRecordClient extends ChatBotKitClient {
      * @param {string} recordId
      * @returns {Promise<import('./v1.js').DatasetRecordDeleteResponse>}
      */
-    delete(datasetId: string, recordId: string): Promise<import('./v1.js').DatasetRecordDeleteResponse>;
+    delete(datasetId: string, recordId: string): Promise<import("./v1.js").DatasetRecordDeleteResponse>;
+    /**
+     * Exports records.
+     *
+     * @param {string} datasetId
+     * @param {import('./v1.js').DatasetRecordExportRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').DatasetRecordExportResponse,import('./v1.js').DatasetRecordExportStreamType>}
+     */
+    export(datasetId: string, request?: import("./v1.js").DatasetRecordExportRequest): ResponsePromise<import("./v1.js").DatasetRecordExportResponse, import("./v1.js").DatasetRecordExportStreamType>;
 }
 export default DatasetRecordClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../client.js';

@@ -8,18 +8,26 @@
 
 - [ChatBotKitClient](integration_widget_v1.md#chatbotkitclient)
 - [ResponsePromise](integration_widget_v1.md#responsepromise)
-- [WidgetInegrationInstance](integration_widget_v1.md#widgetinegrationinstance)
 - [WidgetIntegrationCreateRequest](integration_widget_v1.md#widgetintegrationcreaterequest)
+- [WidgetIntegrationCreateRequestBody](integration_widget_v1.md#widgetintegrationcreaterequestbody)
 - [WidgetIntegrationCreateResponse](integration_widget_v1.md#widgetintegrationcreateresponse)
+- [WidgetIntegrationCreateResponseBody](integration_widget_v1.md#widgetintegrationcreateresponsebody)
+- [WidgetIntegrationDeleteRequest](integration_widget_v1.md#widgetintegrationdeleterequest)
+- [WidgetIntegrationDeleteRequestBody](integration_widget_v1.md#widgetintegrationdeleterequestbody)
 - [WidgetIntegrationDeleteResponse](integration_widget_v1.md#widgetintegrationdeleteresponse)
+- [WidgetIntegrationDeleteResponseBody](integration_widget_v1.md#widgetintegrationdeleteresponsebody)
 - [WidgetIntegrationFetchResponse](integration_widget_v1.md#widgetintegrationfetchresponse)
 - [WidgetIntegrationListRequest](integration_widget_v1.md#widgetintegrationlistrequest)
 - [WidgetIntegrationListResponse](integration_widget_v1.md#widgetintegrationlistresponse)
-- [WidgetIntegrationListStreamItem](integration_widget_v1.md#widgetintegrationliststreamitem)
 - [WidgetIntegrationListStreamType](integration_widget_v1.md#widgetintegrationliststreamtype)
-- [WidgetIntegrationOptions](integration_widget_v1.md#widgetintegrationoptions)
+- [WidgetIntegrationSetupRequest](integration_widget_v1.md#widgetintegrationsetuprequest)
+- [WidgetIntegrationSetupRequestBody](integration_widget_v1.md#widgetintegrationsetuprequestbody)
+- [WidgetIntegrationSetupResponse](integration_widget_v1.md#widgetintegrationsetupresponse)
+- [WidgetIntegrationSetupResponseBody](integration_widget_v1.md#widgetintegrationsetupresponsebody)
 - [WidgetIntegrationUpdateRequest](integration_widget_v1.md#widgetintegrationupdaterequest)
+- [WidgetIntegrationUpdateRequestBody](integration_widget_v1.md#widgetintegrationupdaterequestbody)
 - [WidgetIntegrationUpdateResponse](integration_widget_v1.md#widgetintegrationupdateresponse)
+- [WidgetIntegrationUpdateResponseBody](integration_widget_v1.md#widgetintegrationupdateresponsebody)
 
 ### Functions
 
@@ -27,6 +35,7 @@
 - [deleteWidgetIntegration](integration_widget_v1.md#deletewidgetintegration)
 - [fetchWidgetIntegration](integration_widget_v1.md#fetchwidgetintegration)
 - [listWidgetIntegrations](integration_widget_v1.md#listwidgetintegrations)
+- [setupWidgetIntegration](integration_widget_v1.md#setupwidgetintegration)
 - [updateWidgetIntegration](integration_widget_v1.md#updatewidgetintegration)
 
 ## Type Aliases
@@ -58,65 +67,93 @@ ___
 
 ___
 
-### WidgetInegrationInstance
+### WidgetIntegrationCreateRequest
 
-Ƭ **WidgetInegrationInstance**\<\>: [`WidgetIntegrationOptions`](integration_widget_v1.md#widgetintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **WidgetIntegrationCreateRequest**\<\>: [`WidgetIntegrationCreateRequestBody`](integration_widget_v1.md#widgetintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/widget/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L45)
+[integration/widget/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L55)
 
 ___
 
-### WidgetIntegrationCreateRequest
+### WidgetIntegrationCreateRequestBody
 
-Ƭ **WidgetIntegrationCreateRequest**\<\>: [`WidgetIntegrationOptions`](integration_widget_v1.md#widgetintegrationoptions) & {}
+Ƭ **WidgetIntegrationCreateRequestBody**\<\>: `operations`[``"createWidgetIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/widget/v1.js:95](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L95)
+[integration/widget/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L53)
 
 ___
 
 ### WidgetIntegrationCreateResponse
 
-Ƭ **WidgetIntegrationCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **WidgetIntegrationCreateResponse**\<\>: [`WidgetIntegrationCreateResponseBody`](integration_widget_v1.md#widgetintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/widget/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L99)
+[integration/widget/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L59)
+
+___
+
+### WidgetIntegrationCreateResponseBody
+
+Ƭ **WidgetIntegrationCreateResponseBody**\<\>: `operations`[``"createWidgetIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/widget/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L57)
+
+___
+
+### WidgetIntegrationDeleteRequest
+
+Ƭ **WidgetIntegrationDeleteRequest**\<\>: [`WidgetIntegrationDeleteRequestBody`](integration_widget_v1.md#widgetintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/widget/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L110)
+
+___
+
+### WidgetIntegrationDeleteRequestBody
+
+Ƭ **WidgetIntegrationDeleteRequestBody**\<\>: `operations`[``"deleteWidgetIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/widget/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L108)
 
 ___
 
 ### WidgetIntegrationDeleteResponse
 
-Ƭ **WidgetIntegrationDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **WidgetIntegrationDeleteResponse**\<\>: [`WidgetIntegrationDeleteResponseBody`](integration_widget_v1.md#widgetintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/widget/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L149)
+[integration/widget/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L114)
+
+___
+
+### WidgetIntegrationDeleteResponseBody
+
+Ƭ **WidgetIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteWidgetIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/widget/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L112)
 
 ___
 
 ### WidgetIntegrationFetchResponse
 
-Ƭ **WidgetIntegrationFetchResponse**\<\>: [`WidgetInegrationInstance`](integration_widget_v1.md#widgetinegrationinstance) & {}
+Ƭ **WidgetIntegrationFetchResponse**\<\>: `operations`[``"fetchWidgetIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/widget/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L77)
+[integration/widget/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L37)
 
 ___
 
@@ -135,144 +172,134 @@ ___
 
 #### Defined in
 
-[integration/widget/v1.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L49)
+[integration/widget/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L17)
 
 ___
 
 ### WidgetIntegrationListResponse
 
-Ƭ **WidgetIntegrationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`WidgetInegrationInstance`](integration_widget_v1.md#widgetinegrationinstance)[] |
+Ƭ **WidgetIntegrationListResponse**\<\>: `operations`[``"listWidgetIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/widget/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L51)
-
-___
-
-### WidgetIntegrationListStreamItem
-
-Ƭ **WidgetIntegrationListStreamItem**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`WidgetInegrationInstance`](integration_widget_v1.md#widgetinegrationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[integration/widget/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L56)
+[integration/widget/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L19)
 
 ___
 
 ### WidgetIntegrationListStreamType
 
-Ƭ **WidgetIntegrationListStreamType**\<\>: [`WidgetIntegrationListStreamItem`](integration_widget_v1.md#widgetintegrationliststreamitem)
+Ƭ **WidgetIntegrationListStreamType**\<\>: `operations`[``"listWidgetIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[integration/widget/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L58)
+[integration/widget/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L21)
 
 ___
 
-### WidgetIntegrationOptions
+### WidgetIntegrationSetupRequest
 
-Ƭ **WidgetIntegrationOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `attachments?` | `boolean` |
-| `autoScroll?` | `boolean` |
-| `contactCollection?` | `boolean` |
-| `description?` | `string` |
-| `exportConversation?` | `boolean` |
-| `initial?` | `string` |
-| `intro?` | `string` |
-| `language?` | `string` |
-| `layout?` | `string` |
-| `math?` | `boolean` |
-| `maxsimize?` | `boolean` |
-| `messagePeek?` | `boolean` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `origin?` | `string` |
-| `placeholder?` | `string` |
-| `poweredBy?` | `boolean` |
-| `restartConversation?` | `boolean` |
-| `sessionDuration?` | `number` |
-| `startFirst?` | `boolean` |
-| `stream?` | `boolean` |
-| `theme?` | `string` |
-| `title?` | `string` |
-| `tools?` | `boolean` |
-| `unfurl?` | `boolean` |
-| `verbose?` | `boolean` |
+Ƭ **WidgetIntegrationSetupRequest**\<\>: [`WidgetIntegrationSetupRequestBody`](integration_widget_v1.md#widgetintegrationsetuprequestbody)
 
 #### Defined in
 
-[integration/widget/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L39)
+[integration/widget/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L135)
+
+___
+
+### WidgetIntegrationSetupRequestBody
+
+Ƭ **WidgetIntegrationSetupRequestBody**\<\>: `operations`[``"setupWidgetIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/widget/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L133)
+
+___
+
+### WidgetIntegrationSetupResponse
+
+Ƭ **WidgetIntegrationSetupResponse**\<\>: [`WidgetIntegrationSetupResponseBody`](integration_widget_v1.md#widgetintegrationsetupresponsebody)
+
+#### Defined in
+
+[integration/widget/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L139)
+
+___
+
+### WidgetIntegrationSetupResponseBody
+
+Ƭ **WidgetIntegrationSetupResponseBody**\<\>: `operations`[``"setupWidgetIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/widget/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L137)
 
 ___
 
 ### WidgetIntegrationUpdateRequest
 
-Ƭ **WidgetIntegrationUpdateRequest**\<\>: [`WidgetIntegrationOptions`](integration_widget_v1.md#widgetintegrationoptions) & {}
+Ƭ **WidgetIntegrationUpdateRequest**\<\>: [`WidgetIntegrationUpdateRequestBody`](integration_widget_v1.md#widgetintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/widget/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L121)
+[integration/widget/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L82)
+
+___
+
+### WidgetIntegrationUpdateRequestBody
+
+Ƭ **WidgetIntegrationUpdateRequestBody**\<\>: `operations`[``"updateWidgetIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/widget/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L80)
 
 ___
 
 ### WidgetIntegrationUpdateResponse
 
-Ƭ **WidgetIntegrationUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **WidgetIntegrationUpdateResponse**\<\>: [`WidgetIntegrationUpdateResponseBody`](integration_widget_v1.md#widgetintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/widget/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L125)
+[integration/widget/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L86)
+
+___
+
+### WidgetIntegrationUpdateResponseBody
+
+Ƭ **WidgetIntegrationUpdateResponseBody**\<\>: `operations`[``"updateWidgetIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/widget/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L84)
 
 ## Functions
 
 ### createWidgetIntegration
 
-▸ **createWidgetIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationCreateResponse`](integration_widget_v1.md#widgetintegrationcreateresponse)\>
+▸ **createWidgetIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`WidgetIntegrationOptions`](integration_widget_v1.md#widgetintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationCreateResponse`](integration_widget_v1.md#widgetintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/widget/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L105)
+[integration/widget/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L65)
 
 ___
 
 ### deleteWidgetIntegration
 
-▸ **deleteWidgetIntegration**(`client`, `widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationDeleteResponse`](integration_widget_v1.md#widgetintegrationdeleteresponse)\>
+▸ **deleteWidgetIntegration**(`client`, `widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -283,17 +310,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationDeleteResponse`](integration_widget_v1.md#widgetintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/widget/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L155)
+[integration/widget/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L120)
 
 ___
 
 ### fetchWidgetIntegration
 
-▸ **fetchWidgetIntegration**(`client`, `widgetId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WidgetIntegrationFetchResponse`](integration_widget_v1.md#widgetintegrationfetchresponse), `never`\>
+▸ **fetchWidgetIntegration**(`client`, `widgetId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -304,17 +331,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WidgetIntegrationFetchResponse`](integration_widget_v1.md#widgetintegrationfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[integration/widget/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L83)
+[integration/widget/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L43)
 
 ___
 
 ### listWidgetIntegrations
 
-▸ **listWidgetIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WidgetIntegrationListResponse`](integration_widget_v1.md#widgetintegrationlistresponse), [`WidgetIntegrationListStreamItem`](integration_widget_v1.md#widgetintegrationliststreamitem)\>
+▸ **listWidgetIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -325,17 +352,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WidgetIntegrationListResponse`](integration_widget_v1.md#widgetintegrationlistresponse), [`WidgetIntegrationListStreamItem`](integration_widget_v1.md#widgetintegrationliststreamitem)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[integration/widget/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L64)
+[integration/widget/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L27)
 
 ___
 
-### updateWidgetIntegration
+### setupWidgetIntegration
 
-▸ **updateWidgetIntegration**(`client`, `widgetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationUpdateResponse`](integration_widget_v1.md#widgetintegrationupdateresponse)\>
+▸ **setupWidgetIntegration**(`client`, `widgetId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -343,12 +370,33 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `widgetId` | `string` |
-| `request` | [`WidgetIntegrationOptions`](integration_widget_v1.md#widgetintegrationoptions) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WidgetIntegrationUpdateResponse`](integration_widget_v1.md#widgetintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/widget/v1.js:132](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L132)
+[integration/widget/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L145)
+
+___
+
+### updateWidgetIntegration
+
+▸ **updateWidgetIntegration**(`client`, `widgetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `widgetId` | `string` |
+| `request` | `Object` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[integration/widget/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L93)

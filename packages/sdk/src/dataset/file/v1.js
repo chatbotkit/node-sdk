@@ -9,19 +9,16 @@
  */
 
 /**
- * @typedef {import('../../file/v1.js').FileInstance} DatasetFileInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} DatasetFileListRequest
- * @typedef {{items: DatasetFileInstance[]}} DatasetFileListResponse
- *
  * @typedef {{
- *   type: 'item',
- *   data: DatasetFileInstance
- * }} DatasetFileListStreamItemType
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} DatasetFileListRequest
  *
- * @typedef {DatasetFileListStreamItemType} DatasetFileListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listDatasetFiles']['responses']['200']['content']['application/json']} DatasetFileListResponse
+ *
+ * @typedef {import('../../types/api/v1.js').operations['listDatasetFiles']['responses']['200']['content']['application/jsonl']} DatasetFileListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -31,22 +28,20 @@
 export function listDatasetFiles(client, datasetId, request) {
   let url = `/api/v1/dataset/${datasetId}/file/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listDatasetFiles']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listDatasetFiles']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<DatasetFileListResponse,DatasetFileListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {{
- *   type: 'source'
- * }} DatasetFileAttachRequest
+ * @typedef {import('../../types/api/v1.js').operations['attachDatasetFile']['requestBody']['content']['application/json']} DatasetFileAttachRequestBody
  *
- * @typedef {{
- *   id: string
- * }} DatasetFileAttachResponse
+ * @typedef {DatasetFileAttachRequestBody} DatasetFileAttachRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['attachDatasetFile']['responses']['200']['content']['application/json']} DatasetFileAttachResponseBody
+ *
+ * @typedef {DatasetFileAttachResponseBody} DatasetFileAttachResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -57,9 +52,9 @@ export function listDatasetFiles(client, datasetId, request) {
 export async function attachDatasetFile(client, datasetId, fileId, request) {
   const url = `/api/v1/dataset/${datasetId}/file/${fileId}/attach`
 
-  /** @type {import('../../types/api/v1.js').operations['attachDatasetFile']['responses']['200']['content']['application/json']} */
+  /** @type {DatasetFileAttachResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['attachDatasetFile']['requestBody']['content']['application/json']} */
+    /** @type {DatasetFileAttachRequestBody} */
     record: {
       ...request,
     },
@@ -69,11 +64,13 @@ export async function attachDatasetFile(client, datasetId, fileId, request) {
 }
 
 /**
- * @typedef {{}} DatasetFileDetachRequest
+ * @typedef {import('../../types/api/v1.js').operations['detachDatasetFile']['requestBody']['content']['application/json']} DatasetFileDetachRequestBody
  *
- * @typedef {{
- *   id: string
- * }} DatasetFileDetachResponse
+ * @typedef {DatasetFileDetachRequestBody} DatasetFileDetachRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['detachDatasetFile']['responses']['200']['content']['application/json']} DatasetFileDetachResponseBody
+ *
+ * @typedef {DatasetFileDetachResponseBody} DatasetFileDetachResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -84,9 +81,9 @@ export async function attachDatasetFile(client, datasetId, fileId, request) {
 export async function detachDatasetFile(client, datasetId, fileId, request) {
   const url = `/api/v1/dataset/${datasetId}/file/${fileId}/detach`
 
-  /** @type {import('../../types/api/v1.js').operations['detachDatasetFile']['responses']['200']['content']['application/json']} */
+  /** @type {DatasetFileDetachResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['detachDatasetFile']['requestBody']['content']['application/json']} */
+    /** @type {DatasetFileDetachRequestBody} */
     record: {
       ...request,
     },
@@ -96,11 +93,13 @@ export async function detachDatasetFile(client, datasetId, fileId, request) {
 }
 
 /**
- * @typedef {{}} DatasetFileSyncRequest
+ * @typedef {import('../../types/api/v1.js').operations['syncDatasetFile']['requestBody']['content']['application/json']} DatasetFileSyncRequestBody
  *
- * @typedef {{
- *   id: string
- * }} DatasetFileSyncResponse
+ * @typedef {DatasetFileSyncRequestBody} DatasetFileSyncRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['syncDatasetFile']['responses']['200']['content']['application/json']} DatasetFileSyncResponseBody
+ *
+ * @typedef {DatasetFileSyncResponseBody} DatasetFileSyncResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
@@ -111,9 +110,9 @@ export async function detachDatasetFile(client, datasetId, fileId, request) {
 export async function syncDatasetFile(client, datasetId, fileId, request) {
   const url = `/api/v1/dataset/${datasetId}/file/${fileId}/sync`
 
-  /** @type {import('../../types/api/v1.js').operations['syncDatasetFile']['responses']['200']['content']['application/json']} */
+  /** @type {DatasetFileSyncResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['syncDatasetFile']['requestBody']['content']['application/json']} */
+    /** @type {DatasetFileSyncRequestBody} */
     record: {
       ...request,
     },

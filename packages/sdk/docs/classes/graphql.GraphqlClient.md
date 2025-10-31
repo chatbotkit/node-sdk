@@ -51,7 +51,7 @@ GraphQL client.
 
 ### call
 
-▸ **call**(`input`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`GraphqlResponse`](../modules/graphql_v1.md#graphqlresponse)\>
+▸ **call**(`input`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Executes a GraphQL query.
 
@@ -59,11 +59,11 @@ Executes a GraphQL query.
 
 | Name | Type |
 | :------ | :------ |
-| `input` | [`GraphqlRequest`](../modules/graphql_v1.md#graphqlrequest) |
+| `input` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`GraphqlResponse`](../modules/graphql_v1.md#graphqlresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -115,4 +115,4 @@ ___
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)

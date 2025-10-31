@@ -8,41 +8,23 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   botId?: string,
- *   schema?: Record<string,any>,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>
- * }} ExtractIntegrationOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} ExtractIntegrationListRequest
  *
- * @typedef {ExtractIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} ExtractInegrationInstance
- */
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ExtractIntegrationListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listExtractIntegrations']['responses']['200']['content']['application/json']} ExtractIntegrationListResponse
  *
- * @typedef {{items: ExtractInegrationInstance[]}} ExtractIntegrationListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: ExtractInegrationInstance
- * }} ExtractIntegrationListStreamItem
- *
- * @typedef {ExtractIntegrationListStreamItem} ExtractIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listExtractIntegrations']['responses']['200']['content']['application/jsonl']} ExtractIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {ExtractIntegrationListRequest} [request]
  * @returns {ResponsePromise<ExtractIntegrationListResponse,ExtractIntegrationListStreamType>}
  */
-export function listExtractIntegrations(client: ChatBotKitClient, request?: ExtractIntegrationListRequest | undefined): ResponsePromise<ExtractIntegrationListResponse, ExtractIntegrationListStreamType>;
+export function listExtractIntegrations(client: ChatBotKitClient, request?: ExtractIntegrationListRequest): ResponsePromise<ExtractIntegrationListResponse, ExtractIntegrationListStreamType>;
 /**
- * @typedef {ExtractInegrationInstance & {
- * }} ExtractIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
@@ -50,11 +32,13 @@ export function listExtractIntegrations(client: ChatBotKitClient, request?: Extr
  */
 export function fetchExtractIntegration(client: ChatBotKitClient, extractId: string): ResponsePromise<ExtractIntegrationFetchResponse, never>;
 /**
- * @typedef {ExtractIntegrationOptions & {botId: string}} ExtractIntegrationCreateRequest
+ * @typedef {import('../../types/api/v1.js').operations['createExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ExtractIntegrationCreateResponse
+ * @typedef {ExtractIntegrationCreateRequestBody} ExtractIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationCreateResponseBody
+ *
+ * @typedef {ExtractIntegrationCreateResponseBody} ExtractIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ExtractIntegrationCreateRequest} request
@@ -62,12 +46,13 @@ export function fetchExtractIntegration(client: ChatBotKitClient, extractId: str
  */
 export function createExtractIntegration(client: ChatBotKitClient, request: ExtractIntegrationCreateRequest): Promise<ExtractIntegrationCreateResponse>;
 /**
- * @typedef {ExtractIntegrationOptions & {
- * }} ExtractIntegrationUpdateRequest
+ * @typedef {import('../../types/api/v1.js').operations['updateExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ExtractIntegrationUpdateResponse
+ * @typedef {ExtractIntegrationUpdateRequestBody} ExtractIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationUpdateResponseBody
+ *
+ * @typedef {ExtractIntegrationUpdateResponseBody} ExtractIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
@@ -76,56 +61,39 @@ export function createExtractIntegration(client: ChatBotKitClient, request: Extr
  */
 export function updateExtractIntegration(client: ChatBotKitClient, extractId: string, request: ExtractIntegrationUpdateRequest): Promise<ExtractIntegrationUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} ExtractIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationDeleteRequestBody
+ *
+ * @typedef {ExtractIntegrationDeleteRequestBody} ExtractIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationDeleteResponseBody
+ *
+ * @typedef {ExtractIntegrationDeleteResponseBody} ExtractIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
  * @returns {Promise<ExtractIntegrationDeleteResponse>}
  */
 export function deleteExtractIntegration(client: ChatBotKitClient, extractId: string): Promise<ExtractIntegrationDeleteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type ExtractIntegrationOptions = {
-    name?: string;
-    description?: string;
-    botId?: string;
-    schema?: Record<string, any>;
-    syncSchedule?: string;
-    expiresIn?: number;
-    meta?: Record<string, any>;
-};
-export type ExtractInegrationInstance = ExtractIntegrationOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type ExtractIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type ExtractIntegrationListResponse = {
-    items: ExtractInegrationInstance[];
-};
-export type ExtractIntegrationListStreamItem = {
-    type: 'item';
-    data: ExtractInegrationInstance;
-};
-export type ExtractIntegrationListStreamType = ExtractIntegrationListStreamItem;
-export type ExtractIntegrationFetchResponse = ExtractInegrationInstance & {};
-export type ExtractIntegrationCreateRequest = ExtractIntegrationOptions & {
-    botId: string;
-};
-export type ExtractIntegrationCreateResponse = {
-    id: string;
-};
-export type ExtractIntegrationUpdateRequest = ExtractIntegrationOptions & {};
-export type ExtractIntegrationUpdateResponse = {
-    id: string;
-};
-export type ExtractIntegrationDeleteResponse = {
-    id: string;
-};
+export type ExtractIntegrationListResponse = import("../../types/api/v1.js").operations["listExtractIntegrations"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationListStreamType = import("../../types/api/v1.js").operations["listExtractIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
+export type ExtractIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createExtractIntegration"]["requestBody"]["content"]["application/json"];
+export type ExtractIntegrationCreateRequest = ExtractIntegrationCreateRequestBody;
+export type ExtractIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationCreateResponse = ExtractIntegrationCreateResponseBody;
+export type ExtractIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateExtractIntegration"]["requestBody"]["content"]["application/json"];
+export type ExtractIntegrationUpdateRequest = ExtractIntegrationUpdateRequestBody;
+export type ExtractIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationUpdateResponse = ExtractIntegrationUpdateResponseBody;
+export type ExtractIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteExtractIntegration"]["requestBody"]["content"]["application/json"];
+export type ExtractIntegrationDeleteRequest = ExtractIntegrationDeleteRequestBody;
+export type ExtractIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteExtractIntegration"]["responses"]["200"]["content"]["application/json"];
+export type ExtractIntegrationDeleteResponse = ExtractIntegrationDeleteResponseBody;

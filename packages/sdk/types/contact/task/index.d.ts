@@ -14,8 +14,8 @@ export class TaskClient extends ChatBotKitClient {
      * @param {import('./v1.js').TaskListRequest} [request]
      * @returns {ResponsePromise<import('./v1.js').TaskListResponse,import('./v1.js').TaskListStreamType>}
      */
-    list(contactId: string, request?: import("./v1.js").TaskListRequest | undefined): ResponsePromise<import('./v1.js').TaskListResponse, import('./v1.js').TaskListStreamType>;
+    list(contactId: string, request?: import("./v1.js").TaskListRequest): ResponsePromise<import("./v1.js").TaskListResponse, import("./v1.js").TaskListStreamType>;
 }
 export default TaskClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../client.js';

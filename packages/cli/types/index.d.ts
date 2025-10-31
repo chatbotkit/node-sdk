@@ -4,4 +4,4 @@
  * @param {string[]} [argv]
  * @returns {Promise<void>}
  */
-export default function cbk(argv?: string[] | undefined): Promise<void>;
+export default function cbk(argv?: string[]): Promise<void>;

@@ -6,26 +6,32 @@
 
 ### Type Aliases
 
-- [BotConfig](integration_trigger_v1.md#botconfig)
-- [BotRef](integration_trigger_v1.md#botref)
-- [BotRefOrConfig](integration_trigger_v1.md#botreforconfig)
 - [ChatBotKitClient](integration_trigger_v1.md#chatbotkitclient)
 - [ResponsePromise](integration_trigger_v1.md#responsepromise)
 - [TriggerIntegrationCreateRequest](integration_trigger_v1.md#triggerintegrationcreaterequest)
+- [TriggerIntegrationCreateRequestBody](integration_trigger_v1.md#triggerintegrationcreaterequestbody)
 - [TriggerIntegrationCreateResponse](integration_trigger_v1.md#triggerintegrationcreateresponse)
+- [TriggerIntegrationCreateResponseBody](integration_trigger_v1.md#triggerintegrationcreateresponsebody)
+- [TriggerIntegrationDeleteRequest](integration_trigger_v1.md#triggerintegrationdeleterequest)
+- [TriggerIntegrationDeleteRequestBody](integration_trigger_v1.md#triggerintegrationdeleterequestbody)
 - [TriggerIntegrationDeleteResponse](integration_trigger_v1.md#triggerintegrationdeleteresponse)
+- [TriggerIntegrationDeleteResponseBody](integration_trigger_v1.md#triggerintegrationdeleteresponsebody)
 - [TriggerIntegrationFetchResponse](integration_trigger_v1.md#triggerintegrationfetchresponse)
-- [TriggerIntegrationInstance](integration_trigger_v1.md#triggerintegrationinstance)
 - [TriggerIntegrationInvokeRequest](integration_trigger_v1.md#triggerintegrationinvokerequest)
+- [TriggerIntegrationInvokeRequestBody](integration_trigger_v1.md#triggerintegrationinvokerequestbody)
 - [TriggerIntegrationInvokeResponse](integration_trigger_v1.md#triggerintegrationinvokeresponse)
+- [TriggerIntegrationInvokeResponseBody](integration_trigger_v1.md#triggerintegrationinvokeresponsebody)
 - [TriggerIntegrationListRequest](integration_trigger_v1.md#triggerintegrationlistrequest)
 - [TriggerIntegrationListResponse](integration_trigger_v1.md#triggerintegrationlistresponse)
-- [TriggerIntegrationListStreamItem](integration_trigger_v1.md#triggerintegrationliststreamitem)
 - [TriggerIntegrationListStreamType](integration_trigger_v1.md#triggerintegrationliststreamtype)
-- [TriggerIntegrationOptions](integration_trigger_v1.md#triggerintegrationoptions)
+- [TriggerIntegrationSetupRequest](integration_trigger_v1.md#triggerintegrationsetuprequest)
+- [TriggerIntegrationSetupRequestBody](integration_trigger_v1.md#triggerintegrationsetuprequestbody)
 - [TriggerIntegrationSetupResponse](integration_trigger_v1.md#triggerintegrationsetupresponse)
+- [TriggerIntegrationSetupResponseBody](integration_trigger_v1.md#triggerintegrationsetupresponsebody)
 - [TriggerIntegrationUpdateRequest](integration_trigger_v1.md#triggerintegrationupdaterequest)
+- [TriggerIntegrationUpdateRequestBody](integration_trigger_v1.md#triggerintegrationupdaterequestbody)
 - [TriggerIntegrationUpdateResponse](integration_trigger_v1.md#triggerintegrationupdateresponse)
+- [TriggerIntegrationUpdateResponseBody](integration_trigger_v1.md#triggerintegrationupdateresponsebody)
 
 ### Functions
 
@@ -39,60 +45,13 @@
 
 ## Type Aliases
 
-### BotConfig
-
-Ƭ **BotConfig**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `datasetId?` | `string` |
-| `model?` | `string` |
-| `moderation?` | `boolean` |
-| `privacy?` | `boolean` |
-| `skillsetId?` | `string` |
-
-#### Defined in
-
-[integration/trigger/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L25)
-
-___
-
-### BotRef
-
-Ƭ **BotRef**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-
-#### Defined in
-
-[integration/trigger/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L16)
-
-___
-
-### BotRefOrConfig
-
-Ƭ **BotRefOrConfig**\<\>: [`BotRef`](integration_trigger_v1.md#botref) \| [`BotConfig`](integration_trigger_v1.md#botconfig)
-
-#### Defined in
-
-[integration/trigger/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L27)
-
-___
-
 ### ChatBotKitClient
 
 Ƭ **ChatBotKitClient**\<\>: [`client`](client.md)
 
 #### Defined in
 
-[integration/trigger/v1.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L4)
+[integration/trigger/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L2)
 
 ___
 
@@ -109,95 +68,137 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L10)
+[integration/trigger/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L8)
 
 ___
 
 ### TriggerIntegrationCreateRequest
 
-Ƭ **TriggerIntegrationCreateRequest**\<\>: [`TriggerIntegrationOptions`](integration_trigger_v1.md#triggerintegrationoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **TriggerIntegrationCreateRequest**\<\>: [`TriggerIntegrationCreateRequestBody`](integration_trigger_v1.md#triggerintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/trigger/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L93)
+[integration/trigger/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L55)
+
+___
+
+### TriggerIntegrationCreateRequestBody
+
+Ƭ **TriggerIntegrationCreateRequestBody**\<\>: `operations`[``"createTriggerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L53)
 
 ___
 
 ### TriggerIntegrationCreateResponse
 
-Ƭ **TriggerIntegrationCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **TriggerIntegrationCreateResponse**\<\>: [`TriggerIntegrationCreateResponseBody`](integration_trigger_v1.md#triggerintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/trigger/v1.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L97)
+[integration/trigger/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L59)
+
+___
+
+### TriggerIntegrationCreateResponseBody
+
+Ƭ **TriggerIntegrationCreateResponseBody**\<\>: `operations`[``"createTriggerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L57)
+
+___
+
+### TriggerIntegrationDeleteRequest
+
+Ƭ **TriggerIntegrationDeleteRequest**\<\>: [`TriggerIntegrationDeleteRequestBody`](integration_trigger_v1.md#triggerintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/trigger/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L110)
+
+___
+
+### TriggerIntegrationDeleteRequestBody
+
+Ƭ **TriggerIntegrationDeleteRequestBody**\<\>: `operations`[``"deleteTriggerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L108)
 
 ___
 
 ### TriggerIntegrationDeleteResponse
 
-Ƭ **TriggerIntegrationDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **TriggerIntegrationDeleteResponse**\<\>: [`TriggerIntegrationDeleteResponseBody`](integration_trigger_v1.md#triggerintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/trigger/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L152)
+[integration/trigger/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L114)
+
+___
+
+### TriggerIntegrationDeleteResponseBody
+
+Ƭ **TriggerIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteTriggerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L112)
 
 ___
 
 ### TriggerIntegrationFetchResponse
 
-Ƭ **TriggerIntegrationFetchResponse**\<\>: [`TriggerIntegrationInstance`](integration_trigger_v1.md#triggerintegrationinstance) & {}
+Ƭ **TriggerIntegrationFetchResponse**\<\>: `operations`[``"fetchTriggerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/trigger/v1.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L74)
-
-___
-
-### TriggerIntegrationInstance
-
-Ƭ **TriggerIntegrationInstance**\<\>: [`TriggerIntegrationOptions`](integration_trigger_v1.md#triggerintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[integration/trigger/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L42)
+[integration/trigger/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L37)
 
 ___
 
 ### TriggerIntegrationInvokeRequest
 
-Ƭ **TriggerIntegrationInvokeRequest**\<\>: `object`
+Ƭ **TriggerIntegrationInvokeRequest**\<\>: [`TriggerIntegrationInvokeRequestBody`](integration_trigger_v1.md#triggerintegrationinvokerequestbody)
 
 #### Defined in
 
-[integration/trigger/v1.js:192](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L192)
+[integration/trigger/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L160)
+
+___
+
+### TriggerIntegrationInvokeRequestBody
+
+Ƭ **TriggerIntegrationInvokeRequestBody**\<\>: `operations`[``"invokeTriggerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L158)
 
 ___
 
 ### TriggerIntegrationInvokeResponse
 
-Ƭ **TriggerIntegrationInvokeResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **TriggerIntegrationInvokeResponse**\<\>: [`TriggerIntegrationInvokeResponseBody`](integration_trigger_v1.md#triggerintegrationinvokeresponsebody)
 
 #### Defined in
 
-[integration/trigger/v1.js:196](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L196)
+[integration/trigger/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L164)
+
+___
+
+### TriggerIntegrationInvokeResponseBody
+
+Ƭ **TriggerIntegrationInvokeResponseBody**\<\>: `operations`[``"invokeTriggerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L162)
 
 ___
 
@@ -216,161 +217,83 @@ ___
 
 #### Defined in
 
-[integration/trigger/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L46)
+[integration/trigger/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L17)
 
 ___
 
 ### TriggerIntegrationListResponse
 
-Ƭ **TriggerIntegrationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`TriggerIntegrationInstance`](integration_trigger_v1.md#triggerintegrationinstance)[] |
+Ƭ **TriggerIntegrationListResponse**\<\>: `operations`[``"listTriggerIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/trigger/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L48)
-
-___
-
-### TriggerIntegrationListStreamItem
-
-Ƭ **TriggerIntegrationListStreamItem**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`TriggerIntegrationInstance`](integration_trigger_v1.md#triggerintegrationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[integration/trigger/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L53)
+[integration/trigger/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L19)
 
 ___
 
 ### TriggerIntegrationListStreamType
 
-Ƭ **TriggerIntegrationListStreamType**\<\>: [`TriggerIntegrationListStreamItem`](integration_trigger_v1.md#triggerintegrationliststreamitem)
+Ƭ **TriggerIntegrationListStreamType**\<\>: `operations`[``"listTriggerIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[integration/trigger/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L55)
+[integration/trigger/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L21)
 
 ___
 
-### TriggerIntegrationOptions
+### TriggerIntegrationSetupRequest
 
-Ƭ **TriggerIntegrationOptions**\<\>: [`BotRefOrConfig`](integration_trigger_v1.md#botreforconfig) & \{ `authenticate?`: `boolean` ; `description?`: `string` ; `meta?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> ; `name?`: `string` ; `sessionDuration?`: `number` ; `triggerSchedule?`: ``"never"`` \| ``"quarterhourly"`` \| ``"halfhourly"`` \| ``"hourly"`` \| ``"daily"`` \| ``"weekly"`` \| ``"monthly"``  }
+Ƭ **TriggerIntegrationSetupRequest**\<\>: [`TriggerIntegrationSetupRequestBody`](integration_trigger_v1.md#triggerintegrationsetuprequestbody)
 
 #### Defined in
 
-[integration/trigger/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L36)
+[integration/trigger/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L135)
+
+___
+
+### TriggerIntegrationSetupRequestBody
+
+Ƭ **TriggerIntegrationSetupRequestBody**\<\>: `operations`[``"setupTriggerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L133)
 
 ___
 
 ### TriggerIntegrationSetupResponse
 
-Ƭ **TriggerIntegrationSetupResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **TriggerIntegrationSetupResponse**\<\>: [`TriggerIntegrationSetupResponseBody`](integration_trigger_v1.md#triggerintegrationsetupresponsebody)
 
 #### Defined in
 
-[integration/trigger/v1.js:173](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L173)
+[integration/trigger/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L139)
+
+___
+
+### TriggerIntegrationSetupResponseBody
+
+Ƭ **TriggerIntegrationSetupResponseBody**\<\>: `operations`[``"setupTriggerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L137)
 
 ___
 
 ### TriggerIntegrationUpdateRequest
 
-Ƭ **TriggerIntegrationUpdateRequest**\<\>: [`TriggerIntegrationOptions`](integration_trigger_v1.md#triggerintegrationoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **TriggerIntegrationUpdateRequest**\<\>: [`TriggerIntegrationUpdateRequestBody`](integration_trigger_v1.md#triggerintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/trigger/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L122)
+[integration/trigger/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L82)
 
 ___
 
-### TriggerIntegrationUpdateResponse
+### TriggerIntegrationUpdateRequestBody
 
-Ƭ **TriggerIntegrationUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[integration/trigger/v1.js:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L126)
-
-## Functions
-
-### createTriggerIntegration
-
-▸ **createTriggerIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationCreateResponse`](integration_trigger_v1.md#triggerintegrationcreateresponse)\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`TriggerIntegrationCreateRequest`](integration_trigger_v1.md#triggerintegrationcreaterequest) |
-
-#### Returns
-
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationCreateResponse`](integration_trigger_v1.md#triggerintegrationcreateresponse)\>
-
-#### Defined in
-
-[integration/trigger/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L103)
-
-___
-
-### deleteTriggerIntegration
-
-▸ **deleteTriggerIntegration**(`client`, `triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationDeleteResponse`](integration_trigger_v1.md#triggerintegrationdeleteresponse)\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `triggerId` | `string` |
-
-#### Returns
-
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationDeleteResponse`](integration_trigger_v1.md#triggerintegrationdeleteresponse)\>
-
-#### Defined in
-
-[integration/trigger/v1.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L158)
-
-___
-
-### fetchTriggerIntegration
-
-▸ **fetchTriggerIntegration**(`client`, `triggerId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TriggerIntegrationFetchResponse`](integration_trigger_v1.md#triggerintegrationfetchresponse), `never`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `triggerId` | `string` |
-
-#### Returns
-
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TriggerIntegrationFetchResponse`](integration_trigger_v1.md#triggerintegrationfetchresponse), `never`\>
+Ƭ **TriggerIntegrationUpdateRequestBody**\<\>: `operations`[``"updateTriggerIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -378,9 +301,50 @@ ___
 
 ___
 
-### invokeTriggerIntegration
+### TriggerIntegrationUpdateResponse
 
-▸ **invokeTriggerIntegration**(`client`, `triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationInvokeResponse`](integration_trigger_v1.md#triggerintegrationinvokeresponse)\>
+Ƭ **TriggerIntegrationUpdateResponse**\<\>: [`TriggerIntegrationUpdateResponseBody`](integration_trigger_v1.md#triggerintegrationupdateresponsebody)
+
+#### Defined in
+
+[integration/trigger/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L86)
+
+___
+
+### TriggerIntegrationUpdateResponseBody
+
+Ƭ **TriggerIntegrationUpdateResponseBody**\<\>: `operations`[``"updateTriggerIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/trigger/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L84)
+
+## Functions
+
+### createTriggerIntegration
+
+▸ **createTriggerIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `request` | `Object` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[integration/trigger/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L65)
+
+___
+
+### deleteTriggerIntegration
+
+▸ **deleteTriggerIntegration**(`client`, `triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -388,21 +352,63 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `triggerId` | `string` |
-| `request` | `any` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationInvokeResponse`](integration_trigger_v1.md#triggerintegrationinvokeresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/trigger/v1.js:203](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L203)
+[integration/trigger/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L120)
+
+___
+
+### fetchTriggerIntegration
+
+▸ **fetchTriggerIntegration**(`client`, `triggerId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `triggerId` | `string` |
+
+#### Returns
+
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
+
+#### Defined in
+
+[integration/trigger/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L43)
+
+___
+
+### invokeTriggerIntegration
+
+▸ **invokeTriggerIntegration**(`client`, `triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `triggerId` | `string` |
+| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[integration/trigger/v1.js:171](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L171)
 
 ___
 
 ### listTriggerIntegrations
 
-▸ **listTriggerIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TriggerIntegrationListResponse`](integration_trigger_v1.md#triggerintegrationlistresponse), [`TriggerIntegrationListStreamItem`](integration_trigger_v1.md#triggerintegrationliststreamitem)\>
+▸ **listTriggerIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -413,17 +419,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TriggerIntegrationListResponse`](integration_trigger_v1.md#triggerintegrationlistresponse), [`TriggerIntegrationListStreamItem`](integration_trigger_v1.md#triggerintegrationliststreamitem)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[integration/trigger/v1.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L61)
+[integration/trigger/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L27)
 
 ___
 
 ### setupTriggerIntegration
 
-▸ **setupTriggerIntegration**(`client`, `triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationSetupResponse`](integration_trigger_v1.md#triggerintegrationsetupresponse)\>
+▸ **setupTriggerIntegration**(`client`, `triggerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -434,17 +440,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationSetupResponse`](integration_trigger_v1.md#triggerintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/trigger/v1.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L179)
+[integration/trigger/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L145)
 
 ___
 
 ### updateTriggerIntegration
 
-▸ **updateTriggerIntegration**(`client`, `triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationUpdateResponse`](integration_trigger_v1.md#triggerintegrationupdateresponse)\>
+▸ **updateTriggerIntegration**(`client`, `triggerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -452,12 +458,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `triggerId` | `string` |
-| `request` | [`TriggerIntegrationUpdateRequest`](integration_trigger_v1.md#triggerintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TriggerIntegrationUpdateResponse`](integration_trigger_v1.md#triggerintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/trigger/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L133)
+[integration/trigger/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/v1.js#L93)

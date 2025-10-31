@@ -5,7 +5,7 @@
   "scripts": {
     "build": "run-s build:*",
     "build:next": "true",
-    "build:solution": "cbk solution sync rag",
+    "sync:solution": "cbk solution sync rag",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:next": "rimraf .next",

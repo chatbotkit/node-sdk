@@ -4,4 +4,4 @@
  * @param {Record<string,any>} [defaultParams]
  * @returns {string}
  */
-export function buildParamString(name: string, params?: Record<string, any> | undefined, defaultParams?: Record<string, any> | undefined): string;
+export function buildParamString(name: string, params?: Record<string, any>, defaultParams?: Record<string, any>): string;

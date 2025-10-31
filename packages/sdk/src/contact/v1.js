@@ -10,34 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   fingerprint?: string,
- *   email?: string,
- *   phone?: string,
- *   nick?: string,
- *   verifiedAt?: number,
- *   meta?: Record<string,any>
- * }} ContactOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} ContactListRequest
  *
- * @typedef {ContactOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} ContactInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ContactListRequest
+ * @typedef {import('../types/api/v1.js').operations['listContacts']['responses']['200']['content']['application/json']} ContactListResponse
  *
- * @typedef {{items: ContactInstance[]}} ContactListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: ContactInstance
- * }} ContactListStreamItemType
- *
- * @typedef {ContactListStreamItemType} ContactListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listContacts']['responses']['200']['content']['application/jsonl']} ContactListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {ContactListRequest} [request]
@@ -46,17 +27,14 @@
 export function listContacts(client, request) {
   let url = `/api/v1/contact/list`
 
-  /** @typedef {import('../types/api/v1.js').operations['listContacts']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['listContacts']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<ContactListResponse,ContactListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {ContactInstance & {
- * }} ContactFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchContact']['responses']['200']['content']['application/json']} ContactFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -65,20 +43,20 @@ export function listContacts(client, request) {
 export function fetchContact(client, contactId) {
   const url = `/api/v1/contact/${contactId}/fetch`
 
-  /** @typedef {import('../types/api/v1.js').operations['fetchContact']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<ContactFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {ContactOptions & {
- * }} ContactCreateRequest
+ * @typedef {import('../types/api/v1.js').operations['createContact']['requestBody']['content']['application/json']} ContactCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ContactCreateResponse
+ * @typedef {ContactCreateRequestBody} ContactCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createContact']['responses']['200']['content']['application/json']} ContactCreateResponseBody
+ *
+ * @typedef {ContactCreateResponseBody} ContactCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ContactCreateRequest} request
@@ -87,9 +65,9 @@ export function fetchContact(client, contactId) {
 export async function createContact(client, request) {
   const url = `/api/v1/contact/create`
 
-  /** @type {import('../types/api/v1.js').operations['createContact']['responses']['200']['content']['application/json']} */
+  /** @type {ContactCreateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['createContact']['requestBody']['content']['application/json']} */
+    /** @type {ContactCreateRequestBody} */
     record: {
       ...request,
     },
@@ -99,12 +77,13 @@ export async function createContact(client, request) {
 }
 
 /**
- * @typedef {ContactOptions & {
- * }} ContactUpdateRequest
+ * @typedef {import('../types/api/v1.js').operations['updateContact']['requestBody']['content']['application/json']} ContactUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ContactUpdateResponse
+ * @typedef {ContactUpdateRequestBody} ContactUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateContact']['responses']['200']['content']['application/json']} ContactUpdateResponseBody
+ *
+ * @typedef {ContactUpdateResponseBody} ContactUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -114,9 +93,9 @@ export async function createContact(client, request) {
 export async function updateContact(client, contactId, request) {
   const url = `/api/v1/contact/${contactId}/update`
 
-  /** @type {import('../types/api/v1.js').operations['updateContact']['responses']['200']['content']['application/json']} */
+  /** @type {ContactUpdateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['updateContact']['requestBody']['content']['application/json']} */
+    /** @type {ContactUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -126,9 +105,13 @@ export async function updateContact(client, contactId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} ContactDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteContact']['requestBody']['content']['application/json']} ContactDeleteRequestBody
+ *
+ * @typedef {ContactDeleteRequestBody} ContactDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteContact']['responses']['200']['content']['application/json']} ContactDeleteResponseBody
+ *
+ * @typedef {ContactDeleteResponseBody} ContactDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -137,9 +120,9 @@ export async function updateContact(client, contactId, request) {
 export async function deleteContact(client, contactId) {
   const url = `/api/v1/contact/${contactId}/delete`
 
-  /** @type {import('../types/api/v1.js').operations['deleteContact']['responses']['200']['content']['application/json']} */
+  /** @type {ContactDeleteResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['deleteContact']['requestBody']['content']['application/json']} */
+    /** @type {ContactDeleteRequestBody} */
     record: {},
   })
 
@@ -147,13 +130,13 @@ export async function deleteContact(client, contactId) {
 }
 
 /**
- * @typedef {ContactOptions & {
- *   fingerprint: string
- * }} ContactEnsureRequest
+ * @typedef {import('../types/api/v1.js').operations['ensureContact']['requestBody']['content']['application/json']} ContactEnsureRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ContactEnsureResponse
+ * @typedef {ContactEnsureRequestBody} ContactEnsureRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['ensureContact']['responses']['200']['content']['application/json']} ContactEnsureResponseBody
+ *
+ * @typedef {ContactEnsureResponseBody} ContactEnsureResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ContactEnsureRequest} request
@@ -162,9 +145,9 @@ export async function deleteContact(client, contactId) {
 export async function ensureContact(client, request) {
   const url = `/api/v1/contact/ensure`
 
-  /** @type {import('../types/api/v1.js').operations['ensureContact']['responses']['200']['content']['application/json']} */
+  /** @type {ContactEnsureResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['ensureContact']['requestBody']['content']['application/json']} */
+    /** @type {ContactEnsureRequestBody} */
     record: {
       ...request,
     },

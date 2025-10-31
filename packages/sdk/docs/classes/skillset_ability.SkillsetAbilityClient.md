@@ -23,6 +23,7 @@ Skillset ability client.
 - [clientFetch](skillset_ability.SkillsetAbilityClient.md#clientfetch)
 - [create](skillset_ability.SkillsetAbilityClient.md#create)
 - [delete](skillset_ability.SkillsetAbilityClient.md#delete)
+- [export](skillset_ability.SkillsetAbilityClient.md#export)
 - [fetch](skillset_ability.SkillsetAbilityClient.md#fetch)
 - [list](skillset_ability.SkillsetAbilityClient.md#list)
 - [update](skillset_ability.SkillsetAbilityClient.md#update)
@@ -49,7 +50,7 @@ Skillset ability client.
 
 #### Defined in
 
-[skillset/ability/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L23)
+[skillset/ability/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L24)
 
 ## Methods
 
@@ -97,13 +98,13 @@ Skillset ability client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityCreateResponse`](../modules/skillset_ability_v1.md#skillsetabilitycreateresponse)\>
+▸ **create**(`skillsetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new ability.
 
@@ -112,21 +113,21 @@ Creates a new ability.
 | Name | Type |
 | :------ | :------ |
 | `skillsetId` | `string` |
-| `request` | [`SkillsetAbilityOptions`](../modules/skillset_ability_v1.md#skillsetabilityoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityCreateResponse`](../modules/skillset_ability_v1.md#skillsetabilitycreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[skillset/ability/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L56)
+[skillset/ability/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L68)
 
 ___
 
 ### delete
 
-▸ **delete**(`skillsetId`, `abilityId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityDeleteResponse`](../modules/skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
+▸ **delete**(`skillsetId`, `abilityId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the ability.
 
@@ -139,17 +140,40 @@ Deletes the ability.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityDeleteResponse`](../modules/skillset_ability_v1.md#skillsetabilitydeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[skillset/ability/index.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L79)
+[skillset/ability/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L91)
+
+___
+
+### export
+
+▸ **export**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
+
+Exports abilities.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `skillsetId` | `string` |
+| `request?` | [`SkillsetAbilityExportRequest`](../modules/skillset_ability_v1.md#skillsetabilityexportrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
+
+#### Defined in
+
+[skillset/ability/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L46)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`skillsetId`, `abilityId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse), `never`\>
+▸ **fetch**(`skillsetId`, `abilityId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a ability.
 
@@ -162,19 +186,19 @@ Fetches a ability.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityFetchResponse`](../modules/skillset_ability_v1.md#skillsetabilityfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[skillset/ability/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L45)
+[skillset/ability/index.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L57)
 
 ___
 
 ### list
 
-▸ **list**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityListResponse`](../modules/skillset_ability_v1.md#skillsetabilitylistresponse), [`SkillsetAbilityListStreamItem`](../modules/skillset_ability_v1.md#skillsetabilityliststreamitem)\>
+▸ **list**(`skillsetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
-Retrieves a list of all abilitys.
+Retrieves a list of all abilities.
 
 #### Parameters
 
@@ -185,17 +209,17 @@ Retrieves a list of all abilitys.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SkillsetAbilityListResponse`](../modules/skillset_ability_v1.md#skillsetabilitylistresponse), [`SkillsetAbilityListStreamItem`](../modules/skillset_ability_v1.md#skillsetabilityliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[skillset/ability/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L34)
+[skillset/ability/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L35)
 
 ___
 
 ### update
 
-▸ **update**(`skillsetId`, `abilityId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityUpdateResponse`](../modules/skillset_ability_v1.md#skillsetabilityupdateresponse)\>
+▸ **update**(`skillsetId`, `abilityId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates an ability.
 
@@ -205,12 +229,12 @@ Updates an ability.
 | :------ | :------ |
 | `skillsetId` | `string` |
 | `abilityId` | `string` |
-| `request` | [`SkillsetAbilityOptions`](../modules/skillset_ability_v1.md#skillsetabilityoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SkillsetAbilityUpdateResponse`](../modules/skillset_ability_v1.md#skillsetabilityupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[skillset/ability/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L68)
+[skillset/ability/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L80)

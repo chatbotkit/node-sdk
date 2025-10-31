@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 
+import useDOMQuerySelector from './useDOMQuerySelector.js'
+
 /**
  * @typedef {{
  *   id: string,
@@ -30,7 +32,7 @@ import { useEffect, useState } from 'react'
  *
  * @typedef {WidgetFunctionWithResult|WidgetFunctionWithHandler} WidgetFunction
  *
- * @typedef {() => void} WidgteRestartConversationFn
+ * @typedef {() => void} WidgetRestartConversationFn
  *
  * @typedef {(options: string|(({message: string} | {text: string}) & {hidden?: boolean, respond?: boolean})) => void} WidgetSendMessageFn
  *
@@ -40,16 +42,51 @@ import { useEffect, useState } from 'react'
  *   messages?: WidgetMessage[]?,
  *   notifications?: Record<string, WidgetNotification>?,
  *   functions?: Record<string, WidgetFunction>?,
- *   restartConversation: WidgteRestartConversationFn,
+ *   restartConversation: WidgetRestartConversationFn,
  *   sendMessage: WidgetSendMessageFn,
  * }} ChatBotKitWidgetInstance
  *
+ * @param {string} [selector]
+ * @param {any[]} [deps]
  * @returns {ChatBotKitWidgetInstance|null}
  */
-export function useWidgetInstance() {
-  const [instance, setInstance] = useState(null)
+export function useWidgetInstance(selector, deps) {
+  const [instance, setInstance] = useState(
+    /** @type {ChatBotKitWidgetInstance|null} */ (null)
+  )
+
+  const [element] = useDOMQuerySelector(
+    selector,
+    { waitForElements: true },
+    deps
+  )
 
   useEffect(() => {
+    if (element) {
+      /** @type {ChatBotKitWidgetInstance} */
+      const widgetElement = /** @type {any} */ (element)
+
+      if (widgetElement.readyPromise) {
+        widgetElement.readyPromise.then(() => setInstance(widgetElement))
+
+        return
+      }
+
+      {
+        const onReady = () => {
+          widgetElement.removeEventListener('ready', onReady)
+
+          setInstance(widgetElement)
+        }
+
+        widgetElement.addEventListener('ready', onReady)
+
+        return () => {
+          widgetElement?.removeEventListener?.('ready', onReady)
+        }
+      }
+    }
+
     // @ts-expect-error chatbotkitWidget is a global variable
     if (window.chatbotkitWidget) {
       // @ts-expect-error chatbotkitWidget is a global variable
@@ -72,7 +109,7 @@ export function useWidgetInstance() {
     return () => {
       window.removeEventListener('chatbotkitWidgetInit', onInit)
     }
-  }, [])
+  }, [element])
 
   return instance
 }

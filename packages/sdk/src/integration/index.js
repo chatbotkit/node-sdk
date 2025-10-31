@@ -2,6 +2,7 @@ import { ChatBotKitClient } from '../client.js'
 import { DiscordIntegrationClient } from './discord/index.js'
 import { EmailIntegrationClient } from './email/index.js'
 import { ExtractIntegrationClient } from './extract/index.js'
+import { McpServerIntegrationClient } from './mcpserver/index.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
 import { NotionIntegrationClient } from './notion/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
@@ -9,6 +10,7 @@ import { SlackIntegrationClient } from './slack/index.js'
 import { SupportIntegrationClient } from './support/index.js'
 import { TelegramIntegrationClient } from './telegram/index.js'
 import { TriggerIntegrationClient } from './trigger/index.js'
+import { TwilioIntegrationClient } from './twilio/index.js'
 import { WhatsAppIntegrationClient } from './whatsapp/index.js'
 import { WidgetIntegrationClient } from './widget/index.js'
 
@@ -78,6 +80,16 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {ExtractIntegrationClient} extract client
      */
     this.extract = new ExtractIntegrationClient(options)
+
+    /**
+     * @type {McpServerIntegrationClient} mcpserver client
+     */
+    this.mcpserver = new McpServerIntegrationClient(options)
+
+    /**
+     * @type {TwilioIntegrationClient} twilio client
+     */
+    this.twilio = new TwilioIntegrationClient(options)
   }
 }
 

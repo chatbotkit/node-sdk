@@ -22,7 +22,7 @@ Re-exports [WidgetNotification](hooks_useWidgetInstance.md#widgetnotification)
 
 ### useWidgetInstanceNotifications
 
-▸ **useWidgetInstanceNotifications**(`params?`): `void`
+▸ **useWidgetInstanceNotifications**(`params?`, `deps?`): [`ChatBotKitWidgetInstance`](hooks_useWidgetInstance.md#chatbotkitwidgetinstance)
 
 #### Parameters
 
@@ -30,11 +30,13 @@ Re-exports [WidgetNotification](hooks_useWidgetInstance.md#widgetnotification)
 | :------ | :------ |
 | `params?` | `Object` |
 | `params.notifications?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetNotification`](hooks_useWidgetInstance.md#widgetnotification)\> |
+| `params.selector?` | `string` |
+| `deps?` | `any`[] |
 
 #### Returns
 
-`void`
+[`ChatBotKitWidgetInstance`](hooks_useWidgetInstance.md#chatbotkitwidgetinstance)
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstanceNotifications.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceNotifications.js#L14)
+[packages/react/src/hooks/useWidgetInstanceNotifications.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceNotifications.js#L17)

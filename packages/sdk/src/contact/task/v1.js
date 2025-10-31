@@ -10,32 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   contactId?: string,
- *   botId?: string,
- *   schedule?: string
- *   meta?: Record<string,any>
- * }} TaskOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} TaskListRequest
  *
- * @typedef {TaskOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} TaskInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} TaskListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listContactTasks']['responses']['200']['content']['application/json']} TaskListResponse
  *
- * @typedef {{items: TaskInstance[]}} TaskListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: TaskInstance
- * }} TaskListStreamItemType
- *
- * @typedef {TaskListStreamItemType} TaskListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listContactTasks']['responses']['200']['content']['application/jsonl']} TaskListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -45,9 +28,7 @@
 export function listTasks(client, contactId, request) {
   let url = `/api/v1/contact/${contactId}/task/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listContactTasks']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listContactTasks']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<TaskListResponse,TaskListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response

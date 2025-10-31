@@ -16,12 +16,12 @@
  * @param {Partial<State>} [state]
  * @returns {[State, StateFunctions]}
  */
-export function useConversationManagerState(state?: Partial<import("./useConversationManagerStateReducer.js").State> | undefined): [State, StateFunctions];
+export function useConversationManagerState(state?: Partial<State>): [State, StateFunctions];
 export default useConversationManagerState;
-export type State = import('./useConversationManagerStateReducer.js').State;
+export type State = import("./useConversationManagerStateReducer.js").State;
 export type StateFunctions = {
-    setThinking: (thinking: import('./useConversationManagerStateReducer.js').SetThinkingAction['data']['thinking']) => void;
-    setTyping: (typing: import('./useConversationManagerStateReducer.js').SetTypingAction['data']['typing']) => void;
-    appendText: (text: import('./useConversationManagerStateReducer.js').AppendTextAction['data']['text']) => void;
-    appendMessage: (message: import('./useConversationManagerStateReducer.js').AppendMessageAction['data']['message']) => void;
+    setThinking: (thinking: import("./useConversationManagerStateReducer.js").SetThinkingAction["data"]["thinking"]) => void;
+    setTyping: (typing: import("./useConversationManagerStateReducer.js").SetTypingAction["data"]["typing"]) => void;
+    appendText: (text: import("./useConversationManagerStateReducer.js").AppendTextAction["data"]["text"]) => void;
+    appendMessage: (message: import("./useConversationManagerStateReducer.js").AppendMessageAction["data"]["message"]) => void;
 };

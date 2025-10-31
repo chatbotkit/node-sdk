@@ -35,8 +35,8 @@
  */
 export function useConversationManagerRemote({ client: _client, endpoint, token, conversationId, stateful, botId, backstory, model, datasetId, skillsetId, privacy, moderation, ...rest }: UseConversationManagerRemoteOptions): UseConversationManagerRemoteResult;
 export default useConversationManagerRemote;
-export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
-export type Model = import('@chatbotkit/sdk/model/v1').Model;
+export type Message = import("@chatbotkit/sdk/conversation/v1").Message;
+export type Model = import("@chatbotkit/sdk/model/v1").Model;
 export type EndpointURL = string;
 export type EndpointFunction = (options: any) => AsyncGenerator<any>;
 export type UseConversationManagerRemoteOptions = {

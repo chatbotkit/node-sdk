@@ -24,7 +24,7 @@ This function is used on the client to consume a server stream.
 
 #### Defined in
 
-[packages/react/src/utils/stream.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L121)
+[packages/react/src/utils/stream.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L130)
 
 ___
 

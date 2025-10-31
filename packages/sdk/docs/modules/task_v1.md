@@ -9,24 +9,36 @@
 - [ChatBotKitClient](task_v1.md#chatbotkitclient)
 - [ResponsePromise](task_v1.md#responsepromise)
 - [TaskCreateRequest](task_v1.md#taskcreaterequest)
+- [TaskCreateRequestBody](task_v1.md#taskcreaterequestbody)
 - [TaskCreateResponse](task_v1.md#taskcreateresponse)
+- [TaskCreateResponseBody](task_v1.md#taskcreateresponsebody)
+- [TaskDeleteRequest](task_v1.md#taskdeleterequest)
+- [TaskDeleteRequestBody](task_v1.md#taskdeleterequestbody)
 - [TaskDeleteResponse](task_v1.md#taskdeleteresponse)
+- [TaskDeleteResponseBody](task_v1.md#taskdeleteresponsebody)
+- [TaskExportRequest](task_v1.md#taskexportrequest)
+- [TaskExportStreamType](task_v1.md#taskexportstreamtype)
 - [TaskFetchResponse](task_v1.md#taskfetchresponse)
-- [TaskInstance](task_v1.md#taskinstance)
 - [TaskListRequest](task_v1.md#tasklistrequest)
 - [TaskListResponse](task_v1.md#tasklistresponse)
-- [TaskListStreamItemType](task_v1.md#taskliststreamitemtype)
 - [TaskListStreamType](task_v1.md#taskliststreamtype)
-- [TaskOptions](task_v1.md#taskoptions)
+- [TaskTriggerRequest](task_v1.md#tasktriggerrequest)
+- [TaskTriggerRequestBody](task_v1.md#tasktriggerrequestbody)
+- [TaskTriggerResponse](task_v1.md#tasktriggerresponse)
+- [TaskTriggerResponseBody](task_v1.md#tasktriggerresponsebody)
 - [TaskUpdateRequest](task_v1.md#taskupdaterequest)
+- [TaskUpdateRequestBody](task_v1.md#taskupdaterequestbody)
 - [TaskUpdateResponse](task_v1.md#taskupdateresponse)
+- [TaskUpdateResponseBody](task_v1.md#taskupdateresponsebody)
 
 ### Functions
 
 - [createTask](task_v1.md#createtask)
 - [deleteTask](task_v1.md#deletetask)
+- [exportTasks](task_v1.md#exporttasks)
 - [fetchTask](task_v1.md#fetchtask)
 - [listTasks](task_v1.md#listtasks)
+- [triggerTask](task_v1.md#triggertask)
 - [updateTask](task_v1.md#updatetask)
 
 ## Type Aliases
@@ -60,49 +72,37 @@ ___
 
 ### TaskCreateRequest
 
-Ƭ **TaskCreateRequest**\<\>: [`TaskOptions`](task_v1.md#taskoptions) & {}
+Ƭ **TaskCreateRequest**\<\>: [`TaskCreateRequestBody`](task_v1.md#taskcreaterequestbody)
 
 #### Defined in
 
-[task/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L75)
+[task/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L55)
+
+___
+
+### TaskCreateRequestBody
+
+Ƭ **TaskCreateRequestBody**\<\>: `operations`[``"createTask"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L53)
 
 ___
 
 ### TaskCreateResponse
 
-Ƭ **TaskCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **TaskCreateResponse**\<\>: [`TaskCreateResponseBody`](task_v1.md#taskcreateresponsebody)
 
 #### Defined in
 
-[task/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L79)
+[task/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L59)
 
 ___
 
-### TaskDeleteResponse
+### TaskCreateResponseBody
 
-Ƭ **TaskDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[task/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L129)
-
-___
-
-### TaskFetchResponse
-
-Ƭ **TaskFetchResponse**\<\>: [`TaskInstance`](task_v1.md#taskinstance) & {}
+Ƭ **TaskCreateResponseBody**\<\>: `operations`[``"createTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -110,13 +110,81 @@ ___
 
 ___
 
-### TaskInstance
+### TaskDeleteRequest
 
-Ƭ **TaskInstance**\<\>: [`TaskOptions`](task_v1.md#taskoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **TaskDeleteRequest**\<\>: [`TaskDeleteRequestBody`](task_v1.md#taskdeleterequestbody)
 
 #### Defined in
 
-[task/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L25)
+[task/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L110)
+
+___
+
+### TaskDeleteRequestBody
+
+Ƭ **TaskDeleteRequestBody**\<\>: `operations`[``"deleteTask"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L108)
+
+___
+
+### TaskDeleteResponse
+
+Ƭ **TaskDeleteResponse**\<\>: [`TaskDeleteResponseBody`](task_v1.md#taskdeleteresponsebody)
+
+#### Defined in
+
+[task/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L114)
+
+___
+
+### TaskDeleteResponseBody
+
+Ƭ **TaskDeleteResponseBody**\<\>: `operations`[``"deleteTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L112)
+
+___
+
+### TaskExportRequest
+
+Ƭ **TaskExportRequest**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `cursor?` | `string` |
+| `order?` | ``"desc"`` \| ``"asc"`` |
+| `take?` | `number` |
+
+#### Defined in
+
+[task/v1.js:162](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L162)
+
+___
+
+### TaskExportStreamType
+
+Ƭ **TaskExportStreamType**\<\>: `operations`[``"exportTasks"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
+
+#### Defined in
+
+[task/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L164)
+
+___
+
+### TaskFetchResponse
+
+Ƭ **TaskFetchResponse**\<\>: `operations`[``"fetchTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L37)
 
 ___
 
@@ -135,67 +203,13 @@ ___
 
 #### Defined in
 
-[task/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L29)
+[task/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L17)
 
 ___
 
 ### TaskListResponse
 
-Ƭ **TaskListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`TaskInstance`](task_v1.md#taskinstance)[] |
-
-#### Defined in
-
-[task/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L31)
-
-___
-
-### TaskListStreamItemType
-
-Ƭ **TaskListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`TaskInstance`](task_v1.md#taskinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[task/v1.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L36)
-
-___
-
-### TaskListStreamType
-
-Ƭ **TaskListStreamType**\<\>: [`TaskListStreamItemType`](task_v1.md#taskliststreamitemtype)
-
-#### Defined in
-
-[task/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L38)
-
-___
-
-### TaskOptions
-
-Ƭ **TaskOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-| `contactId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `schedule?` | `string` |
+Ƭ **TaskListResponse**\<\>: `operations`[``"listTasks"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -203,67 +217,19 @@ ___
 
 ___
 
-### TaskUpdateRequest
+### TaskListStreamType
 
-Ƭ **TaskUpdateRequest**\<\>: [`TaskOptions`](task_v1.md#taskoptions) & {}
+Ƭ **TaskListStreamType**\<\>: `operations`[``"listTasks"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[task/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L101)
+[task/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L21)
 
 ___
 
-### TaskUpdateResponse
+### TaskTriggerRequest
 
-Ƭ **TaskUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[task/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L105)
-
-## Functions
-
-### createTask
-
-▸ **createTask**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskCreateResponse`](task_v1.md#taskcreateresponse)\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`TaskOptions`](task_v1.md#taskoptions) |
-
-#### Returns
-
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskCreateResponse`](task_v1.md#taskcreateresponse)\>
-
-#### Defined in
-
-[task/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L85)
-
-___
-
-### deleteTask
-
-▸ **deleteTask**(`client`, `taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskDeleteResponse`](task_v1.md#taskdeleteresponse)\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `taskId` | `string` |
-
-#### Returns
-
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskDeleteResponse`](task_v1.md#taskdeleteresponse)\>
+Ƭ **TaskTriggerRequest**\<\>: [`TaskTriggerRequestBody`](task_v1.md#tasktriggerrequestbody)
 
 #### Defined in
 
@@ -271,9 +237,100 @@ ___
 
 ___
 
-### fetchTask
+### TaskTriggerRequestBody
 
-▸ **fetchTask**(`client`, `taskId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TaskFetchResponse`](task_v1.md#taskfetchresponse), `never`\>
+Ƭ **TaskTriggerRequestBody**\<\>: `operations`[``"triggerTask"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L133)
+
+___
+
+### TaskTriggerResponse
+
+Ƭ **TaskTriggerResponse**\<\>: [`TaskTriggerResponseBody`](task_v1.md#tasktriggerresponsebody)
+
+#### Defined in
+
+[task/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L139)
+
+___
+
+### TaskTriggerResponseBody
+
+Ƭ **TaskTriggerResponseBody**\<\>: `operations`[``"triggerTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L137)
+
+___
+
+### TaskUpdateRequest
+
+Ƭ **TaskUpdateRequest**\<\>: [`TaskUpdateRequestBody`](task_v1.md#taskupdaterequestbody)
+
+#### Defined in
+
+[task/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L82)
+
+___
+
+### TaskUpdateRequestBody
+
+Ƭ **TaskUpdateRequestBody**\<\>: `operations`[``"updateTask"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L80)
+
+___
+
+### TaskUpdateResponse
+
+Ƭ **TaskUpdateResponse**\<\>: [`TaskUpdateResponseBody`](task_v1.md#taskupdateresponsebody)
+
+#### Defined in
+
+[task/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L86)
+
+___
+
+### TaskUpdateResponseBody
+
+Ƭ **TaskUpdateResponseBody**\<\>: `operations`[``"updateTask"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[task/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L84)
+
+## Functions
+
+### createTask
+
+▸ **createTask**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `request` | `Object` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[task/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L65)
+
+___
+
+### deleteTask
+
+▸ **deleteTask**(`client`, `taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -284,17 +341,59 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TaskFetchResponse`](task_v1.md#taskfetchresponse), `never`\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[task/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L63)
+[task/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L120)
+
+___
+
+### exportTasks
+
+▸ **exportTasks**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<`never`, {}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `request?` | [`TaskExportRequest`](task_v1.md#taskexportrequest) |
+
+#### Returns
+
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<`never`, {}\>
+
+#### Defined in
+
+[task/v1.js:170](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L170)
+
+___
+
+### fetchTask
+
+▸ **fetchTask**(`client`, `taskId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `taskId` | `string` |
+
+#### Returns
+
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
+
+#### Defined in
+
+[task/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L43)
 
 ___
 
 ### listTasks
 
-▸ **listTasks**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TaskListResponse`](task_v1.md#tasklistresponse), [`TaskListStreamItemType`](task_v1.md#taskliststreamitemtype)\>
+▸ **listTasks**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -305,17 +404,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`TaskListResponse`](task_v1.md#tasklistresponse), [`TaskListStreamItemType`](task_v1.md#taskliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[task/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L44)
+[task/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L27)
 
 ___
 
-### updateTask
+### triggerTask
 
-▸ **updateTask**(`client`, `taskId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskUpdateResponse`](task_v1.md#taskupdateresponse)\>
+▸ **triggerTask**(`client`, `taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -323,12 +422,33 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `taskId` | `string` |
-| `request` | [`TaskOptions`](task_v1.md#taskoptions) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskUpdateResponse`](task_v1.md#taskupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[task/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L112)
+[task/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L145)
+
+___
+
+### updateTask
+
+▸ **updateTask**(`client`, `taskId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `taskId` | `string` |
+| `request` | `Object` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[task/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L93)

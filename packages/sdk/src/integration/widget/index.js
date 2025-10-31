@@ -4,6 +4,7 @@ import {
   deleteWidgetIntegration,
   fetchWidgetIntegration,
   listWidgetIntegrations,
+  setupWidgetIntegration,
   updateWidgetIntegration,
 } from './v1.js'
 
@@ -70,6 +71,16 @@ export class WidgetIntegrationClient extends ChatBotKitClient {
    */
   delete(widgetId) {
     return deleteWidgetIntegration(this, widgetId)
+  }
+
+  /**
+   * Sets up a widget integration.
+   *
+   * @param {string} widgetId
+   * @returns {Promise<import('./v1.js').WidgetIntegrationSetupResponse>}
+   */
+  setup(widgetId) {
+    return setupWidgetIntegration(this, widgetId)
   }
 }
 

@@ -6,23 +6,27 @@
 
 ### Type Aliases
 
-- [BotConfig](integration_discord_v1.md#botconfig)
-- [BotRef](integration_discord_v1.md#botref)
-- [BotRefOrConfig](integration_discord_v1.md#botreforconfig)
 - [ChatBotKitClient](integration_discord_v1.md#chatbotkitclient)
 - [DiscordIntegrationCreateRequest](integration_discord_v1.md#discordintegrationcreaterequest)
+- [DiscordIntegrationCreateRequestBody](integration_discord_v1.md#discordintegrationcreaterequestbody)
 - [DiscordIntegrationCreateResponse](integration_discord_v1.md#discordintegrationcreateresponse)
+- [DiscordIntegrationCreateResponseBody](integration_discord_v1.md#discordintegrationcreateresponsebody)
+- [DiscordIntegrationDeleteRequest](integration_discord_v1.md#discordintegrationdeleterequest)
+- [DiscordIntegrationDeleteRequestBody](integration_discord_v1.md#discordintegrationdeleterequestbody)
 - [DiscordIntegrationDeleteResponse](integration_discord_v1.md#discordintegrationdeleteresponse)
+- [DiscordIntegrationDeleteResponseBody](integration_discord_v1.md#discordintegrationdeleteresponsebody)
 - [DiscordIntegrationFetchResponse](integration_discord_v1.md#discordintegrationfetchresponse)
-- [DiscordIntegrationInstance](integration_discord_v1.md#discordintegrationinstance)
 - [DiscordIntegrationListRequest](integration_discord_v1.md#discordintegrationlistrequest)
 - [DiscordIntegrationListResponse](integration_discord_v1.md#discordintegrationlistresponse)
-- [DiscordIntegrationListStreamItem](integration_discord_v1.md#discordintegrationliststreamitem)
 - [DiscordIntegrationListStreamType](integration_discord_v1.md#discordintegrationliststreamtype)
-- [DiscordIntegrationOptions](integration_discord_v1.md#discordintegrationoptions)
+- [DiscordIntegrationSetupRequest](integration_discord_v1.md#discordintegrationsetuprequest)
+- [DiscordIntegrationSetupRequestBody](integration_discord_v1.md#discordintegrationsetuprequestbody)
 - [DiscordIntegrationSetupResponse](integration_discord_v1.md#discordintegrationsetupresponse)
+- [DiscordIntegrationSetupResponseBody](integration_discord_v1.md#discordintegrationsetupresponsebody)
 - [DiscordIntegrationUpdateRequest](integration_discord_v1.md#discordintegrationupdaterequest)
+- [DiscordIntegrationUpdateRequestBody](integration_discord_v1.md#discordintegrationupdaterequestbody)
 - [DiscordIntegrationUpdateResponse](integration_discord_v1.md#discordintegrationupdateresponse)
+- [DiscordIntegrationUpdateResponseBody](integration_discord_v1.md#discordintegrationupdateresponsebody)
 - [ResponsePromise](integration_discord_v1.md#responsepromise)
 
 ### Functions
@@ -36,122 +40,103 @@
 
 ## Type Aliases
 
-### BotConfig
-
-Ƭ **BotConfig**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `datasetId?` | `string` |
-| `model?` | `string` |
-| `moderation?` | `boolean` |
-| `privacy?` | `boolean` |
-| `skillsetId?` | `string` |
-
-#### Defined in
-
-[integration/discord/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L25)
-
-___
-
-### BotRef
-
-Ƭ **BotRef**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-
-#### Defined in
-
-[integration/discord/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L16)
-
-___
-
-### BotRefOrConfig
-
-Ƭ **BotRefOrConfig**\<\>: [`BotRef`](integration_discord_v1.md#botref) \| [`BotConfig`](integration_discord_v1.md#botconfig)
-
-#### Defined in
-
-[integration/discord/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L27)
-
-___
-
 ### ChatBotKitClient
 
 Ƭ **ChatBotKitClient**\<\>: [`client`](client.md)
 
 #### Defined in
 
-[integration/discord/v1.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L4)
+[integration/discord/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L2)
 
 ___
 
 ### DiscordIntegrationCreateRequest
 
-Ƭ **DiscordIntegrationCreateRequest**\<\>: [`DiscordIntegrationOptions`](integration_discord_v1.md#discordintegrationoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **DiscordIntegrationCreateRequest**\<\>: [`DiscordIntegrationCreateRequestBody`](integration_discord_v1.md#discordintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/discord/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L96)
+[integration/discord/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L55)
+
+___
+
+### DiscordIntegrationCreateRequestBody
+
+Ƭ **DiscordIntegrationCreateRequestBody**\<\>: `operations`[``"createDiscordIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/discord/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L53)
 
 ___
 
 ### DiscordIntegrationCreateResponse
 
-Ƭ **DiscordIntegrationCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **DiscordIntegrationCreateResponse**\<\>: [`DiscordIntegrationCreateResponseBody`](integration_discord_v1.md#discordintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/discord/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L100)
+[integration/discord/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L59)
+
+___
+
+### DiscordIntegrationCreateResponseBody
+
+Ƭ **DiscordIntegrationCreateResponseBody**\<\>: `operations`[``"createDiscordIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/discord/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L57)
+
+___
+
+### DiscordIntegrationDeleteRequest
+
+Ƭ **DiscordIntegrationDeleteRequest**\<\>: [`DiscordIntegrationDeleteRequestBody`](integration_discord_v1.md#discordintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/discord/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L110)
+
+___
+
+### DiscordIntegrationDeleteRequestBody
+
+Ƭ **DiscordIntegrationDeleteRequestBody**\<\>: `operations`[``"deleteDiscordIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/discord/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L108)
 
 ___
 
 ### DiscordIntegrationDeleteResponse
 
-Ƭ **DiscordIntegrationDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **DiscordIntegrationDeleteResponse**\<\>: [`DiscordIntegrationDeleteResponseBody`](integration_discord_v1.md#discordintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/discord/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L155)
+[integration/discord/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L114)
+
+___
+
+### DiscordIntegrationDeleteResponseBody
+
+Ƭ **DiscordIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteDiscordIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/discord/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L112)
 
 ___
 
 ### DiscordIntegrationFetchResponse
 
-Ƭ **DiscordIntegrationFetchResponse**\<\>: [`DiscordIntegrationInstance`](integration_discord_v1.md#discordintegrationinstance) & {}
+Ƭ **DiscordIntegrationFetchResponse**\<\>: `operations`[``"fetchDiscordIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/discord/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L77)
-
-___
-
-### DiscordIntegrationInstance
-
-Ƭ **DiscordIntegrationInstance**\<\>: [`DiscordIntegrationOptions`](integration_discord_v1.md#discordintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
-
-#### Defined in
-
-[integration/discord/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L45)
+[integration/discord/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L37)
 
 ___
 
@@ -170,102 +155,107 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L49)
+[integration/discord/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L17)
 
 ___
 
 ### DiscordIntegrationListResponse
 
-Ƭ **DiscordIntegrationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`DiscordIntegrationInstance`](integration_discord_v1.md#discordintegrationinstance)[] |
+Ƭ **DiscordIntegrationListResponse**\<\>: `operations`[``"listDiscordIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/discord/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L51)
-
-___
-
-### DiscordIntegrationListStreamItem
-
-Ƭ **DiscordIntegrationListStreamItem**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`DiscordIntegrationInstance`](integration_discord_v1.md#discordintegrationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[integration/discord/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L56)
+[integration/discord/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L19)
 
 ___
 
 ### DiscordIntegrationListStreamType
 
-Ƭ **DiscordIntegrationListStreamType**\<\>: [`DiscordIntegrationListStreamItem`](integration_discord_v1.md#discordintegrationliststreamitem)
+Ƭ **DiscordIntegrationListStreamType**\<\>: `operations`[``"listDiscordIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[integration/discord/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L58)
+[integration/discord/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L21)
 
 ___
 
-### DiscordIntegrationOptions
+### DiscordIntegrationSetupRequest
 
-Ƭ **DiscordIntegrationOptions**\<\>: [`BotRefOrConfig`](integration_discord_v1.md#botreforconfig) & \{ `appId?`: `string` ; `botToken?`: `string` ; `contactCollection?`: `boolean` ; `description?`: `string` ; `handle?`: `string` ; `meta?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> ; `name?`: `string` ; `publicKey?`: `string` ; `sessionDuration?`: `number`  }
+Ƭ **DiscordIntegrationSetupRequest**\<\>: [`DiscordIntegrationSetupRequestBody`](integration_discord_v1.md#discordintegrationsetuprequestbody)
 
 #### Defined in
 
-[integration/discord/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L39)
+[integration/discord/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L135)
+
+___
+
+### DiscordIntegrationSetupRequestBody
+
+Ƭ **DiscordIntegrationSetupRequestBody**\<\>: `operations`[``"setupDiscordIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/discord/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L133)
 
 ___
 
 ### DiscordIntegrationSetupResponse
 
-Ƭ **DiscordIntegrationSetupResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **DiscordIntegrationSetupResponse**\<\>: [`DiscordIntegrationSetupResponseBody`](integration_discord_v1.md#discordintegrationsetupresponsebody)
 
 #### Defined in
 
-[integration/discord/v1.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L176)
+[integration/discord/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L139)
+
+___
+
+### DiscordIntegrationSetupResponseBody
+
+Ƭ **DiscordIntegrationSetupResponseBody**\<\>: `operations`[``"setupDiscordIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/discord/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L137)
 
 ___
 
 ### DiscordIntegrationUpdateRequest
 
-Ƭ **DiscordIntegrationUpdateRequest**\<\>: [`DiscordIntegrationOptions`](integration_discord_v1.md#discordintegrationoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **DiscordIntegrationUpdateRequest**\<\>: [`DiscordIntegrationUpdateRequestBody`](integration_discord_v1.md#discordintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/discord/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L125)
+[integration/discord/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L82)
+
+___
+
+### DiscordIntegrationUpdateRequestBody
+
+Ƭ **DiscordIntegrationUpdateRequestBody**\<\>: `operations`[``"updateDiscordIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/discord/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L80)
 
 ___
 
 ### DiscordIntegrationUpdateResponse
 
-Ƭ **DiscordIntegrationUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **DiscordIntegrationUpdateResponse**\<\>: [`DiscordIntegrationUpdateResponseBody`](integration_discord_v1.md#discordintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/discord/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L129)
+[integration/discord/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L86)
+
+___
+
+### DiscordIntegrationUpdateResponseBody
+
+Ƭ **DiscordIntegrationUpdateResponseBody**\<\>: `operations`[``"updateDiscordIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/discord/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L84)
 
 ___
 
@@ -282,34 +272,34 @@ ___
 
 #### Defined in
 
-[integration/discord/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L10)
+[integration/discord/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L8)
 
 ## Functions
 
 ### createDiscordIntegration
 
-▸ **createDiscordIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationCreateResponse`](integration_discord_v1.md#discordintegrationcreateresponse)\>
+▸ **createDiscordIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`DiscordIntegrationCreateRequest`](integration_discord_v1.md#discordintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationCreateResponse`](integration_discord_v1.md#discordintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/discord/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L106)
+[integration/discord/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L65)
 
 ___
 
 ### deleteDiscordIntegration
 
-▸ **deleteDiscordIntegration**(`client`, `discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationDeleteResponse`](integration_discord_v1.md#discordintegrationdeleteresponse)\>
+▸ **deleteDiscordIntegration**(`client`, `discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -320,17 +310,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationDeleteResponse`](integration_discord_v1.md#discordintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/discord/v1.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L161)
+[integration/discord/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L120)
 
 ___
 
 ### fetchDiscordIntegration
 
-▸ **fetchDiscordIntegration**(`client`, `discordId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DiscordIntegrationFetchResponse`](integration_discord_v1.md#discordintegrationfetchresponse), `never`\>
+▸ **fetchDiscordIntegration**(`client`, `discordId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -341,17 +331,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DiscordIntegrationFetchResponse`](integration_discord_v1.md#discordintegrationfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[integration/discord/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L83)
+[integration/discord/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L43)
 
 ___
 
 ### listDiscordIntegrations
 
-▸ **listDiscordIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DiscordIntegrationListResponse`](integration_discord_v1.md#discordintegrationlistresponse), [`DiscordIntegrationListStreamItem`](integration_discord_v1.md#discordintegrationliststreamitem)\>
+▸ **listDiscordIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -362,17 +352,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DiscordIntegrationListResponse`](integration_discord_v1.md#discordintegrationlistresponse), [`DiscordIntegrationListStreamItem`](integration_discord_v1.md#discordintegrationliststreamitem)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[integration/discord/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L64)
+[integration/discord/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L27)
 
 ___
 
 ### setupDiscordIntegration
 
-▸ **setupDiscordIntegration**(`client`, `discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationSetupResponse`](integration_discord_v1.md#discordintegrationsetupresponse)\>
+▸ **setupDiscordIntegration**(`client`, `discordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -383,17 +373,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationSetupResponse`](integration_discord_v1.md#discordintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/discord/v1.js:182](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L182)
+[integration/discord/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L145)
 
 ___
 
 ### updateDiscordIntegration
 
-▸ **updateDiscordIntegration**(`client`, `discordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationUpdateResponse`](integration_discord_v1.md#discordintegrationupdateresponse)\>
+▸ **updateDiscordIntegration**(`client`, `discordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -401,12 +391,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `discordId` | `string` |
-| `request` | [`DiscordIntegrationUpdateRequest`](integration_discord_v1.md#discordintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DiscordIntegrationUpdateResponse`](integration_discord_v1.md#discordintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/discord/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L136)
+[integration/discord/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L93)

@@ -8,60 +8,23 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   theme?: string,
- *   layout?: string,
- *   title?: string,
- *   intro?: string,
- *   initial?: string,
- *   placeholder?: string,
- *   language?: string,
- *   origin?: string,
- *   stream?: boolean,
- *   verbose?: boolean,
- *   tools?: boolean,
- *   unfurl?: boolean,
- *   math?: boolean,
- *   attachments?: boolean,
- *   autoScroll?: boolean,
- *   startFirst?: boolean,
- *   contactCollection?: boolean,
- *   exportConversation?: boolean,
- *   restartConversation?: boolean,
- *   maxsimize?: boolean,
- *   messagePeek?: boolean,
- *   poweredBy?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>
- * }} WidgetIntegrationOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} WidgetIntegrationListRequest
  *
- * @typedef {WidgetIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} WidgetInegrationInstance
- */
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} WidgetIntegrationListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listWidgetIntegrations']['responses']['200']['content']['application/json']} WidgetIntegrationListResponse
  *
- * @typedef {{items: WidgetInegrationInstance[]}} WidgetIntegrationListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: WidgetInegrationInstance
- * }} WidgetIntegrationListStreamItem
- *
- * @typedef {WidgetIntegrationListStreamItem} WidgetIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listWidgetIntegrations']['responses']['200']['content']['application/jsonl']} WidgetIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {WidgetIntegrationListRequest} [request]
  * @returns {ResponsePromise<WidgetIntegrationListResponse,WidgetIntegrationListStreamType>}
  */
-export function listWidgetIntegrations(client: ChatBotKitClient, request?: WidgetIntegrationListRequest | undefined): ResponsePromise<WidgetIntegrationListResponse, WidgetIntegrationListStreamType>;
+export function listWidgetIntegrations(client: ChatBotKitClient, request?: WidgetIntegrationListRequest): ResponsePromise<WidgetIntegrationListResponse, WidgetIntegrationListStreamType>;
 /**
- * @typedef {WidgetInegrationInstance & {
- * }} WidgetIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchWidgetIntegration']['responses']['200']['content']['application/json']} WidgetIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} widgetId
@@ -69,12 +32,13 @@ export function listWidgetIntegrations(client: ChatBotKitClient, request?: Widge
  */
 export function fetchWidgetIntegration(client: ChatBotKitClient, widgetId: string): ResponsePromise<WidgetIntegrationFetchResponse, never>;
 /**
- * @typedef {WidgetIntegrationOptions & {
- * }} WidgetIntegrationCreateRequest
+ * @typedef {import('../../types/api/v1.js').operations['createWidgetIntegration']['requestBody']['content']['application/json']} WidgetIntegrationCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} WidgetIntegrationCreateResponse
+ * @typedef {WidgetIntegrationCreateRequestBody} WidgetIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createWidgetIntegration']['responses']['200']['content']['application/json']} WidgetIntegrationCreateResponseBody
+ *
+ * @typedef {WidgetIntegrationCreateResponseBody} WidgetIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {WidgetIntegrationCreateRequest} request
@@ -82,12 +46,13 @@ export function fetchWidgetIntegration(client: ChatBotKitClient, widgetId: strin
  */
 export function createWidgetIntegration(client: ChatBotKitClient, request: WidgetIntegrationCreateRequest): Promise<WidgetIntegrationCreateResponse>;
 /**
- * @typedef {WidgetIntegrationOptions & {
- * }} WidgetIntegrationUpdateRequest
+ * @typedef {import('../../types/api/v1.js').operations['updateWidgetIntegration']['requestBody']['content']['application/json']} WidgetIntegrationUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} WidgetIntegrationUpdateResponse
+ * @typedef {WidgetIntegrationUpdateRequestBody} WidgetIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateWidgetIntegration']['responses']['200']['content']['application/json']} WidgetIntegrationUpdateResponseBody
+ *
+ * @typedef {WidgetIntegrationUpdateResponseBody} WidgetIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} widgetId
@@ -96,73 +61,57 @@ export function createWidgetIntegration(client: ChatBotKitClient, request: Widge
  */
 export function updateWidgetIntegration(client: ChatBotKitClient, widgetId: string, request: WidgetIntegrationUpdateRequest): Promise<WidgetIntegrationUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} WidgetIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteWidgetIntegration']['requestBody']['content']['application/json']} WidgetIntegrationDeleteRequestBody
+ *
+ * @typedef {WidgetIntegrationDeleteRequestBody} WidgetIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteWidgetIntegration']['responses']['200']['content']['application/json']} WidgetIntegrationDeleteResponseBody
+ *
+ * @typedef {WidgetIntegrationDeleteResponseBody} WidgetIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} widgetId
  * @returns {Promise<WidgetIntegrationDeleteResponse>}
  */
 export function deleteWidgetIntegration(client: ChatBotKitClient, widgetId: string): Promise<WidgetIntegrationDeleteResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type WidgetIntegrationOptions = {
-    name?: string;
-    description?: string;
-    theme?: string;
-    layout?: string;
-    title?: string;
-    intro?: string;
-    initial?: string;
-    placeholder?: string;
-    language?: string;
-    origin?: string;
-    stream?: boolean;
-    verbose?: boolean;
-    tools?: boolean;
-    unfurl?: boolean;
-    math?: boolean;
-    attachments?: boolean;
-    autoScroll?: boolean;
-    startFirst?: boolean;
-    contactCollection?: boolean;
-    exportConversation?: boolean;
-    restartConversation?: boolean;
-    maxsimize?: boolean;
-    messagePeek?: boolean;
-    poweredBy?: boolean;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-};
-export type WidgetInegrationInstance = WidgetIntegrationOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
+/**
+ * @typedef {import('../../types/api/v1.js').operations['setupWidgetIntegration']['requestBody']['content']['application/json']} WidgetIntegrationSetupRequestBody
+ *
+ * @typedef {WidgetIntegrationSetupRequestBody} WidgetIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupWidgetIntegration']['responses']['200']['content']['application/json']} WidgetIntegrationSetupResponseBody
+ *
+ * @typedef {WidgetIntegrationSetupResponseBody} WidgetIntegrationSetupResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} widgetId
+ * @returns {Promise<WidgetIntegrationSetupResponse>}
+ */
+export function setupWidgetIntegration(client: ChatBotKitClient, widgetId: string): Promise<WidgetIntegrationSetupResponse>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type WidgetIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type WidgetIntegrationListResponse = {
-    items: WidgetInegrationInstance[];
-};
-export type WidgetIntegrationListStreamItem = {
-    type: 'item';
-    data: WidgetInegrationInstance;
-};
-export type WidgetIntegrationListStreamType = WidgetIntegrationListStreamItem;
-export type WidgetIntegrationFetchResponse = WidgetInegrationInstance & {};
-export type WidgetIntegrationCreateRequest = WidgetIntegrationOptions & {};
-export type WidgetIntegrationCreateResponse = {
-    id: string;
-};
-export type WidgetIntegrationUpdateRequest = WidgetIntegrationOptions & {};
-export type WidgetIntegrationUpdateResponse = {
-    id: string;
-};
-export type WidgetIntegrationDeleteResponse = {
-    id: string;
-};
+export type WidgetIntegrationListResponse = import("../../types/api/v1.js").operations["listWidgetIntegrations"]["responses"]["200"]["content"]["application/json"];
+export type WidgetIntegrationListStreamType = import("../../types/api/v1.js").operations["listWidgetIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
+export type WidgetIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchWidgetIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WidgetIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createWidgetIntegration"]["requestBody"]["content"]["application/json"];
+export type WidgetIntegrationCreateRequest = WidgetIntegrationCreateRequestBody;
+export type WidgetIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createWidgetIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WidgetIntegrationCreateResponse = WidgetIntegrationCreateResponseBody;
+export type WidgetIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateWidgetIntegration"]["requestBody"]["content"]["application/json"];
+export type WidgetIntegrationUpdateRequest = WidgetIntegrationUpdateRequestBody;
+export type WidgetIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateWidgetIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WidgetIntegrationUpdateResponse = WidgetIntegrationUpdateResponseBody;
+export type WidgetIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteWidgetIntegration"]["requestBody"]["content"]["application/json"];
+export type WidgetIntegrationDeleteRequest = WidgetIntegrationDeleteRequestBody;
+export type WidgetIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteWidgetIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WidgetIntegrationDeleteResponse = WidgetIntegrationDeleteResponseBody;
+export type WidgetIntegrationSetupRequestBody = import("../../types/api/v1.js").operations["setupWidgetIntegration"]["requestBody"]["content"]["application/json"];
+export type WidgetIntegrationSetupRequest = WidgetIntegrationSetupRequestBody;
+export type WidgetIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupWidgetIntegration"]["responses"]["200"]["content"]["application/json"];
+export type WidgetIntegrationSetupResponse = WidgetIntegrationSetupResponseBody;

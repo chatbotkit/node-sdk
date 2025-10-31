@@ -10,30 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   type?: string,
- *   meta?: Record<string,any>
- * }} SecretOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} SecretListRequest
  *
- * @typedef {SecretOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} SecretInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} SecretListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listContactSecrets']['responses']['200']['content']['application/json']} SecretListResponse
  *
- * @typedef {{items: SecretInstance[]}} SecretListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: SecretInstance
- * }} SecretListStreamItemType
- *
- * @typedef {SecretListStreamItemType} SecretListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listContactSecrets']['responses']['200']['content']['application/jsonl']} SecretListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -43,31 +28,32 @@
 export function listSecrets(client, contactId, request) {
   let url = `/api/v1/contact/${contactId}/secret/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listContactSecrets']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listContactSecrets']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<SecretListResponse,SecretListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} SecretRevokeResponse
+ * @typedef {import('../../types/api/v1.js').operations['revokeContactSecret']['requestBody']['content']['application/json']} SecretRevokeRequestBody
+ *
+ * @typedef {SecretRevokeRequestBody} SecretRevokeRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['revokeContactSecret']['responses']['200']['content']['application/json']} SecretRevokeResponseBody
+ *
+ * @typedef {SecretRevokeResponseBody} SecretRevokeResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {ResponsePromise<SecretRevokeResponse,never>}
+ * @returns {Promise<SecretRevokeResponse>}
  */
-export function revokeSecret(client, contactId, secretId) {
+export async function revokeSecret(client, contactId, secretId) {
   const url = `/api/v1/contact/${contactId}/secret/${secretId}/revoke`
 
-  /** @typedef {import('../../types/api/v1.js').operations['revokeContactSecret']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
-  const response = client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['revokeContactSecret']['requestBody']['content']['application/json']} */
+  /** @type {SecretRevokeResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {SecretRevokeRequestBody} */
     record: {},
   })
 
@@ -75,24 +61,25 @@ export function revokeSecret(client, contactId, secretId) {
 }
 
 /**
- * @typedef {{
- *   id: string,
- *   status: 'unauthenticated'|'authenticated',
- *   action?: {type: 'authenticate', url: string}
- * }} SecretVerifyResponse
+ * @typedef {import('../../types/api/v1.js').operations['verifyContactSecret']['requestBody']['content']['application/json']} SecretVerifyRequestBody
+ *
+ * @typedef {SecretVerifyRequestBody} SecretVerifyRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['verifyContactSecret']['responses']['200']['content']['application/json']} SecretVerifyResponseBody
+ *
+ * @typedef {SecretVerifyResponseBody} SecretVerifyResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {ResponsePromise<SecretVerifyResponse,never>}
+ * @returns {Promise<SecretVerifyResponse>}
  */
-export function verifySecret(client, contactId, secretId) {
+export async function verifySecret(client, contactId, secretId) {
   const url = `/api/v1/contact/${contactId}/secret/${secretId}/verify`
 
-  /** @typedef {import('../../types/api/v1.js').operations['verifyContactSecret']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
-  const response = client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['verifyContactSecret']['requestBody']['content']['application/json']} */
+  /** @type {SecretVerifyResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {SecretVerifyRequestBody} */
     record: {},
   })
 
@@ -100,23 +87,25 @@ export function verifySecret(client, contactId, secretId) {
 }
 
 /**
- * @typedef {{
- *   id: string
- *   url: string
- * }} SecretAuthenticateResponse
+ * @typedef {import('../../types/api/v1.js').operations['authenticateContactSecret']['requestBody']['content']['application/json']} SecretAuthenticateRequestBody
+ *
+ * @typedef {SecretAuthenticateRequestBody} SecretAuthenticateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['authenticateContactSecret']['responses']['200']['content']['application/json']} SecretAuthenticateResponseBody
+ *
+ * @typedef {SecretAuthenticateResponseBody} SecretAuthenticateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
  * @param {string} secretId
- * @returns {ResponsePromise<SecretAuthenticateResponse,never>}
+ * @returns {Promise<SecretAuthenticateResponse>}
  */
-export function authenticateSecret(client, contactId, secretId) {
+export async function authenticateSecret(client, contactId, secretId) {
   const url = `/api/v1/contact/${contactId}/secret/${secretId}/authenticate`
 
-  /** @typedef {import('../../types/api/v1.js').operations['authenticateContactSecret']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
-  const response = client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['authenticateContactSecret']['requestBody']['content']['application/json']} */
+  /** @type {SecretAuthenticateResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {SecretAuthenticateRequestBody} */
     record: {},
   })
 

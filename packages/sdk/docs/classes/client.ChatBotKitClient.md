@@ -46,6 +46,8 @@
 
   ↳ [`ExtractIntegrationClient`](integration_extract.ExtractIntegrationClient.md)
 
+  ↳ [`McpServerIntegrationClient`](integration_mcpserver.McpServerIntegrationClient.md)
+
   ↳ [`MessengerIntegrationClient`](integration_messenger.MessengerIntegrationClient.md)
 
   ↳ [`NotionIntegrationClient`](integration_notion.NotionIntegrationClient.md)
@@ -60,11 +62,15 @@
 
   ↳ [`TriggerIntegrationClient`](integration_trigger.TriggerIntegrationClient.md)
 
+  ↳ [`TwilioIntegrationClient`](integration_twilio.TwilioIntegrationClient.md)
+
   ↳ [`WhatsAppIntegrationClient`](integration_whatsapp.WhatsAppIntegrationClient.md)
 
   ↳ [`WidgetIntegrationClient`](integration_widget.WidgetIntegrationClient.md)
 
   ↳ [`MagicClient`](magic.MagicClient.md)
+
+  ↳ [`MemoryClient`](memory.MemoryClient.md)
 
   ↳ [`PartnerClient`](partner.PartnerClient.md)
 
@@ -74,11 +80,17 @@
 
   ↳ [`PlatformAbilityClient`](platform_ability.PlatformAbilityClient.md)
 
+  ↳ [`PlatformActionClient`](platform_action.PlatformActionClient.md)
+
+  ↳ [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
+
   ↳ [`PlatformClient`](platform.PlatformClient.md)
 
   ↳ [`PlatformModelClient`](platform_model.PlatformModelClient.md)
 
   ↳ [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
+
+  ↳ [`PolicyClient`](policy.PolicyClient.md)
 
   ↳ [`SecretClient`](secret.SecretClient.md)
 
@@ -87,6 +99,8 @@
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
 
   ↳ [`TaskClient`](task.TaskClient.md)
+
+  ↳ [`TeamClient`](team.TeamClient.md)
 
   ↳ [`UsageClient`](usage.UsageClient.md)
 
@@ -120,7 +134,7 @@
 
 #### Defined in
 
-[client.js:276](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L276)
+[client.js:291](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L291)
 
 ## Methods
 
@@ -164,4 +178,4 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)

@@ -7,18 +7,22 @@
 ### Type Aliases
 
 - [ChatBotKitClient](integration_extract_v1.md#chatbotkitclient)
-- [ExtractInegrationInstance](integration_extract_v1.md#extractinegrationinstance)
 - [ExtractIntegrationCreateRequest](integration_extract_v1.md#extractintegrationcreaterequest)
+- [ExtractIntegrationCreateRequestBody](integration_extract_v1.md#extractintegrationcreaterequestbody)
 - [ExtractIntegrationCreateResponse](integration_extract_v1.md#extractintegrationcreateresponse)
+- [ExtractIntegrationCreateResponseBody](integration_extract_v1.md#extractintegrationcreateresponsebody)
+- [ExtractIntegrationDeleteRequest](integration_extract_v1.md#extractintegrationdeleterequest)
+- [ExtractIntegrationDeleteRequestBody](integration_extract_v1.md#extractintegrationdeleterequestbody)
 - [ExtractIntegrationDeleteResponse](integration_extract_v1.md#extractintegrationdeleteresponse)
+- [ExtractIntegrationDeleteResponseBody](integration_extract_v1.md#extractintegrationdeleteresponsebody)
 - [ExtractIntegrationFetchResponse](integration_extract_v1.md#extractintegrationfetchresponse)
 - [ExtractIntegrationListRequest](integration_extract_v1.md#extractintegrationlistrequest)
 - [ExtractIntegrationListResponse](integration_extract_v1.md#extractintegrationlistresponse)
-- [ExtractIntegrationListStreamItem](integration_extract_v1.md#extractintegrationliststreamitem)
 - [ExtractIntegrationListStreamType](integration_extract_v1.md#extractintegrationliststreamtype)
-- [ExtractIntegrationOptions](integration_extract_v1.md#extractintegrationoptions)
 - [ExtractIntegrationUpdateRequest](integration_extract_v1.md#extractintegrationupdaterequest)
+- [ExtractIntegrationUpdateRequestBody](integration_extract_v1.md#extractintegrationupdaterequestbody)
 - [ExtractIntegrationUpdateResponse](integration_extract_v1.md#extractintegrationupdateresponse)
+- [ExtractIntegrationUpdateResponseBody](integration_extract_v1.md#extractintegrationupdateresponsebody)
 - [ResponsePromise](integration_extract_v1.md#responsepromise)
 
 ### Functions
@@ -41,65 +45,93 @@
 
 ___
 
-### ExtractInegrationInstance
+### ExtractIntegrationCreateRequest
 
-Ƭ **ExtractInegrationInstance**\<\>: [`ExtractIntegrationOptions`](integration_extract_v1.md#extractintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **ExtractIntegrationCreateRequest**\<\>: [`ExtractIntegrationCreateRequestBody`](integration_extract_v1.md#extractintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/extract/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L26)
+[integration/extract/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L55)
 
 ___
 
-### ExtractIntegrationCreateRequest
+### ExtractIntegrationCreateRequestBody
 
-Ƭ **ExtractIntegrationCreateRequest**\<\>: [`ExtractIntegrationOptions`](integration_extract_v1.md#extractintegrationoptions) & \{ `botId`: `string`  }
+Ƭ **ExtractIntegrationCreateRequestBody**\<\>: `operations`[``"createExtractIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/extract/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L75)
+[integration/extract/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L53)
 
 ___
 
 ### ExtractIntegrationCreateResponse
 
-Ƭ **ExtractIntegrationCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **ExtractIntegrationCreateResponse**\<\>: [`ExtractIntegrationCreateResponseBody`](integration_extract_v1.md#extractintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/extract/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L79)
+[integration/extract/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L59)
+
+___
+
+### ExtractIntegrationCreateResponseBody
+
+Ƭ **ExtractIntegrationCreateResponseBody**\<\>: `operations`[``"createExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/extract/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L57)
+
+___
+
+### ExtractIntegrationDeleteRequest
+
+Ƭ **ExtractIntegrationDeleteRequest**\<\>: [`ExtractIntegrationDeleteRequestBody`](integration_extract_v1.md#extractintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/extract/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L110)
+
+___
+
+### ExtractIntegrationDeleteRequestBody
+
+Ƭ **ExtractIntegrationDeleteRequestBody**\<\>: `operations`[``"deleteExtractIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/extract/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L108)
 
 ___
 
 ### ExtractIntegrationDeleteResponse
 
-Ƭ **ExtractIntegrationDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **ExtractIntegrationDeleteResponse**\<\>: [`ExtractIntegrationDeleteResponseBody`](integration_extract_v1.md#extractintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/extract/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L129)
+[integration/extract/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L114)
+
+___
+
+### ExtractIntegrationDeleteResponseBody
+
+Ƭ **ExtractIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/extract/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L112)
 
 ___
 
 ### ExtractIntegrationFetchResponse
 
-Ƭ **ExtractIntegrationFetchResponse**\<\>: [`ExtractInegrationInstance`](integration_extract_v1.md#extractinegrationinstance) & {}
+Ƭ **ExtractIntegrationFetchResponse**\<\>: `operations`[``"fetchExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/extract/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L58)
+[integration/extract/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L37)
 
 ___
 
@@ -118,98 +150,67 @@ ___
 
 #### Defined in
 
-[integration/extract/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L30)
+[integration/extract/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L17)
 
 ___
 
 ### ExtractIntegrationListResponse
 
-Ƭ **ExtractIntegrationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`ExtractInegrationInstance`](integration_extract_v1.md#extractinegrationinstance)[] |
+Ƭ **ExtractIntegrationListResponse**\<\>: `operations`[``"listExtractIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/extract/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L32)
-
-___
-
-### ExtractIntegrationListStreamItem
-
-Ƭ **ExtractIntegrationListStreamItem**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`ExtractInegrationInstance`](integration_extract_v1.md#extractinegrationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[integration/extract/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L37)
+[integration/extract/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L19)
 
 ___
 
 ### ExtractIntegrationListStreamType
 
-Ƭ **ExtractIntegrationListStreamType**\<\>: [`ExtractIntegrationListStreamItem`](integration_extract_v1.md#extractintegrationliststreamitem)
+Ƭ **ExtractIntegrationListStreamType**\<\>: `operations`[``"listExtractIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[integration/extract/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L39)
-
-___
-
-### ExtractIntegrationOptions
-
-Ƭ **ExtractIntegrationOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-| `description?` | `string` |
-| `expiresIn?` | `number` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `schema?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `syncSchedule?` | `string` |
-
-#### Defined in
-
-[integration/extract/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L20)
+[integration/extract/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L21)
 
 ___
 
 ### ExtractIntegrationUpdateRequest
 
-Ƭ **ExtractIntegrationUpdateRequest**\<\>: [`ExtractIntegrationOptions`](integration_extract_v1.md#extractintegrationoptions) & {}
+Ƭ **ExtractIntegrationUpdateRequest**\<\>: [`ExtractIntegrationUpdateRequestBody`](integration_extract_v1.md#extractintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/extract/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L101)
+[integration/extract/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L82)
+
+___
+
+### ExtractIntegrationUpdateRequestBody
+
+Ƭ **ExtractIntegrationUpdateRequestBody**\<\>: `operations`[``"updateExtractIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/extract/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L80)
 
 ___
 
 ### ExtractIntegrationUpdateResponse
 
-Ƭ **ExtractIntegrationUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **ExtractIntegrationUpdateResponse**\<\>: [`ExtractIntegrationUpdateResponseBody`](integration_extract_v1.md#extractintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/extract/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L105)
+[integration/extract/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L86)
+
+___
+
+### ExtractIntegrationUpdateResponseBody
+
+Ƭ **ExtractIntegrationUpdateResponseBody**\<\>: `operations`[``"updateExtractIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/extract/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L84)
 
 ___
 
@@ -232,28 +233,28 @@ ___
 
 ### createExtractIntegration
 
-▸ **createExtractIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationCreateResponse`](integration_extract_v1.md#extractintegrationcreateresponse)\>
+▸ **createExtractIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`ExtractIntegrationCreateRequest`](integration_extract_v1.md#extractintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationCreateResponse`](integration_extract_v1.md#extractintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/extract/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L85)
+[integration/extract/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L65)
 
 ___
 
 ### deleteExtractIntegration
 
-▸ **deleteExtractIntegration**(`client`, `extractId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationDeleteResponse`](integration_extract_v1.md#extractintegrationdeleteresponse)\>
+▸ **deleteExtractIntegration**(`client`, `extractId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -264,17 +265,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationDeleteResponse`](integration_extract_v1.md#extractintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/extract/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L135)
+[integration/extract/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L120)
 
 ___
 
 ### fetchExtractIntegration
 
-▸ **fetchExtractIntegration**(`client`, `extractId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ExtractIntegrationFetchResponse`](integration_extract_v1.md#extractintegrationfetchresponse), `never`\>
+▸ **fetchExtractIntegration**(`client`, `extractId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -285,17 +286,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ExtractIntegrationFetchResponse`](integration_extract_v1.md#extractintegrationfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[integration/extract/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L64)
+[integration/extract/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L43)
 
 ___
 
 ### listExtractIntegrations
 
-▸ **listExtractIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ExtractIntegrationListResponse`](integration_extract_v1.md#extractintegrationlistresponse), [`ExtractIntegrationListStreamItem`](integration_extract_v1.md#extractintegrationliststreamitem)\>
+▸ **listExtractIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -306,17 +307,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`ExtractIntegrationListResponse`](integration_extract_v1.md#extractintegrationlistresponse), [`ExtractIntegrationListStreamItem`](integration_extract_v1.md#extractintegrationliststreamitem)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[integration/extract/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L45)
+[integration/extract/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L27)
 
 ___
 
 ### updateExtractIntegration
 
-▸ **updateExtractIntegration**(`client`, `extractId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationUpdateResponse`](integration_extract_v1.md#extractintegrationupdateresponse)\>
+▸ **updateExtractIntegration**(`client`, `extractId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -324,12 +325,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `extractId` | `string` |
-| `request` | [`ExtractIntegrationOptions`](integration_extract_v1.md#extractintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationUpdateResponse`](integration_extract_v1.md#extractintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/extract/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L112)
+[integration/extract/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/v1.js#L93)

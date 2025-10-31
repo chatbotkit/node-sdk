@@ -5,6 +5,7 @@ import {
   downloadFile,
   fetchFile,
   listFiles,
+  syncFile,
   updateFile,
   uploadFile,
 } from './v1.js'
@@ -96,6 +97,16 @@ export class FileClient extends ChatBotKitClient {
    */
   download(fileId) {
     return downloadFile(this, fileId)
+  }
+
+  /**
+   * Syncs a file.
+   *
+   * @param {string} fileId
+   * @returns {Promise<import('./v1.js').FileSyncResponse>}
+   */
+  sync(fileId) {
+    return syncFile(this, fileId)
   }
 }
 

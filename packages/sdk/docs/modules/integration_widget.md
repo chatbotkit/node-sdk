@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[integration/widget/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L13)
+[integration/widget/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/index.js#L14)

@@ -93,13 +93,13 @@ Bot session client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotSessionCreateResponse`](../modules/bot_session_v1.md#botsessioncreateresponse)\>
+▸ **create**(`botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new session.
 
@@ -108,11 +108,11 @@ Creates a new session.
 | Name | Type |
 | :------ | :------ |
 | `botId` | `string` |
-| `request` | [`BotSessionCreateRequest`](../modules/bot_session_v1.md#botsessioncreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotSessionCreateResponse`](../modules/bot_session_v1.md#botsessioncreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

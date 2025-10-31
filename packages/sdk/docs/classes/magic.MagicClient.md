@@ -93,13 +93,13 @@ Magic client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### generate
 
-▸ **generate**(`magicId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<[`MagicGenerateResponse`](../modules/magic_v1.md#magicgenerateresponse), [`MagicGenerateStreamResult`](../modules/magic_v1.md#magicgeneratestreamresult)\>
+▸ **generate**(`magicId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Generates magic.
 
@@ -112,7 +112,7 @@ Generates magic.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`MagicGenerateResponse`](../modules/magic_v1.md#magicgenerateresponse), [`MagicGenerateStreamResult`](../modules/magic_v1.md#magicgeneratestreamresult)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

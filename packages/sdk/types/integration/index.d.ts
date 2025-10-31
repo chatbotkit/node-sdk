@@ -47,6 +47,14 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {ExtractIntegrationClient} extract client
      */
     extract: ExtractIntegrationClient;
+    /**
+     * @type {McpServerIntegrationClient} mcpserver client
+     */
+    mcpserver: McpServerIntegrationClient;
+    /**
+     * @type {TwilioIntegrationClient} twilio client
+     */
+    twilio: TwilioIntegrationClient;
 }
 export default IntegrationClient;
 import { ChatBotKitClient } from '../client.js';
@@ -62,3 +70,5 @@ import { SitemapIntegrationClient } from './sitemap/index.js';
 import { NotionIntegrationClient } from './notion/index.js';
 import { SupportIntegrationClient } from './support/index.js';
 import { ExtractIntegrationClient } from './extract/index.js';
+import { McpServerIntegrationClient } from './mcpserver/index.js';
+import { TwilioIntegrationClient } from './twilio/index.js';

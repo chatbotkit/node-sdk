@@ -100,13 +100,13 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationCreateResponse`](../modules/integration_messenger_v1.md#messengerintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new messenger integration.
 
@@ -114,11 +114,11 @@ Creates a new messenger integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`MessengerIntegrationCreateRequest`](../modules/integration_messenger_v1.md#messengerintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationCreateResponse`](../modules/integration_messenger_v1.md#messengerintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationDeleteResponse`](../modules/integration_messenger_v1.md#messengerintegrationdeleteresponse)\>
+▸ **delete**(`messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a messenger integration.
 
@@ -140,7 +140,7 @@ Deletes a messenger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationDeleteResponse`](../modules/integration_messenger_v1.md#messengerintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`messengerId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`MessengerIntegrationFetchResponse`](../modules/integration_messenger_v1.md#messengerintegrationfetchresponse), `never`\>
+▸ **fetch**(`messengerId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a messenger integration.
 
@@ -162,7 +162,7 @@ Fetches a messenger integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`MessengerIntegrationFetchResponse`](../modules/integration_messenger_v1.md#messengerintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`MessengerIntegrationListResponse`](../modules/integration_messenger_v1.md#messengerintegrationlistresponse), [`MessengerIntegrationListStreamItem`](../modules/integration_messenger_v1.md#messengerintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all messenger integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all messenger integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`MessengerIntegrationListResponse`](../modules/integration_messenger_v1.md#messengerintegrationlistresponse), [`MessengerIntegrationListStreamItem`](../modules/integration_messenger_v1.md#messengerintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### setup
 
-▸ **setup**(`messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationSetupResponse`](../modules/integration_messenger_v1.md#messengerintegrationsetupresponse)\>
+▸ **setup**(`messengerId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Setups a messenger integration.
 
@@ -206,7 +206,7 @@ Setups a messenger integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationSetupResponse`](../modules/integration_messenger_v1.md#messengerintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`messengerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationUpdateResponse`](../modules/integration_messenger_v1.md#messengerintegrationupdateresponse)\>
+▸ **update**(`messengerId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a messenger integration.
 
@@ -225,11 +225,11 @@ Updates a messenger integration.
 | Name | Type |
 | :------ | :------ |
 | `messengerId` | `string` |
-| `request` | [`MessengerIntegrationUpdateRequest`](../modules/integration_messenger_v1.md#messengerintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`MessengerIntegrationUpdateResponse`](../modules/integration_messenger_v1.md#messengerintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

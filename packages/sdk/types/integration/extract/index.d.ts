@@ -10,21 +10,21 @@ export class ExtractIntegrationClient extends ChatBotKitClient {
      * @param {import('./v1.js').ExtractIntegrationListRequest} [request]
      * @returns {ResponsePromise<import('./v1.js').ExtractIntegrationListResponse,import('./v1.js').ExtractIntegrationListStreamType>}
      */
-    list(request?: import("./v1.js").ExtractIntegrationListRequest | undefined): ResponsePromise<import('./v1.js').ExtractIntegrationListResponse, import('./v1.js').ExtractIntegrationListStreamType>;
+    list(request?: import("./v1.js").ExtractIntegrationListRequest): ResponsePromise<import("./v1.js").ExtractIntegrationListResponse, import("./v1.js").ExtractIntegrationListStreamType>;
     /**
      * Fetches a extract integration.
      *
      * @param {string} extractId
      * @returns {ResponsePromise<import('./v1.js').ExtractIntegrationFetchResponse,never>}
      */
-    fetch(extractId: string): ResponsePromise<import('./v1.js').ExtractIntegrationFetchResponse, never>;
+    fetch(extractId: string): ResponsePromise<import("./v1.js").ExtractIntegrationFetchResponse, never>;
     /**
      * Creates a new extract integration.
      *
      * @param {import('./v1.js').ExtractIntegrationCreateRequest} request
      * @returns {Promise<import('./v1.js').ExtractIntegrationCreateResponse>}
      */
-    create(request: import('./v1.js').ExtractIntegrationCreateRequest): Promise<import('./v1.js').ExtractIntegrationCreateResponse>;
+    create(request: import("./v1.js").ExtractIntegrationCreateRequest): Promise<import("./v1.js").ExtractIntegrationCreateResponse>;
     /**
      * Updates a extract integration.
      *
@@ -32,15 +32,15 @@ export class ExtractIntegrationClient extends ChatBotKitClient {
      * @param {import('./v1.js').ExtractIntegrationUpdateRequest} request
      * @returns {Promise<import('./v1.js').ExtractIntegrationUpdateResponse>}
      */
-    update(extractId: string, request: import('./v1.js').ExtractIntegrationUpdateRequest): Promise<import('./v1.js').ExtractIntegrationUpdateResponse>;
+    update(extractId: string, request: import("./v1.js").ExtractIntegrationUpdateRequest): Promise<import("./v1.js").ExtractIntegrationUpdateResponse>;
     /**
      * Deletes a extract integration.
      *
      * @param {string} extractId
      * @returns {Promise<import('./v1.js').ExtractIntegrationDeleteResponse>}
      */
-    delete(extractId: string): Promise<import('./v1.js').ExtractIntegrationDeleteResponse>;
+    delete(extractId: string): Promise<import("./v1.js").ExtractIntegrationDeleteResponse>;
 }
 export default ExtractIntegrationClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../client.js';

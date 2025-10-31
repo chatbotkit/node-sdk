@@ -8,36 +8,23 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} FileOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} FileListRequest
  *
- * @typedef {FileOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} FileInstance
- */
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} FileListRequest
- * @typedef {{items: FileInstance[]}} FileListResponse
+ * @typedef {import('../types/api/v1.js').operations['listFiles']['responses']['200']['content']['application/json']} FileListResponse
  *
- * @typedef {{
- *   type: 'item',
- *   data: FileInstance
- * }} FileListStreamItemType
- *
- * @typedef {FileListStreamItemType} FileListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listFiles']['responses']['200']['content']['application/jsonl']} FileListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {FileListRequest} [request]
  * @returns {ResponsePromise<FileListResponse,FileListStreamType>}
  */
-export function listFiles(client: ChatBotKitClient, request?: FileListRequest | undefined): ResponsePromise<FileListResponse, FileListStreamType>;
+export function listFiles(client: ChatBotKitClient, request?: FileListRequest): ResponsePromise<FileListResponse, FileListStreamType>;
 /**
- * @typedef {FileInstance & {
- * }} FileFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchFile']['responses']['200']['content']['application/json']} FileFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
@@ -45,12 +32,13 @@ export function listFiles(client: ChatBotKitClient, request?: FileListRequest | 
  */
 export function fetchFile(client: ChatBotKitClient, fileId: string): ResponsePromise<FileFetchResponse, never>;
 /**
- * @typedef {FileOptions & {
- * }} FileCreateRequest
+ * @typedef {import('../types/api/v1.js').operations['createFile']['requestBody']['content']['application/json']} FileCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} FileCreateResponse
+ * @typedef {FileCreateRequestBody} FileCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createFile']['responses']['200']['content']['application/json']} FileCreateResponseBody
+ *
+ * @typedef {FileCreateResponseBody} FileCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {FileCreateRequest} request
@@ -58,12 +46,13 @@ export function fetchFile(client: ChatBotKitClient, fileId: string): ResponsePro
  */
 export function createFile(client: ChatBotKitClient, request: FileCreateRequest): Promise<FileCreateResponse>;
 /**
- * @typedef {FileOptions & {
- * }} FileUpdateRequest
+ * @typedef {import('../types/api/v1.js').operations['updateFile']['requestBody']['content']['application/json']} FileUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} FileUpdateResponse
+ * @typedef {FileUpdateRequestBody} FileUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateFile']['responses']['200']['content']['application/json']} FileUpdateResponseBody
+ *
+ * @typedef {FileUpdateResponseBody} FileUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
@@ -72,9 +61,13 @@ export function createFile(client: ChatBotKitClient, request: FileCreateRequest)
  */
 export function updateFile(client: ChatBotKitClient, fileId: string, request: FileUpdateRequest): Promise<FileUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} FileDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteFile']['requestBody']['content']['application/json']} FileDeleteRequestBody
+ *
+ * @typedef {FileDeleteRequestBody} FileDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteFile']['responses']['200']['content']['application/json']} FileDeleteResponseBody
+ *
+ * @typedef {FileDeleteResponseBody} FileDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
@@ -82,15 +75,17 @@ export function updateFile(client: ChatBotKitClient, fileId: string, request: Fi
  */
 export function deleteFile(client: ChatBotKitClient, fileId: string): Promise<FileDeleteResponse>;
 /**
+ * @typedef {import('../types/api/v1.js').operations['uploadFile']['requestBody']['content']['application/json']} FileUploadRequestBody
+ *
  * @typedef {{
  *   data: string|ArrayBuffer
  *   type: string,
  *   name?: string,
  * }} FileUploadRequest
  *
- * @typedef {{
- *   id: string
- * }} FileUploadResponse
+ * @typedef {import('../types/api/v1.js').operations['uploadFile']['responses']['200']['content']['application/json']} FileUploadResponseBody
+ *
+ * @typedef {FileUploadResponseBody} FileUploadResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
@@ -100,6 +95,8 @@ export function deleteFile(client: ChatBotKitClient, fileId: string): Promise<Fi
 export function uploadFile(client: ChatBotKitClient, fileId: string, request: FileUploadRequest): Promise<FileUploadResponse>;
 /**
  * @typedef {{
+ *   url: string,
+ *   headers: Headers,
  *   data: ArrayBuffer
  * }} FileDownloadResponse
  *
@@ -108,52 +105,51 @@ export function uploadFile(client: ChatBotKitClient, fileId: string, request: Fi
  * @returns {Promise<FileDownloadResponse>}
  */
 export function downloadFile(client: ChatBotKitClient, fileId: string): Promise<FileDownloadResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
-export type FileOptions = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-};
-export type FileInstance = FileOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
+/**
+ * @typedef {import('../types/api/v1.js').operations['syncFile']['requestBody']['content']['application/json']} FileSyncRequestBody
+ *
+ * @typedef {import('../types/api/v1.js').operations['syncFile']['responses']['200']['content']['application/json']} FileSyncResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} fileId
+ * @returns {Promise<FileSyncResponse>}
+ */
+export function syncFile(client: ChatBotKitClient, fileId: string): Promise<FileSyncResponse>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type FileListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type FileListResponse = {
-    items: FileInstance[];
-};
-export type FileListStreamItemType = {
-    type: 'item';
-    data: FileInstance;
-};
-export type FileListStreamType = FileListStreamItemType;
-export type FileFetchResponse = FileInstance & {};
-export type FileCreateRequest = FileOptions & {};
-export type FileCreateResponse = {
-    id: string;
-};
-export type FileUpdateRequest = FileOptions & {};
-export type FileUpdateResponse = {
-    id: string;
-};
-export type FileDeleteResponse = {
-    id: string;
-};
+export type FileListResponse = import("../types/api/v1.js").operations["listFiles"]["responses"]["200"]["content"]["application/json"];
+export type FileListStreamType = import("../types/api/v1.js").operations["listFiles"]["responses"]["200"]["content"]["application/jsonl"];
+export type FileFetchResponse = import("../types/api/v1.js").operations["fetchFile"]["responses"]["200"]["content"]["application/json"];
+export type FileCreateRequestBody = import("../types/api/v1.js").operations["createFile"]["requestBody"]["content"]["application/json"];
+export type FileCreateRequest = FileCreateRequestBody;
+export type FileCreateResponseBody = import("../types/api/v1.js").operations["createFile"]["responses"]["200"]["content"]["application/json"];
+export type FileCreateResponse = FileCreateResponseBody;
+export type FileUpdateRequestBody = import("../types/api/v1.js").operations["updateFile"]["requestBody"]["content"]["application/json"];
+export type FileUpdateRequest = FileUpdateRequestBody;
+export type FileUpdateResponseBody = import("../types/api/v1.js").operations["updateFile"]["responses"]["200"]["content"]["application/json"];
+export type FileUpdateResponse = FileUpdateResponseBody;
+export type FileDeleteRequestBody = import("../types/api/v1.js").operations["deleteFile"]["requestBody"]["content"]["application/json"];
+export type FileDeleteRequest = FileDeleteRequestBody;
+export type FileDeleteResponseBody = import("../types/api/v1.js").operations["deleteFile"]["responses"]["200"]["content"]["application/json"];
+export type FileDeleteResponse = FileDeleteResponseBody;
+export type FileUploadRequestBody = import("../types/api/v1.js").operations["uploadFile"]["requestBody"]["content"]["application/json"];
 export type FileUploadRequest = {
     data: string | ArrayBuffer;
     type: string;
     name?: string;
 };
-export type FileUploadResponse = {
-    id: string;
-};
+export type FileUploadResponseBody = import("../types/api/v1.js").operations["uploadFile"]["responses"]["200"]["content"]["application/json"];
+export type FileUploadResponse = FileUploadResponseBody;
 export type FileDownloadResponse = {
+    url: string;
+    headers: Headers;
     data: ArrayBuffer;
 };
+export type FileSyncRequestBody = import("../types/api/v1.js").operations["syncFile"]["requestBody"]["content"]["application/json"];
+export type FileSyncResponse = import("../types/api/v1.js").operations["syncFile"]["responses"]["200"]["content"]["application/json"];

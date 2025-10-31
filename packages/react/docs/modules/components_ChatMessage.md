@@ -18,7 +18,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `props` | \{ `text`: `string`  } & [`Pick`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys )\<`Options`, ``"remarkPlugins"`` \| ``"rehypePlugins"`` \| ``"components"``\> & `HTMLProps`\<[`HTMLDivElement`]( https://developer.mozilla.org/docs/Web/API/HTMLDivElement )\> |
+| `props` | \{ `text`: `string`  } & [`Pick`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys )\<`ReactMarkdownOptions`, ``"remarkPlugins"`` \| ``"rehypePlugins"`` \| ``"components"``\> & `HTMLProps`\<[`HTMLDivElement`]( https://developer.mozilla.org/docs/Web/API/HTMLDivElement )\> |
 
 #### Returns
 

@@ -29,17 +29,17 @@ export class ResponsePromise<T, U> {
         retryDelay?: number;
         retryTimeout?: boolean;
         fetchFn?: FetchFunction;
-    }, cacheMap?: Map<string, Promise<T>> | undefined);
+    }, cacheMap?: Map<string, Promise<T>>);
     url: string | URL;
     request: {
         method: string;
         headers: Record<string, any>;
         data?: any;
-        timeout?: number | undefined;
-        retries?: number | undefined;
-        retryDelay?: number | undefined;
-        retryTimeout?: boolean | undefined;
-        fetchFn?: FetchFunction | undefined;
+        timeout?: number;
+        retries?: number;
+        retryDelay?: number;
+        retryTimeout?: boolean;
+        fetchFn?: FetchFunction;
     };
     decoder: TextDecoder;
     fetchPromise: Promise<Response> | null;
@@ -58,31 +58,36 @@ export class ResponsePromise<T, U> {
      * }} [params]
      */
     getRequest(params?: {
-        method?: string | undefined;
-        headers?: Record<string, any> | undefined;
+        method?: string;
+        headers?: Record<string, any>;
         data?: any;
-        timeout?: number | undefined;
-        retries?: number | undefined;
-        retryDelay?: number | undefined;
-        retryTimeout?: boolean | undefined;
-        fetchFn?: FetchFunction | undefined;
-    } | undefined): Promise<Response>;
+        timeout?: number;
+        retries?: number;
+        retryDelay?: number;
+        retryTimeout?: boolean;
+        fetchFn?: FetchFunction;
+    }): Promise<Response>;
     getFetchPromise(): Promise<Response>;
     getStreamPromise(): Promise<Response>;
     /**
-     * @param {(...args: any[]) => any} onSuccess
-     * @param {(...args: any[]) => any} onFail
+     * @template TResult1
+     * @template TResult2
+     * @param {((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null} [onSuccess]
+     * @param {((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null} [onFail]
+     * @returns {Promise<TResult1 | TResult2>}
+     */
+    then<TResult1, TResult2>(onSuccess?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onFail?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promise<TResult1 | TResult2>;
+    /**
+     * @template TResult
+     * @param {((reason: any) => TResult | PromiseLike<TResult>) | undefined | null} [fn]
+     * @returns {Promise<T | TResult>}
+     */
+    catch<TResult>(fn?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): Promise<T | TResult>;
+    /**
+     * @param {(() => void) | undefined | null} [fn]
      * @returns {Promise<T>}
      */
-    then(onSuccess: (...args: any[]) => any, onFail: (...args: any[]) => any): Promise<T>;
-    /**
-     * @param {(...args: any[]) => any} fn
-     */
-    catch(fn: (...args: any[]) => any): Promise<any>;
-    /**
-     * @param {(...args: any[]) => any} fn
-     */
-    finally(fn: (...args: any[]) => any): Promise<Response>;
+    finally(fn?: (() => void) | undefined | null): Promise<T>;
     /**
      * @returns {AsyncGenerator<U>}
      */
@@ -91,7 +96,7 @@ export class ResponsePromise<T, U> {
      * @param {string} [key]
      * @returns {Promise<T>}
      */
-    cache(key?: string | undefined): Promise<T>;
+    cache(key?: string): Promise<T>;
     get [Symbol.toStringTag](): string;
 }
 /**
@@ -150,26 +155,26 @@ export class ChatBotKitClient {
      * @returns {ResponsePromise<T,U>}
      */
     clientFetch<T, U>(path: string, options?: {
-        method?: string | undefined;
-        headers?: Record<string, any> | undefined;
-        query?: Record<string, any> | undefined;
-        record?: Record<string, any> | undefined;
-        buffer?: ArrayBuffer | undefined;
+        method?: string;
+        headers?: Record<string, any>;
+        query?: Record<string, any>;
+        record?: Record<string, any>;
+        buffer?: ArrayBuffer;
         file?: {
-            name?: string | undefined;
-            type?: string | undefined;
+            name?: string;
+            type?: string;
             data: string | ArrayBuffer;
-        } | undefined;
-        external?: boolean | undefined;
-        endpoint?: string | undefined;
-        timeout?: number | undefined;
-        retries?: number | undefined;
-        retryDelay?: number | undefined;
-        retryTimeout?: boolean | undefined;
-        fetchFn?: FetchFunction | undefined;
-    } | undefined): ResponsePromise<T, U>;
+        };
+        external?: boolean;
+        endpoint?: string;
+        timeout?: number;
+        retries?: number;
+        retryDelay?: number;
+        retryTimeout?: boolean;
+        fetchFn?: FetchFunction;
+    }): ResponsePromise<T, U>;
 }
-export type FetchFunction = import('@chatbotkit/fetch').FetchFn<import('@chatbotkit/fetch').withRetryOptions & import('@chatbotkit/fetch').withTimeoutOptions>;
+export type FetchFunction = import("@chatbotkit/fetch").FetchFn<import("@chatbotkit/fetch").withRetryOptions & import("@chatbotkit/fetch").withTimeoutOptions>;
 export type ChatBotKitClientOptions = {
     /**
      * A token to authenticate with the API

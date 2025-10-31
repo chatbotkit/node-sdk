@@ -10,29 +10,17 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} PlatformModelOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} PlatformModelListRequest
  *
- * @typedef {PlatformModelOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} PlatformModelInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PlatformModelListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformModels']['responses']['200']['content']['application/json']} PlatformModelListResponse
  *
- * @typedef {{items: PlatformModelInstance[]}} PlatformModelListResponse
+ * @typedef {PlatformModelListResponse['items'][number]} PlatformModelListItem
  *
- * @typedef {{
- *   type: 'item',
- *   data: PlatformModelInstance
- * }} PlatformModelListStreamItemType
- *
- * @typedef {PlatformModelListStreamItemType} PlatformModelListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformModels']['responses']['200']['content']['application/jsonl']} PlatformModelListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformModelListRequest} [request]
@@ -41,9 +29,7 @@
 export function listPlatformModels(client, request) {
   let url = `/api/v1/platform/model/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listPlatformModels']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listPlatformModels']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<PlatformModelListResponse,PlatformModelListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response

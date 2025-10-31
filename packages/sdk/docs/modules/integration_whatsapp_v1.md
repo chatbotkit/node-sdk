@@ -6,24 +6,28 @@
 
 ### Type Aliases
 
-- [BotConfig](integration_whatsapp_v1.md#botconfig)
-- [BotRef](integration_whatsapp_v1.md#botref)
-- [BotRefOrConfig](integration_whatsapp_v1.md#botreforconfig)
 - [ChatBotKitClient](integration_whatsapp_v1.md#chatbotkitclient)
 - [ResponsePromise](integration_whatsapp_v1.md#responsepromise)
 - [WhatsAppIntegrationCreateRequest](integration_whatsapp_v1.md#whatsappintegrationcreaterequest)
+- [WhatsAppIntegrationCreateRequestBody](integration_whatsapp_v1.md#whatsappintegrationcreaterequestbody)
 - [WhatsAppIntegrationCreateResponse](integration_whatsapp_v1.md#whatsappintegrationcreateresponse)
+- [WhatsAppIntegrationCreateResponseBody](integration_whatsapp_v1.md#whatsappintegrationcreateresponsebody)
+- [WhatsAppIntegrationDeleteRequest](integration_whatsapp_v1.md#whatsappintegrationdeleterequest)
+- [WhatsAppIntegrationDeleteRequestBody](integration_whatsapp_v1.md#whatsappintegrationdeleterequestbody)
 - [WhatsAppIntegrationDeleteResponse](integration_whatsapp_v1.md#whatsappintegrationdeleteresponse)
+- [WhatsAppIntegrationDeleteResponseBody](integration_whatsapp_v1.md#whatsappintegrationdeleteresponsebody)
 - [WhatsAppIntegrationFetchResponse](integration_whatsapp_v1.md#whatsappintegrationfetchresponse)
-- [WhatsAppIntegrationInstance](integration_whatsapp_v1.md#whatsappintegrationinstance)
 - [WhatsAppIntegrationListRequest](integration_whatsapp_v1.md#whatsappintegrationlistrequest)
 - [WhatsAppIntegrationListResponse](integration_whatsapp_v1.md#whatsappintegrationlistresponse)
-- [WhatsAppIntegrationListStreamItem](integration_whatsapp_v1.md#whatsappintegrationliststreamitem)
 - [WhatsAppIntegrationListStreamType](integration_whatsapp_v1.md#whatsappintegrationliststreamtype)
-- [WhatsAppIntegrationOptions](integration_whatsapp_v1.md#whatsappintegrationoptions)
+- [WhatsAppIntegrationSetupRequest](integration_whatsapp_v1.md#whatsappintegrationsetuprequest)
+- [WhatsAppIntegrationSetupRequestBody](integration_whatsapp_v1.md#whatsappintegrationsetuprequestbody)
 - [WhatsAppIntegrationSetupResponse](integration_whatsapp_v1.md#whatsappintegrationsetupresponse)
+- [WhatsAppIntegrationSetupResponseBody](integration_whatsapp_v1.md#whatsappintegrationsetupresponsebody)
 - [WhatsAppIntegrationUpdateRequest](integration_whatsapp_v1.md#whatsappintegrationupdaterequest)
+- [WhatsAppIntegrationUpdateRequestBody](integration_whatsapp_v1.md#whatsappintegrationupdaterequestbody)
 - [WhatsAppIntegrationUpdateResponse](integration_whatsapp_v1.md#whatsappintegrationupdateresponse)
+- [WhatsAppIntegrationUpdateResponseBody](integration_whatsapp_v1.md#whatsappintegrationupdateresponsebody)
 
 ### Functions
 
@@ -36,60 +40,13 @@
 
 ## Type Aliases
 
-### BotConfig
-
-Ƭ **BotConfig**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `datasetId?` | `string` |
-| `model?` | `string` |
-| `moderation?` | `boolean` |
-| `privacy?` | `boolean` |
-| `skillsetId?` | `string` |
-
-#### Defined in
-
-[integration/whatsapp/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L25)
-
-___
-
-### BotRef
-
-Ƭ **BotRef**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `botId?` | `string` |
-
-#### Defined in
-
-[integration/whatsapp/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L16)
-
-___
-
-### BotRefOrConfig
-
-Ƭ **BotRefOrConfig**\<\>: [`BotRef`](integration_whatsapp_v1.md#botref) \| [`BotConfig`](integration_whatsapp_v1.md#botconfig)
-
-#### Defined in
-
-[integration/whatsapp/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L27)
-
-___
-
 ### ChatBotKitClient
 
 Ƭ **ChatBotKitClient**\<\>: [`client`](client.md)
 
 #### Defined in
 
-[integration/whatsapp/v1.js:4](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L4)
+[integration/whatsapp/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L2)
 
 ___
 
@@ -106,69 +63,97 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L10)
+[integration/whatsapp/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L8)
 
 ___
 
 ### WhatsAppIntegrationCreateRequest
 
-Ƭ **WhatsAppIntegrationCreateRequest**\<\>: [`WhatsAppIntegrationOptions`](integration_whatsapp_v1.md#whatsappintegrationoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **WhatsAppIntegrationCreateRequest**\<\>: [`WhatsAppIntegrationCreateRequestBody`](integration_whatsapp_v1.md#whatsappintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/whatsapp/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L96)
+[integration/whatsapp/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L55)
+
+___
+
+### WhatsAppIntegrationCreateRequestBody
+
+Ƭ **WhatsAppIntegrationCreateRequestBody**\<\>: `operations`[``"createWhatsAppIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/whatsapp/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L53)
 
 ___
 
 ### WhatsAppIntegrationCreateResponse
 
-Ƭ **WhatsAppIntegrationCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **WhatsAppIntegrationCreateResponse**\<\>: [`WhatsAppIntegrationCreateResponseBody`](integration_whatsapp_v1.md#whatsappintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/whatsapp/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L100)
+[integration/whatsapp/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L59)
+
+___
+
+### WhatsAppIntegrationCreateResponseBody
+
+Ƭ **WhatsAppIntegrationCreateResponseBody**\<\>: `operations`[``"createWhatsAppIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/whatsapp/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L57)
+
+___
+
+### WhatsAppIntegrationDeleteRequest
+
+Ƭ **WhatsAppIntegrationDeleteRequest**\<\>: [`WhatsAppIntegrationDeleteRequestBody`](integration_whatsapp_v1.md#whatsappintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/whatsapp/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L110)
+
+___
+
+### WhatsAppIntegrationDeleteRequestBody
+
+Ƭ **WhatsAppIntegrationDeleteRequestBody**\<\>: `operations`[``"deleteWhatsAppIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/whatsapp/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L108)
 
 ___
 
 ### WhatsAppIntegrationDeleteResponse
 
-Ƭ **WhatsAppIntegrationDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **WhatsAppIntegrationDeleteResponse**\<\>: [`WhatsAppIntegrationDeleteResponseBody`](integration_whatsapp_v1.md#whatsappintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/whatsapp/v1.js:155](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L155)
+[integration/whatsapp/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L114)
+
+___
+
+### WhatsAppIntegrationDeleteResponseBody
+
+Ƭ **WhatsAppIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteWhatsAppIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/whatsapp/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L112)
 
 ___
 
 ### WhatsAppIntegrationFetchResponse
 
-Ƭ **WhatsAppIntegrationFetchResponse**\<\>: [`WhatsAppIntegrationInstance`](integration_whatsapp_v1.md#whatsappintegrationinstance) & {}
+Ƭ **WhatsAppIntegrationFetchResponse**\<\>: `operations`[``"fetchWhatsAppIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/whatsapp/v1.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L77)
-
-___
-
-### WhatsAppIntegrationInstance
-
-Ƭ **WhatsAppIntegrationInstance**\<\>: [`WhatsAppIntegrationOptions`](integration_whatsapp_v1.md#whatsappintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number` ; `verifyToken`: `string`  }
-
-#### Defined in
-
-[integration/whatsapp/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L45)
+[integration/whatsapp/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L37)
 
 ___
 
@@ -187,129 +172,134 @@ ___
 
 #### Defined in
 
-[integration/whatsapp/v1.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L49)
+[integration/whatsapp/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L17)
 
 ___
 
 ### WhatsAppIntegrationListResponse
 
-Ƭ **WhatsAppIntegrationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`WhatsAppIntegrationInstance`](integration_whatsapp_v1.md#whatsappintegrationinstance)[] |
+Ƭ **WhatsAppIntegrationListResponse**\<\>: `operations`[``"listWhatsAppIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/whatsapp/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L51)
-
-___
-
-### WhatsAppIntegrationListStreamItem
-
-Ƭ **WhatsAppIntegrationListStreamItem**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`WhatsAppIntegrationInstance`](integration_whatsapp_v1.md#whatsappintegrationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[integration/whatsapp/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L56)
+[integration/whatsapp/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L19)
 
 ___
 
 ### WhatsAppIntegrationListStreamType
 
-Ƭ **WhatsAppIntegrationListStreamType**\<\>: [`WhatsAppIntegrationListStreamItem`](integration_whatsapp_v1.md#whatsappintegrationliststreamitem)
+Ƭ **WhatsAppIntegrationListStreamType**\<\>: `operations`[``"listWhatsAppIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[integration/whatsapp/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L58)
+[integration/whatsapp/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L21)
 
 ___
 
-### WhatsAppIntegrationOptions
+### WhatsAppIntegrationSetupRequest
 
-Ƭ **WhatsAppIntegrationOptions**\<\>: [`BotRefOrConfig`](integration_whatsapp_v1.md#botreforconfig) & \{ `accessToken?`: `string` ; `attachments?`: `boolean` ; `contactCollection?`: `boolean` ; `description?`: `string` ; `meta?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> ; `name?`: `string` ; `phoneNumberId?`: `string` ; `sessionDuration?`: `number`  }
+Ƭ **WhatsAppIntegrationSetupRequest**\<\>: [`WhatsAppIntegrationSetupRequestBody`](integration_whatsapp_v1.md#whatsappintegrationsetuprequestbody)
 
 #### Defined in
 
-[integration/whatsapp/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L38)
+[integration/whatsapp/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L135)
+
+___
+
+### WhatsAppIntegrationSetupRequestBody
+
+Ƭ **WhatsAppIntegrationSetupRequestBody**\<\>: `operations`[``"setupWhatsAppIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/whatsapp/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L133)
 
 ___
 
 ### WhatsAppIntegrationSetupResponse
 
-Ƭ **WhatsAppIntegrationSetupResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **WhatsAppIntegrationSetupResponse**\<\>: [`WhatsAppIntegrationSetupResponseBody`](integration_whatsapp_v1.md#whatsappintegrationsetupresponsebody)
 
 #### Defined in
 
-[integration/whatsapp/v1.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L176)
+[integration/whatsapp/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L139)
+
+___
+
+### WhatsAppIntegrationSetupResponseBody
+
+Ƭ **WhatsAppIntegrationSetupResponseBody**\<\>: `operations`[``"setupWhatsAppIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/whatsapp/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L137)
 
 ___
 
 ### WhatsAppIntegrationUpdateRequest
 
-Ƭ **WhatsAppIntegrationUpdateRequest**\<\>: [`WhatsAppIntegrationOptions`](integration_whatsapp_v1.md#whatsappintegrationoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **WhatsAppIntegrationUpdateRequest**\<\>: [`WhatsAppIntegrationUpdateRequestBody`](integration_whatsapp_v1.md#whatsappintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/whatsapp/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L125)
+[integration/whatsapp/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L82)
+
+___
+
+### WhatsAppIntegrationUpdateRequestBody
+
+Ƭ **WhatsAppIntegrationUpdateRequestBody**\<\>: `operations`[``"updateWhatsAppIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/whatsapp/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L80)
 
 ___
 
 ### WhatsAppIntegrationUpdateResponse
 
-Ƭ **WhatsAppIntegrationUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **WhatsAppIntegrationUpdateResponse**\<\>: [`WhatsAppIntegrationUpdateResponseBody`](integration_whatsapp_v1.md#whatsappintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/whatsapp/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L129)
+[integration/whatsapp/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L86)
+
+___
+
+### WhatsAppIntegrationUpdateResponseBody
+
+Ƭ **WhatsAppIntegrationUpdateResponseBody**\<\>: `operations`[``"updateWhatsAppIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/whatsapp/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L84)
 
 ## Functions
 
 ### createWhatsAppIntegration
 
-▸ **createWhatsAppIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationCreateResponse`](integration_whatsapp_v1.md#whatsappintegrationcreateresponse)\>
+▸ **createWhatsAppIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`WhatsAppIntegrationCreateRequest`](integration_whatsapp_v1.md#whatsappintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationCreateResponse`](integration_whatsapp_v1.md#whatsappintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/whatsapp/v1.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L106)
+[integration/whatsapp/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L65)
 
 ___
 
 ### deleteWhatsAppIntegration
 
-▸ **deleteWhatsAppIntegration**(`client`, `whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationDeleteResponse`](integration_whatsapp_v1.md#whatsappintegrationdeleteresponse)\>
+▸ **deleteWhatsAppIntegration**(`client`, `whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -320,17 +310,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationDeleteResponse`](integration_whatsapp_v1.md#whatsappintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/whatsapp/v1.js:161](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L161)
+[integration/whatsapp/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L120)
 
 ___
 
 ### fetchWhatsAppIntegration
 
-▸ **fetchWhatsAppIntegration**(`client`, `whatsappId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WhatsAppIntegrationFetchResponse`](integration_whatsapp_v1.md#whatsappintegrationfetchresponse), `never`\>
+▸ **fetchWhatsAppIntegration**(`client`, `whatsappId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -341,17 +331,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WhatsAppIntegrationFetchResponse`](integration_whatsapp_v1.md#whatsappintegrationfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[integration/whatsapp/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L83)
+[integration/whatsapp/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L43)
 
 ___
 
 ### listWhatsAppIntegrations
 
-▸ **listWhatsAppIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WhatsAppIntegrationListResponse`](integration_whatsapp_v1.md#whatsappintegrationlistresponse), [`WhatsAppIntegrationListStreamItem`](integration_whatsapp_v1.md#whatsappintegrationliststreamitem)\>
+▸ **listWhatsAppIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -362,17 +352,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`WhatsAppIntegrationListResponse`](integration_whatsapp_v1.md#whatsappintegrationlistresponse), [`WhatsAppIntegrationListStreamItem`](integration_whatsapp_v1.md#whatsappintegrationliststreamitem)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[integration/whatsapp/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L64)
+[integration/whatsapp/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L27)
 
 ___
 
 ### setupWhatsAppIntegration
 
-▸ **setupWhatsAppIntegration**(`client`, `whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationSetupResponse`](integration_whatsapp_v1.md#whatsappintegrationsetupresponse)\>
+▸ **setupWhatsAppIntegration**(`client`, `whatsappId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -383,17 +373,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationSetupResponse`](integration_whatsapp_v1.md#whatsappintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/whatsapp/v1.js:182](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L182)
+[integration/whatsapp/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L145)
 
 ___
 
 ### updateWhatsAppIntegration
 
-▸ **updateWhatsAppIntegration**(`client`, `whatsappId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationUpdateResponse`](integration_whatsapp_v1.md#whatsappintegrationupdateresponse)\>
+▸ **updateWhatsAppIntegration**(`client`, `whatsappId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -401,12 +391,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `whatsappId` | `string` |
-| `request` | [`WhatsAppIntegrationUpdateRequest`](integration_whatsapp_v1.md#whatsappintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`WhatsAppIntegrationUpdateResponse`](integration_whatsapp_v1.md#whatsappintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/whatsapp/v1.js:136](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L136)
+[integration/whatsapp/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L93)

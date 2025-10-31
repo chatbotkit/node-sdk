@@ -448,6 +448,26 @@
       "types": "./types/integration/index.d.ts",
       "import": "./src/integration/index.js"
     },
+    "./integration/mcpserver": {
+      "types": "./types/integration/mcpserver/index.d.ts",
+      "import": "./src/integration/mcpserver/index.js"
+    },
+    "./integration/mcpserver/index": {
+      "types": "./types/integration/mcpserver/index.d.ts",
+      "import": "./src/integration/mcpserver/index.js"
+    },
+    "./integration/mcpserver/index.js": {
+      "types": "./types/integration/mcpserver/index.d.ts",
+      "import": "./src/integration/mcpserver/index.js"
+    },
+    "./integration/mcpserver/v1": {
+      "types": "./types/integration/mcpserver/v1.d.ts",
+      "import": "./src/integration/mcpserver/v1.js"
+    },
+    "./integration/mcpserver/v1.js": {
+      "types": "./types/integration/mcpserver/v1.d.ts",
+      "import": "./src/integration/mcpserver/v1.js"
+    },
     "./integration/messenger": {
       "types": "./types/integration/messenger/index.d.ts",
       "import": "./src/integration/messenger/index.js"
@@ -588,6 +608,26 @@
       "types": "./types/integration/trigger/v1.d.ts",
       "import": "./src/integration/trigger/v1.js"
     },
+    "./integration/twilio": {
+      "types": "./types/integration/twilio/index.d.ts",
+      "import": "./src/integration/twilio/index.js"
+    },
+    "./integration/twilio/index": {
+      "types": "./types/integration/twilio/index.d.ts",
+      "import": "./src/integration/twilio/index.js"
+    },
+    "./integration/twilio/index.js": {
+      "types": "./types/integration/twilio/index.d.ts",
+      "import": "./src/integration/twilio/index.js"
+    },
+    "./integration/twilio/v1": {
+      "types": "./types/integration/twilio/v1.d.ts",
+      "import": "./src/integration/twilio/v1.js"
+    },
+    "./integration/twilio/v1.js": {
+      "types": "./types/integration/twilio/v1.d.ts",
+      "import": "./src/integration/twilio/v1.js"
+    },
     "./integration/whatsapp": {
       "types": "./types/integration/whatsapp/index.d.ts",
       "import": "./src/integration/whatsapp/index.js"
@@ -647,6 +687,26 @@
     "./magic/v1.js": {
       "types": "./types/magic/v1.d.ts",
       "import": "./src/magic/v1.js"
+    },
+    "./memory": {
+      "types": "./types/memory/index.d.ts",
+      "import": "./src/memory/index.js"
+    },
+    "./memory/index": {
+      "types": "./types/memory/index.d.ts",
+      "import": "./src/memory/index.js"
+    },
+    "./memory/index.js": {
+      "types": "./types/memory/index.d.ts",
+      "import": "./src/memory/index.js"
+    },
+    "./memory/v1": {
+      "types": "./types/memory/v1.d.ts",
+      "import": "./src/memory/v1.js"
+    },
+    "./memory/v1.js": {
+      "types": "./types/memory/v1.d.ts",
+      "import": "./src/memory/v1.js"
     },
     "./model/v1": {
       "types": "./types/model/v1.d.ts",
@@ -744,6 +804,46 @@
       "types": "./types/platform/ability/v1.d.ts",
       "import": "./src/platform/ability/v1.js"
     },
+    "./platform/action": {
+      "types": "./types/platform/action/index.d.ts",
+      "import": "./src/platform/action/index.js"
+    },
+    "./platform/action/index": {
+      "types": "./types/platform/action/index.d.ts",
+      "import": "./src/platform/action/index.js"
+    },
+    "./platform/action/index.js": {
+      "types": "./types/platform/action/index.d.ts",
+      "import": "./src/platform/action/index.js"
+    },
+    "./platform/action/v1": {
+      "types": "./types/platform/action/v1.d.ts",
+      "import": "./src/platform/action/v1.js"
+    },
+    "./platform/action/v1.js": {
+      "types": "./types/platform/action/v1.d.ts",
+      "import": "./src/platform/action/v1.js"
+    },
+    "./platform/example": {
+      "types": "./types/platform/example/index.d.ts",
+      "import": "./src/platform/example/index.js"
+    },
+    "./platform/example/index": {
+      "types": "./types/platform/example/index.d.ts",
+      "import": "./src/platform/example/index.js"
+    },
+    "./platform/example/index.js": {
+      "types": "./types/platform/example/index.d.ts",
+      "import": "./src/platform/example/index.js"
+    },
+    "./platform/example/v1": {
+      "types": "./types/platform/example/v1.d.ts",
+      "import": "./src/platform/example/v1.js"
+    },
+    "./platform/example/v1.js": {
+      "types": "./types/platform/example/v1.d.ts",
+      "import": "./src/platform/example/v1.js"
+    },
     "./platform": {
       "types": "./types/platform/index.d.ts",
       "import": "./src/platform/index.js"
@@ -803,6 +903,26 @@
     "./platform/v1.js": {
       "types": "./types/platform/v1.d.ts",
       "import": "./src/platform/v1.js"
+    },
+    "./policy": {
+      "types": "./types/policy/index.d.ts",
+      "import": "./src/policy/index.js"
+    },
+    "./policy/index": {
+      "types": "./types/policy/index.d.ts",
+      "import": "./src/policy/index.js"
+    },
+    "./policy/index.js": {
+      "types": "./types/policy/index.d.ts",
+      "import": "./src/policy/index.js"
+    },
+    "./policy/v1": {
+      "types": "./types/policy/v1.d.ts",
+      "import": "./src/policy/v1.js"
+    },
+    "./policy/v1.js": {
+      "types": "./types/policy/v1.d.ts",
+      "import": "./src/policy/v1.js"
     },
     "./secret": {
       "types": "./types/secret/index.d.ts",
@@ -884,6 +1004,26 @@
       "types": "./types/task/v1.d.ts",
       "import": "./src/task/v1.js"
     },
+    "./team": {
+      "types": "./types/team/index.d.ts",
+      "import": "./src/team/index.js"
+    },
+    "./team/index": {
+      "types": "./types/team/index.d.ts",
+      "import": "./src/team/index.js"
+    },
+    "./team/index.js": {
+      "types": "./types/team/index.d.ts",
+      "import": "./src/team/index.js"
+    },
+    "./team/v1": {
+      "types": "./types/team/v1.d.ts",
+      "import": "./src/team/v1.js"
+    },
+    "./team/v1.js": {
+      "types": "./types/team/v1.d.ts",
+      "import": "./src/team/v1.js"
+    },
     "./usage": {
       "types": "./types/usage/index.d.ts",
       "import": "./src/usage/index.js"
@@ -936,7 +1076,9 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:exports": "node ../../scripts/create-standard-exports.js",
     "build:types": "tsc -p tsconfig.types.json",
+    "build:types_copy": "node scripts/copy-types.js",
     "check": "tsc -p tsconfig.check.json",
+    "check:api-coverage": "node scripts/check-api-coverage.js",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",
@@ -948,7 +1090,8 @@
     "postpack": "node ../../scripts/create-standard-exports.js",
     "prepack": "node ../../scripts/create-dist-exports.js",
     "test": "true",
-    "update:api-types": "node scripts/export-api.js https://api.chatbotkit.com/v1/spec.json src/types/api/v1.json"
+    "update:api-types": "node scripts/export-api.js https://api.chatbotkit.com/v1/spec.json src/types/api/v1.json",
+    "resolve:api-types": "node scripts/resolve-api.js src/types/api/v1.json src/types/api/v1.json"
   },
   "types": "./types/index.d.ts",
   "dependencies": {
@@ -956,6 +1099,10 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "typedoc": "^0.25.3",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc-plugin-mdn-links": "^3.1.18",
     "typescript": "^5.9",
     "openapi-typescript": "7.4.4",
     "swagger-client": "^3.24.5"

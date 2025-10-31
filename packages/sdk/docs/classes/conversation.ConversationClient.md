@@ -138,13 +138,13 @@ ___
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### complete
 
-▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationCompleteResponse`](../modules/conversation_v1.md#conversationcompleteresponse), [`ConversationCompleteStreamType`](../modules/conversation_v1.md#conversationcompletestreamtype)\>
+▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 #### Parameters
 
@@ -155,13 +155,13 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationCompleteResponse`](../modules/conversation_v1.md#conversationcompleteresponse), [`ConversationCompleteStreamType`](../modules/conversation_v1.md#conversationcompletestreamtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 #### Defined in
 
 [conversation/index.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L103)
 
-▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationCompleteMessageResponse`](../modules/conversation_v1.md#conversationcompletemessageresponse), [`ConversationCompleteMessageStreamType`](../modules/conversation_v1.md#conversationcompletemessagestreamtype)\>
+▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 #### Parameters
 
@@ -172,7 +172,7 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationCompleteMessageResponse`](../modules/conversation_v1.md#conversationcompletemessageresponse), [`ConversationCompleteMessageStreamType`](../modules/conversation_v1.md#conversationcompletemessagestreamtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 #### Defined in
 
@@ -182,7 +182,7 @@ ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationCreateResponse`](../modules/conversation_v1.md#conversationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new conversation.
 
@@ -194,7 +194,7 @@ Creates a new conversation.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationCreateResponse`](../modules/conversation_v1.md#conversationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -204,7 +204,7 @@ ___
 
 ### delete
 
-▸ **delete**(`conversationId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationDeleteResponse`](../modules/conversation_v1.md#conversationdeleteresponse)\>
+▸ **delete**(`conversationId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the conversation.
 
@@ -216,7 +216,7 @@ Deletes the conversation.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationDeleteResponse`](../modules/conversation_v1.md#conversationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -226,7 +226,7 @@ ___
 
 ### downvote
 
-▸ **downvote**(`conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationDownvoteResponse`](../modules/conversation_v1.md#conversationdownvoteresponse)\>
+▸ **downvote**(`conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -237,7 +237,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationDownvoteResponse`](../modules/conversation_v1.md#conversationdownvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -247,7 +247,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`conversationId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationFetchResponse`](../modules/conversation_v1.md#conversationfetchresponse), `never`\>
+▸ **fetch**(`conversationId`): [`ResponsePromise`](client.ResponsePromise.md)\<{} & {} \| {}, `never`\>
 
 Fetches a conversation.
 
@@ -259,7 +259,7 @@ Fetches a conversation.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationFetchResponse`](../modules/conversation_v1.md#conversationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{} & {} \| {}, `never`\>
 
 #### Defined in
 
@@ -269,7 +269,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationListResponse`](../modules/conversation_v1.md#conversationlistresponse), [`ConversationListStreamItem`](../modules/conversation_v1.md#conversationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all conversations.
 
@@ -281,7 +281,7 @@ Retrieves a list of all conversations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationListResponse`](../modules/conversation_v1.md#conversationlistresponse), [`ConversationListStreamItem`](../modules/conversation_v1.md#conversationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -291,7 +291,7 @@ ___
 
 ### receive
 
-▸ **receive**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationReceiveMessageResponse`](../modules/conversation_v1.md#conversationreceivemessageresponse), [`ConversationReceiveMessageStreamType`](../modules/conversation_v1.md#conversationreceivemessagestreamtype)\>
+▸ **receive**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 Receives a message from the conversation.
 
@@ -304,7 +304,7 @@ Receives a message from the conversation.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationReceiveMessageResponse`](../modules/conversation_v1.md#conversationreceivemessageresponse), [`ConversationReceiveMessageStreamType`](../modules/conversation_v1.md#conversationreceivemessagestreamtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 #### Defined in
 
@@ -314,7 +314,7 @@ ___
 
 ### send
 
-▸ **send**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationSendMessageResponse`](../modules/conversation_v1.md#conversationsendmessageresponse), [`ConversationSendMessageStreamResult`](../modules/conversation_v1.md#conversationsendmessagestreamresult)\>
+▸ **send**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Sends a message to the conversation.
 
@@ -327,7 +327,7 @@ Sends a message to the conversation.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ConversationSendMessageResponse`](../modules/conversation_v1.md#conversationsendmessageresponse), [`ConversationSendMessageStreamResult`](../modules/conversation_v1.md#conversationsendmessagestreamresult)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -337,7 +337,7 @@ ___
 
 ### update
 
-▸ **update**(`conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationUpdateResponse`](../modules/conversation_v1.md#conversationupdateresponse)\>
+▸ **update**(`conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a conversation.
 
@@ -350,7 +350,7 @@ Updates a conversation.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationUpdateResponse`](../modules/conversation_v1.md#conversationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -360,7 +360,7 @@ ___
 
 ### upvote
 
-▸ **upvote**(`conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationUpvoteResponse`](../modules/conversation_v1.md#conversationupvoteresponse)\>
+▸ **upvote**(`conversationId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -371,7 +371,7 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ConversationUpvoteResponse`](../modules/conversation_v1.md#conversationupvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

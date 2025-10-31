@@ -23,6 +23,7 @@ Dataset record client.
 - [clientFetch](dataset_record.DatasetRecordClient.md#clientfetch)
 - [create](dataset_record.DatasetRecordClient.md#create)
 - [delete](dataset_record.DatasetRecordClient.md#delete)
+- [export](dataset_record.DatasetRecordClient.md#export)
 - [fetch](dataset_record.DatasetRecordClient.md#fetch)
 - [list](dataset_record.DatasetRecordClient.md#list)
 - [update](dataset_record.DatasetRecordClient.md#update)
@@ -49,7 +50,7 @@ Dataset record client.
 
 #### Defined in
 
-[dataset/record/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L23)
+[dataset/record/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L24)
 
 ## Methods
 
@@ -97,13 +98,13 @@ Dataset record client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordCreateResponse`](../modules/dataset_record_v1.md#datasetrecordcreateresponse)\>
+▸ **create**(`datasetId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new record.
 
@@ -112,21 +113,21 @@ Creates a new record.
 | Name | Type |
 | :------ | :------ |
 | `datasetId` | `string` |
-| `request` | [`DatasetRecordOptions`](../modules/dataset_record_v1.md#datasetrecordoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordCreateResponse`](../modules/dataset_record_v1.md#datasetrecordcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[dataset/record/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L56)
+[dataset/record/index.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L57)
 
 ___
 
 ### delete
 
-▸ **delete**(`datasetId`, `recordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordDeleteResponse`](../modules/dataset_record_v1.md#datasetrecorddeleteresponse)\>
+▸ **delete**(`datasetId`, `recordId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the record.
 
@@ -139,17 +140,40 @@ Deletes the record.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordDeleteResponse`](../modules/dataset_record_v1.md#datasetrecorddeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[dataset/record/index.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L79)
+[dataset/record/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L80)
+
+___
+
+### export
+
+▸ **export**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
+
+Exports records.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `datasetId` | `string` |
+| `request?` | [`DatasetRecordExportRequest`](../modules/dataset_record_v1.md#datasetrecordexportrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
+
+#### Defined in
+
+[dataset/record/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L91)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`datasetId`, `recordId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordFetchResponse`](../modules/dataset_record_v1.md#datasetrecordfetchresponse), `never`\>
+▸ **fetch**(`datasetId`, `recordId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a record.
 
@@ -162,17 +186,17 @@ Fetches a record.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordFetchResponse`](../modules/dataset_record_v1.md#datasetrecordfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[dataset/record/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L45)
+[dataset/record/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L46)
 
 ___
 
 ### list
 
-▸ **list**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordListResponse`](../modules/dataset_record_v1.md#datasetrecordlistresponse), [`DatasetRecordListStreamItem`](../modules/dataset_record_v1.md#datasetrecordliststreamitem)\>
+▸ **list**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all records.
 
@@ -185,17 +209,17 @@ Retrieves a list of all records.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetRecordListResponse`](../modules/dataset_record_v1.md#datasetrecordlistresponse), [`DatasetRecordListStreamItem`](../modules/dataset_record_v1.md#datasetrecordliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[dataset/record/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L34)
+[dataset/record/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L35)
 
 ___
 
 ### update
 
-▸ **update**(`datasetId`, `recordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordUpdateResponse`](../modules/dataset_record_v1.md#datasetrecordupdateresponse)\>
+▸ **update**(`datasetId`, `recordId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a record.
 
@@ -205,12 +229,12 @@ Updates a record.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `recordId` | `string` |
-| `request` | [`DatasetRecordOptions`](../modules/dataset_record_v1.md#datasetrecordoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetRecordUpdateResponse`](../modules/dataset_record_v1.md#datasetrecordupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[dataset/record/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L68)
+[dataset/record/index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L69)

@@ -131,20 +131,28 @@ export function ChatBotKitPartnerAdapter({
   }
 
   /**
-   * @param {import('@chatbotkit/sdk/partner/user/v1.js').PartnerUserInstance} userInstance
+   * @param {import('@chatbotkit/sdk/partner/user/v1.js').PartnerUserFetchResponse} userInstance
    */
   function serialiseUserInstance(userInstance) {
-    const { meta, ...safeUserInstance } = userInstance
+    const { email, ...safeUserInstance } = userInstance
+
+    if (!email) {
+      throw new Error(`User is missing email field`)
+    }
 
     return {
       ...safeUserInstance,
 
-      email: meta?.email,
-      emailVerified: meta?.emailVerified ? new Date(meta.emailVerified) : null,
+      email: email,
+      emailVerified: new Date(safeUserInstance.createdAt),
     }
   }
 
   return {
+  /**
+     * @param {any} id 
+     * @returns 
+     */
     async getUser(id) {
       debug('* getUser', { id })
 
@@ -163,6 +171,10 @@ export function ChatBotKitPartnerAdapter({
       return retUser
     },
 
+    /**
+     * @param {any} email 
+     * @returns 
+     */
     async getUserByEmail(email) {
       debug('* getUserByEmail', { email })
 
@@ -187,6 +199,10 @@ export function ChatBotKitPartnerAdapter({
       throw new Error(`Account linking not supported`)
     },
 
+    /**
+     * @param {any} user 
+     * @returns 
+     */
     async createUser(user) {
       debug('* createUser', { user })
 
@@ -220,6 +236,10 @@ export function ChatBotKitPartnerAdapter({
       return retUser
     },
 
+    /**
+     * @param {any} user 
+     * @returns 
+     */
     async updateUser(user) {
       debug('* updateUser', { user })
 
@@ -255,6 +275,10 @@ export function ChatBotKitPartnerAdapter({
       return retUser
     },
 
+    /**
+     * @param {any} userId 
+     * @returns 
+     */
     async deleteUser(userId) {
       debug('* deleteUser', { userId })
 
@@ -271,42 +295,70 @@ export function ChatBotKitPartnerAdapter({
       await client.delete(userId)
     },
 
+    /**
+     * @param {any} account 
+     * @returns 
+     */
     async linkAccount(account) {
       debug('* linkAccount', { account })
 
       throw new Error(`Account linking not supported`)
     },
 
+    /**
+     * @param {any} unlinkAccount 
+     * @returns 
+     */
     async unlinkAccount({ providerAccountId, provider }) {
       debug('* unlinkAccount', { providerAccountId, provider })
 
       throw new Error(`Account linking not supported`)
     },
 
+    /**
+     * @param {any} options 
+     * @returns 
+     */
     async createSession({ sessionToken, userId, expires }) {
       debug('* createSession', { sessionToken, userId, expires })
 
       throw new Error(`Database strategy not supported`) // only used for database strategy
     },
 
+    /**
+     * @param {any} options 
+     * @returns 
+     */
     async updateSession({ sessionToken }) {
       debug('* updateSession', { sessionToken })
 
       throw new Error(`Database strategy not supported`) // only used for database strategy
     },
 
+    /**
+     * @param {any} sessionToken 
+     * @returns 
+     */
     async deleteSession(sessionToken) {
       debug('* deleteSession', { sessionToken })
 
       throw new Error(`Database strategy not supported`) // only used for database strategy
     },
 
+    /**
+     * @param {any} sessionToken 
+     * @returns 
+     */
     async getSessionAndUser(sessionToken) {
       debug('* getSessionAndUser', { sessionToken })
 
       throw new Error(`Database strategy not supported`) // only used for database strategy
     },
 
+    /**
+     * @param {any} verificationToken 
+     * @returns 
+     */
     async createVerificationToken(verificationToken) {
       debug('* createVerificationToken', { verificationToken })
 
@@ -323,6 +375,10 @@ export function ChatBotKitPartnerAdapter({
       return retToken
     },
 
+    /**
+     * @param {any} verificationToken 
+     * @returns 
+     */
     async useVerificationToken(verificationToken) {
       debug('* useVerificationToken', { verificationToken })
 

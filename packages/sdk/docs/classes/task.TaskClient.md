@@ -23,8 +23,10 @@ Task client.
 - [clientFetch](task.TaskClient.md#clientfetch)
 - [create](task.TaskClient.md#create)
 - [delete](task.TaskClient.md#delete)
+- [export](task.TaskClient.md#export)
 - [fetch](task.TaskClient.md#fetch)
 - [list](task.TaskClient.md#list)
+- [trigger](task.TaskClient.md#trigger)
 - [update](task.TaskClient.md#update)
 
 ## Constructors
@@ -49,7 +51,7 @@ Task client.
 
 #### Defined in
 
-[task/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L23)
+[task/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L25)
 
 ## Methods
 
@@ -97,13 +99,13 @@ Task client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskCreateResponse`](../modules/task_v1.md#taskcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new task.
 
@@ -111,21 +113,21 @@ Creates a new task.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`TaskOptions`](../modules/task_v1.md#taskoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskCreateResponse`](../modules/task_v1.md#taskcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[task/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L53)
+[task/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L65)
 
 ___
 
 ### delete
 
-▸ **delete**(`taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskDeleteResponse`](../modules/task_v1.md#taskdeleteresponse)\>
+▸ **delete**(`taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the task.
 
@@ -137,17 +139,39 @@ Deletes the task.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskDeleteResponse`](../modules/task_v1.md#taskdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[task/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L74)
+[task/index.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L86)
+
+___
+
+### export
+
+▸ **export**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<`never`, {}\>
+
+Exports tasks.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request?` | [`TaskExportRequest`](../modules/task_v1.md#taskexportrequest) |
+
+#### Returns
+
+[`ResponsePromise`](client.ResponsePromise.md)\<`never`, {}\>
+
+#### Defined in
+
+[task/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L45)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`taskId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TaskFetchResponse`](../modules/task_v1.md#taskfetchresponse), `never`\>
+▸ **fetch**(`taskId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a task.
 
@@ -159,17 +183,17 @@ Fetches a task.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TaskFetchResponse`](../modules/task_v1.md#taskfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[task/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L43)
+[task/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L55)
 
 ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`TaskListResponse`](../modules/task_v1.md#tasklistresponse), [`TaskListStreamItemType`](../modules/task_v1.md#taskliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all tasks.
 
@@ -181,17 +205,39 @@ Retrieves a list of all tasks.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`TaskListResponse`](../modules/task_v1.md#tasklistresponse), [`TaskListStreamItemType`](../modules/task_v1.md#taskliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[task/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L33)
+[task/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L35)
+
+___
+
+### trigger
+
+▸ **trigger**(`taskId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+Triggers a task.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `taskId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[task/index.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L96)
 
 ___
 
 ### update
 
-▸ **update**(`taskId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskUpdateResponse`](../modules/task_v1.md#taskupdateresponse)\>
+▸ **update**(`taskId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a task.
 
@@ -200,12 +246,12 @@ Updates a task.
 | Name | Type |
 | :------ | :------ |
 | `taskId` | `string` |
-| `request` | [`TaskOptions`](../modules/task_v1.md#taskoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`TaskUpdateResponse`](../modules/task_v1.md#taskupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[task/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L64)
+[task/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L76)

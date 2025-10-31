@@ -99,13 +99,13 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SupportIntegrationCreateResponse`](../modules/integration_support_v1.md#supportintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new support integration.
 
@@ -113,11 +113,11 @@ Creates a new support integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SupportIntegrationCreateRequest`](../modules/integration_support_v1.md#supportintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SupportIntegrationCreateResponse`](../modules/integration_support_v1.md#supportintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -127,7 +127,7 @@ ___
 
 ### delete
 
-▸ **delete**(`supportId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SupportIntegrationDeleteResponse`](../modules/integration_support_v1.md#supportintegrationdeleteresponse)\>
+▸ **delete**(`supportId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a support integration.
 
@@ -139,7 +139,7 @@ Deletes a support integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SupportIntegrationDeleteResponse`](../modules/integration_support_v1.md#supportintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -149,7 +149,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`supportId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SupportIntegrationFetchResponse`](../modules/integration_support_v1.md#supportintegrationfetchresponse), `never`\>
+▸ **fetch**(`supportId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a support integration.
 
@@ -161,7 +161,7 @@ Fetches a support integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SupportIntegrationFetchResponse`](../modules/integration_support_v1.md#supportintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -171,7 +171,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SupportIntegrationListResponse`](../modules/integration_support_v1.md#supportintegrationlistresponse), [`SupportIntegrationListStreamItem`](../modules/integration_support_v1.md#supportintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all support integrations.
 
@@ -183,7 +183,7 @@ Retrieves a list of all support integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SupportIntegrationListResponse`](../modules/integration_support_v1.md#supportintegrationlistresponse), [`SupportIntegrationListStreamItem`](../modules/integration_support_v1.md#supportintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -193,7 +193,7 @@ ___
 
 ### update
 
-▸ **update**(`supportId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SupportIntegrationUpdateResponse`](../modules/integration_support_v1.md#supportintegrationupdateresponse)\>
+▸ **update**(`supportId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a support integration.
 
@@ -202,11 +202,11 @@ Updates a support integration.
 | Name | Type |
 | :------ | :------ |
 | `supportId` | `string` |
-| `request` | [`SupportIntegrationOptions`](../modules/integration_support_v1.md#supportintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SupportIntegrationUpdateResponse`](../modules/integration_support_v1.md#supportintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

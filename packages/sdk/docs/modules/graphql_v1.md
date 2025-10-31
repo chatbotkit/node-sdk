@@ -8,7 +8,9 @@
 
 - [ChatBotKitClient](graphql_v1.md#chatbotkitclient)
 - [GraphqlRequest](graphql_v1.md#graphqlrequest)
+- [GraphqlRequestBody](graphql_v1.md#graphqlrequestbody)
 - [GraphqlResponse](graphql_v1.md#graphqlresponse)
+- [GraphqlResponseBody](graphql_v1.md#graphqlresponsebody)
 - [ResponsePromise](graphql_v1.md#responsepromise)
 
 ### Functions
@@ -29,15 +31,27 @@ ___
 
 ### GraphqlRequest
 
-Ƭ **GraphqlRequest**\<\>: `Object`
+Ƭ **GraphqlRequest**\<\>: [`GraphqlRequestBody`](graphql_v1.md#graphqlrequestbody)
 
-#### Type declaration
+#### Defined in
 
-| Name | Type |
-| :------ | :------ |
-| `operationName?` | `string` |
-| `query` | `string` |
-| `variables?` | \{ `[key: string]`: `unknown`;  } |
+[graphql/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L14)
+
+___
+
+### GraphqlRequestBody
+
+Ƭ **GraphqlRequestBody**\<\>: `operations`[``"graphql"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[graphql/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L12)
+
+___
+
+### GraphqlResponse
+
+Ƭ **GraphqlResponse**\<\>: [`GraphqlResponseBody`](graphql_v1.md#graphqlresponsebody)
 
 #### Defined in
 
@@ -45,20 +59,13 @@ ___
 
 ___
 
-### GraphqlResponse
+### GraphqlResponseBody
 
-Ƭ **GraphqlResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data?` | \{ `[key: string]`: `unknown`;  } |
-| `errors?` | \{ `message`: `string`  }[] |
+Ƭ **GraphqlResponseBody**\<\>: `operations`[``"graphql"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[graphql/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L27)
+[graphql/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L16)
 
 ___
 
@@ -81,19 +88,19 @@ ___
 
 ### call
 
-▸ **call**(`client`, `body`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`GraphqlResponse`](graphql_v1.md#graphqlresponse)\>
+▸ **call**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `body` | [`GraphqlRequest`](graphql_v1.md#graphqlrequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`GraphqlResponse`](graphql_v1.md#graphqlresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[graphql/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L35)
+[graphql/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L24)

@@ -100,13 +100,13 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationCreateResponse`](../modules/integration_notion_v1.md#notionintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new notion integration.
 
@@ -114,11 +114,11 @@ Creates a new notion integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`NotionIntegrationCreateRequest`](../modules/integration_notion_v1.md#notionintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationCreateResponse`](../modules/integration_notion_v1.md#notionintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationDeleteResponse`](../modules/integration_notion_v1.md#notionintegrationdeleteresponse)\>
+▸ **delete**(`notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a notion integration.
 
@@ -140,7 +140,7 @@ Deletes a notion integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationDeleteResponse`](../modules/integration_notion_v1.md#notionintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`notionId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`NotionIntegrationFetchResponse`](../modules/integration_notion_v1.md#notionintegrationfetchresponse), `never`\>
+▸ **fetch**(`notionId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a notion integration.
 
@@ -162,7 +162,7 @@ Fetches a notion integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`NotionIntegrationFetchResponse`](../modules/integration_notion_v1.md#notionintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`NotionIntegrationListResponse`](../modules/integration_notion_v1.md#notionintegrationlistresponse), [`NotionIntegrationListStreamItem`](../modules/integration_notion_v1.md#notionintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all notion integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all notion integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`NotionIntegrationListResponse`](../modules/integration_notion_v1.md#notionintegrationlistresponse), [`NotionIntegrationListStreamItem`](../modules/integration_notion_v1.md#notionintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### sync
 
-▸ **sync**(`notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationSyncResponse`](../modules/integration_notion_v1.md#notionintegrationsyncresponse)\>
+▸ **sync**(`notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Syncs a notion integration.
 
@@ -206,7 +206,7 @@ Syncs a notion integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationSyncResponse`](../modules/integration_notion_v1.md#notionintegrationsyncresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`notionId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationUpdateResponse`](../modules/integration_notion_v1.md#notionintegrationupdateresponse)\>
+▸ **update**(`notionId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a notion integration.
 
@@ -225,11 +225,11 @@ Updates a notion integration.
 | Name | Type |
 | :------ | :------ |
 | `notionId` | `string` |
-| `request` | [`NotionIntegrationOptions`](../modules/integration_notion_v1.md#notionintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationUpdateResponse`](../modules/integration_notion_v1.md#notionintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

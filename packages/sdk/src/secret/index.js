@@ -1,10 +1,13 @@
 import { ChatBotKitClient } from '../client.js'
 import {
+  authenticateSecret,
   createSecret,
   deleteSecret,
   fetchSecret,
   listSecrets,
+  revokeSecret,
   updateSecret,
+  verifySecret,
 } from './v1.js'
 
 /**
@@ -73,6 +76,36 @@ export class SecretClient extends ChatBotKitClient {
    */
   delete(secretId) {
     return deleteSecret(this, secretId)
+  }
+
+  /**
+   * Revokes a secret.
+   *
+   * @param {string} secretId
+   * @returns {Promise<import('./v1.js').SecretRevokeResponse>}
+   */
+  revoke(secretId) {
+    return revokeSecret(this, secretId)
+  }
+
+  /**
+   * Verifies the secret.
+   *
+   * @param {string} secretId
+   * @returns {Promise<import('./v1.js').SecretVerifyResponse>}
+   */
+  verify(secretId) {
+    return verifySecret(this, secretId)
+  }
+
+  /**
+   * Authenticates the secret.
+   *
+   * @param {string} secretId
+   * @returns {Promise<import('./v1.js').SecretAuthenticateResponse>}
+   */
+  authenticate(secretId) {
+    return authenticateSecret(this, secretId)
   }
 }
 

@@ -8,7 +8,7 @@
  * @param {StreamOptions} [options]
  * @returns {StreamResult}
  */
-export function stream(source: StreamSource, options?: Handlers | undefined): StreamResult;
+export function stream(source: StreamSource, options?: StreamOptions): StreamResult;
 /**
  * @typedef {{} & Handlers} ConsumeOptions
  *
@@ -19,7 +19,7 @@ export function stream(source: StreamSource, options?: Handlers | undefined): St
  * @param {ConsumeOptions} [options]
  * @returns {ConsumeResult}
  */
-export function consume(source: ConsumeSource, options?: Handlers | undefined): ConsumeResult;
+export function consume(source: ConsumeSource, options?: ConsumeOptions): ConsumeResult;
 export class StreamError extends Error {
     /**
      * @param {string} message

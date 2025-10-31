@@ -13,8 +13,8 @@
 - [WidgetFunctionWithResult](hooks_useWidgetInstance.md#widgetfunctionwithresult)
 - [WidgetMessage](hooks_useWidgetInstance.md#widgetmessage)
 - [WidgetNotification](hooks_useWidgetInstance.md#widgetnotification)
+- [WidgetRestartConversationFn](hooks_useWidgetInstance.md#widgetrestartconversationfn)
 - [WidgetSendMessageFn](hooks_useWidgetInstance.md#widgetsendmessagefn)
-- [WidgteRestartConversationFn](hooks_useWidgetInstance.md#widgterestartconversationfn)
 
 ### Functions
 
@@ -24,11 +24,11 @@
 
 ### ChatBotKitWidgetInstance
 
-Ƭ **ChatBotKitWidgetInstance**\<\>: [`HTMLElement`]( https://developer.mozilla.org/docs/Web/API/HTMLElement ) & \{ `functions?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetFunction`](hooks_useWidgetInstance.md#widgetfunction)\> \| ``null`` ; `messages?`: [`WidgetMessage`](hooks_useWidgetInstance.md#widgetmessage)[] \| ``null`` ; `notifications?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetNotification`](hooks_useWidgetInstance.md#widgetnotification)\> \| ``null`` ; `ready`: `boolean` ; `readyPromise`: [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`boolean`\> ; `restartConversation`: [`WidgteRestartConversationFn`](hooks_useWidgetInstance.md#widgterestartconversationfn) ; `sendMessage`: [`WidgetSendMessageFn`](hooks_useWidgetInstance.md#widgetsendmessagefn)  }
+Ƭ **ChatBotKitWidgetInstance**\<\>: [`HTMLElement`]( https://developer.mozilla.org/docs/Web/API/HTMLElement ) & \{ `functions?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetFunction`](hooks_useWidgetInstance.md#widgetfunction)\> \| ``null`` ; `messages?`: [`WidgetMessage`](hooks_useWidgetInstance.md#widgetmessage)[] \| ``null`` ; `notifications?`: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, [`WidgetNotification`](hooks_useWidgetInstance.md#widgetnotification)\> \| ``null`` ; `ready`: `boolean` ; `readyPromise`: [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`boolean`\> ; `restartConversation`: [`WidgetRestartConversationFn`](hooks_useWidgetInstance.md#widgetrestartconversationfn) ; `sendMessage`: [`WidgetSendMessageFn`](hooks_useWidgetInstance.md#widgetsendmessagefn)  }
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L45)
+[packages/react/src/hooks/useWidgetInstance.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L47)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L31)
+[packages/react/src/hooks/useWidgetInstance.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L33)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L19)
+[packages/react/src/hooks/useWidgetInstance.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L21)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L29)
+[packages/react/src/hooks/useWidgetInstance.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L31)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L25)
+[packages/react/src/hooks/useWidgetInstance.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L27)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L10)
+[packages/react/src/hooks/useWidgetInstance.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L12)
 
 ___
 
@@ -109,7 +109,25 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L14)
+[packages/react/src/hooks/useWidgetInstance.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L16)
+
+___
+
+### WidgetRestartConversationFn
+
+Ƭ **WidgetRestartConversationFn**\<\>: () => `void`
+
+#### Type declaration
+
+▸ (): `void`
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[packages/react/src/hooks/useWidgetInstance.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L35)
 
 ___
 
@@ -133,31 +151,20 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L35)
-
-___
-
-### WidgteRestartConversationFn
-
-Ƭ **WidgteRestartConversationFn**\<\>: () => `void`
-
-#### Type declaration
-
-▸ (): `void`
-
-##### Returns
-
-`void`
-
-#### Defined in
-
-[packages/react/src/hooks/useWidgetInstance.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L33)
+[packages/react/src/hooks/useWidgetInstance.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L37)
 
 ## Functions
 
 ### useWidgetInstance
 
-▸ **useWidgetInstance**(): [`ChatBotKitWidgetInstance`](hooks_useWidgetInstance.md#chatbotkitwidgetinstance)
+▸ **useWidgetInstance**(`selector?`, `deps?`): [`ChatBotKitWidgetInstance`](hooks_useWidgetInstance.md#chatbotkitwidgetinstance)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `selector?` | `string` |
+| `deps?` | `any`[] |
 
 #### Returns
 
@@ -165,4 +172,4 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstance.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L49)
+[packages/react/src/hooks/useWidgetInstance.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L53)

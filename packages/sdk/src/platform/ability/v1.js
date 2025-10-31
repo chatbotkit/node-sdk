@@ -10,29 +10,17 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} PlatformAbilityOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} PlatformAbilityListRequest
  *
- * @typedef {PlatformAbilityOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} PlatformAbilityInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PlatformAbilityListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/json']} PlatformAbilityListResponse
  *
- * @typedef {{items: PlatformAbilityInstance[]}} PlatformAbilityListResponse
+ * @typedef {PlatformAbilityListResponse['items'][number]} PlatformAbilityListItem
  *
- * @typedef {{
- *   type: 'item',
- *   data: PlatformAbilityInstance
- * }} PlatformAbilityListStreamItemType
- *
- * @typedef {PlatformAbilityListStreamItemType} PlatformAbilityListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/jsonl']} PlatformAbilityListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformAbilityListRequest} [request]
@@ -41,9 +29,7 @@
 export function listPlatformAbilities(client, request) {
   let url = `/api/v1/platform/ability/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<PlatformAbilityListResponse,PlatformAbilityListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response

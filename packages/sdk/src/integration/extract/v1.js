@@ -10,33 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   botId?: string,
- *   schema?: Record<string,any>,
- *   syncSchedule?: string,
- *   expiresIn?: number
- *   meta?: Record<string,any>
- * }} ExtractIntegrationOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} ExtractIntegrationListRequest
  *
- * @typedef {ExtractIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} ExtractInegrationInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ExtractIntegrationListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listExtractIntegrations']['responses']['200']['content']['application/json']} ExtractIntegrationListResponse
  *
- * @typedef {{items: ExtractInegrationInstance[]}} ExtractIntegrationListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: ExtractInegrationInstance
- * }} ExtractIntegrationListStreamItem
- *
- * @typedef {ExtractIntegrationListStreamItem} ExtractIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listExtractIntegrations']['responses']['200']['content']['application/jsonl']} ExtractIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {ExtractIntegrationListRequest} [request]
@@ -45,17 +27,14 @@
 export function listExtractIntegrations(client, request) {
   let url = `/api/v1/integration/extract/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listExtractIntegrations']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listExtractIntegrations']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<ExtractIntegrationListResponse,ExtractIntegrationListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {ExtractInegrationInstance & {
- * }} ExtractIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
@@ -64,19 +43,20 @@ export function listExtractIntegrations(client, request) {
 export function fetchExtractIntegration(client, extractId) {
   const url = `/api/v1/integration/extract/${extractId}/fetch`
 
-  /** @typedef {import('../../types/api/v1.js').operations['fetchExtractIntegration']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<ExtractIntegrationFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {ExtractIntegrationOptions & {botId: string}} ExtractIntegrationCreateRequest
+ * @typedef {import('../../types/api/v1.js').operations['createExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ExtractIntegrationCreateResponse
+ * @typedef {ExtractIntegrationCreateRequestBody} ExtractIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationCreateResponseBody
+ *
+ * @typedef {ExtractIntegrationCreateResponseBody} ExtractIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ExtractIntegrationCreateRequest} request
@@ -85,9 +65,9 @@ export function fetchExtractIntegration(client, extractId) {
 export async function createExtractIntegration(client, request) {
   const url = `/api/v1/integration/extract/create`
 
-  /** @type {import('../../types/api/v1.js').operations['createExtractIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {ExtractIntegrationCreateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['createExtractIntegration']['requestBody']['content']['application/json']} */
+    /** @type {ExtractIntegrationCreateRequestBody} */
     record: {
       ...request,
     },
@@ -97,12 +77,13 @@ export async function createExtractIntegration(client, request) {
 }
 
 /**
- * @typedef {ExtractIntegrationOptions & {
- * }} ExtractIntegrationUpdateRequest
+ * @typedef {import('../../types/api/v1.js').operations['updateExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ExtractIntegrationUpdateResponse
+ * @typedef {ExtractIntegrationUpdateRequestBody} ExtractIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationUpdateResponseBody
+ *
+ * @typedef {ExtractIntegrationUpdateResponseBody} ExtractIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
@@ -112,9 +93,9 @@ export async function createExtractIntegration(client, request) {
 export async function updateExtractIntegration(client, extractId, request) {
   const url = `/api/v1/integration/extract/${extractId}/update`
 
-  /** @type {import('../../types/api/v1.js').operations['updateExtractIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {ExtractIntegrationUpdateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['updateExtractIntegration']['requestBody']['content']['application/json']} */
+    /** @type {ExtractIntegrationUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -124,9 +105,13 @@ export async function updateExtractIntegration(client, extractId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} ExtractIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteExtractIntegration']['requestBody']['content']['application/json']} ExtractIntegrationDeleteRequestBody
+ *
+ * @typedef {ExtractIntegrationDeleteRequestBody} ExtractIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteExtractIntegration']['responses']['200']['content']['application/json']} ExtractIntegrationDeleteResponseBody
+ *
+ * @typedef {ExtractIntegrationDeleteResponseBody} ExtractIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
@@ -135,9 +120,9 @@ export async function updateExtractIntegration(client, extractId, request) {
 export async function deleteExtractIntegration(client, extractId) {
   const url = `/api/v1/integration/extract/${extractId}/delete`
 
-  /** @type {import('../../types/api/v1.js').operations['deleteExtractIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {ExtractIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['deleteExtractIntegration']['requestBody']['content']['application/json']} */
+    /** @type {ExtractIntegrationDeleteRequestBody} */
     record: {},
   })
 

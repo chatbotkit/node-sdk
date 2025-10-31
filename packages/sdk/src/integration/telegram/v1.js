@@ -1,5 +1,3 @@
-import { buildModelString } from '../../model/v1.js'
-
 /**
  * @typedef {import('../../client.js').ChatBotKitClient} ChatBotKitClient
  */
@@ -12,48 +10,15 @@ import { buildModelString } from '../../model/v1.js'
 
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} TelegramIntegrationListRequest
  *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
+ * @typedef {import('../../types/api/v1.js').operations['listTelegramIntegrations']['responses']['200']['content']['application/json']} TelegramIntegrationListResponse
  *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
- *   name?: string,
- *   description?: string,
- *   botToken?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   attachments?: boolean,
- *   meta?: Record<string,any>
- * }} TelegramIntegrationOptions
- *
- * @typedef {TelegramIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number,
- * }} TelegramIntegrationInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} TelegramIntegrationListRequest
- *
- * @typedef {{items: TelegramIntegrationInstance[]}} TelegramIntegrationListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: TelegramIntegrationInstance
- * }} TelegramIntegrationListStreamItem
- *
- * @typedef {TelegramIntegrationListStreamItem} TelegramIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listTelegramIntegrations']['responses']['200']['content']['application/jsonl']} TelegramIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {TelegramIntegrationListRequest} [request]
@@ -62,17 +27,14 @@ import { buildModelString } from '../../model/v1.js'
 export function listTelegramIntegrations(client, request) {
   let url = `/api/v1/integration/telegram/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listTelegramIntegrations']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listTelegramIntegrations']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<TelegramIntegrationListResponse,TelegramIntegrationListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {TelegramIntegrationInstance & {
- * }} TelegramIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchTelegramIntegration']['responses']['200']['content']['application/json']} TelegramIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} telegramId
@@ -81,21 +43,20 @@ export function listTelegramIntegrations(client, request) {
 export function fetchTelegramIntegration(client, telegramId) {
   const url = `/api/v1/integration/telegram/${telegramId}/fetch`
 
-  /** @typedef {import('../../types/api/v1.js').operations['fetchTelegramIntegration']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<TelegramIntegrationFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {TelegramIntegrationOptions & {
- *   model?: import('../../model/v1.js').Model
- * }} TelegramIntegrationCreateRequest
+ * @typedef {import('../../types/api/v1.js').operations['createTelegramIntegration']['requestBody']['content']['application/json']} TelegramIntegrationCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} TelegramIntegrationCreateResponse
+ * @typedef {TelegramIntegrationCreateRequestBody} TelegramIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createTelegramIntegration']['responses']['200']['content']['application/json']} TelegramIntegrationCreateResponseBody
+ *
+ * @typedef {TelegramIntegrationCreateResponseBody} TelegramIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {TelegramIntegrationCreateRequest} request
@@ -104,13 +65,11 @@ export function fetchTelegramIntegration(client, telegramId) {
 export async function createTelegramIntegration(client, request) {
   const url = `/api/v1/integration/telegram/create`
 
-  /** @type {import('../../types/api/v1.js').operations['createTelegramIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TelegramIntegrationCreateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['createTelegramIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TelegramIntegrationCreateRequestBody} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -118,13 +77,13 @@ export async function createTelegramIntegration(client, request) {
 }
 
 /**
- * @typedef {TelegramIntegrationOptions & {
- *   model?: import('../../model/v1.js').Model
- * }} TelegramIntegrationUpdateRequest
+ * @typedef {import('../../types/api/v1.js').operations['updateTelegramIntegration']['requestBody']['content']['application/json']} TelegramIntegrationUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} TelegramIntegrationUpdateResponse
+ * @typedef {TelegramIntegrationUpdateRequestBody} TelegramIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateTelegramIntegration']['responses']['200']['content']['application/json']} TelegramIntegrationUpdateResponseBody
+ *
+ * @typedef {TelegramIntegrationUpdateResponseBody} TelegramIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} telegramId
@@ -134,13 +93,11 @@ export async function createTelegramIntegration(client, request) {
 export async function updateTelegramIntegration(client, telegramId, request) {
   const url = `/api/v1/integration/telegram/${telegramId}/update`
 
-  /** @type {import('../../types/api/v1.js').operations['updateTelegramIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TelegramIntegrationUpdateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['updateTelegramIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TelegramIntegrationUpdateRequestBody} */
     record: {
       ...request,
-
-      model: request.model ? buildModelString(request.model) : undefined,
     },
   })
 
@@ -148,9 +105,13 @@ export async function updateTelegramIntegration(client, telegramId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} TelegramIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteTelegramIntegration']['requestBody']['content']['application/json']} TelegramIntegrationDeleteRequestBody
+ *
+ * @typedef {TelegramIntegrationDeleteRequestBody} TelegramIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteTelegramIntegration']['responses']['200']['content']['application/json']} TelegramIntegrationDeleteResponseBody
+ *
+ * @typedef {TelegramIntegrationDeleteResponseBody} TelegramIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} telegramId
@@ -159,9 +120,9 @@ export async function updateTelegramIntegration(client, telegramId, request) {
 export async function deleteTelegramIntegration(client, telegramId) {
   const url = `/api/v1/integration/telegram/${telegramId}/delete`
 
-  /** @type {import('../../types/api/v1.js').operations['deleteTelegramIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TelegramIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['deleteTelegramIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TelegramIntegrationDeleteRequestBody} */
     record: {},
   })
 
@@ -169,9 +130,13 @@ export async function deleteTelegramIntegration(client, telegramId) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} TelegramIntegrationSetupResponse
+ * @typedef {import('../../types/api/v1.js').operations['setupTelegramIntegration']['requestBody']['content']['application/json']} TelegramIntegrationSetupRequestBody
+ *
+ * @typedef {TelegramIntegrationSetupRequestBody} TelegramIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupTelegramIntegration']['responses']['200']['content']['application/json']} TelegramIntegrationSetupResponseBody
+ *
+ * @typedef {TelegramIntegrationSetupResponseBody} TelegramIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} telegramId
@@ -180,9 +145,9 @@ export async function deleteTelegramIntegration(client, telegramId) {
 export async function setupTelegramIntegration(client, telegramId) {
   const url = `/api/v1/integration/telegram/${telegramId}/setup`
 
-  /** @type {import('../../types/api/v1.js').operations['setupTelegramIntegration']['responses']['200']['content']['application/json']} */
+  /** @type {TelegramIntegrationSetupResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../../types/api/v1.js').operations['setupTelegramIntegration']['requestBody']['content']['application/json']} */
+    /** @type {TelegramIntegrationSetupRequestBody} */
     record: {},
   })
 

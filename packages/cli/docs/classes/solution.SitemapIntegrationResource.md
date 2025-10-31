@@ -90,7 +90,7 @@ Resource.client
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:338](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L338)
+[packages/cli/src/solution/index.js:337](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L337)
 
 ___
 

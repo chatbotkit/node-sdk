@@ -93,13 +93,13 @@ Secret client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformSecretListResponse`](../modules/platform_secret_v1.md#platformsecretlistresponse), [`PlatformSecretListStreamItemType`](../modules/platform_secret_v1.md#platformsecretliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all platform secrets.
 
@@ -111,7 +111,7 @@ Retrieves a list of all platform secrets.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`PlatformSecretListResponse`](../modules/platform_secret_v1.md#platformsecretlistresponse), [`PlatformSecretListStreamItemType`](../modules/platform_secret_v1.md#platformsecretliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 

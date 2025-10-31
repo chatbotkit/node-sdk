@@ -8,40 +8,23 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   kind?: 'shared'|'personal',
- *   type?: 'plain'|'basic'|'bearer'|'oauth'|'template',
- *   value?: string,
- *   meta?: Record<string,any>
- * }} SecretOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} SecretListRequest
  *
- * @typedef {SecretOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} SecretInstance
- */
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} SecretListRequest
+ * @typedef {import('../types/api/v1.js').operations['listSecrets']['responses']['200']['content']['application/json']} SecretListResponse
  *
- * @typedef {{items: SecretInstance[]}} SecretListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: SecretInstance
- * }} SecretListStreamItemType
- *
- * @typedef {SecretListStreamItemType} SecretListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listSecrets']['responses']['200']['content']['application/jsonl']} SecretListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {SecretListRequest} [request]
  * @returns {ResponsePromise<SecretListResponse,SecretListStreamType>}
  */
-export function listSecrets(client: ChatBotKitClient, request?: SecretListRequest | undefined): ResponsePromise<SecretListResponse, SecretListStreamType>;
+export function listSecrets(client: ChatBotKitClient, request?: SecretListRequest): ResponsePromise<SecretListResponse, SecretListStreamType>;
 /**
- * @typedef {SecretInstance & {
- * }} SecretFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchSecret']['responses']['200']['content']['application/json']} SecretFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
@@ -49,12 +32,13 @@ export function listSecrets(client: ChatBotKitClient, request?: SecretListReques
  */
 export function fetchSecret(client: ChatBotKitClient, secretId: string): ResponsePromise<SecretFetchResponse, never>;
 /**
- * @typedef {SecretOptions & {
- * }} SecretCreateRequest
+ * @typedef {import('../types/api/v1.js').operations['createSecret']['requestBody']['content']['application/json']} SecretCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} SecretCreateResponse
+ * @typedef {SecretCreateRequestBody} SecretCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createSecret']['responses']['200']['content']['application/json']} SecretCreateResponseBody
+ *
+ * @typedef {SecretCreateResponseBody} SecretCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {SecretCreateRequest} request
@@ -62,12 +46,13 @@ export function fetchSecret(client: ChatBotKitClient, secretId: string): Respons
  */
 export function createSecret(client: ChatBotKitClient, request: SecretCreateRequest): Promise<SecretCreateResponse>;
 /**
- * @typedef {SecretOptions & {
- * }} SecretUpdateRequest
+ * @typedef {import('../types/api/v1.js').operations['updateSecret']['requestBody']['content']['application/json']} SecretUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} SecretUpdateResponse
+ * @typedef {SecretUpdateRequestBody} SecretUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateSecret']['responses']['200']['content']['application/json']} SecretUpdateResponseBody
+ *
+ * @typedef {SecretUpdateResponseBody} SecretUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
@@ -76,53 +61,93 @@ export function createSecret(client: ChatBotKitClient, request: SecretCreateRequ
  */
 export function updateSecret(client: ChatBotKitClient, secretId: string, request: SecretUpdateRequest): Promise<SecretUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} SecretDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteSecret']['requestBody']['content']['application/json']} SecretDeleteRequestBody
+ *
+ * @typedef {SecretDeleteRequestBody} SecretDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteSecret']['responses']['200']['content']['application/json']} SecretDeleteResponseBody
+ *
+ * @typedef {SecretDeleteResponseBody} SecretDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
  * @returns {Promise<SecretDeleteResponse>}
  */
 export function deleteSecret(client: ChatBotKitClient, secretId: string): Promise<SecretDeleteResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
-export type SecretOptions = {
-    name?: string;
-    description?: string;
-    kind?: 'shared' | 'personal';
-    type?: 'plain' | 'basic' | 'bearer' | 'oauth' | 'template';
-    value?: string;
-    meta?: Record<string, any>;
-};
-export type SecretInstance = SecretOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
+/**
+ * @typedef {import('../types/api/v1.js').operations['revokeSecret']['requestBody']['content']['application/json']} SecretRevokeRequestBody
+ *
+ * @typedef {SecretRevokeRequestBody} SecretRevokeRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['revokeSecret']['responses']['200']['content']['application/json']} SecretRevokeResponseBody
+ *
+ * @typedef {SecretRevokeResponseBody} SecretRevokeResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @returns {Promise<SecretRevokeResponse>}
+ */
+export function revokeSecret(client: ChatBotKitClient, secretId: string): Promise<SecretRevokeResponse>;
+/**
+ * @typedef {import('../types/api/v1.js').operations['verifySecret']['requestBody']['content']['application/json']} SecretVerifyRequestBody
+ *
+ * @typedef {SecretVerifyRequestBody} SecretVerifyRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['verifySecret']['responses']['200']['content']['application/json']} SecretVerifyResponseBody
+ *
+ * @typedef {SecretVerifyResponseBody} SecretVerifyResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @returns {Promise<SecretVerifyResponse>}
+ */
+export function verifySecret(client: ChatBotKitClient, secretId: string): Promise<SecretVerifyResponse>;
+/**
+ * @typedef {import('../types/api/v1.js').operations['authenticateSecret']['requestBody']['content']['application/json']} SecretAuthenticateRequestBody
+ *
+ * @typedef {SecretAuthenticateRequestBody} SecretAuthenticateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['authenticateSecret']['responses']['200']['content']['application/json']} SecretAuthenticateResponseBody
+ *
+ * @typedef {SecretAuthenticateResponseBody} SecretAuthenticateResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} secretId
+ * @returns {Promise<SecretAuthenticateResponse>}
+ */
+export function authenticateSecret(client: ChatBotKitClient, secretId: string): Promise<SecretAuthenticateResponse>;
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type SecretListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type SecretListResponse = {
-    items: SecretInstance[];
-};
-export type SecretListStreamItemType = {
-    type: 'item';
-    data: SecretInstance;
-};
-export type SecretListStreamType = SecretListStreamItemType;
-export type SecretFetchResponse = SecretInstance & {};
-export type SecretCreateRequest = SecretOptions & {};
-export type SecretCreateResponse = {
-    id: string;
-};
-export type SecretUpdateRequest = SecretOptions & {};
-export type SecretUpdateResponse = {
-    id: string;
-};
-export type SecretDeleteResponse = {
-    id: string;
-};
+export type SecretListResponse = import("../types/api/v1.js").operations["listSecrets"]["responses"]["200"]["content"]["application/json"];
+export type SecretListStreamType = import("../types/api/v1.js").operations["listSecrets"]["responses"]["200"]["content"]["application/jsonl"];
+export type SecretFetchResponse = import("../types/api/v1.js").operations["fetchSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretCreateRequestBody = import("../types/api/v1.js").operations["createSecret"]["requestBody"]["content"]["application/json"];
+export type SecretCreateRequest = SecretCreateRequestBody;
+export type SecretCreateResponseBody = import("../types/api/v1.js").operations["createSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretCreateResponse = SecretCreateResponseBody;
+export type SecretUpdateRequestBody = import("../types/api/v1.js").operations["updateSecret"]["requestBody"]["content"]["application/json"];
+export type SecretUpdateRequest = SecretUpdateRequestBody;
+export type SecretUpdateResponseBody = import("../types/api/v1.js").operations["updateSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretUpdateResponse = SecretUpdateResponseBody;
+export type SecretDeleteRequestBody = import("../types/api/v1.js").operations["deleteSecret"]["requestBody"]["content"]["application/json"];
+export type SecretDeleteRequest = SecretDeleteRequestBody;
+export type SecretDeleteResponseBody = import("../types/api/v1.js").operations["deleteSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretDeleteResponse = SecretDeleteResponseBody;
+export type SecretRevokeRequestBody = import("../types/api/v1.js").operations["revokeSecret"]["requestBody"]["content"]["application/json"];
+export type SecretRevokeRequest = SecretRevokeRequestBody;
+export type SecretRevokeResponseBody = import("../types/api/v1.js").operations["revokeSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretRevokeResponse = SecretRevokeResponseBody;
+export type SecretVerifyRequestBody = import("../types/api/v1.js").operations["verifySecret"]["requestBody"]["content"]["application/json"];
+export type SecretVerifyRequest = SecretVerifyRequestBody;
+export type SecretVerifyResponseBody = import("../types/api/v1.js").operations["verifySecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretVerifyResponse = SecretVerifyResponseBody;
+export type SecretAuthenticateRequestBody = import("../types/api/v1.js").operations["authenticateSecret"]["requestBody"]["content"]["application/json"];
+export type SecretAuthenticateRequest = SecretAuthenticateRequestBody;
+export type SecretAuthenticateResponseBody = import("../types/api/v1.js").operations["authenticateSecret"]["responses"]["200"]["content"]["application/json"];
+export type SecretAuthenticateResponse = SecretAuthenticateResponseBody;

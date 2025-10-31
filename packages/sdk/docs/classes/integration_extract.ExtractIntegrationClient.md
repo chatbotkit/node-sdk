@@ -99,13 +99,13 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationCreateResponse`](../modules/integration_extract_v1.md#extractintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new extract integration.
 
@@ -113,11 +113,11 @@ Creates a new extract integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ExtractIntegrationCreateRequest`](../modules/integration_extract_v1.md#extractintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationCreateResponse`](../modules/integration_extract_v1.md#extractintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -127,7 +127,7 @@ ___
 
 ### delete
 
-▸ **delete**(`extractId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationDeleteResponse`](../modules/integration_extract_v1.md#extractintegrationdeleteresponse)\>
+▸ **delete**(`extractId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a extract integration.
 
@@ -139,7 +139,7 @@ Deletes a extract integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationDeleteResponse`](../modules/integration_extract_v1.md#extractintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -149,7 +149,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`extractId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ExtractIntegrationFetchResponse`](../modules/integration_extract_v1.md#extractintegrationfetchresponse), `never`\>
+▸ **fetch**(`extractId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a extract integration.
 
@@ -161,7 +161,7 @@ Fetches a extract integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ExtractIntegrationFetchResponse`](../modules/integration_extract_v1.md#extractintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -171,7 +171,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ExtractIntegrationListResponse`](../modules/integration_extract_v1.md#extractintegrationlistresponse), [`ExtractIntegrationListStreamItem`](../modules/integration_extract_v1.md#extractintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all extract integrations.
 
@@ -183,7 +183,7 @@ Retrieves a list of all extract integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ExtractIntegrationListResponse`](../modules/integration_extract_v1.md#extractintegrationlistresponse), [`ExtractIntegrationListStreamItem`](../modules/integration_extract_v1.md#extractintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -193,7 +193,7 @@ ___
 
 ### update
 
-▸ **update**(`extractId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationUpdateResponse`](../modules/integration_extract_v1.md#extractintegrationupdateresponse)\>
+▸ **update**(`extractId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a extract integration.
 
@@ -202,11 +202,11 @@ Updates a extract integration.
 | Name | Type |
 | :------ | :------ |
 | `extractId` | `string` |
-| `request` | [`ExtractIntegrationOptions`](../modules/integration_extract_v1.md#extractintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ExtractIntegrationUpdateResponse`](../modules/integration_extract_v1.md#extractintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

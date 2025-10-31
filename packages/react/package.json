@@ -122,6 +122,14 @@
       "types": "./types/hooks/useDOMQuerySelector.d.ts",
       "import": "./src/hooks/useDOMQuerySelector.js"
     },
+    "./hooks/useDeps": {
+      "types": "./types/hooks/useDeps.d.ts",
+      "import": "./src/hooks/useDeps.js"
+    },
+    "./hooks/useDeps.js": {
+      "types": "./types/hooks/useDeps.d.ts",
+      "import": "./src/hooks/useDeps.js"
+    },
     "./hooks/useWidgetInstance": {
       "types": "./types/hooks/useWidgetInstance.d.ts",
       "import": "./src/hooks/useWidgetInstance.js"
@@ -145,14 +153,6 @@
     "./hooks/useWidgetInstanceNotifications.js": {
       "types": "./types/hooks/useWidgetInstanceNotifications.d.ts",
       "import": "./src/hooks/useWidgetInstanceNotifications.js"
-    },
-    "./hooks/useWidgetQuerySelector": {
-      "types": "./types/hooks/useWidgetQuerySelector.d.ts",
-      "import": "./src/hooks/useWidgetQuerySelector.js"
-    },
-    "./hooks/useWidgetQuerySelector.js": {
-      "types": "./types/hooks/useWidgetQuerySelector.d.ts",
-      "import": "./src/hooks/useWidgetQuerySelector.js"
     },
     ".": {
       "types": "./types/index.d.ts",
@@ -233,6 +233,10 @@
     "react-markdown": "^8.0.4"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "typedoc": "^0.25.3",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc-plugin-mdn-links": "^3.1.18",
     "typescript": "^5.9",
     "@types/react": "^18.2.0"
   }

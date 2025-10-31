@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[dataset/record/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L13)
+[dataset/record/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L14)

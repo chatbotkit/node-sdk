@@ -4,6 +4,7 @@ import {
   createBlueprint,
   deleteBlueprint,
   fetchBlueprint,
+  listBlueprintResources,
   listBlueprints,
   updateBlueprint,
 } from './v1.js'
@@ -84,6 +85,16 @@ export class BlueprintClient extends ChatBotKitClient {
    */
   clone(blueprintId) {
     return cloneBlueprint(this, blueprintId)
+  }
+
+  /**
+   * Lists all resources for a blueprint.
+   *
+   * @param {string} blueprintId
+   * @returns {Promise<import('./v1.js').BlueprintListResourcesResponse>}
+   */
+  listResources(blueprintId) {
+    return listBlueprintResources(this, blueprintId)
   }
 }
 

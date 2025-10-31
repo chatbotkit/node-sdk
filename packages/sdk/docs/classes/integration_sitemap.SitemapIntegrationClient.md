@@ -100,13 +100,13 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationCreateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new sitemap integration.
 
@@ -114,11 +114,11 @@ Creates a new sitemap integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SitemapIntegrationCreateRequest`](../modules/integration_sitemap_v1.md#sitemapintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationCreateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationDeleteResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationdeleteresponse)\>
+▸ **delete**(`sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a sitemap integration.
 
@@ -140,7 +140,7 @@ Deletes a sitemap integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationDeleteResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`sitemapId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse), `never`\>
+▸ **fetch**(`sitemapId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a sitemap integration.
 
@@ -162,7 +162,7 @@ Fetches a sitemap integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SitemapIntegrationFetchResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SitemapIntegrationListResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationlistresponse), [`SitemapIntegrationListStreamItem`](../modules/integration_sitemap_v1.md#sitemapintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all sitemap integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all sitemap integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SitemapIntegrationListResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationlistresponse), [`SitemapIntegrationListStreamItem`](../modules/integration_sitemap_v1.md#sitemapintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### sync
 
-▸ **sync**(`sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationSyncResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationsyncresponse)\>
+▸ **sync**(`sitemapId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Syncs a sitemap integration.
 
@@ -206,7 +206,7 @@ Syncs a sitemap integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationSyncResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationsyncresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`sitemapId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationUpdateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationupdateresponse)\>
+▸ **update**(`sitemapId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a sitemap integration.
 
@@ -225,11 +225,11 @@ Updates a sitemap integration.
 | Name | Type |
 | :------ | :------ |
 | `sitemapId` | `string` |
-| `request` | [`SitemapIntegrationOptions`](../modules/integration_sitemap_v1.md#sitemapintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SitemapIntegrationUpdateResponse`](../modules/integration_sitemap_v1.md#sitemapintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

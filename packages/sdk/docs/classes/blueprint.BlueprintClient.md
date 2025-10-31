@@ -26,6 +26,7 @@ Blueprint client.
 - [delete](blueprint.BlueprintClient.md#delete)
 - [fetch](blueprint.BlueprintClient.md#fetch)
 - [list](blueprint.BlueprintClient.md#list)
+- [listResources](blueprint.BlueprintClient.md#listresources)
 - [update](blueprint.BlueprintClient.md#update)
 
 ## Constructors
@@ -50,7 +51,7 @@ Blueprint client.
 
 #### Defined in
 
-[blueprint/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L24)
+[blueprint/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L25)
 
 ## Methods
 
@@ -98,13 +99,13 @@ Blueprint client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### clone
 
-▸ **clone**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintCloneResponse`](../modules/blueprint_v1.md#blueprintcloneresponse)\>
+▸ **clone**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Clones a blueprint.
 
@@ -116,17 +117,17 @@ Clones a blueprint.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintCloneResponse`](../modules/blueprint_v1.md#blueprintcloneresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[blueprint/index.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L85)
+[blueprint/index.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L86)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintCreateResponse`](../modules/blueprint_v1.md#blueprintcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new blueprint.
 
@@ -134,21 +135,21 @@ Creates a new blueprint.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`BlueprintOptions`](../modules/blueprint_v1.md#blueprintoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintCreateResponse`](../modules/blueprint_v1.md#blueprintcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[blueprint/index.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L54)
+[blueprint/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L55)
 
 ___
 
 ### delete
 
-▸ **delete**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintDeleteResponse`](../modules/blueprint_v1.md#blueprintdeleteresponse)\>
+▸ **delete**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the blueprint.
 
@@ -160,17 +161,17 @@ Deletes the blueprint.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintDeleteResponse`](../modules/blueprint_v1.md#blueprintdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[blueprint/index.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L75)
+[blueprint/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L76)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`blueprintId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintFetchResponse`](../modules/blueprint_v1.md#blueprintfetchresponse), `never`\>
+▸ **fetch**(`blueprintId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a blueprint.
 
@@ -182,17 +183,17 @@ Fetches a blueprint.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintFetchResponse`](../modules/blueprint_v1.md#blueprintfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[blueprint/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L44)
+[blueprint/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L45)
 
 ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintListResponse`](../modules/blueprint_v1.md#blueprintlistresponse), [`BlueprintListStreamItemType`](../modules/blueprint_v1.md#blueprintliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all blueprints.
 
@@ -204,17 +205,39 @@ Retrieves a list of all blueprints.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`BlueprintListResponse`](../modules/blueprint_v1.md#blueprintlistresponse), [`BlueprintListStreamItemType`](../modules/blueprint_v1.md#blueprintliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[blueprint/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L34)
+[blueprint/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L35)
+
+___
+
+### listResources
+
+▸ **listResources**(`blueprintId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+Lists all resources for a blueprint.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `blueprintId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[blueprint/index.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L96)
 
 ___
 
 ### update
 
-▸ **update**(`blueprintId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintUpdateResponse`](../modules/blueprint_v1.md#blueprintupdateresponse)\>
+▸ **update**(`blueprintId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a blueprint.
 
@@ -223,12 +246,12 @@ Updates a blueprint.
 | Name | Type |
 | :------ | :------ |
 | `blueprintId` | `string` |
-| `request` | [`BlueprintOptions`](../modules/blueprint_v1.md#blueprintoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BlueprintUpdateResponse`](../modules/blueprint_v1.md#blueprintupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[blueprint/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L65)
+[blueprint/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L66)

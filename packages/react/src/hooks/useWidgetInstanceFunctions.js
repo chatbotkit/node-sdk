@@ -2,17 +2,21 @@
 
 import { useEffect } from 'react'
 
+import useDeps from './useDeps.js'
 import useWidgetInstance from './useWidgetInstance.js'
 
 /**
  * @typedef {import('./useWidgetInstance.js').WidgetFunction} WidgetFunction
  *
  * @param {{
+ *   selector?: string,
  *   functions?: Record<string, WidgetFunction>?
  * }} [params]
+ * @param {any[]} [deps]
+ * @returns {import('./useWidgetInstance.js').ChatBotKitWidgetInstance|null}
  */
-export function useWidgetInstanceFunctions(params) {
-  const instance = useWidgetInstance()
+export function useWidgetInstanceFunctions(params, deps) {
+  const instance = useWidgetInstance(params?.selector, deps)
 
   useEffect(() => {
     if (!instance) {
@@ -27,6 +31,8 @@ export function useWidgetInstanceFunctions(params) {
       ...params?.functions,
     }
   }, [params?.functions, instance])
+
+  return instance
 }
 
 export default useWidgetInstanceFunctions

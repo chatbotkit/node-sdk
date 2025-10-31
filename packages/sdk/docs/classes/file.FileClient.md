@@ -26,6 +26,7 @@ File client.
 - [download](file.FileClient.md#download)
 - [fetch](file.FileClient.md#fetch)
 - [list](file.FileClient.md#list)
+- [sync](file.FileClient.md#sync)
 - [update](file.FileClient.md#update)
 - [upload](file.FileClient.md#upload)
 
@@ -51,7 +52,7 @@ File client.
 
 #### Defined in
 
-[file/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L25)
+[file/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L26)
 
 ## Methods
 
@@ -99,13 +100,13 @@ File client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new file.
 
@@ -113,21 +114,21 @@ Creates a new file.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`FileOptions`](../modules/file_v1.md#fileoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileCreateResponse`](../modules/file_v1.md#filecreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[file/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L55)
+[file/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L56)
 
 ___
 
 ### delete
 
-▸ **delete**(`fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
+▸ **delete**(`fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the file.
 
@@ -139,11 +140,11 @@ Deletes the file.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileDeleteResponse`](../modules/file_v1.md#filedeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[file/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L76)
+[file/index.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L77)
 
 ___
 
@@ -165,13 +166,13 @@ Download file data.
 
 #### Defined in
 
-[file/index.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L97)
+[file/index.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L98)
 
 ___
 
 ### fetch
 
-▸ **fetch**(`fileId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse), `never`\>
+▸ **fetch**(`fileId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a file.
 
@@ -183,17 +184,17 @@ Fetches a file.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`FileFetchResponse`](../modules/file_v1.md#filefetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[file/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L45)
+[file/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L46)
 
 ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`FileListResponse`](../modules/file_v1.md#filelistresponse), [`FileListStreamItemType`](../modules/file_v1.md#fileliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all files.
 
@@ -205,17 +206,39 @@ Retrieves a list of all files.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`FileListResponse`](../modules/file_v1.md#filelistresponse), [`FileListStreamItemType`](../modules/file_v1.md#fileliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[file/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L35)
+[file/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L36)
+
+___
+
+### sync
+
+▸ **sync**(`fileId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+Syncs a file.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fileId` | `string` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[file/index.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L108)
 
 ___
 
 ### update
 
-▸ **update**(`fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
+▸ **update**(`fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a file.
 
@@ -224,21 +247,21 @@ Updates a file.
 | Name | Type |
 | :------ | :------ |
 | `fileId` | `string` |
-| `request` | [`FileOptions`](../modules/file_v1.md#fileoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileUpdateResponse`](../modules/file_v1.md#fileupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[file/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L66)
+[file/index.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L67)
 
 ___
 
 ### upload
 
-▸ **upload**(`fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
+▸ **upload**(`fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Upload file data.
 
@@ -251,8 +274,8 @@ Upload file data.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`FileUploadResponse`](../modules/file_v1.md#fileuploadresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[file/index.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L87)
+[file/index.js:88](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/index.js#L88)

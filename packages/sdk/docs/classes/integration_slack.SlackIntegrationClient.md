@@ -100,13 +100,13 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationCreateResponse`](../modules/integration_slack_v1.md#slackintegrationcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new slack integration.
 
@@ -114,11 +114,11 @@ Creates a new slack integration.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`SlackIntegrationCreateRequest`](../modules/integration_slack_v1.md#slackintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationCreateResponse`](../modules/integration_slack_v1.md#slackintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -128,7 +128,7 @@ ___
 
 ### delete
 
-▸ **delete**(`slackId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationDeleteResponse`](../modules/integration_slack_v1.md#slackintegrationdeleteresponse)\>
+▸ **delete**(`slackId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes a slack integration.
 
@@ -140,7 +140,7 @@ Deletes a slack integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationDeleteResponse`](../modules/integration_slack_v1.md#slackintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`slackId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SlackIntegrationFetchResponse`](../modules/integration_slack_v1.md#slackintegrationfetchresponse), `never`\>
+▸ **fetch**(`slackId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a slack integration.
 
@@ -162,7 +162,7 @@ Fetches a slack integration.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SlackIntegrationFetchResponse`](../modules/integration_slack_v1.md#slackintegrationfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -172,7 +172,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`SlackIntegrationListResponse`](../modules/integration_slack_v1.md#slackintegrationlistresponse), [`SlackIntegrationListStreamItem`](../modules/integration_slack_v1.md#slackintegrationliststreamitem)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all slack integrations.
 
@@ -184,7 +184,7 @@ Retrieves a list of all slack integrations.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`SlackIntegrationListResponse`](../modules/integration_slack_v1.md#slackintegrationlistresponse), [`SlackIntegrationListStreamItem`](../modules/integration_slack_v1.md#slackintegrationliststreamitem)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 ### setup
 
-▸ **setup**(`slackId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationSetupResponse`](../modules/integration_slack_v1.md#slackintegrationsetupresponse)\>
+▸ **setup**(`slackId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Setups a slack integration.
 
@@ -206,7 +206,7 @@ Setups a slack integration.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationSetupResponse`](../modules/integration_slack_v1.md#slackintegrationsetupresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -216,7 +216,7 @@ ___
 
 ### update
 
-▸ **update**(`slackId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationUpdateResponse`](../modules/integration_slack_v1.md#slackintegrationupdateresponse)\>
+▸ **update**(`slackId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a slack integration.
 
@@ -225,11 +225,11 @@ Updates a slack integration.
 | Name | Type |
 | :------ | :------ |
 | `slackId` | `string` |
-| `request` | [`SlackIntegrationUpdateRequest`](../modules/integration_slack_v1.md#slackintegrationupdaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`SlackIntegrationUpdateResponse`](../modules/integration_slack_v1.md#slackintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

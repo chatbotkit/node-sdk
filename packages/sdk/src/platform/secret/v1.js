@@ -10,29 +10,16 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} PlatformSecretOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ * }} PlatformSecretListRequest
  *
- * @typedef {PlatformSecretOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} PlatformSecretInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PlatformSecretListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformSecrets']['responses']['200']['content']['application/json']} PlatformSecretListResponse
  *
- * @typedef {{items: PlatformSecretInstance[]}} PlatformSecretListResponse
+ * @typedef {PlatformSecretListResponse['items'][number]} PlatformSecretListItem
  *
- * @typedef {{
- *   type: 'item',
- *   data: PlatformSecretInstance
- * }} PlatformSecretListStreamItemType
- *
- * @typedef {PlatformSecretListStreamItemType} PlatformSecretListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformSecrets']['responses']['200']['content']['application/jsonl']} PlatformSecretListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformSecretListRequest} [request]
@@ -41,9 +28,7 @@
 export function listPlatformSecrets(client, request) {
   let url = `/api/v1/platform/secret/list`
 
-  /** @typedef {import('../../types/api/v1.js').operations['listPlatformSecrets']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../../types/api/v1.js').operations['listPlatformSecrets']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<PlatformSecretListResponse,PlatformSecretListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response

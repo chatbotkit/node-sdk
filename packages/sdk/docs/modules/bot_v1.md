@@ -7,21 +7,29 @@
 ### Type Aliases
 
 - [BotCreateRequest](bot_v1.md#botcreaterequest)
+- [BotCreateRequestBody](bot_v1.md#botcreaterequestbody)
 - [BotCreateResponse](bot_v1.md#botcreateresponse)
+- [BotCreateResponseBody](bot_v1.md#botcreateresponsebody)
+- [BotDeleteRequest](bot_v1.md#botdeleterequest)
+- [BotDeleteRequestBody](bot_v1.md#botdeleterequestbody)
 - [BotDeleteResponse](bot_v1.md#botdeleteresponse)
+- [BotDeleteResponseBody](bot_v1.md#botdeleteresponsebody)
 - [BotDownvoteRequest](bot_v1.md#botdownvoterequest)
+- [BotDownvoteRequestBody](bot_v1.md#botdownvoterequestbody)
 - [BotDownvoteResponse](bot_v1.md#botdownvoteresponse)
+- [BotDownvoteResponseBody](bot_v1.md#botdownvoteresponsebody)
 - [BotFetchResponse](bot_v1.md#botfetchresponse)
-- [BotInstance](bot_v1.md#botinstance)
 - [BotListRequest](bot_v1.md#botlistrequest)
 - [BotListResponse](bot_v1.md#botlistresponse)
-- [BotListStreamItemType](bot_v1.md#botliststreamitemtype)
 - [BotListStreamType](bot_v1.md#botliststreamtype)
-- [BotOptions](bot_v1.md#botoptions)
 - [BotUpdateRequest](bot_v1.md#botupdaterequest)
+- [BotUpdateRequestBody](bot_v1.md#botupdaterequestbody)
 - [BotUpdateResponse](bot_v1.md#botupdateresponse)
+- [BotUpdateResponseBody](bot_v1.md#botupdateresponsebody)
 - [BotUpvoteRequest](bot_v1.md#botupvoterequest)
+- [BotUpvoteRequestBody](bot_v1.md#botupvoterequestbody)
 - [BotUpvoteResponse](bot_v1.md#botupvoteresponse)
+- [BotUpvoteResponseBody](bot_v1.md#botupvoteresponsebody)
 - [ChatBotKitClient](bot_v1.md#chatbotkitclient)
 - [ResponsePromise](bot_v1.md#responsepromise)
 
@@ -39,81 +47,37 @@
 
 ### BotCreateRequest
 
-Ƭ **BotCreateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **BotCreateRequest**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`BotCreateRequestBody`](bot_v1.md#botcreaterequestbody), ``"model"``\> & \{ `model?`: [`model/v1`](model_v1.md)  }
 
 #### Defined in
 
-[bot/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L80)
+[bot/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L59)
+
+___
+
+### BotCreateRequestBody
+
+Ƭ **BotCreateRequestBody**\<\>: `operations`[``"createBot"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L55)
 
 ___
 
 ### BotCreateResponse
 
-Ƭ **BotCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **BotCreateResponse**\<\>: [`BotCreateResponseBody`](bot_v1.md#botcreateresponsebody)
 
 #### Defined in
 
-[bot/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L84)
+[bot/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L63)
 
 ___
 
-### BotDeleteResponse
+### BotCreateResponseBody
 
-Ƭ **BotDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[bot/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L139)
-
-___
-
-### BotDownvoteRequest
-
-Ƭ **BotDownvoteRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `value?` | `number` |
-
-#### Defined in
-
-[bot/v1.js:190](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L190)
-
-___
-
-### BotDownvoteResponse
-
-Ƭ **BotDownvoteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Defined in
-
-[bot/v1.js:194](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L194)
-
-___
-
-### BotFetchResponse
-
-Ƭ **BotFetchResponse**\<\>: [`BotInstance`](bot_v1.md#botinstance) & {}
+Ƭ **BotCreateResponseBody**\<\>: `operations`[``"createBot"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
@@ -121,13 +85,93 @@ ___
 
 ___
 
-### BotInstance
+### BotDeleteRequest
 
-Ƭ **BotInstance**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **BotDeleteRequest**\<\>: [`BotDeleteRequestBody`](bot_v1.md#botdeleterequestbody)
 
 #### Defined in
 
-[bot/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L29)
+[bot/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L120)
+
+___
+
+### BotDeleteRequestBody
+
+Ƭ **BotDeleteRequestBody**\<\>: `operations`[``"deleteBot"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:118](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L118)
+
+___
+
+### BotDeleteResponse
+
+Ƭ **BotDeleteResponse**\<\>: [`BotDeleteResponseBody`](bot_v1.md#botdeleteresponsebody)
+
+#### Defined in
+
+[bot/v1.js:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L124)
+
+___
+
+### BotDeleteResponseBody
+
+Ƭ **BotDeleteResponseBody**\<\>: `operations`[``"deleteBot"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L122)
+
+___
+
+### BotDownvoteRequest
+
+Ƭ **BotDownvoteRequest**\<\>: [`BotDownvoteRequestBody`](bot_v1.md#botdownvoterequestbody)
+
+#### Defined in
+
+[bot/v1.js:173](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L173)
+
+___
+
+### BotDownvoteRequestBody
+
+Ƭ **BotDownvoteRequestBody**\<\>: `operations`[``"downvoteBot"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:171](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L171)
+
+___
+
+### BotDownvoteResponse
+
+Ƭ **BotDownvoteResponse**\<\>: [`BotDownvoteResponseBody`](bot_v1.md#botdownvoteresponsebody)
+
+#### Defined in
+
+[bot/v1.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L177)
+
+___
+
+### BotDownvoteResponseBody
+
+Ƭ **BotDownvoteResponseBody**\<\>: `operations`[``"downvoteBot"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L175)
+
+___
+
+### BotFetchResponse
+
+Ƭ **BotFetchResponse**\<\>: `operations`[``"fetchBot"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L39)
 
 ___
 
@@ -146,69 +190,23 @@ ___
 
 #### Defined in
 
-[bot/v1.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L33)
+[bot/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L19)
 
 ___
 
 ### BotListResponse
 
-Ƭ **BotListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`BotInstance`](bot_v1.md#botinstance)[] |
+Ƭ **BotListResponse**\<\>: `operations`[``"listBots"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[bot/v1.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L35)
-
-___
-
-### BotListStreamItemType
-
-Ƭ **BotListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`BotInstance`](bot_v1.md#botinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[bot/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L40)
+[bot/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L21)
 
 ___
 
 ### BotListStreamType
 
-Ƭ **BotListStreamType**\<\>: [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)
-
-#### Defined in
-
-[bot/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L42)
-
-___
-
-### BotOptions
-
-Ƭ **BotOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `backstory?` | `string` |
-| `datasetId?` | `string` |
-| `description?` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `model?` | `string` |
-| `name?` | `string` |
-| `skillsetId?` | `string` |
-| `visibility?` | ``"private"`` \| ``"protected"`` \| ``"public"`` |
+Ƭ **BotListStreamType**\<\>: `operations`[``"listBots"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
@@ -218,59 +216,81 @@ ___
 
 ### BotUpdateRequest
 
-Ƭ **BotUpdateRequest**\<\>: [`BotOptions`](bot_v1.md#botoptions) & \{ `model?`: [`model/v1`](model_v1.md)  }
+Ƭ **BotUpdateRequest**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<[`BotUpdateRequestBody`](bot_v1.md#botupdaterequestbody), ``"model"``\> & \{ `model?`: [`model/v1`](model_v1.md)  }
 
 #### Defined in
 
-[bot/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L109)
+[bot/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L90)
+
+___
+
+### BotUpdateRequestBody
+
+Ƭ **BotUpdateRequestBody**\<\>: `operations`[``"updateBot"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L86)
 
 ___
 
 ### BotUpdateResponse
 
-Ƭ **BotUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **BotUpdateResponse**\<\>: [`BotUpdateResponseBody`](bot_v1.md#botupdateresponsebody)
 
 #### Defined in
 
-[bot/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L113)
+[bot/v1.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L94)
+
+___
+
+### BotUpdateResponseBody
+
+Ƭ **BotUpdateResponseBody**\<\>: `operations`[``"updateBot"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L92)
 
 ___
 
 ### BotUpvoteRequest
 
-Ƭ **BotUpvoteRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `value?` | `number` |
+Ƭ **BotUpvoteRequest**\<\>: [`BotUpvoteRequestBody`](bot_v1.md#botupvoterequestbody)
 
 #### Defined in
 
-[bot/v1.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L160)
+[bot/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L145)
+
+___
+
+### BotUpvoteRequestBody
+
+Ƭ **BotUpvoteRequestBody**\<\>: `operations`[``"upvoteBot"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L143)
 
 ___
 
 ### BotUpvoteResponse
 
-Ƭ **BotUpvoteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **BotUpvoteResponse**\<\>: [`BotUpvoteResponseBody`](bot_v1.md#botupvoteresponsebody)
 
 #### Defined in
 
-[bot/v1.js:164](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L164)
+[bot/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L149)
+
+___
+
+### BotUpvoteResponseBody
+
+Ƭ **BotUpvoteResponseBody**\<\>: `operations`[``"upvoteBot"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[bot/v1.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L147)
 
 ___
 
@@ -303,7 +323,7 @@ ___
 
 ### createBot
 
-▸ **createBot**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotCreateResponse`](bot_v1.md#botcreateresponse)\>
+▸ **createBot**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -314,17 +334,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotCreateResponse`](bot_v1.md#botcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[bot/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L90)
+[bot/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L69)
 
 ___
 
 ### deleteBot
 
-▸ **deleteBot**(`client`, `botId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotDeleteResponse`](bot_v1.md#botdeleteresponse)\>
+▸ **deleteBot**(`client`, `botId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -335,17 +355,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotDeleteResponse`](bot_v1.md#botdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[bot/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L145)
+[bot/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L130)
 
 ___
 
 ### downvoteBot
 
-▸ **downvoteBot**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotDownvoteResponse`](bot_v1.md#botdownvoteresponse)\>
+▸ **downvoteBot**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -353,21 +373,21 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `botId` | `string` |
-| `request` | [`BotDownvoteRequest`](bot_v1.md#botdownvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotDownvoteResponse`](bot_v1.md#botdownvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[bot/v1.js:201](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L201)
+[bot/v1.js:184](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L184)
 
 ___
 
 ### fetchBot
 
-▸ **fetchBot**(`client`, `botId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`BotFetchResponse`](bot_v1.md#botfetchresponse), `never`\>
+▸ **fetchBot**(`client`, `botId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -378,17 +398,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`BotFetchResponse`](bot_v1.md#botfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[bot/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L67)
+[bot/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L45)
 
 ___
 
 ### listBots
 
-▸ **listBots**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`BotListResponse`](bot_v1.md#botlistresponse), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
+▸ **listBots**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -399,17 +419,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`BotListResponse`](bot_v1.md#botlistresponse), [`BotListStreamItemType`](bot_v1.md#botliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[bot/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L48)
+[bot/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L29)
 
 ___
 
 ### updateBot
 
-▸ **updateBot**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotUpdateResponse`](bot_v1.md#botupdateresponse)\>
+▸ **updateBot**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -421,17 +441,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotUpdateResponse`](bot_v1.md#botupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[bot/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L120)
+[bot/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L101)
 
 ___
 
 ### upvoteBot
 
-▸ **upvoteBot**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotUpvoteResponse`](bot_v1.md#botupvoteresponse)\>
+▸ **upvoteBot**(`client`, `botId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -439,12 +459,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `botId` | `string` |
-| `request` | [`BotUpvoteRequest`](bot_v1.md#botupvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`BotUpvoteResponse`](bot_v1.md#botupvoteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[bot/v1.js:171](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L171)
+[bot/v1.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/v1.js#L156)

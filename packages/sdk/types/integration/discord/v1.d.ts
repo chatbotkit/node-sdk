@@ -8,58 +8,23 @@
  */
 /**
  * @typedef {{
- *   botId?: string
- * }} BotRef
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} DiscordIntegrationListRequest
  *
- * @typedef {{
- *   backstory?: string,
- *   model?: string,
- *   datasetId?: string,
- *   skillsetId?: string,
- *   privacy?: boolean,
- *   moderation?: boolean
- * }} BotConfig
+ * @typedef {import('../../types/api/v1.js').operations['listDiscordIntegrations']['responses']['200']['content']['application/json']} DiscordIntegrationListResponse
  *
- * @typedef {BotRef | BotConfig} BotRefOrConfig
- *
- * @typedef {BotRefOrConfig & {
- *   name?: string,
- *   description?: string,
- *   appId?: string,
- *   botToken?: string,
- *   publicKey?: string,
- *   handle?: string,
- *   contactCollection?: boolean,
- *   sessionDuration?: number,
- *   meta?: Record<string,any>
- * }} DiscordIntegrationOptions
- *
- * @typedef {DiscordIntegrationOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number,
- * }} DiscordIntegrationInstance
- */
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} DiscordIntegrationListRequest
- *
- * @typedef {{items: DiscordIntegrationInstance[]}} DiscordIntegrationListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: DiscordIntegrationInstance
- * }} DiscordIntegrationListStreamItem
- *
- * @typedef {DiscordIntegrationListStreamItem} DiscordIntegrationListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listDiscordIntegrations']['responses']['200']['content']['application/jsonl']} DiscordIntegrationListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {DiscordIntegrationListRequest} [request]
  * @returns {ResponsePromise<DiscordIntegrationListResponse,DiscordIntegrationListStreamType>}
  */
-export function listDiscordIntegrations(client: ChatBotKitClient, request?: DiscordIntegrationListRequest | undefined): ResponsePromise<DiscordIntegrationListResponse, DiscordIntegrationListStreamType>;
+export function listDiscordIntegrations(client: ChatBotKitClient, request?: DiscordIntegrationListRequest): ResponsePromise<DiscordIntegrationListResponse, DiscordIntegrationListStreamType>;
 /**
- * @typedef {DiscordIntegrationInstance & {
- * }} DiscordIntegrationFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
@@ -67,13 +32,13 @@ export function listDiscordIntegrations(client: ChatBotKitClient, request?: Disc
  */
 export function fetchDiscordIntegration(client: ChatBotKitClient, discordId: string): ResponsePromise<DiscordIntegrationFetchResponse, never>;
 /**
- * @typedef {DiscordIntegrationOptions & {
- *   model?: import('../../model/v1.js').Model
- * }} DiscordIntegrationCreateRequest
+ * @typedef {import('../../types/api/v1.js').operations['createDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} DiscordIntegrationCreateResponse
+ * @typedef {DiscordIntegrationCreateRequestBody} DiscordIntegrationCreateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['createDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationCreateResponseBody
+ *
+ * @typedef {DiscordIntegrationCreateResponseBody} DiscordIntegrationCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {DiscordIntegrationCreateRequest} request
@@ -81,13 +46,13 @@ export function fetchDiscordIntegration(client: ChatBotKitClient, discordId: str
  */
 export function createDiscordIntegration(client: ChatBotKitClient, request: DiscordIntegrationCreateRequest): Promise<DiscordIntegrationCreateResponse>;
 /**
- * @typedef {DiscordIntegrationOptions & {
- *   model?: import('../../model/v1.js').Model
- * }} DiscordIntegrationUpdateRequest
+ * @typedef {import('../../types/api/v1.js').operations['updateDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} DiscordIntegrationUpdateResponse
+ * @typedef {DiscordIntegrationUpdateRequestBody} DiscordIntegrationUpdateRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['updateDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationUpdateResponseBody
+ *
+ * @typedef {DiscordIntegrationUpdateResponseBody} DiscordIntegrationUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
@@ -96,9 +61,13 @@ export function createDiscordIntegration(client: ChatBotKitClient, request: Disc
  */
 export function updateDiscordIntegration(client: ChatBotKitClient, discordId: string, request: DiscordIntegrationUpdateRequest): Promise<DiscordIntegrationUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} DiscordIntegrationDeleteResponse
+ * @typedef {import('../../types/api/v1.js').operations['deleteDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationDeleteRequestBody
+ *
+ * @typedef {DiscordIntegrationDeleteRequestBody} DiscordIntegrationDeleteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['deleteDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationDeleteResponseBody
+ *
+ * @typedef {DiscordIntegrationDeleteResponseBody} DiscordIntegrationDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
@@ -106,75 +75,43 @@ export function updateDiscordIntegration(client: ChatBotKitClient, discordId: st
  */
 export function deleteDiscordIntegration(client: ChatBotKitClient, discordId: string): Promise<DiscordIntegrationDeleteResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} DiscordIntegrationSetupResponse
+ * @typedef {import('../../types/api/v1.js').operations['setupDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationSetupRequestBody
+ *
+ * @typedef {DiscordIntegrationSetupRequestBody} DiscordIntegrationSetupRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['setupDiscordIntegration']['responses']['200']['content']['application/json']} DiscordIntegrationSetupResponseBody
+ *
+ * @typedef {DiscordIntegrationSetupResponseBody} DiscordIntegrationSetupResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
  * @returns {Promise<DiscordIntegrationSetupResponse>}
  */
 export function setupDiscordIntegration(client: ChatBotKitClient, discordId: string): Promise<DiscordIntegrationSetupResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type BotRef = {
-    botId?: string;
-};
-export type BotConfig = {
-    backstory?: string;
-    model?: string;
-    datasetId?: string;
-    skillsetId?: string;
-    privacy?: boolean;
-    moderation?: boolean;
-};
-export type BotRefOrConfig = BotRef | BotConfig;
-export type DiscordIntegrationOptions = BotRefOrConfig & {
-    name?: string;
-    description?: string;
-    appId?: string;
-    botToken?: string;
-    publicKey?: string;
-    handle?: string;
-    contactCollection?: boolean;
-    sessionDuration?: number;
-    meta?: Record<string, any>;
-};
-export type DiscordIntegrationInstance = DiscordIntegrationOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type DiscordIntegrationListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type DiscordIntegrationListResponse = {
-    items: DiscordIntegrationInstance[];
-};
-export type DiscordIntegrationListStreamItem = {
-    type: 'item';
-    data: DiscordIntegrationInstance;
-};
-export type DiscordIntegrationListStreamType = DiscordIntegrationListStreamItem;
-export type DiscordIntegrationFetchResponse = DiscordIntegrationInstance & {};
-export type DiscordIntegrationCreateRequest = DiscordIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
-};
-export type DiscordIntegrationCreateResponse = {
-    id: string;
-};
-export type DiscordIntegrationUpdateRequest = DiscordIntegrationOptions & {
-    model?: import('../../model/v1.js').Model;
-};
-export type DiscordIntegrationUpdateResponse = {
-    id: string;
-};
-export type DiscordIntegrationDeleteResponse = {
-    id: string;
-};
-export type DiscordIntegrationSetupResponse = {
-    id: string;
-};
+export type DiscordIntegrationListResponse = import("../../types/api/v1.js").operations["listDiscordIntegrations"]["responses"]["200"]["content"]["application/json"];
+export type DiscordIntegrationListStreamType = import("../../types/api/v1.js").operations["listDiscordIntegrations"]["responses"]["200"]["content"]["application/jsonl"];
+export type DiscordIntegrationFetchResponse = import("../../types/api/v1.js").operations["fetchDiscordIntegration"]["responses"]["200"]["content"]["application/json"];
+export type DiscordIntegrationCreateRequestBody = import("../../types/api/v1.js").operations["createDiscordIntegration"]["requestBody"]["content"]["application/json"];
+export type DiscordIntegrationCreateRequest = DiscordIntegrationCreateRequestBody;
+export type DiscordIntegrationCreateResponseBody = import("../../types/api/v1.js").operations["createDiscordIntegration"]["responses"]["200"]["content"]["application/json"];
+export type DiscordIntegrationCreateResponse = DiscordIntegrationCreateResponseBody;
+export type DiscordIntegrationUpdateRequestBody = import("../../types/api/v1.js").operations["updateDiscordIntegration"]["requestBody"]["content"]["application/json"];
+export type DiscordIntegrationUpdateRequest = DiscordIntegrationUpdateRequestBody;
+export type DiscordIntegrationUpdateResponseBody = import("../../types/api/v1.js").operations["updateDiscordIntegration"]["responses"]["200"]["content"]["application/json"];
+export type DiscordIntegrationUpdateResponse = DiscordIntegrationUpdateResponseBody;
+export type DiscordIntegrationDeleteRequestBody = import("../../types/api/v1.js").operations["deleteDiscordIntegration"]["requestBody"]["content"]["application/json"];
+export type DiscordIntegrationDeleteRequest = DiscordIntegrationDeleteRequestBody;
+export type DiscordIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteDiscordIntegration"]["responses"]["200"]["content"]["application/json"];
+export type DiscordIntegrationDeleteResponse = DiscordIntegrationDeleteResponseBody;
+export type DiscordIntegrationSetupRequestBody = import("../../types/api/v1.js").operations["setupDiscordIntegration"]["requestBody"]["content"]["application/json"];
+export type DiscordIntegrationSetupRequest = DiscordIntegrationSetupRequestBody;
+export type DiscordIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupDiscordIntegration"]["responses"]["200"]["content"]["application/json"];
+export type DiscordIntegrationSetupResponse = DiscordIntegrationSetupResponseBody;

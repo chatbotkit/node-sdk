@@ -11,7 +11,7 @@ export function print(input: any): void;
  */
 export function printError(error: any): void;
 export namespace config {
-    let output: 'yaml' | 'json' | 'jsonl';
+    let output: "yaml" | "json" | "jsonl";
 }
 /**
  * The error class for command errors which should be printed to the user.

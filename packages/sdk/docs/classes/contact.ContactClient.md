@@ -98,13 +98,13 @@ Contact client.
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### create
 
-▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactCreateResponse`](../modules/contact_v1.md#contactcreateresponse)\>
+▸ **create**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Creates a new contact.
 
@@ -112,11 +112,11 @@ Creates a new contact.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ContactOptions`](../modules/contact_v1.md#contactoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactCreateResponse`](../modules/contact_v1.md#contactcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -126,7 +126,7 @@ ___
 
 ### delete
 
-▸ **delete**(`contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactDeleteResponse`](../modules/contact_v1.md#contactdeleteresponse)\>
+▸ **delete**(`contactId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Deletes the contact.
 
@@ -138,7 +138,7 @@ Deletes the contact.
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactDeleteResponse`](../modules/contact_v1.md#contactdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -148,7 +148,7 @@ ___
 
 ### ensure
 
-▸ **ensure**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactEnsureResponse`](../modules/contact_v1.md#contactensureresponse)\>
+▸ **ensure**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Ensures a contact exists.
 
@@ -156,11 +156,11 @@ Ensures a contact exists.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ContactEnsureRequest`](../modules/contact_v1.md#contactensurerequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactEnsureResponse`](../modules/contact_v1.md#contactensureresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -170,7 +170,7 @@ ___
 
 ### fetch
 
-▸ **fetch**(`contactId`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ContactFetchResponse`](../modules/contact_v1.md#contactfetchresponse), `never`\>
+▸ **fetch**(`contactId`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches a contact.
 
@@ -182,7 +182,7 @@ Fetches a contact.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ContactFetchResponse`](../modules/contact_v1.md#contactfetchresponse), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
@@ -192,7 +192,7 @@ ___
 
 ### list
 
-▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`ContactListResponse`](../modules/contact_v1.md#contactlistresponse), [`ContactListStreamItemType`](../modules/contact_v1.md#contactliststreamitemtype)\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 Retrieves a list of all contacts.
 
@@ -204,7 +204,7 @@ Retrieves a list of all contacts.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`ContactListResponse`](../modules/contact_v1.md#contactlistresponse), [`ContactListStreamItemType`](../modules/contact_v1.md#contactliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -214,7 +214,7 @@ ___
 
 ### update
 
-▸ **update**(`contactId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactUpdateResponse`](../modules/contact_v1.md#contactupdateresponse)\>
+▸ **update**(`contactId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Updates a contact.
 
@@ -223,11 +223,11 @@ Updates a contact.
 | Name | Type |
 | :------ | :------ |
 | `contactId` | `string` |
-| `request` | [`ContactOptions`](../modules/contact_v1.md#contactoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`ContactUpdateResponse`](../modules/contact_v1.md#contactupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

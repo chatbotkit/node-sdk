@@ -8,57 +8,31 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} PlatformModelOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} PlatformModelListRequest
  *
- * @typedef {PlatformModelOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} PlatformModelInstance
- */
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PlatformModelListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformModels']['responses']['200']['content']['application/json']} PlatformModelListResponse
  *
- * @typedef {{items: PlatformModelInstance[]}} PlatformModelListResponse
+ * @typedef {PlatformModelListResponse['items'][number]} PlatformModelListItem
  *
- * @typedef {{
- *   type: 'item',
- *   data: PlatformModelInstance
- * }} PlatformModelListStreamItemType
- *
- * @typedef {PlatformModelListStreamItemType} PlatformModelListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformModels']['responses']['200']['content']['application/jsonl']} PlatformModelListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformModelListRequest} [request]
  * @returns {ResponsePromise<PlatformModelListResponse,PlatformModelListStreamType>}
  */
-export function listPlatformModels(client: ChatBotKitClient, request?: PlatformModelListRequest | undefined): ResponsePromise<PlatformModelListResponse, PlatformModelListStreamType>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type PlatformModelOptions = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-};
-export type PlatformModelInstance = PlatformModelOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
+export function listPlatformModels(client: ChatBotKitClient, request?: PlatformModelListRequest): ResponsePromise<PlatformModelListResponse, PlatformModelListStreamType>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type PlatformModelListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type PlatformModelListResponse = {
-    items: PlatformModelInstance[];
-};
-export type PlatformModelListStreamItemType = {
-    type: 'item';
-    data: PlatformModelInstance;
-};
-export type PlatformModelListStreamType = PlatformModelListStreamItemType;
+export type PlatformModelListResponse = import("../../types/api/v1.js").operations["listPlatformModels"]["responses"]["200"]["content"]["application/json"];
+export type PlatformModelListItem = PlatformModelListResponse["items"][number];
+export type PlatformModelListStreamType = import("../../types/api/v1.js").operations["listPlatformModels"]["responses"]["200"]["content"]["application/jsonl"];

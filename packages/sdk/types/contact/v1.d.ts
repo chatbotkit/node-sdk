@@ -8,42 +8,23 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   fingerprint?: string,
- *   email?: string,
- *   phone?: string,
- *   nick?: string,
- *   verifiedAt?: number,
- *   meta?: Record<string,any>
- * }} ContactOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} ContactListRequest
  *
- * @typedef {ContactOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} ContactInstance
- */
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} ContactListRequest
+ * @typedef {import('../types/api/v1.js').operations['listContacts']['responses']['200']['content']['application/json']} ContactListResponse
  *
- * @typedef {{items: ContactInstance[]}} ContactListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: ContactInstance
- * }} ContactListStreamItemType
- *
- * @typedef {ContactListStreamItemType} ContactListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listContacts']['responses']['200']['content']['application/jsonl']} ContactListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {ContactListRequest} [request]
  * @returns {ResponsePromise<ContactListResponse,ContactListStreamType>}
  */
-export function listContacts(client: ChatBotKitClient, request?: ContactListRequest | undefined): ResponsePromise<ContactListResponse, ContactListStreamType>;
+export function listContacts(client: ChatBotKitClient, request?: ContactListRequest): ResponsePromise<ContactListResponse, ContactListStreamType>;
 /**
- * @typedef {ContactInstance & {
- * }} ContactFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchContact']['responses']['200']['content']['application/json']} ContactFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -51,12 +32,13 @@ export function listContacts(client: ChatBotKitClient, request?: ContactListRequ
  */
 export function fetchContact(client: ChatBotKitClient, contactId: string): ResponsePromise<ContactFetchResponse, never>;
 /**
- * @typedef {ContactOptions & {
- * }} ContactCreateRequest
+ * @typedef {import('../types/api/v1.js').operations['createContact']['requestBody']['content']['application/json']} ContactCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ContactCreateResponse
+ * @typedef {ContactCreateRequestBody} ContactCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createContact']['responses']['200']['content']['application/json']} ContactCreateResponseBody
+ *
+ * @typedef {ContactCreateResponseBody} ContactCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ContactCreateRequest} request
@@ -64,12 +46,13 @@ export function fetchContact(client: ChatBotKitClient, contactId: string): Respo
  */
 export function createContact(client: ChatBotKitClient, request: ContactCreateRequest): Promise<ContactCreateResponse>;
 /**
- * @typedef {ContactOptions & {
- * }} ContactUpdateRequest
+ * @typedef {import('../types/api/v1.js').operations['updateContact']['requestBody']['content']['application/json']} ContactUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ContactUpdateResponse
+ * @typedef {ContactUpdateRequestBody} ContactUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateContact']['responses']['200']['content']['application/json']} ContactUpdateResponseBody
+ *
+ * @typedef {ContactUpdateResponseBody} ContactUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -78,9 +61,13 @@ export function createContact(client: ChatBotKitClient, request: ContactCreateRe
  */
 export function updateContact(client: ChatBotKitClient, contactId: string, request: ContactUpdateRequest): Promise<ContactUpdateResponse>;
 /**
- * @typedef {{
- *   id: string
- * }} ContactDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteContact']['requestBody']['content']['application/json']} ContactDeleteRequestBody
+ *
+ * @typedef {ContactDeleteRequestBody} ContactDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteContact']['responses']['200']['content']['application/json']} ContactDeleteResponseBody
+ *
+ * @typedef {ContactDeleteResponseBody} ContactDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
@@ -88,65 +75,43 @@ export function updateContact(client: ChatBotKitClient, contactId: string, reque
  */
 export function deleteContact(client: ChatBotKitClient, contactId: string): Promise<ContactDeleteResponse>;
 /**
- * @typedef {ContactOptions & {
- *   fingerprint: string
- * }} ContactEnsureRequest
+ * @typedef {import('../types/api/v1.js').operations['ensureContact']['requestBody']['content']['application/json']} ContactEnsureRequestBody
  *
- * @typedef {{
- *   id: string
- * }} ContactEnsureResponse
+ * @typedef {ContactEnsureRequestBody} ContactEnsureRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['ensureContact']['responses']['200']['content']['application/json']} ContactEnsureResponseBody
+ *
+ * @typedef {ContactEnsureResponseBody} ContactEnsureResponse
  *
  * @param {ChatBotKitClient} client
  * @param {ContactEnsureRequest} request
  * @returns {Promise<ContactEnsureResponse>}
  */
 export function ensureContact(client: ChatBotKitClient, request: ContactEnsureRequest): Promise<ContactEnsureResponse>;
-export type ChatBotKitClient = import('../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../client.js').ResponsePromise<T, U>;
-export type ContactOptions = {
-    name?: string;
-    description?: string;
-    fingerprint?: string;
-    email?: string;
-    phone?: string;
-    nick?: string;
-    verifiedAt?: number;
-    meta?: Record<string, any>;
-};
-export type ContactInstance = ContactOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
+export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type ContactListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type ContactListResponse = {
-    items: ContactInstance[];
-};
-export type ContactListStreamItemType = {
-    type: 'item';
-    data: ContactInstance;
-};
-export type ContactListStreamType = ContactListStreamItemType;
-export type ContactFetchResponse = ContactInstance & {};
-export type ContactCreateRequest = ContactOptions & {};
-export type ContactCreateResponse = {
-    id: string;
-};
-export type ContactUpdateRequest = ContactOptions & {};
-export type ContactUpdateResponse = {
-    id: string;
-};
-export type ContactDeleteResponse = {
-    id: string;
-};
-export type ContactEnsureRequest = ContactOptions & {
-    fingerprint: string;
-};
-export type ContactEnsureResponse = {
-    id: string;
-};
+export type ContactListResponse = import("../types/api/v1.js").operations["listContacts"]["responses"]["200"]["content"]["application/json"];
+export type ContactListStreamType = import("../types/api/v1.js").operations["listContacts"]["responses"]["200"]["content"]["application/jsonl"];
+export type ContactFetchResponse = import("../types/api/v1.js").operations["fetchContact"]["responses"]["200"]["content"]["application/json"];
+export type ContactCreateRequestBody = import("../types/api/v1.js").operations["createContact"]["requestBody"]["content"]["application/json"];
+export type ContactCreateRequest = ContactCreateRequestBody;
+export type ContactCreateResponseBody = import("../types/api/v1.js").operations["createContact"]["responses"]["200"]["content"]["application/json"];
+export type ContactCreateResponse = ContactCreateResponseBody;
+export type ContactUpdateRequestBody = import("../types/api/v1.js").operations["updateContact"]["requestBody"]["content"]["application/json"];
+export type ContactUpdateRequest = ContactUpdateRequestBody;
+export type ContactUpdateResponseBody = import("../types/api/v1.js").operations["updateContact"]["responses"]["200"]["content"]["application/json"];
+export type ContactUpdateResponse = ContactUpdateResponseBody;
+export type ContactDeleteRequestBody = import("../types/api/v1.js").operations["deleteContact"]["requestBody"]["content"]["application/json"];
+export type ContactDeleteRequest = ContactDeleteRequestBody;
+export type ContactDeleteResponseBody = import("../types/api/v1.js").operations["deleteContact"]["responses"]["200"]["content"]["application/json"];
+export type ContactDeleteResponse = ContactDeleteResponseBody;
+export type ContactEnsureRequestBody = import("../types/api/v1.js").operations["ensureContact"]["requestBody"]["content"]["application/json"];
+export type ContactEnsureRequest = ContactEnsureRequestBody;
+export type ContactEnsureResponseBody = import("../types/api/v1.js").operations["ensureContact"]["responses"]["200"]["content"]["application/json"];
+export type ContactEnsureResponse = ContactEnsureResponseBody;

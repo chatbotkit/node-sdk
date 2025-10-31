@@ -54,7 +54,7 @@ Dataset file client.
 
 ### attach
 
-▸ **attach**(`datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileAttachResponse`](../modules/dataset_file_v1.md#datasetfileattachresponse)\>
+▸ **attach**(`datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Attaches a file.
 
@@ -64,11 +64,11 @@ Attaches a file.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileAttachRequest`](../modules/dataset_file_v1.md#datasetfileattachrequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileAttachResponse`](../modules/dataset_file_v1.md#datasetfileattachresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -120,13 +120,13 @@ ___
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### detach
 
-▸ **detach**(`datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileDetachResponse`](../modules/dataset_file_v1.md#datasetfiledetachresponse)\>
+▸ **detach**(`datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Detach a file.
 
@@ -136,11 +136,11 @@ Detach a file.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileDetachRequest`](../modules/dataset_file_v1.md#datasetfiledetachrequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileDetachResponse`](../modules/dataset_file_v1.md#datasetfiledetachresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
@@ -150,7 +150,7 @@ ___
 
 ### list
 
-▸ **list**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetFileListResponse`](../modules/dataset_file_v1.md#datasetfilelistresponse), [`DatasetFileListStreamItemType`](../modules/dataset_file_v1.md#datasetfileliststreamitemtype)\>
+▸ **list**(`datasetId`, `request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -161,7 +161,7 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`DatasetFileListResponse`](../modules/dataset_file_v1.md#datasetfilelistresponse), [`DatasetFileListStreamItemType`](../modules/dataset_file_v1.md#datasetfileliststreamitemtype)\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
@@ -171,7 +171,7 @@ ___
 
 ### sync
 
-▸ **sync**(`datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileSyncResponse`](../modules/dataset_file_v1.md#datasetfilesyncresponse)\>
+▸ **sync**(`datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 Sync a file.
 
@@ -181,11 +181,11 @@ Sync a file.
 | :------ | :------ |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileSyncRequest`](../modules/dataset_file_v1.md#datasetfilesyncrequest) |
+| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileSyncResponse`](../modules/dataset_file_v1.md#datasetfilesyncresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 

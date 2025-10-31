@@ -8,16 +8,20 @@
 
 - [ChatBotKitClient](dataset_file_v1.md#chatbotkitclient)
 - [DatasetFileAttachRequest](dataset_file_v1.md#datasetfileattachrequest)
+- [DatasetFileAttachRequestBody](dataset_file_v1.md#datasetfileattachrequestbody)
 - [DatasetFileAttachResponse](dataset_file_v1.md#datasetfileattachresponse)
+- [DatasetFileAttachResponseBody](dataset_file_v1.md#datasetfileattachresponsebody)
 - [DatasetFileDetachRequest](dataset_file_v1.md#datasetfiledetachrequest)
+- [DatasetFileDetachRequestBody](dataset_file_v1.md#datasetfiledetachrequestbody)
 - [DatasetFileDetachResponse](dataset_file_v1.md#datasetfiledetachresponse)
-- [DatasetFileInstance](dataset_file_v1.md#datasetfileinstance)
+- [DatasetFileDetachResponseBody](dataset_file_v1.md#datasetfiledetachresponsebody)
 - [DatasetFileListRequest](dataset_file_v1.md#datasetfilelistrequest)
 - [DatasetFileListResponse](dataset_file_v1.md#datasetfilelistresponse)
-- [DatasetFileListStreamItemType](dataset_file_v1.md#datasetfileliststreamitemtype)
 - [DatasetFileListStreamType](dataset_file_v1.md#datasetfileliststreamtype)
 - [DatasetFileSyncRequest](dataset_file_v1.md#datasetfilesyncrequest)
+- [DatasetFileSyncRequestBody](dataset_file_v1.md#datasetfilesyncrequestbody)
 - [DatasetFileSyncResponse](dataset_file_v1.md#datasetfilesyncresponse)
+- [DatasetFileSyncResponseBody](dataset_file_v1.md#datasetfilesyncresponsebody)
 - [ResponsePromise](dataset_file_v1.md#responsepromise)
 
 ### Functions
@@ -41,69 +45,81 @@ ___
 
 ### DatasetFileAttachRequest
 
-Ƭ **DatasetFileAttachRequest**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `type` | ``"source"`` |
+Ƭ **DatasetFileAttachRequest**\<\>: [`DatasetFileAttachRequestBody`](dataset_file_v1.md#datasetfileattachrequestbody)
 
 #### Defined in
 
-[dataset/file/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L45)
+[dataset/file/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L40)
+
+___
+
+### DatasetFileAttachRequestBody
+
+Ƭ **DatasetFileAttachRequestBody**\<\>: `operations`[``"attachDatasetFile"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/file/v1.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L38)
 
 ___
 
 ### DatasetFileAttachResponse
 
-Ƭ **DatasetFileAttachResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **DatasetFileAttachResponse**\<\>: [`DatasetFileAttachResponseBody`](dataset_file_v1.md#datasetfileattachresponsebody)
 
 #### Defined in
 
-[dataset/file/v1.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L49)
+[dataset/file/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L44)
+
+___
+
+### DatasetFileAttachResponseBody
+
+Ƭ **DatasetFileAttachResponseBody**\<\>: `operations`[``"attachDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/file/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L42)
 
 ___
 
 ### DatasetFileDetachRequest
 
-Ƭ **DatasetFileDetachRequest**\<\>: `Object`
+Ƭ **DatasetFileDetachRequest**\<\>: [`DatasetFileDetachRequestBody`](dataset_file_v1.md#datasetfiledetachrequestbody)
 
 #### Defined in
 
-[dataset/file/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L72)
+[dataset/file/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L69)
+
+___
+
+### DatasetFileDetachRequestBody
+
+Ƭ **DatasetFileDetachRequestBody**\<\>: `operations`[``"detachDatasetFile"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/file/v1.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L67)
 
 ___
 
 ### DatasetFileDetachResponse
 
-Ƭ **DatasetFileDetachResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **DatasetFileDetachResponse**\<\>: [`DatasetFileDetachResponseBody`](dataset_file_v1.md#datasetfiledetachresponsebody)
 
 #### Defined in
 
-[dataset/file/v1.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L76)
+[dataset/file/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L73)
 
 ___
 
-### DatasetFileInstance
+### DatasetFileDetachResponseBody
 
-Ƭ **DatasetFileInstance**\<\>: [`FileOptions`](file_v1.md#fileoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **DatasetFileDetachResponseBody**\<\>: `operations`[``"detachDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[file/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L24)
+[dataset/file/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L71)
 
 ___
 
@@ -122,76 +138,67 @@ ___
 
 #### Defined in
 
-[dataset/file/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L16)
+[dataset/file/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L17)
 
 ___
 
 ### DatasetFileListResponse
 
-Ƭ **DatasetFileListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`DatasetFileInstance`](dataset_file_v1.md#datasetfileinstance)[] |
+Ƭ **DatasetFileListResponse**\<\>: `operations`[``"listDatasetFiles"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[dataset/file/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L17)
-
-___
-
-### DatasetFileListStreamItemType
-
-Ƭ **DatasetFileListStreamItemType**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`DatasetFileInstance`](dataset_file_v1.md#datasetfileinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[dataset/file/v1.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L22)
+[dataset/file/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L19)
 
 ___
 
 ### DatasetFileListStreamType
 
-Ƭ **DatasetFileListStreamType**\<\>: [`DatasetFileListStreamItemType`](dataset_file_v1.md#datasetfileliststreamitemtype)
+Ƭ **DatasetFileListStreamType**\<\>: `operations`[``"listDatasetFiles"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[dataset/file/v1.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L24)
+[dataset/file/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L21)
 
 ___
 
 ### DatasetFileSyncRequest
 
-Ƭ **DatasetFileSyncRequest**\<\>: `Object`
+Ƭ **DatasetFileSyncRequest**\<\>: [`DatasetFileSyncRequestBody`](dataset_file_v1.md#datasetfilesyncrequestbody)
 
 #### Defined in
 
-[dataset/file/v1.js:99](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L99)
+[dataset/file/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L98)
+
+___
+
+### DatasetFileSyncRequestBody
+
+Ƭ **DatasetFileSyncRequestBody**\<\>: `operations`[``"syncDatasetFile"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/file/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L96)
 
 ___
 
 ### DatasetFileSyncResponse
 
-Ƭ **DatasetFileSyncResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **DatasetFileSyncResponse**\<\>: [`DatasetFileSyncResponseBody`](dataset_file_v1.md#datasetfilesyncresponsebody)
 
 #### Defined in
 
-[dataset/file/v1.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L103)
+[dataset/file/v1.js:102](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L102)
+
+___
+
+### DatasetFileSyncResponseBody
+
+Ƭ **DatasetFileSyncResponseBody**\<\>: `operations`[``"syncDatasetFile"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[dataset/file/v1.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L100)
 
 ___
 
@@ -214,7 +221,7 @@ ___
 
 ### attachDatasetFile
 
-▸ **attachDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileAttachResponse`](dataset_file_v1.md#datasetfileattachresponse)\>
+▸ **attachDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -223,21 +230,21 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileAttachRequest`](dataset_file_v1.md#datasetfileattachrequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileAttachResponse`](dataset_file_v1.md#datasetfileattachresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[dataset/file/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L57)
+[dataset/file/v1.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L52)
 
 ___
 
 ### detachDatasetFile
 
-▸ **detachDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileDetachResponse`](dataset_file_v1.md#datasetfiledetachresponse)\>
+▸ **detachDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -246,21 +253,21 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileDetachRequest`](dataset_file_v1.md#datasetfiledetachrequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileDetachResponse`](dataset_file_v1.md#datasetfiledetachresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[dataset/file/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L84)
+[dataset/file/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L81)
 
 ___
 
 ### listDatasetFiles
 
-▸ **listDatasetFiles**(`client`, `datasetId`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DatasetFileListResponse`](dataset_file_v1.md#datasetfilelistresponse), [`DatasetFileListStreamItemType`](dataset_file_v1.md#datasetfileliststreamitemtype)\>
+▸ **listDatasetFiles**(`client`, `datasetId`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -272,17 +279,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`DatasetFileListResponse`](dataset_file_v1.md#datasetfilelistresponse), [`DatasetFileListStreamItemType`](dataset_file_v1.md#datasetfileliststreamitemtype)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[dataset/file/v1.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L31)
+[dataset/file/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L28)
 
 ___
 
 ### syncDatasetFile
 
-▸ **syncDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileSyncResponse`](dataset_file_v1.md#datasetfilesyncresponse)\>
+▸ **syncDatasetFile**(`client`, `datasetId`, `fileId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -291,12 +298,12 @@ ___
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `datasetId` | `string` |
 | `fileId` | `string` |
-| `request` | [`DatasetFileSyncRequest`](dataset_file_v1.md#datasetfilesyncrequest) |
+| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`DatasetFileSyncResponse`](dataset_file_v1.md#datasetfilesyncresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[dataset/file/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L111)
+[dataset/file/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L110)

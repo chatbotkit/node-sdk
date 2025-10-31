@@ -1,5 +1,7 @@
 import { ChatBotKitClient } from '../client.js'
 import { PlatformAbilityClient } from './ability/index.js'
+import { PlatformActionClient } from './action/index.js'
+import { PlatformExampleClient } from './example/index.js'
 import { PlatformModelClient } from './model/index.js'
 import { PlatformSecretClient } from './secret/index.js'
 
@@ -16,7 +18,7 @@ export class PlatformClient extends ChatBotKitClient {
     /**
      * @type {PlatformModelClient} model client
      */
-    this.user = new PlatformModelClient(options)
+    this.model = new PlatformModelClient(options)
 
     /**
      * @type {PlatformAbilityClient} ability client
@@ -24,10 +26,20 @@ export class PlatformClient extends ChatBotKitClient {
     this.ability = new PlatformAbilityClient(options)
 
     /**
+     * @type {PlatformActionClient} action client
+     */
+    this.action = new PlatformActionClient(options)
+
+    /**
      * @note overlapping name with the `secret` property
      * @type {PlatformSecretClient} secret client
      */
     this.secrets = new PlatformSecretClient(options)
+
+    /**
+     * @type {PlatformExampleClient} example client
+     */
+    this.example = new PlatformExampleClient(options)
   }
 }
 

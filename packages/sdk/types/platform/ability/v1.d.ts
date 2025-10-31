@@ -8,57 +8,31 @@
  */
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} PlatformAbilityOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} PlatformAbilityListRequest
  *
- * @typedef {PlatformAbilityOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} PlatformAbilityInstance
- */
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} PlatformAbilityListRequest
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/json']} PlatformAbilityListResponse
  *
- * @typedef {{items: PlatformAbilityInstance[]}} PlatformAbilityListResponse
+ * @typedef {PlatformAbilityListResponse['items'][number]} PlatformAbilityListItem
  *
- * @typedef {{
- *   type: 'item',
- *   data: PlatformAbilityInstance
- * }} PlatformAbilityListStreamItemType
- *
- * @typedef {PlatformAbilityListStreamItemType} PlatformAbilityListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformAbilities']['responses']['200']['content']['application/jsonl']} PlatformAbilityListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformAbilityListRequest} [request]
  * @returns {ResponsePromise<PlatformAbilityListResponse,PlatformAbilityListStreamType>}
  */
-export function listPlatformAbilities(client: ChatBotKitClient, request?: PlatformAbilityListRequest | undefined): ResponsePromise<PlatformAbilityListResponse, PlatformAbilityListStreamType>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
-export type PlatformAbilityOptions = {
-    name?: string;
-    description?: string;
-    meta?: Record<string, any>;
-};
-export type PlatformAbilityInstance = PlatformAbilityOptions & {
-    id: string;
-    createdAt: number;
-    updatedAt: number;
-};
+export function listPlatformAbilities(client: ChatBotKitClient, request?: PlatformAbilityListRequest): ResponsePromise<PlatformAbilityListResponse, PlatformAbilityListStreamType>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type PlatformAbilityListRequest = {
     cursor?: string;
-    order?: 'desc' | 'asc';
+    order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type PlatformAbilityListResponse = {
-    items: PlatformAbilityInstance[];
-};
-export type PlatformAbilityListStreamItemType = {
-    type: 'item';
-    data: PlatformAbilityInstance;
-};
-export type PlatformAbilityListStreamType = PlatformAbilityListStreamItemType;
+export type PlatformAbilityListResponse = import("../../types/api/v1.js").operations["listPlatformAbilities"]["responses"]["200"]["content"]["application/json"];
+export type PlatformAbilityListItem = PlatformAbilityListResponse["items"][number];
+export type PlatformAbilityListStreamType = import("../../types/api/v1.js").operations["listPlatformAbilities"]["responses"]["200"]["content"]["application/jsonl"];

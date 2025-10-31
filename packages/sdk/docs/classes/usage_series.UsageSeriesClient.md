@@ -95,19 +95,19 @@
 
 #### Defined in
 
-[client.js:330](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L330)
+[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
 
 ___
 
 ### fetch
 
-▸ **fetch**(): [`ResponsePromise`](client.ResponsePromise.md)\<[`UsageSeriesOptions`](../modules/usage_series_v1.md#usageseriesoptions), `never`\>
+▸ **fetch**(): [`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 Fetches usage.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<[`UsageSeriesOptions`](../modules/usage_series_v1.md#usageseriesoptions), `never`\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 

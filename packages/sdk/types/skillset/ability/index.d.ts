@@ -8,13 +8,21 @@
  */
 export class SkillsetAbilityClient extends ChatBotKitClient {
     /**
-     * Retrieves a list of all abilitys.
+     * Retrieves a list of all abilities.
      *
      * @param {string} skillsetId
      * @param {import('./v1.js').SkillsetAbilityListRequest} [request]
      * @returns {ResponsePromise<import('./v1.js').SkillsetAbilityListResponse,import('./v1.js').SkillsetAbilityListStreamType>}
      */
-    list(skillsetId: string, request?: import("./v1.js").SkillsetAbilityListRequest | undefined): ResponsePromise<import('./v1.js').SkillsetAbilityListResponse, import('./v1.js').SkillsetAbilityListStreamType>;
+    list(skillsetId: string, request?: import("./v1.js").SkillsetAbilityListRequest): ResponsePromise<import("./v1.js").SkillsetAbilityListResponse, import("./v1.js").SkillsetAbilityListStreamType>;
+    /**
+     * Exports abilities.
+     *
+     * @param {string} skillsetId
+     * @param {import('./v1.js').SkillsetAbilityExportRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').SkillsetAbilityExportResponse,import('./v1.js').SkillsetAbilityExportStreamType>}
+     */
+    export(skillsetId: string, request?: import("./v1.js").SkillsetAbilityExportRequest): ResponsePromise<import("./v1.js").SkillsetAbilityExportResponse, import("./v1.js").SkillsetAbilityExportStreamType>;
     /**
      * Fetches a ability.
      *
@@ -22,7 +30,7 @@ export class SkillsetAbilityClient extends ChatBotKitClient {
      * @param {string} abilityId
      * @returns {ResponsePromise<import('./v1.js').SkillsetAbilityFetchResponse,never>}
      */
-    fetch(skillsetId: string, abilityId: string): ResponsePromise<import('./v1.js').SkillsetAbilityFetchResponse, never>;
+    fetch(skillsetId: string, abilityId: string): ResponsePromise<import("./v1.js").SkillsetAbilityFetchResponse, never>;
     /**
      * Creates a new ability.
      *
@@ -30,7 +38,7 @@ export class SkillsetAbilityClient extends ChatBotKitClient {
      * @param {import('./v1.js').SkillsetAbilityCreateRequest} request
      * @returns {Promise<import('./v1.js').SkillsetAbilityCreateResponse>}
      */
-    create(skillsetId: string, request: import('./v1.js').SkillsetAbilityCreateRequest): Promise<import('./v1.js').SkillsetAbilityCreateResponse>;
+    create(skillsetId: string, request: import("./v1.js").SkillsetAbilityCreateRequest): Promise<import("./v1.js").SkillsetAbilityCreateResponse>;
     /**
      * Updates an ability.
      *
@@ -39,7 +47,7 @@ export class SkillsetAbilityClient extends ChatBotKitClient {
      * @param {import('./v1.js').SkillsetAbilityUpdateRequest} request
      * @returns {Promise<import('./v1.js').SkillsetAbilityUpdateResponse>}
      */
-    update(skillsetId: string, abilityId: string, request: import('./v1.js').SkillsetAbilityUpdateRequest): Promise<import('./v1.js').SkillsetAbilityUpdateResponse>;
+    update(skillsetId: string, abilityId: string, request: import("./v1.js").SkillsetAbilityUpdateRequest): Promise<import("./v1.js").SkillsetAbilityUpdateResponse>;
     /**
      * Deletes the ability.
      *
@@ -47,8 +55,8 @@ export class SkillsetAbilityClient extends ChatBotKitClient {
      * @param {string} abilityId
      * @returns {Promise<import('./v1.js').SkillsetAbilityDeleteResponse>}
      */
-    delete(skillsetId: string, abilityId: string): Promise<import('./v1.js').SkillsetAbilityDeleteResponse>;
+    delete(skillsetId: string, abilityId: string): Promise<import("./v1.js").SkillsetAbilityDeleteResponse>;
 }
 export default SkillsetAbilityClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../client.js';

@@ -6,19 +6,13 @@
 
 ### Functions
 
-- [useDOMQuerySelector](hooks_useDOMQuerySelector.md#usedomqueryselector)
+- [default](hooks_useDOMQuerySelector.md#default)
 
 ## Functions
 
-### useDOMQuerySelector
+### default
 
-▸ **useDOMQuerySelector**\<`T`\>(`selector`, `options?`): `T`[]
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
+▸ **default**(`selector`, `options?`, `deps?`): [`Element`]( https://developer.mozilla.org/docs/Web/API/Element )[]
 
 #### Parameters
 
@@ -26,11 +20,14 @@
 | :------ | :------ |
 | `selector` | `string` |
 | `options?` | `Object` |
+| `options.disconnectOnFirstMatch?` | `boolean` |
+| `options.parent?` | `ParentNode` |
 | `options.waitForElements?` | `boolean` |
+| `deps?` | `any`[] |
 
 #### Returns
 
-`T`[]
+[`Element`]( https://developer.mozilla.org/docs/Web/API/Element )[]
 
 #### Defined in
 

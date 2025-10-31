@@ -10,29 +10,15 @@
 
 /**
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   meta?: Record<string,any>
- * }} BlueprintOptions
+ *   cursor?: string,
+ *   order?: 'desc'|'asc',
+ *   take?: number,
+ *   meta?: Record<string,string>
+ * }} BlueprintListRequest
  *
- * @typedef {BlueprintOptions & {
- *   id: string,
- *   createdAt: number,
- *   updatedAt: number
- * }} BlueprintInstance
- */
-
-/**
- * @typedef {{cursor?: string, order?: 'desc'|'asc', take?: number, meta?: Record<string,string>}} BlueprintListRequest
+ * @typedef {import('../types/api/v1.js').operations['listBlueprints']['responses']['200']['content']['application/json']} BlueprintListResponse
  *
- * @typedef {{items: BlueprintInstance[]}} BlueprintListResponse
- *
- * @typedef {{
- *   type: 'item',
- *   data: BlueprintInstance
- * }} BlueprintListStreamItemType
- *
- * @typedef {BlueprintListStreamItemType} BlueprintListStreamType
+ * @typedef {import('../types/api/v1.js').operations['listBlueprints']['responses']['200']['content']['application/jsonl']} BlueprintListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {BlueprintListRequest} [request]
@@ -41,17 +27,14 @@
 export function listBlueprints(client, request) {
   let url = `/api/v1/blueprint/list`
 
-  /** @typedef {import('../types/api/v1.js').operations['listBlueprints']['responses']['200']['content']['application/json']} T */
-  /** @typedef {import('../types/api/v1.js').operations['listBlueprints']['responses']['200']['content']['application/jsonl']} U */
-  /** @type {ResponsePromise<T,U>} */
+  /** @type {ResponsePromise<BlueprintListResponse,BlueprintListStreamType>} */
   const response = client.clientFetch(url, { query: request })
 
   return response
 }
 
 /**
- * @typedef {BlueprintInstance & {
- * }} BlueprintFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['fetchBlueprint']['responses']['200']['content']['application/json']} BlueprintFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
@@ -60,20 +43,20 @@ export function listBlueprints(client, request) {
 export function fetchBlueprint(client, blueprintId) {
   const url = `/api/v1/blueprint/${blueprintId}/fetch`
 
-  /** @typedef {import('../types/api/v1.js').operations['fetchBlueprint']['responses']['200']['content']['application/json']} T */
-  /** @type {ResponsePromise<T,never>} */
+  /** @type {ResponsePromise<BlueprintFetchResponse,never>} */
   const response = client.clientFetch(url)
 
   return response
 }
 
 /**
- * @typedef {BlueprintOptions & {
- * }} BlueprintCreateRequest
+ * @typedef {import('../types/api/v1.js').operations['createBlueprint']['requestBody']['content']['application/json']} BlueprintCreateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} BlueprintCreateResponse
+ * @typedef {BlueprintCreateRequestBody} BlueprintCreateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['createBlueprint']['responses']['200']['content']['application/json']} BlueprintCreateResponseBody
+ *
+ * @typedef {BlueprintCreateResponseBody} BlueprintCreateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {BlueprintCreateRequest} request
@@ -82,9 +65,9 @@ export function fetchBlueprint(client, blueprintId) {
 export async function createBlueprint(client, request) {
   const url = `/api/v1/blueprint/create`
 
-  /** @type {import('../types/api/v1.js').operations['createBlueprint']['responses']['200']['content']['application/json']} */
+  /** @type {BlueprintCreateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['createBlueprint']['requestBody']['content']['application/json']} */
+    /** @type {BlueprintCreateRequestBody} */
     record: {
       ...request,
     },
@@ -94,12 +77,13 @@ export async function createBlueprint(client, request) {
 }
 
 /**
- * @typedef {BlueprintOptions & {
- * }} BlueprintUpdateRequest
+ * @typedef {import('../types/api/v1.js').operations['updateBlueprint']['requestBody']['content']['application/json']} BlueprintUpdateRequestBody
  *
- * @typedef {{
- *   id: string
- * }} BlueprintUpdateResponse
+ * @typedef {BlueprintUpdateRequestBody} BlueprintUpdateRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['updateBlueprint']['responses']['200']['content']['application/json']} BlueprintUpdateResponseBody
+ *
+ * @typedef {BlueprintUpdateResponseBody} BlueprintUpdateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
@@ -109,9 +93,9 @@ export async function createBlueprint(client, request) {
 export async function updateBlueprint(client, blueprintId, request) {
   const url = `/api/v1/blueprint/${blueprintId}/update`
 
-  /** @type {import('../types/api/v1.js').operations['updateBlueprint']['responses']['200']['content']['application/json']} */
+  /** @type {BlueprintUpdateResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['updateBlueprint']['requestBody']['content']['application/json']} */
+    /** @type {BlueprintUpdateRequestBody} */
     record: {
       ...request,
     },
@@ -121,9 +105,13 @@ export async function updateBlueprint(client, blueprintId, request) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} BlueprintDeleteResponse
+ * @typedef {import('../types/api/v1.js').operations['deleteBlueprint']['requestBody']['content']['application/json']} BlueprintDeleteRequestBody
+ *
+ * @typedef {BlueprintDeleteRequestBody} BlueprintDeleteRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['deleteBlueprint']['responses']['200']['content']['application/json']} BlueprintDeleteResponseBody
+ *
+ * @typedef {BlueprintDeleteResponseBody} BlueprintDeleteResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
@@ -132,9 +120,9 @@ export async function updateBlueprint(client, blueprintId, request) {
 export async function deleteBlueprint(client, blueprintId) {
   const url = `/api/v1/blueprint/${blueprintId}/delete`
 
-  /** @type {import('../types/api/v1.js').operations['deleteBlueprint']['responses']['200']['content']['application/json']} */
+  /** @type {BlueprintDeleteResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['deleteBlueprint']['requestBody']['content']['application/json']} */
+    /** @type {BlueprintDeleteRequestBody} */
     record: {},
   })
 
@@ -142,9 +130,13 @@ export async function deleteBlueprint(client, blueprintId) {
 }
 
 /**
- * @typedef {{
- *   id: string
- * }} BlueprintCloneResponse
+ * @typedef {import('../types/api/v1.js').operations['cloneBlueprint']['requestBody']['content']['application/json']} BlueprintCloneRequestBody
+ *
+ * @typedef {BlueprintCloneRequestBody} BlueprintCloneRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['cloneBlueprint']['responses']['200']['content']['application/json']} BlueprintCloneResponseBody
+ *
+ * @typedef {BlueprintCloneResponseBody} BlueprintCloneResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
@@ -153,11 +145,27 @@ export async function deleteBlueprint(client, blueprintId) {
 export async function cloneBlueprint(client, blueprintId) {
   const url = `/api/v1/blueprint/${blueprintId}/clone`
 
-  /** @type {import('../types/api/v1.js').operations['cloneBlueprint']['responses']['200']['content']['application/json']} */
+  /** @type {BlueprintCloneResponseBody} */
   const response = await client.clientFetch(url, {
-    /** @type {import('../types/api/v1.js').operations['cloneBlueprint']['requestBody']['content']['application/json']} */
+    /** @type {BlueprintCloneRequestBody} */
     record: {},
   })
+
+  return response
+}
+
+/**
+ * @typedef {import('../types/api/v1.js').operations['listBlueprintResources']['responses']['200']['content']['application/json']} BlueprintListResourcesResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} blueprintId
+ * @returns {Promise<BlueprintListResourcesResponse>}
+ */
+export async function listBlueprintResources(client, blueprintId) {
+  const url = `/api/v1/blueprint/${blueprintId}/resource/list`
+
+  /** @type {BlueprintListResourcesResponse} */
+  const response = await client.clientFetch(url)
 
   return response
 }

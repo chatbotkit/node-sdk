@@ -23,8 +23,8 @@
  * @returns {Promise<ConversationAttachmentUploadResponse>}
  */
 export function uploadConversationAttachment(client: ChatBotKitClient, attachmentId: string, request: ConversationAttachmentUploadRequest): Promise<ConversationAttachmentUploadResponse>;
-export type ChatBotKitClient = import('../../client.js').ChatBotKitClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type ConversationAttachmentUploadRequest = {
     data: string | ArrayBuffer;
     type: string;

@@ -7,19 +7,26 @@
 ### Type Aliases
 
 - [ChatBotKitClient](integration_notion_v1.md#chatbotkitclient)
-- [NotionInegrationInstance](integration_notion_v1.md#notioninegrationinstance)
 - [NotionIntegrationCreateRequest](integration_notion_v1.md#notionintegrationcreaterequest)
+- [NotionIntegrationCreateRequestBody](integration_notion_v1.md#notionintegrationcreaterequestbody)
 - [NotionIntegrationCreateResponse](integration_notion_v1.md#notionintegrationcreateresponse)
+- [NotionIntegrationCreateResponseBody](integration_notion_v1.md#notionintegrationcreateresponsebody)
+- [NotionIntegrationDeleteRequest](integration_notion_v1.md#notionintegrationdeleterequest)
+- [NotionIntegrationDeleteRequestBody](integration_notion_v1.md#notionintegrationdeleterequestbody)
 - [NotionIntegrationDeleteResponse](integration_notion_v1.md#notionintegrationdeleteresponse)
+- [NotionIntegrationDeleteResponseBody](integration_notion_v1.md#notionintegrationdeleteresponsebody)
 - [NotionIntegrationFetchResponse](integration_notion_v1.md#notionintegrationfetchresponse)
 - [NotionIntegrationListRequest](integration_notion_v1.md#notionintegrationlistrequest)
 - [NotionIntegrationListResponse](integration_notion_v1.md#notionintegrationlistresponse)
-- [NotionIntegrationListStreamItem](integration_notion_v1.md#notionintegrationliststreamitem)
 - [NotionIntegrationListStreamType](integration_notion_v1.md#notionintegrationliststreamtype)
-- [NotionIntegrationOptions](integration_notion_v1.md#notionintegrationoptions)
+- [NotionIntegrationSyncRequest](integration_notion_v1.md#notionintegrationsyncrequest)
+- [NotionIntegrationSyncRequestBody](integration_notion_v1.md#notionintegrationsyncrequestbody)
 - [NotionIntegrationSyncResponse](integration_notion_v1.md#notionintegrationsyncresponse)
+- [NotionIntegrationSyncResponseBody](integration_notion_v1.md#notionintegrationsyncresponsebody)
 - [NotionIntegrationUpdateRequest](integration_notion_v1.md#notionintegrationupdaterequest)
+- [NotionIntegrationUpdateRequestBody](integration_notion_v1.md#notionintegrationupdaterequestbody)
 - [NotionIntegrationUpdateResponse](integration_notion_v1.md#notionintegrationupdateresponse)
+- [NotionIntegrationUpdateResponseBody](integration_notion_v1.md#notionintegrationupdateresponsebody)
 - [ResponsePromise](integration_notion_v1.md#responsepromise)
 
 ### Functions
@@ -43,65 +50,93 @@
 
 ___
 
-### NotionInegrationInstance
+### NotionIntegrationCreateRequest
 
-Ƭ **NotionInegrationInstance**\<\>: [`NotionIntegrationOptions`](integration_notion_v1.md#notionintegrationoptions) & \{ `createdAt`: `number` ; `id`: `string` ; `updatedAt`: `number`  }
+Ƭ **NotionIntegrationCreateRequest**\<\>: [`NotionIntegrationCreateRequestBody`](integration_notion_v1.md#notionintegrationcreaterequestbody)
 
 #### Defined in
 
-[integration/notion/v1.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L26)
+[integration/notion/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L55)
 
 ___
 
-### NotionIntegrationCreateRequest
+### NotionIntegrationCreateRequestBody
 
-Ƭ **NotionIntegrationCreateRequest**\<\>: [`NotionIntegrationOptions`](integration_notion_v1.md#notionintegrationoptions) & \{ `datasetId`: `string`  }
+Ƭ **NotionIntegrationCreateRequestBody**\<\>: `operations`[``"createNotionIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/notion/v1.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L75)
+[integration/notion/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L53)
 
 ___
 
 ### NotionIntegrationCreateResponse
 
-Ƭ **NotionIntegrationCreateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **NotionIntegrationCreateResponse**\<\>: [`NotionIntegrationCreateResponseBody`](integration_notion_v1.md#notionintegrationcreateresponsebody)
 
 #### Defined in
 
-[integration/notion/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L79)
+[integration/notion/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L59)
+
+___
+
+### NotionIntegrationCreateResponseBody
+
+Ƭ **NotionIntegrationCreateResponseBody**\<\>: `operations`[``"createNotionIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/notion/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L57)
+
+___
+
+### NotionIntegrationDeleteRequest
+
+Ƭ **NotionIntegrationDeleteRequest**\<\>: [`NotionIntegrationDeleteRequestBody`](integration_notion_v1.md#notionintegrationdeleterequestbody)
+
+#### Defined in
+
+[integration/notion/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L110)
+
+___
+
+### NotionIntegrationDeleteRequestBody
+
+Ƭ **NotionIntegrationDeleteRequestBody**\<\>: `operations`[``"deleteNotionIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/notion/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L108)
 
 ___
 
 ### NotionIntegrationDeleteResponse
 
-Ƭ **NotionIntegrationDeleteResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **NotionIntegrationDeleteResponse**\<\>: [`NotionIntegrationDeleteResponseBody`](integration_notion_v1.md#notionintegrationdeleteresponsebody)
 
 #### Defined in
 
-[integration/notion/v1.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L129)
+[integration/notion/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L114)
+
+___
+
+### NotionIntegrationDeleteResponseBody
+
+Ƭ **NotionIntegrationDeleteResponseBody**\<\>: `operations`[``"deleteNotionIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/notion/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L112)
 
 ___
 
 ### NotionIntegrationFetchResponse
 
-Ƭ **NotionIntegrationFetchResponse**\<\>: [`NotionInegrationInstance`](integration_notion_v1.md#notioninegrationinstance) & {}
+Ƭ **NotionIntegrationFetchResponse**\<\>: `operations`[``"fetchNotionIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/notion/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L58)
+[integration/notion/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L37)
 
 ___
 
@@ -120,114 +155,107 @@ ___
 
 #### Defined in
 
-[integration/notion/v1.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L30)
+[integration/notion/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L17)
 
 ___
 
 ### NotionIntegrationListResponse
 
-Ƭ **NotionIntegrationListResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `items` | [`NotionInegrationInstance`](integration_notion_v1.md#notioninegrationinstance)[] |
+Ƭ **NotionIntegrationListResponse**\<\>: `operations`[``"listNotionIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
 
 #### Defined in
 
-[integration/notion/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L32)
-
-___
-
-### NotionIntegrationListStreamItem
-
-Ƭ **NotionIntegrationListStreamItem**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | [`NotionInegrationInstance`](integration_notion_v1.md#notioninegrationinstance) |
-| `type` | ``"item"`` |
-
-#### Defined in
-
-[integration/notion/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L37)
+[integration/notion/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L19)
 
 ___
 
 ### NotionIntegrationListStreamType
 
-Ƭ **NotionIntegrationListStreamType**\<\>: [`NotionIntegrationListStreamItem`](integration_notion_v1.md#notionintegrationliststreamitem)
+Ƭ **NotionIntegrationListStreamType**\<\>: `operations`[``"listNotionIntegrations"``][``"responses"``][``"200"``][``"content"``][``"application/jsonl"``]
 
 #### Defined in
 
-[integration/notion/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L39)
+[integration/notion/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L21)
 
 ___
 
-### NotionIntegrationOptions
+### NotionIntegrationSyncRequest
 
-Ƭ **NotionIntegrationOptions**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `datasetId?` | `string` |
-| `description?` | `string` |
-| `expiresIn?` | `number` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
-| `name?` | `string` |
-| `syncSchedule?` | `string` |
-| `token?` | `string` |
+Ƭ **NotionIntegrationSyncRequest**\<\>: [`NotionIntegrationSyncRequestBody`](integration_notion_v1.md#notionintegrationsyncrequestbody)
 
 #### Defined in
 
-[integration/notion/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L20)
+[integration/notion/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L135)
+
+___
+
+### NotionIntegrationSyncRequestBody
+
+Ƭ **NotionIntegrationSyncRequestBody**\<\>: `operations`[``"syncNotionIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/notion/v1.js:133](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L133)
 
 ___
 
 ### NotionIntegrationSyncResponse
 
-Ƭ **NotionIntegrationSyncResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **NotionIntegrationSyncResponse**\<\>: [`NotionIntegrationSyncResponseBody`](integration_notion_v1.md#notionintegrationsyncresponsebody)
 
 #### Defined in
 
-[integration/notion/v1.js:150](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L150)
+[integration/notion/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L139)
+
+___
+
+### NotionIntegrationSyncResponseBody
+
+Ƭ **NotionIntegrationSyncResponseBody**\<\>: `operations`[``"syncNotionIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/notion/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L137)
 
 ___
 
 ### NotionIntegrationUpdateRequest
 
-Ƭ **NotionIntegrationUpdateRequest**\<\>: [`NotionIntegrationOptions`](integration_notion_v1.md#notionintegrationoptions) & {}
+Ƭ **NotionIntegrationUpdateRequest**\<\>: [`NotionIntegrationUpdateRequestBody`](integration_notion_v1.md#notionintegrationupdaterequestbody)
 
 #### Defined in
 
-[integration/notion/v1.js:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L101)
+[integration/notion/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L82)
+
+___
+
+### NotionIntegrationUpdateRequestBody
+
+Ƭ **NotionIntegrationUpdateRequestBody**\<\>: `operations`[``"updateNotionIntegration"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/notion/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L80)
 
 ___
 
 ### NotionIntegrationUpdateResponse
 
-Ƭ **NotionIntegrationUpdateResponse**\<\>: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+Ƭ **NotionIntegrationUpdateResponse**\<\>: [`NotionIntegrationUpdateResponseBody`](integration_notion_v1.md#notionintegrationupdateresponsebody)
 
 #### Defined in
 
-[integration/notion/v1.js:105](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L105)
+[integration/notion/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L86)
+
+___
+
+### NotionIntegrationUpdateResponseBody
+
+Ƭ **NotionIntegrationUpdateResponseBody**\<\>: `operations`[``"updateNotionIntegration"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[integration/notion/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L84)
 
 ___
 
@@ -250,28 +278,28 @@ ___
 
 ### createNotionIntegration
 
-▸ **createNotionIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationCreateResponse`](integration_notion_v1.md#notionintegrationcreateresponse)\>
+▸ **createNotionIntegration**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
-| `request` | [`NotionIntegrationCreateRequest`](integration_notion_v1.md#notionintegrationcreaterequest) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationCreateResponse`](integration_notion_v1.md#notionintegrationcreateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/notion/v1.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L85)
+[integration/notion/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L65)
 
 ___
 
 ### deleteNotionIntegration
 
-▸ **deleteNotionIntegration**(`client`, `notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationDeleteResponse`](integration_notion_v1.md#notionintegrationdeleteresponse)\>
+▸ **deleteNotionIntegration**(`client`, `notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -282,17 +310,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationDeleteResponse`](integration_notion_v1.md#notionintegrationdeleteresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/notion/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L135)
+[integration/notion/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L120)
 
 ___
 
 ### fetchNotionIntegration
 
-▸ **fetchNotionIntegration**(`client`, `notionId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`NotionIntegrationFetchResponse`](integration_notion_v1.md#notionintegrationfetchresponse), `never`\>
+▸ **fetchNotionIntegration**(`client`, `notionId`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Parameters
 
@@ -303,17 +331,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`NotionIntegrationFetchResponse`](integration_notion_v1.md#notionintegrationfetchresponse), `never`\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, `never`\>
 
 #### Defined in
 
-[integration/notion/v1.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L64)
+[integration/notion/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L43)
 
 ___
 
 ### listNotionIntegrations
 
-▸ **listNotionIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`NotionIntegrationListResponse`](integration_notion_v1.md#notionintegrationlistresponse), [`NotionIntegrationListStreamItem`](integration_notion_v1.md#notionintegrationliststreamitem)\>
+▸ **listNotionIntegrations**(`client`, `request?`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Parameters
 
@@ -324,17 +352,17 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<[`NotionIntegrationListResponse`](integration_notion_v1.md#notionintegrationlistresponse), [`NotionIntegrationListStreamItem`](integration_notion_v1.md#notionintegrationliststreamitem)\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[integration/notion/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L45)
+[integration/notion/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L27)
 
 ___
 
 ### syncNotionIntegration
 
-▸ **syncNotionIntegration**(`client`, `notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationSyncResponse`](integration_notion_v1.md#notionintegrationsyncresponse)\>
+▸ **syncNotionIntegration**(`client`, `notionId`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -345,17 +373,17 @@ ___
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationSyncResponse`](integration_notion_v1.md#notionintegrationsyncresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/notion/v1.js:156](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L156)
+[integration/notion/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L145)
 
 ___
 
 ### updateNotionIntegration
 
-▸ **updateNotionIntegration**(`client`, `notionId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationUpdateResponse`](integration_notion_v1.md#notionintegrationupdateresponse)\>
+▸ **updateNotionIntegration**(`client`, `notionId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Parameters
 
@@ -363,12 +391,12 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `notionId` | `string` |
-| `request` | [`NotionIntegrationOptions`](integration_notion_v1.md#notionintegrationoptions) |
+| `request` | `Object` |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`NotionIntegrationUpdateResponse`](integration_notion_v1.md#notionintegrationupdateresponse)\>
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
 
 #### Defined in
 
-[integration/notion/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L112)
+[integration/notion/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/notion/v1.js#L93)

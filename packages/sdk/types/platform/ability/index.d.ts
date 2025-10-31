@@ -13,8 +13,8 @@ export class PlatformAbilityClient extends ChatBotKitClient {
      * @param {import('./v1.js').PlatformAbilityListRequest} [request]
      * @returns {ResponsePromise<import('./v1.js').PlatformAbilityListResponse,import('./v1.js').PlatformAbilityListStreamType>}
      */
-    list(request?: import("./v1.js").PlatformAbilityListRequest | undefined): ResponsePromise<import('./v1.js').PlatformAbilityListResponse, import('./v1.js').PlatformAbilityListStreamType>;
+    list(request?: import("./v1.js").PlatformAbilityListRequest): ResponsePromise<import("./v1.js").PlatformAbilityListResponse, import("./v1.js").PlatformAbilityListStreamType>;
 }
 export default PlatformAbilityClient;
-export type ResponsePromise<T, U> = import('../../client.js').ResponsePromise<T, U>;
+export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../client.js';

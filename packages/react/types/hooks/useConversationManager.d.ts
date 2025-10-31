@@ -45,7 +45,7 @@
  */
 export function useConversationManager({ interactionMaxMessages, ...conversationManagerRemoteOptions }: UseConversationManagerOptions): UseConversationManagerResult;
 export default useConversationManager;
-export type Message = import('@chatbotkit/sdk/conversation/v1').Message;
+export type Message = import("@chatbotkit/sdk/conversation/v1").Message;
 export type SimpleMessage = Message & {
     id: string;
     createdAt: Date;
@@ -53,9 +53,9 @@ export type SimpleMessage = Message & {
 export type ComplexMessage = Message & {
     id: string;
     createdAt: Date;
-    children?: import('react').ReactNode;
+    children?: import("react").ReactNode;
 };
-export type UseConversationManagerRemoteOptions = import('./useConversationManagerRemote.js').UseConversationManagerRemoteOptions;
+export type UseConversationManagerRemoteOptions = import("./useConversationManagerRemote.js").UseConversationManagerRemoteOptions;
 export type UseConversationManagerOptions = UseConversationManagerRemoteOptions & {
     interactionMaxMessages?: number;
 };

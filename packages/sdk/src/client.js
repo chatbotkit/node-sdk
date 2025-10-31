@@ -166,9 +166,11 @@ export class ResponsePromise {
   }
 
   /**
-   * @param {(...args: any[]) => any} onSuccess
-   * @param {(...args: any[]) => any} onFail
-   * @returns {Promise<T>}
+   * @template TResult1
+   * @template TResult2
+   * @param {((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null} [onSuccess]
+   * @param {((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null} [onFail]
+   * @returns {Promise<TResult1 | TResult2>}
    */
   then(onSuccess, onFail) {
     return this.getFetchPromise()
@@ -182,6 +184,7 @@ export class ResponsePromise {
           return await response.json()
         } else {
           return {
+            headers: response.headers,
             data: await response.arrayBuffer(),
           }
         }
@@ -190,17 +193,29 @@ export class ResponsePromise {
   }
 
   /**
-   * @param {(...args: any[]) => any} fn
+   * @template TResult
+   * @param {((reason: any) => TResult | PromiseLike<TResult>) | undefined | null} [fn]
+   * @returns {Promise<T | TResult>}
    */
   catch(fn) {
-    return this.getFetchPromise().catch(fn)
+    return this.then(undefined, fn)
   }
 
   /**
-   * @param {(...args: any[]) => any} fn
+   * @param {(() => void) | undefined | null} [fn]
+   * @returns {Promise<T>}
    */
   finally(fn) {
-    return this.getFetchPromise().finally(fn)
+    return this.then(
+      (value) => {
+        if (fn) fn()
+        return value
+      },
+      (reason) => {
+        if (fn) fn()
+        throw reason
+      }
+    )
   }
 
   /**
