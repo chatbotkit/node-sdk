@@ -4,9 +4,9 @@
     "baseUrl": ".",
     "rootDir": "src",
     "skipLibCheck": true,
+    "maxNodeModuleJsDepth": 0,
     "allowJs": true,
     "checkJs": true,
-    "maxNodeModuleJsDepth": 0,
     "lib": ["es2018", "dom"],
     "types": ["node"]
   },

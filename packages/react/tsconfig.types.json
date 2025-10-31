@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "rootDir": "src",
     "outDir": "types",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "maxNodeModuleJsDepth": 0
   },
   "include": ["src/"]
 }
