@@ -208,11 +208,17 @@ export class ResponsePromise {
   finally(fn) {
     return this.then(
       (value) => {
-        if (fn) fn()
+        if (fn) {
+          fn()
+        }
+
         return value
       },
       (reason) => {
-        if (fn) fn()
+        if (fn) {
+          fn()
+        }
+
         throw reason
       }
     )
