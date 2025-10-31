@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react'
 
-import useDeps from './useDeps.js'
 import useWidgetInstance from './useWidgetInstance.js'
 
 /**
