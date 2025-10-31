@@ -32,7 +32,7 @@ An optional map of endpoints to override
 
 #### Defined in
 
-[client.js:275](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L275)
+[client.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L281)
 
 ___
 
@@ -44,7 +44,7 @@ An optional fetch implementation function to use instead
 
 #### Defined in
 
-[client.js:284](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L284)
+[client.js:290](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L290)
 
 ___
 
@@ -56,7 +56,7 @@ An optional map of headers to add to the request
 
 #### Defined in
 
-[client.js:279](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L279)
+[client.js:285](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L285)
 
 ___
 
@@ -68,7 +68,7 @@ An optional hostname to use for the API
 
 #### Defined in
 
-[client.js:273](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L273)
+[client.js:279](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L279)
 
 ___
 
@@ -80,7 +80,7 @@ An optional protocol to use for the API
 
 #### Defined in
 
-[client.js:274](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L274)
+[client.js:280](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L280)
 
 ___
 
@@ -92,7 +92,7 @@ An optional number of retries for the request
 
 #### Defined in
 
-[client.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L281)
+[client.js:287](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L287)
 
 ___
 
@@ -104,7 +104,7 @@ An optional delay in milliseconds between retries
 
 #### Defined in
 
-[client.js:282](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L282)
+[client.js:288](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L288)
 
 ___
 
@@ -116,7 +116,7 @@ An optional flag to retry on timeout errors
 
 #### Defined in
 
-[client.js:283](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L283)
+[client.js:289](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L289)
 
 ___
 
@@ -128,7 +128,7 @@ An optional child user email to run as (experimental)
 
 #### Defined in
 
-[client.js:277](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L277)
+[client.js:283](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L283)
 
 ___
 
@@ -140,7 +140,7 @@ An optional user ID to run as
 
 #### Defined in
 
-[client.js:276](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L276)
+[client.js:282](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L282)
 
 ___
 
@@ -152,7 +152,7 @@ A token to authenticate with the API
 
 #### Defined in
 
-[client.js:272](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L272)
+[client.js:278](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L278)
 
 ___
 
@@ -164,7 +164,7 @@ An optional timeout in milliseconds for the request
 
 #### Defined in
 
-[client.js:280](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L280)
+[client.js:286](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L286)
 
 ___
 
@@ -176,4 +176,4 @@ An optional timezone to use for the API
 
 #### Defined in
 
-[client.js:278](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L278)
+[client.js:284](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L284)

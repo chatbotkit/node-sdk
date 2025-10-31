@@ -111,7 +111,7 @@ Skillset client.
 
 #### Defined in
 
-[client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L345)
+[client.js:351](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L351)
 
 ___
 

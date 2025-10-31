@@ -81,7 +81,7 @@
 
 #### Defined in
 
-[client.js:239](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L239)
+[client.js:245](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L245)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[client.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L224)
+[client.js:230](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L230)
 
 ___
 
