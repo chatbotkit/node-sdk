@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
 
+/**
+ * @param {any[]} [deps]
+ * @returns {number}
+ */
 export default function useDeps(deps = []) {
   const [depsId, setDepsId] = useState(0)
 

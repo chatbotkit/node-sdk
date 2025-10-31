@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react'
 
 import useDeps from './useDeps.js'
 
+/**
+ * @param {string} selector
+ * @param {{ waitForElements?: boolean, disconnectOnFirstMatch?: boolean, parent?: ParentNode }} [options]
+ * @param {any[]} [deps]
+ * @returns {Element[]}
+ */
 export default function useDOMQuerySelector(selector, options, deps) {
   const {
     waitForElements = false,
@@ -15,7 +21,7 @@ export default function useDOMQuerySelector(selector, options, deps) {
 
   const thisDeps = useDeps(deps)
 
-  const [elements, setElements] = useState([])
+  const [elements, setElements] = useState(/** @type {Element[]} */ ([]))
 
   useEffect(() => {
     if (!selector) {
@@ -28,14 +34,14 @@ export default function useDOMQuerySelector(selector, options, deps) {
 
     const initialElements = parent.querySelectorAll(selector)
 
-    setElements([...initialElements])
+    setElements(Array.from(initialElements))
 
     if (!initialElements.length && waitForElements) {
       const observer = new MutationObserver(() => {
         const elements = parent.querySelectorAll(selector)
 
         if (elements.length) {
-          setElements([...elements])
+          setElements(Array.from(elements))
 
           if (disconnectOnFirstMatch) {
             try {
