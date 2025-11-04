@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1761429964907)"
+    "version": "v1 (build 1762298532756)"
   },
   "servers": [
     {
@@ -145,6 +145,15 @@
           "daily",
           "weekly",
           "monthly"
+        ]
+      },
+      "BlueprintVisibility": {
+        "type": "string",
+        "description": "The blueprint visibility",
+        "enum": [
+          "private",
+          "protected",
+          "public"
         ]
       },
       "BotVisibility": {
@@ -877,6 +886,16 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "visibility": {
+                      "type": "string",
+                      "description": "The blueprint visibility",
+                      "enum": [
+                        "private",
+                        "protected",
+                        "public"
+                      ],
+                      "$$ref": "#/components/schemas/BlueprintVisibility"
                     }
                   },
                   "required": [
@@ -1005,6 +1024,16 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "visibility": {
+                    "type": "string",
+                    "description": "The blueprint visibility",
+                    "enum": [
+                      "private",
+                      "protected",
+                      "public"
+                    ],
+                    "$$ref": "#/components/schemas/BlueprintVisibility"
                   }
                 }
               }
@@ -1077,6 +1106,16 @@
                     "description": "Meta data information",
                     "additionalProperties": true,
                     "$$ref": "#/components/schemas/Meta"
+                  },
+                  "visibility": {
+                    "type": "string",
+                    "description": "The blueprint visibility",
+                    "enum": [
+                      "private",
+                      "protected",
+                      "public"
+                    ],
+                    "$$ref": "#/components/schemas/BlueprintVisibility"
                   }
                 }
               }
@@ -1198,6 +1237,16 @@
                           "updatedAt": {
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "visibility": {
+                            "type": "string",
+                            "description": "The blueprint visibility",
+                            "enum": [
+                              "private",
+                              "protected",
+                              "public"
+                            ],
+                            "$$ref": "#/components/schemas/BlueprintVisibility"
                           }
                         },
                         "required": [
@@ -1255,6 +1304,16 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "visibility": {
+                              "type": "string",
+                              "description": "The blueprint visibility",
+                              "enum": [
+                                "private",
+                                "protected",
+                                "public"
+                              ],
+                              "$$ref": "#/components/schemas/BlueprintVisibility"
                             }
                           },
                           "$$ref": "#/paths/~1blueprint~1list/get/responses/200/content/application~1json/schema/properties/items/items",

@@ -3904,6 +3904,11 @@ export interface components {
          */
         Schedule: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
         /**
+         * @description The blueprint visibility
+         * @enum {string}
+         */
+        BlueprintVisibility: "private" | "protected" | "public";
+        /**
          * @description The bot visibility
          * @enum {string}
          */
@@ -4268,6 +4273,11 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /**
+                         * @description The blueprint visibility
+                         * @enum {string}
+                         */
+                        visibility?: "private" | "protected" | "public";
                     };
                 };
             };
@@ -4338,6 +4348,11 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The blueprint visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -4383,6 +4398,11 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The blueprint visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -4445,6 +4465,11 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /**
+                             * @description The blueprint visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         }[];
                     };
                     "application/jsonl": {
@@ -4469,6 +4494,11 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /**
+                             * @description The blueprint visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         };
                     };
                 };
