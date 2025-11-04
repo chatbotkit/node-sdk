@@ -924,6 +924,26 @@
       "types": "./types/policy/v1.d.ts",
       "import": "./src/policy/v1.js"
     },
+    "./portal": {
+      "types": "./types/portal/index.d.ts",
+      "import": "./src/portal/index.js"
+    },
+    "./portal/index": {
+      "types": "./types/portal/index.d.ts",
+      "import": "./src/portal/index.js"
+    },
+    "./portal/index.js": {
+      "types": "./types/portal/index.d.ts",
+      "import": "./src/portal/index.js"
+    },
+    "./portal/v1": {
+      "types": "./types/portal/v1.d.ts",
+      "import": "./src/portal/v1.js"
+    },
+    "./portal/v1.js": {
+      "types": "./types/portal/v1.d.ts",
+      "import": "./src/portal/v1.js"
+    },
     "./secret": {
       "types": "./types/secret/index.d.ts",
       "import": "./src/secret/index.js"

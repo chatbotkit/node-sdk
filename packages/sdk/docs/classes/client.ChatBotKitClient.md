@@ -92,6 +92,8 @@
 
   ↳ [`PolicyClient`](policy.PolicyClient.md)
 
+  ↳ [`PortalClient`](portal.PortalClient.md)
+
   ↳ [`SecretClient`](secret.SecretClient.md)
 
   ↳ [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)

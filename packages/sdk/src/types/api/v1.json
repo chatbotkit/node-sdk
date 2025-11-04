@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762298532756)"
+    "version": "v1 (build 1762300630571)"
   },
   "servers": [
     {
@@ -25042,6 +25042,540 @@
           }
         },
         "__originalOperationId": "listPolicies",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/portal/{portalId}/delete": {
+      "post": {
+        "operationId": "deletePortal",
+        "summary": "Delete a portal",
+        "tags": [
+          "Portal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "portalId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the portal to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The portal was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted portal",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deletePortal",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/portal/{portalId}/fetch": {
+      "get": {
+        "operationId": "fetchPortal",
+        "summary": "Fetch a portal",
+        "tags": [
+          "Portal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "portalId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the portal to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The portal was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Blueprint properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
+                    },
+                    "slug": {
+                      "description": "The slug of the portal",
+                      "type": "string"
+                    },
+                    "config": {
+                      "description": "The config of the portal",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchPortal",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/portal/{portalId}/update": {
+      "post": {
+        "operationId": "updatePortal",
+        "summary": "Update portal",
+        "tags": [
+          "Portal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "portalId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Blueprint properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "slug": {
+                    "description": "The slug for the portal",
+                    "type": "string"
+                  },
+                  "config": {
+                    "description": "The config for the portal",
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The portal was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the updated portal",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updatePortal",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/portal/create": {
+      "post": {
+        "operationId": "createPortal",
+        "summary": "Create portal",
+        "tags": [
+          "Portal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Blueprint properties",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "slug": {
+                    "description": "The slug of the portal",
+                    "type": "string"
+                  },
+                  "config": {
+                    "description": "The config of the portal",
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The portal was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created portal",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createPortal",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/portal/list": {
+      "get": {
+        "operationId": "listPortals",
+        "summary": "Retrieve a list of portals",
+        "tags": [
+          "Portal"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of portals was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Blueprint properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
+                          "slug": {
+                            "description": "The slug of the portal",
+                            "type": "string"
+                          },
+                          "config": {
+                            "description": "The config of the portal",
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Blueprint properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
+                            },
+                            "slug": {
+                              "description": "The slug of the portal",
+                              "type": "string"
+                            },
+                            "config": {
+                              "description": "The config of the portal",
+                              "type": "object"
+                            }
+                          },
+                          "$$ref": "#/paths/~1portal~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listPortals",
         "security": [
           {
             "BearerAuth": []

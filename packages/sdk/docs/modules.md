@@ -92,6 +92,8 @@
 - [platform/secret/v1](modules/platform_secret_v1.md)
 - [policy](modules/policy.md)
 - [policy/v1](modules/policy_v1.md)
+- [portal](modules/portal.md)
+- [portal/v1](modules/portal_v1.md)
 - [secret](modules/secret.md)
 - [secret/v1](modules/secret_v1.md)
 - [skillset](modules/skillset.md)
