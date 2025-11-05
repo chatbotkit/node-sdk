@@ -4175,6 +4175,24 @@ export interface components {
             /** @description The timestamp (ms) when the instance was updated */
             updatedAt: number;
         };
+        /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
+        JsonSchemaObject: {
+            /**
+             * @description The schema type, must be "object"
+             * @enum {string}
+             */
+            type: "object";
+            /** @description The schema title */
+            title?: string;
+            /** @description The schema description */
+            description?: string;
+            /** @description Object property definitions */
+            properties: {
+                [key: string]: unknown;
+            };
+            /** @description Required property names */
+            required?: string[];
+        };
     };
     responses: {
         /** @description An error response */
@@ -15492,16 +15510,24 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The parameters available for the ability */
-                            parameters: {
-                                /** @description The name of the parameter */
-                                name: string;
-                                /** @description The description of the parameter */
-                                description: string;
-                                /** @description The operand type of the parameter */
-                                operand?: string;
-                                required?: boolean;
-                            }[];
+                            /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
+                            schema: {
+                                /**
+                                 * @description The schema type, must be "object"
+                                 * @enum {string}
+                                 */
+                                type: "object";
+                                /** @description The schema title */
+                                title?: string;
+                                /** @description The schema description */
+                                description?: string;
+                                /** @description Object property definitions */
+                                properties: {
+                                    [key: string]: unknown;
+                                };
+                                /** @description Required property names */
+                                required?: string[];
+                            };
                         }[];
                     };
                     "application/jsonl": {
@@ -15526,16 +15552,24 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The parameters available for the ability */
-                            parameters: {
-                                /** @description The name of the parameter */
-                                name: string;
-                                /** @description The description of the parameter */
-                                description: string;
-                                /** @description The operand type of the parameter */
-                                operand?: string;
-                                required?: boolean;
-                            }[];
+                            /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
+                            schema: {
+                                /**
+                                 * @description The schema type, must be "object"
+                                 * @enum {string}
+                                 */
+                                type: "object";
+                                /** @description The schema title */
+                                title?: string;
+                                /** @description The schema description */
+                                description?: string;
+                                /** @description Object property definitions */
+                                properties: {
+                                    [key: string]: unknown;
+                                };
+                                /** @description Required property names */
+                                required?: string[];
+                            };
                         };
                     };
                 };
