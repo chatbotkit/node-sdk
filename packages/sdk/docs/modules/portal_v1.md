@@ -41,7 +41,7 @@
 
 #### Defined in
 
-portal/v1.js:2
+[portal/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L2)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:55
+[portal/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L55)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:53
+[portal/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L53)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:59
+[portal/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L59)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:57
+[portal/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L57)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:110
+[portal/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L110)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:108
+[portal/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L108)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:114
+[portal/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L114)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:112
+[portal/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L112)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:37
+[portal/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L37)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:17
+[portal/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L17)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:19
+[portal/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L19)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:21
+[portal/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L21)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:82
+[portal/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L82)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:80
+[portal/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L80)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:86
+[portal/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L86)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:84
+[portal/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L84)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:8
+[portal/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L8)
 
 ## Functions
 
@@ -248,7 +248,7 @@ portal/v1.js:8
 
 #### Defined in
 
-portal/v1.js:65
+[portal/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L65)
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:120
+[portal/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L120)
 
 ___
 
@@ -290,7 +290,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:43
+[portal/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L43)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-portal/v1.js:27
+[portal/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L27)
 
 ___
 
@@ -333,4 +333,4 @@ ___
 
 #### Defined in
 
-portal/v1.js:93
+[portal/v1.js:93](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L93)

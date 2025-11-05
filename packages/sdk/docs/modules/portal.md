@@ -27,4 +27,4 @@
 
 #### Defined in
 
-portal/index.js:13
+[portal/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L13)

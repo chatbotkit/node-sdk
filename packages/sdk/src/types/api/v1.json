@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762300630571)"
+    "version": "v1 (build 1762301338111)"
   },
   "servers": [
     {
@@ -25179,7 +25179,8 @@
                     },
                     "config": {
                       "description": "The config of the portal",
-                      "type": "object"
+                      "type": "object",
+                      "additionalProperties": true
                     }
                   },
                   "required": [
@@ -25258,7 +25259,8 @@
                   },
                   "config": {
                     "description": "The config for the portal",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -25342,7 +25344,8 @@
                   },
                   "config": {
                     "description": "The config of the portal",
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -25475,7 +25478,8 @@
                           },
                           "config": {
                             "description": "The config of the portal",
-                            "type": "object"
+                            "type": "object",
+                            "additionalProperties": true
                           }
                         },
                         "required": [
@@ -25544,7 +25548,8 @@
                             },
                             "config": {
                               "description": "The config of the portal",
-                              "type": "object"
+                              "type": "object",
+                              "additionalProperties": true
                             }
                           },
                           "$$ref": "#/paths/~1portal~1list/get/responses/200/content/application~1json/schema/properties/items/items",

@@ -16388,7 +16388,9 @@ export interface operations {
                         /** @description The slug of the portal */
                         slug?: string;
                         /** @description The config of the portal */
-                        config?: Record<string, never>;
+                        config?: {
+                            [key: string]: unknown;
+                        };
                     };
                 };
             };
@@ -16428,7 +16430,9 @@ export interface operations {
                     /** @description The slug for the portal */
                     slug?: string;
                     /** @description The config for the portal */
-                    config?: Record<string, never>;
+                    config?: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -16479,7 +16483,9 @@ export interface operations {
                     /** @description The slug of the portal */
                     slug?: string;
                     /** @description The config of the portal */
-                    config?: Record<string, never>;
+                    config?: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -16547,7 +16553,9 @@ export interface operations {
                             /** @description The slug of the portal */
                             slug?: string;
                             /** @description The config of the portal */
-                            config?: Record<string, never>;
+                            config?: {
+                                [key: string]: unknown;
+                            };
                         }[];
                     };
                     "application/jsonl": {
@@ -16577,7 +16585,9 @@ export interface operations {
                             /** @description The slug of the portal */
                             slug?: string;
                             /** @description The config of the portal */
-                            config?: Record<string, never>;
+                            config?: {
+                                [key: string]: unknown;
+                            };
                         };
                     };
                 };

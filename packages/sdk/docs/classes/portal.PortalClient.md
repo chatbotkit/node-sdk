@@ -49,7 +49,7 @@ Portal client.
 
 #### Defined in
 
-portal/index.js:23
+[portal/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L23)
 
 ## Methods
 
@@ -119,7 +119,7 @@ Creates a new portal.
 
 #### Defined in
 
-portal/index.js:53
+[portal/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L53)
 
 ___
 
@@ -141,7 +141,7 @@ Deletes the portal.
 
 #### Defined in
 
-portal/index.js:74
+[portal/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L74)
 
 ___
 
@@ -163,7 +163,7 @@ Fetches a portal.
 
 #### Defined in
 
-portal/index.js:43
+[portal/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L43)
 
 ___
 
@@ -185,7 +185,7 @@ Retrieves a list of all portals.
 
 #### Defined in
 
-portal/index.js:33
+[portal/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L33)
 
 ___
 
@@ -208,4 +208,4 @@ Updates a portal.
 
 #### Defined in
 
-portal/index.js:64
+[portal/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L64)
