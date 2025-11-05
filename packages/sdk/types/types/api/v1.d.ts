@@ -15510,6 +15510,7 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            icon: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
                                 /**
@@ -15528,6 +15529,8 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
+                            setup?: string;
+                            commentary?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -15552,6 +15555,7 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            icon: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
                                 /**
@@ -15570,6 +15574,8 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
+                            setup?: string;
+                            commentary?: string;
                         };
                     };
                 };
