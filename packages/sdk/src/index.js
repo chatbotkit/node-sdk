@@ -15,6 +15,7 @@ import { PolicyClient } from './policy/index.js'
 import { PortalClient } from './portal/index.js'
 import { SecretClient } from './secret/index.js'
 import { SkillsetClient } from './skillset/index.js'
+import { SpaceClient } from './space/index.js'
 import { TaskClient } from './task/index.js'
 import { TeamClient } from './team/index.js'
 import { UsageClient } from './usage/index.js'
@@ -35,6 +36,7 @@ export { MemoryClient }
 export { PolicyClient }
 export { PortalClient }
 export { GraphqlClient }
+export { SpaceClient }
 export { UsageClient }
 
 export class ChatBotKit extends ChatBotKitClient {
@@ -55,6 +57,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.integration = new IntegrationClient(options)
     this.team = new TeamClient(options)
     this.contact = new ContactClient(options)
+    this.space = new SpaceClient(options)
     this.task = new TaskClient(options)
     this.conversation = new ConversationClient(options)
     this.memory = new MemoryClient(options)
