@@ -100,6 +100,8 @@
 
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
 
+  ↳ [`SpaceClient`](space.SpaceClient.md)
+
   ↳ [`TaskClient`](task.TaskClient.md)
 
   ↳ [`TeamClient`](team.TeamClient.md)
