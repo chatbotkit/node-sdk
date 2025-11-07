@@ -101,6 +101,8 @@
     "./src/skillset/ability/v1.js",
     "./src/skillset/index.js",
     "./src/skillset/v1.js",
+    "./src/space/index.js",
+    "./src/space/v1.js",
     "./src/task/index.js",
     "./src/task/v1.js",
     "./src/team/index.js",

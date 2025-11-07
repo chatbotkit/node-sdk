@@ -1004,6 +1004,26 @@
       "types": "./types/skillset/v1.d.ts",
       "import": "./src/skillset/v1.js"
     },
+    "./space": {
+      "types": "./types/space/index.d.ts",
+      "import": "./src/space/index.js"
+    },
+    "./space/index": {
+      "types": "./types/space/index.d.ts",
+      "import": "./src/space/index.js"
+    },
+    "./space/index.js": {
+      "types": "./types/space/index.d.ts",
+      "import": "./src/space/index.js"
+    },
+    "./space/v1": {
+      "types": "./types/space/v1.d.ts",
+      "import": "./src/space/v1.js"
+    },
+    "./space/v1.js": {
+      "types": "./types/space/v1.d.ts",
+      "import": "./src/space/v1.js"
+    },
     "./task": {
       "types": "./types/task/index.d.ts",
       "import": "./src/task/index.js"
