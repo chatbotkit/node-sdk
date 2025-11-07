@@ -177,7 +177,7 @@ ___
 
 ### Options
 
-Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: ([`InputFunction`](actions_complete.md#inputfunction) \| () => [`InputFunction`](actions_complete.md#inputfunction) \| [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`InputFunction`](actions_complete.md#inputfunction)\>)[] ; `maxRecusion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[] ; `onFinish?`: [`OnFinishHandler`](actions_complete.md#onfinishhandler) ; `onItem?`: [`OnItemHandler`](actions_complete.md#onitemhandler) ; `onStart?`: [`OnStartHandler`](actions_complete.md#onstarthandler)  }
+Ƭ **Options**\<\>: [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<`ConversationCompleteRequest`, ``"messages"`` \| ``"functions"``\> & \{ `client`: `ConversationClient` ; `functions?`: ([`InputFunction`](actions_complete.md#inputfunction) \| () => [`InputFunction`](actions_complete.md#inputfunction) \| [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`InputFunction`](actions_complete.md#inputfunction)\>)[] ; `maxRecursion?`: `number` ; `messages`: [`InputMessage`](actions_complete.md#inputmessage)[] ; `onFinish?`: [`OnFinishHandler`](actions_complete.md#onfinishhandler) ; `onItem?`: [`OnItemHandler`](actions_complete.md#onitemhandler) ; `onStart?`: [`OnStartHandler`](actions_complete.md#onstarthandler)  }
 
 #### Defined in
 

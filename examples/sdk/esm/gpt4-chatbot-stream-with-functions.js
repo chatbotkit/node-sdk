@@ -54,8 +54,8 @@ async function main() {
      * is sent back to the chatbot. This process continues until the chatbot
      * does not send any more messages.
      */
-    const complete = async (maxRecusion = 3) => {
-      if (maxRecusion <= 0) {
+    const complete = async (maxRecursion = 3) => {
+      if (maxRecursion <= 0) {
         return
       }
 
@@ -102,7 +102,7 @@ async function main() {
                 },
               })
 
-              await complete(maxRecusion - 1)
+              await complete(maxRecursion - 1)
             }
           }
         }

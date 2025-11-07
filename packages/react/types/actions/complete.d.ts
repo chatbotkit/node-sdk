@@ -66,7 +66,7 @@ export type Options = Omit<import("@chatbotkit/sdk/conversation/v1.js").Conversa
     client: import("@chatbotkit/sdk").ConversationClient;
     messages: InputMessage[];
     functions?: (InputFunction | (() => InputFunction | Promise<InputFunction>))[];
-    maxRecusion?: number;
+    maxRecursion?: number;
     onItem?: OnItemHandler;
     onStart?: OnStartHandler;
     onFinish?: OnFinishHandler;
@@ -138,7 +138,7 @@ export type Options = Omit<import("@chatbotkit/sdk/conversation/v1.js").Conversa
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
  *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
- *   maxRecusion?: number,
+ *   maxRecursion?: number,
  *   onItem?: OnItemHandler,
  *   onStart?: OnStartHandler,
  *   onFinish?: OnFinishHandler
@@ -152,4 +152,4 @@ export type Options = Omit<import("@chatbotkit/sdk/conversation/v1.js").Conversa
  * @param {Options} options
  * @returns {any}
  */
-declare function complete({ client, messages, functions, maxRecusion, ...options }: Options): any;
+declare function complete({ client, messages, functions, maxRecursion, ...options }: Options): any;
