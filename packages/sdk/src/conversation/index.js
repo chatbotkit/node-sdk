@@ -120,7 +120,7 @@ export class ConversationClient extends ChatBotKitClient {
    * @param {import('./v1.js').ConversationCompleteRequest|import('./v1.js').ConversationCompleteMessageRequest} request
    */
   complete(conversationId, request) {
-    if (!conversationId) {
+    if (conversationId === null) {
       return completeConversation(
         this,
         /** @type {import('./v1.js').ConversationCompleteRequest} */ (request)
