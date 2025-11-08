@@ -151,7 +151,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | ``null`` |
-| `request` | [`ConversationCompleteRequest`](../modules/conversation_v1.md#conversationcompleterequest) |
+| `request` | {} & {} \| [`Omit`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys )\<{} & {}, ``"model"``\> & \{ `model?`: [`Model`](../modules/model_v1.md#model)  } |
 
 #### Returns
 
@@ -168,7 +168,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`ConversationCompleteMessageRequest`](../modules/conversation_v1.md#conversationcompletemessagerequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -190,7 +190,7 @@ Creates a new conversation.
 
 | Name | Type |
 | :------ | :------ |
-| `request` | [`ConversationCreateRequest`](../modules/conversation_v1.md#conversationcreaterequest) |
+| `request` | [`ConversationCreateRequestBody`](../modules/conversation_v1.md#conversationcreaterequestbody) |
 
 #### Returns
 
@@ -233,7 +233,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`ConversationDownvoteRequest`](../modules/conversation_v1.md#conversationdownvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -241,7 +241,7 @@ ___
 
 #### Defined in
 
-[conversation/index.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L175)
+[conversation/index.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L176)
 
 ___
 
@@ -300,7 +300,7 @@ Receives a message from the conversation.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`ConversationReceiveMessageRequest`](../modules/conversation_v1.md#conversationreceivemessagerequest) |
+| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
 
 #### Returns
 
@@ -308,7 +308,7 @@ Receives a message from the conversation.
 
 #### Defined in
 
-[conversation/index.js:157](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L157)
+[conversation/index.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L158)
 
 ___
 
@@ -323,7 +323,7 @@ Sends a message to the conversation.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`ConversationSendMessageRequest`](../modules/conversation_v1.md#conversationsendmessagerequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -331,7 +331,7 @@ Sends a message to the conversation.
 
 #### Defined in
 
-[conversation/index.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L146)
+[conversation/index.js:147](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L147)
 
 ___
 
@@ -346,7 +346,7 @@ Updates a conversation.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`ConversationUpdateRequest`](../modules/conversation_v1.md#conversationupdaterequest) |
+| `request` | [`ConversationUpdateRequestBody`](../modules/conversation_v1.md#conversationupdaterequestbody) |
 
 #### Returns
 
@@ -367,7 +367,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`ConversationUpvoteRequest`](../modules/conversation_v1.md#conversationupvoterequest) |
+| `request` | `Object` |
 
 #### Returns
 
@@ -375,4 +375,4 @@ ___
 
 #### Defined in
 
-[conversation/index.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L166)
+[conversation/index.js:167](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L167)

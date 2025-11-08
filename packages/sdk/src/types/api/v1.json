@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762559911778)"
+    "version": "v1 (build 1762561605387)"
   },
   "servers": [
     {
@@ -7692,7 +7692,50 @@
                   },
                   "contactId": {
                     "description": "The contact ID to associate with this conversation",
-                    "type": "string"
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "description": "An existing contact ID"
+                      },
+                      {
+                        "type": "object",
+                        "description": "A contact object to create or retrieve a trusted contact",
+                        "properties": {
+                          "fingerprint": {
+                            "description": "A unique fingerprint to identify the contact",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the contact",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "A description of the contact",
+                            "type": "string"
+                          },
+                          "email": {
+                            "description": "The email address of the contact",
+                            "type": "string"
+                          },
+                          "phone": {
+                            "description": "The phone number of the contact",
+                            "type": "string"
+                          },
+                          "nick": {
+                            "description": "A nickname for the contact",
+                            "type": "string"
+                          },
+                          "meta": {
+                            "description": "Additional metadata for the contact",
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "required": [
+                          "fingerprint"
+                        ]
+                      }
+                    ]
                   },
                   "extensions": {
                     "description": "Extensions to enhance the bot's capabilities",

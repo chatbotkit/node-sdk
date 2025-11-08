@@ -7700,7 +7700,24 @@ export interface operations {
                         };
                     }[];
                     /** @description The contact ID to associate with this conversation */
-                    contactId?: string;
+                    contactId?: string | {
+                        /** @description A unique fingerprint to identify the contact */
+                        fingerprint: string;
+                        /** @description The name of the contact */
+                        name?: string;
+                        /** @description A description of the contact */
+                        description?: string;
+                        /** @description The email address of the contact */
+                        email?: string;
+                        /** @description The phone number of the contact */
+                        phone?: string;
+                        /** @description A nickname for the contact */
+                        nick?: string;
+                        /** @description Additional metadata for the contact */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                    };
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
                         /** @description Additional backstory for the bot */
