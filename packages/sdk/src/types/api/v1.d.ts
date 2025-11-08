@@ -6477,11 +6477,75 @@ export interface operations {
                             text: string;
                         };
                     }[];
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data?: unknown;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
                 };
             };
         };
         responses: {
-            /** @description The message was received successfully */
+            /** @description The next message in the conversation completed successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -6580,10 +6644,14 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The fingerprint of the contact */
+                    fingerprint?: string;
                     /** @description The email address of the contact */
                     email?: string;
                     /** @description The phone number of the contact */
                     phone?: string;
+                    /** @description The nickname of the contact */
+                    nick?: string;
                 };
             };
         };
@@ -7257,7 +7325,72 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": Record<string, never>;
+                "application/json": {
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data?: unknown;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
+                };
             };
         };
         responses: {
@@ -7373,6 +7506,70 @@ export interface operations {
                             text: string;
                         };
                     }[];
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data?: unknown;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
                 };
             };
         };
@@ -7434,6 +7631,37 @@ export interface operations {
                                     text: string;
                                 };
                             }[];
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "message";
+                        /** @description A message in the conversation */
+                        data: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
                         };
                     };
                 };
@@ -7664,6 +7892,25 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The contact ID to associate with this conversation */
+                    contactId?: string | {
+                        /** @description A unique fingerprint to identify the contact */
+                        fingerprint: string;
+                        /** @description The name of the contact */
+                        name?: string;
+                        /** @description A description of the contact */
+                        description?: string;
+                        /** @description The email address of the contact */
+                        email?: string;
+                        /** @description The phone number of the contact */
+                        phone?: string;
+                        /** @description A nickname for the contact */
+                        nick?: string;
+                        /** @description Additional metadata for the contact */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                    };
                     /** @description An array of messages to be added to the conversation */
                     messages: {
                         /**
@@ -7699,25 +7946,6 @@ export interface operations {
                             data?: unknown;
                         };
                     }[];
-                    /** @description The contact ID to associate with this conversation */
-                    contactId?: string | {
-                        /** @description A unique fingerprint to identify the contact */
-                        fingerprint: string;
-                        /** @description The name of the contact */
-                        name?: string;
-                        /** @description A description of the contact */
-                        description?: string;
-                        /** @description The email address of the contact */
-                        email?: string;
-                        /** @description The phone number of the contact */
-                        phone?: string;
-                        /** @description A nickname for the contact */
-                        nick?: string;
-                        /** @description Additional metadata for the contact */
-                        meta?: {
-                            [key: string]: unknown;
-                        };
-                    };
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
                         /** @description Additional backstory for the bot */
@@ -7796,7 +8024,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The next bot message */
+                        /** @description The text of the message received */
                         text: string;
                         /** @description Usage information */
                         usage: {
@@ -7811,7 +8039,7 @@ export interface operations {
                          */
                         type: "result";
                         data: {
-                            /** @description The next bot message */
+                            /** @description The text of the message received */
                             text: string;
                             /** @description Usage information */
                             usage: {

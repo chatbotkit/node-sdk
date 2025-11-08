@@ -758,7 +758,7 @@ ___
 | :------ | :------ |
 | `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
 | `conversationId` | `string` |
-| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
+| `request` | `Object` |
 
 #### Returns
 
@@ -772,7 +772,7 @@ ___
 
 ### sendConversationMessage
 
-▸ **sendConversationMessage**(`client`, `conversationId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
+▸ **sendConversationMessage**(`client`, `conversationId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 #### Parameters
 
@@ -784,7 +784,7 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {}\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 #### Defined in
 

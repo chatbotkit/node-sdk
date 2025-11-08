@@ -300,7 +300,7 @@ Receives a message from the conversation.
 | Name | Type |
 | :------ | :------ |
 | `conversationId` | `string` |
-| `request` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\> |
+| `request` | `Object` |
 
 #### Returns
 
@@ -314,7 +314,7 @@ ___
 
 ### send
 
-▸ **send**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
+▸ **send**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 Sends a message to the conversation.
 
@@ -327,7 +327,7 @@ Sends a message to the conversation.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {}\>
 
 #### Defined in
 
