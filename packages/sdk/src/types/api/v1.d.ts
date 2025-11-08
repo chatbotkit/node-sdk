@@ -7678,6 +7678,77 @@ export interface operations {
                             [key: string]: unknown;
                         };
                     }[];
+                    /** @description An array of attachments to be added to the conversation */
+                    attachments?: {
+                        /** @description The URL of the attachment */
+                        url?: string;
+                    }[];
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data?: unknown;
+                        };
+                    }[];
+                    /** @description The contact ID to associate with this conversation */
+                    contactId?: string;
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;

@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762431500324)"
+    "version": "v1 (build 1762559911778)"
   },
   "servers": [
     {
@@ -7640,6 +7640,183 @@
                         "text"
                       ],
                       "$$ref": "#/components/schemas/Message"
+                    }
+                  },
+                  "attachments": {
+                    "description": "An array of attachments to be added to the conversation",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "description": "The URL of the attachment",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "functions": {
+                    "description": "An array of functions to be added to the conversation",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "The name of the function (must be a valid JS identifier, max 64 chars)",
+                          "type": "string"
+                        },
+                        "description": {
+                          "description": "The description of the function",
+                          "type": "string"
+                        },
+                        "parameters": {
+                          "description": "JSON Schema definition for the function parameters",
+                          "type": "object",
+                          "additionalProperties": true
+                        },
+                        "result": {
+                          "description": "The result of the function execution",
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "description": "The data returned by the function (can be any type)"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "description"
+                      ]
+                    }
+                  },
+                  "contactId": {
+                    "description": "The contact ID to associate with this conversation",
+                    "type": "string"
+                  },
+                  "extensions": {
+                    "description": "Extensions to enhance the bot's capabilities",
+                    "type": "object",
+                    "properties": {
+                      "backstory": {
+                        "description": "Additional backstory for the bot",
+                        "type": "string"
+                      },
+                      "datasets": {
+                        "description": "Inline datasets to provide additional context",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "The name of the dataset",
+                              "type": "string"
+                            },
+                            "description": {
+                              "description": "The description of the dataset",
+                              "type": "string"
+                            },
+                            "records": {
+                              "description": "The records in the dataset",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "text": {
+                                    "description": "The text content of the record",
+                                    "type": "string"
+                                  },
+                                  "meta": {
+                                    "description": "Additional metadata for the record",
+                                    "type": "object"
+                                  }
+                                },
+                                "required": [
+                                  "text"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "records"
+                          ]
+                        }
+                      },
+                      "skillsets": {
+                        "description": "Inline skillsets to provide additional abilities",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "The name of the skillset",
+                              "type": "string"
+                            },
+                            "description": {
+                              "description": "The description of the skillset",
+                              "type": "string"
+                            },
+                            "abilities": {
+                              "description": "The abilities in the skillset",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "description": "The name of the ability",
+                                    "type": "string"
+                                  },
+                                  "description": {
+                                    "description": "The description of the ability",
+                                    "type": "string"
+                                  },
+                                  "instruction": {
+                                    "description": "The instruction for the ability",
+                                    "type": "string"
+                                  },
+                                  "secretId": {
+                                    "description": "Optional secret ID for the ability",
+                                    "type": "string"
+                                  },
+                                  "meta": {
+                                    "description": "Additional metadata for the ability",
+                                    "type": "object"
+                                  }
+                                },
+                                "required": [
+                                  "name",
+                                  "description",
+                                  "instruction"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "abilities"
+                          ]
+                        }
+                      },
+                      "features": {
+                        "description": "Feature flags to enable specific bot capabilities",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "The name of the feature to enable",
+                              "type": "string"
+                            },
+                            "options": {
+                              "description": "Optional configuration options for the feature",
+                              "type": "object",
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ]
+                        }
+                      }
                     }
                   }
                 },
