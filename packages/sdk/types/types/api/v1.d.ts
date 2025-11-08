@@ -4346,6 +4346,85 @@ export interface components {
                 };
             }[];
         };
+        /** @description An item in the streaming completion response */
+        CompleteStreamingResponseItem: {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "token";
+            /** @description The data for the event */
+            data: {
+                /** @description The token generated */
+                token: string;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "reasoningToken";
+            /** @description The data for the event */
+            data: {
+                /** @description The token generated */
+                token: string;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "message";
+            /** @description A message in the conversation */
+            data: {
+                /**
+                 * @description The type of the message
+                 * @enum {string}
+                 */
+                type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                /** @description The text of the message */
+                text: string;
+                /** @description Meta data information */
+                meta?: {
+                    [key: string]: unknown;
+                };
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "completeBegin";
+            /** @description The data for the event */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "completeEnd";
+            /** @description The data for the event */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "usage";
+            /** @description The data for the event */
+            data: {
+                /** @description The model used */
+                model: string;
+                /** @description The number of input tokens used */
+                inputTokensUsed: number;
+                /** @description The number of output tokens used */
+                outputTokensUsed: number;
+            };
+        };
     };
     responses: {
         /** @description An error response */
@@ -6643,6 +6722,28 @@ export interface operations {
                                 token: number;
                             };
                         };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
                     } | {
                         /**
                          * @description The type of event
@@ -6668,13 +6769,37 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "token";
+                        type: "completeBegin";
                         /** @description The data for the event */
                         data: {
-                            /** @description The token generated */
-                            token: string;
+                            [key: string]: unknown;
                         };
-                    };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
                 };
             };
             /** @description An error response */
@@ -7480,8 +7605,8 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "result";
-                        data: {
+                        type?: "result";
+                        data?: {
                             /** @description The ID of the created message */
                             id: string;
                             /** @description The text of the message received */
@@ -7491,6 +7616,28 @@ export interface operations {
                                 /** @description The tokens used in this exchange */
                                 token: number;
                             };
+                        };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
                         };
                     } | {
                         /**
@@ -7517,13 +7664,37 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "token";
+                        type: "completeBegin";
                         /** @description The data for the event */
                         data: {
-                            /** @description The token generated */
-                            token: string;
+                            [key: string]: unknown;
                         };
-                    };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
                 };
             };
             /** @description An error response */
@@ -7696,6 +7867,28 @@ export interface operations {
                                 };
                             }[];
                         };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
                     } | {
                         /**
                          * @description The type of event
@@ -7721,13 +7914,37 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "token";
+                        type: "completeBegin";
                         /** @description The data for the event */
                         data: {
-                            /** @description The token generated */
-                            token: string;
+                            [key: string]: unknown;
                         };
-                    };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
                 };
             };
             /** @description An error response */
@@ -8111,6 +8328,28 @@ export interface operations {
                                 token: number;
                             };
                         };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
                     } | {
                         /**
                          * @description The type of event
@@ -8136,13 +8375,37 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "token";
+                        type: "completeBegin";
                         /** @description The data for the event */
                         data: {
-                            /** @description The token generated */
-                            token: string;
+                            [key: string]: unknown;
                         };
-                    };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
                 };
             };
             /** @description An error response */

@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762611062804)"
+    "version": "v1 (build 1762611662192)"
   },
   "servers": [
     {
@@ -791,6 +791,202 @@
             }
           }
         }
+      },
+      "CompleteStreamingResponseItem": {
+        "description": "An item in the streaming completion response",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
+                  "token"
+                ]
+              },
+              "data": {
+                "description": "The data for the event",
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "description": "The token generated",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "token"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
+                  "reasoningToken"
+                ]
+              },
+              "data": {
+                "description": "The data for the event",
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "description": "The token generated",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "token"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
+                  "message"
+                ]
+              },
+              "data": {
+                "type": "object",
+                "description": "A message in the conversation",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The type of the message",
+                    "enum": [
+                      "user",
+                      "bot",
+                      "reasoning",
+                      "context",
+                      "instruction",
+                      "backstory",
+                      "activity"
+                    ],
+                    "$$ref": "#/components/schemas/MessageType"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "The text of the message"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  }
+                },
+                "required": [
+                  "type",
+                  "text"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
+                  "completeBegin"
+                ]
+              },
+              "data": {
+                "description": "The data for the event",
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
+                  "completeEnd"
+                ]
+              },
+              "data": {
+                "description": "The data for the event",
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
+                  "usage"
+                ]
+              },
+              "data": {
+                "description": "The data for the event",
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "description": "The model used",
+                    "type": "string"
+                  },
+                  "inputTokensUsed": {
+                    "description": "The number of input tokens used",
+                    "type": "number"
+                  },
+                  "outputTokensUsed": {
+                    "description": "The number of output tokens used",
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "model",
+                  "inputTokensUsed",
+                  "outputTokensUsed"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          }
+        ]
       }
     },
     "responses": {
@@ -5460,83 +5656,201 @@
                       ]
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "message"
-                          ]
-                        },
-                        "data": {
+                      "description": "An item in the streaming completion response",
+                      "oneOf": [
+                        {
                           "type": "object",
-                          "description": "A message in the conversation",
                           "properties": {
                             "type": {
+                              "description": "The type of event",
                               "type": "string",
-                              "description": "The type of the message",
                               "enum": [
-                                "user",
-                                "bot",
-                                "reasoning",
-                                "context",
-                                "instruction",
-                                "backstory",
-                                "activity"
-                              ],
-                              "$$ref": "#/components/schemas/MessageType"
+                                "token"
+                              ]
                             },
-                            "text": {
-                              "type": "string",
-                              "description": "The text of the message"
-                            },
-                            "meta": {
+                            "data": {
+                              "description": "The data for the event",
                               "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
                             }
                           },
                           "required": [
                             "type",
-                            "text"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "token"
+                            "data"
                           ]
                         },
-                        "data": {
-                          "description": "The data for the event",
+                        {
                           "type": "object",
                           "properties": {
-                            "token": {
-                              "description": "The token generated",
-                              "type": "string"
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "reasoningToken"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
                             }
                           },
                           "required": [
-                            "token"
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "message"
+                              ]
+                            },
+                            "data": {
+                              "type": "object",
+                              "description": "A message in the conversation",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "The type of the message",
+                                  "enum": [
+                                    "user",
+                                    "bot",
+                                    "reasoning",
+                                    "context",
+                                    "instruction",
+                                    "backstory",
+                                    "activity"
+                                  ],
+                                  "$$ref": "#/components/schemas/MessageType"
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "The text of the message"
+                                },
+                                "meta": {
+                                  "type": "object",
+                                  "description": "Meta data information",
+                                  "additionalProperties": true,
+                                  "$$ref": "#/components/schemas/Meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "text"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "usage"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "model": {
+                                  "description": "The model used",
+                                  "type": "string"
+                                },
+                                "inputTokensUsed": {
+                                  "description": "The number of input tokens used",
+                                  "type": "number"
+                                },
+                                "outputTokensUsed": {
+                                  "description": "The number of output tokens used",
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "model",
+                                "inputTokensUsed",
+                                "outputTokensUsed"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
                           ]
                         }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
+                      ],
+                      "$$ref": "#/components/schemas/CompleteStreamingResponseItem"
                     }
                   ]
                 }
@@ -7259,90 +7573,204 @@
                           ],
                           "$$ref": "#/paths/~1conversation~1{conversationId}~1receive/post/responses/200/content/application~1json/schema"
                         }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
+                      }
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "message"
-                          ]
-                        },
-                        "data": {
+                      "description": "An item in the streaming completion response",
+                      "oneOf": [
+                        {
                           "type": "object",
-                          "description": "A message in the conversation",
                           "properties": {
                             "type": {
+                              "description": "The type of event",
                               "type": "string",
-                              "description": "The type of the message",
                               "enum": [
-                                "user",
-                                "bot",
-                                "reasoning",
-                                "context",
-                                "instruction",
-                                "backstory",
-                                "activity"
-                              ],
-                              "$$ref": "#/components/schemas/MessageType"
+                                "token"
+                              ]
                             },
-                            "text": {
-                              "type": "string",
-                              "description": "The text of the message"
-                            },
-                            "meta": {
+                            "data": {
+                              "description": "The data for the event",
                               "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
                             }
                           },
                           "required": [
                             "type",
-                            "text"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "token"
+                            "data"
                           ]
                         },
-                        "data": {
-                          "description": "The data for the event",
+                        {
                           "type": "object",
                           "properties": {
-                            "token": {
-                              "description": "The token generated",
-                              "type": "string"
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "reasoningToken"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
                             }
                           },
                           "required": [
-                            "token"
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "message"
+                              ]
+                            },
+                            "data": {
+                              "type": "object",
+                              "description": "A message in the conversation",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "The type of the message",
+                                  "enum": [
+                                    "user",
+                                    "bot",
+                                    "reasoning",
+                                    "context",
+                                    "instruction",
+                                    "backstory",
+                                    "activity"
+                                  ],
+                                  "$$ref": "#/components/schemas/MessageType"
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "The text of the message"
+                                },
+                                "meta": {
+                                  "type": "object",
+                                  "description": "Meta data information",
+                                  "additionalProperties": true,
+                                  "$$ref": "#/components/schemas/Meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "text"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "usage"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "model": {
+                                  "description": "The model used",
+                                  "type": "string"
+                                },
+                                "inputTokensUsed": {
+                                  "description": "The number of input tokens used",
+                                  "type": "number"
+                                },
+                                "outputTokensUsed": {
+                                  "description": "The number of output tokens used",
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "model",
+                                "inputTokensUsed",
+                                "outputTokensUsed"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
                           ]
                         }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
+                      ],
+                      "$$ref": "#/components/schemas/CompleteStreamingResponseItem"
                     }
                   ]
                 }
@@ -7785,83 +8213,201 @@
                       ]
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "message"
-                          ]
-                        },
-                        "data": {
+                      "description": "An item in the streaming completion response",
+                      "oneOf": [
+                        {
                           "type": "object",
-                          "description": "A message in the conversation",
                           "properties": {
                             "type": {
+                              "description": "The type of event",
                               "type": "string",
-                              "description": "The type of the message",
                               "enum": [
-                                "user",
-                                "bot",
-                                "reasoning",
-                                "context",
-                                "instruction",
-                                "backstory",
-                                "activity"
-                              ],
-                              "$$ref": "#/components/schemas/MessageType"
+                                "token"
+                              ]
                             },
-                            "text": {
-                              "type": "string",
-                              "description": "The text of the message"
-                            },
-                            "meta": {
+                            "data": {
+                              "description": "The data for the event",
                               "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
                             }
                           },
                           "required": [
                             "type",
-                            "text"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "token"
+                            "data"
                           ]
                         },
-                        "data": {
-                          "description": "The data for the event",
+                        {
                           "type": "object",
                           "properties": {
-                            "token": {
-                              "description": "The token generated",
-                              "type": "string"
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "reasoningToken"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
                             }
                           },
                           "required": [
-                            "token"
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "message"
+                              ]
+                            },
+                            "data": {
+                              "type": "object",
+                              "description": "A message in the conversation",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "The type of the message",
+                                  "enum": [
+                                    "user",
+                                    "bot",
+                                    "reasoning",
+                                    "context",
+                                    "instruction",
+                                    "backstory",
+                                    "activity"
+                                  ],
+                                  "$$ref": "#/components/schemas/MessageType"
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "The text of the message"
+                                },
+                                "meta": {
+                                  "type": "object",
+                                  "description": "Meta data information",
+                                  "additionalProperties": true,
+                                  "$$ref": "#/components/schemas/Meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "text"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "usage"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "model": {
+                                  "description": "The model used",
+                                  "type": "string"
+                                },
+                                "inputTokensUsed": {
+                                  "description": "The number of input tokens used",
+                                  "type": "number"
+                                },
+                                "outputTokensUsed": {
+                                  "description": "The number of output tokens used",
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "model",
+                                "inputTokensUsed",
+                                "outputTokensUsed"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
                           ]
                         }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
+                      ],
+                      "$$ref": "#/components/schemas/CompleteStreamingResponseItem"
                     }
                   ]
                 }
@@ -8691,83 +9237,201 @@
                       ]
                     },
                     {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "message"
-                          ]
-                        },
-                        "data": {
+                      "description": "An item in the streaming completion response",
+                      "oneOf": [
+                        {
                           "type": "object",
-                          "description": "A message in the conversation",
                           "properties": {
                             "type": {
+                              "description": "The type of event",
                               "type": "string",
-                              "description": "The type of the message",
                               "enum": [
-                                "user",
-                                "bot",
-                                "reasoning",
-                                "context",
-                                "instruction",
-                                "backstory",
-                                "activity"
-                              ],
-                              "$$ref": "#/components/schemas/MessageType"
+                                "token"
+                              ]
                             },
-                            "text": {
-                              "type": "string",
-                              "description": "The text of the message"
-                            },
-                            "meta": {
+                            "data": {
+                              "description": "The data for the event",
                               "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
                             }
                           },
                           "required": [
                             "type",
-                            "text"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "token"
+                            "data"
                           ]
                         },
-                        "data": {
-                          "description": "The data for the event",
+                        {
                           "type": "object",
                           "properties": {
-                            "token": {
-                              "description": "The token generated",
-                              "type": "string"
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "reasoningToken"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
                             }
                           },
                           "required": [
-                            "token"
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "message"
+                              ]
+                            },
+                            "data": {
+                              "type": "object",
+                              "description": "A message in the conversation",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "The type of the message",
+                                  "enum": [
+                                    "user",
+                                    "bot",
+                                    "reasoning",
+                                    "context",
+                                    "instruction",
+                                    "backstory",
+                                    "activity"
+                                  ],
+                                  "$$ref": "#/components/schemas/MessageType"
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "The text of the message"
+                                },
+                                "meta": {
+                                  "type": "object",
+                                  "description": "Meta data information",
+                                  "additionalProperties": true,
+                                  "$$ref": "#/components/schemas/Meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "text"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "usage"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "model": {
+                                  "description": "The model used",
+                                  "type": "string"
+                                },
+                                "inputTokensUsed": {
+                                  "description": "The number of input tokens used",
+                                  "type": "number"
+                                },
+                                "outputTokensUsed": {
+                                  "description": "The number of output tokens used",
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "model",
+                                "inputTokensUsed",
+                                "outputTokensUsed"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
                           ]
                         }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
+                      ],
+                      "$$ref": "#/components/schemas/CompleteStreamingResponseItem"
                     }
                   ]
                 }
