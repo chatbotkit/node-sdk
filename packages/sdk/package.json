@@ -156,6 +156,26 @@
       "types": "./types/contact/secret/v1.d.ts",
       "import": "./src/contact/secret/v1.js"
     },
+    "./contact/space": {
+      "types": "./types/contact/space/index.d.ts",
+      "import": "./src/contact/space/index.js"
+    },
+    "./contact/space/index": {
+      "types": "./types/contact/space/index.d.ts",
+      "import": "./src/contact/space/index.js"
+    },
+    "./contact/space/index.js": {
+      "types": "./types/contact/space/index.d.ts",
+      "import": "./src/contact/space/index.js"
+    },
+    "./contact/space/v1": {
+      "types": "./types/contact/space/v1.d.ts",
+      "import": "./src/contact/space/v1.js"
+    },
+    "./contact/space/v1.js": {
+      "types": "./types/contact/space/v1.d.ts",
+      "import": "./src/contact/space/v1.js"
+    },
     "./contact/task": {
       "types": "./types/contact/task/index.d.ts",
       "import": "./src/contact/task/index.js"

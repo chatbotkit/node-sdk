@@ -50,7 +50,7 @@ Contact client.
 
 #### Defined in
 
-[contact/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L27)
+[contact/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L28)
 
 ## Methods
 
@@ -120,7 +120,7 @@ Creates a new contact.
 
 #### Defined in
 
-[contact/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L63)
+[contact/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L65)
 
 ___
 
@@ -142,7 +142,7 @@ Deletes the contact.
 
 #### Defined in
 
-[contact/index.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L84)
+[contact/index.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L86)
 
 ___
 
@@ -164,7 +164,7 @@ Ensures a contact exists.
 
 #### Defined in
 
-[contact/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L94)
+[contact/index.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L96)
 
 ___
 
@@ -186,7 +186,7 @@ Fetches a contact.
 
 #### Defined in
 
-[contact/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L53)
+[contact/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L55)
 
 ___
 
@@ -208,7 +208,7 @@ Retrieves a list of all contacts.
 
 #### Defined in
 
-[contact/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L43)
+[contact/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L45)
 
 ___
 
@@ -231,4 +231,4 @@ Updates a contact.
 
 #### Defined in
 
-[contact/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L74)
+[contact/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L76)
