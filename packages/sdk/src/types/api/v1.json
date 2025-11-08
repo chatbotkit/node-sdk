@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762609872633)"
+    "version": "v1 (build 1762611062804)"
   },
   "servers": [
     {
@@ -630,6 +630,167 @@
           "type",
           "properties"
         ]
+      },
+      "FunctionsDefinition": {
+        "description": "An array of functions to be added to the conversation",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "The name of the function (must be a valid JS identifier, max 64 chars)",
+              "type": "string"
+            },
+            "description": {
+              "description": "The description of the function",
+              "type": "string"
+            },
+            "parameters": {
+              "description": "JSON Schema definition for the function parameters",
+              "type": "object",
+              "additionalProperties": true
+            },
+            "result": {
+              "description": "The result of the function execution",
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "The data returned by the function (can be any type)"
+                }
+              }
+            }
+          },
+          "required": [
+            "name",
+            "description",
+            "parameters"
+          ]
+        }
+      },
+      "ExtensionsDefinition": {
+        "description": "Extensions to enhance the bot's capabilities",
+        "type": "object",
+        "properties": {
+          "backstory": {
+            "description": "Additional backstory for the bot",
+            "type": "string"
+          },
+          "datasets": {
+            "description": "Inline datasets to provide additional context",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the dataset",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "The description of the dataset",
+                  "type": "string"
+                },
+                "records": {
+                  "description": "The records in the dataset",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "description": "The text content of the record",
+                        "type": "string"
+                      },
+                      "meta": {
+                        "description": "Additional metadata for the record",
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "records"
+              ]
+            }
+          },
+          "skillsets": {
+            "description": "Inline skillsets to provide additional abilities",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the skillset",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "The description of the skillset",
+                  "type": "string"
+                },
+                "abilities": {
+                  "description": "The abilities in the skillset",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name of the ability",
+                        "type": "string"
+                      },
+                      "description": {
+                        "description": "The description of the ability",
+                        "type": "string"
+                      },
+                      "instruction": {
+                        "description": "The instruction for the ability",
+                        "type": "string"
+                      },
+                      "secretId": {
+                        "description": "Optional secret ID for the ability",
+                        "type": "string"
+                      },
+                      "meta": {
+                        "description": "Additional metadata for the ability",
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "description",
+                      "instruction"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "abilities"
+              ]
+            }
+          },
+          "features": {
+            "description": "Feature flags to enable specific bot capabilities",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the feature to enable",
+                  "type": "string"
+                },
+                "options": {
+                  "description": "Optional configuration options for the feature",
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        }
       }
     },
     "responses": {
@@ -5068,9 +5229,11 @@
                       },
                       "required": [
                         "name",
-                        "description"
+                        "description",
+                        "parameters"
                       ]
-                    }
+                    },
+                    "$$ref": "#/components/schemas/FunctionsDefinition"
                   },
                   "extensions": {
                     "description": "Extensions to enhance the bot's capabilities",
@@ -5195,7 +5358,8 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "$$ref": "#/components/schemas/ExtensionsDefinition"
                   }
                 },
                 "required": [
@@ -6874,9 +7038,11 @@
                       },
                       "required": [
                         "name",
-                        "description"
+                        "description",
+                        "parameters"
                       ]
-                    }
+                    },
+                    "$$ref": "#/components/schemas/FunctionsDefinition"
                   },
                   "extensions": {
                     "description": "Extensions to enhance the bot's capabilities",
@@ -7001,7 +7167,8 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "$$ref": "#/components/schemas/ExtensionsDefinition"
                   }
                 }
               }
@@ -7315,9 +7482,11 @@
                       },
                       "required": [
                         "name",
-                        "description"
+                        "description",
+                        "parameters"
                       ]
-                    }
+                    },
+                    "$$ref": "#/components/schemas/FunctionsDefinition"
                   },
                   "extensions": {
                     "description": "Extensions to enhance the bot's capabilities",
@@ -7442,7 +7611,8 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "$$ref": "#/components/schemas/ExtensionsDefinition"
                   }
                 },
                 "required": [
@@ -8170,53 +8340,6 @@
                 ],
                 "type": "object",
                 "properties": {
-                  "contactId": {
-                    "description": "The contact ID to associate with this conversation",
-                    "oneOf": [
-                      {
-                        "type": "string",
-                        "description": "An existing contact ID"
-                      },
-                      {
-                        "type": "object",
-                        "description": "A contact object to create or retrieve a trusted contact",
-                        "properties": {
-                          "fingerprint": {
-                            "description": "A unique fingerprint to identify the contact",
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "The name of the contact",
-                            "type": "string"
-                          },
-                          "description": {
-                            "description": "A description of the contact",
-                            "type": "string"
-                          },
-                          "email": {
-                            "description": "The email address of the contact",
-                            "type": "string"
-                          },
-                          "phone": {
-                            "description": "The phone number of the contact",
-                            "type": "string"
-                          },
-                          "nick": {
-                            "description": "A nickname for the contact",
-                            "type": "string"
-                          },
-                          "meta": {
-                            "description": "Additional metadata for the contact",
-                            "type": "object",
-                            "additionalProperties": true
-                          }
-                        },
-                        "required": [
-                          "fingerprint"
-                        ]
-                      }
-                    ]
-                  },
                   "messages": {
                     "description": "An array of messages to be added to the conversation",
                     "type": "array",
@@ -8269,6 +8392,53 @@
                       }
                     }
                   },
+                  "contactId": {
+                    "description": "The contact ID to associate with this conversation",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "description": "An existing contact ID"
+                      },
+                      {
+                        "type": "object",
+                        "description": "A contact object to create or retrieve a trusted contact",
+                        "properties": {
+                          "fingerprint": {
+                            "description": "A unique fingerprint to identify the contact",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the contact",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "A description of the contact",
+                            "type": "string"
+                          },
+                          "email": {
+                            "description": "The email address of the contact",
+                            "type": "string"
+                          },
+                          "phone": {
+                            "description": "The phone number of the contact",
+                            "type": "string"
+                          },
+                          "nick": {
+                            "description": "A nickname for the contact",
+                            "type": "string"
+                          },
+                          "meta": {
+                            "description": "Additional metadata for the contact",
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "required": [
+                          "fingerprint"
+                        ]
+                      }
+                    ]
+                  },
                   "functions": {
                     "description": "An array of functions to be added to the conversation",
                     "type": "array",
@@ -8300,9 +8470,11 @@
                       },
                       "required": [
                         "name",
-                        "description"
+                        "description",
+                        "parameters"
                       ]
-                    }
+                    },
+                    "$$ref": "#/components/schemas/FunctionsDefinition"
                   },
                   "extensions": {
                     "description": "Extensions to enhance the bot's capabilities",
@@ -8427,7 +8599,8 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "$$ref": "#/components/schemas/ExtensionsDefinition"
                   }
                 },
                 "required": [
