@@ -168,11 +168,16 @@ export async function deleteConversation(client, conversationId) {
 }
 
 /**
- * @typedef {Omit<import('../types/api/v1.js').operations['completeConversation']['requestBody']['content']['application/json'],'model'> & {
- *   model?: string|import('../model/v1.js').Model,
- * }} ConversationCompleteRequestBody
+ * @typedef {import('../types/api/v1.js').operations['completeConversation']['requestBody']['content']['application/json']} ConversationCompleteRequestBody
  *
- * @typedef {ConversationCompleteRequestBody} ConversationCompleteRequest
+ * @typedef {ConversationCompleteRequestBody extends infer U
+ *   ? U extends any
+ *     ? U extends {model?: any}
+ *       ? Omit<U, 'model'> & {model?: string|import('../model/v1.js').Model}
+ *       : U
+ *     : never
+ *   : never
+ * } ConversationCompleteRequest
  *
  * @typedef {import('../types/api/v1.js').operations['completeConversation']['responses']['200']['content']['application/json']} ConversationCompleteResponseBody
  *
@@ -192,7 +197,10 @@ export function completeConversation(client, request) {
     record: {
       ...request,
 
-      model: request.model ? buildModelString(request.model) : undefined,
+      model:
+        'model' in request && request.model
+          ? buildModelString(request.model)
+          : undefined,
     },
   })
 
