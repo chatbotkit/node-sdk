@@ -144,7 +144,7 @@ ___
 
 ### complete
 
-▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Parameters
 
@@ -155,13 +155,13 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Defined in
 
 [conversation/index.js:103](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L103)
 
-▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+▸ **complete**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Parameters
 
@@ -172,7 +172,7 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Defined in
 
@@ -291,7 +291,7 @@ ___
 
 ### receive
 
-▸ **receive**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+▸ **receive**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 Receives a message from the conversation.
 
@@ -304,7 +304,7 @@ Receives a message from the conversation.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Defined in
 
@@ -314,7 +314,7 @@ ___
 
 ### send
 
-▸ **send**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+▸ **send**(`conversationId`, `request`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 Sends a message to the conversation.
 
@@ -327,7 +327,7 @@ Sends a message to the conversation.
 
 #### Returns
 
-[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Defined in
 

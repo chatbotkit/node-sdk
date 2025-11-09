@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762613113145)"
+    "version": "v1 (build 1762689042129)"
   },
   "servers": [
     {
@@ -648,16 +648,59 @@
             "parameters": {
               "description": "JSON Schema definition for the function parameters",
               "type": "object",
-              "additionalProperties": true
+              "properties": {
+                "type": {
+                  "description": "The schema type, must be \"object\"",
+                  "type": "string",
+                  "enum": [
+                    "object"
+                  ]
+                },
+                "properties": {
+                  "description": "Object property definitions",
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "required": {
+                  "description": "Required property names",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "properties"
+              ]
             },
             "result": {
               "description": "The result of the function execution",
-              "type": "object",
-              "properties": {
-                "data": {
-                  "description": "The data returned by the function (can be any type)"
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "description": "The data returned by the function (can be any type)"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "channel": {
+                      "description": "The channel for streaming function results",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "channel"
+                  ]
                 }
-              }
+              ]
             }
           },
           "required": [
@@ -802,6 +845,35 @@
                 "description": "The type of event",
                 "type": "string",
                 "enum": [
+                  "error"
+                ]
+              },
+              "data": {
+                "description": "The data for the event",
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "description": "The error message",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
                   "token"
                 ]
               },
@@ -933,6 +1005,50 @@
                 "type": "string",
                 "enum": [
                   "completeEnd"
+                ]
+              },
+              "data": {
+                "description": "The data for the event",
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
+                  "waitForChannelMessageBegin"
+                ]
+              },
+              "data": {
+                "description": "The data for the event",
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "type",
+              "data"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "The type of event",
+                "type": "string",
+                "enum": [
+                  "waitForChannelMessageEnd"
                 ]
               },
               "data": {
@@ -5600,16 +5716,59 @@
                         "parameters": {
                           "description": "JSON Schema definition for the function parameters",
                           "type": "object",
-                          "additionalProperties": true
+                          "properties": {
+                            "type": {
+                              "description": "The schema type, must be \"object\"",
+                              "type": "string",
+                              "enum": [
+                                "object"
+                              ]
+                            },
+                            "properties": {
+                              "description": "Object property definitions",
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "required": {
+                              "description": "Required property names",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "properties"
+                          ]
                         },
                         "result": {
                           "description": "The result of the function execution",
-                          "type": "object",
-                          "properties": {
-                            "data": {
-                              "description": "The data returned by the function (can be any type)"
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "description": "The data returned by the function (can be any type)"
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "channel": {
+                                  "description": "The channel for streaming function results",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "channel"
+                              ]
                             }
-                          }
+                          ]
                         }
                       },
                       "required": [
@@ -5854,6 +6013,35 @@
                               "description": "The type of event",
                               "type": "string",
                               "enum": [
+                                "error"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "message": {
+                                  "description": "The error message",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
                                 "token"
                               ]
                             },
@@ -5985,6 +6173,50 @@
                               "type": "string",
                               "enum": [
                                 "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageEnd"
                               ]
                             },
                             "data": {
@@ -7527,16 +7759,59 @@
                         "parameters": {
                           "description": "JSON Schema definition for the function parameters",
                           "type": "object",
-                          "additionalProperties": true
+                          "properties": {
+                            "type": {
+                              "description": "The schema type, must be \"object\"",
+                              "type": "string",
+                              "enum": [
+                                "object"
+                              ]
+                            },
+                            "properties": {
+                              "description": "Object property definitions",
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "required": {
+                              "description": "Required property names",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "properties"
+                          ]
                         },
                         "result": {
                           "description": "The result of the function execution",
-                          "type": "object",
-                          "properties": {
-                            "data": {
-                              "description": "The data returned by the function (can be any type)"
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "description": "The data returned by the function (can be any type)"
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "channel": {
+                                  "description": "The channel for streaming function results",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "channel"
+                              ]
                             }
-                          }
+                          ]
                         }
                       },
                       "required": [
@@ -7774,6 +8049,35 @@
                               "description": "The type of event",
                               "type": "string",
                               "enum": [
+                                "error"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "message": {
+                                  "description": "The error message",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
                                 "token"
                               ]
                             },
@@ -7905,6 +8209,50 @@
                               "type": "string",
                               "enum": [
                                 "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageEnd"
                               ]
                             },
                             "data": {
@@ -8085,16 +8433,59 @@
                         "parameters": {
                           "description": "JSON Schema definition for the function parameters",
                           "type": "object",
-                          "additionalProperties": true
+                          "properties": {
+                            "type": {
+                              "description": "The schema type, must be \"object\"",
+                              "type": "string",
+                              "enum": [
+                                "object"
+                              ]
+                            },
+                            "properties": {
+                              "description": "Object property definitions",
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "required": {
+                              "description": "Required property names",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "properties"
+                          ]
                         },
                         "result": {
                           "description": "The result of the function execution",
-                          "type": "object",
-                          "properties": {
-                            "data": {
-                              "description": "The data returned by the function (can be any type)"
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "description": "The data returned by the function (can be any type)"
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "channel": {
+                                  "description": "The channel for streaming function results",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "channel"
+                              ]
                             }
-                          }
+                          ]
                         }
                       },
                       "required": [
@@ -8411,6 +8802,35 @@
                               "description": "The type of event",
                               "type": "string",
                               "enum": [
+                                "error"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "message": {
+                                  "description": "The error message",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
                                 "token"
                               ]
                             },
@@ -8542,6 +8962,50 @@
                               "type": "string",
                               "enum": [
                                 "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageEnd"
                               ]
                             },
                             "data": {
@@ -9191,16 +9655,59 @@
                         "parameters": {
                           "description": "JSON Schema definition for the function parameters",
                           "type": "object",
-                          "additionalProperties": true
+                          "properties": {
+                            "type": {
+                              "description": "The schema type, must be \"object\"",
+                              "type": "string",
+                              "enum": [
+                                "object"
+                              ]
+                            },
+                            "properties": {
+                              "description": "Object property definitions",
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "required": {
+                              "description": "Required property names",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "properties"
+                          ]
                         },
                         "result": {
                           "description": "The result of the function execution",
-                          "type": "object",
-                          "properties": {
-                            "data": {
-                              "description": "The data returned by the function (can be any type)"
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "description": "The data returned by the function (can be any type)"
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "channel": {
+                                  "description": "The channel for streaming function results",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "channel"
+                              ]
                             }
-                          }
+                          ]
                         }
                       },
                       "required": [
@@ -9435,6 +9942,35 @@
                               "description": "The type of event",
                               "type": "string",
                               "enum": [
+                                "error"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "message": {
+                                  "description": "The error message",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
                                 "token"
                               ]
                             },
@@ -9566,6 +10102,50 @@
                               "type": "string",
                               "enum": [
                                 "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageEnd"
                               ]
                             },
                             "data": {

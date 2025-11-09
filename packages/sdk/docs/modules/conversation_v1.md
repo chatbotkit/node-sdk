@@ -601,7 +601,7 @@ ___
 
 ### completeConversation
 
-▸ **completeConversation**(`client`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+▸ **completeConversation**(`client`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Parameters
 
@@ -612,7 +612,7 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Defined in
 
@@ -622,7 +622,7 @@ ___
 
 ### completeConversationMessage
 
-▸ **completeConversationMessage**(`client`, `conversationId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+▸ **completeConversationMessage**(`client`, `conversationId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Parameters
 
@@ -634,7 +634,7 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Defined in
 
@@ -750,7 +750,7 @@ ___
 
 ### receiveConversationMessage
 
-▸ **receiveConversationMessage**(`client`, `conversationId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+▸ **receiveConversationMessage**(`client`, `conversationId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Parameters
 
@@ -762,7 +762,7 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Defined in
 
@@ -772,7 +772,7 @@ ___
 
 ### sendConversationMessage
 
-▸ **sendConversationMessage**(`client`, `conversationId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+▸ **sendConversationMessage**(`client`, `conversationId`, `request`): [`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Parameters
 
@@ -784,7 +784,7 @@ ___
 
 #### Returns
 
-[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {}\>
+[`ResponsePromise`](../classes/client.ResponsePromise.md)\<{}, {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}\>
 
 #### Defined in
 

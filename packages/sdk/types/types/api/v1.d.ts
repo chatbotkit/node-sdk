@@ -4307,12 +4307,25 @@ export interface components {
             description: string;
             /** @description JSON Schema definition for the function parameters */
             parameters: {
-                [key: string]: unknown;
+                /**
+                 * @description The schema type, must be "object"
+                 * @enum {string}
+                 */
+                type: "object";
+                /** @description Object property definitions */
+                properties: {
+                    [key: string]: unknown;
+                };
+                /** @description Required property names */
+                required?: string[];
             };
             /** @description The result of the function execution */
             result?: {
                 /** @description The data returned by the function (can be any type) */
-                data?: unknown;
+                data: unknown;
+            } | {
+                /** @description The channel for streaming function results */
+                channel: string;
             };
         }[];
         /** @description Extensions to enhance the bot's capabilities */
@@ -4365,6 +4378,17 @@ export interface components {
         };
         /** @description An item in the streaming completion response */
         CompleteStreamingResponseItem: {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "error";
+            /** @description The data for the event */
+            data: {
+                /** @description The error message */
+                message: string;
+            };
+        } | {
             /**
              * @description The type of event
              * @enum {string}
@@ -4422,6 +4446,26 @@ export interface components {
              * @enum {string}
              */
             type: "completeEnd";
+            /** @description The data for the event */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "waitForChannelMessageBegin";
+            /** @description The data for the event */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "waitForChannelMessageEnd";
             /** @description The data for the event */
             data: {
                 [key: string]: unknown;
@@ -6725,12 +6769,25 @@ export interface operations {
                         description: string;
                         /** @description JSON Schema definition for the function parameters */
                         parameters: {
-                            [key: string]: unknown;
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
                         };
                         /** @description The result of the function execution */
                         result?: {
                             /** @description The data returned by the function (can be any type) */
-                            data?: unknown;
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
                         };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
@@ -6824,6 +6881,17 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
                         type: "token";
                         /** @description The data for the event */
                         data: {
@@ -6877,6 +6945,26 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
                         /** @description The data for the event */
                         data: {
                             [key: string]: unknown;
@@ -7620,12 +7708,25 @@ export interface operations {
                         description: string;
                         /** @description JSON Schema definition for the function parameters */
                         parameters: {
-                            [key: string]: unknown;
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
                         };
                         /** @description The result of the function execution */
                         result?: {
                             /** @description The data returned by the function (can be any type) */
-                            data?: unknown;
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
                         };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
@@ -7719,6 +7820,17 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
                         type: "token";
                         /** @description The data for the event */
                         data: {
@@ -7772,6 +7884,26 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
                         /** @description The data for the event */
                         data: {
                             [key: string]: unknown;
@@ -7846,12 +7978,25 @@ export interface operations {
                         description: string;
                         /** @description JSON Schema definition for the function parameters */
                         parameters: {
-                            [key: string]: unknown;
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
                         };
                         /** @description The result of the function execution */
                         result?: {
                             /** @description The data returned by the function (can be any type) */
-                            data?: unknown;
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
                         };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
@@ -7969,6 +8114,17 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
                         type: "token";
                         /** @description The data for the event */
                         data: {
@@ -8022,6 +8178,26 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
                         /** @description The data for the event */
                         data: {
                             [key: string]: unknown;
@@ -8316,12 +8492,25 @@ export interface operations {
                         description: string;
                         /** @description JSON Schema definition for the function parameters */
                         parameters: {
-                            [key: string]: unknown;
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
                         };
                         /** @description The result of the function execution */
                         result?: {
                             /** @description The data returned by the function (can be any type) */
-                            data?: unknown;
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
                         };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
@@ -8430,6 +8619,17 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
                         type: "token";
                         /** @description The data for the event */
                         data: {
@@ -8483,6 +8683,26 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
                         /** @description The data for the event */
                         data: {
                             [key: string]: unknown;
