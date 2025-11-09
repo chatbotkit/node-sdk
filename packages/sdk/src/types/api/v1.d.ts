@@ -333,6 +333,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/channel/{channelId}/publish": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Publish a message to a channel
+         * @description Publish a message to a specific channel. The message will be broadcast
+         *     to all subscribers currently listening to this channel via the subscribe
+         *     endpoint.
+         *
+         */
+        post: operations["publishChannelMessage"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/channel/{channelId}/subscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Subscribe to channel messages
+         * @description Subscribe to a channel to receive real-time messages published to it.
+         *     This endpoint returns a streaming response that will continuously send
+         *     message events as they are published to the channel via the publish
+         *     endpoint. The connection remains open until the client closes it or
+         *     an error occurs.
+         *
+         */
+        post: operations["subscribeChannelMessages"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/contact/{contactId}/conversation/list": {
         parameters: {
             query?: never;
@@ -5543,6 +5591,90 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    publishChannelMessage: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                channelId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The message to publish to the channel */
+                    message: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The message was published successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the channel the message was published to */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    subscribeChannelMessages: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                channelId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description Successfully subscribed to channel messages */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "message";
+                        /** @description The message data published to the channel */
+                        data: string;
                     };
                 };
             };

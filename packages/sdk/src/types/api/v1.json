@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762689042129)"
+    "version": "v1 (build 1762690313785)"
   },
   "servers": [
     {
@@ -3083,6 +3083,160 @@
           }
         },
         "__originalOperationId": "listBots",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/channel/{channelId}/publish": {
+      "post": {
+        "operationId": "publishChannelMessage",
+        "summary": "Publish a message to a channel",
+        "description": "Publish a message to a specific channel. The message will be broadcast\nto all subscribers currently listening to this channel via the subscribe\nendpoint.\n",
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channelId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the channel to publish to (minimum 16 characters)",
+              "type": "string",
+              "minLength": 16
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "description": "The message to publish to the channel",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "message"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message was published successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the channel the message was published to",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "publishChannelMessage",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/channel/{channelId}/subscribe": {
+      "post": {
+        "operationId": "subscribeChannelMessages",
+        "summary": "Subscribe to channel messages",
+        "description": "Subscribe to a channel to receive real-time messages published to it.\nThis endpoint returns a streaming response that will continuously send\nmessage events as they are published to the channel via the publish\nendpoint. The connection remains open until the client closes it or\nan error occurs.\n",
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channelId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the channel to subscribe to (minimum 16 characters)",
+              "type": "string",
+              "minLength": 16
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully subscribed to channel messages",
+            "content": {
+              "application/jsonl": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "description": "The type of event",
+                      "type": "string",
+                      "enum": [
+                        "message"
+                      ]
+                    },
+                    "data": {
+                      "description": "The message data published to the channel",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "subscribeChannelMessages",
         "security": [
           {
             "BearerAuth": []
