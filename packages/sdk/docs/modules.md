@@ -13,6 +13,8 @@
 - [bot/session/v1](modules/bot_session_v1.md)
 - [bot/v1](modules/bot_v1.md)
 - [buffer](modules/buffer.md)
+- [channel](modules/channel.md)
+- [channel/v1](modules/channel_v1.md)
 - [client](modules/client.md)
 - [contact](modules/contact.md)
 - [contact/conversation](modules/contact_conversation.md)

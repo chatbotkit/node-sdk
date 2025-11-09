@@ -96,6 +96,26 @@
       "types": "./types/buffer.d.ts",
       "import": "./src/buffer.js"
     },
+    "./channel": {
+      "types": "./types/channel/index.d.ts",
+      "import": "./src/channel/index.js"
+    },
+    "./channel/index": {
+      "types": "./types/channel/index.d.ts",
+      "import": "./src/channel/index.js"
+    },
+    "./channel/index.js": {
+      "types": "./types/channel/index.d.ts",
+      "import": "./src/channel/index.js"
+    },
+    "./channel/v1": {
+      "types": "./types/channel/v1.d.ts",
+      "import": "./src/channel/v1.js"
+    },
+    "./channel/v1.js": {
+      "types": "./types/channel/v1.d.ts",
+      "import": "./src/channel/v1.js"
+    },
     "./client": {
       "types": "./types/client.d.ts",
       "import": "./src/client.js"

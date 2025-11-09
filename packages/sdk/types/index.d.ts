@@ -2,6 +2,7 @@ export class ChatBotKit extends ChatBotKitClient {
     platform: PlatformClient;
     blueprint: BlueprintClient;
     bot: BotClient;
+    channel: ChannelClient;
     file: FileClient;
     magic: MagicClient;
     partner: PartnerClient;
@@ -23,6 +24,7 @@ export class ChatBotKit extends ChatBotKitClient {
 export default ChatBotKit;
 import { BlueprintClient } from './blueprint/index.js';
 import { BotClient } from './bot/index.js';
+import { ChannelClient } from './channel/index.js';
 import { FileClient } from './file/index.js';
 import { MagicClient } from './magic/index.js';
 import { PartnerClient } from './partner/index.js';
@@ -42,4 +44,4 @@ import { UsageClient } from './usage/index.js';
 import { ChatBotKitClient } from './client.js';
 import { PlatformClient } from './platform/index.js';
 import { TaskClient } from './task/index.js';
-export { BlueprintClient, BotClient, FileClient, MagicClient, PartnerClient, DatasetClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, TeamClient, MemoryClient, PolicyClient, PortalClient, GraphqlClient, SpaceClient, UsageClient };
+export { BlueprintClient, BotClient, ChannelClient, FileClient, MagicClient, PartnerClient, DatasetClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, TeamClient, MemoryClient, PolicyClient, PortalClient, GraphqlClient, SpaceClient, UsageClient };

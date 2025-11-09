@@ -10,6 +10,8 @@
     "./src/bot/session/v1.js",
     "./src/bot/v1.js",
     "./src/buffer.js",
+    "./src/channel/index.js",
+    "./src/channel/v1.js",
     "./src/client.js",
     "./src/contact/conversation/index.js",
     "./src/contact/conversation/v1.js",
