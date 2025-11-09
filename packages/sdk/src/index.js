@@ -1,5 +1,6 @@
 import { BlueprintClient } from './blueprint/index.js'
 import { BotClient } from './bot/index.js'
+import { ChannelClient } from './channel/index.js'
 import { ChatBotKitClient } from './client.js'
 import { ContactClient } from './contact/index.js'
 import { ConversationClient } from './conversation/index.js'
@@ -22,6 +23,7 @@ import { UsageClient } from './usage/index.js'
 
 export { BlueprintClient }
 export { BotClient }
+export { ChannelClient }
 export { FileClient }
 export { MagicClient }
 export { PartnerClient }
@@ -49,6 +51,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.platform = new PlatformClient(options)
     this.blueprint = new BlueprintClient(options)
     this.bot = new BotClient(options)
+    this.channel = new ChannelClient(options)
     this.file = new FileClient(options)
     this.magic = new MagicClient(options)
     this.partner = new PartnerClient(options)
