@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762776783699)"
+    "version": "v1 (build 1762777995445)"
   },
   "servers": [
     {
@@ -26302,10 +26302,6 @@
                         "type": "string"
                       }
                     },
-                    "date": {
-                      "description": "The publication or update date of the doc",
-                      "type": "string"
-                    },
                     "index": {
                       "description": "The display order index",
                       "type": "number"
@@ -26438,10 +26434,6 @@
                               "type": "string"
                             }
                           },
-                          "date": {
-                            "description": "The publication or update date of the doc",
-                            "type": "string"
-                          },
                           "index": {
                             "description": "The display order index",
                             "type": "number"
@@ -26514,10 +26506,6 @@
                               "items": {
                                 "type": "string"
                               }
-                            },
-                            "date": {
-                              "description": "The publication or update date of the doc",
-                              "type": "string"
                             },
                             "index": {
                               "description": "The display order index",
@@ -26625,10 +26613,6 @@
                       "items": {
                         "type": "string"
                       }
-                    },
-                    "date": {
-                      "description": "The publication or update date of the manual",
-                      "type": "string"
                     },
                     "index": {
                       "description": "The display order index",
@@ -26762,10 +26746,6 @@
                               "type": "string"
                             }
                           },
-                          "date": {
-                            "description": "The publication or update date of the manual",
-                            "type": "string"
-                          },
                           "index": {
                             "description": "The display order index",
                             "type": "number"
@@ -26838,10 +26818,6 @@
                               "items": {
                                 "type": "string"
                               }
-                            },
-                            "date": {
-                              "description": "The publication or update date of the manual",
-                              "type": "string"
                             },
                             "index": {
                               "description": "The display order index",

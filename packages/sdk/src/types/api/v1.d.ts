@@ -16976,8 +16976,6 @@ export interface operations {
                         category?: string;
                         /** @description Tags associated with the doc */
                         tags?: string[];
-                        /** @description The publication or update date of the doc */
-                        date?: string;
                         /** @description The display order index */
                         index?: number;
                         /** @description The markdown content of the doc */
@@ -17042,8 +17040,6 @@ export interface operations {
                             category?: string;
                             /** @description Tags associated with the doc */
                             tags?: string[];
-                            /** @description The publication or update date of the doc */
-                            date?: string;
                             /** @description The display order index */
                             index?: number;
                         }[];
@@ -17074,8 +17070,6 @@ export interface operations {
                             category?: string;
                             /** @description Tags associated with the doc */
                             tags?: string[];
-                            /** @description The publication or update date of the doc */
-                            date?: string;
                             /** @description The display order index */
                             index?: number;
                         };
@@ -17129,8 +17123,6 @@ export interface operations {
                         category?: string;
                         /** @description Tags associated with the manual */
                         tags?: string[];
-                        /** @description The publication or update date of the manual */
-                        date?: string;
                         /** @description The display order index */
                         index?: number;
                         /** @description The markdown content of the manual */
@@ -17195,8 +17187,6 @@ export interface operations {
                             category?: string;
                             /** @description Tags associated with the manual */
                             tags?: string[];
-                            /** @description The publication or update date of the manual */
-                            date?: string;
                             /** @description The display order index */
                             index?: number;
                         }[];
@@ -17227,8 +17217,6 @@ export interface operations {
                             category?: string;
                             /** @description Tags associated with the manual */
                             tags?: string[];
-                            /** @description The publication or update date of the manual */
-                            date?: string;
                             /** @description The display order index */
                             index?: number;
                         };
