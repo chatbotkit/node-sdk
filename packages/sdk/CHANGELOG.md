@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.20.0
+
+### Minor Changes
+
+- 1fbe1f3: Expose missing API routes.
+
 ## 1.19.0
 
 ### Minor Changes
