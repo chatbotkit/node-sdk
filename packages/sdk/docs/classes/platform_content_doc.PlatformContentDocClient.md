@@ -46,7 +46,7 @@ Platform content doc client.
 
 #### Defined in
 
-platform/content/doc/index.js:17
+[platform/content/doc/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L17)
 
 ## Methods
 
@@ -116,7 +116,7 @@ Fetches a platform content doc.
 
 #### Defined in
 
-platform/content/doc/index.js:37
+[platform/content/doc/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L37)
 
 ___
 
@@ -138,4 +138,4 @@ Retrieves a list of all platform content docs.
 
 #### Defined in
 
-platform/content/doc/index.js:27
+[platform/content/doc/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L27)

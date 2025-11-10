@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762775886123)"
+    "version": "v1 (build 1762776783699)"
   },
   "servers": [
     {
@@ -26291,6 +26291,10 @@
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
                     },
+                    "category": {
+                      "description": "The category of the manual",
+                      "type": "string"
+                    },
                     "tags": {
                       "description": "Tags associated with the doc",
                       "type": "array",
@@ -26423,6 +26427,10 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "category": {
+                            "description": "The category of the doc",
+                            "type": "string"
+                          },
                           "tags": {
                             "description": "Tags associated with the doc",
                             "type": "array",
@@ -26495,6 +26503,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "category": {
+                              "description": "The category of the doc",
+                              "type": "string"
                             },
                             "tags": {
                               "description": "Tags associated with the doc",
@@ -26602,6 +26614,10 @@
                     "updatedAt": {
                       "type": "number",
                       "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "category": {
+                      "description": "The category of the manual",
+                      "type": "string"
                     },
                     "tags": {
                       "description": "Tags associated with the manual",
@@ -26735,6 +26751,10 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "category": {
+                            "description": "The category of the manual",
+                            "type": "string"
+                          },
                           "tags": {
                             "description": "Tags associated with the manual",
                             "type": "array",
@@ -26807,6 +26827,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "category": {
+                              "description": "The category of the manual",
+                              "type": "string"
                             },
                             "tags": {
                               "description": "Tags associated with the manual",

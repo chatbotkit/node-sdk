@@ -16972,6 +16972,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The category of the manual */
+                        category?: string;
                         /** @description Tags associated with the doc */
                         tags?: string[];
                         /** @description The publication or update date of the doc */
@@ -17036,6 +17038,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The category of the doc */
+                            category?: string;
                             /** @description Tags associated with the doc */
                             tags?: string[];
                             /** @description The publication or update date of the doc */
@@ -17066,6 +17070,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The category of the doc */
+                            category?: string;
                             /** @description Tags associated with the doc */
                             tags?: string[];
                             /** @description The publication or update date of the doc */
@@ -17119,6 +17125,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The category of the manual */
+                        category?: string;
                         /** @description Tags associated with the manual */
                         tags?: string[];
                         /** @description The publication or update date of the manual */
@@ -17183,6 +17191,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The category of the manual */
+                            category?: string;
                             /** @description Tags associated with the manual */
                             tags?: string[];
                             /** @description The publication or update date of the manual */
@@ -17213,6 +17223,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The category of the manual */
+                            category?: string;
                             /** @description Tags associated with the manual */
                             tags?: string[];
                             /** @description The publication or update date of the manual */

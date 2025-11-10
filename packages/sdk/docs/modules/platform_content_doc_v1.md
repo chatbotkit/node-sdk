@@ -27,7 +27,7 @@
 
 #### Defined in
 
-platform/content/doc/v1.js:2
+[platform/content/doc/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L2)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-platform/content/doc/v1.js:39
+[platform/content/doc/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L39)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-platform/content/doc/v1.js:21
+[platform/content/doc/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L21)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-platform/content/doc/v1.js:17
+[platform/content/doc/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L17)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-platform/content/doc/v1.js:19
+[platform/content/doc/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L19)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-platform/content/doc/v1.js:23
+[platform/content/doc/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L23)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-platform/content/doc/v1.js:8
+[platform/content/doc/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L8)
 
 ## Functions
 
@@ -124,7 +124,7 @@ platform/content/doc/v1.js:8
 
 #### Defined in
 
-platform/content/doc/v1.js:45
+[platform/content/doc/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L45)
 
 ___
 
@@ -145,4 +145,4 @@ ___
 
 #### Defined in
 
-platform/content/doc/v1.js:29
+[platform/content/doc/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L29)
