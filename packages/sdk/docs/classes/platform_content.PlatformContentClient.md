@@ -1,41 +1,37 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [platform](../modules/platform.md) / PlatformClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [platform/content](../modules/platform_content.md) / PlatformContentClient
 
-# Class: PlatformClient
+# Class: PlatformContentClient
 
-[platform](../modules/platform.md).PlatformClient
+[platform/content](../modules/platform_content.md).PlatformContentClient
 
-Platform client.
+Platform content client.
 
 ## Hierarchy
 
 - [`ChatBotKitClient`](client.ChatBotKitClient.md)
 
-  ↳ **`PlatformClient`**
+  ↳ **`PlatformContentClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](platform.PlatformClient.md#constructor)
+- [constructor](platform_content.PlatformContentClient.md#constructor)
 
 ### Properties
 
-- [ability](platform.PlatformClient.md#ability)
-- [action](platform.PlatformClient.md#action)
-- [content](platform.PlatformClient.md#content)
-- [example](platform.PlatformClient.md#example)
-- [model](platform.PlatformClient.md#model)
-- [secrets](platform.PlatformClient.md#secrets)
+- [doc](platform_content.PlatformContentClient.md#doc)
+- [manual](platform_content.PlatformContentClient.md#manual)
 
 ### Methods
 
-- [clientFetch](platform.PlatformClient.md#clientfetch)
+- [clientFetch](platform_content.PlatformContentClient.md#clientfetch)
 
 ## Constructors
 
 ### constructor
 
-• **new PlatformClient**(`options`): [`PlatformClient`](platform.PlatformClient.md)
+• **new PlatformContentClient**(`options`): [`PlatformContentClient`](platform_content.PlatformContentClient.md)
 
 #### Parameters
 
@@ -45,7 +41,7 @@ Platform client.
 
 #### Returns
 
-[`PlatformClient`](platform.PlatformClient.md)
+[`PlatformContentClient`](platform_content.PlatformContentClient.md)
 
 #### Overrides
 
@@ -53,71 +49,27 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L16)
+[platform/content/index.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/index.js#L12)
 
 ## Properties
 
-### ability
+### doc
 
-• **ability**: [`PlatformAbilityClient`](platform_ability.PlatformAbilityClient.md)
+• **doc**: [`PlatformContentDocClient`](platform_content_doc.PlatformContentDocClient.md)
 
 #### Defined in
 
-[platform/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L27)
+[platform/content/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/index.js#L18)
 
 ___
 
-### action
+### manual
 
-• **action**: [`PlatformActionClient`](platform_action.PlatformActionClient.md)
-
-#### Defined in
-
-[platform/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L32)
-
-___
-
-### content
-
-• **content**: [`PlatformContentClient`](platform_content.PlatformContentClient.md)
+• **manual**: [`PlatformContentManualClient`](platform_content_manual.PlatformContentManualClient.md)
 
 #### Defined in
 
-[platform/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L37)
-
-___
-
-### example
-
-• **example**: [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
-
-#### Defined in
-
-[platform/index.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L48)
-
-___
-
-### model
-
-• **model**: [`PlatformModelClient`](platform_model.PlatformModelClient.md)
-
-#### Defined in
-
-[platform/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L22)
-
-___
-
-### secrets
-
-• **secrets**: [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
-
-**`Note`**
-
-overlapping name with the `secret` property
-
-#### Defined in
-
-[platform/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L43)
+[platform/content/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/index.js#L23)
 
 ## Methods
 

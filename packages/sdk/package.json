@@ -864,6 +864,26 @@
       "types": "./types/platform/action/v1.d.ts",
       "import": "./src/platform/action/v1.js"
     },
+    "./platform/content/doc": {
+      "types": "./types/platform/content/doc/index.d.ts",
+      "import": "./src/platform/content/doc/index.js"
+    },
+    "./platform/content/doc/index": {
+      "types": "./types/platform/content/doc/index.d.ts",
+      "import": "./src/platform/content/doc/index.js"
+    },
+    "./platform/content/doc/index.js": {
+      "types": "./types/platform/content/doc/index.d.ts",
+      "import": "./src/platform/content/doc/index.js"
+    },
+    "./platform/content/doc/v1": {
+      "types": "./types/platform/content/doc/v1.d.ts",
+      "import": "./src/platform/content/doc/v1.js"
+    },
+    "./platform/content/doc/v1.js": {
+      "types": "./types/platform/content/doc/v1.d.ts",
+      "import": "./src/platform/content/doc/v1.js"
+    },
     "./platform/content": {
       "types": "./types/platform/content/index.d.ts",
       "import": "./src/platform/content/index.js"

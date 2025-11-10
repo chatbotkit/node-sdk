@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../../client.js'
+import { PlatformContentDocClient } from './doc/index.js'
 import { PlatformContentManualClient } from './manual/index.js'
 
 /**
@@ -10,6 +11,11 @@ export class PlatformContentClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    /**
+     * @type {PlatformContentDocClient} doc client
+     */
+    this.doc = new PlatformContentDocClient(options)
 
     /**
      * @type {PlatformContentManualClient} manual client

@@ -86,6 +86,12 @@
 
   ↳ [`PlatformActionClient`](platform_action.PlatformActionClient.md)
 
+  ↳ [`PlatformContentDocClient`](platform_content_doc.PlatformContentDocClient.md)
+
+  ↳ [`PlatformContentClient`](platform_content.PlatformContentClient.md)
+
+  ↳ [`PlatformContentManualClient`](platform_content_manual.PlatformContentManualClient.md)
+
   ↳ [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
 
   ↳ [`PlatformClient`](platform.PlatformClient.md)

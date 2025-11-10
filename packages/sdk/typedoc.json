@@ -87,6 +87,8 @@
     "./src/platform/ability/v1.js",
     "./src/platform/action/index.js",
     "./src/platform/action/v1.js",
+    "./src/platform/content/doc/index.js",
+    "./src/platform/content/doc/v1.js",
     "./src/platform/content/index.js",
     "./src/platform/content/manual/index.js",
     "./src/platform/content/manual/v1.js",
