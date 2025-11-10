@@ -8,6 +8,7 @@
  */
 export class ContactClient extends ChatBotKitClient {
     task: TaskClient;
+    space: SpaceClient;
     conversation: ConversationClient;
     secrets: SecretClient;
     /**
@@ -58,5 +59,6 @@ export default ContactClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../client.js';
 import { TaskClient } from './task/index.js';
+import { SpaceClient } from './space/index.js';
 import { ConversationClient } from './conversation/index.js';
 import { SecretClient } from './secret/index.js';

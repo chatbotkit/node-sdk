@@ -333,6 +333,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/channel/{channelId}/publish": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Publish a message to a channel
+         * @description Publish a message to a specific channel. The message will be broadcast
+         *     to all subscribers currently listening to this channel via the
+         *     subscribe endpoint.
+         *
+         */
+        post: operations["publishChannelMessage"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/channel/{channelId}/subscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Subscribe to channel messages
+         * @description Subscribe to a channel to receive real-time messages published to it.
+         *     This endpoint returns a streaming response that will continuously send
+         *     message events as they are published to the channel via the publish
+         *     endpoint. The connection remains open until the client closes it or
+         *     an error occurs.
+         *
+         */
+        post: operations["subscribeChannelMessages"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/contact/{contactId}/conversation/list": {
         parameters: {
             query?: never;
@@ -478,6 +526,23 @@ export interface paths {
         };
         /** List contact secrets */
         get: operations["listContactSecrets"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/contact/{contactId}/space/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List contact spaces */
+        get: operations["listContactSpaces"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3174,6 +3239,96 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/content/doc/{docId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch a specific platform doc
+         * @description Retrieves the complete content and metadata of a specific doc. This
+         *     includes the markdown content and all associated frontmatter.
+         *
+         */
+        get: operations["fetchPlatformContentDoc"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/doc/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a list of platform docs
+         * @description Returns a list of available documentation docs with their metadata. The
+         *     docs provide comprehensive guides and documentation for various
+         *     ChatBotKit features and concepts.
+         *
+         */
+        get: operations["listPlatformContentDocs"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/manual/{manualId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch a specific platform manual
+         * @description Retrieves the complete content and metadata of a specific manual. This
+         *     includes the markdown content and all associated frontmatter.
+         *
+         */
+        get: operations["fetchPlatformContentManual"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/manual/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a list of platform manuals
+         * @description Returns a list of available documentation manuals with their metadata.
+         *     The manuals provide comprehensive guides and documentation for various
+         *     ChatBotKit features and concepts.
+         *
+         */
+        get: operations["listPlatformContentManuals"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/example/{exampleId}/clone": {
         parameters: {
             query?: never;
@@ -3336,6 +3491,91 @@ export interface paths {
         };
         /** Retrieve a list of policies */
         get: operations["listPolicies"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/{portalId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete a portal */
+        post: operations["deletePortal"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/{portalId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a portal */
+        get: operations["fetchPortal"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/{portalId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update portal */
+        post: operations["updatePortal"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create portal */
+        post: operations["createPortal"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/portal/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of portals */
+        get: operations["listPortals"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3667,6 +3907,95 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/space/{spaceId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch space */
+        get: operations["fetchSpace"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update space */
+        post: operations["updateSpace"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create a new space
+         * @description Create a new space with the given parameters.
+         *
+         */
+        post: operations["createSpace"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export spaces */
+        get: operations["exportSpaces"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List spaces */
+        get: operations["listSpaces"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/task/{taskId}/delete": {
         parameters: {
             query?: never;
@@ -3904,6 +4233,11 @@ export interface components {
          */
         Schedule: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
         /**
+         * @description The blueprint visibility
+         * @enum {string}
+         */
+        BlueprintVisibility: "private" | "protected" | "public";
+        /**
          * @description The bot visibility
          * @enum {string}
          */
@@ -4084,6 +4418,211 @@ export interface components {
             createdAt: number;
             /** @description The timestamp (ms) when the instance was updated */
             updatedAt: number;
+        };
+        /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
+        JsonSchemaObject: {
+            /**
+             * @description The schema type, must be "object"
+             * @enum {string}
+             */
+            type: "object";
+            /** @description The schema title */
+            title?: string;
+            /** @description The schema description */
+            description?: string;
+            /** @description Object property definitions */
+            properties: {
+                [key: string]: unknown;
+            };
+            /** @description Required property names */
+            required?: string[];
+        };
+        /** @description An array of functions to be added to the conversation */
+        FunctionsDefinition: {
+            /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+            name: string;
+            /** @description The description of the function */
+            description: string;
+            /** @description JSON Schema definition for the function parameters */
+            parameters: {
+                /**
+                 * @description The schema type, must be "object"
+                 * @enum {string}
+                 */
+                type: "object";
+                /** @description Object property definitions */
+                properties: {
+                    [key: string]: unknown;
+                };
+                /** @description Required property names */
+                required?: string[];
+            };
+            /** @description The result of the function execution */
+            result?: {
+                /** @description The data returned by the function (can be any type) */
+                data: unknown;
+            } | {
+                /** @description The channel for streaming function results */
+                channel: string;
+            };
+        }[];
+        /** @description Extensions to enhance the bot's capabilities */
+        ExtensionsDefinition: {
+            /** @description Additional backstory for the bot */
+            backstory?: string;
+            /** @description Inline datasets to provide additional context */
+            datasets?: {
+                /** @description The name of the dataset */
+                name?: string;
+                /** @description The description of the dataset */
+                description?: string;
+                /** @description The records in the dataset */
+                records: {
+                    /** @description The text content of the record */
+                    text: string;
+                    /** @description Additional metadata for the record */
+                    meta?: Record<string, never>;
+                }[];
+            }[];
+            /** @description Inline skillsets to provide additional abilities */
+            skillsets?: {
+                /** @description The name of the skillset */
+                name?: string;
+                /** @description The description of the skillset */
+                description?: string;
+                /** @description The abilities in the skillset */
+                abilities: {
+                    /** @description The name of the ability */
+                    name: string;
+                    /** @description The description of the ability */
+                    description: string;
+                    /** @description The instruction for the ability */
+                    instruction: string;
+                    /** @description Optional secret ID for the ability */
+                    secretId?: string;
+                    /** @description Additional metadata for the ability */
+                    meta?: Record<string, never>;
+                }[];
+            }[];
+            /** @description Feature flags to enable specific bot capabilities */
+            features?: {
+                /** @description The name of the feature to enable */
+                name: string;
+                /** @description Optional configuration options for the feature */
+                options?: {
+                    [key: string]: unknown;
+                };
+            }[];
+        };
+        /** @description An item in the streaming completion response */
+        CompleteStreamingResponseItem: {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "error";
+            /** @description The data for the event */
+            data: {
+                /** @description The error message */
+                message: string;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "token";
+            /** @description The data for the event */
+            data: {
+                /** @description The token generated */
+                token: string;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "reasoningToken";
+            /** @description The data for the event */
+            data: {
+                /** @description The token generated */
+                token: string;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "message";
+            /** @description A message in the conversation */
+            data: {
+                /**
+                 * @description The type of the message
+                 * @enum {string}
+                 */
+                type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                /** @description The text of the message */
+                text: string;
+                /** @description Meta data information */
+                meta?: {
+                    [key: string]: unknown;
+                };
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "completeBegin";
+            /** @description The data for the event */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "completeEnd";
+            /** @description The data for the event */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "waitForChannelMessageBegin";
+            /** @description The data for the event */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "waitForChannelMessageEnd";
+            /** @description The data for the event */
+            data: {
+                [key: string]: unknown;
+            };
+        } | {
+            /**
+             * @description The type of event
+             * @enum {string}
+             */
+            type: "usage";
+            /** @description The data for the event */
+            data: {
+                /** @description The model used */
+                model: string;
+                /** @description The number of input tokens used */
+                inputTokensUsed: number;
+                /** @description The number of output tokens used */
+                outputTokensUsed: number;
+            };
         };
     };
     responses: {
@@ -4268,6 +4807,11 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /**
+                         * @description The blueprint visibility
+                         * @enum {string}
+                         */
+                        visibility?: "private" | "protected" | "public";
                     };
                 };
             };
@@ -4338,6 +4882,11 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The blueprint visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -4383,6 +4932,11 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /**
+                     * @description The blueprint visibility
+                     * @enum {string}
+                     */
+                    visibility?: "private" | "protected" | "public";
                 };
             };
         };
@@ -4445,6 +4999,11 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /**
+                             * @description The blueprint visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         }[];
                     };
                     "application/jsonl": {
@@ -4469,6 +5028,11 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /**
+                             * @description The blueprint visibility
+                             * @enum {string}
+                             */
+                            visibility?: "private" | "protected" | "public";
                         };
                     };
                 };
@@ -5131,6 +5695,90 @@ export interface operations {
             };
         };
     };
+    publishChannelMessage: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                channelId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The message to publish to the channel */
+                    message: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The message was published successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the channel the message was published to */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    subscribeChannelMessages: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                channelId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description Successfully subscribed to channel messages */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "message";
+                        /** @description The message data published to the channel */
+                        data: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     listContactConversations: {
         parameters: {
             query?: {
@@ -5676,6 +6324,86 @@ export interface operations {
                             updatedAt: number;
                             /** @description The type of the secret */
                             type: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listContactSpaces: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                contactId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of contacts was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact id assigned to this rating */
+                            contactId?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact id assigned to this rating */
+                            contactId?: string;
                         };
                     };
                 };
@@ -6255,11 +6983,88 @@ export interface operations {
                             text: string;
                         };
                     }[];
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters: {
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
                 };
             };
         };
         responses: {
-            /** @description The message was received successfully */
+            /** @description The next message in the conversation completed successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -6293,6 +7098,39 @@ export interface operations {
                                 token: number;
                             };
                         };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
                     } | {
                         /**
                          * @description The type of event
@@ -6318,13 +7156,57 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "token";
+                        type: "completeBegin";
                         /** @description The data for the event */
                         data: {
-                            /** @description The token generated */
-                            token: string;
+                            [key: string]: unknown;
                         };
-                    };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
                 };
             };
             /** @description An error response */
@@ -6358,10 +7240,14 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The fingerprint of the contact */
+                    fingerprint?: string;
                     /** @description The email address of the contact */
                     email?: string;
                     /** @description The phone number of the contact */
                     phone?: string;
+                    /** @description The nickname of the contact */
+                    nick?: string;
                 };
             };
         };
@@ -7035,7 +7921,85 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": Record<string, never>;
+                "application/json": {
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters: {
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
+                };
             };
         };
         responses: {
@@ -7061,8 +8025,8 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "result";
-                        data: {
+                        type?: "result";
+                        data?: {
                             /** @description The ID of the created message */
                             id: string;
                             /** @description The text of the message received */
@@ -7072,6 +8036,39 @@ export interface operations {
                                 /** @description The tokens used in this exchange */
                                 token: number;
                             };
+                        };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
                         };
                     } | {
                         /**
@@ -7098,13 +8095,57 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "token";
+                        type: "completeBegin";
                         /** @description The data for the event */
                         data: {
-                            /** @description The token generated */
-                            token: string;
+                            [key: string]: unknown;
                         };
-                    };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
                 };
             };
             /** @description An error response */
@@ -7151,6 +8192,83 @@ export interface operations {
                             text: string;
                         };
                     }[];
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters: {
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
                 };
             };
         };
@@ -7213,7 +8331,115 @@ export interface operations {
                                 };
                             }[];
                         };
-                    };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "message";
+                        /** @description A message in the conversation */
+                        data: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
                 };
             };
             /** @description An error response */
@@ -7456,6 +8682,107 @@ export interface operations {
                             [key: string]: unknown;
                         };
                     }[];
+                    /** @description An array of attachments to be added to the conversation */
+                    attachments?: {
+                        /** @description The URL of the attachment */
+                        url?: string;
+                    }[];
+                    /** @description The contact ID to associate with this conversation */
+                    contactId?: string | {
+                        /** @description A unique fingerprint to identify the contact */
+                        fingerprint: string;
+                        /** @description The name of the contact */
+                        name?: string;
+                        /** @description A description of the contact */
+                        description?: string;
+                        /** @description The email address of the contact */
+                        email?: string;
+                        /** @description The phone number of the contact */
+                        phone?: string;
+                        /** @description A nickname for the contact */
+                        nick?: string;
+                        /** @description Additional metadata for the contact */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                    };
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters: {
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -7486,7 +8813,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        /** @description The next bot message */
+                        /** @description The text of the message received */
                         text: string;
                         /** @description Usage information */
                         usage: {
@@ -7501,13 +8828,46 @@ export interface operations {
                          */
                         type: "result";
                         data: {
-                            /** @description The next bot message */
+                            /** @description The text of the message received */
                             text: string;
                             /** @description Usage information */
                             usage: {
                                 /** @description The tokens used in this exchange */
                                 token: number;
                             };
+                        };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
                         };
                     } | {
                         /**
@@ -7534,13 +8894,57 @@ export interface operations {
                          * @description The type of event
                          * @enum {string}
                          */
-                        type: "token";
+                        type: "completeBegin";
                         /** @description The data for the event */
                         data: {
-                            /** @description The token generated */
-                            token: string;
+                            [key: string]: unknown;
                         };
-                    };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
                 };
             };
             /** @description An error response */
@@ -15377,16 +16781,27 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The parameters available for the ability */
-                            parameters: {
-                                /** @description The name of the parameter */
-                                name: string;
-                                /** @description The description of the parameter */
-                                description: string;
-                                /** @description The operand type of the parameter */
-                                operand?: string;
-                                required?: boolean;
-                            }[];
+                            icon: string;
+                            /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
+                            schema: {
+                                /**
+                                 * @description The schema type, must be "object"
+                                 * @enum {string}
+                                 */
+                                type: "object";
+                                /** @description The schema title */
+                                title?: string;
+                                /** @description The schema description */
+                                description?: string;
+                                /** @description Object property definitions */
+                                properties: {
+                                    [key: string]: unknown;
+                                };
+                                /** @description Required property names */
+                                required?: string[];
+                            };
+                            setup?: string;
+                            commentary?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -15411,16 +16826,27 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The parameters available for the ability */
-                            parameters: {
-                                /** @description The name of the parameter */
-                                name: string;
-                                /** @description The description of the parameter */
-                                description: string;
-                                /** @description The operand type of the parameter */
-                                operand?: string;
-                                required?: boolean;
-                            }[];
+                            icon: string;
+                            /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
+                            schema: {
+                                /**
+                                 * @description The schema type, must be "object"
+                                 * @enum {string}
+                                 */
+                                type: "object";
+                                /** @description The schema title */
+                                title?: string;
+                                /** @description The schema description */
+                                description?: string;
+                                /** @description Object property definitions */
+                                properties: {
+                                    [key: string]: unknown;
+                                };
+                                /** @description Required property names */
+                                required?: string[];
+                            };
+                            setup?: string;
+                            commentary?: string;
                         };
                     };
                 };
@@ -15499,6 +16925,300 @@ export interface operations {
                             updatedAt: number;
                             /** @description Example demonstrating the action usage */
                             examples: string[];
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchPlatformContentDoc: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                docId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The doc was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The category of the manual */
+                        category?: string;
+                        /** @description Tags associated with the doc */
+                        tags?: string[];
+                        /** @description The display order index */
+                        index?: number;
+                        /** @description The markdown content of the doc */
+                        content: string;
+                    };
+                };
+            };
+            /** @description Doc not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPlatformContentDocs: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of docs was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the doc */
+                            category?: string;
+                            /** @description Tags associated with the doc */
+                            tags?: string[];
+                            /** @description The display order index */
+                            index?: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the doc */
+                            category?: string;
+                            /** @description Tags associated with the doc */
+                            tags?: string[];
+                            /** @description The display order index */
+                            index?: number;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchPlatformContentManual: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                manualId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The manual was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The category of the manual */
+                        category?: string;
+                        /** @description Tags associated with the manual */
+                        tags?: string[];
+                        /** @description The display order index */
+                        index?: number;
+                        /** @description The markdown content of the manual */
+                        content: string;
+                    };
+                };
+            };
+            /** @description Manual not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPlatformContentManuals: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of manuals was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the manual */
+                            category?: string;
+                            /** @description Tags associated with the manual */
+                            tags?: string[];
+                            /** @description The display order index */
+                            index?: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the manual */
+                            category?: string;
+                            /** @description Tags associated with the manual */
+                            tags?: string[];
+                            /** @description The display order index */
+                            index?: number;
                         };
                     };
                 };
@@ -16180,6 +17900,296 @@ export interface operations {
                              */
                             type: "retention";
                             /** @description The policy configuration as JSON */
+                            config?: {
+                                [key: string]: unknown;
+                            };
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    deletePortal: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                portalId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The portal was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted portal */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchPortal: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                portalId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The portal was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The slug of the portal */
+                        slug?: string;
+                        /** @description The config of the portal */
+                        config?: {
+                            [key: string]: unknown;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    updatePortal: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                portalId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The slug for the portal */
+                    slug?: string;
+                    /** @description The config for the portal */
+                    config?: {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description The portal was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated portal */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    createPortal: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The slug of the portal */
+                    slug?: string;
+                    /** @description The config of the portal */
+                    config?: {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description The portal was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created portal */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPortals: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of portals was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The slug of the portal */
+                            slug?: string;
+                            /** @description The config of the portal */
+                            config?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The slug of the portal */
+                            slug?: string;
+                            /** @description The config of the portal */
                             config?: {
                                 [key: string]: unknown;
                             };
@@ -17357,6 +19367,307 @@ export interface operations {
                              * @enum {string}
                              */
                             visibility?: "private" | "protected" | "public";
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchSpace: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The space was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The contact associated with the space */
+                        contactId?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    updateSpace: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The contact associated with the space */
+                    contactId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The space was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the updated space */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    createSpace: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The contact associated with the space */
+                    contactId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The space was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created space */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    exportSpaces: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of spaces was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the space */
+                            contactId?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the space */
+                            contactId?: string;
+                        };
+                    };
+                    "text/csv": string;
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listSpaces: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of spaces was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the space */
+                            contactId?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The contact associated with the space */
+                            contactId?: string;
                         };
                     };
                 };

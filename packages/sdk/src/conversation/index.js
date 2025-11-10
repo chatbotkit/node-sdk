@@ -118,9 +118,10 @@ export class ConversationClient extends ChatBotKitClient {
    *
    * @param {null|string} conversationId
    * @param {import('./v1.js').ConversationCompleteRequest|import('./v1.js').ConversationCompleteMessageRequest} request
+   * @returns {ResponsePromise<import('./v1.js').ConversationCompleteResponse|import('./v1.js').ConversationCompleteMessageResponse,import('./v1.js').ConversationCompleteStreamType|import('./v1.js').ConversationCompleteMessageStreamType>}
    */
   complete(conversationId, request) {
-    if (!conversationId) {
+    if (conversationId === null) {
       return completeConversation(
         this,
         /** @type {import('./v1.js').ConversationCompleteRequest} */ (request)

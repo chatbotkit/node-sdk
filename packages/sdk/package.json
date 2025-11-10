@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/sdk",
-  "version": "1.19.0",
+  "version": "1.20.0",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
@@ -96,6 +96,26 @@
       "types": "./types/buffer.d.ts",
       "import": "./src/buffer.js"
     },
+    "./channel": {
+      "types": "./types/channel/index.d.ts",
+      "import": "./src/channel/index.js"
+    },
+    "./channel/index": {
+      "types": "./types/channel/index.d.ts",
+      "import": "./src/channel/index.js"
+    },
+    "./channel/index.js": {
+      "types": "./types/channel/index.d.ts",
+      "import": "./src/channel/index.js"
+    },
+    "./channel/v1": {
+      "types": "./types/channel/v1.d.ts",
+      "import": "./src/channel/v1.js"
+    },
+    "./channel/v1.js": {
+      "types": "./types/channel/v1.d.ts",
+      "import": "./src/channel/v1.js"
+    },
     "./client": {
       "types": "./types/client.d.ts",
       "import": "./src/client.js"
@@ -155,6 +175,26 @@
     "./contact/secret/v1.js": {
       "types": "./types/contact/secret/v1.d.ts",
       "import": "./src/contact/secret/v1.js"
+    },
+    "./contact/space": {
+      "types": "./types/contact/space/index.d.ts",
+      "import": "./src/contact/space/index.js"
+    },
+    "./contact/space/index": {
+      "types": "./types/contact/space/index.d.ts",
+      "import": "./src/contact/space/index.js"
+    },
+    "./contact/space/index.js": {
+      "types": "./types/contact/space/index.d.ts",
+      "import": "./src/contact/space/index.js"
+    },
+    "./contact/space/v1": {
+      "types": "./types/contact/space/v1.d.ts",
+      "import": "./src/contact/space/v1.js"
+    },
+    "./contact/space/v1.js": {
+      "types": "./types/contact/space/v1.d.ts",
+      "import": "./src/contact/space/v1.js"
     },
     "./contact/task": {
       "types": "./types/contact/task/index.d.ts",
@@ -824,6 +864,58 @@
       "types": "./types/platform/action/v1.d.ts",
       "import": "./src/platform/action/v1.js"
     },
+    "./platform/content/doc": {
+      "types": "./types/platform/content/doc/index.d.ts",
+      "import": "./src/platform/content/doc/index.js"
+    },
+    "./platform/content/doc/index": {
+      "types": "./types/platform/content/doc/index.d.ts",
+      "import": "./src/platform/content/doc/index.js"
+    },
+    "./platform/content/doc/index.js": {
+      "types": "./types/platform/content/doc/index.d.ts",
+      "import": "./src/platform/content/doc/index.js"
+    },
+    "./platform/content/doc/v1": {
+      "types": "./types/platform/content/doc/v1.d.ts",
+      "import": "./src/platform/content/doc/v1.js"
+    },
+    "./platform/content/doc/v1.js": {
+      "types": "./types/platform/content/doc/v1.d.ts",
+      "import": "./src/platform/content/doc/v1.js"
+    },
+    "./platform/content": {
+      "types": "./types/platform/content/index.d.ts",
+      "import": "./src/platform/content/index.js"
+    },
+    "./platform/content/index": {
+      "types": "./types/platform/content/index.d.ts",
+      "import": "./src/platform/content/index.js"
+    },
+    "./platform/content/index.js": {
+      "types": "./types/platform/content/index.d.ts",
+      "import": "./src/platform/content/index.js"
+    },
+    "./platform/content/manual": {
+      "types": "./types/platform/content/manual/index.d.ts",
+      "import": "./src/platform/content/manual/index.js"
+    },
+    "./platform/content/manual/index": {
+      "types": "./types/platform/content/manual/index.d.ts",
+      "import": "./src/platform/content/manual/index.js"
+    },
+    "./platform/content/manual/index.js": {
+      "types": "./types/platform/content/manual/index.d.ts",
+      "import": "./src/platform/content/manual/index.js"
+    },
+    "./platform/content/manual/v1": {
+      "types": "./types/platform/content/manual/v1.d.ts",
+      "import": "./src/platform/content/manual/v1.js"
+    },
+    "./platform/content/manual/v1.js": {
+      "types": "./types/platform/content/manual/v1.d.ts",
+      "import": "./src/platform/content/manual/v1.js"
+    },
     "./platform/example": {
       "types": "./types/platform/example/index.d.ts",
       "import": "./src/platform/example/index.js"
@@ -924,6 +1016,26 @@
       "types": "./types/policy/v1.d.ts",
       "import": "./src/policy/v1.js"
     },
+    "./portal": {
+      "types": "./types/portal/index.d.ts",
+      "import": "./src/portal/index.js"
+    },
+    "./portal/index": {
+      "types": "./types/portal/index.d.ts",
+      "import": "./src/portal/index.js"
+    },
+    "./portal/index.js": {
+      "types": "./types/portal/index.d.ts",
+      "import": "./src/portal/index.js"
+    },
+    "./portal/v1": {
+      "types": "./types/portal/v1.d.ts",
+      "import": "./src/portal/v1.js"
+    },
+    "./portal/v1.js": {
+      "types": "./types/portal/v1.d.ts",
+      "import": "./src/portal/v1.js"
+    },
     "./secret": {
       "types": "./types/secret/index.d.ts",
       "import": "./src/secret/index.js"
@@ -983,6 +1095,26 @@
     "./skillset/v1.js": {
       "types": "./types/skillset/v1.d.ts",
       "import": "./src/skillset/v1.js"
+    },
+    "./space": {
+      "types": "./types/space/index.d.ts",
+      "import": "./src/space/index.js"
+    },
+    "./space/index": {
+      "types": "./types/space/index.d.ts",
+      "import": "./src/space/index.js"
+    },
+    "./space/index.js": {
+      "types": "./types/space/index.d.ts",
+      "import": "./src/space/index.js"
+    },
+    "./space/v1": {
+      "types": "./types/space/v1.d.ts",
+      "import": "./src/space/v1.js"
+    },
+    "./space/v1.js": {
+      "types": "./types/space/v1.d.ts",
+      "import": "./src/space/v1.js"
     },
     "./task": {
       "types": "./types/task/index.d.ts",

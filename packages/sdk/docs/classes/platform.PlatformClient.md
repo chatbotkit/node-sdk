@@ -22,6 +22,7 @@ Platform client.
 
 - [ability](platform.PlatformClient.md#ability)
 - [action](platform.PlatformClient.md#action)
+- [content](platform.PlatformClient.md#content)
 - [example](platform.PlatformClient.md#example)
 - [model](platform.PlatformClient.md#model)
 - [secrets](platform.PlatformClient.md#secrets)
@@ -52,7 +53,7 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L15)
+[platform/index.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L16)
 
 ## Properties
 
@@ -62,7 +63,7 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L26)
+[platform/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L27)
 
 ___
 
@@ -72,7 +73,17 @@ ___
 
 #### Defined in
 
-[platform/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L31)
+[platform/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L32)
+
+___
+
+### content
+
+• **content**: [`PlatformContentClient`](platform_content.PlatformContentClient.md)
+
+#### Defined in
+
+[platform/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L37)
 
 ___
 
@@ -82,7 +93,7 @@ ___
 
 #### Defined in
 
-[platform/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L42)
+[platform/index.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L48)
 
 ___
 
@@ -92,7 +103,7 @@ ___
 
 #### Defined in
 
-[platform/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L21)
+[platform/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L22)
 
 ___
 
@@ -106,7 +117,7 @@ overlapping name with the `secret` property
 
 #### Defined in
 
-[platform/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L37)
+[platform/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L43)
 
 ## Methods
 

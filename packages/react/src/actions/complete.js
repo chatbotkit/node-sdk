@@ -79,7 +79,7 @@ import { getRandomId } from '../utils/string.js'
  *   client: import('@chatbotkit/sdk').ConversationClient,
  *   messages: InputMessage[],
  *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
- *   maxRecusion?: number,
+ *   maxRecursion?: number,
  *   onItem?: OnItemHandler,
  *   onStart?: OnStartHandler,
  *   onFinish?: OnFinishHandler
@@ -100,13 +100,13 @@ async function* complete({
   messages,
   functions,
 
-  maxRecusion = 50,
+  maxRecursion = 50,
 
   ...options
 }) {
   // Bail out if we have reached the maximum recusion depth.
 
-  if (maxRecusion <= 0) {
+  if (maxRecursion <= 0) {
     return
   }
 
@@ -378,7 +378,7 @@ async function* complete({
                 messages,
                 functions,
 
-                maxRecusion: maxRecusion - 1,
+                maxRecursion: maxRecursion - 1,
               })
             }
           }

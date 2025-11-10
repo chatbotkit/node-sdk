@@ -14,11 +14,15 @@
 
   ↳ [`BotSessionClient`](bot_session.BotSessionClient.md)
 
+  ↳ [`ChannelClient`](channel.ChannelClient.md)
+
   ↳ [`ConversationClient`](contact_conversation.ConversationClient.md)
 
   ↳ [`ContactClient`](contact.ContactClient.md)
 
   ↳ [`SecretClient`](contact_secret.SecretClient.md)
+
+  ↳ [`SpaceClient`](contact_space.SpaceClient.md)
 
   ↳ [`TaskClient`](contact_task.TaskClient.md)
 
@@ -82,6 +86,12 @@
 
   ↳ [`PlatformActionClient`](platform_action.PlatformActionClient.md)
 
+  ↳ [`PlatformContentDocClient`](platform_content_doc.PlatformContentDocClient.md)
+
+  ↳ [`PlatformContentClient`](platform_content.PlatformContentClient.md)
+
+  ↳ [`PlatformContentManualClient`](platform_content_manual.PlatformContentManualClient.md)
+
   ↳ [`PlatformExampleClient`](platform_example.PlatformExampleClient.md)
 
   ↳ [`PlatformClient`](platform.PlatformClient.md)
@@ -92,11 +102,15 @@
 
   ↳ [`PolicyClient`](policy.PolicyClient.md)
 
+  ↳ [`PortalClient`](portal.PortalClient.md)
+
   ↳ [`SecretClient`](secret.SecretClient.md)
 
   ↳ [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
 
   ↳ [`SkillsetClient`](skillset.SkillsetClient.md)
+
+  ↳ [`SpaceClient`](space.SpaceClient.md)
 
   ↳ [`TaskClient`](task.TaskClient.md)
 
