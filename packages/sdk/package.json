@@ -864,6 +864,38 @@
       "types": "./types/platform/action/v1.d.ts",
       "import": "./src/platform/action/v1.js"
     },
+    "./platform/content": {
+      "types": "./types/platform/content/index.d.ts",
+      "import": "./src/platform/content/index.js"
+    },
+    "./platform/content/index": {
+      "types": "./types/platform/content/index.d.ts",
+      "import": "./src/platform/content/index.js"
+    },
+    "./platform/content/index.js": {
+      "types": "./types/platform/content/index.d.ts",
+      "import": "./src/platform/content/index.js"
+    },
+    "./platform/content/manual": {
+      "types": "./types/platform/content/manual/index.d.ts",
+      "import": "./src/platform/content/manual/index.js"
+    },
+    "./platform/content/manual/index": {
+      "types": "./types/platform/content/manual/index.d.ts",
+      "import": "./src/platform/content/manual/index.js"
+    },
+    "./platform/content/manual/index.js": {
+      "types": "./types/platform/content/manual/index.d.ts",
+      "import": "./src/platform/content/manual/index.js"
+    },
+    "./platform/content/manual/v1": {
+      "types": "./types/platform/content/manual/v1.d.ts",
+      "import": "./src/platform/content/manual/v1.js"
+    },
+    "./platform/content/manual/v1.js": {
+      "types": "./types/platform/content/manual/v1.d.ts",
+      "import": "./src/platform/content/manual/v1.js"
+    },
     "./platform/example": {
       "types": "./types/platform/example/index.d.ts",
       "import": "./src/platform/example/index.js"

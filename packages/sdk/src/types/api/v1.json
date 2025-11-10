@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "ChatBotKit API",
-    "version": "v1 (build 1762690544140)"
+    "version": "v1 (build 1762775397130)"
   },
   "servers": [
     {
@@ -3094,7 +3094,7 @@
       "post": {
         "operationId": "publishChannelMessage",
         "summary": "Publish a message to a channel",
-        "description": "Publish a message to a specific channel. The message will be broadcast\nto all subscribers currently listening to this channel via the subscribe\nendpoint.\n",
+        "description": "Publish a message to a specific channel. The message will be broadcast\nto all subscribers currently listening to this channel via the\nsubscribe endpoint.\n",
         "tags": [
           "Channel"
         ],
@@ -26230,6 +26230,318 @@
           }
         },
         "__originalOperationId": "listPlatformActions",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/content/manual/{manualId}/fetch": {
+      "get": {
+        "operationId": "fetchPlatformContentManual",
+        "summary": "Fetch a specific platform manual",
+        "description": "Retrieves the complete content and metadata of a specific manual.\nThis includes the markdown content and all associated frontmatter.\n",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "manualId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the manual to fetch",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The manual was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Instance list properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "tags": {
+                      "description": "Tags associated with the manual",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "date": {
+                      "description": "The publication or update date of the manual",
+                      "type": "string"
+                    },
+                    "index": {
+                      "description": "The display order index",
+                      "type": "number"
+                    },
+                    "content": {
+                      "description": "The markdown content of the manual",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "id",
+                    "name",
+                    "content"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Manual not found"
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchPlatformContentManual",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/content/manual/list": {
+      "get": {
+        "operationId": "listPlatformContentManuals",
+        "summary": "Retrieve a list of platform manuals",
+        "description": "Returns a list of available documentation manuals with their metadata.\nThe manuals provide comprehensive guides and documentation for various\nChatBotKit features and concepts.\n",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of manuals was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the manual",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "date": {
+                            "description": "The publication or update date of the manual",
+                            "type": "string"
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "tags": {
+                              "description": "Tags associated with the manual",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "date": {
+                              "description": "The publication or update date of the manual",
+                              "type": "string"
+                            },
+                            "index": {
+                              "description": "The display order index",
+                              "type": "number"
+                            }
+                          },
+                          "$$ref": "#/paths/~1platform~1content~1manual~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "name"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listPlatformContentManuals",
         "security": [
           {
             "BearerAuth": []

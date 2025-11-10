@@ -345,8 +345,8 @@ export interface paths {
         /**
          * Publish a message to a channel
          * @description Publish a message to a specific channel. The message will be broadcast
-         *     to all subscribers currently listening to this channel via the subscribe
-         *     endpoint.
+         *     to all subscribers currently listening to this channel via the
+         *     subscribe endpoint.
          *
          */
         post: operations["publishChannelMessage"];
@@ -3231,6 +3231,51 @@ export interface paths {
         };
         /** Retrieve a list of platform actions */
         get: operations["listPlatformActions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/manual/{manualId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch a specific platform manual
+         * @description Retrieves the complete content and metadata of a specific manual.
+         *     This includes the markdown content and all associated frontmatter.
+         *
+         */
+        get: operations["fetchPlatformContentManual"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/manual/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a list of platform manuals
+         * @description Returns a list of available documentation manuals with their metadata.
+         *     The manuals provide comprehensive guides and documentation for various
+         *     ChatBotKit features and concepts.
+         *
+         */
+        get: operations["listPlatformContentManuals"];
         put?: never;
         post?: never;
         delete?: never;
@@ -16835,6 +16880,153 @@ export interface operations {
                             updatedAt: number;
                             /** @description Example demonstrating the action usage */
                             examples: string[];
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchPlatformContentManual: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                manualId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The manual was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description Tags associated with the manual */
+                        tags?: string[];
+                        /** @description The publication or update date of the manual */
+                        date?: string;
+                        /** @description The display order index */
+                        index?: number;
+                        /** @description The markdown content of the manual */
+                        content: string;
+                    };
+                };
+            };
+            /** @description Manual not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPlatformContentManuals: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of manuals was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description Tags associated with the manual */
+                            tags?: string[];
+                            /** @description The publication or update date of the manual */
+                            date?: string;
+                            /** @description The display order index */
+                            index?: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description Tags associated with the manual */
+                            tags?: string[];
+                            /** @description The publication or update date of the manual */
+                            date?: string;
+                            /** @description The display order index */
+                            index?: number;
                         };
                     };
                 };
