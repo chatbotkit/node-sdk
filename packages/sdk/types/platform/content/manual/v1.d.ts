@@ -26,6 +26,20 @@
  */
 export function listPlatformContentManuals(client: ChatBotKitClient, request?: PlatformContentManualListRequest): ResponsePromise<PlatformContentManualListResponse, PlatformContentManualListStreamType>;
 /**
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentManuals']['requestBody']['content']['application/json']} PlatformContentManualSearchRequestBody
+ *
+ * @typedef {PlatformContentManualSearchRequestBody} PlatformContentManualSearchRequest
+ *
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentManuals']['responses']['200']['content']['application/json']} PlatformContentManualSearchResponseBody
+ *
+ * @typedef {PlatformContentManualSearchResponseBody} PlatformContentManualSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {PlatformContentManualSearchRequest} request
+ * @returns {Promise<PlatformContentManualSearchResponse>}
+ */
+export function searchPlatformContentManuals(client: ChatBotKitClient, request: PlatformContentManualSearchRequest): Promise<PlatformContentManualSearchResponse>;
+/**
  * @typedef {import('../../../types/api/v1.js').operations['fetchPlatformContentManual']['responses']['200']['content']['application/json']} PlatformContentManualFetchResponse
  *
  * @param {ChatBotKitClient} client
@@ -44,4 +58,8 @@ export type PlatformContentManualListRequest = {
 export type PlatformContentManualListResponse = import("../../../types/api/v1.js").operations["listPlatformContentManuals"]["responses"]["200"]["content"]["application/json"];
 export type PlatformContentManualListItem = PlatformContentManualListResponse["items"][number];
 export type PlatformContentManualListStreamType = import("../../../types/api/v1.js").operations["listPlatformContentManuals"]["responses"]["200"]["content"]["application/jsonl"];
+export type PlatformContentManualSearchRequestBody = import("../../../types/api/v1.js").operations["searchPlatformContentManuals"]["requestBody"]["content"]["application/json"];
+export type PlatformContentManualSearchRequest = PlatformContentManualSearchRequestBody;
+export type PlatformContentManualSearchResponseBody = import("../../../types/api/v1.js").operations["searchPlatformContentManuals"]["responses"]["200"]["content"]["application/json"];
+export type PlatformContentManualSearchResponse = PlatformContentManualSearchResponseBody;
 export type PlatformContentManualFetchResponse = import("../../../types/api/v1.js").operations["fetchPlatformContentManual"]["responses"]["200"]["content"]["application/json"];

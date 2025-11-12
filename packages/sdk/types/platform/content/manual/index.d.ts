@@ -15,6 +15,13 @@ export class PlatformContentManualClient extends ChatBotKitClient {
      */
     list(request?: import("./v1.js").PlatformContentManualListRequest): ResponsePromise<import("./v1.js").PlatformContentManualListResponse, import("./v1.js").PlatformContentManualListStreamType>;
     /**
+     * Searches platform content manuals.
+     *
+     * @param {import('./v1.js').PlatformContentManualSearchRequest} request
+     * @returns {Promise<import('./v1.js').PlatformContentManualSearchResponse>}
+     */
+    search(request: import("./v1.js").PlatformContentManualSearchRequest): Promise<import("./v1.js").PlatformContentManualSearchResponse>;
+    /**
      * Fetches a platform content manual.
      *
      * @param {string} manualId

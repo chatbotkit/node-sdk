@@ -26,6 +26,20 @@
  */
 export function listPlatformContentDocs(client: ChatBotKitClient, request?: PlatformContentDocListRequest): ResponsePromise<PlatformContentDocListResponse, PlatformContentDocListStreamType>;
 /**
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentDocs']['requestBody']['content']['application/json']} PlatformContentDocSearchRequestBody
+ *
+ * @typedef {PlatformContentDocSearchRequestBody} PlatformContentDocSearchRequest
+ *
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentDocs']['responses']['200']['content']['application/json']} PlatformContentDocSearchResponseBody
+ *
+ * @typedef {PlatformContentDocSearchResponseBody} PlatformContentDocSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {PlatformContentDocSearchRequest} request
+ * @returns {Promise<PlatformContentDocSearchResponse>}
+ */
+export function searchPlatformContentDocs(client: ChatBotKitClient, request: PlatformContentDocSearchRequest): Promise<PlatformContentDocSearchResponse>;
+/**
  * @typedef {import('../../../types/api/v1.js').operations['fetchPlatformContentDoc']['responses']['200']['content']['application/json']} PlatformContentDocFetchResponse
  *
  * @param {ChatBotKitClient} client
@@ -44,4 +58,8 @@ export type PlatformContentDocListRequest = {
 export type PlatformContentDocListResponse = import("../../../types/api/v1.js").operations["listPlatformContentDocs"]["responses"]["200"]["content"]["application/json"];
 export type PlatformContentDocListItem = PlatformContentDocListResponse["items"][number];
 export type PlatformContentDocListStreamType = import("../../../types/api/v1.js").operations["listPlatformContentDocs"]["responses"]["200"]["content"]["application/jsonl"];
+export type PlatformContentDocSearchRequestBody = import("../../../types/api/v1.js").operations["searchPlatformContentDocs"]["requestBody"]["content"]["application/json"];
+export type PlatformContentDocSearchRequest = PlatformContentDocSearchRequestBody;
+export type PlatformContentDocSearchResponseBody = import("../../../types/api/v1.js").operations["searchPlatformContentDocs"]["responses"]["200"]["content"]["application/json"];
+export type PlatformContentDocSearchResponse = PlatformContentDocSearchResponseBody;
 export type PlatformContentDocFetchResponse = import("../../../types/api/v1.js").operations["fetchPlatformContentDoc"]["responses"]["200"]["content"]["application/json"];
