@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1762990536205)"
+    "version": "v1 (build 1762990822153)"
   },
   "servers": [
     {
@@ -26618,6 +26618,21 @@
                           "category": {
                             "description": "The category of the doc",
                             "type": "string"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the doc",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          },
+                          "score": {
+                            "description": "The similarity score of the search result",
+                            "type": "number"
                           }
                         },
                         "required": [
@@ -26626,22 +26641,7 @@
                           "updatedAt",
                           "name",
                           "description"
-                        ],
-                        "tags": {
-                          "description": "Tags associated with the doc",
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "index": {
-                          "description": "The display order index",
-                          "type": "number"
-                        },
-                        "score": {
-                          "description": "The similarity score of the search result",
-                          "type": "number"
-                        }
+                        ]
                       }
                     }
                   },
@@ -27051,6 +27051,21 @@
                           "category": {
                             "description": "The category of the manual",
                             "type": "string"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the manual",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          },
+                          "score": {
+                            "description": "The similarity score of the search result",
+                            "type": "number"
                           }
                         },
                         "required": [
@@ -27059,22 +27074,7 @@
                           "updatedAt",
                           "name",
                           "description"
-                        ],
-                        "tags": {
-                          "description": "Tags associated with the manual",
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "index": {
-                          "description": "The display order index",
-                          "type": "number"
-                        },
-                        "score": {
-                          "description": "The similarity score of the search result",
-                          "type": "number"
-                        }
+                        ]
                       }
                     }
                   },

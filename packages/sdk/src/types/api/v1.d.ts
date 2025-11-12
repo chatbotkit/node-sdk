@@ -17171,6 +17171,12 @@ export interface operations {
                             updatedAt: number;
                             /** @description The category of the doc */
                             category?: string;
+                            /** @description Tags associated with the doc */
+                            tags?: string[];
+                            /** @description The display order index */
+                            index?: number;
+                            /** @description The similarity score of the search result */
+                            score?: number;
                         }[];
                     };
                 };
@@ -17373,6 +17379,12 @@ export interface operations {
                             updatedAt: number;
                             /** @description The category of the manual */
                             category?: string;
+                            /** @description Tags associated with the manual */
+                            tags?: string[];
+                            /** @description The display order index */
+                            index?: number;
+                            /** @description The similarity score of the search result */
+                            score?: number;
                         }[];
                     };
                 };
