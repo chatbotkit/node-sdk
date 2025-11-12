@@ -36,6 +36,33 @@ export function listPlatformContentManuals(client, request) {
 }
 
 /**
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentManuals']['requestBody']['content']['application/json']} PlatformContentManualSearchRequestBody
+ *
+ * @typedef {PlatformContentManualSearchRequestBody} PlatformContentManualSearchRequest
+ *
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentManuals']['responses']['200']['content']['application/json']} PlatformContentManualSearchResponseBody
+ *
+ * @typedef {PlatformContentManualSearchResponseBody} PlatformContentManualSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {PlatformContentManualSearchRequest} request
+ * @returns {Promise<PlatformContentManualSearchResponse>}
+ */
+export async function searchPlatformContentManuals(client, request) {
+  const url = `/api/v1/platform/content/manual/search`
+
+  /** @type {PlatformContentManualSearchResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {PlatformContentManualSearchRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}
+
+/**
  * @typedef {import('../../../types/api/v1.js').operations['fetchPlatformContentManual']['responses']['200']['content']['application/json']} PlatformContentManualFetchResponse
  *
  * @param {ChatBotKitClient} client

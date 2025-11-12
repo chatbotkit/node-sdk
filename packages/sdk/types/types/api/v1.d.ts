@@ -952,7 +952,21 @@ export interface paths {
         put?: never;
         /**
          * Create conversation session
-         * @description Conversation tokens allow client-side applications to create a unique, authenticated credential for each conversation. This token can be used to interact with the conversation/{conversationId}/send, conversation/{conversationId}/receive, and conversation/{conversationId}/message/create routes on api.chatbotkit.com. By creating an individual token for each conversation, a client-side application is able to directly access and manipulate the conversation through these routes. Without conversation tokens, a client-side application would need to authenticate and access ChatBotKit conversation routes through a server-side application, which can be more complex and require additional infrastructure. By providing a way for client-side applications to authenticate and access the conversation routes directly, the token route simplifies the process of integrating with api.chatbotkit.com and makes it more convenient for developers to build chatbot applications.
+         * @description Conversation tokens allow client-side applications to create a unique,
+         *     authenticated credential for each conversation. This token can be used
+         *     to interact with the conversation/{conversationId}/send,
+         *     conversation/{conversationId}/receive, and
+         *     conversation/{conversationId}/message/create routes. By creating an
+         *     individual token for each conversation, a client-side application is
+         *     able to directly access and manipulate the conversation through these
+         *     routes. Without conversation tokens, a client-side application would
+         *     need to authenticate and access conversation routes through a
+         *     server-side application, which can be more complex and require
+         *     additional infrastructure. By providing a way for client-side
+         *     applications to authenticate and access the conversation routes
+         *     directly, the token route simplifies the process of integrating with
+         *     the API and makes it more convenient for developers to build AI
+         *     applications.
          *
          */
         post: operations["createConversationSession"];
@@ -3270,14 +3284,29 @@ export interface paths {
         };
         /**
          * Retrieve a list of platform docs
-         * @description Returns a list of available documentation docs with their metadata. The
-         *     docs provide comprehensive guides and documentation for various
-         *     ChatBotKit features and concepts.
+         * @description Returns a list of available documentation docs with their metadata.
          *
          */
         get: operations["listPlatformContentDocs"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/doc/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform docs using semantic similarity */
+        post: operations["searchPlatformContentDocs"];
         delete?: never;
         options?: never;
         head?: never;
@@ -3316,13 +3345,28 @@ export interface paths {
         /**
          * Retrieve a list of platform manuals
          * @description Returns a list of available documentation manuals with their metadata.
-         *     The manuals provide comprehensive guides and documentation for various
-         *     ChatBotKit features and concepts.
          *
          */
         get: operations["listPlatformContentManuals"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/manual/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform manuals using semantic similarity */
+        post: operations["searchPlatformContentManuals"];
         delete?: never;
         options?: never;
         head?: never;
@@ -15191,7 +15235,7 @@ export interface operations {
                         voiceIn?: boolean;
                         /** @description Whether the Widget integration supports voice output */
                         voiceOut?: boolean;
-                        /** @description Whether the Widget integration displays powered by ChatBotKit */
+                        /** @description Whether the Widget integration displays powered by */
                         poweredBy?: boolean;
                     };
                 };
@@ -15323,7 +15367,7 @@ export interface operations {
                     voiceIn?: boolean;
                     /** @description Controls whether the Widget allows voice output */
                     voiceOut?: boolean;
-                    /** @description Whether the Widget integration displays powered by ChatBotKit */
+                    /** @description Whether the Widget integration displays powered by */
                     poweredBy?: boolean;
                 };
             };
@@ -15428,7 +15472,7 @@ export interface operations {
                     voiceIn?: boolean;
                     /** @description Controls whether the Widget allows voice output */
                     voiceOut?: boolean;
-                    /** @description Whether the Widget integration displays powered by ChatBotKit */
+                    /** @description Whether the Widget integration displays powered by */
                     poweredBy?: boolean;
                 };
             };
@@ -15550,7 +15594,7 @@ export interface operations {
                             voiceIn?: boolean;
                             /** @description Whether the Widget integration supports voice output */
                             voiceOut?: boolean;
-                            /** @description Whether the Widget integration displays powered by ChatBotKit */
+                            /** @description Whether the Widget integration displays powered by */
                             poweredBy?: boolean;
                         }[];
                     };
@@ -15634,7 +15678,7 @@ export interface operations {
                             voiceIn?: boolean;
                             /** @description Whether the Widget integration supports voice output */
                             voiceOut?: boolean;
-                            /** @description Whether the Widget integration displays powered by ChatBotKit */
+                            /** @description Whether the Widget integration displays powered by */
                             poweredBy?: boolean;
                         };
                     };
@@ -17087,6 +17131,65 @@ export interface operations {
             };
         };
     };
+    searchPlatformContentDocs: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant docs */
+                    search: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the doc */
+                            category?: string;
+                            /** @description Tags associated with the doc */
+                            tags?: string[];
+                            /** @description The similarity score of the search result */
+                            score?: number;
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     fetchPlatformContentManual: {
         parameters: {
             query?: never;
@@ -17220,6 +17323,65 @@ export interface operations {
                             /** @description The display order index */
                             index?: number;
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    searchPlatformContentManuals: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant manuals */
+                    search: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the manual */
+                            category?: string;
+                            /** @description Tags associated with the manual */
+                            tags?: string[];
+                            /** @description The similarity score of the search result */
+                            score?: number;
+                        }[];
                     };
                 };
             };
