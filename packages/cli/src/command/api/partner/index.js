@@ -1,7 +1,5 @@
 import user from './user/index.js'
 
-import { PartnerClient } from '@chatbotkit/sdk/partner/index.js'
-
 import { Command } from 'commander'
 
 /**
