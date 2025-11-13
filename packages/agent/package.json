@@ -22,6 +22,14 @@
   "type": "module",
   "main": "./src/index.js",
   "exports": {
+    "./agent": {
+      "types": "./types/agent.d.ts",
+      "import": "./src/agent.js"
+    },
+    "./agent.js": {
+      "types": "./types/agent.d.ts",
+      "import": "./src/agent.js"
+    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
@@ -33,14 +41,6 @@
     "./index.js": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
-    },
-    "./agent": {
-      "types": "./types/agent.d.ts",
-      "import": "./src/agent.js"
-    },
-    "./agent.js": {
-      "types": "./types/agent.d.ts",
-      "import": "./src/agent.js"
     },
     "./package.json": "./package.json"
   },

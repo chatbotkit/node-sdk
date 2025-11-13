@@ -11,3 +11,4 @@
 - [index](modules/index.md)
 - [input](modules/input.md)
 - [solution](modules/solution.md)
+- [tools](modules/tools.md)

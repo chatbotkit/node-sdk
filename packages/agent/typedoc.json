@@ -1,6 +1,14 @@
 {
-  "extends": ["../../typedoc.base.json"],
-  "entryPoints": ["./src/index.js"],
-  "externalPattern": ["**/node_modules/**", "./types/**"],
+  "extends": [
+    "../../typedoc.base.json"
+  ],
+  "entryPoints": [
+    "./src/agent.js",
+    "./src/index.js"
+  ],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
   "readme": "README.md"
 }
