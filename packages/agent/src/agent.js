@@ -304,7 +304,6 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
 
       ...request,
     })) {
-      // Yield all events from complete
       yield event
 
       if (event.type === 'result') {
