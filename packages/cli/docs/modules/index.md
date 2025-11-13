@@ -28,4 +28,4 @@ The main entry point for the CLI.
 
 #### Defined in
 
-[packages/cli/src/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/index.js#L13)
+[sdks/node/packages/cli/src/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/index.js#L14)

@@ -25,6 +25,18 @@
   "type": "module",
   "main": "./src/index.js",
   "exports": {
+    "./command/agent": {
+      "types": "./types/command/agent/index.d.ts",
+      "import": "./src/command/agent/index.js"
+    },
+    "./command/agent/index": {
+      "types": "./types/command/agent/index.d.ts",
+      "import": "./src/command/agent/index.js"
+    },
+    "./command/agent/index.js": {
+      "types": "./types/command/agent/index.d.ts",
+      "import": "./src/command/agent/index.js"
+    },
     "./command/api/conversation": {
       "types": "./types/command/api/conversation/index.d.ts",
       "import": "./src/command/api/conversation/index.js"
@@ -192,6 +204,22 @@
     "./solution/index.js": {
       "types": "./types/solution/index.d.ts",
       "import": "./src/solution/index.js"
+    },
+    "./spinner": {
+      "types": "./types/spinner.d.ts",
+      "import": "./src/spinner.js"
+    },
+    "./spinner.js": {
+      "types": "./types/spinner.d.ts",
+      "import": "./src/spinner.js"
+    },
+    "./tools": {
+      "types": "./types/tools.d.ts",
+      "import": "./src/tools.js"
+    },
+    "./tools.js": {
+      "types": "./types/tools.d.ts",
+      "import": "./src/tools.js"
     },
     "./package.json": "./package.json"
   },
