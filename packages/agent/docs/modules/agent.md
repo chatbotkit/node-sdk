@@ -7,7 +7,12 @@
 ### Type Aliases
 
 - [ChatBotKit](agent.md#chatbotkit)
+- [ExitEvent](agent.md#exitevent)
 - [ExitResult](agent.md#exitresult)
+- [IterationEvent](agent.md#iterationevent)
+- [ToolCallEndEvent](agent.md#toolcallendevent)
+- [ToolCallErrorEvent](agent.md#toolcallerrorevent)
+- [ToolCallStartEvent](agent.md#toolcallstartevent)
 - [ToolDefinition](agent.md#tooldefinition)
 - [Tools](agent.md#tools)
 - [ZodObject](agent.md#zodobject)
@@ -29,6 +34,23 @@
 
 ___
 
+### ExitEvent
+
+Ƭ **ExitEvent**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`ExitResult`](agent.md#exitresult) |
+| `type` | ``"exit"`` |
+
+#### Defined in
+
+[packages/agent/src/agent.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L66)
+
+___
+
 ### ExitResult
 
 Ƭ **ExitResult**\<\>: `Object`
@@ -43,6 +65,81 @@ ___
 #### Defined in
 
 [packages/agent/src/agent.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L31)
+
+___
+
+### IterationEvent
+
+Ƭ **IterationEvent**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | \{ `iteration`: `number`  } |
+| `data.iteration` | `number` |
+| `type` | ``"iteration"`` |
+
+#### Defined in
+
+[packages/agent/src/agent.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L59)
+
+___
+
+### ToolCallEndEvent
+
+Ƭ **ToolCallEndEvent**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | \{ `name`: `string` ; `result`: `any`  } |
+| `data.name` | `string` |
+| `data.result` | `any` |
+| `type` | ``"toolCallEnd"`` |
+
+#### Defined in
+
+[packages/agent/src/agent.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L45)
+
+___
+
+### ToolCallErrorEvent
+
+Ƭ **ToolCallErrorEvent**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | \{ `error`: `string` ; `name`: `string`  } |
+| `data.error` | `string` |
+| `data.name` | `string` |
+| `type` | ``"toolCallError"`` |
+
+#### Defined in
+
+[packages/agent/src/agent.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L52)
+
+___
+
+### ToolCallStartEvent
+
+Ƭ **ToolCallStartEvent**\<\>: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `data` | \{ `args`: `any` ; `name`: `string`  } |
+| `data.args` | `any` |
+| `data.name` | `string` |
+| `type` | ``"toolCallStart"`` |
+
+#### Defined in
+
+[packages/agent/src/agent.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L38)
 
 ___
 
@@ -92,7 +189,7 @@ ___
 
 ### complete
 
-▸ **complete**(`options`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<{} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}, `void`, `unknown`\>
+▸ **complete**(`options`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<{} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| [`ToolCallStartEvent`](agent.md#toolcallstartevent) \| [`ToolCallEndEvent`](agent.md#toolcallendevent) \| [`ToolCallErrorEvent`](agent.md#toolcallerrorevent), `void`, `unknown`\>
 
 Agent complete generator function.
 
@@ -104,17 +201,17 @@ Agent complete generator function.
 
 #### Returns
 
-[`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<{} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {}, `void`, `unknown`\>
+[`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<{} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| [`ToolCallStartEvent`](agent.md#toolcallstartevent) \| [`ToolCallEndEvent`](agent.md#toolcallendevent) \| [`ToolCallErrorEvent`](agent.md#toolcallerrorevent), `void`, `unknown`\>
 
 #### Defined in
 
-[packages/agent/src/agent.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L43)
+[packages/agent/src/agent.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L78)
 
 ___
 
 ### execute
 
-▸ **execute**(`options`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<{} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| \{ `data`: \{ `iteration`: `number`  } ; `type`: ``"iteration"``  } \| \{ `data`: [`ExitResult`](agent.md#exitresult) ; `type`: ``"exit"``  }, `void`, `unknown`\>
+▸ **execute**(`options`): [`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<{} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| [`ToolCallStartEvent`](agent.md#toolcallstartevent) \| [`ToolCallEndEvent`](agent.md#toolcallendevent) \| [`ToolCallErrorEvent`](agent.md#toolcallerrorevent) \| [`IterationEvent`](agent.md#iterationevent) \| [`ExitEvent`](agent.md#exitevent), `void`, `unknown`\>
 
 Execute an agent task in a loop until exit is called. Provides planning,
 progress tracking, and controlled exit functionality.
@@ -127,8 +224,8 @@ progress tracking, and controlled exit functionality.
 
 #### Returns
 
-[`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<{} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| \{ `data`: \{ `iteration`: `number`  } ; `type`: ``"iteration"``  } \| \{ `data`: [`ExitResult`](agent.md#exitresult) ; `type`: ``"exit"``  }, `void`, `unknown`\>
+[`AsyncGenerator`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator )\<{} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| {} \| [`ToolCallStartEvent`](agent.md#toolcallstartevent) \| [`ToolCallEndEvent`](agent.md#toolcallendevent) \| [`ToolCallErrorEvent`](agent.md#toolcallerrorevent) \| [`IterationEvent`](agent.md#iterationevent) \| [`ExitEvent`](agent.md#exitevent), `void`, `unknown`\>
 
 #### Defined in
 
-[packages/agent/src/agent.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L174)
+[packages/agent/src/agent.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L281)
