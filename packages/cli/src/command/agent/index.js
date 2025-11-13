@@ -30,6 +30,14 @@ export const command = new Command()
       getToolNames()
     )
   )
+  .addOption(
+    new Option(
+      '-i, --max-iterations <maxIterations>',
+      'Maximum number of iterations'
+    )
+      .default(50)
+      .argParser((value) => parseInt(value, 10))
+  )
   .action(async (options) => {
     const client = getClient()
 
@@ -51,7 +59,7 @@ export const command = new Command()
       model: options.model,
       messages: [{ type: 'user', text: options.prompt }],
       tools,
-      maxIterations: 50,
+      maxIterations: options.maxIterations,
     })) {
       if (type === 'iteration') {
         if (spinner) {
