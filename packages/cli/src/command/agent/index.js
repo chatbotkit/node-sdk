@@ -83,7 +83,7 @@ export const command = new Command()
           const iterationNum = data.iteration - 1
 
           // eslint-disable-next-line no-console
-          console.log(`\n╭─ Iteration ${iterationNum} ─╮`)
+          console.log(`\n\n╭─ Iteration ${iterationNum} ─╮`)
 
           spinner.start()
         } else {
@@ -112,7 +112,6 @@ export const command = new Command()
       spinner.stop()
     }
 
-    // Add newline after token output before printing status
     process.stdout.write('\n\n')
 
     if (exitResult) {
