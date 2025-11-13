@@ -1,1 +1,1 @@
-export { complete } from './agent.js'
+export { complete, task } from './agent.js'

@@ -2,7 +2,7 @@ import { getRUNAS_USERID, getSECRET } from '../../env.js'
 import { Spinner } from '../../spinner.js'
 import { getToolNames, getTools } from '../../tools.js'
 
-import { complete } from '@chatbotkit/agent'
+import { task } from '@chatbotkit/agent'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
 import { Command, Option } from 'commander'
@@ -33,39 +33,44 @@ export const command = new Command()
   .action(async (options) => {
     const client = getClient()
 
-    /** @type {{type: 'user'|'bot', text: string}[]} */
-    const messages = [{ type: 'user', text: options.prompt }]
-
     const tools = getTools(options.tools)
 
     const isInteractive = process.stdout.isTTY
 
-    const spinner = isInteractive ? new Spinner('Processing...') : null
+    const spinner = isInteractive ? new Spinner('Executing task...') : null
 
     if (spinner) {
       spinner.start()
     }
 
-    let firstToken = true
+    let exitResult = null
 
-    for await (const { type, data } of complete({
+    for await (const { type, data } of task({
       client,
       botId: options.bot,
       model: options.model,
-      messages,
+      messages: [{ type: 'user', text: options.prompt }],
       tools,
+      maxIterations: 50,
     })) {
-      if (type === 'token') {
-        if (firstToken) {
-          if (spinner) {
-            spinner.stop()
-          }
-          firstToken = false
+      if (type === 'iteration') {
+        if (spinner) {
+          spinner.setText(`Iteration ${data.iteration}...`)
         }
 
-        process.stdout.write(data.token)
-      } else if (type === 'result') {
-        messages.push({ type: 'bot', text: data.text })
+        if (!isInteractive) {
+          process.stdout.write(`\n--- Iteration ${data.iteration} ---\n`)
+        }
+      } else if (type === 'token') {
+        if (spinner && spinner.isSpinning) {
+          spinner.stop()
+        }
+
+        if (!isInteractive) {
+          process.stdout.write(data.token)
+        }
+      } else if (type === 'exit') {
+        exitResult = data
       }
     }
 
@@ -73,8 +78,28 @@ export const command = new Command()
       spinner.stop()
     }
 
-    if (!firstToken) {
-      process.stdout.write('\n')
+    if (exitResult) {
+      if (exitResult.code === 0) {
+        process.stdout.write(`\n✓ Task completed successfully\n`)
+
+        if (exitResult.message) {
+          process.stdout.write(`  ${exitResult.message}\n`)
+        }
+      } else {
+        process.stderr.write(
+          `\n✗ Task failed with exit code ${exitResult.code}\n`
+        )
+
+        if (exitResult.message) {
+          process.stderr.write(`  ${exitResult.message}\n`)
+        }
+      }
+
+      process.exit(exitResult.code)
+    } else {
+      process.stderr.write(`\n✗ Task ended without exit signal\n`)
+
+      process.exit(1)
     }
   })
 
