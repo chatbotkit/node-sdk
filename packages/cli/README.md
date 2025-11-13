@@ -25,6 +25,22 @@ Set your ChatBotKit API token as an environment variable:
 export CHATBOTKIT_API_TOKEN=<your token here>
 ```
 
+### Environment Configuration
+
+The CLI automatically loads environment variables from the following locations (in order of precedence):
+
+1. `.env.local` - Project-specific local configuration (current directory)
+2. `.env` - Project configuration (current directory)
+3. `~/.cbk/env` - Global user configuration (home directory fallback)
+
+This allows you to store your API token globally in `~/.cbk/env` for convenience, while still being able to override it per-project using local `.env` files.
+
+**Example `~/.cbk/env` file:**
+
+```bash
+CHATBOTKIT_API_TOKEN=your_token_here
+```
+
 ## Features
 
 ### API Commands

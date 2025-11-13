@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.21.1
+
+### Patch Changes
+
+- c5aa345: Added loading env from the home folder.
+
 ## 1.21.0
 
 ### Minor Changes
