@@ -2,7 +2,7 @@ import { getRUNAS_USERID, getSECRET } from '../../env.js'
 import { Spinner } from '../../spinner.js'
 import { getToolNames, getTools } from '../../tools.js'
 
-import { task } from '@chatbotkit/agent'
+import { execute } from '@chatbotkit/agent'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
 import { Command, Option } from 'commander'
@@ -45,7 +45,7 @@ export const command = new Command()
 
     let exitResult = null
 
-    for await (const { type, data } of task({
+    for await (const { type, data } of execute({
       client,
       botId: options.bot,
       model: options.model,

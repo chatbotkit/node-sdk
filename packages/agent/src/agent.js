@@ -161,8 +161,8 @@ export async function* complete(options) {
 }
 
 /**
- * Task runner that executes an agent in a loop until exit is called. Provides
- * planning, progress tracking, and controlled exit functionality.
+ * Execute an agent task in a loop until exit is called. Provides planning,
+ * progress tracking, and controlled exit functionality.
  *
  * @param {ConversationCompleteRequest & {
  *   client: ChatBotKit,
@@ -171,7 +171,7 @@ export async function* complete(options) {
  * }} options
  * @returns {AsyncGenerator<ConversationCompleteStreamType | {type: 'iteration', data: {iteration: number}} | {type: 'exit', data: ExitResult}, void, unknown>}
  */
-export async function* task(options) {
+export async function* execute(options) {
   const {
     client,
 
