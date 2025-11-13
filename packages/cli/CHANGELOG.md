@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.21.2
+
+### Patch Changes
+
+- d734e53: Added a cool banner
+
 ## 1.21.1
 
 ### Patch Changes
