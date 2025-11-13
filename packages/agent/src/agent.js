@@ -32,26 +32,60 @@ import { zodToJsonSchema } from 'zod-to-json-schema'
  */
 
 /**
+ * @typedef {{
+ *   type: 'toolCallStart',
+ *   data: { name: string, args: any }
+ * }} ToolCallStartEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: 'toolCallEnd',
+ *   data: { name: string, result: any }
+ * }} ToolCallEndEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: 'toolCallError',
+ *   data: { name: string, error: string }
+ * }} ToolCallErrorEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: 'iteration',
+ *   data: { iteration: number }
+ * }} IterationEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: 'exit',
+ *   data: ExitResult
+ * }} ExitEvent
+ */
+
+/**
  * Agent complete generator function.
  *
  * @param {ConversationCompleteRequest & {
  *   client: ChatBotKit,
  *   tools?: Tools
  * }} options
- * @returns {AsyncGenerator<ConversationCompleteStreamType, void, unknown>}
+ * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
  */
 export async function* complete(options) {
   const { client, tools, ...request } = options
 
-  // Create a map of channel to tool info for quick lookup
   const channelToTool = new Map()
 
   const functions = tools
     ? Object.entries(tools).map(([name, tool]) => {
         const randomSuffix = Math.random().toString(36).substring(2, 15)
+
         const channel = `${name}_${randomSuffix}`.padEnd(16, '0')
 
-        // Store the mapping for later use
         channelToTool.set(channel, { name, tool })
 
         if (!tool.input) {
@@ -73,7 +107,6 @@ export async function* complete(options) {
           zodToJsonSchema(tool.input, { target: 'openApi3' })
         )
 
-        // Extract only the properties needed by the API
         const parameters = {
           type: 'object',
           properties: schema.properties || {},
@@ -117,7 +150,15 @@ export async function* complete(options) {
       const toolInfo = channelToTool.get(String(channel))
 
       if (toolInfo) {
-        const { tool } = toolInfo
+        const { name, tool } = toolInfo
+
+        yield {
+          type: 'toolCallStart',
+          data: {
+            name,
+            args,
+          },
+        }
 
         try {
           let parsedArgs = args
@@ -126,6 +167,14 @@ export async function* complete(options) {
             const parseResult = tool.input.safeParse(args)
 
             if (!parseResult.success) {
+              yield {
+                type: 'toolCallError',
+                data: {
+                  name,
+                  error: `Invalid arguments: ${parseResult.error.message}`,
+                },
+              }
+
               await client.channel.publish(String(channel), {
                 message: JSON.stringify({
                   error: `Invalid arguments: ${parseResult.error.message}`,
@@ -140,16 +189,32 @@ export async function* complete(options) {
 
           const result = await tool.handler(parsedArgs)
 
+          yield {
+            type: 'toolCallEnd',
+            data: {
+              name,
+              result,
+            },
+          }
+
           await client.channel.publish(String(channel), {
             message: JSON.stringify({ data: result }),
           })
         } catch (error) {
+          const errorMessage =
+            error instanceof Error ? error.message : 'Unknown error occurred'
+
+          yield {
+            type: 'toolCallError',
+            data: {
+              name,
+              error: errorMessage,
+            },
+          }
+
           await client.channel.publish(String(channel), {
             message: JSON.stringify({
-              error:
-                error instanceof Error
-                  ? error.message
-                  : 'Unknown error occurred',
+              error: errorMessage,
             }),
           })
         }
@@ -169,7 +234,7 @@ export async function* complete(options) {
  *   tools?: Tools,
  *   maxIterations?: number
  * }} options
- * @returns {AsyncGenerator<ConversationCompleteStreamType | {type: 'iteration', data: {iteration: number}} | {type: 'exit', data: ExitResult}, void, unknown>}
+ * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
  */
 export async function* execute(options) {
   const {
