@@ -4,9 +4,11 @@ import dotenv from 'dotenv'
 import cli from '@chatbotkit/cli'
 import { printError } from '@chatbotkit/cli/output'
 
+import { homedir } from 'os'
+import { join } from 'path'
+
 dotenv.config({
-  // @ts-expect-error arrays are supported
-  path: ['.env.local', '.env'],
+  path: ['.env.local', '.env', join(homedir(), '.cbk', 'env')],
 })
 
 process.on('unhandledRejection', printError)
