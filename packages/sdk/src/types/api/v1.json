@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763034736927)"
+    "version": "v1 (build 1763035658985)"
   },
   "servers": [
     {
@@ -26309,6 +26309,10 @@
                     "content": {
                       "description": "The markdown content of the doc",
                       "type": "string"
+                    },
+                    "url": {
+                      "description": "The URL to the official documentation page",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -26437,6 +26441,10 @@
                           "index": {
                             "description": "The display order index",
                             "type": "number"
+                          },
+                          "url": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -26510,6 +26518,10 @@
                             "index": {
                               "description": "The display order index",
                               "type": "number"
+                            },
+                            "url": {
+                              "description": "The URL to the official documentation page",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1platform~1content~1doc~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -26640,6 +26652,14 @@
                           "score": {
                             "description": "The similarity score of the search result",
                             "type": "number"
+                          },
+                          "content": {
+                            "description": "The full content of the doc",
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -26748,6 +26768,10 @@
                     },
                     "content": {
                       "description": "The markdown content of the manual",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "The URL to the official documentation page",
                       "type": "string"
                     }
                   },
@@ -26877,6 +26901,10 @@
                           "index": {
                             "description": "The display order index",
                             "type": "number"
+                          },
+                          "url": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -26950,6 +26978,10 @@
                             "index": {
                               "description": "The display order index",
                               "type": "number"
+                            },
+                            "url": {
+                              "description": "The URL to the official documentation page",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1platform~1content~1manual~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -27080,6 +27112,14 @@
                           "score": {
                             "description": "The similarity score of the search result",
                             "type": "number"
+                          },
+                          "content": {
+                            "description": "The full content of the manual",
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
                           }
                         },
                         "required": [

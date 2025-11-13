@@ -17024,6 +17024,8 @@ export interface operations {
                         index?: number;
                         /** @description The markdown content of the doc */
                         content: string;
+                        /** @description The URL to the official documentation page */
+                        url?: string;
                     };
                 };
             };
@@ -17086,6 +17088,8 @@ export interface operations {
                             tags?: string[];
                             /** @description The display order index */
                             index?: number;
+                            /** @description The URL to the official documentation page */
+                            url?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -17116,6 +17120,8 @@ export interface operations {
                             tags?: string[];
                             /** @description The display order index */
                             index?: number;
+                            /** @description The URL to the official documentation page */
+                            url?: string;
                         };
                     };
                 };
@@ -17182,6 +17188,10 @@ export interface operations {
                             index?: number;
                             /** @description The similarity score of the search result */
                             score?: number;
+                            /** @description The full content of the doc */
+                            content?: string;
+                            /** @description The URL to the official documentation page */
+                            url?: string;
                         }[];
                     };
                 };
@@ -17237,6 +17247,8 @@ export interface operations {
                         index?: number;
                         /** @description The markdown content of the manual */
                         content: string;
+                        /** @description The URL to the official documentation page */
+                        url?: string;
                     };
                 };
             };
@@ -17299,6 +17311,8 @@ export interface operations {
                             tags?: string[];
                             /** @description The display order index */
                             index?: number;
+                            /** @description The URL to the official documentation page */
+                            url?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -17329,6 +17343,8 @@ export interface operations {
                             tags?: string[];
                             /** @description The display order index */
                             index?: number;
+                            /** @description The URL to the official documentation page */
+                            url?: string;
                         };
                     };
                 };
@@ -17395,6 +17411,10 @@ export interface operations {
                             index?: number;
                             /** @description The similarity score of the search result */
                             score?: number;
+                            /** @description The full content of the manual */
+                            content?: string;
+                            /** @description The URL to the official documentation page */
+                            url?: string;
                         }[];
                     };
                 };
