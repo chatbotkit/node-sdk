@@ -47,14 +47,12 @@ export const command = new Command()
     const tools = getTools(options.tools)
 
     let prompt = options.prompt
-    let promptSource = 'argument'
     {
       const filePath = resolve(process.cwd(), options.prompt)
 
       if (existsSync(filePath)) {
         try {
           prompt = readFileSync(filePath, 'utf-8')
-          promptSource = filePath
         } catch (error) {
           printError(error)
         }
@@ -63,28 +61,10 @@ export const command = new Command()
 
     const isInteractive = process.stdout.isTTY
 
-    const executionInfo = {
-      ...(options.bot && { bot: options.bot }),
-      ...(options.model && { model: options.model }),
-
-      maxIterations: options.maxIterations,
-
-      tools: tools ? Object.keys(tools) : [],
-
-      promptSource,
-
-      prompt: prompt.substring(0, 100) + (prompt.length > 100 ? '...' : ''),
-    }
-
-    print(executionInfo)
-
-    const spinner = isInteractive ? new Spinner('Executing task...') : null
-
-    if (spinner) {
-      spinner.start()
-    }
+    const spinner = isInteractive ? new Spinner() : null
 
     let exitResult = null
+    let hasOutput = false
 
     for await (const { type, data } of execute({
       client,
@@ -96,13 +76,27 @@ export const command = new Command()
     })) {
       if (type === 'iteration') {
         if (spinner) {
-          spinner.setText(`Iteration ${data.iteration}...`)
+          if (spinner.isSpinning) {
+            spinner.stop()
+          }
+
+          // eslint-disable-next-line no-console
+          console.log(`[Iteration ${data.iteration}]`)
+
+          spinner.start()
         } else {
           print({ iteration: data.iteration })
         }
+
+        hasOutput = false
       } else if (type === 'token') {
         if (spinner && spinner.isSpinning) {
           spinner.stop()
+        }
+
+        if (!hasOutput && isInteractive) {
+          process.stdout.write('> ')
+          hasOutput = true
         }
 
         process.stdout.write(data.token)
@@ -111,9 +105,12 @@ export const command = new Command()
       }
     }
 
-    if (spinner) {
+    if (spinner && spinner.isSpinning) {
       spinner.stop()
     }
+
+    // Add newline after token output before printing status
+    process.stdout.write('\n\n')
 
     if (exitResult) {
       print({
