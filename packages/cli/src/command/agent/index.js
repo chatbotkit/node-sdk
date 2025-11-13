@@ -17,6 +17,7 @@ class OutputManager {
   constructor() {
     this.lastOutputWasRaw = false
     this.hasRawOutput = false
+    this.lastChar = ''
   }
 
   /**
@@ -29,6 +30,27 @@ class OutputManager {
 
     this.lastOutputWasRaw = true
     this.hasRawOutput = true
+
+    if (text.length > 0) {
+      this.lastChar = text[text.length - 1]
+    }
+  }
+
+  /**
+   * Add appropriate newlines based on what was written last
+   */
+  addNewlinesIfNeeded() {
+    if (!this.lastOutputWasRaw) {
+      return
+    }
+
+    if (this.lastChar === '\n') {
+      process.stdout.write('\n')
+    } else {
+      process.stdout.write('\n\n')
+    }
+
+    this.lastOutputWasRaw = false
   }
 
   /**
@@ -37,11 +59,7 @@ class OutputManager {
    * @param {object} data
    */
   printStructured(data) {
-    if (this.lastOutputWasRaw) {
-      process.stdout.write('\n\n')
-
-      this.lastOutputWasRaw = false
-    }
+    this.addNewlinesIfNeeded()
 
     print(data)
   }
@@ -52,6 +70,7 @@ class OutputManager {
   reset() {
     this.lastOutputWasRaw = false
     this.hasRawOutput = false
+    this.lastChar = ''
   }
 
   /**
@@ -67,11 +86,7 @@ class OutputManager {
    * @param {string} text
    */
   writeLine(text) {
-    if (this.lastOutputWasRaw) {
-      process.stdout.write('\n\n')
-
-      this.lastOutputWasRaw = false
-    }
+    this.addNewlinesIfNeeded()
 
     // eslint-disable-next-line no-console
     console.log(text)
@@ -223,10 +238,6 @@ export const command = new Command()
 
     if (spinner && spinner.isSpinning) {
       spinner.stop()
-    }
-
-    if (output.hadRawOutput()) {
-      process.stdout.write('\n\n')
     }
 
     if (exitResult) {
