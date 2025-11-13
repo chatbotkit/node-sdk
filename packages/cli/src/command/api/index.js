@@ -13,6 +13,8 @@ import { Command, Option } from 'commander'
 /**
  * Commands registry - MUST include ALL SDK clients
  *
+ * @todo enable types once we have more SDK clients implemented
+ *
  * _satisfies {Partial<Record<keyof ChatBotKitSDK, import('commander').Command>>}
  * _type {Record<keyof ChatBotKitSDK, import('commander').Command>}
  */
