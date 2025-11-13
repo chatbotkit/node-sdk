@@ -4,6 +4,7 @@ export class ChatBotKit extends ChatBotKitClient {
     bot: BotClient;
     channel: ChannelClient;
     file: FileClient;
+    secret: SecretClient;
     magic: MagicClient;
     partner: PartnerClient;
     dataset: DatasetClient;
@@ -18,7 +19,6 @@ export class ChatBotKit extends ChatBotKitClient {
     policy: PolicyClient;
     portal: PortalClient;
     usage: UsageClient;
-    secrets: SecretClient;
     graphql: GraphqlClient;
 }
 export default ChatBotKit;

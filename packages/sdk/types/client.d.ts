@@ -120,19 +120,6 @@ export class ChatBotKitClient {
      * @param {ChatBotKitClientOptions} options
      */
     constructor(options: ChatBotKitClientOptions);
-    secret: string;
-    url: URL;
-    endpoints: Record<string, string>;
-    runAsUserId: string | undefined;
-    runAsChildUserEmail: string | undefined;
-    timezone: string | undefined;
-    headers: Record<string, string>;
-    timeout: number | undefined;
-    retries: number | undefined;
-    retryDelay: number | undefined;
-    retryTimeout: boolean | undefined;
-    fetchFn: FetchFunction;
-    cacheMap: Map<any, any>;
     /**
      * @template T
      * @template U
@@ -173,6 +160,7 @@ export class ChatBotKitClient {
         retryTimeout?: boolean;
         fetchFn?: FetchFunction;
     }): ResponsePromise<T, U>;
+    #private;
 }
 export type FetchFunction = import("@chatbotkit/fetch").FetchFn<import("@chatbotkit/fetch").withRetryOptions & import("@chatbotkit/fetch").withTimeoutOptions>;
 export type ChatBotKitClientOptions = {
