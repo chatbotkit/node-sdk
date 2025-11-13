@@ -10,6 +10,74 @@ import { Command, Option } from 'commander'
 import { existsSync, readFileSync } from 'fs'
 import { resolve } from 'path'
 
+/**
+ * Manages output state to avoid mixed raw and structured output
+ */
+class OutputManager {
+  constructor() {
+    this.lastOutputWasRaw = false
+    this.hasRawOutput = false
+  }
+
+  /**
+   * Write raw text (like tokens) directly to stdout
+   *
+   * @param {string} text
+   */
+  writeRaw(text) {
+    process.stdout.write(text)
+
+    this.lastOutputWasRaw = true
+    this.hasRawOutput = true
+  }
+
+  /**
+   * Print structured data, adding newlines if needed after raw output
+   *
+   * @param {object} data
+   */
+  printStructured(data) {
+    if (this.lastOutputWasRaw) {
+      process.stdout.write('\n\n')
+
+      this.lastOutputWasRaw = false
+    }
+
+    print(data)
+  }
+
+  /**
+   * Reset state (e.g., at iteration boundaries)
+   */
+  reset() {
+    this.lastOutputWasRaw = false
+    this.hasRawOutput = false
+  }
+
+  /**
+   * Check if we've had any raw output
+   */
+  hadRawOutput() {
+    return this.hasRawOutput
+  }
+
+  /**
+   * Write a line of text, handling newlines appropriately
+   *
+   * @param {string} text
+   */
+  writeLine(text) {
+    if (this.lastOutputWasRaw) {
+      process.stdout.write('\n\n')
+
+      this.lastOutputWasRaw = false
+    }
+
+    // eslint-disable-next-line no-console
+    console.log(text)
+  }
+}
+
 function getClient() {
   return new ChatBotKit({
     secret: getSECRET(),
@@ -63,6 +131,8 @@ export const command = new Command()
 
     const spinner = isInteractive ? new Spinner() : null
 
+    const output = new OutputManager()
+
     let exitResult = null
     let hasOutput = false
 
@@ -82,13 +152,14 @@ export const command = new Command()
 
           const iterationNum = data.iteration - 1
 
-          // eslint-disable-next-line no-console
-          console.log(`\n\n╭─ Iteration ${iterationNum} ─╮`)
+          output.writeLine(`╭─ Iteration ${iterationNum} ─╮`)
 
           spinner.start()
         } else {
-          print({ iteration: data.iteration - 1 })
+          output.printStructured({ iteration: data.iteration - 1 })
         }
+
+        output.reset()
 
         hasOutput = false
       } else if (type === 'toolCallStart') {
@@ -96,7 +167,11 @@ export const command = new Command()
           spinner.stop()
         }
 
-        print({ tool: data.name, status: 'running', args: data.args })
+        output.printStructured({
+          tool: data.name,
+          status: 'running',
+          args: data.args,
+        })
 
         if (spinner) {
           spinner.start()
@@ -106,7 +181,11 @@ export const command = new Command()
           spinner.stop()
         }
 
-        print({ tool: data.name, status: 'completed', result: data.result })
+        output.printStructured({
+          tool: data.name,
+          status: 'completed',
+          result: data.result,
+        })
 
         if (spinner) {
           spinner.start()
@@ -116,7 +195,11 @@ export const command = new Command()
           spinner.stop()
         }
 
-        print({ tool: data.name, status: 'error', error: data.error })
+        output.printStructured({
+          tool: data.name,
+          status: 'error',
+          error: data.error,
+        })
 
         if (spinner) {
           spinner.start()
@@ -127,12 +210,12 @@ export const command = new Command()
         }
 
         if (!hasOutput && isInteractive) {
-          process.stdout.write('> ')
+          output.writeRaw('> ')
 
           hasOutput = true
         }
 
-        process.stdout.write(data.token)
+        output.writeRaw(data.token.replace(/\n/gm, '\n> '))
       } else if (type === 'exit') {
         exitResult = data
       }
@@ -142,13 +225,16 @@ export const command = new Command()
       spinner.stop()
     }
 
-    process.stdout.write('\n\n')
+    if (output.hadRawOutput()) {
+      process.stdout.write('\n\n')
+    }
 
     if (exitResult) {
-      print({
+      output.printStructured({
         status: exitResult.code === 0 ? 'success' : 'failed',
 
         exitCode: exitResult.code,
+
         ...(exitResult.message && { message: exitResult.message }),
       })
 
