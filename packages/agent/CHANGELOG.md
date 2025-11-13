@@ -1,5 +1,11 @@
 # @chatbotkit/agent
 
+## 1.21.3
+
+### Patch Changes
+
+- 914e6f7: Added better parallel execution for agents.
+
 ## 1.21.0
 
 ### Minor Changes

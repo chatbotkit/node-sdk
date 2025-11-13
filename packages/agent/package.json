@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/agent",
-  "version": "1.21.0",
+  "version": "1.21.3",
   "description": "ChatBotKit Agent implementation",
   "license": "ISC",
   "engines": {
