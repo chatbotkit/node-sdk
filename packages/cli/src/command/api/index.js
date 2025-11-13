@@ -6,13 +6,30 @@ import skillset from './skillset/index.js'
 
 import { Command, Option } from 'commander'
 
+/**
+ * @typedef {import('@chatbotkit/sdk').ChatBotKit} ChatBotKitSDK
+ */
+
+/**
+ * Commands registry - MUST include ALL SDK clients
+ *
+ * _satisfies {Partial<Record<keyof ChatBotKitSDK, import('commander').Command>>}
+ * _type {Record<keyof ChatBotKitSDK, import('commander').Command>}
+ */
+const commands = {
+  conversation,
+  dataset,
+  skillset,
+  partner,
+}
+
 export const command = new Command()
   .name('api')
   .description('API tools for ChatBotKit')
-  .addCommand(dataset)
-  .addCommand(skillset)
-  .addCommand(conversation)
-  .addCommand(partner)
+
+for (const cmd of Object.values(commands)) {
+  command.addCommand(cmd)
+}
 
 command
   .addOption(
