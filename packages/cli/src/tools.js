@@ -1,4 +1,4 @@
-import { exec } from 'child_process'
+import { exec, spawn } from 'child_process'
 import { readFile, writeFile } from 'fs/promises'
 import { promisify } from 'util'
 import { z } from 'zod'
@@ -132,21 +132,81 @@ export const tools = {
     },
   },
   exec: {
-    description: 'Execute a shell command',
+    description:
+      'Execute a shell command (non-interactive only). Commands timeout after the specified duration (default 30 seconds). Use only for commands that run and exit automatically.',
     input: z.object({
       command: z.string().describe('The command to execute'),
+      timeout: z
+        .number()
+        .default(30)
+        .describe(
+          'Timeout in seconds. The command will be killed if it runs longer than this.'
+        ),
     }),
     handler: async (input) => {
-      try {
-        const { stdout, stderr } = await execAsync(input.command)
+      const timeoutMs = input.timeout * 1000
 
-        return { success: true, stdout, stderr }
-      } catch (error) {
-        return {
-          success: false,
-          error: error instanceof Error ? error.message : 'Unknown error',
-        }
-      }
+      return new Promise((resolve) => {
+        const childProcess = spawn('sh', ['-c', input.command], {
+          stdio: ['ignore', 'pipe', 'pipe'], // @note close stdin to prevent interactive input
+          timeout: timeoutMs,
+        })
+
+        let stdout = ''
+        let stderr = ''
+        let timedOut = false
+
+        childProcess.stdout.on('data', (data) => {
+          stdout += data.toString()
+        })
+
+        childProcess.stderr.on('data', (data) => {
+          stderr += data.toString()
+        })
+
+        childProcess.on('close', (code) => {
+          if (timedOut) {
+            resolve({
+              success: false,
+              error: `Command timed out after ${
+                timeoutMs / 1000
+              } seconds. This may indicate an interactive command.`,
+            })
+          } else if (code === 0) {
+            resolve({ success: true, stdout, stderr })
+          } else {
+            resolve({
+              success: false,
+              error: `Command exited with code ${code}`,
+              stdout,
+              stderr,
+            })
+          }
+        })
+
+        childProcess.on('error', (error) => {
+          resolve({
+            success: false,
+            error: error.message,
+          })
+        })
+
+        setTimeout(() => {
+          if (!childProcess.killed) {
+            timedOut = true
+
+            childProcess.kill('SIGTERM')
+
+            // @note force kill after 2 seconds if still running
+
+            setTimeout(() => {
+              if (!childProcess.killed) {
+                childProcess.kill('SIGKILL')
+              }
+            }, 2000)
+          }
+        }, timeoutMs)
+      })
     },
   },
 }
