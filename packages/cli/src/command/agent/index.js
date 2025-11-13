@@ -6,6 +6,8 @@ import { execute } from '@chatbotkit/agent'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
 import { Command, Option } from 'commander'
+import { existsSync, readFileSync } from 'fs'
+import { resolve } from 'path'
 
 function getClient() {
   return new ChatBotKit({
@@ -22,7 +24,7 @@ export const command = new Command()
   .addOption(
     new Option(
       '-p, --prompt <prompt>',
-      'The prompt to execute'
+      'The prompt to execute (or path to a file containing the prompt)'
     ).makeOptionMandatory()
   )
   .addOption(
@@ -43,6 +45,21 @@ export const command = new Command()
 
     const tools = getTools(options.tools)
 
+    let prompt = options.prompt
+    {
+      const filePath = resolve(process.cwd(), options.prompt)
+
+      if (existsSync(filePath)) {
+        try {
+          prompt = readFileSync(filePath, 'utf-8')
+        } catch (error) {
+          process.stderr.write(`✗ Failed to read file: ${filePath}\n`)
+          process.stderr.write(`  ${error.message}\n`)
+          process.exit(1)
+        }
+      }
+    }
+
     const isInteractive = process.stdout.isTTY
 
     const spinner = isInteractive ? new Spinner('Executing task...') : null
@@ -57,7 +74,7 @@ export const command = new Command()
       client,
       botId: options.bot,
       model: options.model,
-      messages: [{ type: 'user', text: options.prompt }],
+      messages: [{ type: 'user', text: prompt }],
       tools,
       maxIterations: options.maxIterations,
     })) {
