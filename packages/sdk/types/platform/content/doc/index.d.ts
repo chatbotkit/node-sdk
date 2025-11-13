@@ -15,6 +15,13 @@ export class PlatformContentDocClient extends ChatBotKitClient {
      */
     list(request?: import("./v1.js").PlatformContentDocListRequest): ResponsePromise<import("./v1.js").PlatformContentDocListResponse, import("./v1.js").PlatformContentDocListStreamType>;
     /**
+     * Searches platform content docs.
+     *
+     * @param {import('./v1.js').PlatformContentDocSearchRequest} request
+     * @returns {Promise<import('./v1.js').PlatformContentDocSearchResponse>}
+     */
+    search(request: import("./v1.js").PlatformContentDocSearchRequest): Promise<import("./v1.js").PlatformContentDocSearchResponse>;
+    /**
      * Fetches a platform content doc.
      *
      * @param {string} docId

@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "ChatBotKit API",
-    "version": "v1 (build 1762777995445)"
+    "title": "CBK API",
+    "version": "v1 (build 1763040575049)"
   },
   "servers": [
     {
@@ -9243,7 +9243,7 @@
       "post": {
         "operationId": "createConversationSession",
         "summary": "Create conversation session",
-        "description": "Conversation tokens allow client-side applications to create a unique, authenticated credential for each conversation. This token can be used to interact with the conversation/{conversationId}/send, conversation/{conversationId}/receive, and conversation/{conversationId}/message/create routes on api.chatbotkit.com. By creating an individual token for each conversation, a client-side application is able to directly access and manipulate the conversation through these routes. Without conversation tokens, a client-side application would need to authenticate and access ChatBotKit conversation routes through a server-side application, which can be more complex and require additional infrastructure. By providing a way for client-side applications to authenticate and access the conversation routes directly, the token route simplifies the process of integrating with api.chatbotkit.com and makes it more convenient for developers to build chatbot applications.\n",
+        "description": "Conversation tokens allow client-side applications to create a unique,\nauthenticated credential for each conversation. This token can be used\nto interact with the conversation/{conversationId}/send,\nconversation/{conversationId}/receive, and\nconversation/{conversationId}/message/create routes. By creating an\nindividual token for each conversation, a client-side application is\nable to directly access and manipulate the conversation through these\nroutes. Without conversation tokens, a client-side application would\nneed to authenticate and access conversation routes through a\nserver-side application, which can be more complex and require\nadditional infrastructure. By providing a way for client-side\napplications to authenticate and access the conversation routes\ndirectly, the token route simplifies the process of integrating with\nthe API and makes it more convenient for developers to build AI\napplications.\n",
         "tags": [
           "Conversation Session"
         ],
@@ -22644,7 +22644,7 @@
                       "type": "boolean"
                     },
                     "poweredBy": {
-                      "description": "Whether the Widget integration displays powered by ChatBotKit",
+                      "description": "Whether the Widget integration displays powered by",
                       "type": "boolean"
                     }
                   },
@@ -22899,7 +22899,7 @@
                     "type": "boolean"
                   },
                   "poweredBy": {
-                    "description": "Whether the Widget integration displays powered by ChatBotKit",
+                    "description": "Whether the Widget integration displays powered by",
                     "type": "boolean"
                   }
                 }
@@ -23091,7 +23091,7 @@
                     "type": "boolean"
                   },
                   "poweredBy": {
-                    "description": "Whether the Widget integration displays powered by ChatBotKit",
+                    "description": "Whether the Widget integration displays powered by",
                     "type": "boolean"
                   }
                 }
@@ -23332,7 +23332,7 @@
                             "type": "boolean"
                           },
                           "poweredBy": {
-                            "description": "Whether the Widget integration displays powered by ChatBotKit",
+                            "description": "Whether the Widget integration displays powered by",
                             "type": "boolean"
                           }
                         },
@@ -23509,7 +23509,7 @@
                               "type": "boolean"
                             },
                             "poweredBy": {
-                              "description": "Whether the Widget integration displays powered by ChatBotKit",
+                              "description": "Whether the Widget integration displays powered by",
                               "type": "boolean"
                             }
                           },
@@ -26309,6 +26309,10 @@
                     "content": {
                       "description": "The markdown content of the doc",
                       "type": "string"
+                    },
+                    "url": {
+                      "description": "The URL to the official documentation page",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -26348,7 +26352,7 @@
       "get": {
         "operationId": "listPlatformContentDocs",
         "summary": "Retrieve a list of platform docs",
-        "description": "Returns a list of available documentation docs with their metadata. The\ndocs provide comprehensive guides and documentation for various\nChatBotKit features and concepts.\n",
+        "description": "Returns a list of available documentation docs with their metadata.\n",
         "tags": [
           "Platform"
         ],
@@ -26437,6 +26441,10 @@
                           "index": {
                             "description": "The display order index",
                             "type": "number"
+                          },
+                          "url": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -26510,6 +26518,10 @@
                             "index": {
                               "description": "The display order index",
                               "type": "number"
+                            },
+                            "url": {
+                              "description": "The URL to the official documentation page",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1platform~1content~1doc~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -26542,6 +26554,147 @@
           }
         },
         "__originalOperationId": "listPlatformContentDocs",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/content/doc/search": {
+      "post": {
+        "operationId": "searchPlatformContentDocs",
+        "summary": "Search platform docs using semantic similarity",
+        "tags": [
+          "Platform"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "description": "The search query to find relevant docs",
+                    "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 10)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 10
+                  }
+                },
+                "required": [
+                  "search"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The search was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "category": {
+                            "description": "The category of the doc",
+                            "type": "string"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the doc",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          },
+                          "score": {
+                            "description": "The similarity score of the search result",
+                            "type": "number"
+                          },
+                          "excerpt": {
+                            "description": "An excerpt from the most relevant part of the doc",
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name",
+                          "description",
+                          "tags",
+                          "index",
+                          "score",
+                          "excerpt",
+                          "url"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "searchPlatformContentDocs",
         "security": [
           {
             "BearerAuth": []
@@ -26621,6 +26774,10 @@
                     "content": {
                       "description": "The markdown content of the manual",
                       "type": "string"
+                    },
+                    "url": {
+                      "description": "The URL to the official documentation page",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -26660,7 +26817,7 @@
       "get": {
         "operationId": "listPlatformContentManuals",
         "summary": "Retrieve a list of platform manuals",
-        "description": "Returns a list of available documentation manuals with their metadata.\nThe manuals provide comprehensive guides and documentation for various\nChatBotKit features and concepts.\n",
+        "description": "Returns a list of available documentation manuals with their metadata.\n",
         "tags": [
           "Platform"
         ],
@@ -26749,6 +26906,10 @@
                           "index": {
                             "description": "The display order index",
                             "type": "number"
+                          },
+                          "url": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -26822,6 +26983,10 @@
                             "index": {
                               "description": "The display order index",
                               "type": "number"
+                            },
+                            "url": {
+                              "description": "The URL to the official documentation page",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1platform~1content~1manual~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -26854,6 +27019,147 @@
           }
         },
         "__originalOperationId": "listPlatformContentManuals",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/content/manual/search": {
+      "post": {
+        "operationId": "searchPlatformContentManuals",
+        "summary": "Search platform manuals using semantic similarity",
+        "tags": [
+          "Platform"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "description": "The search query to find relevant manuals",
+                    "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 10)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 10
+                  }
+                },
+                "required": [
+                  "search"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The search was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "category": {
+                            "description": "The category of the manual",
+                            "type": "string"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the manual",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          },
+                          "score": {
+                            "description": "The similarity score of the search result",
+                            "type": "number"
+                          },
+                          "excerpt": {
+                            "description": "An excerpt from the most relevant part of the manual",
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name",
+                          "description",
+                          "tags",
+                          "index",
+                          "score",
+                          "excerpt",
+                          "url"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "searchPlatformContentManuals",
         "security": [
           {
             "BearerAuth": []

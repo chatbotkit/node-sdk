@@ -31,9 +31,7 @@ export class ContactClient extends ChatBotKitClient {
     this.task = new TaskClient(options)
     this.space = new SpaceClient(options)
     this.conversation = new ConversationClient(options)
-
-    // @note overlapping name with the `secret` property
-    this.secrets = new SecretClient(options)
+    this.secret = new SecretClient(options)
   }
 
   /**

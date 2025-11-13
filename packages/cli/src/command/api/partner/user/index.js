@@ -56,11 +56,26 @@ export const userDelete = new Command()
     await client.delete(userId)
   })
 
+/**
+ * Commands registry - MUST include ALL PartnerUserClient methods
+ *
+ * @todo enable types once we have more SDK clients implemented
+ *
+ * _satisfies {Partial<Record<keyof PartnerUserClient, import('commander').Command>>}
+ * _type {Record<keyof PartnerUserClient, import('commander').Command>}
+ */
+const commands = {
+  list: userList,
+  fetch: userFetch,
+  delete: userDelete,
+}
+
 export const command = new Command()
   .name('user')
   .description('User tools for ChatBotKit')
-  .addCommand(userList)
-  .addCommand(userFetch)
-  .addCommand(userDelete)
+
+for (const cmd of Object.values(commands)) {
+  command.addCommand(cmd)
+}
 
 export default command

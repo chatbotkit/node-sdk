@@ -36,6 +36,33 @@ export function listPlatformContentDocs(client, request) {
 }
 
 /**
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentDocs']['requestBody']['content']['application/json']} PlatformContentDocSearchRequestBody
+ *
+ * @typedef {PlatformContentDocSearchRequestBody} PlatformContentDocSearchRequest
+ *
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentDocs']['responses']['200']['content']['application/json']} PlatformContentDocSearchResponseBody
+ *
+ * @typedef {PlatformContentDocSearchResponseBody} PlatformContentDocSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {PlatformContentDocSearchRequest} request
+ * @returns {Promise<PlatformContentDocSearchResponse>}
+ */
+export async function searchPlatformContentDocs(client, request) {
+  const url = `/api/v1/platform/content/doc/search`
+
+  /** @type {PlatformContentDocSearchResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {PlatformContentDocSearchRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}
+
+/**
  * @typedef {import('../../../types/api/v1.js').operations['fetchPlatformContentDoc']['responses']['200']['content']['application/json']} PlatformContentDocFetchResponse
  *
  * @param {ChatBotKitClient} client

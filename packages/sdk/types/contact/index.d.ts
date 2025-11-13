@@ -10,7 +10,7 @@ export class ContactClient extends ChatBotKitClient {
     task: TaskClient;
     space: SpaceClient;
     conversation: ConversationClient;
-    secrets: SecretClient;
+    secret: SecretClient;
     /**
      * Retrieves a list of all contacts.
      *

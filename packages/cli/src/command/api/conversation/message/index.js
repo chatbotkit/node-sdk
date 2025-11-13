@@ -59,11 +59,26 @@ export const messageDelete = new Command()
     await client.delete(conversationId, messageId)
   })
 
+/**
+ * Commands registry - MUST include ALL Message SDK clients and methods
+ *
+ * @todo enable types once we have more SDK clients implemented
+ *
+ * _satisfies {Partial<Record<keyof ConversationMessageClient, import('commander').Command>>}
+ * _type {Record<keyof ConversationMessageClient, import('commander').Command>}
+ */
+const commands = {
+  list: messageList,
+  fetch: messageFetch,
+  delete: messageDelete,
+}
+
 export const command = new Command()
   .name('message')
   .description('Message tools for ChatBotKit')
-  .addCommand(messageList)
-  .addCommand(messageFetch)
-  .addCommand(messageDelete)
+
+for (const cmd of Object.values(commands)) {
+  command.addCommand(cmd)
+}
 
 export default command

@@ -56,11 +56,26 @@ export const datasetDelete = new Command()
     await client.delete(datasetId)
   })
 
+/**
+ * Commands registry - MUST include ALL DatasetClient methods
+ *
+ * @todo enable types once we have more SDK clients implemented
+ *
+ * _satisfies {Partial<Record<keyof DatasetClient, import('commander').Command>>}
+ * _type {Record<keyof DatasetClient, import('commander').Command>}
+ */
+const commands = {
+  list: datasetList,
+  fetch: datasetFetch,
+  delete: datasetDelete,
+}
+
 export const command = new Command()
   .name('dataset')
   .description('Dataset tools for ChatBotKit')
-  .addCommand(datasetList)
-  .addCommand(datasetFetch)
-  .addCommand(datasetDelete)
+
+for (const cmd of Object.values(commands)) {
+  command.addCommand(cmd)
+}
 
 export default command

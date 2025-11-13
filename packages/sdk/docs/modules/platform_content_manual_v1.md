@@ -12,12 +12,17 @@
 - [PlatformContentManualListRequest](platform_content_manual_v1.md#platformcontentmanuallistrequest)
 - [PlatformContentManualListResponse](platform_content_manual_v1.md#platformcontentmanuallistresponse)
 - [PlatformContentManualListStreamType](platform_content_manual_v1.md#platformcontentmanualliststreamtype)
+- [PlatformContentManualSearchRequest](platform_content_manual_v1.md#platformcontentmanualsearchrequest)
+- [PlatformContentManualSearchRequestBody](platform_content_manual_v1.md#platformcontentmanualsearchrequestbody)
+- [PlatformContentManualSearchResponse](platform_content_manual_v1.md#platformcontentmanualsearchresponse)
+- [PlatformContentManualSearchResponseBody](platform_content_manual_v1.md#platformcontentmanualsearchresponsebody)
 - [ResponsePromise](platform_content_manual_v1.md#responsepromise)
 
 ### Functions
 
 - [fetchPlatformContentManual](platform_content_manual_v1.md#fetchplatformcontentmanual)
 - [listPlatformContentManuals](platform_content_manual_v1.md#listplatformcontentmanuals)
+- [searchPlatformContentManuals](platform_content_manual_v1.md#searchplatformcontentmanuals)
 
 ## Type Aliases
 
@@ -37,7 +42,7 @@ ___
 
 #### Defined in
 
-[platform/content/manual/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L39)
+[platform/content/manual/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L66)
 
 ___
 
@@ -90,6 +95,46 @@ ___
 
 ___
 
+### PlatformContentManualSearchRequest
+
+Ƭ **PlatformContentManualSearchRequest**\<\>: [`PlatformContentManualSearchRequestBody`](platform_content_manual_v1.md#platformcontentmanualsearchrequestbody)
+
+#### Defined in
+
+[platform/content/manual/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L41)
+
+___
+
+### PlatformContentManualSearchRequestBody
+
+Ƭ **PlatformContentManualSearchRequestBody**\<\>: `operations`[``"searchPlatformContentManuals"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[platform/content/manual/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L39)
+
+___
+
+### PlatformContentManualSearchResponse
+
+Ƭ **PlatformContentManualSearchResponse**\<\>: [`PlatformContentManualSearchResponseBody`](platform_content_manual_v1.md#platformcontentmanualsearchresponsebody)
+
+#### Defined in
+
+[platform/content/manual/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L45)
+
+___
+
+### PlatformContentManualSearchResponseBody
+
+Ƭ **PlatformContentManualSearchResponseBody**\<\>: `operations`[``"searchPlatformContentManuals"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[platform/content/manual/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L43)
+
+___
+
 ### ResponsePromise
 
 Ƭ **ResponsePromise**\<`T`, `U`\>: [`client`](client.md)
@@ -124,7 +169,7 @@ ___
 
 #### Defined in
 
-[platform/content/manual/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L45)
+[platform/content/manual/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L72)
 
 ___
 
@@ -146,3 +191,24 @@ ___
 #### Defined in
 
 [platform/content/manual/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L29)
+
+___
+
+### searchPlatformContentManuals
+
+▸ **searchPlatformContentManuals**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `request` | `Object` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[platform/content/manual/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/manual/v1.js#L51)

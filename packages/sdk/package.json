@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/sdk",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {

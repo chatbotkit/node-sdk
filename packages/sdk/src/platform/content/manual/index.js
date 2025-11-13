@@ -1,5 +1,9 @@
 import { ChatBotKitClient } from '../../../client.js'
-import { fetchPlatformContentManual, listPlatformContentManuals } from './v1.js'
+import {
+  fetchPlatformContentManual,
+  listPlatformContentManuals,
+  searchPlatformContentManuals,
+} from './v1.js'
 
 /**
  * @template T
@@ -26,6 +30,16 @@ export class PlatformContentManualClient extends ChatBotKitClient {
    */
   list(request) {
     return listPlatformContentManuals(this, request)
+  }
+
+  /**
+   * Searches platform content manuals.
+   *
+   * @param {import('./v1.js').PlatformContentManualSearchRequest} request
+   * @returns {Promise<import('./v1.js').PlatformContentManualSearchResponse>}
+   */
+  search(request) {
+    return searchPlatformContentManuals(this, request)
   }
 
   /**

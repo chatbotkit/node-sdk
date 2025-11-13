@@ -23,6 +23,7 @@ Platform content doc client.
 - [clientFetch](platform_content_doc.PlatformContentDocClient.md#clientfetch)
 - [fetch](platform_content_doc.PlatformContentDocClient.md#fetch)
 - [list](platform_content_doc.PlatformContentDocClient.md#list)
+- [search](platform_content_doc.PlatformContentDocClient.md#search)
 
 ## Constructors
 
@@ -46,7 +47,7 @@ Platform content doc client.
 
 #### Defined in
 
-[platform/content/doc/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L17)
+[platform/content/doc/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L21)
 
 ## Methods
 
@@ -94,7 +95,7 @@ Platform content doc client.
 
 #### Defined in
 
-[client.js:351](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L351)
+[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
 
 ___
 
@@ -116,7 +117,7 @@ Fetches a platform content doc.
 
 #### Defined in
 
-[platform/content/doc/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L37)
+[platform/content/doc/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L51)
 
 ___
 
@@ -138,4 +139,26 @@ Retrieves a list of all platform content docs.
 
 #### Defined in
 
-[platform/content/doc/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L27)
+[platform/content/doc/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L31)
+
+___
+
+### search
+
+▸ **search**(`request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+Searches platform content docs.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | `Object` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[platform/content/doc/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/index.js#L41)

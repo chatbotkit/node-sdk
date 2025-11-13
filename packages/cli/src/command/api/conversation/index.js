@@ -35,7 +35,7 @@ export const conversationList = new Command()
     }
   })
 
-export const conversationFetch = new Command()
+const conversationFetch = new Command()
   .name('fetch')
   .description('Fetch conversation')
   .argument('<conversationId>', 'Conversation ID')
@@ -47,7 +47,7 @@ export const conversationFetch = new Command()
     print(conversation)
   })
 
-export const conversationDelete = new Command()
+const conversationDelete = new Command()
   .name('delete')
   .description('Delete conversation')
   .argument('<conversationId>', 'Conversation ID')
@@ -57,12 +57,27 @@ export const conversationDelete = new Command()
     await client.delete(conversationId)
   })
 
+/**
+ * Commands registry - MUST include ALL Conversation SDK clients and methods
+ *
+ * @todo enable types once we have more SDK clients implemented
+ *
+ * _satisfies {Partial<Record<keyof ConversationClient, import('commander').Command>>}
+ * _type {Record<keyof ConversationClient, import('commander').Command>}
+ */
+const commands = {
+  list: conversationList,
+  fetch: conversationFetch,
+  delete: conversationDelete,
+  message,
+}
+
 export const command = new Command()
   .name('conversation')
   .description('Conversation tools for ChatBotKit')
-  .addCommand(conversationList)
-  .addCommand(conversationFetch)
-  .addCommand(conversationDelete)
-  .addCommand(message)
+
+for (const cmd of Object.values(commands)) {
+  command.addCommand(cmd)
+}
 
 export default command

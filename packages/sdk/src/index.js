@@ -53,6 +53,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.bot = new BotClient(options)
     this.channel = new ChannelClient(options)
     this.file = new FileClient(options)
+    this.secret = new SecretClient(options)
     this.magic = new MagicClient(options)
     this.partner = new PartnerClient(options)
     this.dataset = new DatasetClient(options)
@@ -67,9 +68,6 @@ export class ChatBotKit extends ChatBotKitClient {
     this.policy = new PolicyClient(options)
     this.portal = new PortalClient(options)
     this.usage = new UsageClient(options)
-
-    // @note overlapping name with the `secret` property
-    this.secrets = new SecretClient(options)
 
     this.graphql = new GraphqlClient(options)
   }

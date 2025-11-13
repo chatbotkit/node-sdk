@@ -12,12 +12,17 @@
 - [PlatformContentDocListRequest](platform_content_doc_v1.md#platformcontentdoclistrequest)
 - [PlatformContentDocListResponse](platform_content_doc_v1.md#platformcontentdoclistresponse)
 - [PlatformContentDocListStreamType](platform_content_doc_v1.md#platformcontentdocliststreamtype)
+- [PlatformContentDocSearchRequest](platform_content_doc_v1.md#platformcontentdocsearchrequest)
+- [PlatformContentDocSearchRequestBody](platform_content_doc_v1.md#platformcontentdocsearchrequestbody)
+- [PlatformContentDocSearchResponse](platform_content_doc_v1.md#platformcontentdocsearchresponse)
+- [PlatformContentDocSearchResponseBody](platform_content_doc_v1.md#platformcontentdocsearchresponsebody)
 - [ResponsePromise](platform_content_doc_v1.md#responsepromise)
 
 ### Functions
 
 - [fetchPlatformContentDoc](platform_content_doc_v1.md#fetchplatformcontentdoc)
 - [listPlatformContentDocs](platform_content_doc_v1.md#listplatformcontentdocs)
+- [searchPlatformContentDocs](platform_content_doc_v1.md#searchplatformcontentdocs)
 
 ## Type Aliases
 
@@ -37,7 +42,7 @@ ___
 
 #### Defined in
 
-[platform/content/doc/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L39)
+[platform/content/doc/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L66)
 
 ___
 
@@ -90,6 +95,46 @@ ___
 
 ___
 
+### PlatformContentDocSearchRequest
+
+Ƭ **PlatformContentDocSearchRequest**\<\>: [`PlatformContentDocSearchRequestBody`](platform_content_doc_v1.md#platformcontentdocsearchrequestbody)
+
+#### Defined in
+
+[platform/content/doc/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L41)
+
+___
+
+### PlatformContentDocSearchRequestBody
+
+Ƭ **PlatformContentDocSearchRequestBody**\<\>: `operations`[``"searchPlatformContentDocs"``][``"requestBody"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[platform/content/doc/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L39)
+
+___
+
+### PlatformContentDocSearchResponse
+
+Ƭ **PlatformContentDocSearchResponse**\<\>: [`PlatformContentDocSearchResponseBody`](platform_content_doc_v1.md#platformcontentdocsearchresponsebody)
+
+#### Defined in
+
+[platform/content/doc/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L45)
+
+___
+
+### PlatformContentDocSearchResponseBody
+
+Ƭ **PlatformContentDocSearchResponseBody**\<\>: `operations`[``"searchPlatformContentDocs"``][``"responses"``][``"200"``][``"content"``][``"application/json"``]
+
+#### Defined in
+
+[platform/content/doc/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L43)
+
+___
+
 ### ResponsePromise
 
 Ƭ **ResponsePromise**\<`T`, `U`\>: [`client`](client.md)
@@ -124,7 +169,7 @@ ___
 
 #### Defined in
 
-[platform/content/doc/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L45)
+[platform/content/doc/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L72)
 
 ___
 
@@ -146,3 +191,24 @@ ___
 #### Defined in
 
 [platform/content/doc/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L29)
+
+___
+
+### searchPlatformContentDocs
+
+▸ **searchPlatformContentDocs**(`client`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`ChatBotKitClient`](../classes/client.ChatBotKitClient.md) |
+| `request` | `Object` |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<{}\>
+
+#### Defined in
+
+[platform/content/doc/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/doc/v1.js#L51)

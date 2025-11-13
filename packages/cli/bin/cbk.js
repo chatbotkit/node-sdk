@@ -9,4 +9,7 @@ dotenv.config({
   path: ['.env.local', '.env'],
 })
 
+process.on('unhandledRejection', printError)
+process.on('uncaughtException', printError)
+
 cli().catch(printError)

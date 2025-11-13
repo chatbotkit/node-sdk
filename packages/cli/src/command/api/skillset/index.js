@@ -56,11 +56,26 @@ export const skillsetDelete = new Command()
     await client.delete(skillsetId)
   })
 
+/**
+ * Commands registry - MUST include ALL SkillsetClient methods
+ *
+ * @todo enable types once we have more SDK clients implemented
+ *
+ * _satisfies {Partial<Record<keyof SkillsetClient, import('commander').Command>>}
+ * _type {Record<keyof SkillsetClient, import('commander').Command>}
+ */
+const commands = {
+  list: skillsetList,
+  fetch: skillsetFetch,
+  delete: skillsetDelete,
+}
+
 export const command = new Command()
   .name('skillset')
   .description('Skillset tools for ChatBotKit')
-  .addCommand(skillsetList)
-  .addCommand(skillsetFetch)
-  .addCommand(skillsetDelete)
+
+for (const cmd of Object.values(commands)) {
+  command.addCommand(cmd)
+}
 
 export default command

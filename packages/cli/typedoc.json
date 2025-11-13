@@ -3,6 +3,7 @@
     "../../typedoc.base.json"
   ],
   "entryPoints": [
+    "./src/command/agent/index.js",
     "./src/command/api/conversation/index.js",
     "./src/command/api/conversation/message/index.js",
     "./src/command/api/dataset/index.js",
@@ -17,7 +18,9 @@
     "./src/index.js",
     "./src/input.js",
     "./src/output.js",
-    "./src/solution/index.js"
+    "./src/solution/index.js",
+    "./src/spinner.js",
+    "./src/tools.js"
   ],
   "externalPattern": [
     "**/node_modules/**",

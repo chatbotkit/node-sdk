@@ -291,40 +291,79 @@ export class ResponsePromise {
  */
 
 export class ChatBotKitClient {
+  /** @type {string|null} */
+  #secret = null
+
+  /** @type {URL} */
+  #url
+
+  /** @type {Record<string,string>} */
+  #endpoints
+
+  /** @type {string|undefined} */
+  #runAsUserId
+
+  /** @type {string|undefined} */
+  #runAsChildUserEmail
+
+  /** @type {string|undefined} */
+  #timezone
+
+  /** @type {Record<string,string>} */
+  #headers
+
+  /** @type {number|undefined} */
+  #timeout
+
+  /** @type {number|undefined} */
+  #retries
+
+  /** @type {number|undefined} */
+  #retryDelay
+
+  /** @type {boolean|undefined} */
+  #retryTimeout
+
+  /** @type {FetchFunction} */
+  #fetchFn
+
+  /** @type {Map<string,Promise<any>>} */
+  #cacheMap
+
   /**
    * @param {ChatBotKitClientOptions} options
    */
   constructor(options) {
-    this.secret = options.secret
+    this.#secret = options.secret
 
-    this.url = new URL(`https://api.chatbotkit.com`)
+    this.#url = new URL(`https://api.chatbotkit.com`)
 
     if (options.host) {
-      this.url.host = options.host
+      this.#url.host = options.host
     }
 
     if (options.protocol) {
-      this.url.protocol = options.protocol
+      this.#url.protocol = options.protocol
     }
 
-    this.endpoints = options.endpoints || {}
+    this.#endpoints = options.endpoints || {}
 
-    this.runAsUserId = options.runAsUserId
-    this.runAsChildUserEmail = options.runAsChildUserEmail
+    this.#runAsUserId = options.runAsUserId
+    this.#runAsChildUserEmail = options.runAsChildUserEmail
 
-    this.timezone = options.timezone
+    this.#timezone = options.timezone
 
-    this.headers = options.headers || {}
+    this.#headers = options.headers || {}
 
-    this.timeout = options.timeout
+    this.#timeout = options.timeout
 
-    this.retries = options.retries
-    this.retryDelay = options.retryDelay
-    this.retryTimeout = options.retryTimeout
+    this.#retries = options.retries
+    this.#retryDelay = options.retryDelay
+    this.#retryTimeout = options.retryTimeout
 
-    this.fetchFn = options.fetchFn || fetchPlusPlus
+    this.#fetchFn = options.fetchFn || fetchPlusPlus
 
-    this.cacheMap = new Map()
+    this.#cacheMap = new Map()
   }
 
   /**
@@ -352,8 +391,8 @@ export class ChatBotKitClient {
     let method = options?.method
 
     const url = new URL(
-      this.endpoints[options?.endpoint || path] || path,
-      this.url
+      this.#endpoints[options?.endpoint || path] || path,
+      this.#url
     )
 
     if (
@@ -385,25 +424,25 @@ export class ChatBotKitClient {
 
     /** @type {Record<string,string>} */
     const headers = {
-      ...this.headers,
+      ...this.#headers,
     }
 
     if (!options?.external) {
-      if (this.secret) {
-        headers['authorization'] = `Bearer ${this.secret}`
+      if (this.#secret) {
+        headers['authorization'] = `Bearer ${this.#secret}`
       }
 
-      if (this.runAsUserId) {
-        headers['x-runas-user-id'] = this.runAsUserId
+      if (this.#runAsUserId) {
+        headers['x-runas-user-id'] = this.#runAsUserId
       }
 
-      if (this.runAsChildUserEmail) {
-        headers['x-runas-child-user-email'] = this.runAsChildUserEmail
+      if (this.#runAsChildUserEmail) {
+        headers['x-runas-child-user-email'] = this.#runAsChildUserEmail
       }
     }
 
-    if (this.timezone) {
-      headers['x-timezone'] = this.timezone
+    if (this.#timezone) {
+      headers['x-timezone'] = this.#timezone
     }
 
     let data
@@ -443,15 +482,15 @@ export class ChatBotKitClient {
       headers,
       data,
 
-      timeout: options?.timeout ?? this.timeout,
+      timeout: options?.timeout ?? this.#timeout,
 
-      retries: options?.retries ?? this.retries,
-      retryDelay: options?.retryDelay ?? this.retryDelay,
-      retryTimeout: options?.retryTimeout ?? this.retryTimeout,
+      retries: options?.retries ?? this.#retries,
+      retryDelay: options?.retryDelay ?? this.#retryDelay,
+      retryTimeout: options?.retryTimeout ?? this.#retryTimeout,
 
-      fetchFn: options?.fetchFn || this.fetchFn,
+      fetchFn: options?.fetchFn || this.#fetchFn,
     }
 
-    return new ResponsePromise(url, request, this.cacheMap)
+    return new ResponsePromise(url, request, this.#cacheMap)
   }
 }

@@ -1,5 +1,9 @@
 import { ChatBotKitClient } from '../../../client.js'
-import { fetchPlatformContentDoc, listPlatformContentDocs } from './v1.js'
+import {
+  fetchPlatformContentDoc,
+  listPlatformContentDocs,
+  searchPlatformContentDocs,
+} from './v1.js'
 
 /**
  * @template T
@@ -26,6 +30,16 @@ export class PlatformContentDocClient extends ChatBotKitClient {
    */
   list(request) {
     return listPlatformContentDocs(this, request)
+  }
+
+  /**
+   * Searches platform content docs.
+   *
+   * @param {import('./v1.js').PlatformContentDocSearchRequest} request
+   * @returns {Promise<import('./v1.js').PlatformContentDocSearchResponse>}
+   */
+  search(request) {
+    return searchPlatformContentDocs(this, request)
   }
 
   /**

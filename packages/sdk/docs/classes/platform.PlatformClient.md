@@ -165,4 +165,4 @@ overlapping name with the `secret` property
 
 #### Defined in
 
-[client.js:351](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L351)
+[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
