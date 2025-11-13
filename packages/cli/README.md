@@ -7,37 +7,79 @@
 
 # ChatBotKit CLI
 
-The ChatBotKit CLI is a command-line interface for the ChatBotKit SDK. It provides a set of commands to help you manage your ChatBotKit projects.
+A powerful command-line interface for ChatBotKit that provides both API management commands and an autonomous AI agent mode for interactive development tasks.
 
-## Getting Started
+## Installation
 
-To begin using the ChatBotKit CLI, follow these steps:
+Install globally via npm:
 
-1. **Installation**: Add the SDK to your project using npm:
+```bash
+npm install --global @chatbotkit/cli
+```
 
-   ```bash
-   npm install --global @chatbotkit/cli
-   ```
+## Authentication
 
-2. **Help**: Get help on the available commands:
+Set your ChatBotKit API token as an environment variable:
 
-   ```bash
-   cbk --help
-   ```
+```bash
+export CHATBOTKIT_API_TOKEN=<your token here>
+```
 
-3. **Usage**: Use the CLI to interact with ChatBotKit:
+## Features
 
-   Keep in mind that you will need to authenticate with your ChatBotKit token first.
+### API Commands
 
-   ```bash
-   export CHATBOTKIT_API_TOKEN=<your token here>
-   ```
+Manage ChatBotKit resources directly from the command line:
 
-   Then you can use the CLI to interact with ChatBotKit:
+```bash
+cbk api conversation list
+cbk api bot list
+```
 
-   ```bash
-   cbk api conversation list
-   ```
+Use `cbk --help` to see all available commands.
+
+### Agent Mode
+
+Run an autonomous AI agent that can execute tasks with local file system and command access, while leveraging the full power of the ChatBotKit platform.
+
+```bash
+cbk agent -p "Create a new file and write hello world to it"
+```
+
+**Local Tools:**
+
+- `read` - Read file contents
+- `write` - Write content to a file
+- `edit` - Replace exact string occurrences (single match only)
+- `find` - Search for files using glob patterns
+- `exec` - Execute shell commands
+
+**Platform Integration:**
+
+The agent runs with complete ChatBotKit platform capabilities, including:
+
+- Access to all configured integrations and 3rd-party services
+- Authenticated sessions with external APIs
+- Dataset connections and skillsets
+- Custom abilities and functions
+
+This means your agent can interact with your local development environment while seamlessly accessing any ChatBotKit resources you've configured.
+
+**Agent Options:**
+
+- `-p, --prompt <text>` - Task to execute
+- `-t, --tools <names>` - Comma-separated list of tools to enable (defaults to all standard tools)
+- `-m, --model <name>` - AI model to use
+
+**Example:**
+
+```bash
+# Run agent with specific tools only
+cbk agent -t read,write -p "Read package.json and create a backup"
+
+# Use custom timeout for long-running commands
+cbk agent -p "Run tests with 60 second timeout" -m gpt-5
+```
 
 ## Documentation
 
