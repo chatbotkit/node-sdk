@@ -91,6 +91,36 @@ export const command = new Command()
         }
 
         hasOutput = false
+      } else if (type === 'toolCallStart') {
+        if (spinner && spinner.isSpinning) {
+          spinner.stop()
+        }
+
+        print({ tool: data.name, status: 'running', args: data.args })
+
+        if (spinner) {
+          spinner.start()
+        }
+      } else if (type === 'toolCallEnd') {
+        if (spinner && spinner.isSpinning) {
+          spinner.stop()
+        }
+
+        print({ tool: data.name, status: 'completed', result: data.result })
+
+        if (spinner) {
+          spinner.start()
+        }
+      } else if (type === 'toolCallError') {
+        if (spinner && spinner.isSpinning) {
+          spinner.stop()
+        }
+
+        print({ tool: data.name, status: 'error', error: data.error })
+
+        if (spinner) {
+          spinner.start()
+        }
       } else if (type === 'token') {
         if (spinner && spinner.isSpinning) {
           spinner.stop()
