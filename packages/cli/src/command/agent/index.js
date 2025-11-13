@@ -4,9 +4,14 @@ import { Spinner } from '../../spinner.js'
 import { complete } from '@chatbotkit/agent'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
+import { exec } from 'child_process'
 import { Command, Option } from 'commander'
+import { readFile, writeFile } from 'fs/promises'
 import readline from 'readline/promises'
+import { promisify } from 'util'
 import { z } from 'zod'
+
+const execAsync = promisify(exec)
 
 function getClient() {
   return new ChatBotKit({
@@ -20,6 +25,14 @@ export const command = new Command()
   .description('Start an agent session with tools')
   .addOption(new Option('-b, --bot <bot>', 'Bot id'))
   .addOption(new Option('-m, --model <model>', 'Model name'))
+  .addOption(
+    new Option('-t, --tools <tools...>', 'Specific tools to enable').choices([
+      'read',
+      'write',
+      'search',
+      'exec',
+    ])
+  )
   .action(async (options) => {
     const client = getClient()
 
@@ -31,30 +44,97 @@ export const command = new Command()
     /** @type {{type: 'user'|'bot', text: string}[]} */
     const messages = []
 
-    // Define test tools
-    const tools = {
-      getWeather: {
-        description: 'Get the current weather for a location',
+    const allTools = {
+      read: {
+        description: 'Read the contents of a file',
         input: z.object({
-          location: z
-            .string()
-            .describe('The city and state, e.g. San Francisco, CA'),
-          unit: z
-            .enum(['celsius', 'fahrenheit'])
-            .optional()
-            .default('fahrenheit'),
+          path: z.string().describe('The file path to read'),
         }),
         handler: async (/** @type {any} */ input) => {
-          // Mock weather data for testing
-          return {
-            location: input.location,
-            temperature: 72,
-            unit: input.unit,
-            conditions: 'Sunny',
+          try {
+            const content = await readFile(input.path, 'utf-8')
+
+            return { success: true, content }
+          } catch (error) {
+            return {
+              success: false,
+              error: error instanceof Error ? error.message : 'Unknown error',
+            }
+          }
+        },
+      },
+      write: {
+        description: 'Write content to a file',
+        input: z.object({
+          path: z.string().describe('The file path to write to'),
+          content: z.string().describe('The content to write'),
+        }),
+        handler: async (/** @type {any} */ input) => {
+          try {
+            await writeFile(input.path, input.content, 'utf-8')
+
+            return { success: true }
+          } catch (error) {
+            return {
+              success: false,
+              error: error instanceof Error ? error.message : 'Unknown error',
+            }
+          }
+        },
+      },
+      search: {
+        description: 'Search for files matching a pattern',
+        input: z.object({
+          pattern: z.string().describe('The glob pattern to search for'),
+          directory: z
+            .string()
+            .optional()
+            .describe('The directory to search in (defaults to current)'),
+        }),
+        handler: async (/** @type {any} */ input) => {
+          try {
+            const dir = input.directory || '.'
+            const { stdout } = await execAsync(
+              `find ${dir} -name "${input.pattern}"`
+            )
+            const files = stdout.trim().split('\n').filter(Boolean)
+
+            return { success: true, files }
+          } catch (error) {
+            return {
+              success: false,
+              error: error instanceof Error ? error.message : 'Unknown error',
+            }
+          }
+        },
+      },
+      exec: {
+        description: 'Execute a shell command',
+        input: z.object({
+          command: z.string().describe('The command to execute'),
+        }),
+        handler: async (/** @type {any} */ input) => {
+          try {
+            const { stdout, stderr } = await execAsync(input.command)
+
+            return { success: true, stdout, stderr }
+          } catch (error) {
+            return {
+              success: false,
+              error: error instanceof Error ? error.message : 'Unknown error',
+            }
           }
         },
       },
     }
+
+    const tools = options.tools
+      ? Object.fromEntries(
+          Object.entries(allTools).filter(([name]) =>
+            options.tools.includes(name)
+          )
+        )
+      : allTools
 
     const colors = {
       reset: '\x1b[0m',
