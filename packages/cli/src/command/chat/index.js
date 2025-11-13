@@ -1,13 +1,15 @@
 import { getRUNAS_USERID, getSECRET } from '../../env.js'
 import { Spinner } from '../../spinner.js'
+import { getToolNames, getTools } from '../../tools.js'
 
-import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
+import { complete } from '@chatbotkit/agent'
+import { ChatBotKit } from '@chatbotkit/sdk'
 
 import { Command, Option } from 'commander'
 import readline from 'readline/promises'
 
 function getClient() {
-  return new ConversationClient({
+  return new ChatBotKit({
     secret: getSECRET(),
     runAsUserId: getRUNAS_USERID(),
   })
@@ -18,6 +20,11 @@ export const command = new Command()
   .description('Start a chat session')
   .addOption(new Option('-b, --bot <bot>', 'Bot id'))
   .addOption(new Option('-m, --model <model>', 'Model name'))
+  .addOption(
+    new Option('-t, --tools <tools...>', 'Specific tools to enable').choices(
+      getToolNames()
+    )
+  )
   .action(async (options) => {
     const client = getClient()
 
@@ -29,7 +36,8 @@ export const command = new Command()
     /** @type {{type: 'user'|'bot', text: string}[]} */
     const messages = []
 
-    // ANSI colors and formatting
+    const tools = getTools(options.tools)
+
     const colors = {
       reset: '\x1b[0m',
       bold: '\x1b[1m',
@@ -56,9 +64,13 @@ export const command = new Command()
 
       let firstToken = true
 
-      for await (const { type, data } of client
-        .complete(null, { botId: options.bot, model: options.model, messages })
-        .stream()) {
+      for await (const { type, data } of complete({
+        client,
+        botId: options.bot,
+        model: options.model,
+        messages,
+        tools,
+      })) {
         if (type === 'token') {
           if (firstToken) {
             spinner.stop()
