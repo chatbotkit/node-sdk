@@ -61,6 +61,11 @@ export function print(input) {
  * @returns {void}
  */
 export function printError(error) {
+  // @note ctrl+c (sigint) should exit gracefully without printing error
+  if (error?.code === 'ABORT_ERR' || error?.name === 'AbortError') {
+    process.exit(130) // @note 128 + sigint(2) is the standard exit code for ctrl+c
+  }
+
   if (error instanceof CommandError) {
     // eslint-disable-next-line no-console
     console.error(error.message)
