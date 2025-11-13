@@ -290,6 +290,8 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
     yield { type: 'iteration', data: { iteration } }
 
     for await (const event of complete({
+      ...request,
+
       client,
 
       messages,
@@ -301,8 +303,6 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
 
         backstory: systemInstruction,
       },
-
-      ...request,
     })) {
       yield event
 
