@@ -16,6 +16,7 @@ import { resolve } from 'path'
 class OutputManager {
   constructor() {
     this.lastOutputWasRaw = false
+    this.lastOutputWasStructured = false
     this.hasRawOutput = false
     this.lastChar = ''
   }
@@ -26,6 +27,12 @@ class OutputManager {
    * @param {string} text
    */
   writeRaw(text) {
+    if (this.lastOutputWasStructured) {
+      process.stdout.write('\n')
+
+      this.lastOutputWasStructured = false
+    }
+
     process.stdout.write(text)
 
     this.lastOutputWasRaw = true
@@ -62,6 +69,8 @@ class OutputManager {
     this.addNewlinesIfNeeded()
 
     print(data)
+
+    this.lastOutputWasStructured = true
   }
 
   /**
@@ -69,6 +78,7 @@ class OutputManager {
    */
   reset() {
     this.lastOutputWasRaw = false
+    this.lastOutputWasStructured = false
     this.hasRawOutput = false
     this.lastChar = ''
   }
@@ -90,6 +100,8 @@ class OutputManager {
 
     // eslint-disable-next-line no-console
     console.log(text)
+
+    this.lastOutputWasStructured = true
   }
 }
 
