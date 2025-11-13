@@ -214,8 +214,8 @@ export const tools = {
 /**
  * Get specific tools based on selected tool names
  *
- * @param {string[]} [selectedTools] - Array of tool names to include. If not provided, returns all tools
- * @returns {Record<string, {description: string, input: z.ZodObject<any>, handler: (input: any) => Promise<any>}>}
+ * @param {Array<keyof typeof tools>} [selectedTools] - Array of tool names to include. If not provided, returns all tools
+ * @returns {typeof tools}
  */
 export function getTools(selectedTools) {
   if (!selectedTools || selectedTools.length === 0) {
@@ -230,7 +230,7 @@ export function getTools(selectedTools) {
 /**
  * Get available tool names
  *
- * @returns {string[]}
+ * @returns {Array<keyof typeof tools>}
  */
 export function getToolNames() {
   return Object.keys(tools)
