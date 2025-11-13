@@ -80,12 +80,14 @@ export const command = new Command()
             spinner.stop()
           }
 
+          const iterationNum = data.iteration - 1
+
           // eslint-disable-next-line no-console
-          console.log(`[Iteration ${data.iteration}]`)
+          console.log(`\n╭─ Iteration ${iterationNum} ─╮`)
 
           spinner.start()
         } else {
-          print({ iteration: data.iteration })
+          print({ iteration: data.iteration - 1 })
         }
 
         hasOutput = false
