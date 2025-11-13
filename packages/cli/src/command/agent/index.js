@@ -245,6 +245,10 @@ export const command = new Command()
         output.writeRaw(data.token.replace(/\n/gm, '\n> '))
       } else if (type === 'exit') {
         exitResult = data
+
+        if (spinner && spinner.isSpinning) {
+          spinner.stop()
+        }
       }
     }
 
