@@ -137,7 +137,80 @@ export async function* complete(options) {
     })
     .stream()
 
+  /** @type {Array<ToolCallEndEvent | ToolCallErrorEvent>} */
+  const toolEventQueue = []
+
+  const runningTools = new Set()
+
+  /**
+   * Execute a tool asynchronously without blocking the event stream
+   *
+   * @param {string} channel
+   * @param {string} name
+   * @param {any} tool
+   * @param {any} args
+   */
+  const executeToolAsync = async (channel, name, tool, args) => {
+    try {
+      let parsedArgs = args
+
+      if (tool.input) {
+        const parseResult = tool.input.safeParse(args)
+
+        if (!parseResult.success) {
+          const errorMsg = `Invalid arguments: ${parseResult.error.message}`
+
+          toolEventQueue.push({
+            type: 'toolCallError',
+            data: { name, error: errorMsg },
+          })
+
+          await client.channel.publish(String(channel), {
+            message: JSON.stringify({ error: errorMsg }),
+          })
+
+          return
+        }
+
+        parsedArgs = parseResult.data
+      }
+
+      const result = await tool.handler(parsedArgs)
+
+      toolEventQueue.push({
+        type: 'toolCallEnd',
+        data: { name, result },
+      })
+
+      await client.channel.publish(String(channel), {
+        message: JSON.stringify({ data: result }),
+      })
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Unknown error occurred'
+
+      toolEventQueue.push({
+        type: 'toolCallError',
+        data: { name, error: errorMessage },
+      })
+
+      await client.channel.publish(String(channel), {
+        message: JSON.stringify({ error: errorMessage }),
+      })
+    } finally {
+      runningTools.delete(channel)
+    }
+  }
+
   for await (const event of stream) {
+    while (toolEventQueue.length > 0) {
+      const toolEvent = toolEventQueue.shift()
+
+      if (toolEvent) {
+        yield toolEvent
+      }
+    }
+
     if (
       event.type === 'waitForChannelMessageBegin' &&
       event.data &&
@@ -160,68 +233,37 @@ export async function* complete(options) {
           },
         }
 
-        try {
-          let parsedArgs = args
+        const toolPromise = executeToolAsync(channel, name, tool, args)
 
-          if (tool.input) {
-            const parseResult = tool.input.safeParse(args)
+        runningTools.add(channel)
 
-            if (!parseResult.success) {
-              yield {
-                type: 'toolCallError',
-                data: {
-                  name,
-                  error: `Invalid arguments: ${parseResult.error.message}`,
-                },
-              }
-
-              await client.channel.publish(String(channel), {
-                message: JSON.stringify({
-                  error: `Invalid arguments: ${parseResult.error.message}`,
-                }),
-              })
-
-              continue
-            }
-
-            parsedArgs = parseResult.data
-          }
-
-          const result = await tool.handler(parsedArgs)
-
-          yield {
-            type: 'toolCallEnd',
-            data: {
-              name,
-              result,
-            },
-          }
-
-          await client.channel.publish(String(channel), {
-            message: JSON.stringify({ data: result }),
-          })
-        } catch (error) {
-          const errorMessage =
-            error instanceof Error ? error.message : 'Unknown error occurred'
-
-          yield {
-            type: 'toolCallError',
-            data: {
-              name,
-              error: errorMessage,
-            },
-          }
-
-          await client.channel.publish(String(channel), {
-            message: JSON.stringify({
-              error: errorMessage,
-            }),
-          })
-        }
+        toolPromise.catch(() => {
+          // @note errors are already handled in executeToolAsync
+        })
       }
     }
 
     yield event
+  }
+
+  while (toolEventQueue.length > 0) {
+    const toolEvent = toolEventQueue.shift()
+
+    if (toolEvent) {
+      yield toolEvent
+    }
+  }
+
+  while (runningTools.size > 0) {
+    await new Promise((resolve) => setTimeout(resolve, 10))
+
+    while (toolEventQueue.length > 0) {
+      const toolEvent = toolEventQueue.shift()
+
+      if (toolEvent) {
+        yield toolEvent
+      }
+    }
   }
 }
 
