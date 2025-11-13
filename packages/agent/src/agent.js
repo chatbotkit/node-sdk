@@ -305,10 +305,6 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
       },
     })) {
       yield event
-
-      if (event.type === 'result') {
-        messages.push({ type: 'bot', text: event.data.text })
-      }
     }
 
     if (exitResult) {
