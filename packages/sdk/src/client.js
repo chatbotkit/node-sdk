@@ -291,20 +291,26 @@ export class ResponsePromise {
  */
 
 export class ChatBotKitClient {
+  /** @type {string|null} */
+  #secret = null
+
+  /** @type {URL} */
+  #url
+
   /**
    * @param {ChatBotKitClientOptions} options
    */
   constructor(options) {
-    this.secret = options.secret
+    this.#secret = options.secret
 
-    this.url = new URL(`https://api.chatbotkit.com`)
+    this.#url = new URL(`https://api.chatbotkit.com`)
 
     if (options.host) {
-      this.url.host = options.host
+      this.#url.host = options.host
     }
 
     if (options.protocol) {
-      this.url.protocol = options.protocol
+      this.#url.protocol = options.protocol
     }
 
     this.endpoints = options.endpoints || {}
@@ -353,7 +359,7 @@ export class ChatBotKitClient {
 
     const url = new URL(
       this.endpoints[options?.endpoint || path] || path,
-      this.url
+      this.#url
     )
 
     if (
@@ -389,8 +395,8 @@ export class ChatBotKitClient {
     }
 
     if (!options?.external) {
-      if (this.secret) {
-        headers['authorization'] = `Bearer ${this.secret}`
+      if (this.#secret) {
+        headers['authorization'] = `Bearer ${this.#secret}`
       }
 
       if (this.runAsUserId) {
