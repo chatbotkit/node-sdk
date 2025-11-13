@@ -29,12 +29,28 @@ export const command = new Command()
     /** @type {{type: 'user'|'bot', text: string}[]} */
     const messages = []
 
+    // ANSI colors and formatting
+    const colors = {
+      reset: '\x1b[0m',
+      bold: '\x1b[1m',
+      cyan: '\x1b[36m',
+      green: '\x1b[32m',
+    }
+
     for (;;) {
-      const user = await rl.question('user: ')
+      process.stdout.write('\n')
+
+      const user = await rl.question(
+        `${colors.cyan}●${colors.reset} ${colors.bold}You${colors.reset}\n\n> `
+      )
 
       messages.push({ type: 'user', text: user })
 
-      const spinner = new Spinner('bot: ')
+      process.stdout.write(
+        `\n${colors.green}●${colors.reset} ${colors.bold}Assistant${colors.reset}\n\n  `
+      )
+
+      const spinner = new Spinner('')
 
       spinner.start()
 
