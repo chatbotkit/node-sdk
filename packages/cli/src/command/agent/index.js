@@ -14,11 +14,24 @@ import { resolve } from 'path'
  * Manages output state to avoid mixed raw and structured output
  */
 class OutputManager {
-  constructor() {
+  /**
+   * @param {Spinner | null} spinner
+   */
+  constructor(spinner = null) {
     this.lastOutputWasRaw = false
     this.lastOutputWasStructured = false
     this.hasRawOutput = false
     this.lastChar = ''
+    this.spinner = spinner
+  }
+
+  /**
+   * Ensure spinner is stopped before writing output
+   */
+  ensureSpinnerStopped() {
+    if (this.spinner && this.spinner.isSpinning) {
+      this.spinner.stop()
+    }
   }
 
   /**
@@ -27,6 +40,8 @@ class OutputManager {
    * @param {string} text
    */
   writeRaw(text) {
+    this.ensureSpinnerStopped()
+
     if (this.lastOutputWasStructured) {
       process.stdout.write('\n')
 
@@ -66,6 +81,8 @@ class OutputManager {
    * @param {object} data
    */
   printStructured(data) {
+    this.ensureSpinnerStopped()
+
     this.addNewlinesIfNeeded()
 
     print(data)
@@ -96,6 +113,8 @@ class OutputManager {
    * @param {string} text
    */
   writeLine(text) {
+    this.ensureSpinnerStopped()
+
     this.addNewlinesIfNeeded()
 
     // eslint-disable-next-line no-console
@@ -158,7 +177,7 @@ export const command = new Command()
 
     const spinner = isInteractive ? new Spinner() : null
 
-    const output = new OutputManager()
+    const output = new OutputManager(spinner)
 
     let exitResult = null
     let hasOutput = false
@@ -173,10 +192,6 @@ export const command = new Command()
     })) {
       if (type === 'iteration') {
         if (spinner) {
-          if (spinner.isSpinning) {
-            spinner.stop()
-          }
-
           const iterationNum = data.iteration - 1
 
           output.writeLine(`╭─ Iteration ${iterationNum} ─╮`)
@@ -190,10 +205,6 @@ export const command = new Command()
 
         hasOutput = false
       } else if (type === 'toolCallStart') {
-        if (spinner && spinner.isSpinning) {
-          spinner.stop()
-        }
-
         output.printStructured({
           tool: data.name,
           status: 'running',
@@ -204,10 +215,6 @@ export const command = new Command()
           spinner.start()
         }
       } else if (type === 'toolCallEnd') {
-        if (spinner && spinner.isSpinning) {
-          spinner.stop()
-        }
-
         output.printStructured({
           tool: data.name,
           status: 'completed',
@@ -218,10 +225,6 @@ export const command = new Command()
           spinner.start()
         }
       } else if (type === 'toolCallError') {
-        if (spinner && spinner.isSpinning) {
-          spinner.stop()
-        }
-
         output.printStructured({
           tool: data.name,
           status: 'error',
@@ -232,10 +235,6 @@ export const command = new Command()
           spinner.start()
         }
       } else if (type === 'token') {
-        if (spinner && spinner.isSpinning) {
-          spinner.stop()
-        }
-
         if (!hasOutput && isInteractive) {
           output.writeRaw('> ')
 
@@ -245,15 +244,7 @@ export const command = new Command()
         output.writeRaw(data.token.replace(/\n/gm, '\n> '))
       } else if (type === 'exit') {
         exitResult = data
-
-        if (spinner && spinner.isSpinning) {
-          spinner.stop()
-        }
       }
-    }
-
-    if (spinner && spinner.isSpinning) {
-      spinner.stop()
     }
 
     if (exitResult) {
