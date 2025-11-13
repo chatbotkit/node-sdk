@@ -17150,8 +17150,8 @@ export interface operations {
                     /** @description The search query to find relevant docs */
                     search: string;
                     /**
-                     * @description The maximum number of results to return (1-100, default 20)
-                     * @default 20
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
                      */
                     take?: number;
                 };
@@ -17183,15 +17183,15 @@ export interface operations {
                             /** @description The category of the doc */
                             category?: string;
                             /** @description Tags associated with the doc */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The similarity score of the search result */
-                            score?: number;
-                            /** @description The full content of the doc */
-                            content?: string;
+                            score: number;
+                            /** @description An excerpt from the most relevant part of the doc */
+                            excerpt: string;
                             /** @description The URL to the official documentation page */
-                            url?: string;
+                            url: string;
                         }[];
                     };
                 };
@@ -17373,8 +17373,8 @@ export interface operations {
                     /** @description The search query to find relevant manuals */
                     search: string;
                     /**
-                     * @description The maximum number of results to return (1-100, default 20)
-                     * @default 20
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
                      */
                     take?: number;
                 };
@@ -17406,15 +17406,15 @@ export interface operations {
                             /** @description The category of the manual */
                             category?: string;
                             /** @description Tags associated with the manual */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The similarity score of the search result */
-                            score?: number;
-                            /** @description The full content of the manual */
-                            content?: string;
+                            score: number;
+                            /** @description An excerpt from the most relevant part of the manual */
+                            excerpt: string;
                             /** @description The URL to the official documentation page */
-                            url?: string;
+                            url: string;
                         }[];
                     };
                 };
