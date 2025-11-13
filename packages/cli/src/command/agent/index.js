@@ -30,7 +30,7 @@ class OutputManager {
    */
   ensureSpinnerStopped() {
     if (this.spinner && this.spinner.isSpinning) {
-      this.spinner.stop()
+      this.spinner.stop(false)
     }
   }
 
