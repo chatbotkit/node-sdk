@@ -1,4 +1,5 @@
 import { getRUNAS_USERID, getSECRET } from '../../env.js'
+import { print, printError } from '../../output.js'
 import { Spinner } from '../../spinner.js'
 import { getToolNames, getTools } from '../../tools.js'
 
@@ -46,21 +47,36 @@ export const command = new Command()
     const tools = getTools(options.tools)
 
     let prompt = options.prompt
+    let promptSource = 'argument'
     {
       const filePath = resolve(process.cwd(), options.prompt)
 
       if (existsSync(filePath)) {
         try {
           prompt = readFileSync(filePath, 'utf-8')
+          promptSource = filePath
         } catch (error) {
-          process.stderr.write(`✗ Failed to read file: ${filePath}\n`)
-          process.stderr.write(`  ${error.message}\n`)
-          process.exit(1)
+          printError(error)
         }
       }
     }
 
     const isInteractive = process.stdout.isTTY
+
+    const executionInfo = {
+      ...(options.bot && { bot: options.bot }),
+      ...(options.model && { model: options.model }),
+
+      maxIterations: options.maxIterations,
+
+      tools: tools ? Object.keys(tools) : [],
+
+      promptSource,
+
+      prompt: prompt.substring(0, 100) + (prompt.length > 100 ? '...' : ''),
+    }
+
+    print(executionInfo)
 
     const spinner = isInteractive ? new Spinner('Executing task...') : null
 
@@ -81,19 +97,15 @@ export const command = new Command()
       if (type === 'iteration') {
         if (spinner) {
           spinner.setText(`Iteration ${data.iteration}...`)
-        }
-
-        if (!isInteractive) {
-          process.stdout.write(`\n--- Iteration ${data.iteration} ---\n`)
+        } else {
+          print({ iteration: data.iteration })
         }
       } else if (type === 'token') {
         if (spinner && spinner.isSpinning) {
           spinner.stop()
         }
 
-        if (!isInteractive) {
-          process.stdout.write(data.token)
-        }
+        process.stdout.write(data.token)
       } else if (type === 'exit') {
         exitResult = data
       }
@@ -104,27 +116,16 @@ export const command = new Command()
     }
 
     if (exitResult) {
-      if (exitResult.code === 0) {
-        process.stdout.write(`\n✓ Task completed successfully\n`)
+      print({
+        status: exitResult.code === 0 ? 'success' : 'failed',
 
-        if (exitResult.message) {
-          process.stdout.write(`  ${exitResult.message}\n`)
-        }
-      } else {
-        process.stderr.write(
-          `\n✗ Task failed with exit code ${exitResult.code}\n`
-        )
-
-        if (exitResult.message) {
-          process.stderr.write(`  ${exitResult.message}\n`)
-        }
-      }
+        exitCode: exitResult.code,
+        ...(exitResult.message && { message: exitResult.message }),
+      })
 
       process.exit(exitResult.code)
     } else {
-      process.stderr.write(`\n✗ Task ended without exit signal\n`)
-
-      process.exit(1)
+      printError(new Error('Task ended without exit signal'))
     }
   })
 
