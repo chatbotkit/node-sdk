@@ -1,5 +1,17 @@
 # @chatbotkit/cli
 
+## 1.21.0
+
+### Minor Changes
+
+- eb6ccd2: API updates, agents, and improved CLI.
+
+### Patch Changes
+
+- Updated dependencies [eb6ccd2]
+  - @chatbotkit/agent@1.21.0
+  - @chatbotkit/sdk@1.21.0
+
 ## 1.20.0
 
 ### Patch Changes

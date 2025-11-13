@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.21.0
+
+### Minor Changes
+
+- eb6ccd2: API updates, agents, and improved CLI.
+
 ## 1.20.0
 
 ### Minor Changes
