@@ -34,6 +34,7 @@ export const command = new Command()
       messages.push({ type: 'user', text: user })
 
       const spinner = new Spinner('bot: ')
+
       spinner.start()
 
       let firstToken = true
@@ -44,15 +45,18 @@ export const command = new Command()
         if (type === 'token') {
           if (firstToken) {
             spinner.stop()
+
             firstToken = false
           }
+
           process.stdout.write(data.token)
         } else if (type === 'result') {
           messages.push({ type: 'bot', text: data.text })
         }
       }
 
-      spinner.stop() // Clean up in case stream ends without tokens
+      spinner.stop()
+
       process.stdout.write('\n')
     }
   })
