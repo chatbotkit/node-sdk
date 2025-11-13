@@ -16,8 +16,9 @@ function getClient() {
 export const command = new Command()
   .name('chat')
   .description('Start a chat session')
-  .addOption(new Option('-m, --model <model>', 'Model name').default('gpt-4'))
-  .action(async (_arg, options) => {
+  .addOption(new Option('-b, --bot <bot>', 'Bot id'))
+  .addOption(new Option('-m, --model <model>', 'Model name'))
+  .action(async (options) => {
     const client = getClient()
 
     const rl = readline.createInterface({
@@ -40,7 +41,7 @@ export const command = new Command()
       let firstToken = true
 
       for await (const { type, data } of client
-        .complete(null, { model: options.model, messages })
+        .complete(null, { botId: options.bot, model: options.model, messages })
         .stream()) {
         if (type === 'token') {
           if (firstToken) {
