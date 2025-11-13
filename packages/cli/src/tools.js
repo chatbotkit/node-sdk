@@ -111,7 +111,7 @@ export const tools = {
       }
     },
   },
-  search: {
+  find: {
     description: 'Search for files matching a pattern',
     default: true,
     input: z.object({
