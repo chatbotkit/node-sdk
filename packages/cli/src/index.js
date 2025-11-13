@@ -1,3 +1,4 @@
+import agent from './command/agent/index.js'
 import command from './command/api/index.js'
 import chat from './command/chat/index.js'
 import solution from './command/solution/index.js'
@@ -16,6 +17,7 @@ export default async function cbk(argv = process.argv) {
   program.name('cbk').description('Command line tools for ChatBotKit')
 
   program.addCommand(command)
+  program.addCommand(agent)
   program.addCommand(chat)
   program.addCommand(solution)
 
