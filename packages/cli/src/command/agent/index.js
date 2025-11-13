@@ -96,6 +96,7 @@ export const command = new Command()
 
         if (!hasOutput && isInteractive) {
           process.stdout.write('> ')
+
           hasOutput = true
         }
 
