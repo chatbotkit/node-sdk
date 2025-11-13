@@ -175,7 +175,7 @@ export const command = new Command()
 
     const isInteractive = process.stdout.isTTY
 
-    const spinner = isInteractive ? new Spinner() : null
+    const spinner = isInteractive ? new Spinner('') : null
 
     const output = new OutputManager(spinner)
 
