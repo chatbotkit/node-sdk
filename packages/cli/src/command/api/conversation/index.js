@@ -13,56 +13,68 @@ function getClient() {
   })
 }
 
-export const conversationList = new Command()
-  .name('list')
-  .description('List conversations')
-  .option('-s, --stream', 'Stream conversations')
-  .action(async (str, options) => {
-    const { stream } = options
+/**
+ * Commands registry - MUST include ALL Message SDK clients and methods
+ *
+ * @todo enable types once we have more SDK clients implemented
+ *
+ * _satisfies {Partial<Record<keyof ConversationClient, import('commander').Command>>}
+ * _type {Record<keyof ConversationClient, import('commander').Command>}
+ */
+const commands = {
+  list: new Command()
+    .name('list')
+    .description('List conversations')
+    .option('-s, --stream', 'Stream conversations')
+    .action(async (str, options) => {
+      const { stream } = options
 
-    const client = getClient()
+      const client = getClient()
 
-    if (stream) {
-      for await (const conversation of client.list().stream()) {
-        print(conversation)
+      if (stream) {
+        for await (const conversation of client.list().stream()) {
+          print(conversation)
+        }
+      } else {
+        const { items } = await client.list()
+
+        for (const conversation of items) {
+          print(conversation)
+        }
       }
-    } else {
-      const { items } = await client.list()
+    }),
 
-      for (const conversation of items) {
-        print(conversation)
-      }
-    }
-  })
+  fetch: new Command()
+    .name('fetch')
+    .description('Fetch conversation')
+    .argument('<conversationId>', 'Conversation ID')
+    .action(async (conversationId) => {
+      const client = getClient()
 
-export const conversationFetch = new Command()
-  .name('fetch')
-  .description('Fetch conversation')
-  .argument('<conversationId>', 'Conversation ID')
-  .action(async (conversationId) => {
-    const client = getClient()
+      const conversation = await client.fetch(conversationId)
 
-    const conversation = await client.fetch(conversationId)
+      print(conversation)
+    }),
 
-    print(conversation)
-  })
+  delete: new Command()
+    .name('delete')
+    .description('Delete conversation')
+    .argument('<conversationId>', 'Conversation ID')
+    .action(async (conversationId) => {
+      const client = getClient()
 
-export const conversationDelete = new Command()
-  .name('delete')
-  .description('Delete conversation')
-  .argument('<conversationId>', 'Conversation ID')
-  .action(async (conversationId) => {
-    const client = getClient()
+      await client.delete(conversationId)
+    }),
 
-    await client.delete(conversationId)
-  })
+  message,
+}
 
 export const command = new Command()
   .name('conversation')
   .description('Conversation tools for ChatBotKit')
-  .addCommand(conversationList)
-  .addCommand(conversationFetch)
-  .addCommand(conversationDelete)
-  .addCommand(message)
+
+for (const cmd of Object.values(commands)) {
+  command.addCommand(cmd)
+}
 
 export default command
