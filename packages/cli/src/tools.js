@@ -11,12 +11,14 @@ const execAsync = promisify(exec)
  * @type {Record<string, {
  *   description: string,
  *   input: z.ZodObject<any>,
- *   handler: (input: any) => Promise<any>
+ *   handler: (input: any) => Promise<any>,
+ *   default?: boolean
  * }>}
  */
 export const tools = {
   read: {
     description: 'Read the contents of a file',
+    default: true,
     input: z.object({
       path: z.string().describe('The file path to read'),
     }),
@@ -35,6 +37,7 @@ export const tools = {
   },
   write: {
     description: 'Write content to a file',
+    default: true,
     input: z.object({
       path: z.string().describe('The file path to write to'),
       content: z.string().describe('The content to write'),
@@ -55,6 +58,7 @@ export const tools = {
   edit: {
     description:
       'Edit a file by replacing an exact string occurrence with a new string. Only one occurrence must exist.',
+    default: true,
     input: z.object({
       path: z.string().describe('The file path to edit'),
       oldString: z
@@ -109,6 +113,7 @@ export const tools = {
   },
   search: {
     description: 'Search for files matching a pattern',
+    default: true,
     input: z.object({
       pattern: z.string().describe('The glob pattern to search for'),
       directory: z
@@ -138,6 +143,7 @@ export const tools = {
   exec: {
     description:
       'Execute a shell command (non-interactive only). Commands timeout after the specified duration (default 30 seconds). Use only for commands that run and exit automatically.',
+    default: true,
     input: z.object({
       command: z.string().describe('The command to execute'),
       timeout: z
@@ -218,12 +224,14 @@ export const tools = {
 /**
  * Get specific tools based on selected tool names
  *
- * @param {Array<keyof typeof tools>} [selectedTools] - Array of tool names to include. If not provided, returns all tools
+ * @param {Array<keyof typeof tools>} [selectedTools] - Array of tool names to include. If not provided, returns only default tools
  * @returns {typeof tools}
  */
 export function getTools(selectedTools) {
   if (!selectedTools || selectedTools.length === 0) {
-    return tools
+    return Object.fromEntries(
+      Object.entries(tools).filter(([, tool]) => tool.default)
+    )
   }
 
   return Object.fromEntries(
