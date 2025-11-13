@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1762990822153)"
+    "version": "v1 (build 1763034736927)"
   },
   "servers": [
     {
@@ -26566,6 +26566,13 @@
                   "search": {
                     "description": "The search query to find relevant docs",
                     "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 20)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 20
                   }
                 },
                 "required": [
@@ -26999,6 +27006,13 @@
                   "search": {
                     "description": "The search query to find relevant manuals",
                     "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 20)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 20
                   }
                 },
                 "required": [

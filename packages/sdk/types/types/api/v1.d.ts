@@ -17143,6 +17143,11 @@ export interface operations {
                 "application/json": {
                     /** @description The search query to find relevant docs */
                     search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 20)
+                     * @default 20
+                     */
+                    take?: number;
                 };
             };
         };
@@ -17351,6 +17356,11 @@ export interface operations {
                 "application/json": {
                     /** @description The search query to find relevant manuals */
                     search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 20)
+                     * @default 20
+                     */
+                    take?: number;
                 };
             };
         };
