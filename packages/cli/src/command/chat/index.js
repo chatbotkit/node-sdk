@@ -1,4 +1,5 @@
 import { getRUNAS_USERID, getSECRET } from '../../env.js'
+import { Spinner } from '../../spinner.js'
 
 import { ConversationClient } from '@chatbotkit/sdk/conversation/index.js'
 
@@ -32,18 +33,26 @@ export const command = new Command()
 
       messages.push({ type: 'user', text: user })
 
-      process.stdout.write('bot: ')
+      const spinner = new Spinner('bot: ')
+      spinner.start()
+
+      let firstToken = true
 
       for await (const { type, data } of client
         .complete(null, { model: options.model, messages })
         .stream()) {
         if (type === 'token') {
+          if (firstToken) {
+            spinner.stop()
+            firstToken = false
+          }
           process.stdout.write(data.token)
         } else if (type === 'result') {
           messages.push({ type: 'bot', text: data.text })
         }
       }
 
+      spinner.stop() // Clean up in case stream ends without tokens
       process.stdout.write('\n')
     }
   })
