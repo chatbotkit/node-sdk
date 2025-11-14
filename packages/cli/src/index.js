@@ -12,9 +12,6 @@ import { Command } from 'commander'
  * @returns {void}
  */
 function printBanner() {
-  const blue = '\x1b[34m'
-  const reset = '\x1b[0m'
-
   // eslint-disable-next-line no-console
   console.log(
     formatBlue(`
