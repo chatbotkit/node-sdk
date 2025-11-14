@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/cli",
-  "version": "1.21.3",
+  "version": "1.21.4",
   "description": "ChatBotKit command line tools",
   "license": "ISC",
   "engines": {
@@ -25,6 +25,14 @@
   "type": "module",
   "main": "./src/index.js",
   "exports": {
+    "./color": {
+      "types": "./types/color.d.ts",
+      "import": "./src/color.js"
+    },
+    "./color.js": {
+      "types": "./types/color.d.ts",
+      "import": "./src/color.js"
+    },
     "./command/agent": {
       "types": "./types/command/agent/index.d.ts",
       "import": "./src/command/agent/index.js"

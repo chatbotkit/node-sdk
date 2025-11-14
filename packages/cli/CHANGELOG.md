@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.21.4
+
+### Patch Changes
+
+- eb191b3: Improved output.
+
 ## 1.21.3
 
 ### Patch Changes
