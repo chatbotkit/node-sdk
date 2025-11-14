@@ -194,7 +194,7 @@ export const command = new Command()
         if (isInteractive) {
           const iterationNum = data.iteration - 1
 
-          output.writeLine(`╭─ Iteration ${iterationNum} ─╮`)
+          output.writeLine(`\n╭─ Iteration ${iterationNum} ─╮`)
 
           spinner.start()
         } else {
