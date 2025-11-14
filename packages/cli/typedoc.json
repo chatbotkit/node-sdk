@@ -3,6 +3,7 @@
     "../../typedoc.base.json"
   ],
   "entryPoints": [
+    "./src/color.js",
     "./src/command/agent/index.js",
     "./src/command/api/conversation/index.js",
     "./src/command/api/conversation/message/index.js",

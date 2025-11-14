@@ -1,5 +1,19 @@
 # @chatbotkit/cli
 
+## 1.21.4
+
+### Patch Changes
+
+- eb191b3: Improved output.
+
+## 1.21.3
+
+### Patch Changes
+
+- 914e6f7: Added better parallel execution for agents.
+- Updated dependencies [914e6f7]
+  - @chatbotkit/agent@1.21.3
+
 ## 1.21.2
 
 ### Patch Changes

@@ -32,26 +32,60 @@ import { zodToJsonSchema } from 'zod-to-json-schema'
  */
 
 /**
+ * @typedef {{
+ *   type: 'toolCallStart',
+ *   data: { name: string, args: any }
+ * }} ToolCallStartEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: 'toolCallEnd',
+ *   data: { name: string, result: any }
+ * }} ToolCallEndEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: 'toolCallError',
+ *   data: { name: string, error: string }
+ * }} ToolCallErrorEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: 'iteration',
+ *   data: { iteration: number }
+ * }} IterationEvent
+ */
+
+/**
+ * @typedef {{
+ *   type: 'exit',
+ *   data: ExitResult
+ * }} ExitEvent
+ */
+
+/**
  * Agent complete generator function.
  *
  * @param {ConversationCompleteRequest & {
  *   client: ChatBotKit,
  *   tools?: Tools
  * }} options
- * @returns {AsyncGenerator<ConversationCompleteStreamType, void, unknown>}
+ * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
  */
 export async function* complete(options) {
   const { client, tools, ...request } = options
 
-  // Create a map of channel to tool info for quick lookup
   const channelToTool = new Map()
 
   const functions = tools
     ? Object.entries(tools).map(([name, tool]) => {
         const randomSuffix = Math.random().toString(36).substring(2, 15)
+
         const channel = `${name}_${randomSuffix}`.padEnd(16, '0')
 
-        // Store the mapping for later use
         channelToTool.set(channel, { name, tool })
 
         if (!tool.input) {
@@ -73,7 +107,6 @@ export async function* complete(options) {
           zodToJsonSchema(tool.input, { target: 'openApi3' })
         )
 
-        // Extract only the properties needed by the API
         const parameters = {
           type: 'object',
           properties: schema.properties || {},
@@ -104,7 +137,80 @@ export async function* complete(options) {
     })
     .stream()
 
+  /** @type {Array<ToolCallEndEvent | ToolCallErrorEvent>} */
+  const toolEventQueue = []
+
+  const runningTools = new Set()
+
+  /**
+   * Execute a tool asynchronously without blocking the event stream
+   *
+   * @param {string} channel
+   * @param {string} name
+   * @param {any} tool
+   * @param {any} args
+   */
+  const executeToolAsync = async (channel, name, tool, args) => {
+    try {
+      let parsedArgs = args
+
+      if (tool.input) {
+        const parseResult = tool.input.safeParse(args)
+
+        if (!parseResult.success) {
+          const errorMsg = `Invalid arguments: ${parseResult.error.message}`
+
+          toolEventQueue.push({
+            type: 'toolCallError',
+            data: { name, error: errorMsg },
+          })
+
+          await client.channel.publish(String(channel), {
+            message: JSON.stringify({ error: errorMsg }),
+          })
+
+          return
+        }
+
+        parsedArgs = parseResult.data
+      }
+
+      const result = await tool.handler(parsedArgs)
+
+      toolEventQueue.push({
+        type: 'toolCallEnd',
+        data: { name, result },
+      })
+
+      await client.channel.publish(String(channel), {
+        message: JSON.stringify({ data: result }),
+      })
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Unknown error occurred'
+
+      toolEventQueue.push({
+        type: 'toolCallError',
+        data: { name, error: errorMessage },
+      })
+
+      await client.channel.publish(String(channel), {
+        message: JSON.stringify({ error: errorMessage }),
+      })
+    } finally {
+      runningTools.delete(channel)
+    }
+  }
+
   for await (const event of stream) {
+    while (toolEventQueue.length > 0) {
+      const toolEvent = toolEventQueue.shift()
+
+      if (toolEvent) {
+        yield toolEvent
+      }
+    }
+
     if (
       event.type === 'waitForChannelMessageBegin' &&
       event.data &&
@@ -117,46 +223,47 @@ export async function* complete(options) {
       const toolInfo = channelToTool.get(String(channel))
 
       if (toolInfo) {
-        const { tool } = toolInfo
+        const { name, tool } = toolInfo
 
-        try {
-          let parsedArgs = args
-
-          if (tool.input) {
-            const parseResult = tool.input.safeParse(args)
-
-            if (!parseResult.success) {
-              await client.channel.publish(String(channel), {
-                message: JSON.stringify({
-                  error: `Invalid arguments: ${parseResult.error.message}`,
-                }),
-              })
-
-              continue
-            }
-
-            parsedArgs = parseResult.data
-          }
-
-          const result = await tool.handler(parsedArgs)
-
-          await client.channel.publish(String(channel), {
-            message: JSON.stringify({ data: result }),
-          })
-        } catch (error) {
-          await client.channel.publish(String(channel), {
-            message: JSON.stringify({
-              error:
-                error instanceof Error
-                  ? error.message
-                  : 'Unknown error occurred',
-            }),
-          })
+        yield {
+          type: 'toolCallStart',
+          data: {
+            name,
+            args,
+          },
         }
+
+        const toolPromise = executeToolAsync(channel, name, tool, args)
+
+        runningTools.add(channel)
+
+        toolPromise.catch(() => {
+          // @note errors are already handled in executeToolAsync
+        })
       }
     }
 
     yield event
+  }
+
+  while (toolEventQueue.length > 0) {
+    const toolEvent = toolEventQueue.shift()
+
+    if (toolEvent) {
+      yield toolEvent
+    }
+  }
+
+  while (runningTools.size > 0) {
+    await new Promise((resolve) => setTimeout(resolve, 10))
+
+    while (toolEventQueue.length > 0) {
+      const toolEvent = toolEventQueue.shift()
+
+      if (toolEvent) {
+        yield toolEvent
+      }
+    }
   }
 }
 
@@ -169,7 +276,7 @@ export async function* complete(options) {
  *   tools?: Tools,
  *   maxIterations?: number
  * }} options
- * @returns {AsyncGenerator<ConversationCompleteStreamType | {type: 'iteration', data: {iteration: number}} | {type: 'exit', data: ExitResult}, void, unknown>}
+ * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
  */
 export async function* execute(options) {
   const {
@@ -305,10 +412,6 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
       },
     })) {
       yield event
-
-      if (event.type === 'result') {
-        messages.push({ type: 'bot', text: event.data.text })
-      }
     }
 
     if (exitResult) {

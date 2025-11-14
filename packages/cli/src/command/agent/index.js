@@ -1,3 +1,4 @@
+import { formatBlue } from '../../color.js'
 import { getRUNAS_USERID, getSECRET } from '../../env.js'
 import { print, printError } from '../../output.js'
 import { Spinner } from '../../spinner.js'
@@ -9,6 +10,120 @@ import { ChatBotKit } from '@chatbotkit/sdk'
 import { Command, Option } from 'commander'
 import { existsSync, readFileSync } from 'fs'
 import { resolve } from 'path'
+
+/**
+ * Manages output state to avoid mixed raw and structured output
+ */
+class OutputManager {
+  /**
+   * @param {Spinner | null} spinner
+   */
+  constructor(spinner = null) {
+    this.lastOutputWasRaw = false
+    this.lastOutputWasStructured = false
+    this.hasRawOutput = false
+    this.lastChar = ''
+    this.spinner = spinner
+  }
+
+  /**
+   * Ensure spinner is stopped before writing output
+   */
+  ensureSpinnerStopped() {
+    if (this.spinner && this.spinner.isSpinning) {
+      this.spinner.stop(false)
+    }
+  }
+
+  /**
+   * Write raw text (like tokens) directly to stdout
+   *
+   * @param {string} text
+   */
+  writeRaw(text) {
+    this.ensureSpinnerStopped()
+
+    if (this.lastOutputWasStructured) {
+      process.stdout.write('\n')
+
+      this.lastOutputWasStructured = false
+    }
+
+    process.stdout.write(text)
+
+    this.lastOutputWasRaw = true
+    this.hasRawOutput = true
+
+    if (text.length > 0) {
+      this.lastChar = text[text.length - 1]
+    }
+  }
+
+  /**
+   * Add appropriate newlines based on what was written last
+   */
+  addNewlinesIfNeeded() {
+    if (!this.lastOutputWasRaw) {
+      return
+    }
+
+    if (this.lastChar === '\n') {
+      process.stdout.write('\n')
+    } else {
+      process.stdout.write('\n\n')
+    }
+
+    this.lastOutputWasRaw = false
+  }
+
+  /**
+   * Print structured data, adding newlines if needed after raw output
+   *
+   * @param {object} data
+   */
+  printStructured(data) {
+    this.ensureSpinnerStopped()
+
+    this.addNewlinesIfNeeded()
+
+    print(data)
+
+    this.lastOutputWasStructured = true
+  }
+
+  /**
+   * Reset state (e.g., at iteration boundaries)
+   */
+  reset() {
+    this.lastOutputWasRaw = false
+    this.lastOutputWasStructured = false
+    this.hasRawOutput = false
+    this.lastChar = ''
+  }
+
+  /**
+   * Check if we've had any raw output
+   */
+  hadRawOutput() {
+    return this.hasRawOutput
+  }
+
+  /**
+   * Write a line of text, handling newlines appropriately
+   *
+   * @param {string} text
+   */
+  writeLine(text) {
+    this.ensureSpinnerStopped()
+
+    this.addNewlinesIfNeeded()
+
+    // eslint-disable-next-line no-console
+    console.log(text)
+
+    this.lastOutputWasStructured = true
+  }
+}
 
 function getClient() {
   return new ChatBotKit({
@@ -61,7 +176,9 @@ export const command = new Command()
 
     const isInteractive = process.stdout.isTTY
 
-    const spinner = isInteractive ? new Spinner() : null
+    const spinner = isInteractive ? new Spinner('') : null
+
+    const output = new OutputManager(spinner)
 
     let exitResult = null
     let hasOutput = false
@@ -75,50 +192,80 @@ export const command = new Command()
       maxIterations: options.maxIterations,
     })) {
       if (type === 'iteration') {
-        if (spinner) {
-          if (spinner.isSpinning) {
-            spinner.stop()
-          }
-
+        if (isInteractive) {
           const iterationNum = data.iteration - 1
 
-          // eslint-disable-next-line no-console
-          console.log(`\n\n╭─ Iteration ${iterationNum} ─╮`)
+          output.writeLine(formatBlue(`\n╭─ Iteration ${iterationNum} ─╮`))
 
-          spinner.start()
+          if (spinner) {
+            spinner.start()
+          }
         } else {
-          print({ iteration: data.iteration - 1 })
+          output.printStructured({ iteration: data.iteration - 1 })
         }
+
+        output.reset()
 
         hasOutput = false
+      } else if (type === 'toolCallStart') {
+        output.printStructured({
+          tool: data.name,
+          status: 'running',
+          args: data.args,
+        })
+
+        if (spinner) {
+          spinner.start()
+        }
+      } else if (type === 'toolCallEnd') {
+        output.printStructured({
+          tool: data.name,
+          status: 'completed',
+          result: data.result,
+        })
+
+        if (spinner) {
+          spinner.start()
+        }
+      } else if (type === 'toolCallError') {
+        output.printStructured({
+          tool: data.name,
+          status: 'error',
+          error: data.error,
+        })
+
+        if (spinner) {
+          spinner.start()
+        }
       } else if (type === 'token') {
-        if (spinner && spinner.isSpinning) {
-          spinner.stop()
+        if (isInteractive) {
+          if (!hasOutput) {
+            output.writeRaw('> ')
+
+            hasOutput = true
+          }
+
+          output.writeRaw(data.token.replace(/\n/gm, '\n> '))
         }
-
-        if (!hasOutput && isInteractive) {
-          process.stdout.write('> ')
-
-          hasOutput = true
-        }
-
-        process.stdout.write(data.token)
       } else if (type === 'exit') {
         exitResult = data
+      } else if (type === 'message') {
+        if (data.type === 'bot') {
+          if (!isInteractive) {
+            output.printStructured({
+              message: data,
+            })
+          }
+        }
       }
     }
 
-    if (spinner && spinner.isSpinning) {
-      spinner.stop()
-    }
-
-    process.stdout.write('\n\n')
-
     if (exitResult) {
-      print({
+      output.printStructured({
         status: exitResult.code === 0 ? 'success' : 'failed',
 
         exitCode: exitResult.code,
+
         ...(exitResult.message && { message: exitResult.message }),
       })
 
