@@ -191,7 +191,7 @@ export const command = new Command()
       maxIterations: options.maxIterations,
     })) {
       if (type === 'iteration') {
-        if (spinner) {
+        if (isInteractive) {
           const iterationNum = data.iteration - 1
 
           output.writeLine(`╭─ Iteration ${iterationNum} ─╮`)
@@ -235,15 +235,23 @@ export const command = new Command()
           spinner.start()
         }
       } else if (type === 'token') {
-        if (!hasOutput && isInteractive) {
-          output.writeRaw('> ')
+        if (isInteractive) {
+          if (!hasOutput) {
+            output.writeRaw('> ')
 
-          hasOutput = true
+            hasOutput = true
+          }
+
+          output.writeRaw(data.token.replace(/\n/gm, '\n> '))
         }
-
-        output.writeRaw(data.token.replace(/\n/gm, '\n> '))
       } else if (type === 'exit') {
         exitResult = data
+      } else if (type === 'message') {
+        if (data.type === 'bot') {
+          output.printStructured({
+            message: data,
+          })
+        }
       }
     }
 
