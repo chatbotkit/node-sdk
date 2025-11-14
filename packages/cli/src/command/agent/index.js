@@ -197,7 +197,9 @@ export const command = new Command()
 
           output.writeLine(formatBlue(`\n╭─ Iteration ${iterationNum} ─╮`))
 
-          spinner.start()
+          if (spinner) {
+            spinner.start()
+          }
         } else {
           output.printStructured({ iteration: data.iteration - 1 })
         }
