@@ -1,3 +1,4 @@
+import { formatBlue } from '../../color.js'
 import { getRUNAS_USERID, getSECRET } from '../../env.js'
 import { print, printError } from '../../output.js'
 import { Spinner } from '../../spinner.js'
@@ -194,7 +195,7 @@ export const command = new Command()
         if (isInteractive) {
           const iterationNum = data.iteration - 1
 
-          output.writeLine(`\n╭─ Iteration ${iterationNum} ─╮`)
+          output.writeLine(formatBlue(`\n╭─ Iteration ${iterationNum} ─╮`))
 
           spinner.start()
         } else {
@@ -248,9 +249,11 @@ export const command = new Command()
         exitResult = data
       } else if (type === 'message') {
         if (data.type === 'bot') {
-          output.printStructured({
-            message: data,
-          })
+          if (!isInteractive) {
+            output.printStructured({
+              message: data,
+            })
+          }
         }
       }
     }
