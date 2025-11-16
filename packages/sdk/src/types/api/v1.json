@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763288560642)"
+    "version": "v1 (build 1763291335343)"
   },
   "servers": [
     {
@@ -16569,6 +16569,10 @@
                       "description": "The Messenger integration verify token",
                       "type": "string"
                     },
+                    "accessToken": {
+                      "description": "The Messenger integration access token (returned as '********' if configured, null otherwise)",
+                      "type": "string"
+                    },
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
@@ -16958,6 +16962,10 @@
                             "description": "The Messenger integration verify token",
                             "type": "string"
                           },
+                          "accessToken": {
+                            "description": "The Messenger integration access token (returned as '********' if configured, null otherwise)",
+                            "type": "string"
+                          },
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
@@ -17034,6 +17042,10 @@
                             },
                             "verifyToken": {
                               "description": "The Messenger integration verify token",
+                              "type": "string"
+                            },
+                            "accessToken": {
+                              "description": "The Messenger integration access token (returned as '********' if configured, null otherwise)",
                               "type": "string"
                             },
                             "sessionDuration": {
@@ -17211,7 +17223,7 @@
                       "type": "string"
                     },
                     "token": {
-                      "description": "The Notion API token",
+                      "description": "The Notion API token (returned as '********' if configured, null otherwise)",
                       "type": "string"
                     },
                     "syncSchedule": {
@@ -17600,7 +17612,7 @@
                             "type": "string"
                           },
                           "token": {
-                            "description": "The Notion API token",
+                            "description": "The Notion API token (returned as '********' if configured, null otherwise)",
                             "type": "string"
                           },
                           "syncSchedule": {
@@ -17678,7 +17690,7 @@
                               "type": "string"
                             },
                             "token": {
-                              "description": "The Notion API token",
+                              "description": "The Notion API token (returned as '********' if configured, null otherwise)",
                               "type": "string"
                             },
                             "syncSchedule": {
@@ -18560,6 +18572,18 @@
                       "type": "string",
                       "description": "The ID of the blueprint"
                     },
+                    "signingSecret": {
+                      "description": "The signing secret (returned as '********' if configured, null otherwise)",
+                      "type": "string"
+                    },
+                    "botToken": {
+                      "description": "The bot token (returned as '********' if configured, null otherwise)",
+                      "type": "string"
+                    },
+                    "userToken": {
+                      "description": "The user token (returned as '********' if configured, null otherwise)",
+                      "type": "string"
+                    },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
                       "type": "boolean"
@@ -19008,6 +19032,18 @@
                             "type": "string",
                             "description": "The ID of the blueprint"
                           },
+                          "signingSecret": {
+                            "description": "The signing secret (returned as '********' if configured, null otherwise)",
+                            "type": "string"
+                          },
+                          "botToken": {
+                            "description": "The bot token (returned as '********' if configured, null otherwise)",
+                            "type": "string"
+                          },
+                          "userToken": {
+                            "description": "The user token (returned as '********' if configured, null otherwise)",
+                            "type": "string"
+                          },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
                             "type": "boolean"
@@ -19096,6 +19132,18 @@
                             "blueprintId": {
                               "type": "string",
                               "description": "The ID of the blueprint"
+                            },
+                            "signingSecret": {
+                              "description": "The signing secret (returned as '********' if configured, null otherwise)",
+                              "type": "string"
+                            },
+                            "botToken": {
+                              "description": "The bot token (returned as '********' if configured, null otherwise)",
+                              "type": "string"
+                            },
+                            "userToken": {
+                              "description": "The user token (returned as '********' if configured, null otherwise)",
+                              "type": "string"
                             },
                             "contactCollection": {
                               "description": "Weather to collect contacts",
@@ -21878,6 +21926,10 @@
                       "description": "The WhatsApp integration phone number ID",
                       "type": "string"
                     },
+                    "accessToken": {
+                      "description": "The WhatsApp integration access token (returned as '********' if configured, null otherwise)",
+                      "type": "string"
+                    },
                     "contactCollection": {
                       "description": "Weather to collect contacts",
                       "type": "boolean"
@@ -22291,6 +22343,10 @@
                             "description": "The WhatsApp integration phone number ID",
                             "type": "string"
                           },
+                          "accessToken": {
+                            "description": "The WhatsApp integration access token (returned as '********' if configured, null otherwise)",
+                            "type": "string"
+                          },
                           "contactCollection": {
                             "description": "Weather to collect contacts",
                             "type": "boolean"
@@ -22375,6 +22431,10 @@
                             },
                             "phoneNumberId": {
                               "description": "The WhatsApp integration phone number ID",
+                              "type": "string"
+                            },
+                            "accessToken": {
+                              "description": "The WhatsApp integration access token (returned as '********' if configured, null otherwise)",
                               "type": "string"
                             },
                             "contactCollection": {
