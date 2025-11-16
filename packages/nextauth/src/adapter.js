@@ -21,7 +21,7 @@ export class Store {
    * @returns {Promise<null|any>}
    */
   async get(key) {
-    key
+    void key
 
     throw new Error(`Not implemented`)
   }
@@ -33,9 +33,9 @@ export class Store {
    * @returns {Promise<void>}
    */
   async set(key, value, options) {
-    key
-    value
-    options
+    void key
+    void value
+    void options
 
     throw new Error(`Not implemented`)
   }
@@ -45,7 +45,7 @@ export class Store {
    * @returns {Promise<void>}
    */
   async del(key) {
-    key
+    void key
 
     throw new Error(`Not implemented`)
   }
@@ -133,7 +133,7 @@ export function ChatBotKitPartnerAdapter({
   /**
    * @param {import('@chatbotkit/sdk/partner/user/v1.js').PartnerUserFetchResponse} userInstance
    */
-  function serialiseUserInstance(userInstance) {
+  function serializeUserInstance(userInstance) {
     const { email, ...safeUserInstance } = userInstance
 
     if (!email) {
@@ -149,9 +149,9 @@ export function ChatBotKitPartnerAdapter({
   }
 
   return {
-  /**
-     * @param {any} id 
-     * @returns 
+    /**
+     * @param {any} id
+     * @returns
      */
     async getUser(id) {
       debug('* getUser', { id })
@@ -163,7 +163,7 @@ export function ChatBotKitPartnerAdapter({
       if (!userInstance) {
         retUser = null // do not throw because it is used for user detection
       } else {
-        retUser = serialiseUserInstance(userInstance)
+        retUser = serializeUserInstance(userInstance)
       }
 
       debug(`* returning user`, { retUser })
@@ -172,8 +172,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} email 
-     * @returns 
+     * @param {any} email
+     * @returns
      */
     async getUserByEmail(email) {
       debug('* getUserByEmail', { email })
@@ -185,7 +185,7 @@ export function ChatBotKitPartnerAdapter({
       if (!userInstance) {
         retUser = null // do not throw because it is used for user detection
       } else {
-        retUser = serialiseUserInstance(userInstance)
+        retUser = serializeUserInstance(userInstance)
       }
 
       debug(`* returning user`, { retUser })
@@ -200,8 +200,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} user 
-     * @returns 
+     * @param {any} user
+     * @returns
      */
     async createUser(user) {
       debug('* createUser', { user })
@@ -227,18 +227,18 @@ export function ChatBotKitPartnerAdapter({
         },
       })
 
-      const retUser = await serialiseUserInstance(
+      const retUser = await serializeUserInstance(
         await fetchUserInstanceById(id)
       )
 
-      debug(`* returnging user`, { retUser })
+      debug(`* returning user`, { retUser })
 
       return retUser
     },
 
     /**
-     * @param {any} user 
-     * @returns 
+     * @param {any} user
+     * @returns
      */
     async updateUser(user) {
       debug('* updateUser', { user })
@@ -266,18 +266,18 @@ export function ChatBotKitPartnerAdapter({
         },
       })
 
-      const retUser = await serialiseUserInstance(
+      const retUser = await serializeUserInstance(
         await fetchUserInstanceById(id)
       )
 
-      debug(`* returnging user`, { retUser })
+      debug(`* returning user`, { retUser })
 
       return retUser
     },
 
     /**
-     * @param {any} userId 
-     * @returns 
+     * @param {any} userId
+     * @returns
      */
     async deleteUser(userId) {
       debug('* deleteUser', { userId })
@@ -296,8 +296,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} account 
-     * @returns 
+     * @param {any} account
+     * @returns
      */
     async linkAccount(account) {
       debug('* linkAccount', { account })
@@ -306,8 +306,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} unlinkAccount 
-     * @returns 
+     * @param {any} unlinkAccount
+     * @returns
      */
     async unlinkAccount({ providerAccountId, provider }) {
       debug('* unlinkAccount', { providerAccountId, provider })
@@ -316,8 +316,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} options 
-     * @returns 
+     * @param {any} options
+     * @returns
      */
     async createSession({ sessionToken, userId, expires }) {
       debug('* createSession', { sessionToken, userId, expires })
@@ -326,8 +326,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} options 
-     * @returns 
+     * @param {any} options
+     * @returns
      */
     async updateSession({ sessionToken }) {
       debug('* updateSession', { sessionToken })
@@ -336,8 +336,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} sessionToken 
-     * @returns 
+     * @param {any} sessionToken
+     * @returns
      */
     async deleteSession(sessionToken) {
       debug('* deleteSession', { sessionToken })
@@ -346,8 +346,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} sessionToken 
-     * @returns 
+     * @param {any} sessionToken
+     * @returns
      */
     async getSessionAndUser(sessionToken) {
       debug('* getSessionAndUser', { sessionToken })
@@ -356,8 +356,8 @@ export function ChatBotKitPartnerAdapter({
     },
 
     /**
-     * @param {any} verificationToken 
-     * @returns 
+     * @param {any} verificationToken
+     * @returns
      */
     async createVerificationToken(verificationToken) {
       debug('* createVerificationToken', { verificationToken })
@@ -370,14 +370,14 @@ export function ChatBotKitPartnerAdapter({
 
       const retToken = { ...verificationToken }
 
-      debug(`* returnging token`, { retToken })
+      debug(`* returning token`, { retToken })
 
       return retToken
     },
 
     /**
-     * @param {any} verificationToken 
-     * @returns 
+     * @param {any} verificationToken
+     * @returns
      */
     async useVerificationToken(verificationToken) {
       debug('* useVerificationToken', { verificationToken })
@@ -396,7 +396,7 @@ export function ChatBotKitPartnerAdapter({
 
       const retToken = { ...verificationToken, expires: new Date(expires) }
 
-      debug(`* returnging token`, { retToken })
+      debug(`* returning token`, { retToken })
 
       return retToken
     },
