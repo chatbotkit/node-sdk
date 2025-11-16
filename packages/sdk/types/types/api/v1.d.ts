@@ -13116,6 +13116,8 @@ export interface operations {
                         ratings?: boolean;
                         /** @description The number of visible messages outside of the new thread */
                         visibleMessages?: number;
+                        /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                        autoRespond?: string;
                     };
                 };
             };
@@ -13208,6 +13210,8 @@ export interface operations {
                     ratings?: boolean;
                     /** @description The number of visible messages outside of the new thread */
                     visibleMessages?: number;
+                    /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                    autoRespond?: string;
                 };
             };
         };
@@ -13273,6 +13277,8 @@ export interface operations {
                     ratings?: boolean;
                     /** @description The number of visible messages outside of the new thread */
                     visibleMessages?: number;
+                    /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                    autoRespond?: string;
                 };
             };
         };
@@ -13349,6 +13355,8 @@ export interface operations {
                             ratings?: boolean;
                             /** @description The number of visible messages outside of the new thread */
                             visibleMessages?: number;
+                            /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                            autoRespond?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -13387,6 +13395,8 @@ export interface operations {
                             ratings?: boolean;
                             /** @description The number of visible messages outside of the new thread */
                             visibleMessages?: number;
+                            /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                            autoRespond?: string;
                         };
                     };
                 };
