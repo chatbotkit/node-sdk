@@ -12064,6 +12064,8 @@ export interface operations {
                         blueprintId?: string;
                         /** @description The Messenger integration verify token */
                         verifyToken: string;
+                        /** @description The Messenger integration access token (returned as '********' if configured, null otherwise) */
+                        accessToken?: string;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
@@ -12273,6 +12275,8 @@ export interface operations {
                             blueprintId?: string;
                             /** @description The Messenger integration verify token */
                             verifyToken: string;
+                            /** @description The Messenger integration access token (returned as '********' if configured, null otherwise) */
+                            accessToken?: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
@@ -12307,6 +12311,8 @@ export interface operations {
                             blueprintId?: string;
                             /** @description The Messenger integration verify token */
                             verifyToken: string;
+                            /** @description The Messenger integration access token (returned as '********' if configured, null otherwise) */
+                            accessToken?: string;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
@@ -12400,7 +12406,7 @@ export interface operations {
                         blueprintId?: string;
                         /** @description The ID of the dataset to sync into */
                         datasetId: string;
-                        /** @description The Notion API token */
+                        /** @description The Notion API token (returned as '********' if configured, null otherwise) */
                         token?: string;
                         /** @description The sync schedule */
                         syncSchedule?: string;
@@ -12609,7 +12615,7 @@ export interface operations {
                             blueprintId?: string;
                             /** @description The ID of the dataset to sync into */
                             datasetId: string;
-                            /** @description The Notion API token */
+                            /** @description The Notion API token (returned as '********' if configured, null otherwise) */
                             token?: string;
                             /** @description The sync schedule */
                             syncSchedule?: string;
@@ -12643,7 +12649,7 @@ export interface operations {
                             blueprintId?: string;
                             /** @description The ID of the dataset to sync into */
                             datasetId: string;
-                            /** @description The Notion API token */
+                            /** @description The Notion API token (returned as '********' if configured, null otherwise) */
                             token?: string;
                             /** @description The sync schedule */
                             syncSchedule?: string;
@@ -13106,6 +13112,12 @@ export interface operations {
                         botId?: string;
                         /** @description The ID of the blueprint */
                         blueprintId?: string;
+                        /** @description The signing secret (returned as '********' if configured, null otherwise) */
+                        signingSecret?: string;
+                        /** @description The bot token (returned as '********' if configured, null otherwise) */
+                        botToken?: string;
+                        /** @description The user token (returned as '********' if configured, null otherwise) */
+                        userToken?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration for the Slack integration */
@@ -13116,6 +13128,8 @@ export interface operations {
                         ratings?: boolean;
                         /** @description The number of visible messages outside of the new thread */
                         visibleMessages?: number;
+                        /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                        autoRespond?: string;
                     };
                 };
             };
@@ -13208,6 +13222,8 @@ export interface operations {
                     ratings?: boolean;
                     /** @description The number of visible messages outside of the new thread */
                     visibleMessages?: number;
+                    /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                    autoRespond?: string;
                 };
             };
         };
@@ -13273,6 +13289,8 @@ export interface operations {
                     ratings?: boolean;
                     /** @description The number of visible messages outside of the new thread */
                     visibleMessages?: number;
+                    /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                    autoRespond?: string;
                 };
             };
         };
@@ -13339,6 +13357,12 @@ export interface operations {
                             botId?: string;
                             /** @description The ID of the blueprint */
                             blueprintId?: string;
+                            /** @description The signing secret (returned as '********' if configured, null otherwise) */
+                            signingSecret?: string;
+                            /** @description The bot token (returned as '********' if configured, null otherwise) */
+                            botToken?: string;
+                            /** @description The user token (returned as '********' if configured, null otherwise) */
+                            userToken?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration for the Slack integration */
@@ -13349,6 +13373,8 @@ export interface operations {
                             ratings?: boolean;
                             /** @description The number of visible messages outside of the new thread */
                             visibleMessages?: number;
+                            /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                            autoRespond?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -13377,6 +13403,12 @@ export interface operations {
                             botId?: string;
                             /** @description The ID of the blueprint */
                             blueprintId?: string;
+                            /** @description The signing secret (returned as '********' if configured, null otherwise) */
+                            signingSecret?: string;
+                            /** @description The bot token (returned as '********' if configured, null otherwise) */
+                            botToken?: string;
+                            /** @description The user token (returned as '********' if configured, null otherwise) */
+                            userToken?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration for the Slack integration */
@@ -13387,6 +13419,8 @@ export interface operations {
                             ratings?: boolean;
                             /** @description The number of visible messages outside of the new thread */
                             visibleMessages?: number;
+                            /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
+                            autoRespond?: string;
                         };
                     };
                 };
@@ -14827,6 +14861,8 @@ export interface operations {
                         verifyToken: string;
                         /** @description The WhatsApp integration phone number ID */
                         phoneNumberId?: string;
+                        /** @description The WhatsApp integration access token (returned as '********' if configured, null otherwise) */
+                        accessToken?: string;
                         /** @description Weather to collect contacts */
                         contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
@@ -15048,6 +15084,8 @@ export interface operations {
                             verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
                             phoneNumberId?: string;
+                            /** @description The WhatsApp integration access token (returned as '********' if configured, null otherwise) */
+                            accessToken?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
@@ -15086,6 +15124,8 @@ export interface operations {
                             verifyToken: string;
                             /** @description The WhatsApp integration phone number ID */
                             phoneNumberId?: string;
+                            /** @description The WhatsApp integration access token (returned as '********' if configured, null otherwise) */
+                            accessToken?: string;
                             /** @description Weather to collect contacts */
                             contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */

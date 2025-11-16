@@ -4,7 +4,7 @@
 [![Email](https://img.shields.io/badge/Email-Support-blue?logo=mail.ru)](mailto:support@chatbotkit.com)
 [![Discord](https://img.shields.io/badge/Discord-Support-blue?logo=discord)](https://go.cbk.ai/discord)
 
-```
+```text
     .d8888b.  888888b.   888    d8P
    d88P  Y88b 888  "88b  888   d8P
    888    888 888  .88P  888  d8P
