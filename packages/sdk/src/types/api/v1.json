@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763040575049)"
+    "version": "v1 (build 1763288560642)"
   },
   "servers": [
     {
@@ -18579,6 +18579,10 @@
                     "visibleMessages": {
                       "description": "The number of visible messages outside of the new thread",
                       "type": "number"
+                    },
+                    "autoRespond": {
+                      "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -18754,6 +18758,10 @@
                   "visibleMessages": {
                     "description": "The number of visible messages outside of the new thread",
                     "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
+                    "type": "string"
                   }
                 }
               }
@@ -18866,6 +18874,10 @@
                   "visibleMessages": {
                     "description": "The number of visible messages outside of the new thread",
                     "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
+                    "type": "string"
                   }
                 }
               }
@@ -19015,6 +19027,10 @@
                           "visibleMessages": {
                             "description": "The number of visible messages outside of the new thread",
                             "type": "number"
+                          },
+                          "autoRespond": {
+                            "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -19100,6 +19116,10 @@
                             "visibleMessages": {
                               "description": "The number of visible messages outside of the new thread",
                               "type": "number"
+                            },
+                            "autoRespond": {
+                              "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1slack~1list/get/responses/200/content/application~1json/schema/properties/items/items",
