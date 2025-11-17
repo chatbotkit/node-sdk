@@ -98,6 +98,8 @@
 
   ↳ [`PlatformModelClient`](platform_model.PlatformModelClient.md)
 
+  ↳ [`PlatformReportClient`](platform_report.PlatformReportClient.md)
+
   ↳ [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
 
   ↳ [`PolicyClient`](policy.PolicyClient.md)

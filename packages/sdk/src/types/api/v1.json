@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763410590345)"
+    "version": "v1 (build 1763421759871)"
   },
   "servers": [
     {
@@ -1205,77 +1205,12 @@
         ]
       }
     },
-    "/report/{reportId}/fetch": {
-      "post": {
-        "operationId": "fetchReport",
-        "summary": "Generate a specific report",
-        "description": "Generates a report based on the specified report ID and input\nparameters.\n",
-        "tags": [
-          "Report"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "reportId",
-            "required": true,
-            "schema": {
-              "description": "The alias of the report to generate",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "description": "Input parameters specific to the report type",
-                "additionalProperties": true
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The report was generated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Report output data specific to the report type"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Report not found"
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "fetchReport",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/report/list": {
+    "/platform/report/list": {
       "get": {
-        "operationId": "listReports",
+        "operationId": "listPlatformReports",
         "summary": "Retrieve a list of available reports",
-        "description": "Returns a list of all available report types that can be generated.\n",
         "tags": [
-          "Report"
+          "Platform"
         ],
         "parameters": [
           {
@@ -1406,7 +1341,7 @@
                               "description": "The timestamp (ms) when the instance was updated"
                             }
                           },
-                          "$$ref": "#/paths/~1report~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "$$ref": "#/paths/~1platform~1report~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
@@ -1434,7 +1369,71 @@
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
-        "__originalOperationId": "listReports",
+        "__originalOperationId": "listPlatformReports",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/report/{reportId}/fetch": {
+      "post": {
+        "operationId": "fetchReport",
+        "summary": "Generate a specific report",
+        "description": "Generates a report based on the specified report ID and input\nparameters.\n",
+        "tags": [
+          "Report"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reportId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the report to generate",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Input parameters specific to the report type",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The report was generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Report output data specific to the report type"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Report not found"
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchReport",
         "security": [
           {
             "BearerAuth": []

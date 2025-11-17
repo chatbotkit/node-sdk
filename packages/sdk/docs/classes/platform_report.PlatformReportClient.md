@@ -1,35 +1,34 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [report](../modules/report.md) / ReportClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [platform/report](../modules/platform_report.md) / PlatformReportClient
 
-# Class: ReportClient
+# Class: PlatformReportClient
 
-[report](../modules/report.md).ReportClient
+[platform/report](../modules/platform_report.md).PlatformReportClient
 
-Report client.
+Platform Report client.
 
 ## Hierarchy
 
 - [`ChatBotKitClient`](client.ChatBotKitClient.md)
 
-  ↳ **`ReportClient`**
+  ↳ **`PlatformReportClient`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](report.ReportClient.md#constructor)
+- [constructor](platform_report.PlatformReportClient.md#constructor)
 
 ### Methods
 
-- [clientFetch](report.ReportClient.md#clientfetch)
-- [extend](report.ReportClient.md#extend)
-- [fetch](report.ReportClient.md#fetch)
-- [fetchTyped](report.ReportClient.md#fetchtyped)
+- [clientFetch](platform_report.PlatformReportClient.md#clientfetch)
+- [extend](platform_report.PlatformReportClient.md#extend)
+- [list](platform_report.PlatformReportClient.md#list)
 
 ## Constructors
 
 ### constructor
 
-• **new ReportClient**(`options`): [`ReportClient`](report.ReportClient.md)
+• **new PlatformReportClient**(`options`): [`PlatformReportClient`](platform_report.PlatformReportClient.md)
 
 #### Parameters
 
@@ -39,7 +38,7 @@ Report client.
 
 #### Returns
 
-[`ReportClient`](report.ReportClient.md)
+[`PlatformReportClient`](platform_report.PlatformReportClient.md)
 
 #### Overrides
 
@@ -47,7 +46,7 @@ Report client.
 
 #### Defined in
 
-[report/index.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L11)
+[platform/report/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/report/index.js#L17)
 
 ## Methods
 
@@ -101,7 +100,7 @@ ___
 
 ### extend
 
-▸ **extend**(`extensionOptions`): [`ReportClient`](report.ReportClient.md)
+▸ **extend**(`extensionOptions`): [`PlatformReportClient`](platform_report.PlatformReportClient.md)
 
 Creates a new instance of the same client type with extended options.
 
@@ -119,7 +118,7 @@ which is necessary because private class fields cannot be copied.
 
 #### Returns
 
-[`ReportClient`](report.ReportClient.md)
+[`PlatformReportClient`](platform_report.PlatformReportClient.md)
 
 A new instance of the same client class with extended options
 
@@ -133,52 +132,22 @@ A new instance of the same client class with extended options
 
 ___
 
-### fetch
+### list
 
-▸ **fetch**(`reportId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\>\>
+▸ **list**(`request?`): [`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
-Generates a report.
+Retrieves a list of all available reports.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `reportId` | `string` |
-| `request` | `Object` |
+| `request?` | [`PlatformReportListRequest`](../modules/platform_report_v1.md#platformreportlistrequest) |
 
 #### Returns
 
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<[`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `never`\>\>
+[`ResponsePromise`](client.ResponsePromise.md)\<{}, {}\>
 
 #### Defined in
 
-[report/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L22)
-
-___
-
-### fetchTyped
-
-▸ **fetchTyped**\<`T`\>(`reportId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ReportOutputTypes`[`T`]\>
-
-Generates a typed report with full type safety for input and output.
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `ReportId` |
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `reportId` | `T` | The report ID |
-| `request` | `ReportInputTypes`[`T`] | The report input |
-
-#### Returns
-
-[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ReportOutputTypes`[`T`]\>
-
-#### Defined in
-
-[report/index.js:34](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L34)
+[platform/report/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/report/index.js#L27)

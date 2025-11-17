@@ -97,6 +97,8 @@
     "./src/platform/index.js",
     "./src/platform/model/index.js",
     "./src/platform/model/v1.js",
+    "./src/platform/report/index.js",
+    "./src/platform/report/v1.js",
     "./src/platform/secret/index.js",
     "./src/platform/secret/v1.js",
     "./src/platform/v1.js",

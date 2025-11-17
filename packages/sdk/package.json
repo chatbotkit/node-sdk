@@ -968,6 +968,26 @@
       "types": "./types/platform/model/v1.d.ts",
       "import": "./src/platform/model/v1.js"
     },
+    "./platform/report": {
+      "types": "./types/platform/report/index.d.ts",
+      "import": "./src/platform/report/index.js"
+    },
+    "./platform/report/index": {
+      "types": "./types/platform/report/index.d.ts",
+      "import": "./src/platform/report/index.js"
+    },
+    "./platform/report/index.js": {
+      "types": "./types/platform/report/index.d.ts",
+      "import": "./src/platform/report/index.js"
+    },
+    "./platform/report/v1": {
+      "types": "./types/platform/report/v1.d.ts",
+      "import": "./src/platform/report/v1.js"
+    },
+    "./platform/report/v1.js": {
+      "types": "./types/platform/report/v1.d.ts",
+      "import": "./src/platform/report/v1.js"
+    },
     "./platform/secret": {
       "types": "./types/platform/secret/index.d.ts",
       "import": "./src/platform/secret/index.js"

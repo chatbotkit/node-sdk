@@ -97,6 +97,8 @@
 - [platform/example/v1](modules/platform_example_v1.md)
 - [platform/model](modules/platform_model.md)
 - [platform/model/v1](modules/platform_model_v1.md)
+- [platform/report](modules/platform_report.md)
+- [platform/report/v1](modules/platform_report_v1.md)
 - [platform/secret](modules/platform_secret.md)
 - [platform/secret/v1](modules/platform_secret_v1.md)
 - [policy](modules/policy.md)
