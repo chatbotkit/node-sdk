@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
-import { fetchReport, listReports } from './v1.js'
+import { fetchReport, fetchTypedReport, listReports } from './v1.js'
 
 /**
  * @template T
@@ -37,6 +37,18 @@ export class ReportClient extends ChatBotKitClient {
    */
   fetch(reportId, request) {
     return fetchReport(this, reportId, request)
+  }
+
+  /**
+   * Generates a typed report with full type safety for input and output.
+   *
+   * @template {import('./v1.js').ReportId} T
+   * @param {T} reportId - The report ID
+   * @param {import('./v1.js').ReportInputTypes[T]} request - The report input
+   * @returns {Promise<import('./v1.js').ReportOutputTypes[T]>}
+   */
+  fetchTyped(reportId, request) {
+    return fetchTypedReport(this, reportId, request)
   }
 }
 

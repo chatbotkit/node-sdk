@@ -22,6 +22,15 @@ export class ReportClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').ReportFetchResponse>}
      */
     fetch(reportId: string, request: import("./v1.js").ReportFetchRequest): Promise<import("./v1.js").ReportFetchResponse>;
+    /**
+     * Generates a typed report with full type safety for input and output.
+     *
+     * @template {import('./v1.js').ReportId} T
+     * @param {T} reportId - The report ID
+     * @param {import('./v1.js').ReportInputTypes[T]} request - The report input
+     * @returns {Promise<import('./v1.js').ReportOutputTypes[T]>}
+     */
+    fetchTyped<T extends import("./v1.js").ReportId>(reportId: T, request: import("./v1.js").ReportInputTypes[T]): Promise<import("./v1.js").ReportOutputTypes[T]>;
 }
 export default ReportClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;

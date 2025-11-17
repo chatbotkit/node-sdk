@@ -58,3 +58,31 @@ export async function fetchReport(client, reportId, request) {
 
   return response
 }
+
+/**
+ * @typedef {import('../types/report.js').ReportId} ReportId
+ * @typedef {import('../types/report.js').ReportInputTypes} ReportInputTypes
+ * @typedef {import('../types/report.js').ReportOutputTypes} ReportOutputTypes
+ */
+
+/**
+ * Fetch a typed report with input and output type safety
+ *
+ * @template {ReportId} T
+ * @param {ChatBotKitClient} client
+ * @param {T} reportId - The report ID
+ * @param {ReportInputTypes[T]} request - The report input
+ * @returns {Promise<ReportOutputTypes[T]>}
+ */
+export async function fetchTypedReport(client, reportId, request) {
+  const url = `/api/v1/report/${reportId}/fetch`
+
+  const response = await client.clientFetch(url, {
+    /** @type {ReportFetchRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}
