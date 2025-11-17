@@ -1,11 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
-import { fetchReport, fetchTypedReport, listReports } from './v1.js'
-
-/**
- * @template T
- * @template U
- * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
- */
+import { fetchReport, fetchTypedReport } from './v1.js'
 
 /**
  * Report client.
@@ -16,16 +10,6 @@ export class ReportClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
-  }
-
-  /**
-   * Retrieves a list of all available reports.
-   *
-   * @param {import('./v1.js').ReportListRequest} [request]
-   * @returns {ResponsePromise<import('./v1.js').ReportListResponse,import('./v1.js').ReportListStreamType>}
-   */
-  list(request) {
-    return listReports(this, request)
   }
 
   /**
