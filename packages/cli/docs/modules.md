@@ -6,6 +6,7 @@
 
 ### Modules
 
+- [color](modules/color.md)
 - [command/api](modules/command_api.md)
 - [env](modules/env.md)
 - [index](modules/index.md)

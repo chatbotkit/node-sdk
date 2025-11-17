@@ -102,6 +102,7 @@ export class ResponsePromise<T, U> {
 /**
  * @typedef {Object} ChatBotKitClientOptions
  * @property {string} secret A token to authenticate with the API
+ * @property {string|URL} [baseUrl] An optional base URL to use for the API
  * @property {string} [host] An optional hostname to use for the API
  * @property {'http:'|'https:'} [protocol] An optional protocol to use for the API
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
@@ -122,6 +123,7 @@ export class ChatBotKitClient {
     constructor(options: ChatBotKitClientOptions);
     /**
      * Creates a new instance of the same client type with extended options.
+     *
      * This is useful when you need to create a client with modified configuration
      * (e.g., different endpoint, token, or headers) without affecting the original.
      *
@@ -130,12 +132,6 @@ export class ChatBotKitClient {
      *
      * @param {Partial<ChatBotKitClientOptions>} extensionOptions - Options to merge with current options
      * @returns {this} A new instance of the same client class with extended options
-     *
-     * @example
-     * const client = new ConversationClient({ secret: 'token123' })
-     * const customClient = client.extend({
-     *   endpoints: { '/api/v1/conversation/complete': '/custom/endpoint' }
-     * })
      */
     extend(extensionOptions: Partial<ChatBotKitClientOptions>): this;
     /**
@@ -186,6 +182,10 @@ export type ChatBotKitClientOptions = {
      * A token to authenticate with the API
      */
     secret: string;
+    /**
+     * An optional base URL to use for the API
+     */
+    baseUrl?: string | URL | undefined;
     /**
      * An optional hostname to use for the API
      */

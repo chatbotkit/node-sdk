@@ -31,6 +31,7 @@ Conversation client.
 - [create](conversation.ConversationClient.md#create)
 - [delete](conversation.ConversationClient.md#delete)
 - [downvote](conversation.ConversationClient.md#downvote)
+- [extend](conversation.ConversationClient.md#extend)
 - [fetch](conversation.ConversationClient.md#fetch)
 - [list](conversation.ConversationClient.md#list)
 - [receive](conversation.ConversationClient.md#receive)
@@ -138,7 +139,7 @@ ___
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
 
 ___
 
@@ -242,6 +243,40 @@ ___
 #### Defined in
 
 [conversation/index.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L176)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`ConversationClient`](conversation.ConversationClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`ConversationClient`](conversation.ConversationClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 ___
 

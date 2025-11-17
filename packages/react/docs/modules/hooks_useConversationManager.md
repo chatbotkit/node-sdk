@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerRemote.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L37)
+[packages/react/src/hooks/useConversationManagerRemote.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L36)
 
 ___
 

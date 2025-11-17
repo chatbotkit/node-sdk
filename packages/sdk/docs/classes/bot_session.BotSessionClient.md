@@ -22,6 +22,7 @@ Bot session client.
 
 - [clientFetch](bot_session.BotSessionClient.md#clientfetch)
 - [create](bot_session.BotSessionClient.md#create)
+- [extend](bot_session.BotSessionClient.md#extend)
 
 ## Constructors
 
@@ -93,7 +94,7 @@ Bot session client.
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
 
 ___
 
@@ -117,3 +118,37 @@ Creates a new session.
 #### Defined in
 
 [bot/session/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/index.js#L22)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`BotSessionClient`](bot_session.BotSessionClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`BotSessionClient`](bot_session.BotSessionClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)

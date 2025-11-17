@@ -21,7 +21,6 @@
     "./src/hooks/useWidgetInstanceNotifications.js",
     "./src/index.js",
     "./src/utils/it.js",
-    "./src/utils/object.js",
     "./src/utils/stream.js",
     "./src/utils/string.js"
   ],

@@ -24,6 +24,7 @@ Skillset ability client.
 - [create](skillset_ability.SkillsetAbilityClient.md#create)
 - [delete](skillset_ability.SkillsetAbilityClient.md#delete)
 - [export](skillset_ability.SkillsetAbilityClient.md#export)
+- [extend](skillset_ability.SkillsetAbilityClient.md#extend)
 - [fetch](skillset_ability.SkillsetAbilityClient.md#fetch)
 - [list](skillset_ability.SkillsetAbilityClient.md#list)
 - [update](skillset_ability.SkillsetAbilityClient.md#update)
@@ -98,7 +99,7 @@ Skillset ability client.
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
 
 ___
 
@@ -168,6 +169,40 @@ Exports abilities.
 #### Defined in
 
 [skillset/ability/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/index.js#L46)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 ___
 

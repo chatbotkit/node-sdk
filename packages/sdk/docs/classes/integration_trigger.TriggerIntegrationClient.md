@@ -25,6 +25,7 @@
 - [clientFetch](integration_trigger.TriggerIntegrationClient.md#clientfetch)
 - [create](integration_trigger.TriggerIntegrationClient.md#create)
 - [delete](integration_trigger.TriggerIntegrationClient.md#delete)
+- [extend](integration_trigger.TriggerIntegrationClient.md#extend)
 - [fetch](integration_trigger.TriggerIntegrationClient.md#fetch)
 - [invoke](integration_trigger.TriggerIntegrationClient.md#invoke)
 - [list](integration_trigger.TriggerIntegrationClient.md#list)
@@ -101,7 +102,7 @@
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
 
 ___
 
@@ -146,6 +147,40 @@ Deletes a trigger integration.
 #### Defined in
 
 [integration/trigger/index.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/trigger/index.js#L73)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`TriggerIntegrationClient`](integration_trigger.TriggerIntegrationClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`TriggerIntegrationClient`](integration_trigger.TriggerIntegrationClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 ___
 

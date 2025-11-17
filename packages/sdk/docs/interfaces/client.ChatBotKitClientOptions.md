@@ -8,6 +8,7 @@
 
 ### Properties
 
+- [baseUrl](client.ChatBotKitClientOptions.md#baseurl)
 - [endpoints](client.ChatBotKitClientOptions.md#endpoints)
 - [fetchFn](client.ChatBotKitClientOptions.md#fetchfn)
 - [headers](client.ChatBotKitClientOptions.md#headers)
@@ -24,6 +25,18 @@
 
 ## Properties
 
+### baseUrl
+
+• **baseUrl**: `string` \| [`URL`]( https://developer.mozilla.org/docs/Web/API/URL )
+
+An optional base URL to use for the API
+
+#### Defined in
+
+[client.js:279](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L279)
+
+___
+
 ### endpoints
 
 • **endpoints**: [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `string`\>
@@ -32,7 +45,7 @@ An optional map of endpoints to override
 
 #### Defined in
 
-[client.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L281)
+[client.js:282](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L282)
 
 ___
 
@@ -44,7 +57,7 @@ An optional fetch implementation function to use instead
 
 #### Defined in
 
-[client.js:290](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L290)
+[client.js:291](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L291)
 
 ___
 
@@ -56,7 +69,7 @@ An optional map of headers to add to the request
 
 #### Defined in
 
-[client.js:285](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L285)
+[client.js:286](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L286)
 
 ___
 
@@ -68,7 +81,7 @@ An optional hostname to use for the API
 
 #### Defined in
 
-[client.js:279](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L279)
+[client.js:280](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L280)
 
 ___
 
@@ -80,7 +93,7 @@ An optional protocol to use for the API
 
 #### Defined in
 
-[client.js:280](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L280)
+[client.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L281)
 
 ___
 
@@ -92,7 +105,7 @@ An optional number of retries for the request
 
 #### Defined in
 
-[client.js:287](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L287)
+[client.js:288](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L288)
 
 ___
 
@@ -104,7 +117,7 @@ An optional delay in milliseconds between retries
 
 #### Defined in
 
-[client.js:288](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L288)
+[client.js:289](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L289)
 
 ___
 
@@ -116,7 +129,7 @@ An optional flag to retry on timeout errors
 
 #### Defined in
 
-[client.js:289](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L289)
+[client.js:290](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L290)
 
 ___
 
@@ -128,7 +141,7 @@ An optional child user email to run as (experimental)
 
 #### Defined in
 
-[client.js:283](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L283)
+[client.js:284](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L284)
 
 ___
 
@@ -140,7 +153,7 @@ An optional user ID to run as
 
 #### Defined in
 
-[client.js:282](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L282)
+[client.js:283](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L283)
 
 ___
 
@@ -164,7 +177,7 @@ An optional timeout in milliseconds for the request
 
 #### Defined in
 
-[client.js:286](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L286)
+[client.js:287](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L287)
 
 ___
 
@@ -176,4 +189,4 @@ An optional timezone to use for the API
 
 #### Defined in
 
-[client.js:284](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L284)
+[client.js:285](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L285)
