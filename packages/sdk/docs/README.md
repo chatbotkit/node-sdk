@@ -35,7 +35,7 @@ const client = new ConversationClient({
 
 // Stream messages using the ConversationClient
 for await (const { type, data } of client
-  .complete(null, { model: 'gpt-4', messages })
+  .complete(null, { model: 'gpt-5-mini', messages })
   .stream()) {
   if (type === 'token') {
     process.stdout.write(data.token)
