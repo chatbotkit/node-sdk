@@ -104,6 +104,8 @@
 
   ↳ [`PortalClient`](portal.PortalClient.md)
 
+  ↳ [`ReportClient`](report.ReportClient.md)
+
   ↳ [`SecretClient`](secret.SecretClient.md)
 
   ↳ [`SkillsetAbilityClient`](skillset_ability.SkillsetAbilityClient.md)
@@ -119,8 +121,6 @@
   ↳ [`UsageClient`](usage.UsageClient.md)
 
   ↳ [`UsageSeriesClient`](usage_series.UsageSeriesClient.md)
-
-  ↳ [`ReportClient`](index.ReportClient.md)
 
 ## Table of contents
 

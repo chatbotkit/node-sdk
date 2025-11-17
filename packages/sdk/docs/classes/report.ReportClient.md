@@ -1,8 +1,8 @@
-[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [index](../modules/index.md) / ReportClient
+[@chatbotkit/sdk](../README.md) / [Modules](../modules.md) / [report](../modules/report.md) / ReportClient
 
 # Class: ReportClient
 
-[index](../modules/index.md).ReportClient
+[report](../modules/report.md).ReportClient
 
 Report client.
 
@@ -16,20 +16,21 @@ Report client.
 
 ### Constructors
 
-- [constructor](index.ReportClient.md#constructor)
+- [constructor](report.ReportClient.md#constructor)
 
 ### Methods
 
-- [clientFetch](index.ReportClient.md#clientfetch)
-- [extend](index.ReportClient.md#extend)
-- [fetch](index.ReportClient.md#fetch)
-- [list](index.ReportClient.md#list)
+- [clientFetch](report.ReportClient.md#clientfetch)
+- [extend](report.ReportClient.md#extend)
+- [fetch](report.ReportClient.md#fetch)
+- [fetchTyped](report.ReportClient.md#fetchtyped)
+- [list](report.ReportClient.md#list)
 
 ## Constructors
 
 ### constructor
 
-• **new ReportClient**(`options`): [`ReportClient`](index.ReportClient.md)
+• **new ReportClient**(`options`): [`ReportClient`](report.ReportClient.md)
 
 #### Parameters
 
@@ -39,7 +40,7 @@ Report client.
 
 #### Returns
 
-[`ReportClient`](index.ReportClient.md)
+[`ReportClient`](report.ReportClient.md)
 
 #### Overrides
 
@@ -47,7 +48,7 @@ Report client.
 
 #### Defined in
 
-report/index.js:17
+[report/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L17)
 
 ## Methods
 
@@ -101,7 +102,7 @@ ___
 
 ### extend
 
-▸ **extend**(`extensionOptions`): [`ReportClient`](index.ReportClient.md)
+▸ **extend**(`extensionOptions`): [`ReportClient`](report.ReportClient.md)
 
 Creates a new instance of the same client type with extended options.
 
@@ -119,7 +120,7 @@ which is necessary because private class fields cannot be copied.
 
 #### Returns
 
-[`ReportClient`](index.ReportClient.md)
+[`ReportClient`](report.ReportClient.md)
 
 A new instance of the same client class with extended options
 
@@ -152,7 +153,36 @@ Generates a report.
 
 #### Defined in
 
-report/index.js:38
+[report/index.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L38)
+
+___
+
+### fetchTyped
+
+▸ **fetchTyped**\<`T`\>(`reportId`, `request`): [`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ReportOutputTypes`[`T`]\>
+
+Generates a typed report with full type safety for input and output.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `ReportId` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `reportId` | `T` | The report ID |
+| `request` | `ReportInputTypes`[`T`] | The report input |
+
+#### Returns
+
+[`Promise`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise )\<`ReportOutputTypes`[`T`]\>
+
+#### Defined in
+
+[report/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L50)
 
 ___
 
@@ -166,7 +196,7 @@ Retrieves a list of all available reports.
 
 | Name | Type |
 | :------ | :------ |
-| `request?` | `ReportListRequest` |
+| `request?` | [`ReportListRequest`](../modules/report_v1.md#reportlistrequest) |
 
 #### Returns
 
@@ -174,4 +204,4 @@ Retrieves a list of all available reports.
 
 #### Defined in
 
-report/index.js:27
+[report/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L27)
