@@ -121,6 +121,24 @@ export class ChatBotKitClient {
      */
     constructor(options: ChatBotKitClientOptions);
     /**
+     * Creates a new instance of the same client type with extended options.
+     * This is useful when you need to create a client with modified configuration
+     * (e.g., different endpoint, token, or headers) without affecting the original.
+     *
+     * Note: This method creates a completely new instance rather than cloning,
+     * which is necessary because private class fields cannot be copied.
+     *
+     * @param {Partial<ChatBotKitClientOptions>} extensionOptions - Options to merge with current options
+     * @returns {this} A new instance of the same client class with extended options
+     *
+     * @example
+     * const client = new ConversationClient({ secret: 'token123' })
+     * const customClient = client.extend({
+     *   endpoints: { '/api/v1/conversation/complete': '/custom/endpoint' }
+     * })
+     */
+    extend(extensionOptions: Partial<ChatBotKitClientOptions>): this;
+    /**
      * @template T
      * @template U
      * @param {string} path
