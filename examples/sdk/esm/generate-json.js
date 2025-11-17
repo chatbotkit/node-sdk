@@ -10,7 +10,6 @@ dotenv.config()
 async function main() {
   const client = new MagicClient({
     secret: process.env.CHATBOTKIT_API_SECRET,
-    host: 'congenial-waffle-rwxw775pg6fxjrr-8080.app.github.dev',
   })
 
   const rl = readline.createInterface({
