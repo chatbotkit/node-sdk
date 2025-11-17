@@ -120,6 +120,8 @@
 
   ↳ [`UsageSeriesClient`](usage_series.UsageSeriesClient.md)
 
+  ↳ [`ReportClient`](index.ReportClient.md)
+
 ## Table of contents
 
 ### Constructors
