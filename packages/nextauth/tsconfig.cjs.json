@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "rootDir": "src",
     "outDir": "dist/cjs",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "maxNodeModuleJsDepth": 0,
+    "tsBuildInfoFile": "./tsconfig.cjs.tsbuildinfo"
   },
-  "include": ["src/"]
+  "include": ["src/**/*"]
 }

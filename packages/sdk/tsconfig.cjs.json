@@ -5,8 +5,8 @@
     "rootDir": "src",
     "outDir": "dist/cjs",
     "skipLibCheck": true,
-    "maxNodeModuleJsDepth": 0
+    "maxNodeModuleJsDepth": 0,
+    "tsBuildInfoFile": "./tsconfig.cjs.tsbuildinfo"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "**/*.utest.js"]
+  "include": ["src/**/*"]
 }
