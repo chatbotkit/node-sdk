@@ -4,6 +4,7 @@ import { PlatformActionClient } from './action/index.js'
 import { PlatformContentClient } from './content/index.js'
 import { PlatformExampleClient } from './example/index.js'
 import { PlatformModelClient } from './model/index.js'
+import { PlatformReportClient } from './report/index.js'
 import { PlatformSecretClient } from './secret/index.js'
 
 /**
@@ -37,15 +38,19 @@ export class PlatformClient extends ChatBotKitClient {
     this.content = new PlatformContentClient(options)
 
     /**
-     * @note overlapping name with the `secret` property
      * @type {PlatformSecretClient} secret client
      */
-    this.secrets = new PlatformSecretClient(options)
+    this.secret = new PlatformSecretClient(options)
 
     /**
      * @type {PlatformExampleClient} example client
      */
     this.example = new PlatformExampleClient(options)
+
+    /**
+     * @type {PlatformReportClient} report client
+     */
+    this.report = new PlatformReportClient(options)
   }
 }
 
