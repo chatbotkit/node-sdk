@@ -1,5 +1,14 @@
 # @chatbotkit/cli
 
+## 1.21.7
+
+### Patch Changes
+
+- e15d60e: Fixed package artifacts.
+- Updated dependencies [e15d60e]
+  - @chatbotkit/agent@1.21.7
+  - @chatbotkit/sdk@1.21.7
+
 ## 1.21.6
 
 ### Patch Changes
