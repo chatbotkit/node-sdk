@@ -21,6 +21,49 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/report/{reportId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Generate a specific report
+         * @description Generates a report based on the specified report ID and input
+         *     parameters.
+         *
+         */
+        post: operations["fetchReport"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/report/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a list of available reports
+         * @description Returns a list of all available report types that can be generated.
+         *
+         */
+        get: operations["listReports"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/blueprint/{blueprintId}/clone": {
         parameters: {
             query?: never;
@@ -4727,6 +4770,124 @@ export interface operations {
                         errors?: {
                             message?: string;
                         }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchReport: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                reportId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    [key: string]: unknown;
+                };
+            };
+        };
+        responses: {
+            /** @description The report was generated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": Record<string, never>;
+                };
+            };
+            /** @description Report not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listReports: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of reports was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                        };
                     };
                 };
             };

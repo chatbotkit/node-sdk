@@ -14,6 +14,7 @@ import { PartnerClient } from './partner/index.js'
 import { PlatformClient } from './platform/index.js'
 import { PolicyClient } from './policy/index.js'
 import { PortalClient } from './portal/index.js'
+import { ReportClient } from './report/index.js'
 import { SecretClient } from './secret/index.js'
 import { SkillsetClient } from './skillset/index.js'
 import { SpaceClient } from './space/index.js'
@@ -37,6 +38,7 @@ export { TeamClient }
 export { MemoryClient }
 export { PolicyClient }
 export { PortalClient }
+export { ReportClient }
 export { GraphqlClient }
 export { SpaceClient }
 export { UsageClient }
@@ -67,6 +69,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.memory = new MemoryClient(options)
     this.policy = new PolicyClient(options)
     this.portal = new PortalClient(options)
+    this.report = new ReportClient(options)
     this.usage = new UsageClient(options)
 
     this.graphql = new GraphqlClient(options)
