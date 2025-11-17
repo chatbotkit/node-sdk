@@ -1,5 +1,13 @@
 # @chatbotkit/sdk
 
+## 1.21.6
+
+### Patch Changes
+
+- 1ab635b: Remove not needed build files.
+- Updated dependencies [1ab635b]
+  - @chatbotkit/fetch@1.21.6
+
 ## 1.21.5
 
 ### Patch Changes
