@@ -59,4 +59,3 @@ Encountered a bug or interested in contributing? Your participation is highly ap
 
 - [FormShare](https://formshare.ai/) - Bring your forms to life with generative UI.
 - [PeopleAI](https://people.ai/) - Experience history like never before with our AI chatbots.
-- [AskNotion](https://asknotion.app/) - Create your personal ChatGPT-like chatbot that is trained on your Notion Pages.
