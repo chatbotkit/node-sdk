@@ -6,13 +6,12 @@
   "reports": {
     "clr3m5n8k000008jq7h9e5b1a": {
       "id": "clr3m5n8k000008jq7h9e5b1a",
-      "alias": "total-ratings",
       "name": "Total Ratings Report",
       "description": "Comprehensive report on total number of ratings received",
       "input": {
-        "$ref": "#/definitions/total-ratings-input",
+        "$ref": "#/definitions/total-ratings-report-input",
         "definitions": {
-          "total-ratings-input": {
+          "total-ratings-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -33,9 +32,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/total-ratings-output",
+        "$ref": "#/definitions/total-ratings-report-output",
         "definitions": {
-          "total-ratings-output": {
+          "total-ratings-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -87,13 +86,12 @@
     },
     "clr3m5n8k000108jq3c4d7f2b": {
       "id": "clr3m5n8k000108jq3c4d7f2b",
-      "alias": "thumbs-up",
       "name": "Thumbs Up Report",
       "description": "Report on positive ratings received",
       "input": {
-        "$ref": "#/definitions/thumbs-up-input",
+        "$ref": "#/definitions/thumbs-up-report-input",
         "definitions": {
-          "thumbs-up-input": {
+          "thumbs-up-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -114,9 +112,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/thumbs-up-output",
+        "$ref": "#/definitions/thumbs-up-report-output",
         "definitions": {
-          "thumbs-up-output": {
+          "thumbs-up-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -162,13 +160,12 @@
     },
     "clr3m5n8k000208jq8e5f6g3c": {
       "id": "clr3m5n8k000208jq8e5f6g3c",
-      "alias": "thumbs-down",
       "name": "Thumbs Down Report",
       "description": "Report on negative ratings received",
       "input": {
-        "$ref": "#/definitions/thumbs-down-input",
+        "$ref": "#/definitions/thumbs-down-report-input",
         "definitions": {
-          "thumbs-down-input": {
+          "thumbs-down-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -189,9 +186,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/thumbs-down-output",
+        "$ref": "#/definitions/thumbs-down-report-output",
         "definitions": {
-          "thumbs-down-output": {
+          "thumbs-down-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -237,13 +234,12 @@
     },
     "clr3m5n8k000308jq1h7i8j4d": {
       "id": "clr3m5n8k000308jq1h7i8j4d",
-      "alias": "total-contacts",
       "name": "Total Contacts Report",
       "description": "Report on total number of unique contacts/users",
       "input": {
-        "$ref": "#/definitions/total-contacts-input",
+        "$ref": "#/definitions/total-contacts-report-input",
         "definitions": {
-          "total-contacts-input": {
+          "total-contacts-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -259,9 +255,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/total-contacts-output",
+        "$ref": "#/definitions/total-contacts-report-output",
         "definitions": {
-          "total-contacts-output": {
+          "total-contacts-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -285,13 +281,12 @@
     },
     "clr3m5n8k000408jq9i8j9k5e": {
       "id": "clr3m5n8k000408jq9i8j9k5e",
-      "alias": "active-contacts",
       "name": "Active Contacts Report",
       "description": "Report on number of active contacts with conversations",
       "input": {
-        "$ref": "#/definitions/active-contacts-input",
+        "$ref": "#/definitions/active-contacts-report-input",
         "definitions": {
-          "active-contacts-input": {
+          "active-contacts-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -312,9 +307,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/active-contacts-output",
+        "$ref": "#/definitions/active-contacts-report-output",
         "definitions": {
-          "active-contacts-output": {
+          "active-contacts-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -360,13 +355,12 @@
     },
     "clr3m5n8k000508jq2j9k0l6f": {
       "id": "clr3m5n8k000508jq2j9k0l6f",
-      "alias": "total-conversations",
       "name": "Total Conversations Report",
       "description": "Report on total number of conversations handled",
       "input": {
-        "$ref": "#/definitions/total-conversations-input",
+        "$ref": "#/definitions/total-conversations-report-input",
         "definitions": {
-          "total-conversations-input": {
+          "total-conversations-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -387,9 +381,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/total-conversations-output",
+        "$ref": "#/definitions/total-conversations-report-output",
         "definitions": {
-          "total-conversations-output": {
+          "total-conversations-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -435,13 +429,12 @@
     },
     "clr3m5n8k000608jq3k0l1m7g": {
       "id": "clr3m5n8k000608jq3k0l1m7g",
-      "alias": "total-messages",
       "name": "Total Messages Report",
       "description": "Report on total number of messages exchanged",
       "input": {
-        "$ref": "#/definitions/total-messages-input",
+        "$ref": "#/definitions/total-messages-report-input",
         "definitions": {
-          "total-messages-input": {
+          "total-messages-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -462,9 +455,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/total-messages-output",
+        "$ref": "#/definitions/total-messages-report-output",
         "definitions": {
-          "total-messages-output": {
+          "total-messages-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -510,13 +503,12 @@
     },
     "clr3m5n8k000708jq4l1m2n8h": {
       "id": "clr3m5n8k000708jq4l1m2n8h",
-      "alias": "user-messages",
       "name": "User Messages Report",
       "description": "Report on number of user messages/requests processed",
       "input": {
-        "$ref": "#/definitions/user-messages-input",
+        "$ref": "#/definitions/user-messages-report-input",
         "definitions": {
-          "user-messages-input": {
+          "user-messages-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -537,9 +529,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/user-messages-output",
+        "$ref": "#/definitions/user-messages-report-output",
         "definitions": {
-          "user-messages-output": {
+          "user-messages-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -585,13 +577,12 @@
     },
     "clr3m5n8k000808jq5m2n3o9i": {
       "id": "clr3m5n8k000808jq5m2n3o9i",
-      "alias": "bot-messages",
       "name": "Bot Messages Report",
       "description": "Report on number of bot/agent responses delivered",
       "input": {
-        "$ref": "#/definitions/bot-messages-input",
+        "$ref": "#/definitions/bot-messages-report-input",
         "definitions": {
-          "bot-messages-input": {
+          "bot-messages-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -612,9 +603,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/bot-messages-output",
+        "$ref": "#/definitions/bot-messages-report-output",
         "definitions": {
-          "bot-messages-output": {
+          "bot-messages-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -660,13 +651,12 @@
     },
     "clr3m5n8k000908jq6n3o4p0j": {
       "id": "clr3m5n8k000908jq6n3o4p0j",
-      "alias": "activity-messages",
       "name": "Activity Messages Report",
       "description": "Report on number of agent actions taken",
       "input": {
-        "$ref": "#/definitions/activity-messages-input",
+        "$ref": "#/definitions/activity-messages-report-input",
         "definitions": {
-          "activity-messages-input": {
+          "activity-messages-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -687,9 +677,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/activity-messages-output",
+        "$ref": "#/definitions/activity-messages-report-output",
         "definitions": {
-          "activity-messages-output": {
+          "activity-messages-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -735,13 +725,12 @@
     },
     "clr3m5n8k000a08jq7o4p5q1k": {
       "id": "clr3m5n8k000a08jq7o4p5q1k",
-      "alias": "average-user-messages-per-conversation",
       "name": "Average User Messages per Conversation Report",
       "description": "Report on average number of user messages per conversation",
       "input": {
-        "$ref": "#/definitions/average-user-messages-per-conversation-input",
+        "$ref": "#/definitions/average-user-messages-per-conversation-report-input",
         "definitions": {
-          "average-user-messages-per-conversation-input": {
+          "average-user-messages-per-conversation-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -762,9 +751,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/average-user-messages-per-conversation-output",
+        "$ref": "#/definitions/average-user-messages-per-conversation-report-output",
         "definitions": {
-          "average-user-messages-per-conversation-output": {
+          "average-user-messages-per-conversation-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -788,13 +777,12 @@
     },
     "clr3m5n8k000b08jq8p5q6r2l": {
       "id": "clr3m5n8k000b08jq8p5q6r2l",
-      "alias": "average-bot-messages-per-conversation",
       "name": "Average Bot Messages per Conversation Report",
       "description": "Report on average number of bot responses per conversation",
       "input": {
-        "$ref": "#/definitions/average-bot-messages-per-conversation-input",
+        "$ref": "#/definitions/average-bot-messages-per-conversation-report-input",
         "definitions": {
-          "average-bot-messages-per-conversation-input": {
+          "average-bot-messages-per-conversation-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -815,9 +803,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/average-bot-messages-per-conversation-output",
+        "$ref": "#/definitions/average-bot-messages-per-conversation-report-output",
         "definitions": {
-          "average-bot-messages-per-conversation-output": {
+          "average-bot-messages-per-conversation-report-output": {
             "type": "object",
             "properties": {
               "value": {
@@ -841,13 +829,12 @@
     },
     "clr3m5n8k000c08jq9q6r7s3m": {
       "id": "clr3m5n8k000c08jq9q6r7s3m",
-      "alias": "average-actions-per-conversation",
       "name": "Average Actions per Conversation Report",
       "description": "Report on average number of actions per conversation",
       "input": {
-        "$ref": "#/definitions/average-actions-per-conversation-input",
+        "$ref": "#/definitions/average-actions-per-conversation-report-input",
         "definitions": {
-          "average-actions-per-conversation-input": {
+          "average-actions-per-conversation-report-input": {
             "type": "object",
             "properties": {
               "userId": {
@@ -868,9 +855,9 @@
         "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "output": {
-        "$ref": "#/definitions/average-actions-per-conversation-output",
+        "$ref": "#/definitions/average-actions-per-conversation-report-output",
         "definitions": {
-          "average-actions-per-conversation-output": {
+          "average-actions-per-conversation-report-output": {
             "type": "object",
             "properties": {
               "value": {

@@ -5,11 +5,8 @@
 
 export type ReportId = 'clr3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000108jq3c4d7f2b' | 'clr3m5n8k000208jq8e5f6g3c' | 'clr3m5n8k000308jq1h7i8j4d' | 'clr3m5n8k000408jq9i8j9k5e' | 'clr3m5n8k000508jq2j9k0l6f' | 'clr3m5n8k000608jq3k0l1m7g' | 'clr3m5n8k000708jq4l1m2n8h' | 'clr3m5n8k000808jq5m2n3o9i' | 'clr3m5n8k000908jq6n3o4p0j' | 'clr3m5n8k000a08jq7o4p5q1k' | 'clr3m5n8k000b08jq8p5q6r2l' | 'clr3m5n8k000c08jq9q6r7s3m'
 
-export type ReportAlias = 'total-ratings' | 'thumbs-up' | 'thumbs-down' | 'total-contacts' | 'active-contacts' | 'total-conversations' | 'total-messages' | 'user-messages' | 'bot-messages' | 'activity-messages' | 'average-user-messages-per-conversation' | 'average-bot-messages-per-conversation' | 'average-actions-per-conversation'
-
 export interface ReportMetadata {
   id: string
-  alias: string
   name: string
   description: string
   createdAt: string
@@ -18,91 +15,78 @@ export interface ReportMetadata {
 
 export interface ReportRegistry {
   'clr3m5n8k000008jq7h9e5b1a': {
-    alias: 'total-ratings'
     name: string
     description: string
     input: TotalRatingsInput
     output: TotalRatingsOutput
   }
   'clr3m5n8k000108jq3c4d7f2b': {
-    alias: 'thumbs-up'
     name: string
     description: string
     input: ThumbsUpInput
     output: ThumbsUpOutput
   }
   'clr3m5n8k000208jq8e5f6g3c': {
-    alias: 'thumbs-down'
     name: string
     description: string
     input: ThumbsDownInput
     output: ThumbsDownOutput
   }
   'clr3m5n8k000308jq1h7i8j4d': {
-    alias: 'total-contacts'
     name: string
     description: string
     input: TotalContactsInput
     output: TotalContactsOutput
   }
   'clr3m5n8k000408jq9i8j9k5e': {
-    alias: 'active-contacts'
     name: string
     description: string
     input: ActiveContactsInput
     output: ActiveContactsOutput
   }
   'clr3m5n8k000508jq2j9k0l6f': {
-    alias: 'total-conversations'
     name: string
     description: string
     input: TotalConversationsInput
     output: TotalConversationsOutput
   }
   'clr3m5n8k000608jq3k0l1m7g': {
-    alias: 'total-messages'
     name: string
     description: string
     input: TotalMessagesInput
     output: TotalMessagesOutput
   }
   'clr3m5n8k000708jq4l1m2n8h': {
-    alias: 'user-messages'
     name: string
     description: string
     input: UserMessagesInput
     output: UserMessagesOutput
   }
   'clr3m5n8k000808jq5m2n3o9i': {
-    alias: 'bot-messages'
     name: string
     description: string
     input: BotMessagesInput
     output: BotMessagesOutput
   }
   'clr3m5n8k000908jq6n3o4p0j': {
-    alias: 'activity-messages'
     name: string
     description: string
     input: ActivityMessagesInput
     output: ActivityMessagesOutput
   }
   'clr3m5n8k000a08jq7o4p5q1k': {
-    alias: 'average-user-messages-per-conversation'
     name: string
     description: string
     input: AverageUserMessagesPerConversationInput
     output: AverageUserMessagesPerConversationOutput
   }
   'clr3m5n8k000b08jq8p5q6r2l': {
-    alias: 'average-bot-messages-per-conversation'
     name: string
     description: string
     input: AverageBotMessagesPerConversationInput
     output: AverageBotMessagesPerConversationOutput
   }
   'clr3m5n8k000c08jq9q6r7s3m': {
-    alias: 'average-actions-per-conversation'
     name: string
     description: string
     input: AverageActionsPerConversationInput
