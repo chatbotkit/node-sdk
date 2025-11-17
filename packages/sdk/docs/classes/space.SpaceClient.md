@@ -23,6 +23,7 @@ Space client.
 - [clientFetch](space.SpaceClient.md#clientfetch)
 - [create](space.SpaceClient.md#create)
 - [delete](space.SpaceClient.md#delete)
+- [extend](space.SpaceClient.md#extend)
 - [fetch](space.SpaceClient.md#fetch)
 - [list](space.SpaceClient.md#list)
 - [update](space.SpaceClient.md#update)
@@ -97,7 +98,7 @@ Space client.
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
 
 ___
 
@@ -142,6 +143,40 @@ Deletes the space.
 #### Defined in
 
 [space/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/space/index.js#L74)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`SpaceClient`](space.SpaceClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`SpaceClient`](space.SpaceClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 ___
 

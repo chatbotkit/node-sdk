@@ -24,6 +24,7 @@ Dataset record client.
 - [create](dataset_record.DatasetRecordClient.md#create)
 - [delete](dataset_record.DatasetRecordClient.md#delete)
 - [export](dataset_record.DatasetRecordClient.md#export)
+- [extend](dataset_record.DatasetRecordClient.md#extend)
 - [fetch](dataset_record.DatasetRecordClient.md#fetch)
 - [list](dataset_record.DatasetRecordClient.md#list)
 - [update](dataset_record.DatasetRecordClient.md#update)
@@ -98,7 +99,7 @@ Dataset record client.
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
 
 ___
 
@@ -168,6 +169,40 @@ Exports records.
 #### Defined in
 
 [dataset/record/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L91)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`DatasetRecordClient`](dataset_record.DatasetRecordClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`DatasetRecordClient`](dataset_record.DatasetRecordClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 ___
 

@@ -23,6 +23,7 @@ Partner user token client.
 - [clientFetch](partner_user_token.PartnerUserTokenClient.md#clientfetch)
 - [create](partner_user_token.PartnerUserTokenClient.md#create)
 - [delete](partner_user_token.PartnerUserTokenClient.md#delete)
+- [extend](partner_user_token.PartnerUserTokenClient.md#extend)
 - [list](partner_user_token.PartnerUserTokenClient.md#list)
 
 ## Constructors
@@ -95,7 +96,7 @@ Partner user token client.
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
 
 ___
 
@@ -142,6 +143,40 @@ Deletes the user token.
 #### Defined in
 
 [partner/user/token/index.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/index.js#L54)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`PartnerUserTokenClient`](partner_user_token.PartnerUserTokenClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`PartnerUserTokenClient`](partner_user_token.PartnerUserTokenClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 ___
 

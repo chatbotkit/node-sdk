@@ -2,7 +2,6 @@
 
 import { useMemo } from 'react'
 
-import { cloneAndExtend } from '../utils/object.js'
 import { consume } from '../utils/stream.js'
 
 import { ConversationClient } from '@chatbotkit/sdk'
@@ -91,7 +90,7 @@ export function useConversationManagerRemote({
     const extension = {}
 
     if (typeof endpoint === 'string') {
-      extension.url = new URL(
+      extension.baseUrl = new URL(
         globalThis.window?.location?.origin || 'about:blank'
       )
 
@@ -108,7 +107,7 @@ export function useConversationManagerRemote({
     if (Object.keys(extension).length === 0) {
       return thisClient
     } else {
-      return cloneAndExtend(thisClient, extension)
+      return thisClient.extend(extension)
     }
   }, [_client, endpoint, token])
 

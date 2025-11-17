@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/react",
-  "version": "1.21.0",
+  "version": "1.21.5",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
@@ -173,14 +173,6 @@
     "./utils/it.js": {
       "types": "./types/utils/it.d.ts",
       "import": "./src/utils/it.js"
-    },
-    "./utils/object": {
-      "types": "./types/utils/object.d.ts",
-      "import": "./src/utils/object.js"
-    },
-    "./utils/object.js": {
-      "types": "./types/utils/object.d.ts",
-      "import": "./src/utils/object.js"
     },
     "./utils/stream": {
       "types": "./types/utils/stream.d.ts",

@@ -134,7 +134,7 @@ export class ResponsePromise {
 
         message = data.message || `HTTP Error: ${response.statusText}`
         code = data.code || `ERROR_${response.status}`
-      } catch (e) {
+      } catch {
         const data = standardErrors[response.status] || standardErrors.default
 
         message = data.message
@@ -276,6 +276,7 @@ export class ResponsePromise {
 /**
  * @typedef {Object} ChatBotKitClientOptions
  * @property {string} secret A token to authenticate with the API
+ * @property {string|URL} [baseUrl] An optional base URL to use for the API
  * @property {string} [host] An optional hostname to use for the API
  * @property {'http:'|'https:'} [protocol] An optional protocol to use for the API
  * @property {Record<string,string>} [endpoints] An optional map of endpoints to override
@@ -295,7 +296,7 @@ export class ChatBotKitClient {
   #secret = null
 
   /** @type {URL} */
-  #url
+  #baseUrl
 
   /** @type {Record<string,string>} */
   #endpoints
@@ -336,14 +337,14 @@ export class ChatBotKitClient {
   constructor(options) {
     this.#secret = options.secret
 
-    this.#url = new URL(`https://api.chatbotkit.com`)
+    this.#baseUrl = new URL(options.baseUrl || `https://api.chatbotkit.com`)
 
     if (options.host) {
-      this.#url.host = options.host
+      this.#baseUrl.host = options.host
     }
 
     if (options.protocol) {
-      this.#url.protocol = options.protocol
+      this.#baseUrl.protocol = options.protocol
     }
 
     this.#endpoints = options.endpoints || {}
@@ -364,6 +365,64 @@ export class ChatBotKitClient {
     this.#fetchFn = options.fetchFn || fetchPlusPlus
 
     this.#cacheMap = new Map()
+  }
+
+  /**
+   * Creates a new instance of the same client type with extended options.
+   *
+   * This is useful when you need to create a client with modified configuration
+   * (e.g., different endpoint, token, or headers) without affecting the original.
+   *
+   * Note: This method creates a completely new instance rather than cloning,
+   * which is necessary because private class fields cannot be copied.
+   *
+   * @param {Partial<ChatBotKitClientOptions>} extensionOptions - Options to merge with current options
+   * @returns {this} A new instance of the same client class with extended options
+   */
+  extend(extensionOptions) {
+    const currentOptions = {
+      secret: this.#secret || '',
+
+      baseUrl: this.#baseUrl.toString(),
+
+      endpoints: { ...this.#endpoints },
+
+      runAsUserId: this.#runAsUserId,
+      runAsChildUserEmail: this.#runAsChildUserEmail,
+
+      timezone: this.#timezone,
+
+      headers: { ...this.#headers },
+
+      timeout: this.#timeout,
+
+      retries: this.#retries,
+      retryDelay: this.#retryDelay,
+      retryTimeout: this.#retryTimeout,
+
+      fetchFn: this.#fetchFn,
+    }
+
+    const mergedOptions = {
+      ...currentOptions,
+
+      ...extensionOptions,
+
+      endpoints: {
+        ...currentOptions.endpoints,
+
+        ...(extensionOptions.endpoints || {}),
+      },
+
+      headers: {
+        ...currentOptions.headers,
+
+        ...(extensionOptions.headers || {}),
+      },
+    }
+
+    // @ts-expect-error - this.constructor will be the actual class (e.g., ConversationClient)
+    return new this.constructor(mergedOptions)
   }
 
   /**
@@ -392,7 +451,7 @@ export class ChatBotKitClient {
 
     const url = new URL(
       this.#endpoints[options?.endpoint || path] || path,
-      this.#url
+      this.#baseUrl
     )
 
     if (

@@ -25,6 +25,7 @@
 - [clientFetch](integration_sitemap.SitemapIntegrationClient.md#clientfetch)
 - [create](integration_sitemap.SitemapIntegrationClient.md#create)
 - [delete](integration_sitemap.SitemapIntegrationClient.md#delete)
+- [extend](integration_sitemap.SitemapIntegrationClient.md#extend)
 - [fetch](integration_sitemap.SitemapIntegrationClient.md#fetch)
 - [list](integration_sitemap.SitemapIntegrationClient.md#list)
 - [sync](integration_sitemap.SitemapIntegrationClient.md#sync)
@@ -100,7 +101,7 @@
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
 
 ___
 
@@ -145,6 +146,40 @@ Deletes a sitemap integration.
 #### Defined in
 
 [integration/sitemap/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/index.js#L72)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`SitemapIntegrationClient`](integration_sitemap.SitemapIntegrationClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`SitemapIntegrationClient`](integration_sitemap.SitemapIntegrationClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 ___
 

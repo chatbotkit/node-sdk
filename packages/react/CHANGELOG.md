@@ -1,5 +1,14 @@
 # @chatbotkit/react
 
+## 1.21.5
+
+### Patch Changes
+
+- d2654bd: Updated API types and fixed bug in private method access.
+- Updated dependencies [dff5009]
+- Updated dependencies [d2654bd]
+  - @chatbotkit/sdk@1.21.5
+
 ## 1.21.0
 
 ### Patch Changes

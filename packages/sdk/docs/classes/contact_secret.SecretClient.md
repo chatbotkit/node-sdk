@@ -22,6 +22,7 @@ Contact secret client.
 
 - [authenticate](contact_secret.SecretClient.md#authenticate)
 - [clientFetch](contact_secret.SecretClient.md#clientfetch)
+- [extend](contact_secret.SecretClient.md#extend)
 - [list](contact_secret.SecretClient.md#list)
 - [revoke](contact_secret.SecretClient.md#revoke)
 - [verify](contact_secret.SecretClient.md#verify)
@@ -119,7 +120,41 @@ ___
 
 #### Defined in
 
-[client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L390)
+[client.js:449](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L449)
+
+___
+
+### extend
+
+▸ **extend**(`extensionOptions`): [`SecretClient`](contact_secret.SecretClient.md)
+
+Creates a new instance of the same client type with extended options.
+
+This is useful when you need to create a client with modified configuration
+(e.g., different endpoint, token, or headers) without affecting the original.
+
+Note: This method creates a completely new instance rather than cloning,
+which is necessary because private class fields cannot be copied.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `extensionOptions` | [`Partial`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype )\<[`ChatBotKitClientOptions`](../interfaces/client.ChatBotKitClientOptions.md)\> | Options to merge with current options |
+
+#### Returns
+
+[`SecretClient`](contact_secret.SecretClient.md)
+
+A new instance of the same client class with extended options
+
+#### Inherited from
+
+[ChatBotKitClient](client.ChatBotKitClient.md).[extend](client.ChatBotKitClient.md#extend)
+
+#### Defined in
+
+[client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 ___
 
