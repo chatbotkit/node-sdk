@@ -1,5 +1,11 @@
 # @chatbotkit/next
 
+## 1.21.6
+
+### Patch Changes
+
+- 1ab635b: Remove not needed build files.
+
 ## 1.19.0
 
 ### Minor Changes

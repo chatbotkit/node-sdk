@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/next",
-  "version": "1.19.0",
+  "version": "1.21.6",
   "description": "Utility library for ChatbotKit for Next.js",
   "license": "ISC",
   "engines": {
