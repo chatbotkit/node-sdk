@@ -1036,6 +1036,26 @@
       "types": "./types/portal/v1.d.ts",
       "import": "./src/portal/v1.js"
     },
+    "./report": {
+      "types": "./types/report/index.d.ts",
+      "import": "./src/report/index.js"
+    },
+    "./report/index": {
+      "types": "./types/report/index.d.ts",
+      "import": "./src/report/index.js"
+    },
+    "./report/index.js": {
+      "types": "./types/report/index.d.ts",
+      "import": "./src/report/index.js"
+    },
+    "./report/v1": {
+      "types": "./types/report/v1.d.ts",
+      "import": "./src/report/v1.js"
+    },
+    "./report/v1.js": {
+      "types": "./types/report/v1.d.ts",
+      "import": "./src/report/v1.js"
+    },
     "./secret": {
       "types": "./types/secret/index.d.ts",
       "import": "./src/secret/index.js"

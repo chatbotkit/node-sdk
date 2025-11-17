@@ -18,6 +18,7 @@ export class ChatBotKit extends ChatBotKitClient {
     memory: MemoryClient;
     policy: PolicyClient;
     portal: PortalClient;
+    report: ReportClient;
     usage: UsageClient;
     graphql: GraphqlClient;
 }
@@ -38,10 +39,11 @@ import { TeamClient } from './team/index.js';
 import { MemoryClient } from './memory/index.js';
 import { PolicyClient } from './policy/index.js';
 import { PortalClient } from './portal/index.js';
+import { ReportClient } from './report/index.js';
 import { GraphqlClient } from './graphql/index.js';
 import { SpaceClient } from './space/index.js';
 import { UsageClient } from './usage/index.js';
 import { ChatBotKitClient } from './client.js';
 import { PlatformClient } from './platform/index.js';
 import { TaskClient } from './task/index.js';
-export { BlueprintClient, BotClient, ChannelClient, FileClient, MagicClient, PartnerClient, DatasetClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, TeamClient, MemoryClient, PolicyClient, PortalClient, GraphqlClient, SpaceClient, UsageClient };
+export { BlueprintClient, BotClient, ChannelClient, FileClient, MagicClient, PartnerClient, DatasetClient, SkillsetClient, IntegrationClient, ConversationClient, ContactClient, SecretClient, TeamClient, MemoryClient, PolicyClient, PortalClient, ReportClient, GraphqlClient, SpaceClient, UsageClient };
