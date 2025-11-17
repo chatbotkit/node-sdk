@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763291335343)"
+    "version": "v1 (build 1763382558034)"
   },
   "servers": [
     {
@@ -1706,6 +1706,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -2872,6 +2885,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -5191,6 +5217,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -5418,6 +5457,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -10609,6 +10661,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -10904,6 +10969,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -12977,6 +13055,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -13875,6 +13966,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -14533,6 +14637,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -15183,6 +15300,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -15750,6 +15880,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -16285,6 +16428,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -16908,6 +17064,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -17561,6 +17730,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -18242,6 +18424,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -18982,6 +19177,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -19582,6 +19790,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -20218,6 +20439,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -20962,6 +21196,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -21622,6 +21869,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -22285,6 +22545,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -23253,6 +23526,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -23813,6 +24099,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -24334,6 +24633,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -24535,6 +24847,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -25617,6 +25942,32 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -25895,6 +26246,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -26163,6 +26527,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -26465,6 +26842,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -26930,6 +27320,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -27373,6 +27776,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -27744,6 +28160,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -27966,6 +28395,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -28509,6 +28951,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -29058,6 +29513,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -29928,6 +30396,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -31382,6 +31863,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -31830,6 +32324,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -32015,6 +32522,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -32610,6 +33130,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -32811,6 +33344,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           }
         ],
         "responses": {
@@ -33007,6 +33553,19 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
           },
           {
             "in": "query",
