@@ -28,6 +28,7 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/pac
 - [`DatasetRecordClient`](../../dataset/record/classes/DatasetRecordClient.md)
 - [`FileClient`](../../file/classes/FileClient.md)
 - [`GraphqlClient`](../../graphql/classes/GraphqlClient.md)
+- [`ChatBotKit`](../../index/classes/ChatBotKit.md)
 - [`DiscordIntegrationClient`](../../integration/discord/classes/DiscordIntegrationClient.md)
 - [`EmailIntegrationClient`](../../integration/email/classes/EmailIntegrationClient.md)
 - [`ExtractIntegrationClient`](../../integration/extract/classes/ExtractIntegrationClient.md)
