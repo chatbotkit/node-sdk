@@ -1,4 +1,5 @@
 {
+  "$schema": "https://typedoc.org/schema.json",
   "name": "ChatBotKit Node SDK",
   "entryPoints": [
     "packages/fetch",

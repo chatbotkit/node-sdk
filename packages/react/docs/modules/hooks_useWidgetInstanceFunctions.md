@@ -39,4 +39,4 @@ Re-exports [WidgetFunction](hooks_useWidgetInstance.md#widgetfunction)
 
 #### Defined in
 
-[sdks/node/packages/react/src/hooks/useWidgetInstanceFunctions.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceFunctions.js#L17)
+[packages/react/src/hooks/useWidgetInstanceFunctions.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceFunctions.js#L17)

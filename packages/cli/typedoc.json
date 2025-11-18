@@ -1,7 +1,6 @@
 {
-  "extends": [
-    "../../typedoc.base.json"
-  ],
+  "$schema": "https://typedoc.org/schema.json",
+  "extends": ["../../typedoc.base.json"],
   "entryPoints": [
     "./src/color.js",
     "./src/command/agent/index.js",
@@ -23,9 +22,6 @@
     "./src/spinner.js",
     "./src/tools.js"
   ],
-  "externalPattern": [
-    "**/node_modules/**",
-    "./types/**"
-  ],
+  "externalPattern": ["**/node_modules/**", "./types/**"],
   "readme": "README.md"
 }
