@@ -46,7 +46,7 @@ Re-exports [UseConversationManagerRemoteOptions](hooks_useConversationManager.md
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerRemote.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L19)
+[sdks/node/packages/react/src/hooks/useConversationManagerRemote.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L19)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerRemote.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L18)
+[sdks/node/packages/react/src/hooks/useConversationManagerRemote.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L18)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerRemote.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L38)
+[sdks/node/packages/react/src/hooks/useConversationManagerRemote.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L38)
 
 ## Functions
 
@@ -107,4 +107,4 @@ requires refactoring
 
 #### Defined in
 
-[packages/react/src/hooks/useConversationManagerRemote.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L49)
+[sdks/node/packages/react/src/hooks/useConversationManagerRemote.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L49)

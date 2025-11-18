@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[packages/react/src/components/ChatMessage.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ChatMessage.js#L29)
+[sdks/node/packages/react/src/components/ChatMessage.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ChatMessage.js#L29)

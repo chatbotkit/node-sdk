@@ -24,7 +24,7 @@ This function is used on the client to consume a server stream.
 
 #### Defined in
 
-[packages/react/src/utils/stream.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L130)
+[sdks/node/packages/react/src/utils/stream.js:130](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L130)
 
 ___
 
@@ -36,7 +36,7 @@ This function is used on the client to consume a server stream.
 
 #### Defined in
 
-[packages/react/src/utils/stream.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L84)
+[sdks/node/packages/react/src/utils/stream.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L84)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/utils/stream.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L83)
+[sdks/node/packages/react/src/utils/stream.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L83)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/utils/stream.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L20)
+[sdks/node/packages/react/src/utils/stream.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L20)
 
 ___
 
@@ -74,7 +74,7 @@ This function is used on the server to stream data to the client.
 
 #### Defined in
 
-[packages/react/src/utils/stream.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L61)
+[sdks/node/packages/react/src/utils/stream.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L61)
 
 ___
 
@@ -86,7 +86,7 @@ This function is used on the server to stream data to the client.
 
 #### Defined in
 
-[packages/react/src/utils/stream.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L27)
+[sdks/node/packages/react/src/utils/stream.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L27)
 
 ___
 
@@ -96,4 +96,4 @@ ___
 
 #### Defined in
 
-[packages/react/src/utils/stream.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L26)
+[sdks/node/packages/react/src/utils/stream.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L26)

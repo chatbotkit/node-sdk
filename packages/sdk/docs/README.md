@@ -35,7 +35,7 @@ const client = new ConversationClient({
 
 // Stream messages using the ConversationClient
 for await (const { type, data } of client
-  .complete(null, { model: 'gpt-4', messages })
+  .complete(null, { model: 'gpt-5-mini', messages })
   .stream()) {
   if (type === 'token') {
     process.stdout.write(data.token)
@@ -59,4 +59,3 @@ Encountered a bug or interested in contributing? Your participation is highly ap
 
 - [FormShare](https://formshare.ai/) - Bring your forms to life with generative UI.
 - [PeopleAI](https://people.ai/) - Experience history like never before with our AI chatbots.
-- [AskNotion](https://asknotion.app/) - Create your personal ChatGPT-like chatbot that is trained on your Notion Pages.

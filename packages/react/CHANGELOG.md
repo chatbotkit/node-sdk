@@ -1,5 +1,20 @@
 # @chatbotkit/react
 
+## 1.21.8
+
+### Patch Changes
+
+- Updated dependencies [a5a7538]
+  - @chatbotkit/sdk@1.21.8
+
+## 1.21.7
+
+### Patch Changes
+
+- e15d60e: Fixed package artifacts.
+- Updated dependencies [e15d60e]
+  - @chatbotkit/sdk@1.21.7
+
 ## 1.21.6
 
 ### Patch Changes

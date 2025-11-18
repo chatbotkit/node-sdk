@@ -31,4 +31,4 @@
 
 #### Defined in
 
-[packages/react/src/hooks/useDOMQuerySelector.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useDOMQuerySelector.js#L11)
+[sdks/node/packages/react/src/hooks/useDOMQuerySelector.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useDOMQuerySelector.js#L11)

@@ -29,7 +29,7 @@ Ask a question to the user
 
 #### Defined in
 
-[packages/cli/src/input.js:9](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/input.js#L9)
+[sdks/node/packages/cli/src/input.js:9](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/input.js#L9)
 
 ___
 
@@ -51,4 +51,4 @@ Ask for user input
 
 #### Defined in
 
-[packages/cli/src/input.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/input.js#L30)
+[sdks/node/packages/cli/src/input.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/input.js#L30)

@@ -25,7 +25,8 @@ Platform client.
 - [content](platform.PlatformClient.md#content)
 - [example](platform.PlatformClient.md#example)
 - [model](platform.PlatformClient.md#model)
-- [secrets](platform.PlatformClient.md#secrets)
+- [report](platform.PlatformClient.md#report)
+- [secret](platform.PlatformClient.md#secret)
 
 ### Methods
 
@@ -54,7 +55,7 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L16)
+[platform/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L17)
 
 ## Properties
 
@@ -64,7 +65,7 @@ Platform client.
 
 #### Defined in
 
-[platform/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L27)
+[platform/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L28)
 
 ___
 
@@ -74,7 +75,7 @@ ___
 
 #### Defined in
 
-[platform/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L32)
+[platform/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L33)
 
 ___
 
@@ -84,7 +85,7 @@ ___
 
 #### Defined in
 
-[platform/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L37)
+[platform/index.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L38)
 
 ___
 
@@ -104,17 +105,23 @@ ___
 
 #### Defined in
 
-[platform/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L22)
+[platform/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L23)
 
 ___
 
-### secrets
+### report
 
-• **secrets**: [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
+• **report**: [`PlatformReportClient`](platform_report.PlatformReportClient.md)
 
-**`Note`**
+#### Defined in
 
-overlapping name with the `secret` property
+[platform/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L53)
+
+___
+
+### secret
+
+• **secret**: [`PlatformSecretClient`](platform_secret.PlatformSecretClient.md)
 
 #### Defined in
 

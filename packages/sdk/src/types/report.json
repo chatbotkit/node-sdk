@@ -1,0 +1,883 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChatBotKit Report Schemas",
+  "description": "Input and output schemas for all available reports",
+  "version": "1.0.0",
+  "reports": {
+    "clr3m5n8k000008jq7h9e5b1a": {
+      "id": "clr3m5n8k000008jq7h9e5b1a",
+      "name": "Total Ratings Report",
+      "description": "Comprehensive report on total number of ratings received",
+      "input": {
+        "$ref": "#/definitions/total-ratings-report-input",
+        "definitions": {
+          "total-ratings-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/total-ratings-report-output",
+        "definitions": {
+          "total-ratings-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "thumbsUp": {
+                "type": "number"
+              },
+              "thumbsDown": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000108jq3c4d7f2b": {
+      "id": "clr3m5n8k000108jq3c4d7f2b",
+      "name": "Thumbs Up Report",
+      "description": "Report on positive ratings received",
+      "input": {
+        "$ref": "#/definitions/thumbs-up-report-input",
+        "definitions": {
+          "thumbs-up-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/thumbs-up-report-output",
+        "definitions": {
+          "thumbs-up-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000208jq8e5f6g3c": {
+      "id": "clr3m5n8k000208jq8e5f6g3c",
+      "name": "Thumbs Down Report",
+      "description": "Report on negative ratings received",
+      "input": {
+        "$ref": "#/definitions/thumbs-down-report-input",
+        "definitions": {
+          "thumbs-down-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/thumbs-down-report-output",
+        "definitions": {
+          "thumbs-down-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000308jq1h7i8j4d": {
+      "id": "clr3m5n8k000308jq1h7i8j4d",
+      "name": "Total Contacts Report",
+      "description": "Report on total number of unique contacts/users",
+      "input": {
+        "$ref": "#/definitions/total-contacts-report-input",
+        "definitions": {
+          "total-contacts-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/total-contacts-report-output",
+        "definitions": {
+          "total-contacts-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000408jq9i8j9k5e": {
+      "id": "clr3m5n8k000408jq9i8j9k5e",
+      "name": "Active Contacts Report",
+      "description": "Report on number of active contacts with conversations",
+      "input": {
+        "$ref": "#/definitions/active-contacts-report-input",
+        "definitions": {
+          "active-contacts-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/active-contacts-report-output",
+        "definitions": {
+          "active-contacts-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000508jq2j9k0l6f": {
+      "id": "clr3m5n8k000508jq2j9k0l6f",
+      "name": "Total Conversations Report",
+      "description": "Report on total number of conversations handled",
+      "input": {
+        "$ref": "#/definitions/total-conversations-report-input",
+        "definitions": {
+          "total-conversations-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/total-conversations-report-output",
+        "definitions": {
+          "total-conversations-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000608jq3k0l1m7g": {
+      "id": "clr3m5n8k000608jq3k0l1m7g",
+      "name": "Total Messages Report",
+      "description": "Report on total number of messages exchanged",
+      "input": {
+        "$ref": "#/definitions/total-messages-report-input",
+        "definitions": {
+          "total-messages-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/total-messages-report-output",
+        "definitions": {
+          "total-messages-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000708jq4l1m2n8h": {
+      "id": "clr3m5n8k000708jq4l1m2n8h",
+      "name": "User Messages Report",
+      "description": "Report on number of user messages/requests processed",
+      "input": {
+        "$ref": "#/definitions/user-messages-report-input",
+        "definitions": {
+          "user-messages-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/user-messages-report-output",
+        "definitions": {
+          "user-messages-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000808jq5m2n3o9i": {
+      "id": "clr3m5n8k000808jq5m2n3o9i",
+      "name": "Bot Messages Report",
+      "description": "Report on number of bot/agent responses delivered",
+      "input": {
+        "$ref": "#/definitions/bot-messages-report-input",
+        "definitions": {
+          "bot-messages-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/bot-messages-report-output",
+        "definitions": {
+          "bot-messages-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000908jq6n3o4p0j": {
+      "id": "clr3m5n8k000908jq6n3o4p0j",
+      "name": "Activity Messages Report",
+      "description": "Report on number of agent actions taken",
+      "input": {
+        "$ref": "#/definitions/activity-messages-report-input",
+        "definitions": {
+          "activity-messages-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/activity-messages-report-output",
+        "definitions": {
+          "activity-messages-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "change": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "total"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000a08jq7o4p5q1k": {
+      "id": "clr3m5n8k000a08jq7o4p5q1k",
+      "name": "Average User Messages per Conversation Report",
+      "description": "Report on average number of user messages per conversation",
+      "input": {
+        "$ref": "#/definitions/average-user-messages-per-conversation-report-input",
+        "definitions": {
+          "average-user-messages-per-conversation-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/average-user-messages-per-conversation-report-output",
+        "definitions": {
+          "average-user-messages-per-conversation-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000b08jq8p5q6r2l": {
+      "id": "clr3m5n8k000b08jq8p5q6r2l",
+      "name": "Average Bot Messages per Conversation Report",
+      "description": "Report on average number of bot responses per conversation",
+      "input": {
+        "$ref": "#/definitions/average-bot-messages-per-conversation-report-input",
+        "definitions": {
+          "average-bot-messages-per-conversation-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/average-bot-messages-per-conversation-report-output",
+        "definitions": {
+          "average-bot-messages-per-conversation-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000c08jq9q6r7s3m": {
+      "id": "clr3m5n8k000c08jq9q6r7s3m",
+      "name": "Average Actions per Conversation Report",
+      "description": "Report on average number of actions per conversation",
+      "input": {
+        "$ref": "#/definitions/average-actions-per-conversation-report-input",
+        "definitions": {
+          "average-actions-per-conversation-report-input": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "string"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "userId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/average-actions-per-conversation-report-output",
+        "definitions": {
+          "average-actions-per-conversation-report-output": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-17T00:00:00.000Z",
+      "updatedAt": "2025-11-17T00:00:00.000Z"
+    }
+  }
+}

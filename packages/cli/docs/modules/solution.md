@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L176)
+[sdks/node/packages/cli/src/solution/index.js:176](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L176)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L175)
+[sdks/node/packages/cli/src/solution/index.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L175)
 
 ## Variables
 
@@ -64,7 +64,7 @@ The schema for a basic resource configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L94)
+[sdks/node/packages/cli/src/solution/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L94)
 
 ___
 
@@ -76,7 +76,7 @@ The schema for a bot resource configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L106)
+[sdks/node/packages/cli/src/solution/index.js:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L106)
 
 ___
 
@@ -88,7 +88,7 @@ The schema for a dataset resource configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L121)
+[sdks/node/packages/cli/src/solution/index.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L121)
 
 ___
 
@@ -100,7 +100,7 @@ The schema for a resource configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L158)
+[sdks/node/packages/cli/src/solution/index.js:158](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L158)
 
 ___
 
@@ -112,7 +112,7 @@ The schema for a sitemap integration resource configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L146)
+[sdks/node/packages/cli/src/solution/index.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L146)
 
 ___
 
@@ -124,7 +124,7 @@ The schema for a skillset resource configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L129)
+[sdks/node/packages/cli/src/solution/index.js:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L129)
 
 ___
 
@@ -136,7 +136,7 @@ The schema for a solution configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:169](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L169)
+[sdks/node/packages/cli/src/solution/index.js:169](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L169)
 
 ___
 
@@ -148,7 +148,7 @@ The schema for a widget integration resource configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L137)
+[sdks/node/packages/cli/src/solution/index.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L137)
 
 ## Functions
 
@@ -174,4 +174,4 @@ The schema for a widget integration resource configuration.
 
 #### Defined in
 
-[packages/cli/src/solution/index.js:630](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L630)
+[sdks/node/packages/cli/src/solution/index.js:630](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L630)
