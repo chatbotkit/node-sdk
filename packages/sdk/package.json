@@ -1249,6 +1249,7 @@
     "build:exports": "node ../../scripts/create-standard-exports.js",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types_copy": "node scripts/copy-types.js",
+    "build:types_dist": "node scripts/copy-types-dist.js",
     "check": "tsc -p tsconfig.check.json",
     "check:api-coverage": "node scripts/check-api-coverage.js",
     "clean": "run-p clean:*",

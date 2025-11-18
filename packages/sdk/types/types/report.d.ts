@@ -282,6 +282,3 @@ export type GetReportInput<T extends ReportId> = ReportInputTypes[T]
 
 // Helper type to get output type by report ID
 export type GetReportOutput<T extends ReportId> = ReportOutputTypes[T]
-
-// Import the full schema definitions from the JSON file for runtime validation
-export type { default as ReportSchemas } from './report.json'
