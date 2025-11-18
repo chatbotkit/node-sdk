@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.21.9
+
+### Patch Changes
+
+- bb4a903: Fixed missing types.
+
 ## 1.21.8
 
 ### Patch Changes
