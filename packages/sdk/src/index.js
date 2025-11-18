@@ -43,6 +43,19 @@ export { GraphqlClient }
 export { SpaceClient }
 export { UsageClient }
 
+/**
+ * ChatBotKit SDK - Main client class for interacting with the ChatBotKit API
+ *
+ * This is the primary entry point for the ChatBotKit SDK. It provides access to all
+ * ChatBotKit API resources through specialized client instances.
+ *
+ * @example
+ * import ChatBotKit from '@chatbotkit/sdk'
+ *
+ * const client = new ChatBotKit({
+ *   secret: 'your-secret-key'
+ * })
+ */
 export class ChatBotKit extends ChatBotKitClient {
   /**
    * @param {import('./client.js').ChatBotKitClientOptions} options
