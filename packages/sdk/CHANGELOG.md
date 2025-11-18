@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.21.8
+
+### Patch Changes
+
+- a5a7538: Updated api spec.
+
 ## 1.21.7
 
 ### Patch Changes
