@@ -23,7 +23,7 @@ Available tools for agent CLI
 
 #### Defined in
 
-[sdks/node/packages/cli/src/tools.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/tools.js#L18)
+[packages/cli/src/tools.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/tools.js#L18)
 
 ## Functions
 
@@ -39,7 +39,7 @@ Get available tool names
 
 #### Defined in
 
-[sdks/node/packages/cli/src/tools.js:247](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/tools.js#L247)
+[packages/cli/src/tools.js:247](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/tools.js#L247)
 
 ___
 
@@ -61,4 +61,4 @@ Get specific tools based on selected tool names
 
 #### Defined in
 
-[sdks/node/packages/cli/src/tools.js:230](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/tools.js#L230)
+[packages/cli/src/tools.js:230](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/tools.js#L230)

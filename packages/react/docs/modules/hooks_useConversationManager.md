@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[sdks/node/packages/react/src/hooks/useConversationManager.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L20)
+[packages/react/src/hooks/useConversationManager.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L20)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[sdks/node/packages/react/src/hooks/useConversationManager.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L14)
+[packages/react/src/hooks/useConversationManager.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L14)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[sdks/node/packages/react/src/hooks/useConversationManager.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L30)
+[packages/react/src/hooks/useConversationManager.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L30)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[sdks/node/packages/react/src/hooks/useConversationManagerRemote.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L36)
+[packages/react/src/hooks/useConversationManagerRemote.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L36)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[sdks/node/packages/react/src/hooks/useConversationManager.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L44)
+[packages/react/src/hooks/useConversationManager.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L44)
 
 ## Functions
 
@@ -122,4 +122,4 @@ details like the token and conversation ID.
 
 #### Defined in
 
-[sdks/node/packages/react/src/hooks/useConversationManager.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L56)
+[packages/react/src/hooks/useConversationManager.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L56)
