@@ -81,7 +81,13 @@ async function createLlmsTxtFromMarkdown(docsPath) {
   await readDirectory(docsPath)
 
   // @note using docs:// protocol for consistent documentation linking
-  const markdown = filePaths.map((p) => `- [${p}](docs://${p})`).join('\n')
+  let markdown = `# ChatBotKit SDK Documentation
+
+The ChatBotKit is a conversational AI development framework that enables developers to build, deploy, and manage intelligent agents across various platforms.
+
+## Docs`
+
+  markdown += '\n\n' + filePaths.map((p) => `- [${p}](docs://${p})`).join('\n')
 
   return markdown
 }
