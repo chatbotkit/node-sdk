@@ -1,5 +1,6 @@
 {
   "$schema": "https://typedoc.org/schema.json",
+  "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-mdn-links"],
   "name": "ChatBotKit Node SDK",
   "entryPoints": [
     "packages/fetch",
@@ -19,5 +20,18 @@
     "GitHub Repo": "https://github.com/chatbotkit/node-sdk",
     "GitHub Org": "https://github.com/chatbotkit"
   },
-  "out": "./docs"
+  "outputs": [
+    {
+      "name": "html",
+      "path": "./docs"
+    },
+    {
+      "name": "json",
+      "path": "./docs/index.json"
+    },
+    {
+      "name": "markdown",
+      "path": "./docs/markdown"
+    }
+  ]
 }
