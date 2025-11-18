@@ -1,4 +1,5 @@
 /**
+ * @internal
  * @param {string} name
  * @param {Record<string,any>} [params]
  * @param {Record<string,any>} [defaultParams]
