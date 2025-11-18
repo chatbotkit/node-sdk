@@ -53,7 +53,8 @@ async function createDocsJsonFromMarkdown(docsPath) {
 }
 
 async function createLlmsTxtFromMarkdown(docsPath) {
-  const filePaths = []
+  const tree = {}
+  const excludedFolders = ['type-aliases']
 
   async function readDirectory(directory) {
     const files = await fs.readdir(directory)
@@ -63,6 +64,9 @@ async function createLlmsTxtFromMarkdown(docsPath) {
       const stats = await fs.stat(fullPath)
 
       if (stats.isDirectory()) {
+        if (excludedFolders.includes(file)) {
+          continue
+        }
         await readDirectory(fullPath)
       } else {
         const ext = path.extname(fullPath)
@@ -72,22 +76,68 @@ async function createLlmsTxtFromMarkdown(docsPath) {
         }
 
         const relativePath = fullPath.split('/').slice(1).join('/')
+        const parts = relativePath.split('/')
 
-        filePaths.push(relativePath)
+        let current = tree
+        for (let i = 0; i < parts.length; i++) {
+          const part = parts[i]
+          if (i === parts.length - 1) {
+            // @note leaf nodes store the full path for linking
+            current[part] = relativePath
+          } else {
+            if (!current[part]) {
+              current[part] = {}
+            }
+            current = current[part]
+          }
+        }
       }
     }
   }
 
   await readDirectory(docsPath)
 
-  // @note using docs:// protocol for consistent documentation linking
+  function buildTreeString(obj, indent = 0) {
+    const lines = []
+    const prefix = '  '.repeat(indent)
+
+    for (const key of Object.keys(obj).sort()) {
+      if (typeof obj[key] === 'string') {
+        lines.push(`${prefix}${key}`)
+      } else {
+        lines.push(`${prefix}${key}/`)
+        lines.push(buildTreeString(obj[key], indent + 1))
+      }
+    }
+
+    return lines.join('\n')
+  }
+
   let markdown = `# ChatBotKit SDK Documentation
 
 The ChatBotKit is a conversational AI development framework that enables developers to build, deploy, and manage intelligent agents across various platforms.
 
+## Base URL
+
+https://chatbotkit.github.io/node-sdk/markdown/
+
+**NOTE:** Use the base URL above to construct links to specific documentation files.
+
+Consider the following directory structure:
+
+@chatbotkit/
+  agent/
+    agent/
+      functions/
+        execute.md
+
+The corresponding URL for execute.md would be:
+
+https://chatbotkit.github.io/node-sdk/markdown/@chatbotkit/agent/agent/functions/execute.md
+
 ## Docs`
 
-  markdown += '\n\n' + filePaths.map((p) => `- [${p}](docs://${p})`).join('\n')
+  markdown += '\n\n' + buildTreeString(tree)
 
   return markdown
 }
