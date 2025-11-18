@@ -93,6 +93,8 @@
     "./src/platform/content/index.js",
     "./src/platform/content/manual/index.js",
     "./src/platform/content/manual/v1.js",
+    "./src/platform/content/tutorial/index.js",
+    "./src/platform/content/tutorial/v1.js",
     "./src/platform/example/index.js",
     "./src/platform/example/v1.js",
     "./src/platform/index.js",

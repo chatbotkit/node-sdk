@@ -1,6 +1,7 @@
 import { ChatBotKitClient } from '../../client.js'
 import { PlatformContentDocClient } from './doc/index.js'
 import { PlatformContentManualClient } from './manual/index.js'
+import { PlatformContentTutorialClient } from './tutorial/index.js'
 
 /**
  * Platform content client.
@@ -21,6 +22,11 @@ export class PlatformContentClient extends ChatBotKitClient {
      * @type {PlatformContentManualClient} manual client
      */
     this.manual = new PlatformContentManualClient(options)
+
+    /**
+     * @type {PlatformContentTutorialClient} tutorial client
+     */
+    this.tutorial = new PlatformContentTutorialClient(options)
   }
 }
 
