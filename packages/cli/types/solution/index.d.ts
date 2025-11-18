@@ -85,15 +85,15 @@ export const BotResourceConfigSchema: z.ZodObject<{
         backstory?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
-        privacy?: boolean | undefined;
         moderation?: boolean | undefined;
+        privacy?: boolean | undefined;
     }, {
         model?: string | undefined;
         backstory?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
-        privacy?: boolean | undefined;
         moderation?: boolean | undefined;
+        privacy?: boolean | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
     type: "bot";
@@ -103,8 +103,8 @@ export const BotResourceConfigSchema: z.ZodObject<{
         backstory?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
-        privacy?: boolean | undefined;
         moderation?: boolean | undefined;
+        privacy?: boolean | undefined;
     };
     slug?: string | undefined;
     id?: string | undefined;
@@ -117,8 +117,8 @@ export const BotResourceConfigSchema: z.ZodObject<{
         backstory?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
-        privacy?: boolean | undefined;
         moderation?: boolean | undefined;
+        privacy?: boolean | undefined;
     };
     slug?: string | undefined;
     id?: string | undefined;
@@ -265,15 +265,15 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
         backstory?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
-        privacy?: boolean | undefined;
         moderation?: boolean | undefined;
+        privacy?: boolean | undefined;
     }, {
         model?: string | undefined;
         backstory?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
-        privacy?: boolean | undefined;
         moderation?: boolean | undefined;
+        privacy?: boolean | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
     type: "bot";
@@ -283,8 +283,8 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
         backstory?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
-        privacy?: boolean | undefined;
         moderation?: boolean | undefined;
+        privacy?: boolean | undefined;
     };
     slug?: string | undefined;
     id?: string | undefined;
@@ -297,8 +297,8 @@ export const ResourceConfigSchema: z.ZodUnion<[z.ZodObject<{
         backstory?: string | undefined;
         datasetId?: string | undefined;
         skillsetId?: string | undefined;
-        privacy?: boolean | undefined;
         moderation?: boolean | undefined;
+        privacy?: boolean | undefined;
     };
     slug?: string | undefined;
     id?: string | undefined;
@@ -431,15 +431,15 @@ export const SolutionConfigSchema: z.ZodObject<{
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            privacy?: boolean | undefined;
         }, {
             model?: string | undefined;
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            privacy?: boolean | undefined;
         }>;
     }, "strip", z.ZodTypeAny, {
         type: "bot";
@@ -449,8 +449,8 @@ export const SolutionConfigSchema: z.ZodObject<{
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            privacy?: boolean | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -463,8 +463,8 @@ export const SolutionConfigSchema: z.ZodObject<{
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            privacy?: boolean | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -583,8 +583,8 @@ export const SolutionConfigSchema: z.ZodObject<{
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            privacy?: boolean | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -631,8 +631,8 @@ export const SolutionConfigSchema: z.ZodObject<{
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            privacy?: boolean | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -690,8 +690,8 @@ export class Resource {
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
-            privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            privacy?: boolean | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -842,8 +842,8 @@ export class Solution {
                 backstory?: string | undefined;
                 datasetId?: string | undefined;
                 skillsetId?: string | undefined;
-                privacy?: boolean | undefined;
                 moderation?: boolean | undefined;
+                privacy?: boolean | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
