@@ -14,18 +14,12 @@
           "total-ratings-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -94,18 +88,12 @@
           "thumbs-up-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -168,18 +156,12 @@
           "thumbs-down-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -289,18 +271,12 @@
           "active-contacts-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -363,18 +339,12 @@
           "total-conversations-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -437,18 +407,12 @@
           "total-messages-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -511,18 +475,12 @@
           "user-messages-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -585,18 +543,12 @@
           "bot-messages-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -659,18 +611,12 @@
           "activity-messages-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -733,18 +679,12 @@
           "average-user-messages-per-conversation-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -785,18 +725,12 @@
           "average-bot-messages-per-conversation-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },
@@ -837,18 +771,12 @@
           "average-actions-per-conversation-report-input": {
             "type": "object",
             "properties": {
-              "userId": {
-                "type": "string"
-              },
               "periodDays": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
                 "default": 30
               }
             },
-            "required": [
-              "userId"
-            ],
             "additionalProperties": false
           }
         },

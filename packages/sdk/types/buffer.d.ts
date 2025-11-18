@@ -1,4 +1,5 @@
 /**
+ * @internal
  * @param {string|ArrayBuffer} buffer
  * @returns {ArrayBuffer}
  */

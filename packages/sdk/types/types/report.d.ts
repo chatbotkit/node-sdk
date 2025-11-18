@@ -96,17 +96,14 @@ export interface ReportRegistry {
 
 // Input and Output Types for each report
 export type TotalRatingsInput = {
-  userId: string
   periodDays?: number
 }
 
 export type ThumbsUpInput = {
-  userId: string
   periodDays?: number
 }
 
 export type ThumbsDownInput = {
-  userId: string
   periodDays?: number
 }
 
@@ -115,47 +112,38 @@ export type TotalContactsInput = {
 }
 
 export type ActiveContactsInput = {
-  userId: string
   periodDays?: number
 }
 
 export type TotalConversationsInput = {
-  userId: string
   periodDays?: number
 }
 
 export type TotalMessagesInput = {
-  userId: string
   periodDays?: number
 }
 
 export type UserMessagesInput = {
-  userId: string
   periodDays?: number
 }
 
 export type BotMessagesInput = {
-  userId: string
   periodDays?: number
 }
 
 export type ActivityMessagesInput = {
-  userId: string
   periodDays?: number
 }
 
 export type AverageUserMessagesPerConversationInput = {
-  userId: string
   periodDays?: number
 }
 
 export type AverageBotMessagesPerConversationInput = {
-  userId: string
   periodDays?: number
 }
 
 export type AverageActionsPerConversationInput = {
-  userId: string
   periodDays?: number
 }
 

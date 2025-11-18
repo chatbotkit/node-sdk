@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.21.10
+
+### Patch Changes
+
+- 96db0e6: Fixed types.
+
 ## 1.21.9
 
 ### Patch Changes
