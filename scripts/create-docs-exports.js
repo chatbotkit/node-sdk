@@ -18,7 +18,7 @@ async function exec(command) {
   })
 }
 
-async function createJsonFromMarkdown(docsPath) {
+async function createDocsJsonFromMarkdown(docsPath) {
   const filesJson = []
 
   async function readDirectory(directory) {
@@ -52,6 +52,96 @@ async function createJsonFromMarkdown(docsPath) {
   return filesJson
 }
 
+async function createLlmsTxtFromMarkdown(docsPath) {
+  const tree = {}
+  const excludedFolders = ['type-aliases']
+
+  async function readDirectory(directory) {
+    const files = await fs.readdir(directory)
+    for (const file of files) {
+      const fullPath = path.join(directory, file)
+
+      const stats = await fs.stat(fullPath)
+
+      if (stats.isDirectory()) {
+        if (excludedFolders.includes(file)) {
+          continue
+        }
+        await readDirectory(fullPath)
+      } else {
+        const ext = path.extname(fullPath)
+
+        if (ext !== '.md') {
+          continue
+        }
+
+        const relativePath = fullPath.split('/').slice(1).join('/')
+        const parts = relativePath.split('/')
+
+        let current = tree
+        for (let i = 0; i < parts.length; i++) {
+          const part = parts[i]
+          if (i === parts.length - 1) {
+            // @note leaf nodes store the full path for linking
+            current[part] = relativePath
+          } else {
+            if (!current[part]) {
+              current[part] = {}
+            }
+            current = current[part]
+          }
+        }
+      }
+    }
+  }
+
+  await readDirectory(docsPath)
+
+  function buildTreeString(obj, indent = 0) {
+    const lines = []
+    const prefix = '  '.repeat(indent)
+
+    for (const key of Object.keys(obj).sort()) {
+      if (typeof obj[key] === 'string') {
+        lines.push(`${prefix}${key}`)
+      } else {
+        lines.push(`${prefix}${key}/`)
+        lines.push(buildTreeString(obj[key], indent + 1))
+      }
+    }
+
+    return lines.join('\n')
+  }
+
+  let markdown = `# ChatBotKit SDK Documentation
+
+The ChatBotKit is a conversational AI development framework that enables developers to build, deploy, and manage intelligent agents across various platforms.
+
+## Base URL
+
+https://chatbotkit.github.io/node-sdk/markdown/
+
+**NOTE:** Use the base URL above to construct links to specific documentation files.
+
+Consider the following directory structure:
+
+@chatbotkit/
+  agent/
+    agent/
+      functions/
+        execute.md
+
+The corresponding URL for execute.md would be:
+
+https://chatbotkit.github.io/node-sdk/markdown/@chatbotkit/agent/agent/functions/execute.md
+
+## Docs`
+
+  markdown += '\n\n' + buildTreeString(tree)
+
+  return markdown
+}
+
 async function main() {
   console.log('* reading config')
 
@@ -69,9 +159,18 @@ async function main() {
 
   console.log('* generating json')
 
-  const json = await createJsonFromMarkdown(tmpDir)
+  const docsJson = await createDocsJsonFromMarkdown(tmpDir)
 
-  await fs.writeFile(path.join(out, 'docs.json'), JSON.stringify(json, null, 2))
+  await fs.writeFile(
+    path.join(out, 'docs.json'),
+    JSON.stringify(docsJson, null, 2)
+  )
+
+  console.log('* generating llms.txt')
+
+  const llmsTxt = await createLlmsTxtFromMarkdown(tmpDir)
+
+  await fs.writeFile(path.join(out, 'llms.txt'), llmsTxt)
 
   console.log('* cleaning up')
 

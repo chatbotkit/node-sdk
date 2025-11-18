@@ -363,6 +363,7 @@ All SDK features are considered unstable unless explicitly marked as stable. Sta
 ## Documentation
 
 - **Type Documentation**: Detailed information on available types [here](https://chatbotkit.github.io/node-sdk/).
+- **LLMS.txt**: Documentation suitable for coding assistants can be found [here](https://chatbotkit.github.io/node-sdk/llms.txt).
 - **Platform Documentation**: Comprehensive guide to ChatBotKit [here](https://chatbotkit.com/docs).
 - **Platform Tutorials**: Step-by-step tutorials for ChatBotKit [here](https://chatbotkit.com/tutorials).
 
