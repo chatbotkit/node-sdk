@@ -426,6 +426,7 @@ export class ChatBotKitClient {
   }
 
   /**
+   * @internal
    * @template T
    * @template U
    * @param {string} path
