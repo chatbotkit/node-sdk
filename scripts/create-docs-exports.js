@@ -18,7 +18,7 @@ async function exec(command) {
   })
 }
 
-async function createJsonFromMarkdown(docsPath) {
+async function createDocsJsonFromMarkdown(docsPath) {
   const filesJson = []
 
   async function readDirectory(directory) {
@@ -52,6 +52,40 @@ async function createJsonFromMarkdown(docsPath) {
   return filesJson
 }
 
+async function createLlmsTxtFromMarkdown(docsPath) {
+  const filePaths = []
+
+  async function readDirectory(directory) {
+    const files = await fs.readdir(directory)
+    for (const file of files) {
+      const fullPath = path.join(directory, file)
+
+      const stats = await fs.stat(fullPath)
+
+      if (stats.isDirectory()) {
+        await readDirectory(fullPath)
+      } else {
+        const ext = path.extname(fullPath)
+
+        if (ext !== '.md') {
+          continue
+        }
+
+        const relativePath = fullPath.split('/').slice(1).join('/')
+
+        filePaths.push(relativePath)
+      }
+    }
+  }
+
+  await readDirectory(docsPath)
+
+  // @note using docs:// protocol for consistent documentation linking
+  const markdown = filePaths.map((p) => `- [${p}](docs://${p})`).join('\n')
+
+  return markdown
+}
+
 async function main() {
   console.log('* reading config')
 
@@ -69,9 +103,18 @@ async function main() {
 
   console.log('* generating json')
 
-  const json = await createJsonFromMarkdown(tmpDir)
+  const docsJson = await createDocsJsonFromMarkdown(tmpDir)
 
-  await fs.writeFile(path.join(out, 'docs.json'), JSON.stringify(json, null, 2))
+  await fs.writeFile(
+    path.join(out, 'docs.json'),
+    JSON.stringify(docsJson, null, 2)
+  )
+
+  console.log('* generating llms.txt')
+
+  const llmsTxt = await createLlmsTxtFromMarkdown(tmpDir)
+
+  await fs.writeFile(path.join(out, 'llms.txt'), llmsTxt)
 
   console.log('* cleaning up')
 
