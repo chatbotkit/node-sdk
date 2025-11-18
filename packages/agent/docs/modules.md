@@ -1,9 +1,9 @@
-[@chatbotkit/agent](README.md) / Modules
+[**@chatbotkit/agent**](README.md)
+
+***
 
 # @chatbotkit/agent
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [agent](modules/agent.md)
+- [agent](agent/README.md)

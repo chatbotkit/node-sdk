@@ -1,43 +1,45 @@
-[@chatbotkit/fetch](../README.md) / [Exports](../modules.md) / FetchError
+[**@chatbotkit/fetch**](../README.md)
+
+***
+
+[@chatbotkit/fetch](../globals.md) / FetchError
 
 # Class: FetchError
 
+Defined in: [packages/fetch/src/index.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L116)
+
 A FetchError is thrown when a fetch request fails.
 
-## Hierarchy
+## Extends
 
-- [`Error`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error )
-
-  ↳ **`FetchError`**
-
-## Table of contents
-
-### Constructors
-
-- [constructor](FetchError.md#constructor)
+- [`Error`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new FetchError**(`message`, `code`, `meta?`): [`FetchError`](FetchError.md)
+> **new FetchError**(`message`, `code`, `meta?`): `FetchError`
+
+Defined in: [packages/fetch/src/index.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L122)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `string` |
-| `code` | `string` |
-| `meta?` | [`Record`]( https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type )\<`string`, `any`\> |
+##### message
+
+`string`
+
+##### code
+
+`string`
+
+##### meta?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
 
 #### Returns
 
-[`FetchError`](FetchError.md)
+`FetchError`
 
 #### Overrides
 
-Error.constructor
-
-#### Defined in
-
-[packages/fetch/src/index.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L122)
+`Error.constructor`

@@ -1,4 +1,6 @@
-@chatbotkit/react / [Modules](modules.md)
+**@chatbotkit/react**
+
+***
 
 [![ChatBotKit](https://img.shields.io/badge/credits-ChatBotKit-blue.svg)](https://chatbotkit.com)
 [![CBK.AI](https://img.shields.io/badge/credits-CBK.AI-blue.svg)](https://cbk.ai)

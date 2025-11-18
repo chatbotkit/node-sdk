@@ -1,9 +1,9 @@
-[@chatbotkit/next](README.md) / Modules
+[**@chatbotkit/next**](README.md)
+
+***
 
 # @chatbotkit/next
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [edge](modules/edge.md)
+- [edge](edge/README.md)

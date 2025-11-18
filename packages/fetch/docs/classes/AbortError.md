@@ -1,41 +1,37 @@
-[@chatbotkit/fetch](../README.md) / [Exports](../modules.md) / AbortError
+[**@chatbotkit/fetch**](../README.md)
+
+***
+
+[@chatbotkit/fetch](../globals.md) / AbortError
 
 # Class: AbortError
 
+Defined in: [packages/fetch/src/index.js:177](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L177)
+
 A AbortError is thrown when a fetch request is aborted.
 
-## Hierarchy
+## Extends
 
-- [`Error`]( https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error )
-
-  ↳ **`AbortError`**
-
-## Table of contents
-
-### Constructors
-
-- [constructor](AbortError.md#constructor)
+- [`Error`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new AbortError**(`message?`): [`AbortError`](AbortError.md)
+> **new AbortError**(`message?`): `AbortError`
+
+Defined in: [packages/fetch/src/index.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L181)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message?` | `string` |
+##### message?
+
+`string`
 
 #### Returns
 
-[`AbortError`](AbortError.md)
+`AbortError`
 
 #### Overrides
 
-Error.constructor
-
-#### Defined in
-
-[packages/fetch/src/index.js:181](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L181)
+`Error.constructor`

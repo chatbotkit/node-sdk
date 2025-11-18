@@ -1,6 +1,8 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "extends": ["../../typedoc.base.json"],
+  "extends": [
+    "../../typedoc.base.json"
+  ],
   "entryPoints": [
     "./src/actions/complete.js",
     "./src/components/AutoScroller.js",
@@ -23,6 +25,9 @@
     "./src/utils/stream.js",
     "./src/utils/string.js"
   ],
-  "externalPattern": ["**/node_modules/**", "./types/**"],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
   "readme": "README.md"
 }

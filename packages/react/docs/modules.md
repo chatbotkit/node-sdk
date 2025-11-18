@@ -1,25 +1,25 @@
-[@chatbotkit/react](README.md) / Modules
+[**@chatbotkit/react**](README.md)
+
+***
 
 # @chatbotkit/react
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [actions/complete](modules/actions_complete.md)
-- [components/AutoScroller](modules/components_AutoScroller.md)
-- [components/AutoTextarea](modules/components_AutoTextarea.md)
-- [components/ChatInput](modules/components_ChatInput.md)
-- [components/ChatMessage](modules/components_ChatMessage.md)
-- [components/ChatMessages](modules/components_ChatMessages.md)
-- [components/ConversationManager](modules/components_ConversationManager.md)
-- [hooks/useConversationManager](modules/hooks_useConversationManager.md)
-- [hooks/useConversationManagerRemote](modules/hooks_useConversationManagerRemote.md)
-- [hooks/useConversationManagerState](modules/hooks_useConversationManagerState.md)
-- [hooks/useConversationManagerStateReducer](modules/hooks_useConversationManagerStateReducer.md)
-- [hooks/useDOMQuerySelector](modules/hooks_useDOMQuerySelector.md)
-- [hooks/useDeps](modules/hooks_useDeps.md)
-- [hooks/useWidgetInstance](modules/hooks_useWidgetInstance.md)
-- [hooks/useWidgetInstanceFunctions](modules/hooks_useWidgetInstanceFunctions.md)
-- [hooks/useWidgetInstanceNotifications](modules/hooks_useWidgetInstanceNotifications.md)
-- [utils/stream](modules/utils_stream.md)
+- [actions/complete](actions/complete/README.md)
+- [components/AutoScroller](components/AutoScroller/README.md)
+- [components/AutoTextarea](components/AutoTextarea/README.md)
+- [components/ChatInput](components/ChatInput/README.md)
+- [components/ChatMessage](components/ChatMessage/README.md)
+- [components/ChatMessages](components/ChatMessages/README.md)
+- [components/ConversationManager](components/ConversationManager/README.md)
+- [hooks/useConversationManager](hooks/useConversationManager/README.md)
+- [hooks/useConversationManagerRemote](hooks/useConversationManagerRemote/README.md)
+- [hooks/useConversationManagerState](hooks/useConversationManagerState/README.md)
+- [hooks/useConversationManagerStateReducer](hooks/useConversationManagerStateReducer/README.md)
+- [hooks/useDeps](hooks/useDeps/README.md)
+- [hooks/useDOMQuerySelector](hooks/useDOMQuerySelector/README.md)
+- [hooks/useWidgetInstance](hooks/useWidgetInstance/README.md)
+- [hooks/useWidgetInstanceFunctions](hooks/useWidgetInstanceFunctions/README.md)
+- [hooks/useWidgetInstanceNotifications](hooks/useWidgetInstanceNotifications/README.md)
+- [utils/stream](utils/stream/README.md)

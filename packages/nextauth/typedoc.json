@@ -1,7 +1,16 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "extends": ["../../typedoc.base.json"],
-  "entryPoints": ["./src/adapter.js", "./src/index.js", "./src/provider.js"],
-  "externalPattern": ["**/node_modules/**", "./types/**"],
+  "extends": [
+    "../../typedoc.base.json"
+  ],
+  "entryPoints": [
+    "./src/adapter.js",
+    "./src/index.js",
+    "./src/provider.js"
+  ],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
   "readme": "README.md"
 }
