@@ -32,4 +32,4 @@ submit while still allowing them to enter new lines (shift + enter).
 
 #### Defined in
 
-[packages/react/src/components/ChatInput.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ChatInput.js#L17)
+[sdks/node/packages/react/src/components/ChatInput.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ChatInput.js#L17)

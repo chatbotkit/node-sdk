@@ -23,7 +23,7 @@ Get the ChatBotKit RunAs-UserID.
 
 #### Defined in
 
-[packages/cli/src/env.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L20)
+[sdks/node/packages/cli/src/env.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L20)
 
 ___
 
@@ -41,4 +41,4 @@ Get the ChatbotKit Secret.
 
 #### Defined in
 
-[packages/cli/src/env.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L7)
+[sdks/node/packages/cli/src/env.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/env.js#L7)

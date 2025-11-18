@@ -34,4 +34,4 @@ remove this component once field-sizing is supported in all browsers
 
 #### Defined in
 
-[packages/react/src/components/AutoTextarea.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoTextarea.js#L20)
+[sdks/node/packages/react/src/components/AutoTextarea.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoTextarea.js#L20)

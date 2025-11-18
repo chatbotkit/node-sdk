@@ -39,4 +39,4 @@ Re-exports [WidgetNotification](hooks_useWidgetInstance.md#widgetnotification)
 
 #### Defined in
 
-[packages/react/src/hooks/useWidgetInstanceNotifications.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceNotifications.js#L17)
+[sdks/node/packages/react/src/hooks/useWidgetInstanceNotifications.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceNotifications.js#L17)

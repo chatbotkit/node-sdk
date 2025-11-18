@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[packages/agent/src/agent.js:9](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L9)
+[sdks/node/packages/agent/src/agent.js:9](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L9)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L66)
+[sdks/node/packages/agent/src/agent.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L66)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L31)
+[sdks/node/packages/agent/src/agent.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L31)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L59)
+[sdks/node/packages/agent/src/agent.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L59)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L45)
+[sdks/node/packages/agent/src/agent.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L45)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L52)
+[sdks/node/packages/agent/src/agent.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L52)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L38)
+[sdks/node/packages/agent/src/agent.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L38)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L20)
+[sdks/node/packages/agent/src/agent.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L20)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L24)
+[sdks/node/packages/agent/src/agent.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L24)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[packages/agent/src/agent.js:5](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L5)
+[sdks/node/packages/agent/src/agent.js:5](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L5)
 
 ## Functions
 
@@ -205,7 +205,7 @@ Agent complete generator function.
 
 #### Defined in
 
-[packages/agent/src/agent.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L78)
+[sdks/node/packages/agent/src/agent.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L78)
 
 ___
 
@@ -228,4 +228,4 @@ progress tracking, and controlled exit functionality.
 
 #### Defined in
 
-[packages/agent/src/agent.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L281)
+[sdks/node/packages/agent/src/agent.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L281)
