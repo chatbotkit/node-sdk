@@ -1,0 +1,13 @@
+[**@chatbotkit/sdk**](../../../README.md)
+
+***
+
+[@chatbotkit/sdk](../../../modules.md) / [task/v1](../README.md) / TaskUpdateResponseBody
+
+# Type Alias: TaskUpdateResponseBody
+
+> **TaskUpdateResponseBody**\<\> = `operations`\[`"updateTask"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
+
+Defined in: [task/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L84)
+
+## Type Parameters

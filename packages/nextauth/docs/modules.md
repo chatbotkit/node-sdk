@@ -1,10 +1,10 @@
-[@chatbotkit/nextauth](README.md) / Modules
+[**@chatbotkit/nextauth**](README.md)
+
+***
 
 # @chatbotkit/nextauth
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [adapter](modules/adapter.md)
-- [provider](modules/provider.md)
+- [adapter](adapter/README.md)
+- [provider](provider/README.md)

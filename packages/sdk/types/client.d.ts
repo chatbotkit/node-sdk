@@ -135,6 +135,7 @@ export class ChatBotKitClient {
      */
     extend(extensionOptions: Partial<ChatBotKitClientOptions>): this;
     /**
+     * @internal
      * @template T
      * @template U
      * @param {string} path

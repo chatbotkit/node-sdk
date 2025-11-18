@@ -1,0 +1,23 @@
+[**@chatbotkit/sdk**](../../../README.md)
+
+***
+
+[@chatbotkit/sdk](../../../modules.md) / [file/v1](../README.md) / createFile
+
+# Function: createFile()
+
+> **createFile**(`client`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+
+Defined in: [file/v1.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L69)
+
+## Parameters
+
+### client
+
+[`ChatBotKitClient`](../../../client/classes/ChatBotKitClient.md)
+
+### request
+
+## Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>

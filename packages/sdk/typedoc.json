@@ -1,6 +1,8 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "extends": ["../../typedoc.base.json"],
+  "extends": [
+    "../../typedoc.base.json"
+  ],
   "entryPoints": [
     "./src/blueprint/index.js",
     "./src/blueprint/v1.js",
@@ -124,6 +126,9 @@
     "./src/usage/series/v1.js",
     "./src/usage/v1.js"
   ],
-  "externalPattern": ["**/node_modules/**", "./types/**"],
+  "externalPattern": [
+    "**/node_modules/**",
+    "./types/**"
+  ],
   "readme": "README.md"
 }

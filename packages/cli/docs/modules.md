@@ -1,15 +1,15 @@
-[@chatbotkit/cli](README.md) / Modules
+[**@chatbotkit/cli**](README.md)
+
+***
 
 # @chatbotkit/cli
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [color](modules/color.md)
-- [command/api](modules/command_api.md)
-- [env](modules/env.md)
-- [index](modules/index.md)
-- [input](modules/input.md)
-- [solution](modules/solution.md)
-- [tools](modules/tools.md)
+- [color](color/README.md)
+- [command/api](command/api/README.md)
+- [env](env/README.md)
+- [index](index/README.md)
+- [input](input/README.md)
+- [solution](solution/README.md)
+- [tools](tools/README.md)
