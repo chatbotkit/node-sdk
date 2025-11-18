@@ -55,7 +55,9 @@ async function createJsonFromMarkdown(docsPath) {
 async function main() {
   console.log('* reading config')
 
-  const { out } = JSON.parse(await fs.readFile('typedoc.json', 'utf8'))
+  const { outputs } = JSON.parse(await fs.readFile('typedoc.json', 'utf8'))
+
+  const out = outputs.find((o) => o.name === 'html').path
 
   const tmpDir = Math.random().toString(32).slice(2)
 
