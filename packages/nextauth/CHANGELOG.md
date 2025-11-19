@@ -1,5 +1,16 @@
 # @chatbotkit/nextauth
 
+## 1.22.0
+
+### Minor Changes
+
+- b17c1eb: Updated API and nextauth libraries.
+
+### Patch Changes
+
+- Updated dependencies [b17c1eb]
+  - @chatbotkit/sdk@1.22.0
+
 ## 1.21.10
 
 ### Patch Changes

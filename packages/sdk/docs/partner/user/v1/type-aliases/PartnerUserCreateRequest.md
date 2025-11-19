@@ -8,6 +8,6 @@
 
 > **PartnerUserCreateRequest**\<\> = [`PartnerUserCreateRequestBody`](PartnerUserCreateRequestBody.md)
 
-Defined in: [partner/user/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L55)
+Defined in: [partner/user/v1.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L56)
 
 ## Type Parameters

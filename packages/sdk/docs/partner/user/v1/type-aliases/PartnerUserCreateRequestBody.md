@@ -8,6 +8,6 @@
 
 > **PartnerUserCreateRequestBody**\<\> = `operations`\[`"createPartnerUser"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [partner/user/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L53)
+Defined in: [partner/user/v1.js:54](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L54)
 
 ## Type Parameters

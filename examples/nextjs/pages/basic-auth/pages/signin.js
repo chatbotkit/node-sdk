@@ -13,6 +13,9 @@ export default function Signin() {
   const isAuthenticated = session.status === 'authenticated'
 
   const [email, setEmail] = useState('')
+  const [token, setToken] = useState('')
+
+  const [submitted, setSubmitted] = useState(false)
 
   return isLoading ? null : (
     <div>
@@ -27,18 +30,57 @@ export default function Signin() {
         </>
       ) : (
         <>
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />{' '}
-          <button
-            onClick={() =>
-              signIn('email', { callbackUrl: router.query.callbackUrl, email })
-            }
-          >
-            Sign In
-          </button>
+          <div>
+            <input
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="Email"
+            />{' '}
+            <button
+              onClick={() => {
+                signIn('email', {
+                  callbackUrl:
+                    router.query.callbackUrl || nextAuthConfig.pages.dashboard,
+                  email: email,
+                  redirect: false,
+                })
+
+                setSubmitted(true)
+              }}
+            >
+              Sign In
+            </button>
+          </div>
+          {submitted && (
+            <div>
+              <input
+                type="password"
+                value={token}
+                onChange={(event) => setToken(event.target.value)}
+                placeholder="Token"
+              />{' '}
+              <button
+                onClick={() => {
+                  const callbackUrl =
+                    router.query.callbackUrl || nextAuthConfig.pages.dashboard
+
+                  const url = new URL(
+                    '/api/auth/callback/email',
+                    window.location.origin
+                  )
+
+                  url.searchParams.append('email', email)
+                  url.searchParams.append('token', token)
+                  url.searchParams.append('callbackUrl', callbackUrl)
+
+                  router.push(url.href)
+                }}
+              >
+                Submit Token
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>

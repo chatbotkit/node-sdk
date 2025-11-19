@@ -53,6 +53,7 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/pac
 - [`PlatformContentDocClient`](../../platform/content/doc/classes/PlatformContentDocClient.md)
 - [`PlatformContentClient`](../../platform/content/classes/PlatformContentClient.md)
 - [`PlatformContentManualClient`](../../platform/content/manual/classes/PlatformContentManualClient.md)
+- [`PlatformContentTutorialClient`](../../platform/content/tutorial/classes/PlatformContentTutorialClient.md)
 - [`PlatformExampleClient`](../../platform/example/classes/PlatformExampleClient.md)
 - [`PlatformClient`](../../platform/classes/PlatformClient.md)
 - [`PlatformModelClient`](../../platform/model/classes/PlatformModelClient.md)

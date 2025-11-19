@@ -8,6 +8,6 @@
 
 > **PartnerUserUpdateRequestBody**\<\> = `operations`\[`"updatePartnerUser"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [partner/user/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L80)
+Defined in: [partner/user/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L81)
 
 ## Type Parameters
