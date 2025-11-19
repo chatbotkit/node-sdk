@@ -1,4 +1,4 @@
-Welcome to this basic chat example project that showcases the integration of the ChatBotKit SDK with the Next.js framework. This project is designed to provide you with a clear and practical demonstration of how to leverage the powerful features of the ChatBotKit SDK alongside the ChatBotKit React library in a Next.js environment to create a basic yet functional chat application.
+Welcome to this stateful chat example project that showcases the integration of the ChatBotKit SDK with the Next.js framework. This project is designed to provide you with a clear and practical demonstration of how to leverage the powerful features of the ChatBotKit SDK alongside the ChatBotKit React library in a Next.js environment to create a basic yet functional chat application.
 
 The most important files in this project are:
 
