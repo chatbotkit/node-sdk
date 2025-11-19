@@ -18,7 +18,7 @@ This is the most straightforward way to build quick AI applications with ChatBot
 From the root of the ChatBotKit Node SDK monorepo:
 
 ```bash
-pnpm -F @examples/nextjs-pages-router-basic-auth dev
+pnpm -F @examples/nextjs-pages-router-partner-auth dev
 ```
 
 As a standalone application:
