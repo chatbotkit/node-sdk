@@ -1,5 +1,11 @@
 # @chatbotkit/fetch
 
+## 1.23.0
+
+### Minor Changes
+
+- 86ecdee: Fixed misaligned api configuration.
+
 ## 1.21.7
 
 ### Patch Changes
