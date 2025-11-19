@@ -8,7 +8,7 @@
 
 Defined in: [report/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L35)
 
-Report client for generating and fetching various analytics reports.
+Report client for generating analytics reports.
 
 This client provides access to ChatBotKit's reporting system, which offers
 various types of reports for analyzing conversations, usage, performance
@@ -25,8 +25,8 @@ const client = new ReportClient({ secret: 'your-secret' })
 // First, discover available reports
 const reports = await client.platform.report.list()
 
-// Then fetch a specific report using its ID
-const report = await client.fetch('clr3m5n8k000508jq2j9k0l6f', {
+// Then generate a specific report using its ID
+const report = await client.generate('clr3m5n8k000508jq2j9k0l6f', {
   periodDays: 30
 })
 
@@ -35,7 +35,7 @@ console.log(`Total conversations: ${report.value}`)
 
 ```ts
 // Using typed reports for full type safety with total ratings
-const report = await client.fetchTyped('clr3m5n8k000008jq7h9e5b1a', {
+const report = await client.generateTyped('clr3m5n8k000008jq7h9e5b1a', {
   periodDays: 7
 })
 
@@ -104,9 +104,9 @@ A new instance of the same client class with extended options
 
 ***
 
-### fetch()
+### generate()
 
-> **fetch**(`reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>\>
+> **generate**(`reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>\>
 
 Defined in: [report/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L50)
 
@@ -126,9 +126,9 @@ Generates a report.
 
 ***
 
-### fetchTyped()
+### generateTyped()
 
-> **fetchTyped**\<`T`\>(`reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`ReportOutputTypes`\[`T`\]\>
+> **generateTyped**\<`T`\>(`reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`ReportOutputTypes`\[`T`\]\>
 
 Defined in: [report/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L62)
 

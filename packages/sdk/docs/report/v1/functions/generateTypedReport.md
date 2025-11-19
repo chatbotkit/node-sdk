@@ -2,15 +2,15 @@
 
 ***
 
-[@chatbotkit/sdk](../../../modules.md) / [report/v1](../README.md) / fetchTypedReport
+[@chatbotkit/sdk](../../../modules.md) / [report/v1](../README.md) / generateTypedReport
 
-# Function: fetchTypedReport()
+# Function: generateTypedReport()
 
-> **fetchTypedReport**\<`T`\>(`client`, `reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`ReportOutputTypes`\[`T`\]\>
+> **generateTypedReport**\<`T`\>(`client`, `reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`ReportOutputTypes`\[`T`\]\>
 
 Defined in: [report/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/v1.js#L46)
 
-Fetch a typed report with input and output type safety
+Generate a typed report with input and output type safety
 
 ## Type Parameters
 

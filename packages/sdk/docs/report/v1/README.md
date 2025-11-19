@@ -9,11 +9,11 @@
 ## Type Aliases
 
 - [ChatBotKitClient](type-aliases/ChatBotKitClient.md)
-- [ReportFetchRequest](type-aliases/ReportFetchRequest.md)
-- [ReportFetchRequestBody](type-aliases/ReportFetchRequestBody.md)
-- [ReportFetchResponse](type-aliases/ReportFetchResponse.md)
+- [ReportGenerateRequest](type-aliases/ReportGenerateRequest.md)
+- [ReportGenerateRequestBody](type-aliases/ReportGenerateRequestBody.md)
+- [ReportGenerateResponse](type-aliases/ReportGenerateResponse.md)
 
 ## Functions
 
-- [fetchReport](functions/fetchReport.md)
-- [fetchTypedReport](functions/fetchTypedReport.md)
+- [generateReport](functions/generateReport.md)
+- [generateTypedReport](functions/generateTypedReport.md)
