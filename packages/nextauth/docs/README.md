@@ -133,7 +133,7 @@ To begin using the ChatBotKit NextAuth SDK, follow these steps:
 
 ## Complete Example
 
-A complete working example demonstrating passwordless authentication with the ChatBotKit Partner API can be found in the [basic-auth example](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/pages/basic-auth).
+A complete working example demonstrating passwordless authentication with the ChatBotKit Partner API can be found in the [partner-auth example](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/pages/partner-auth).
 
 ## Documentation
 

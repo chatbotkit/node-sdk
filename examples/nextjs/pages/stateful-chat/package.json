@@ -1,5 +1,5 @@
 {
-  "name": "@examples/nextjs-pages-router-basic-chat",
+  "name": "@examples/nextjs-pages-router-stateful-chat",
   "version": "0.0.0",
   "private": true,
   "scripts": {

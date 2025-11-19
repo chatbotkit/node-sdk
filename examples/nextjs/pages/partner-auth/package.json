@@ -1,5 +1,5 @@
 {
-  "name": "@examples/nextjs-pages-router-basic-auth",
+  "name": "@examples/nextjs-pages-router-partner-auth",
   "version": "0.0.0",
   "private": true,
   "type": "module",
