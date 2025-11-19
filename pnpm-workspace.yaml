@@ -6,3 +6,4 @@ packages:
   - 'examples/nextjs/app/*'
   - 'examples/nextjs/hybrid/*'
   - 'examples/cloudflare/*'
+  - 'examples/vite/react/*'

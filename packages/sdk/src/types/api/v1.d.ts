@@ -38,7 +38,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/report/{reportId}/fetch": {
+    "/report/{reportId}/generate": {
         parameters: {
             query?: never;
             header?: never;
@@ -53,7 +53,7 @@ export interface paths {
          *     parameters.
          *
          */
-        post: operations["fetchReport"];
+        post: operations["generateReport"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4914,7 +4914,7 @@ export interface operations {
             };
         };
     };
-    fetchReport: {
+    generateReport: {
         parameters: {
             query?: never;
             header?: never;

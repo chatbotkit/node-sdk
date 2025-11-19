@@ -137,7 +137,7 @@ export class FetchError extends Error {
 }
 export const ABORT_ERROR_NAME: "AbortError";
 export const TIMEOUT_ERROR_NAME: "TimeoutError";
-export const DEFAULT_TIMEOUT: number;
+export const DEFAULT_TIMEOUT: 30000;
 export const DEFAULT_RETRIES: 5;
 export const DEFAULT_RETRY_DELAY: 250;
 export const DEFAULT_RETRY_TIMEOUT: false;

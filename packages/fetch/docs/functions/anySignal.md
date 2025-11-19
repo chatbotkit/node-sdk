@@ -8,7 +8,7 @@
 
 > **anySignal**(`signals`): [`AbortSignal`](https://developer.mozilla.org/docs/Web/API/AbortSignal)
 
-Defined in: [packages/fetch/src/index.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L224)
+Defined in: [packages/fetch/src/index.js:222](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L222)
 
 ## Parameters
 

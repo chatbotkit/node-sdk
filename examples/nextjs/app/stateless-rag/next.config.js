@@ -4,10 +4,10 @@ const nextConfig = {
   swcMinify: true,
 
   transpilePackages: [
-    '@chatbotkit/cli',
     '@chatbotkit/react',
     '@chatbotkit/sdk',
     '@chatbotkit/next',
+    '@chatbotkit/fetch',
   ],
 
   experimental: {

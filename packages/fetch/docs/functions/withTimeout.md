@@ -8,7 +8,7 @@
 
 > **withTimeout**(`fetch`, `defaultOptions?`): [`FetchFn`](../type-aliases/FetchFn.md)\<[`withTimeoutOptions`](../type-aliases/withTimeoutOptions.md)\>
 
-Defined in: [packages/fetch/src/index.js:262](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L262)
+Defined in: [packages/fetch/src/index.js:260](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L260)
 
 ## Parameters
 

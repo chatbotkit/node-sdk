@@ -1,8 +1,8 @@
 import { ChatBotKitClient } from '../client.js'
-import { fetchReport, fetchTypedReport } from './v1.js'
+import { generateReport, generateTypedReport } from './v1.js'
 
 /**
- * Report client for generating and fetching various analytics reports.
+ * Report client for generating analytics reports.
  *
  * This client provides access to ChatBotKit's reporting system, which offers
  * various types of reports for analyzing conversations, usage, performance
@@ -17,8 +17,8 @@ import { fetchReport, fetchTypedReport } from './v1.js'
  * // First, discover available reports
  * const reports = await client.platform.report.list()
  *
- * // Then fetch a specific report using its ID
- * const report = await client.fetch('clr3m5n8k000508jq2j9k0l6f', {
+ * // Then generate a specific report using its ID
+ * const report = await client.generate('clr3m5n8k000508jq2j9k0l6f', {
  *   periodDays: 30
  * })
  *
@@ -26,7 +26,7 @@ import { fetchReport, fetchTypedReport } from './v1.js'
  *
  * @example
  * // Using typed reports for full type safety with total ratings
- * const report = await client.fetchTyped('clr3m5n8k000008jq7h9e5b1a', {
+ * const report = await client.generateTyped('clr3m5n8k000008jq7h9e5b1a', {
  *   periodDays: 7
  * })
  *
@@ -44,11 +44,11 @@ export class ReportClient extends ChatBotKitClient {
    * Generates a report.
    *
    * @param {string} reportId
-   * @param {import('./v1.js').ReportFetchRequest} request
-   * @returns {Promise<import('./v1.js').ReportFetchResponse>}
+   * @param {import('./v1.js').ReportGenerateRequest} request
+   * @returns {Promise<import('./v1.js').ReportGenerateResponse>}
    */
-  fetch(reportId, request) {
-    return fetchReport(this, reportId, request)
+  generate(reportId, request) {
+    return generateReport(this, reportId, request)
   }
 
   /**
@@ -59,8 +59,8 @@ export class ReportClient extends ChatBotKitClient {
    * @param {import('./v1.js').ReportInputTypes[T]} request - The report input
    * @returns {Promise<import('./v1.js').ReportOutputTypes[T]>}
    */
-  fetchTyped(reportId, request) {
-    return fetchTypedReport(this, reportId, request)
+  generateTyped(reportId, request) {
+    return generateTypedReport(this, reportId, request)
   }
 }
 

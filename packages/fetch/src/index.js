@@ -162,9 +162,7 @@ export async function getFetchError(response, meta) {
 export const ABORT_ERROR_NAME = 'AbortError'
 export const TIMEOUT_ERROR_NAME = 'TimeoutError'
 
-export const DEFAULT_TIMEOUT = process.env.FETCH_DEFAULT_TIMEOUT
-  ? parseInt(process.env.FETCH_DEFAULT_TIMEOUT, 10)
-  : 30000
+export const DEFAULT_TIMEOUT = 30000
 
 export const DEFAULT_RETRIES = 5
 export const DEFAULT_RETRY_DELAY = 250
