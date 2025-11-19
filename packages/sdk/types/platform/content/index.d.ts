@@ -1,22 +1,22 @@
 /**
  * Platform content client.
  */
-export class PlatformContentClient extends ChatBotKitClient {
+export class PlatformClient extends ChatBotKitClient {
     /**
-     * @type {PlatformContentDocClient} doc client
+     * @type {PlatformDocClient} doc client
      */
-    doc: PlatformContentDocClient;
+    doc: PlatformDocClient;
     /**
-     * @type {PlatformContentManualClient} manual client
+     * @type {PlatformManualClient} manual client
      */
-    manual: PlatformContentManualClient;
+    manual: PlatformManualClient;
     /**
-     * @type {PlatformContentTutorialClient} tutorial client
+     * @type {PlatformTutorialClient} tutorial client
      */
-    tutorial: PlatformContentTutorialClient;
+    tutorial: PlatformTutorialClient;
 }
-export default PlatformContentClient;
+export default PlatformClient;
 import { ChatBotKitClient } from '../../client.js';
-import { PlatformContentDocClient } from './doc/index.js';
-import { PlatformContentManualClient } from './manual/index.js';
-import { PlatformContentTutorialClient } from './tutorial/index.js';
+import { PlatformDocClient } from './doc/index.js';
+import { PlatformManualClient } from './manual/index.js';
+import { PlatformTutorialClient } from './tutorial/index.js';

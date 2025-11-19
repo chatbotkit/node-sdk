@@ -12,54 +12,54 @@
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
- * }} PlatformContentTutorialListRequest
+ * }} PlatformTutorialListRequest
  *
- * @typedef {import('../../../types/api/v1.js').operations['listPlatformContentTutorials']['responses']['200']['content']['application/json']} PlatformContentTutorialListResponse
+ * @typedef {import('../../../types/api/v1.js').operations['listPlatformTutorials']['responses']['200']['content']['application/json']} PlatformTutorialListResponse
  *
- * @typedef {PlatformContentTutorialListResponse['items'][number]} PlatformContentTutorialListItem
+ * @typedef {PlatformTutorialListResponse['items'][number]} PlatformTutorialListItem
  *
- * @typedef {import('../../../types/api/v1.js').operations['listPlatformContentTutorials']['responses']['200']['content']['application/jsonl']} PlatformContentTutorialListStreamType
- *
- * @param {ChatBotKitClient} client
- * @param {PlatformContentTutorialListRequest} [request]
- * @returns {ResponsePromise<PlatformContentTutorialListResponse,PlatformContentTutorialListStreamType>}
- */
-export function listPlatformContentTutorials(client: ChatBotKitClient, request?: PlatformContentTutorialListRequest): ResponsePromise<PlatformContentTutorialListResponse, PlatformContentTutorialListStreamType>;
-/**
- * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentTutorials']['requestBody']['content']['application/json']} PlatformContentTutorialSearchRequestBody
- *
- * @typedef {PlatformContentTutorialSearchRequestBody} PlatformContentTutorialSearchRequest
- *
- * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentTutorials']['responses']['200']['content']['application/json']} PlatformContentTutorialSearchResponseBody
- *
- * @typedef {PlatformContentTutorialSearchResponseBody} PlatformContentTutorialSearchResponse
+ * @typedef {import('../../../types/api/v1.js').operations['listPlatformTutorials']['responses']['200']['content']['application/jsonl']} PlatformTutorialListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {PlatformContentTutorialSearchRequest} request
- * @returns {Promise<PlatformContentTutorialSearchResponse>}
+ * @param {PlatformTutorialListRequest} [request]
+ * @returns {ResponsePromise<PlatformTutorialListResponse,PlatformTutorialListStreamType>}
  */
-export function searchPlatformContentTutorials(client: ChatBotKitClient, request: PlatformContentTutorialSearchRequest): Promise<PlatformContentTutorialSearchResponse>;
+export function listPlatformTutorials(client: ChatBotKitClient, request?: PlatformTutorialListRequest): ResponsePromise<PlatformTutorialListResponse, PlatformTutorialListStreamType>;
 /**
- * @typedef {import('../../../types/api/v1.js').operations['fetchPlatformContentTutorial']['responses']['200']['content']['application/json']} PlatformContentTutorialFetchResponse
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformTutorials']['requestBody']['content']['application/json']} PlatformTutorialSearchRequestBody
+ *
+ * @typedef {PlatformTutorialSearchRequestBody} PlatformTutorialSearchRequest
+ *
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformTutorials']['responses']['200']['content']['application/json']} PlatformTutorialSearchResponseBody
+ *
+ * @typedef {PlatformTutorialSearchResponseBody} PlatformTutorialSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {PlatformTutorialSearchRequest} request
+ * @returns {Promise<PlatformTutorialSearchResponse>}
+ */
+export function searchPlatformTutorials(client: ChatBotKitClient, request: PlatformTutorialSearchRequest): Promise<PlatformTutorialSearchResponse>;
+/**
+ * @typedef {import('../../../types/api/v1.js').operations['fetchPlatformTutorial']['responses']['200']['content']['application/json']} PlatformTutorialFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} tutorialId
- * @returns {ResponsePromise<PlatformContentTutorialFetchResponse,never>}
+ * @returns {ResponsePromise<PlatformTutorialFetchResponse,never>}
  */
-export function fetchPlatformContentTutorial(client: ChatBotKitClient, tutorialId: string): ResponsePromise<PlatformContentTutorialFetchResponse, never>;
+export function fetchPlatformTutorial(client: ChatBotKitClient, tutorialId: string): ResponsePromise<PlatformTutorialFetchResponse, never>;
 export type ChatBotKitClient = import("../../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../../client.js").ResponsePromise<T, U>;
-export type PlatformContentTutorialListRequest = {
+export type PlatformTutorialListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type PlatformContentTutorialListResponse = import("../../../types/api/v1.js").operations["listPlatformContentTutorials"]["responses"]["200"]["content"]["application/json"];
-export type PlatformContentTutorialListItem = PlatformContentTutorialListResponse["items"][number];
-export type PlatformContentTutorialListStreamType = import("../../../types/api/v1.js").operations["listPlatformContentTutorials"]["responses"]["200"]["content"]["application/jsonl"];
-export type PlatformContentTutorialSearchRequestBody = import("../../../types/api/v1.js").operations["searchPlatformContentTutorials"]["requestBody"]["content"]["application/json"];
-export type PlatformContentTutorialSearchRequest = PlatformContentTutorialSearchRequestBody;
-export type PlatformContentTutorialSearchResponseBody = import("../../../types/api/v1.js").operations["searchPlatformContentTutorials"]["responses"]["200"]["content"]["application/json"];
-export type PlatformContentTutorialSearchResponse = PlatformContentTutorialSearchResponseBody;
-export type PlatformContentTutorialFetchResponse = import("../../../types/api/v1.js").operations["fetchPlatformContentTutorial"]["responses"]["200"]["content"]["application/json"];
+export type PlatformTutorialListResponse = import("../../../types/api/v1.js").operations["listPlatformTutorials"]["responses"]["200"]["content"]["application/json"];
+export type PlatformTutorialListItem = PlatformTutorialListResponse["items"][number];
+export type PlatformTutorialListStreamType = import("../../../types/api/v1.js").operations["listPlatformTutorials"]["responses"]["200"]["content"]["application/jsonl"];
+export type PlatformTutorialSearchRequestBody = import("../../../types/api/v1.js").operations["searchPlatformTutorials"]["requestBody"]["content"]["application/json"];
+export type PlatformTutorialSearchRequest = PlatformTutorialSearchRequestBody;
+export type PlatformTutorialSearchResponseBody = import("../../../types/api/v1.js").operations["searchPlatformTutorials"]["responses"]["200"]["content"]["application/json"];
+export type PlatformTutorialSearchResponse = PlatformTutorialSearchResponseBody;
+export type PlatformTutorialFetchResponse = import("../../../types/api/v1.js").operations["fetchPlatformTutorial"]["responses"]["200"]["content"]["application/json"];

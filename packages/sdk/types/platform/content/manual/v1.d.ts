@@ -12,54 +12,54 @@
  *   order?: 'desc'|'asc',
  *   take?: number,
  *   meta?: Record<string,string>
- * }} PlatformContentManualListRequest
+ * }} PlatformManualListRequest
  *
- * @typedef {import('../../../types/api/v1.js').operations['listPlatformContentManuals']['responses']['200']['content']['application/json']} PlatformContentManualListResponse
+ * @typedef {import('../../../types/api/v1.js').operations['listPlatformManuals']['responses']['200']['content']['application/json']} PlatformManualListResponse
  *
- * @typedef {PlatformContentManualListResponse['items'][number]} PlatformContentManualListItem
+ * @typedef {PlatformManualListResponse['items'][number]} PlatformManualListItem
  *
- * @typedef {import('../../../types/api/v1.js').operations['listPlatformContentManuals']['responses']['200']['content']['application/jsonl']} PlatformContentManualListStreamType
- *
- * @param {ChatBotKitClient} client
- * @param {PlatformContentManualListRequest} [request]
- * @returns {ResponsePromise<PlatformContentManualListResponse,PlatformContentManualListStreamType>}
- */
-export function listPlatformContentManuals(client: ChatBotKitClient, request?: PlatformContentManualListRequest): ResponsePromise<PlatformContentManualListResponse, PlatformContentManualListStreamType>;
-/**
- * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentManuals']['requestBody']['content']['application/json']} PlatformContentManualSearchRequestBody
- *
- * @typedef {PlatformContentManualSearchRequestBody} PlatformContentManualSearchRequest
- *
- * @typedef {import('../../../types/api/v1.js').operations['searchPlatformContentManuals']['responses']['200']['content']['application/json']} PlatformContentManualSearchResponseBody
- *
- * @typedef {PlatformContentManualSearchResponseBody} PlatformContentManualSearchResponse
+ * @typedef {import('../../../types/api/v1.js').operations['listPlatformManuals']['responses']['200']['content']['application/jsonl']} PlatformManualListStreamType
  *
  * @param {ChatBotKitClient} client
- * @param {PlatformContentManualSearchRequest} request
- * @returns {Promise<PlatformContentManualSearchResponse>}
+ * @param {PlatformManualListRequest} [request]
+ * @returns {ResponsePromise<PlatformManualListResponse,PlatformManualListStreamType>}
  */
-export function searchPlatformContentManuals(client: ChatBotKitClient, request: PlatformContentManualSearchRequest): Promise<PlatformContentManualSearchResponse>;
+export function listPlatformManuals(client: ChatBotKitClient, request?: PlatformManualListRequest): ResponsePromise<PlatformManualListResponse, PlatformManualListStreamType>;
 /**
- * @typedef {import('../../../types/api/v1.js').operations['fetchPlatformContentManual']['responses']['200']['content']['application/json']} PlatformContentManualFetchResponse
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformManuals']['requestBody']['content']['application/json']} PlatformManualSearchRequestBody
+ *
+ * @typedef {PlatformManualSearchRequestBody} PlatformManualSearchRequest
+ *
+ * @typedef {import('../../../types/api/v1.js').operations['searchPlatformManuals']['responses']['200']['content']['application/json']} PlatformManualSearchResponseBody
+ *
+ * @typedef {PlatformManualSearchResponseBody} PlatformManualSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {PlatformManualSearchRequest} request
+ * @returns {Promise<PlatformManualSearchResponse>}
+ */
+export function searchPlatformManuals(client: ChatBotKitClient, request: PlatformManualSearchRequest): Promise<PlatformManualSearchResponse>;
+/**
+ * @typedef {import('../../../types/api/v1.js').operations['fetchPlatformManual']['responses']['200']['content']['application/json']} PlatformManualFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} manualId
- * @returns {ResponsePromise<PlatformContentManualFetchResponse,never>}
+ * @returns {ResponsePromise<PlatformManualFetchResponse,never>}
  */
-export function fetchPlatformContentManual(client: ChatBotKitClient, manualId: string): ResponsePromise<PlatformContentManualFetchResponse, never>;
+export function fetchPlatformManual(client: ChatBotKitClient, manualId: string): ResponsePromise<PlatformManualFetchResponse, never>;
 export type ChatBotKitClient = import("../../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../../client.js").ResponsePromise<T, U>;
-export type PlatformContentManualListRequest = {
+export type PlatformManualListRequest = {
     cursor?: string;
     order?: "desc" | "asc";
     take?: number;
     meta?: Record<string, string>;
 };
-export type PlatformContentManualListResponse = import("../../../types/api/v1.js").operations["listPlatformContentManuals"]["responses"]["200"]["content"]["application/json"];
-export type PlatformContentManualListItem = PlatformContentManualListResponse["items"][number];
-export type PlatformContentManualListStreamType = import("../../../types/api/v1.js").operations["listPlatformContentManuals"]["responses"]["200"]["content"]["application/jsonl"];
-export type PlatformContentManualSearchRequestBody = import("../../../types/api/v1.js").operations["searchPlatformContentManuals"]["requestBody"]["content"]["application/json"];
-export type PlatformContentManualSearchRequest = PlatformContentManualSearchRequestBody;
-export type PlatformContentManualSearchResponseBody = import("../../../types/api/v1.js").operations["searchPlatformContentManuals"]["responses"]["200"]["content"]["application/json"];
-export type PlatformContentManualSearchResponse = PlatformContentManualSearchResponseBody;
-export type PlatformContentManualFetchResponse = import("../../../types/api/v1.js").operations["fetchPlatformContentManual"]["responses"]["200"]["content"]["application/json"];
+export type PlatformManualListResponse = import("../../../types/api/v1.js").operations["listPlatformManuals"]["responses"]["200"]["content"]["application/json"];
+export type PlatformManualListItem = PlatformManualListResponse["items"][number];
+export type PlatformManualListStreamType = import("../../../types/api/v1.js").operations["listPlatformManuals"]["responses"]["200"]["content"]["application/jsonl"];
+export type PlatformManualSearchRequestBody = import("../../../types/api/v1.js").operations["searchPlatformManuals"]["requestBody"]["content"]["application/json"];
+export type PlatformManualSearchRequest = PlatformManualSearchRequestBody;
+export type PlatformManualSearchResponseBody = import("../../../types/api/v1.js").operations["searchPlatformManuals"]["responses"]["200"]["content"]["application/json"];
+export type PlatformManualSearchResponse = PlatformManualSearchResponseBody;
+export type PlatformManualFetchResponse = import("../../../types/api/v1.js").operations["fetchPlatformManual"]["responses"]["200"]["content"]["application/json"];
