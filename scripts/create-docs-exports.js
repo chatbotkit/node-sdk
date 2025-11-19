@@ -53,18 +53,19 @@ async function createDocsJsonFromMarkdown(docsPath) {
 }
 
 async function createLlmsTxtFromMarkdown(docsPath) {
-  const tree = {}
+  const files = []
   const excludedFolders = ['type-aliases']
+  const baseUrl = 'https://chatbotkit.github.io/node-sdk/markdown/'
 
   async function readDirectory(directory) {
-    const files = await fs.readdir(directory)
-    for (const file of files) {
-      const fullPath = path.join(directory, file)
+    const entries = await fs.readdir(directory)
+    for (const entry of entries) {
+      const fullPath = path.join(directory, entry)
 
       const stats = await fs.stat(fullPath)
 
       if (stats.isDirectory()) {
-        if (excludedFolders.includes(file)) {
+        if (excludedFolders.includes(entry)) {
           continue
         }
         await readDirectory(fullPath)
@@ -76,68 +77,31 @@ async function createLlmsTxtFromMarkdown(docsPath) {
         }
 
         const relativePath = fullPath.split('/').slice(1).join('/')
-        const parts = relativePath.split('/')
-
-        let current = tree
-        for (let i = 0; i < parts.length; i++) {
-          const part = parts[i]
-          if (i === parts.length - 1) {
-            // @note leaf nodes store the full path for linking
-            current[part] = relativePath
-          } else {
-            if (!current[part]) {
-              current[part] = {}
-            }
-            current = current[part]
-          }
-        }
+        files.push(relativePath)
       }
     }
   }
 
   await readDirectory(docsPath)
 
-  function buildTreeString(obj, indent = 0) {
-    const lines = []
-    const prefix = '  '.repeat(indent)
-
-    for (const key of Object.keys(obj).sort()) {
-      if (typeof obj[key] === 'string') {
-        lines.push(`${prefix}${key}`)
-      } else {
-        lines.push(`${prefix}${key}/`)
-        lines.push(buildTreeString(obj[key], indent + 1))
-      }
-    }
-
-    return lines.join('\n')
-  }
+  // Sort files alphabetically
+  files.sort()
 
   let markdown = `# ChatBotKit SDK Documentation
 
-The ChatBotKit is a conversational AI development framework that enables developers to build, deploy, and manage intelligent agents across various platforms.
+The ChatBotKit / CBK.AI is a conversational AI development framework that enables developers to build, deploy, and manage intelligent agents across various platforms.
 
-## Base URL
+**NOTE**: Use clients class instances for more efficient access to the SDK features. Fallback to functions only when necessary.
 
-https://chatbotkit.github.io/node-sdk/markdown/
+## Documentation Resources
 
-**NOTE:** Use the base URL above to construct links to specific documentation files.
+`
 
-Consider the following directory structure:
+  for (const file of files) {
+    const url = baseUrl + file
 
-@chatbotkit/
-  agent/
-    agent/
-      functions/
-        execute.md
-
-The corresponding URL for execute.md would be:
-
-https://chatbotkit.github.io/node-sdk/markdown/@chatbotkit/agent/agent/functions/execute.md
-
-## Docs`
-
-  markdown += '\n\n' + buildTreeString(tree)
+    markdown += `- ${url}\n`
+  }
 
   return markdown
 }

@@ -3412,6 +3412,66 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/content/tutorial/{tutorialId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch a specific platform tutorial
+         * @description Retrieves the complete content and metadata of a specific tutorial. This
+         *     includes the markdown content and all associated frontmatter.
+         *
+         */
+        get: operations["fetchPlatformContentTutorial"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/tutorial/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a list of platform tutorials
+         * @description Returns a list of available tutorials with their metadata.
+         *
+         */
+        get: operations["listPlatformContentTutorials"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/content/tutorial/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform tutorials using semantic similarity */
+        post: operations["searchPlatformContentTutorials"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/example/{exampleId}/clone": {
         parameters: {
             query?: never;
@@ -17701,6 +17761,232 @@ export interface operations {
                             /** @description An excerpt from the most relevant part of the manual */
                             excerpt: string;
                             /** @description The URL to the official documentation page */
+                            url: string;
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchPlatformContentTutorial: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                tutorialId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The tutorial was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The category of the tutorial */
+                        category?: string;
+                        /** @description Tags associated with the tutorial */
+                        tags?: string[];
+                        /** @description The display order index */
+                        index?: number;
+                        /** @description The markdown content of the tutorial */
+                        content: string;
+                        /** @description The URL to the official tutorial page */
+                        url?: string;
+                    };
+                };
+            };
+            /** @description Tutorial not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPlatformContentTutorials: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of tutorials was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the tutorial */
+                            category?: string;
+                            /** @description Tags associated with the tutorial */
+                            tags?: string[];
+                            /** @description The display order index */
+                            index?: number;
+                            /** @description The URL to the official tutorial page */
+                            url?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the tutorial */
+                            category?: string;
+                            /** @description Tags associated with the tutorial */
+                            tags?: string[];
+                            /** @description The display order index */
+                            index?: number;
+                            /** @description The URL to the official tutorial page */
+                            url?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    searchPlatformContentTutorials: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant tutorials */
+                    search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
+                     */
+                    take?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the tutorial */
+                            category?: string;
+                            /** @description Tags associated with the tutorial */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The similarity score of the search result */
+                            score: number;
+                            /** @description An excerpt from the most relevant part of the tutorial */
+                            excerpt: string;
+                            /** @description The URL to the official tutorial page */
                             url: string;
                         }[];
                     };

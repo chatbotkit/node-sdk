@@ -916,6 +916,26 @@
       "types": "./types/platform/content/manual/v1.d.ts",
       "import": "./src/platform/content/manual/v1.js"
     },
+    "./platform/content/tutorial": {
+      "types": "./types/platform/content/tutorial/index.d.ts",
+      "import": "./src/platform/content/tutorial/index.js"
+    },
+    "./platform/content/tutorial/index": {
+      "types": "./types/platform/content/tutorial/index.d.ts",
+      "import": "./src/platform/content/tutorial/index.js"
+    },
+    "./platform/content/tutorial/index.js": {
+      "types": "./types/platform/content/tutorial/index.d.ts",
+      "import": "./src/platform/content/tutorial/index.js"
+    },
+    "./platform/content/tutorial/v1": {
+      "types": "./types/platform/content/tutorial/v1.d.ts",
+      "import": "./src/platform/content/tutorial/v1.js"
+    },
+    "./platform/content/tutorial/v1.js": {
+      "types": "./types/platform/content/tutorial/v1.d.ts",
+      "import": "./src/platform/content/tutorial/v1.js"
+    },
     "./platform/example": {
       "types": "./types/platform/example/index.d.ts",
       "import": "./src/platform/example/index.js"
