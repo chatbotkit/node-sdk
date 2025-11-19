@@ -7,6 +7,7 @@ const nextConfig = {
     '@chatbotkit/react',
     '@chatbotkit/sdk',
     '@chatbotkit/next',
+    '@chatbotkit/fetch',
   ],
 }
 
