@@ -8,7 +8,7 @@
 
 > **withRetryOptions**\<\> = `object`
 
-Defined in: [packages/fetch/src/index.js:334](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L334)
+Defined in: [packages/fetch/src/index.js:332](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L332)
 
 Add retry capabilities to any fetch implementation.
 
