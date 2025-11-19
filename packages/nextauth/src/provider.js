@@ -11,11 +11,24 @@ export function ChatBotKitEmailProvider(options) {
 
     name: 'Email',
 
-    maxAge: 24 * 60 * 60, // 24 hours
+    maxAge: 900, // 15 minutes
 
-    async sendVerificationRequest({ url }) {
+    async generateVerificationToken() {
+      const length = 6
+
+      const byteLength = Math.ceil(length / 2)
+
+      const randomValues = crypto.getRandomValues(new Uint8Array(byteLength))
+
+      return Array.prototype.map
+        .call(randomValues, (x) => x.toString(16).padStart(2, '0'))
+        .join('')
+        .slice(0, length)
+    },
+
+    async sendVerificationRequest({ identifier, token }) {
       // eslint-disable-next-line no-console
-      console.log(`* authenticate by visiting ${url}`)
+      console.log(`* authenticate by sending ${token} to ${identifier}`)
       // eslint-disable-next-line no-console
       console.log(
         `* please override sendVerificationRequest with your own implementation`

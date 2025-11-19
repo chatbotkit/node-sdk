@@ -13,7 +13,8 @@
  *   cursor?: string,
  *   order?: 'desc'|'asc',
  *   take?: number,
- *   meta?: Record<string,string>
+ *   meta?: Record<string,string>,
+ *   email?: string
  * }} PartnerUserListRequest
  *
  * @typedef {import('../../types/api/v1.js').operations['listPartnerUsers']['responses']['200']['content']['application/json']} PartnerUserListResponse

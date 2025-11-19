@@ -125,7 +125,7 @@ export function ChatBotKitPartnerAdapter({
   async function fetchUserInstanceByEmail(email) {
     const {
       items: [user],
-    } = await client.list({ meta: { email } })
+    } = await client.list({ email })
 
     return user
   }
@@ -219,12 +219,7 @@ export function ChatBotKitPartnerAdapter({
       const { id } = await client.create({
         name: user.name != null ? user.name : undefined,
         image: user.image != null ? user.image : undefined,
-        meta: {
-          email: user.email ? user.email : undefined,
-          emailVerified: user.emailVerified
-            ? user.emailVerified.getTime()
-            : undefined,
-        },
+        email: user.email != null ? user.email : undefined,
       })
 
       const retUser = await serializeUserInstance(
@@ -247,23 +242,10 @@ export function ChatBotKitPartnerAdapter({
         throw new Error(`Cannot update existing user`)
       }
 
-      const userInstance = await fetchUserInstanceById(user.id)
-
-      if (!userInstance) {
-        throw new Error(`Cannot update non-existing user`)
-      }
-
       const { id } = await client.update(user.id, {
         name: user.name != null ? user.name : '',
         image: user.image != null ? user.image : '',
-        meta: {
-          ...userInstance.meta,
-
-          email: user.email ? user.email : userInstance.meta?.email,
-          emailVerified: user.emailVerified
-            ? user.emailVerified.getTime()
-            : userInstance.meta?.emailVerified,
-        },
+        email: user.email != null ? user.email : undefined,
       })
 
       const retUser = await serializeUserInstance(
