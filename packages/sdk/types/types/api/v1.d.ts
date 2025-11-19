@@ -17455,7 +17455,7 @@ export interface operations {
                         /** @description The markdown content of the doc */
                         content: string;
                         /** @description The URL to the official documentation page */
-                        url?: string;
+                        link?: string;
                     };
                 };
             };
@@ -17504,7 +17504,7 @@ export interface operations {
                             /** @description The associated name */
                             name: string;
                             /** @description The associated description */
-                            description?: string;
+                            description: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -17518,11 +17518,11 @@ export interface operations {
                             /** @description The category of the doc */
                             category?: string;
                             /** @description Tags associated with the doc */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The URL to the official documentation page */
-                            url?: string;
+                            link: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -17536,7 +17536,7 @@ export interface operations {
                             /** @description The associated name */
                             name: string;
                             /** @description The associated description */
-                            description?: string;
+                            description: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -17550,11 +17550,11 @@ export interface operations {
                             /** @description The category of the doc */
                             category?: string;
                             /** @description Tags associated with the doc */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The URL to the official documentation page */
-                            url?: string;
+                            link: string;
                         };
                     };
                 };
@@ -17624,7 +17624,7 @@ export interface operations {
                             /** @description An excerpt from the most relevant part of the doc */
                             excerpt: string;
                             /** @description The URL to the official documentation page */
-                            url: string;
+                            link: string;
                         }[];
                     };
                 };
@@ -17681,7 +17681,7 @@ export interface operations {
                         /** @description The markdown content of the manual */
                         content: string;
                         /** @description The URL to the official documentation page */
-                        url?: string;
+                        link?: string;
                     };
                 };
             };
@@ -17730,7 +17730,7 @@ export interface operations {
                             /** @description The associated name */
                             name: string;
                             /** @description The associated description */
-                            description?: string;
+                            description: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -17744,11 +17744,11 @@ export interface operations {
                             /** @description The category of the manual */
                             category?: string;
                             /** @description Tags associated with the manual */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The URL to the official documentation page */
-                            url?: string;
+                            link: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -17762,7 +17762,7 @@ export interface operations {
                             /** @description The associated name */
                             name: string;
                             /** @description The associated description */
-                            description?: string;
+                            description: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -17776,11 +17776,11 @@ export interface operations {
                             /** @description The category of the manual */
                             category?: string;
                             /** @description Tags associated with the manual */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The URL to the official documentation page */
-                            url?: string;
+                            link: string;
                         };
                     };
                 };
@@ -17850,7 +17850,7 @@ export interface operations {
                             /** @description An excerpt from the most relevant part of the manual */
                             excerpt: string;
                             /** @description The URL to the official documentation page */
-                            url: string;
+                            link: string;
                         }[];
                     };
                 };
@@ -17907,7 +17907,7 @@ export interface operations {
                         /** @description The markdown content of the tutorial */
                         content: string;
                         /** @description The URL to the official tutorial page */
-                        url?: string;
+                        link?: string;
                     };
                 };
             };
@@ -17956,7 +17956,7 @@ export interface operations {
                             /** @description The associated name */
                             name: string;
                             /** @description The associated description */
-                            description?: string;
+                            description: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -17970,11 +17970,11 @@ export interface operations {
                             /** @description The category of the tutorial */
                             category?: string;
                             /** @description Tags associated with the tutorial */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The URL to the official tutorial page */
-                            url?: string;
+                            link: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -17988,7 +17988,7 @@ export interface operations {
                             /** @description The associated name */
                             name: string;
                             /** @description The associated description */
-                            description?: string;
+                            description: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -18002,11 +18002,11 @@ export interface operations {
                             /** @description The category of the tutorial */
                             category?: string;
                             /** @description Tags associated with the tutorial */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The URL to the official tutorial page */
-                            url?: string;
+                            link: string;
                         };
                     };
                 };
@@ -18076,7 +18076,7 @@ export interface operations {
                             /** @description An excerpt from the most relevant part of the tutorial */
                             excerpt: string;
                             /** @description The URL to the official tutorial page */
-                            url: string;
+                            link: string;
                         }[];
                     };
                 };
@@ -18172,6 +18172,8 @@ export interface operations {
                         config: {
                             [key: string]: unknown;
                         };
+                        /** @description The URL to the official example page */
+                        link: string;
                         /** @description The keywords associated with the example */
                         keywords?: string[];
                         /** @description The creation timestamp */
@@ -18244,6 +18246,8 @@ export interface operations {
                             type: "blueprint" | "project" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
                             /** @description The keywords associated with the example */
                             keywords?: string[];
+                            /** @description The URL to the official example page */
+                            link: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -18275,6 +18279,8 @@ export interface operations {
                             type: "blueprint" | "project" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
                             /** @description The keywords associated with the example */
                             keywords?: string[];
+                            /** @description The URL to the official example page */
+                            link: string;
                         };
                     };
                 };
@@ -18335,6 +18341,8 @@ export interface operations {
                             type: "blueprint" | "project" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
                             /** @description The keywords associated with the example */
                             keywords?: string[];
+                            /** @description The URL to the official example page */
+                            link: string;
                         }[];
                     };
                 };
