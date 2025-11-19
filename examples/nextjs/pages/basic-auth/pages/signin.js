@@ -31,6 +31,7 @@ export default function Signin() {
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            placeholder="Email"
           />{' '}
           <button
             onClick={() =>
