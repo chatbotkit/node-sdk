@@ -21,8 +21,8 @@
     "supports-color": "^8.1.1"
   },
   "devDependencies": {
-    "eslint": "^8.40.0",
-    "eslint-config-next": "14.0.3",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.24",
     "typescript": "^5"
   }
 }
