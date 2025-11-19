@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763555210404)"
+    "version": "v1 (build 1763569171152)"
   },
   "servers": [
     {
@@ -28532,6 +28532,115 @@
         ]
       }
     },
+    "/platform/example/{exampleId}/fetch": {
+      "get": {
+        "operationId": "fetchPlatformExample",
+        "summary": "Fetch a specific platform example with full details",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "exampleId",
+            "required": true,
+            "schema": {
+              "description": "The ID (slug) of the example",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The example was fetched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID (slug) of the example",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the example",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the example",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of the example",
+                      "type": "string",
+                      "enum": [
+                        "blueprint",
+                        "project",
+                        "widget",
+                        "slack",
+                        "discord",
+                        "whatsapp",
+                        "messenger",
+                        "telegram",
+                        "twilio",
+                        "email",
+                        "trigger"
+                      ]
+                    },
+                    "config": {
+                      "description": "The full configuration details of the example",
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": true
+                    },
+                    "keywords": {
+                      "description": "The keywords associated with the example",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "createdAt": {
+                      "description": "The creation timestamp",
+                      "type": "number"
+                    },
+                    "updatedAt": {
+                      "description": "The last update timestamp",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "type",
+                    "config"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The example was not found"
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchPlatformExample",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/platform/example/list": {
       "get": {
         "operationId": "listPlatformExamples",
@@ -28628,6 +28737,7 @@
                             "type": "string",
                             "enum": [
                               "blueprint",
+                              "project",
                               "widget",
                               "slack",
                               "discord",
@@ -28638,12 +28748,6 @@
                               "email",
                               "trigger"
                             ]
-                          },
-                          "config": {
-                            "description": "The config details of the example",
-                            "type": "object",
-                            "properties": {},
-                            "additionalProperties": true
                           },
                           "keywords": {
                             "description": "The keywords associated with the example",
@@ -28659,8 +28763,7 @@
                           "updatedAt",
                           "name",
                           "description",
-                          "type",
-                          "config"
+                          "type"
                         ]
                       }
                     }
@@ -28718,6 +28821,7 @@
                               "type": "string",
                               "enum": [
                                 "blueprint",
+                                "project",
                                 "widget",
                                 "slack",
                                 "discord",
@@ -28728,12 +28832,6 @@
                                 "email",
                                 "trigger"
                               ]
-                            },
-                            "config": {
-                              "description": "The config details of the example",
-                              "type": "object",
-                              "properties": {},
-                              "additionalProperties": true
                             },
                             "keywords": {
                               "description": "The keywords associated with the example",
@@ -28750,8 +28848,7 @@
                             "updatedAt",
                             "name",
                             "description",
-                            "type",
-                            "config"
+                            "type"
                           ]
                         }
                       },
@@ -28854,6 +28951,7 @@
                             "type": "string",
                             "enum": [
                               "blueprint",
+                              "project",
                               "widget",
                               "slack",
                               "discord",
@@ -28864,12 +28962,6 @@
                               "email",
                               "trigger"
                             ]
-                          },
-                          "config": {
-                            "description": "The config details of the example",
-                            "type": "object",
-                            "properties": {},
-                            "additionalProperties": true
                           },
                           "keywords": {
                             "description": "The keywords associated with the example",
@@ -28885,8 +28977,7 @@
                           "updatedAt",
                           "name",
                           "description",
-                          "type",
-                          "config"
+                          "type"
                         ]
                       }
                     }
