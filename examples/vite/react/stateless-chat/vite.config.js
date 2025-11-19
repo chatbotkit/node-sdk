@@ -25,6 +25,12 @@ export default defineConfig({
   build: {
     commonjsOptions: {
       include: [/node_modules/, /@chatbotkit/],
+      transformMixedEsModules: true,
     },
+  },
+  esbuild: {
+    loader: 'jsx',
+    include: /.*\.jsx?$/,
+    exclude: [],
   },
 })
