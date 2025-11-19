@@ -56,7 +56,7 @@ Defined in: [platform/content/index.js:24](https://github.com/chatbotkit/node-sd
 
 ### tutorial
 
-> **tutorial**: `PlatformContentTutorialClient`
+> **tutorial**: [`PlatformContentTutorialClient`](../tutorial/classes/PlatformContentTutorialClient.md)
 
 Defined in: [platform/content/index.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/content/index.js#L29)
 

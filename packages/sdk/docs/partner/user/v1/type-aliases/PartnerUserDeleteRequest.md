@@ -8,6 +8,6 @@
 
 > **PartnerUserDeleteRequest**\<\> = [`PartnerUserDeleteRequestBody`](PartnerUserDeleteRequestBody.md)
 
-Defined in: [partner/user/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L110)
+Defined in: [partner/user/v1.js:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L111)
 
 ## Type Parameters

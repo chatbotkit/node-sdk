@@ -8,7 +8,7 @@
 
 > **listPartnerUsers**(`client`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [partner/user/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L27)
+Defined in: [partner/user/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L28)
 
 ## Parameters
 

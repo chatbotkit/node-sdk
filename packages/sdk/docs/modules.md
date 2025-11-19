@@ -92,6 +92,8 @@
 - [platform/content/doc/v1](platform/content/doc/v1/README.md)
 - [platform/content/manual](platform/content/manual/README.md)
 - [platform/content/manual/v1](platform/content/manual/v1/README.md)
+- [platform/content/tutorial](platform/content/tutorial/README.md)
+- [platform/content/tutorial/v1](platform/content/tutorial/v1/README.md)
 - [platform/example](platform/example/README.md)
 - [platform/example/v1](platform/example/v1/README.md)
 - [platform/model](platform/model/README.md)
