@@ -22,6 +22,13 @@ export class PlatformExampleClient extends ChatBotKitClient {
      */
     search(request: import("./v1.js").PlatformExampleSearchRequest): Promise<import("./v1.js").PlatformExampleSearchResponse>;
     /**
+     * Fetches a platform example.
+     *
+     * @param {string} exampleId
+     * @returns {ResponsePromise<import('./v1.js').PlatformExampleFetchResponse,never>}
+     */
+    fetch(exampleId: string): ResponsePromise<import("./v1.js").PlatformExampleFetchResponse, never>;
+    /**
      * Clones a platform example.
      *
      * @param {string} exampleId

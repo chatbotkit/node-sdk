@@ -8,6 +8,6 @@
 
 > **PlatformExampleCloneResponse**\<\> = [`PlatformExampleCloneResponseBody`](PlatformExampleCloneResponseBody.md)
 
-Defined in: [platform/example/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L71)
+Defined in: [platform/example/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L89)
 
 ## Type Parameters

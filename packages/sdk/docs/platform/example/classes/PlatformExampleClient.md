@@ -6,7 +6,7 @@
 
 # Class: PlatformExampleClient
 
-Defined in: [platform/example/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L17)
+Defined in: [platform/example/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L18)
 
 Platform example client.
 
@@ -20,7 +20,7 @@ Platform example client.
 
 > **new PlatformExampleClient**(`options`): `PlatformExampleClient`
 
-Defined in: [platform/example/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L21)
+Defined in: [platform/example/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L22)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/example/index.js:21](https://github.com/chatbotkit/node-sd
 
 > **clone**(`exampleId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [platform/example/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L51)
+Defined in: [platform/example/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L62)
 
 Clones a platform example.
 
@@ -92,11 +92,31 @@ A new instance of the same client class with extended options
 
 ***
 
+### fetch()
+
+> **fetch**(`exampleId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
+
+Defined in: [platform/example/index.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L52)
+
+Fetches a platform example.
+
+#### Parameters
+
+##### exampleId
+
+`string`
+
+#### Returns
+
+[`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
+
+***
+
 ### list()
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [platform/example/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L31)
+Defined in: [platform/example/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L32)
 
 Retrieves a list of all platform examples.
 
@@ -116,7 +136,7 @@ Retrieves a list of all platform examples.
 
 > **search**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [platform/example/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L41)
+Defined in: [platform/example/index.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/index.js#L42)
 
 Searches platform examples.
 

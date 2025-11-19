@@ -13,6 +13,7 @@
 - [PlatformExampleCloneRequestBody](type-aliases/PlatformExampleCloneRequestBody.md)
 - [PlatformExampleCloneResponse](type-aliases/PlatformExampleCloneResponse.md)
 - [PlatformExampleCloneResponseBody](type-aliases/PlatformExampleCloneResponseBody.md)
+- [PlatformExampleFetchResponse](type-aliases/PlatformExampleFetchResponse.md)
 - [PlatformExampleListItem](type-aliases/PlatformExampleListItem.md)
 - [PlatformExampleListRequest](type-aliases/PlatformExampleListRequest.md)
 - [PlatformExampleListResponse](type-aliases/PlatformExampleListResponse.md)
@@ -26,5 +27,6 @@
 ## Functions
 
 - [clonePlatformExample](functions/clonePlatformExample.md)
+- [fetchPlatformExample](functions/fetchPlatformExample.md)
 - [listPlatformExamples](functions/listPlatformExamples.md)
 - [searchPlatformExamples](functions/searchPlatformExamples.md)
