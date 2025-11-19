@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763550223953)"
+    "version": "v1 (build 1763555210404)"
   },
   "servers": [
     {
@@ -1434,6 +1434,84 @@
           }
         },
         "__originalOperationId": "generateReport",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/report/generate": {
+      "post": {
+        "operationId": "generateReports",
+        "summary": "Generate multiple reports",
+        "description": "Generates multiple reports in a single request. Input is a map where\neach key is a report ID and each value contains the input parameters\nfor that report. Returns a map with the same keys containing the\ncorresponding report outputs.\n",
+        "tags": [
+          "Report"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Map of report IDs to their input parameters",
+                "additionalProperties": {
+                  "type": "object",
+                  "description": "Input parameters specific to the report type"
+                }
+              },
+              "example": {
+                "clr3m5n8k000008jq7h9e5b1a": {
+                  "periodDays": 30
+                },
+                "clr3m5n8k000108jq7h9e5b1b": {
+                  "periodDays": 7
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The reports were generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Map of report IDs to their output data or error",
+                  "additionalProperties": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "description": "Successful report output data"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "error": {
+                            "type": "string",
+                            "description": "Error message if report generation failed"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "generateReports",
         "security": [
           {
             "BearerAuth": []

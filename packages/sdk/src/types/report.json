@@ -806,6 +806,180 @@
       },
       "createdAt": "2025-11-17T00:00:00.000Z",
       "updatedAt": "2025-11-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000d08jqar7s8t4n": {
+      "id": "clr3m5n8k000d08jqar7s8t4n",
+      "name": "Comprehensive Overview Report",
+      "description": "Complete analytics overview with ratings, contacts, conversations, and messages including detailed breakdowns and lists",
+      "input": {
+        "$ref": "#/definitions/comprehensive-overview-report-input",
+        "definitions": {
+          "comprehensive-overview-report-input": {
+            "type": "object",
+            "properties": {
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/comprehensive-overview-report-output",
+        "definitions": {
+          "comprehensive-overview-report-output": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    },
+                    "change": {
+                      "type": "number"
+                    },
+                    "period": {
+                      "type": "string"
+                    },
+                    "details": {
+                      "type": "object",
+                      "properties": {
+                        "metric": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "number"
+                            },
+                            "change": {
+                              "type": "number"
+                            },
+                            "period": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "title",
+                            "description",
+                            "value",
+                            "period"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "chart": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "line"
+                            },
+                            "data": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "date": {
+                                    "type": "string"
+                                  },
+                                  "total": {
+                                    "type": "number"
+                                  },
+                                  "thumbsUp": {
+                                    "type": "number"
+                                  },
+                                  "thumbsDown": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "date",
+                                  "total"
+                                ],
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "icon": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "tags": {
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "name",
+                              "description"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "description",
+                    "value",
+                    "period"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "data"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-11-19T00:00:00.000Z",
+      "updatedAt": "2025-11-19T00:00:00.000Z"
     }
   }
 }

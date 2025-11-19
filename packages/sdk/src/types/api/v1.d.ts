@@ -60,6 +60,30 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/report/generate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Generate multiple reports
+         * @description Generates multiple reports in a single request. Input is a map where
+         *     each key is a report ID and each value contains the input parameters
+         *     for that report. Returns a map with the same keys containing the
+         *     corresponding report outputs.
+         *
+         */
+        post: operations["generateReports"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/blueprint/{blueprintId}/clone": {
         parameters: {
             query?: never;
@@ -4946,6 +4970,54 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    generateReports: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /** @example {
+                 *       "clr3m5n8k000008jq7h9e5b1a": {
+                 *         "periodDays": 30
+                 *       },
+                 *       "clr3m5n8k000108jq7h9e5b1b": {
+                 *         "periodDays": 7
+                 *       }
+                 *     } */
+                "application/json": {
+                    [key: string]: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description The reports were generated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: Record<string, never> | {
+                            /** @description Error message if report generation failed */
+                            error?: string;
+                        };
+                    };
+                };
             };
             /** @description An error response */
             default: {
