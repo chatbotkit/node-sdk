@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763570384029)"
+    "version": "v1 (build 1763573672033)"
   },
   "servers": [
     {
@@ -27008,9 +27008,9 @@
         ]
       }
     },
-    "/platform/content/doc/{docId}/fetch": {
+    "/platform/doc/{docId}/fetch": {
       "get": {
-        "operationId": "fetchPlatformContentDoc",
+        "operationId": "fetchPlatformDoc",
         "summary": "Fetch a specific platform doc",
         "description": "Retrieves the complete content and metadata of a specific doc. This\nincludes the markdown content and all associated frontmatter.\n",
         "tags": [
@@ -27111,7 +27111,7 @@
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
-        "__originalOperationId": "fetchPlatformContentDoc",
+        "__originalOperationId": "fetchPlatformDoc",
         "security": [
           {
             "BearerAuth": []
@@ -27119,9 +27119,9 @@
         ]
       }
     },
-    "/platform/content/doc/list": {
+    "/platform/doc/list": {
       "get": {
-        "operationId": "listPlatformContentDocs",
+        "operationId": "listPlatformDocs",
         "summary": "Retrieve a list of platform docs",
         "description": "Returns a list of available documentation docs with their metadata.\n",
         "tags": [
@@ -27239,8 +27239,6 @@
                           "description",
                           "tags",
                           "index",
-                          "score",
-                          "excerpt",
                           "link"
                         ]
                       }
@@ -27314,7 +27312,7 @@
                               "type": "string"
                             }
                           },
-                          "$$ref": "#/paths/~1platform~1content~1doc~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "$$ref": "#/paths/~1platform~1doc~1list/get/responses/200/content/application~1json/schema/properties/items/items",
                           "required": [
                             "id",
                             "createdAt",
@@ -27323,8 +27321,6 @@
                             "description",
                             "tags",
                             "index",
-                            "score",
-                            "excerpt",
                             "link"
                           ]
                         }
@@ -27349,7 +27345,7 @@
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
-        "__originalOperationId": "listPlatformContentDocs",
+        "__originalOperationId": "listPlatformDocs",
         "security": [
           {
             "BearerAuth": []
@@ -27357,9 +27353,9 @@
         ]
       }
     },
-    "/platform/content/doc/search": {
+    "/platform/doc/search": {
       "post": {
-        "operationId": "searchPlatformContentDocs",
+        "operationId": "searchPlatformDocs",
         "summary": "Search platform docs using semantic similarity",
         "tags": [
           "Platform"
@@ -27490,987 +27486,7 @@
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
-        "__originalOperationId": "searchPlatformContentDocs",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/platform/content/manual/{manualId}/fetch": {
-      "get": {
-        "operationId": "fetchPlatformContentManual",
-        "summary": "Fetch a specific platform manual",
-        "description": "Retrieves the complete content and metadata of a specific manual. This\nincludes the markdown content and all associated frontmatter.\n",
-        "tags": [
-          "Platform"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "manualId",
-            "required": true,
-            "schema": {
-              "description": "The ID of the manual to fetch (e.g., \"datasets\", \"skillsets\")",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The manual was retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Instance list properties",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "The associated name"
-                    },
-                    "description": {
-                      "type": "string",
-                      "description": "The associated description"
-                    },
-                    "meta": {
-                      "type": "object",
-                      "description": "Meta data information",
-                      "additionalProperties": true,
-                      "$$ref": "#/components/schemas/Meta"
-                    },
-                    "id": {
-                      "type": "string",
-                      "description": "The instance ID"
-                    },
-                    "createdAt": {
-                      "type": "number",
-                      "description": "The timestamp (ms) when the instance was created"
-                    },
-                    "updatedAt": {
-                      "type": "number",
-                      "description": "The timestamp (ms) when the instance was updated"
-                    },
-                    "category": {
-                      "description": "The category of the manual",
-                      "type": "string"
-                    },
-                    "tags": {
-                      "description": "Tags associated with the manual",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "index": {
-                      "description": "The display order index",
-                      "type": "number"
-                    },
-                    "content": {
-                      "description": "The markdown content of the manual",
-                      "type": "string"
-                    },
-                    "link": {
-                      "description": "The URL to the official documentation page",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "createdAt",
-                    "updatedAt",
-                    "id",
-                    "name",
-                    "content"
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Manual not found"
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "fetchPlatformContentManual",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/platform/content/manual/list": {
-      "get": {
-        "operationId": "listPlatformContentManuals",
-        "summary": "Retrieve a list of platform manuals",
-        "description": "Returns a list of available documentation manuals with their metadata.\n",
-        "tags": [
-          "Platform"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "cursor",
-            "schema": {
-              "description": "The cursor to use for pagination",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "order",
-            "schema": {
-              "description": "The order of the paginated items",
-              "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "default": "desc"
-            }
-          },
-          {
-            "in": "query",
-            "name": "take",
-            "schema": {
-              "description": "The number of items to retrieve",
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "meta",
-            "schema": {
-              "description": "Key-value pairs to filter the partner users by metadata",
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "style": "deepObject",
-            "explode": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The list of manuals was retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "Instance list properties",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The associated name"
-                          },
-                          "description": {
-                            "type": "string",
-                            "description": "The associated description"
-                          },
-                          "meta": {
-                            "type": "object",
-                            "description": "Meta data information",
-                            "additionalProperties": true,
-                            "$$ref": "#/components/schemas/Meta"
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "The instance ID"
-                          },
-                          "createdAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was created"
-                          },
-                          "updatedAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was updated"
-                          },
-                          "category": {
-                            "description": "The category of the manual",
-                            "type": "string"
-                          },
-                          "tags": {
-                            "description": "Tags associated with the manual",
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "index": {
-                            "description": "The display order index",
-                            "type": "number"
-                          },
-                          "link": {
-                            "description": "The URL to the official documentation page",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "createdAt",
-                          "updatedAt",
-                          "name",
-                          "description",
-                          "tags",
-                          "index",
-                          "score",
-                          "excerpt",
-                          "link"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "items"
-                  ]
-                }
-              },
-              "application/jsonl": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "item"
-                          ]
-                        },
-                        "data": {
-                          "type": "object",
-                          "description": "Instance list properties",
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "The associated name"
-                            },
-                            "description": {
-                              "type": "string",
-                              "description": "The associated description"
-                            },
-                            "meta": {
-                              "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The instance ID"
-                            },
-                            "createdAt": {
-                              "type": "number",
-                              "description": "The timestamp (ms) when the instance was created"
-                            },
-                            "updatedAt": {
-                              "type": "number",
-                              "description": "The timestamp (ms) when the instance was updated"
-                            },
-                            "category": {
-                              "description": "The category of the manual",
-                              "type": "string"
-                            },
-                            "tags": {
-                              "description": "Tags associated with the manual",
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
-                            },
-                            "index": {
-                              "description": "The display order index",
-                              "type": "number"
-                            },
-                            "link": {
-                              "description": "The URL to the official documentation page",
-                              "type": "string"
-                            }
-                          },
-                          "$$ref": "#/paths/~1platform~1content~1manual~1list/get/responses/200/content/application~1json/schema/properties/items/items",
-                          "required": [
-                            "id",
-                            "createdAt",
-                            "updatedAt",
-                            "name",
-                            "description",
-                            "tags",
-                            "index",
-                            "score",
-                            "excerpt",
-                            "link"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "listPlatformContentManuals",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/platform/content/manual/search": {
-      "post": {
-        "operationId": "searchPlatformContentManuals",
-        "summary": "Search platform manuals using semantic similarity",
-        "tags": [
-          "Platform"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "search": {
-                    "description": "The search query to find relevant manuals",
-                    "type": "string"
-                  },
-                  "take": {
-                    "description": "The maximum number of results to return (1-100, default 10)",
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 100,
-                    "default": 10
-                  }
-                },
-                "required": [
-                  "search"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The search was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "Instance list properties",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The associated name"
-                          },
-                          "description": {
-                            "type": "string",
-                            "description": "The associated description"
-                          },
-                          "meta": {
-                            "type": "object",
-                            "description": "Meta data information",
-                            "additionalProperties": true,
-                            "$$ref": "#/components/schemas/Meta"
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "The instance ID"
-                          },
-                          "createdAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was created"
-                          },
-                          "updatedAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was updated"
-                          },
-                          "category": {
-                            "description": "The category of the manual",
-                            "type": "string"
-                          },
-                          "tags": {
-                            "description": "Tags associated with the manual",
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "index": {
-                            "description": "The display order index",
-                            "type": "number"
-                          },
-                          "score": {
-                            "description": "The similarity score of the search result",
-                            "type": "number"
-                          },
-                          "excerpt": {
-                            "description": "An excerpt from the most relevant part of the manual",
-                            "type": "string"
-                          },
-                          "link": {
-                            "description": "The URL to the official documentation page",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "createdAt",
-                          "updatedAt",
-                          "name",
-                          "description",
-                          "tags",
-                          "index",
-                          "score",
-                          "excerpt",
-                          "link"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "items"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "searchPlatformContentManuals",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/platform/content/tutorial/{tutorialId}/fetch": {
-      "get": {
-        "operationId": "fetchPlatformContentTutorial",
-        "summary": "Fetch a specific platform tutorial",
-        "description": "Retrieves the complete content and metadata of a specific tutorial. This\nincludes the markdown content and all associated frontmatter.\n",
-        "tags": [
-          "Platform"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "tutorialId",
-            "required": true,
-            "schema": {
-              "description": "The ID of the tutorial to fetch (e.g., \"how-to-get-started-with-chatbotkit\")",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The tutorial was retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Instance list properties",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "The associated name"
-                    },
-                    "description": {
-                      "type": "string",
-                      "description": "The associated description"
-                    },
-                    "meta": {
-                      "type": "object",
-                      "description": "Meta data information",
-                      "additionalProperties": true,
-                      "$$ref": "#/components/schemas/Meta"
-                    },
-                    "id": {
-                      "type": "string",
-                      "description": "The instance ID"
-                    },
-                    "createdAt": {
-                      "type": "number",
-                      "description": "The timestamp (ms) when the instance was created"
-                    },
-                    "updatedAt": {
-                      "type": "number",
-                      "description": "The timestamp (ms) when the instance was updated"
-                    },
-                    "category": {
-                      "description": "The category of the tutorial",
-                      "type": "string"
-                    },
-                    "tags": {
-                      "description": "Tags associated with the tutorial",
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "index": {
-                      "description": "The display order index",
-                      "type": "number"
-                    },
-                    "content": {
-                      "description": "The markdown content of the tutorial",
-                      "type": "string"
-                    },
-                    "link": {
-                      "description": "The URL to the official tutorial page",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "createdAt",
-                    "updatedAt",
-                    "id",
-                    "name",
-                    "content"
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Tutorial not found"
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "fetchPlatformContentTutorial",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/platform/content/tutorial/list": {
-      "get": {
-        "operationId": "listPlatformContentTutorials",
-        "summary": "Retrieve a list of platform tutorials",
-        "description": "Returns a list of available tutorials with their metadata.\n",
-        "tags": [
-          "Platform"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "cursor",
-            "schema": {
-              "description": "The cursor to use for pagination",
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "order",
-            "schema": {
-              "description": "The order of the paginated items",
-              "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "default": "desc"
-            }
-          },
-          {
-            "in": "query",
-            "name": "take",
-            "schema": {
-              "description": "The number of items to retrieve",
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "meta",
-            "schema": {
-              "description": "Key-value pairs to filter the partner users by metadata",
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "style": "deepObject",
-            "explode": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The list of tutorials was retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "Instance list properties",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The associated name"
-                          },
-                          "description": {
-                            "type": "string",
-                            "description": "The associated description"
-                          },
-                          "meta": {
-                            "type": "object",
-                            "description": "Meta data information",
-                            "additionalProperties": true,
-                            "$$ref": "#/components/schemas/Meta"
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "The instance ID"
-                          },
-                          "createdAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was created"
-                          },
-                          "updatedAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was updated"
-                          },
-                          "category": {
-                            "description": "The category of the tutorial",
-                            "type": "string"
-                          },
-                          "tags": {
-                            "description": "Tags associated with the tutorial",
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "index": {
-                            "description": "The display order index",
-                            "type": "number"
-                          },
-                          "link": {
-                            "description": "The URL to the official tutorial page",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "createdAt",
-                          "updatedAt",
-                          "name",
-                          "description",
-                          "tags",
-                          "index",
-                          "score",
-                          "excerpt",
-                          "link"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "items"
-                  ]
-                }
-              },
-              "application/jsonl": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "description": "The type of event",
-                          "type": "string",
-                          "enum": [
-                            "item"
-                          ]
-                        },
-                        "data": {
-                          "type": "object",
-                          "description": "Instance list properties",
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "The associated name"
-                            },
-                            "description": {
-                              "type": "string",
-                              "description": "The associated description"
-                            },
-                            "meta": {
-                              "type": "object",
-                              "description": "Meta data information",
-                              "additionalProperties": true,
-                              "$$ref": "#/components/schemas/Meta"
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The instance ID"
-                            },
-                            "createdAt": {
-                              "type": "number",
-                              "description": "The timestamp (ms) when the instance was created"
-                            },
-                            "updatedAt": {
-                              "type": "number",
-                              "description": "The timestamp (ms) when the instance was updated"
-                            },
-                            "category": {
-                              "description": "The category of the tutorial",
-                              "type": "string"
-                            },
-                            "tags": {
-                              "description": "Tags associated with the tutorial",
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
-                            },
-                            "index": {
-                              "description": "The display order index",
-                              "type": "number"
-                            },
-                            "link": {
-                              "description": "The URL to the official tutorial page",
-                              "type": "string"
-                            }
-                          },
-                          "$$ref": "#/paths/~1platform~1content~1tutorial~1list/get/responses/200/content/application~1json/schema/properties/items/items",
-                          "required": [
-                            "id",
-                            "createdAt",
-                            "updatedAt",
-                            "name",
-                            "description",
-                            "tags",
-                            "index",
-                            "score",
-                            "excerpt",
-                            "link"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "data"
-                      ]
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "listPlatformContentTutorials",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/platform/content/tutorial/search": {
-      "post": {
-        "operationId": "searchPlatformContentTutorials",
-        "summary": "Search platform tutorials using semantic similarity",
-        "tags": [
-          "Platform"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "search": {
-                    "description": "The search query to find relevant tutorials",
-                    "type": "string"
-                  },
-                  "take": {
-                    "description": "The maximum number of results to return (1-100, default 10)",
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 100,
-                    "default": 10
-                  }
-                },
-                "required": [
-                  "search"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The search was successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "description": "Instance list properties",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The associated name"
-                          },
-                          "description": {
-                            "type": "string",
-                            "description": "The associated description"
-                          },
-                          "meta": {
-                            "type": "object",
-                            "description": "Meta data information",
-                            "additionalProperties": true,
-                            "$$ref": "#/components/schemas/Meta"
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "The instance ID"
-                          },
-                          "createdAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was created"
-                          },
-                          "updatedAt": {
-                            "type": "number",
-                            "description": "The timestamp (ms) when the instance was updated"
-                          },
-                          "category": {
-                            "description": "The category of the tutorial",
-                            "type": "string"
-                          },
-                          "tags": {
-                            "description": "Tags associated with the tutorial",
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "index": {
-                            "description": "The display order index",
-                            "type": "number"
-                          },
-                          "score": {
-                            "description": "The similarity score of the search result",
-                            "type": "number"
-                          },
-                          "excerpt": {
-                            "description": "An excerpt from the most relevant part of the tutorial",
-                            "type": "string"
-                          },
-                          "link": {
-                            "description": "The URL to the official tutorial page",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "createdAt",
-                          "updatedAt",
-                          "name",
-                          "description",
-                          "tags",
-                          "index",
-                          "score",
-                          "excerpt",
-                          "link"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "items"
-                  ]
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "searchPlatformContentTutorials",
+        "__originalOperationId": "searchPlatformDocs",
         "security": [
           {
             "BearerAuth": []
@@ -28633,8 +27649,8 @@
                       "description": "The URL to the official example page",
                       "type": "string"
                     },
-                    "keywords": {
-                      "description": "The keywords associated with the example",
+                    "tags": {
+                      "description": "Tags associated with the example",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -28790,8 +27806,8 @@
                               "trigger"
                             ]
                           },
-                          "keywords": {
-                            "description": "The keywords associated with the example",
+                          "tags": {
+                            "description": "Tags associated with the example",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -28879,8 +27895,8 @@
                                 "trigger"
                               ]
                             },
-                            "keywords": {
-                              "description": "The keywords associated with the example",
+                            "tags": {
+                              "description": "Tags associated with the example",
                               "type": "array",
                               "items": {
                                 "type": "string"
@@ -28948,6 +27964,13 @@
                   "search": {
                     "description": "The search query to find relevant examples",
                     "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 10)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 10
                   }
                 },
                 "required": [
@@ -29014,8 +28037,8 @@
                               "trigger"
                             ]
                           },
-                          "keywords": {
-                            "description": "The keywords associated with the example",
+                          "tags": {
+                            "description": "Tags associated with the example",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -29056,6 +28079,492 @@
           }
         },
         "__originalOperationId": "searchPlatformExamples",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/manual/{manualId}/fetch": {
+      "get": {
+        "operationId": "fetchPlatformManual",
+        "summary": "Fetch a specific platform manual",
+        "description": "Retrieves the complete content and metadata of a specific manual. This\nincludes the markdown content and all associated frontmatter.\n",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "manualId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the manual to fetch (e.g., \"datasets\", \"skillsets\")",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The manual was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Instance list properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "category": {
+                      "description": "The category of the manual",
+                      "type": "string"
+                    },
+                    "tags": {
+                      "description": "Tags associated with the manual",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "index": {
+                      "description": "The display order index",
+                      "type": "number"
+                    },
+                    "content": {
+                      "description": "The markdown content of the manual",
+                      "type": "string"
+                    },
+                    "link": {
+                      "description": "The URL to the official documentation page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "id",
+                    "name",
+                    "content"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Manual not found"
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchPlatformManual",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/manual/list": {
+      "get": {
+        "operationId": "listPlatformManuals",
+        "summary": "Retrieve a list of platform manuals",
+        "description": "Returns a list of available documentation manuals with their metadata.\n",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of manuals was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "category": {
+                            "description": "The category of the manual",
+                            "type": "string"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the manual",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          },
+                          "link": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name",
+                          "description",
+                          "tags",
+                          "index",
+                          "link"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "category": {
+                              "description": "The category of the manual",
+                              "type": "string"
+                            },
+                            "tags": {
+                              "description": "Tags associated with the manual",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "index": {
+                              "description": "The display order index",
+                              "type": "number"
+                            },
+                            "link": {
+                              "description": "The URL to the official documentation page",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1platform~1manual~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "name",
+                            "description",
+                            "tags",
+                            "index",
+                            "link"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listPlatformManuals",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/manual/search": {
+      "post": {
+        "operationId": "searchPlatformManuals",
+        "summary": "Search platform manuals using semantic similarity",
+        "tags": [
+          "Platform"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "description": "The search query to find relevant manuals",
+                    "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 10)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 10
+                  }
+                },
+                "required": [
+                  "search"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The search was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "category": {
+                            "description": "The category of the manual",
+                            "type": "string"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the manual",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          },
+                          "score": {
+                            "description": "The similarity score of the search result",
+                            "type": "number"
+                          },
+                          "excerpt": {
+                            "description": "An excerpt from the most relevant part of the manual",
+                            "type": "string"
+                          },
+                          "link": {
+                            "description": "The URL to the official documentation page",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name",
+                          "description",
+                          "tags",
+                          "index",
+                          "score",
+                          "excerpt",
+                          "link"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "searchPlatformManuals",
         "security": [
           {
             "BearerAuth": []
@@ -29504,6 +29013,492 @@
           }
         },
         "__originalOperationId": "listPlatformSecrets",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/tutorial/{tutorialId}/fetch": {
+      "get": {
+        "operationId": "fetchPlatformTutorial",
+        "summary": "Fetch a specific platform tutorial",
+        "description": "Retrieves the complete content and metadata of a specific tutorial. This\nincludes the markdown content and all associated frontmatter.\n",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tutorialId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the tutorial to fetch (e.g., \"how-to-get-started-with-chatbotkit\")",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The tutorial was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Instance list properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "category": {
+                      "description": "The category of the tutorial",
+                      "type": "string"
+                    },
+                    "tags": {
+                      "description": "Tags associated with the tutorial",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "index": {
+                      "description": "The display order index",
+                      "type": "number"
+                    },
+                    "content": {
+                      "description": "The markdown content of the tutorial",
+                      "type": "string"
+                    },
+                    "link": {
+                      "description": "The URL to the official tutorial page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "id",
+                    "name",
+                    "content"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tutorial not found"
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchPlatformTutorial",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/tutorial/list": {
+      "get": {
+        "operationId": "listPlatformTutorials",
+        "summary": "Retrieve a list of platform tutorials",
+        "description": "Returns a list of available tutorials with their metadata.\n",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of tutorials was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "category": {
+                            "description": "The category of the tutorial",
+                            "type": "string"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the tutorial",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          },
+                          "link": {
+                            "description": "The URL to the official tutorial page",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name",
+                          "description",
+                          "tags",
+                          "index",
+                          "link"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "category": {
+                              "description": "The category of the tutorial",
+                              "type": "string"
+                            },
+                            "tags": {
+                              "description": "Tags associated with the tutorial",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "index": {
+                              "description": "The display order index",
+                              "type": "number"
+                            },
+                            "link": {
+                              "description": "The URL to the official tutorial page",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1platform~1tutorial~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "name",
+                            "description",
+                            "tags",
+                            "index",
+                            "link"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listPlatformTutorials",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/tutorial/search": {
+      "post": {
+        "operationId": "searchPlatformTutorials",
+        "summary": "Search platform tutorials using semantic similarity",
+        "tags": [
+          "Platform"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "description": "The search query to find relevant tutorials",
+                    "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 10)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 10
+                  }
+                },
+                "required": [
+                  "search"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The search was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "category": {
+                            "description": "The category of the tutorial",
+                            "type": "string"
+                          },
+                          "tags": {
+                            "description": "Tags associated with the tutorial",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "index": {
+                            "description": "The display order index",
+                            "type": "number"
+                          },
+                          "score": {
+                            "description": "The similarity score of the search result",
+                            "type": "number"
+                          },
+                          "excerpt": {
+                            "description": "An excerpt from the most relevant part of the tutorial",
+                            "type": "string"
+                          },
+                          "link": {
+                            "description": "The URL to the official tutorial page",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name",
+                          "description",
+                          "tags",
+                          "index",
+                          "score",
+                          "excerpt",
+                          "link"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "searchPlatformTutorials",
         "security": [
           {
             "BearerAuth": []

@@ -16,18 +16,18 @@
  *   meta?: Record<string,string>
  * }} PlatformDocListRequest
  *
- * @typedef {import('../../types/api/v1.js').operations['listPlatformContentDocs']['responses']['200']['content']['application/json']} PlatformDocListResponse
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformDocs']['responses']['200']['content']['application/json']} PlatformDocListResponse
  *
  * @typedef {PlatformDocListResponse['items'][number]} PlatformDocListItem
  *
- * @typedef {import('../../types/api/v1.js').operations['listPlatformContentDocs']['responses']['200']['content']['application/jsonl']} PlatformDocListStreamType
+ * @typedef {import('../../types/api/v1.js').operations['listPlatformDocs']['responses']['200']['content']['application/jsonl']} PlatformDocListStreamType
  *
  * @param {ChatBotKitClient} client
  * @param {PlatformDocListRequest} [request]
  * @returns {ResponsePromise<PlatformDocListResponse,PlatformDocListStreamType>}
  */
 export function listPlatformDocs(client, request) {
-  let url = `/api/v1/platform/content/doc/list`
+  let url = `/api/v1/platform/doc/list`
 
   /** @type {ResponsePromise<PlatformDocListResponse,PlatformDocListStreamType>} */
   const response = client.clientFetch(url, { query: request })
@@ -36,11 +36,11 @@ export function listPlatformDocs(client, request) {
 }
 
 /**
- * @typedef {import('../../types/api/v1.js').operations['searchPlatformContentDocs']['requestBody']['content']['application/json']} PlatformDocSearchRequestBody
+ * @typedef {import('../../types/api/v1.js').operations['searchPlatformDocs']['requestBody']['content']['application/json']} PlatformDocSearchRequestBody
  *
  * @typedef {PlatformDocSearchRequestBody} PlatformDocSearchRequest
  *
- * @typedef {import('../../types/api/v1.js').operations['searchPlatformContentDocs']['responses']['200']['content']['application/json']} PlatformDocSearchResponseBody
+ * @typedef {import('../../types/api/v1.js').operations['searchPlatformDocs']['responses']['200']['content']['application/json']} PlatformDocSearchResponseBody
  *
  * @typedef {PlatformDocSearchResponseBody} PlatformDocSearchResponse
  *
@@ -49,7 +49,7 @@ export function listPlatformDocs(client, request) {
  * @returns {Promise<PlatformDocSearchResponse>}
  */
 export async function searchPlatformDocs(client, request) {
-  const url = `/api/v1/platform/content/doc/search`
+  const url = `/api/v1/platform/doc/search`
 
   /** @type {PlatformDocSearchResponseBody} */
   const response = await client.clientFetch(url, {
@@ -63,18 +63,18 @@ export async function searchPlatformDocs(client, request) {
 }
 
 /**
- * @typedef {import('../../types/api/v1.js').operations['fetchPlatformContentDoc']['responses']['200']['content']['application/json']} PlatformDocFetchResponse
+ * @typedef {import('../../types/api/v1.js').operations['fetchPlatformDoc']['responses']['200']['content']['application/json']} PlatformDocFetchResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} docId
  * @returns {ResponsePromise<PlatformDocFetchResponse,never>}
  */
 export function fetchPlatformDoc(client, docId) {
-  const url = `/api/v1/platform/content/doc/${docId}/fetch`
+  const url = `/api/v1/platform/doc/${docId}/fetch`
 
   /** @type {ResponsePromise<PlatformDocFetchResponse,never>} */
   const response = client.clientFetch(url, {
-    endpoint: '/api/v1/platform/content/doc/{docId}/fetch',
+    endpoint: '/api/v1/platform/doc/{docId}/fetch',
   })
 
   return response
