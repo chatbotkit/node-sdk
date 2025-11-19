@@ -22,16 +22,19 @@ pnpm -F @examples/vite-react-stateless-chat server
 As a standalone application:
 
 1. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 2. Start the backend server:
+
 ```bash
 pnpm server
 ```
 
 3. Start the Vite development server:
+
 ```bash
 pnpm dev
 ```
