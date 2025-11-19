@@ -6,7 +6,7 @@
 
 # Class: BotResource
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L281)
+Defined in: [packages/cli/src/solution/index.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L281)
 
 Represents a bot resource.
 
@@ -20,7 +20,7 @@ Represents a bot resource.
 
 > **new BotResource**(`config`): `BotResource`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:186](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L186)
+Defined in: [packages/cli/src/solution/index.js:186](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L186)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:186](https://github.co
 
 > **get** **baseClient**(): `ChatBotKit`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:231](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L231)
+Defined in: [packages/cli/src/solution/index.js:231](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L231)
 
 ##### Returns
 
@@ -62,7 +62,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:231](https://github.co
 
 > **get** **client**(): `BotClient`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:286](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L286)
+Defined in: [packages/cli/src/solution/index.js:286](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L286)
 
 ##### Returns
 
@@ -80,7 +80,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:286](https://github.co
 
 > **get** **description**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L224)
+Defined in: [packages/cli/src/solution/index.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L224)
 
 ##### Returns
 
@@ -98,7 +98,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:224](https://github.co
 
 > **get** **id**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:210](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L210)
+Defined in: [packages/cli/src/solution/index.js:210](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L210)
 
 ##### Returns
 
@@ -116,7 +116,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:210](https://github.co
 
 > **get** **name**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:217](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L217)
+Defined in: [packages/cli/src/solution/index.js:217](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L217)
 
 ##### Returns
 
@@ -134,7 +134,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:217](https://github.co
 
 > **get** **slug**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L200)
+Defined in: [packages/cli/src/solution/index.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L200)
 
 ##### Returns
 
@@ -152,7 +152,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:200](https://github.co
 
 > **get** **type**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:193](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L193)
+Defined in: [packages/cli/src/solution/index.js:193](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L193)
 
 ##### Returns
 
@@ -168,7 +168,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:193](https://github.co
 
 > **sync**(): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:257](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L257)
+Defined in: [packages/cli/src/solution/index.js:257](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L257)
 
 Sync the resource.
 

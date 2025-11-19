@@ -8,6 +8,6 @@
 
 > **SolutionConfig**\<\> = `z.infer`\<*typeof* [`SolutionConfigSchema`](../variables/SolutionConfigSchema.md)\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L175)
+Defined in: [packages/cli/src/solution/index.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L175)
 
 ## Type Parameters
