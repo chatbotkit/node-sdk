@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763502364145)"
+    "version": "v1 (build 1763550223953)"
   },
   "servers": [
     {
@@ -1377,9 +1377,9 @@
         ]
       }
     },
-    "/report/{reportId}/fetch": {
+    "/report/{reportId}/generate": {
       "post": {
-        "operationId": "fetchReport",
+        "operationId": "generateReport",
         "summary": "Generate a specific report",
         "description": "Generates a report based on the specified report ID and input\nparameters.\n",
         "tags": [
@@ -1433,7 +1433,7 @@
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
-        "__originalOperationId": "fetchReport",
+        "__originalOperationId": "generateReport",
         "security": [
           {
             "BearerAuth": []

@@ -3,23 +3,23 @@
  */
 
 /**
- * @typedef {import('../types/api/v1.js').operations['fetchReport']['requestBody']['content']['application/json']} ReportFetchRequestBody
+ * @typedef {import('../types/api/v1.js').operations['generateReport']['requestBody']['content']['application/json']} ReportGenerateRequestBody
  *
- * @typedef {ReportFetchRequestBody} ReportFetchRequest
+ * @typedef {ReportGenerateRequestBody} ReportGenerateRequest
  *
- * @typedef {import('../types/api/v1.js').operations['fetchReport']['responses']['200']['content']['application/json']} ReportFetchResponse
+ * @typedef {import('../types/api/v1.js').operations['generateReport']['responses']['200']['content']['application/json']} ReportGenerateResponse
  *
  * @param {ChatBotKitClient} client
  * @param {string} reportId
- * @param {ReportFetchRequest} request
- * @returns {Promise<ReportFetchResponse>}
+ * @param {ReportGenerateRequest} request
+ * @returns {Promise<ReportGenerateResponse>}
  */
-export async function fetchReport(client, reportId, request) {
-  const url = `/api/v1/report/${reportId}/fetch`
+export async function generateReport(client, reportId, request) {
+  const url = `/api/v1/report/${reportId}/generate`
 
-  /** @type {ReportFetchResponse} */
+  /** @type {ReportGenerateResponse} */
   const response = await client.clientFetch(url, {
-    /** @type {ReportFetchRequestBody} */
+    /** @type {ReportGenerateRequestBody} */
     record: {
       ...request,
     },
@@ -35,7 +35,7 @@ export async function fetchReport(client, reportId, request) {
  */
 
 /**
- * Fetch a typed report with input and output type safety
+ * Generate a typed report with input and output type safety
  *
  * @template {ReportId} T
  * @param {ChatBotKitClient} client
@@ -43,11 +43,11 @@ export async function fetchReport(client, reportId, request) {
  * @param {ReportInputTypes[T]} request - The report input
  * @returns {Promise<ReportOutputTypes[T]>}
  */
-export async function fetchTypedReport(client, reportId, request) {
-  const url = `/api/v1/report/${reportId}/fetch`
+export async function generateTypedReport(client, reportId, request) {
+  const url = `/api/v1/report/${reportId}/generate`
 
   const response = await client.clientFetch(url, {
-    /** @type {ReportFetchRequestBody} */
+    /** @type {ReportGenerateRequestBody} */
     record: {
       ...request,
     },
