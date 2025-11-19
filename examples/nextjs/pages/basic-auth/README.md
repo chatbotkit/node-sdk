@@ -1,6 +1,17 @@
-Welcome to this example project that showcases the integration of the ChatBotKit Partner API with NextAuth.js. This project is designed to provide you with a clear and practical demonstration of how to leverage the powerful features of the ChatBotKit Partner API alongside the NextAuth.js library in a Next.js environment to create a basic yet functional authentication flow.
+# ChatBotKit Partner API Authentication Example
 
-This is the most straightforward way to build quick AI applications with ChatBotKit without having to worry about the complexities of building a backend.
+This example demonstrates how to use the **ChatBotKit Partner API** to authenticate users directly into their sub-accounts using a passwordless email authentication flow with NextAuth.js.
+
+## What This Example Does
+
+This project showcases a complete authentication system that:
+
+- **Authenticates users into sub-accounts**: Uses the ChatBotKit Partner API to create and manage user sub-accounts automatically
+- **Passwordless authentication**: Implements email-based authentication with secure 6-character verification codes
+- **Direct sub-account access**: Once authenticated, users are automatically logged into their dedicated ChatBotKit sub-account
+- **Partner API integration**: Demonstrates how to use the Partner API to manage user identities and access control
+
+This is the most straightforward way to build quick AI applications with ChatBotKit for your users without having to worry about the complexities of building a backend or managing user infrastructure.
 
 ## Getting Started
 
