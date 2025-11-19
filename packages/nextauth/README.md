@@ -7,7 +7,16 @@
 
 # ChatBotKit NextAuth SDK
 
-The [ChatBotKit](https://chatbotkit.com) SDK for NextAuth.js offers a simple way to integrate your Next.js application with the ChatBotKit platform.
+The [ChatBotKit](https://chatbotkit.com) SDK for NextAuth.js enables passwordless email authentication that integrates directly with the ChatBotKit Partner API. This allows you to authenticate users into their ChatBotKit sub-accounts without building separate user management infrastructure.
+
+## What It Does
+
+This SDK eliminates the need for a separate authentication system by:
+
+- **Authenticating users directly into ChatBotKit sub-accounts** via the Partner API
+- **Managing user identities** automatically through ChatBotKit
+- **Providing passwordless authentication** with secure 6-character verification codes
+- **Simplifying your architecture** by removing the need for password management and user databases
 
 ## Getting Started
 
@@ -16,25 +25,45 @@ To begin using the ChatBotKit NextAuth SDK, follow these steps:
 1. **Installation**: Add the SDK to your project using npm:
 
    ```bash
-   npm install @chatbotkit/nextauth
+   npm install @chatbotkit/nextauth next-auth
    ```
 
-2. **Configuration**: Create nextauth.config.js file in your project root directory and add the following code:
+2. **Configuration**: Create a `nextauth.config.js` file in your project root directory:
 
    ```javascript
-   const {
-     ChatBotKitPartnerAdapter,
+   import {
      ChatBotKitEmailProvider,
+     ChatBotKitPartnerAdapter,
      MemoryStore,
-   } = require('@chatbotkit/nextauth')
+   } from '@chatbotkit/nextauth'
 
    const nextAuthConfig = {
      adapter: ChatBotKitPartnerAdapter({
        secret: process.env.CHATBOTKIT_API_SECRET,
+
+       // Use Redis or another persistent store in production
+
        store: new MemoryStore(),
+
+       // Control user lifecycle
+
+       autoCreateUser: false,
+       autoUpdateUser: true,
+       autoDeleteUser: false,
      }),
 
-     providers: [ChatBotKitEmailProvider({})],
+     providers: [
+       ChatBotKitEmailProvider({
+         async sendVerificationRequest({ identifier, token }) {
+           // Implement your email sending logic here
+           await sendEmail({
+             to: identifier,
+             subject: 'Sign in to your account',
+             text: `Your verification code is: ${token}`,
+           })
+         },
+       }),
+     ],
 
      session: {
        strategy: 'jwt',
@@ -58,16 +87,35 @@ To begin using the ChatBotKit NextAuth SDK, follow these steps:
 
      pages: {
        signIn: '/signin',
+       signOut: '/signin',
        verifyRequest: '/verify',
      },
 
      debug: !!process.env.DEBUG,
    }
+
+   export default nextAuthConfig
    ```
 
-3. **Usage**: Use the config file to initialize the nextauth routes as you normally would.
+3. **Create NextAuth API Route**: Create `pages/api/auth/[...nextauth].js`:
 
-A complete example of the ChatBotKit NextAuth SDK in use can be found in the [here](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/basic-auth).
+   ```javascript
+   import NextAuth from 'next-auth'
+
+   import nextAuthConfig from '../../../nextauth.config.js'
+
+   export default NextAuth(nextAuthConfig)
+   ```
+
+4. **Environment Variables**: Add your ChatBotKit Partner API secret to `.env`:
+
+   ```bash
+   CHATBOTKIT_API_SECRET=your_partner_api_secret_here
+   ```
+
+## Complete Example
+
+A complete working example demonstrating passwordless authentication with the ChatBotKit Partner API can be found in the [basic-auth example](https://github.com/chatbotkit/node-sdk/tree/main/examples/nextjs/pages/basic-auth).
 
 ## Documentation
 
