@@ -1,14 +1,17 @@
-Welcome to this stateful chat example project that showcases the integration of the ChatBotKit SDK with the Next.js framework. This project is designed to provide you with a clear and practical demonstration of how to leverage the powerful features of the ChatBotKit SDK alongside the ChatBotKit React library in a Next.js environment to create a basic yet functional chat application.
+# Stateful Chat Example
 
-The most important files in this project are:
+A Next.js example demonstrating stateful chat implementation with the ChatBotKit SDK. Maintains conversation context across multiple messages using sessions.
 
-- [pages/api/session/create.js](pages/api/session/create.js) - used for creating a conversation session
-- [pages/index.js](pages/index.js) - used for rendering a basic UI
+## How It Works
 
-This is how it works:
+1. **Session Creation** - [pages/api/session/create.js](pages/api/session/create.js) creates a conversation session and returns a `conversationId` and secure `token`
+2. **UI Component** - [pages/index.js](pages/index.js) uses the session credentials to maintain conversation context
 
-1. We create a chat session via the [pages/api/session/create.js](pages/api/session/create.js) route. The resulting conversationId and token can be used to securely open a chat session to the ChatBotKit SDK without having an intermediate layer.
-2. In the [pages/index.js](pages/index.js) we build a basic chat interface and use the token and conversationId to chat to the bot.
+## Key Features
+
+- Persistent conversation state
+- Secure session tokens for direct ChatBotKit SDK communication
+- No intermediate server layer required for message handling
 
 ## Getting Started
 
