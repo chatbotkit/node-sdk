@@ -4417,6 +4417,16 @@ export interface components {
          */
         Schedule: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
         /**
+         * @description The task execution status
+         * @enum {string}
+         */
+        TaskStatus: "idle" | "running";
+        /**
+         * @description The task execution outcome
+         * @enum {string}
+         */
+        TaskOutcome: "pending" | "success" | "failure";
+        /**
          * @description The blueprint visibility
          * @enum {string}
          */
@@ -20705,6 +20715,16 @@ export interface operations {
                         botId?: string;
                         /** @description The schedule of the task */
                         schedule?: string;
+                        /**
+                         * @description The task execution status
+                         * @enum {string}
+                         */
+                        status?: "idle" | "running";
+                        /**
+                         * @description The task execution outcome
+                         * @enum {string}
+                         */
+                        outcome?: "pending" | "success" | "failure";
                     };
                 };
             };
@@ -20999,6 +21019,16 @@ export interface operations {
                             botId?: string;
                             /** @description The schedule of the task */
                             schedule?: string;
+                            /**
+                             * @description The task execution status
+                             * @enum {string}
+                             */
+                            status?: "idle" | "running";
+                            /**
+                             * @description The task execution outcome
+                             * @enum {string}
+                             */
+                            outcome?: "pending" | "success" | "failure";
                         }[];
                     };
                     "application/jsonl": {
@@ -21029,6 +21059,16 @@ export interface operations {
                             botId?: string;
                             /** @description The schedule of the task */
                             schedule?: string;
+                            /**
+                             * @description The task execution status
+                             * @enum {string}
+                             */
+                            status?: "idle" | "running";
+                            /**
+                             * @description The task execution outcome
+                             * @enum {string}
+                             */
+                            outcome?: "pending" | "success" | "failure";
                         };
                     };
                 };
