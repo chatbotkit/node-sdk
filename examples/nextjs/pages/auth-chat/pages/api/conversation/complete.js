@@ -55,6 +55,9 @@ export default async function handler(req) {
 
       messages,
 
+      // ChatBotKit will automatically create or retrieve the contact based on
+      // the fingerprint, ensuring all conversations are properly tracked.
+
       contactId: {
         fingerprint,
 
