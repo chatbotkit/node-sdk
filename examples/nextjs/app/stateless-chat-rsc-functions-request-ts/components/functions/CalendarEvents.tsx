@@ -13,7 +13,7 @@ export type Event = {
   title: string
 }
 
-// This component is a simple list of calendar events. It also utilises the
+// This component is a simple list of calendar events. It also utilizes the
 // conversation context to trigger a decline event when the user clicks on the
 // "Decline" link. This mechanism creates a powerful way to interact with the
 // conversation from any component in the tree.
