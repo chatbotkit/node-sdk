@@ -6,7 +6,7 @@
 
 # Class: PlatformClient
 
-Defined in: [platform/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L13)
+Defined in: [platform/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L15)
 
 Platform client.
 
@@ -20,7 +20,7 @@ Platform client.
 
 > **new PlatformClient**(`options`): `PlatformClient`
 
-Defined in: [platform/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L17)
+Defined in: [platform/index.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L19)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/index.js:17](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **ability**: [`PlatformAbilityClient`](../ability/classes/PlatformAbilityClient.md)
 
-Defined in: [platform/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L28)
+Defined in: [platform/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L30)
 
 ***
 
@@ -50,15 +50,15 @@ Defined in: [platform/index.js:28](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **action**: [`PlatformActionClient`](../action/classes/PlatformActionClient.md)
 
-Defined in: [platform/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L33)
+Defined in: [platform/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L35)
 
 ***
 
-### content
+### doc
 
-> **content**: [`PlatformContentClient`](../content/classes/PlatformContentClient.md)
+> **doc**: [`PlatformDocClient`](../doc/classes/PlatformDocClient.md)
 
-Defined in: [platform/index.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L38)
+Defined in: [platform/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L40)
 
 ***
 
@@ -66,7 +66,15 @@ Defined in: [platform/index.js:38](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **example**: [`PlatformExampleClient`](../example/classes/PlatformExampleClient.md)
 
-Defined in: [platform/index.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L48)
+Defined in: [platform/index.js:60](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L60)
+
+***
+
+### manual
+
+> **manual**: [`PlatformManualClient`](../manual/classes/PlatformManualClient.md)
+
+Defined in: [platform/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L45)
 
 ***
 
@@ -74,7 +82,7 @@ Defined in: [platform/index.js:48](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **model**: [`PlatformModelClient`](../model/classes/PlatformModelClient.md)
 
-Defined in: [platform/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L23)
+Defined in: [platform/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L25)
 
 ***
 
@@ -82,7 +90,7 @@ Defined in: [platform/index.js:23](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **report**: [`PlatformReportClient`](../report/classes/PlatformReportClient.md)
 
-Defined in: [platform/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L53)
+Defined in: [platform/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L65)
 
 ***
 
@@ -90,7 +98,15 @@ Defined in: [platform/index.js:53](https://github.com/chatbotkit/node-sdk/blob/m
 
 > **secret**: [`PlatformSecretClient`](../secret/classes/PlatformSecretClient.md)
 
-Defined in: [platform/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L43)
+Defined in: [platform/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L55)
+
+***
+
+### tutorial
+
+> **tutorial**: [`PlatformTutorialClient`](../tutorial/classes/PlatformTutorialClient.md)
+
+Defined in: [platform/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/index.js#L50)
 
 ## Methods
 

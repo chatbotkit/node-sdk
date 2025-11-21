@@ -62,6 +62,24 @@ export async function searchPlatformExamples(client, request) {
 }
 
 /**
+ * @typedef {import('../../types/api/v1.js').operations['fetchPlatformExample']['responses']['200']['content']['application/json']} PlatformExampleFetchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} exampleId
+ * @returns {ResponsePromise<PlatformExampleFetchResponse,never>}
+ */
+export function fetchPlatformExample(client, exampleId) {
+  const url = `/api/v1/platform/example/${exampleId}/fetch`
+
+  /** @type {ResponsePromise<PlatformExampleFetchResponse,never>} */
+  const response = client.clientFetch(url, {
+    endpoint: '/api/v1/platform/example/{exampleId}/fetch',
+  })
+
+  return response
+}
+
+/**
  * @typedef {import('../../types/api/v1.js').operations['clonePlatformExample']['requestBody']['content']['application/json']} PlatformExampleCloneRequestBody
  *
  * @typedef {PlatformExampleCloneRequestBody} PlatformExampleCloneRequest

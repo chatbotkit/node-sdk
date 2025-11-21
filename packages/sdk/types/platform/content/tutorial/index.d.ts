@@ -6,29 +6,29 @@
 /**
  * Platform content tutorial client.
  */
-export class PlatformContentTutorialClient extends ChatBotKitClient {
+export class PlatformTutorialClient extends ChatBotKitClient {
     /**
      * Retrieves a list of all platform content tutorials.
      *
-     * @param {import('./v1.js').PlatformContentTutorialListRequest} [request]
-     * @returns {ResponsePromise<import('./v1.js').PlatformContentTutorialListResponse,import('./v1.js').PlatformContentTutorialListStreamType>}
+     * @param {import('./v1.js').PlatformTutorialListRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').PlatformTutorialListResponse,import('./v1.js').PlatformTutorialListStreamType>}
      */
-    list(request?: import("./v1.js").PlatformContentTutorialListRequest): ResponsePromise<import("./v1.js").PlatformContentTutorialListResponse, import("./v1.js").PlatformContentTutorialListStreamType>;
+    list(request?: import("./v1.js").PlatformTutorialListRequest): ResponsePromise<import("./v1.js").PlatformTutorialListResponse, import("./v1.js").PlatformTutorialListStreamType>;
     /**
      * Searches platform content tutorials.
      *
-     * @param {import('./v1.js').PlatformContentTutorialSearchRequest} request
-     * @returns {Promise<import('./v1.js').PlatformContentTutorialSearchResponse>}
+     * @param {import('./v1.js').PlatformTutorialSearchRequest} request
+     * @returns {Promise<import('./v1.js').PlatformTutorialSearchResponse>}
      */
-    search(request: import("./v1.js").PlatformContentTutorialSearchRequest): Promise<import("./v1.js").PlatformContentTutorialSearchResponse>;
+    search(request: import("./v1.js").PlatformTutorialSearchRequest): Promise<import("./v1.js").PlatformTutorialSearchResponse>;
     /**
      * Fetches a platform content tutorial.
      *
      * @param {string} tutorialId
-     * @returns {ResponsePromise<import('./v1.js').PlatformContentTutorialFetchResponse,never>}
+     * @returns {ResponsePromise<import('./v1.js').PlatformTutorialFetchResponse,never>}
      */
-    fetch(tutorialId: string): ResponsePromise<import("./v1.js").PlatformContentTutorialFetchResponse, never>;
+    fetch(tutorialId: string): ResponsePromise<import("./v1.js").PlatformTutorialFetchResponse, never>;
 }
-export default PlatformContentTutorialClient;
+export default PlatformTutorialClient;
 export type ResponsePromise<T, U> = import("../../../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../../client.js';

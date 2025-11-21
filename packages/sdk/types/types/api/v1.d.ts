@@ -60,6 +60,30 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/report/generate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Generate multiple reports
+         * @description Generates multiple reports in a single request. Input is a map where
+         *     each key is a report ID and each value contains the input parameters
+         *     for that report. Returns a map with the same keys containing the
+         *     corresponding report outputs.
+         *
+         */
+        post: operations["generateReports"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/blueprint/{blueprintId}/clone": {
         parameters: {
             query?: never;
@@ -3292,7 +3316,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/platform/content/doc/{docId}/fetch": {
+    "/platform/doc/{docId}/fetch": {
         parameters: {
             query?: never;
             header?: never;
@@ -3305,7 +3329,7 @@ export interface paths {
          *     includes the markdown content and all associated frontmatter.
          *
          */
-        get: operations["fetchPlatformContentDoc"];
+        get: operations["fetchPlatformDoc"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3314,7 +3338,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/platform/content/doc/list": {
+    "/platform/doc/list": {
         parameters: {
             query?: never;
             header?: never;
@@ -3326,7 +3350,7 @@ export interface paths {
          * @description Returns a list of available documentation docs with their metadata.
          *
          */
-        get: operations["listPlatformContentDocs"];
+        get: operations["listPlatformDocs"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3335,7 +3359,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/platform/content/doc/search": {
+    "/platform/doc/search": {
         parameters: {
             query?: never;
             header?: never;
@@ -3345,127 +3369,7 @@ export interface paths {
         get?: never;
         put?: never;
         /** Search platform docs using semantic similarity */
-        post: operations["searchPlatformContentDocs"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/platform/content/manual/{manualId}/fetch": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch a specific platform manual
-         * @description Retrieves the complete content and metadata of a specific manual. This
-         *     includes the markdown content and all associated frontmatter.
-         *
-         */
-        get: operations["fetchPlatformContentManual"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/platform/content/manual/list": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Retrieve a list of platform manuals
-         * @description Returns a list of available documentation manuals with their metadata.
-         *
-         */
-        get: operations["listPlatformContentManuals"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/platform/content/manual/search": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Search platform manuals using semantic similarity */
-        post: operations["searchPlatformContentManuals"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/platform/content/tutorial/{tutorialId}/fetch": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Fetch a specific platform tutorial
-         * @description Retrieves the complete content and metadata of a specific tutorial. This
-         *     includes the markdown content and all associated frontmatter.
-         *
-         */
-        get: operations["fetchPlatformContentTutorial"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/platform/content/tutorial/list": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Retrieve a list of platform tutorials
-         * @description Returns a list of available tutorials with their metadata.
-         *
-         */
-        get: operations["listPlatformContentTutorials"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/platform/content/tutorial/search": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Search platform tutorials using semantic similarity */
-        post: operations["searchPlatformContentTutorials"];
+        post: operations["searchPlatformDocs"];
         delete?: never;
         options?: never;
         head?: never;
@@ -3483,6 +3387,23 @@ export interface paths {
         put?: never;
         /** Clone a platform example */
         post: operations["clonePlatformExample"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/example/{exampleId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a specific platform example with full details */
+        get: operations["fetchPlatformExample"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -3523,6 +3444,66 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/manual/{manualId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch a specific platform manual
+         * @description Retrieves the complete content and metadata of a specific manual. This
+         *     includes the markdown content and all associated frontmatter.
+         *
+         */
+        get: operations["fetchPlatformManual"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/manual/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a list of platform manuals
+         * @description Returns a list of available documentation manuals with their metadata.
+         *
+         */
+        get: operations["listPlatformManuals"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/manual/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform manuals using semantic similarity */
+        post: operations["searchPlatformManuals"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/model/list": {
         parameters: {
             query?: never;
@@ -3551,6 +3532,66 @@ export interface paths {
         get: operations["listPlatformSecrets"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/tutorial/{tutorialId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch a specific platform tutorial
+         * @description Retrieves the complete content and metadata of a specific tutorial. This
+         *     includes the markdown content and all associated frontmatter.
+         *
+         */
+        get: operations["fetchPlatformTutorial"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/tutorial/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a list of platform tutorials
+         * @description Returns a list of available tutorials with their metadata.
+         *
+         */
+        get: operations["listPlatformTutorials"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/tutorial/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform tutorials using semantic similarity */
+        post: operations["searchPlatformTutorials"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4376,6 +4417,16 @@ export interface components {
          */
         Schedule: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
         /**
+         * @description The task execution status
+         * @enum {string}
+         */
+        TaskStatus: "idle" | "running";
+        /**
+         * @description The task execution outcome
+         * @enum {string}
+         */
+        TaskOutcome: "pending" | "success" | "failure";
+        /**
          * @description The blueprint visibility
          * @enum {string}
          */
@@ -4946,6 +4997,54 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    generateReports: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /** @example {
+                 *       "clr3m5n8k000008jq7h9e5b1a": {
+                 *         "periodDays": 30
+                 *       },
+                 *       "clr3m5n8k000108jq7h9e5b1b": {
+                 *         "periodDays": 7
+                 *       }
+                 *     } */
+                "application/json": {
+                    [key: string]: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description The reports were generated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: Record<string, never> | {
+                            /** @description Error message if report generation failed */
+                            error?: string;
+                        };
+                    };
+                };
             };
             /** @description An error response */
             default: {
@@ -17325,7 +17424,7 @@ export interface operations {
             };
         };
     };
-    fetchPlatformContentDoc: {
+    fetchPlatformDoc: {
         parameters: {
             query?: never;
             header?: never;
@@ -17366,7 +17465,7 @@ export interface operations {
                         /** @description The markdown content of the doc */
                         content: string;
                         /** @description The URL to the official documentation page */
-                        url?: string;
+                        link?: string;
                     };
                 };
             };
@@ -17388,7 +17487,7 @@ export interface operations {
             };
         };
     };
-    listPlatformContentDocs: {
+    listPlatformDocs: {
         parameters: {
             query?: {
                 cursor?: string;
@@ -17415,7 +17514,7 @@ export interface operations {
                             /** @description The associated name */
                             name: string;
                             /** @description The associated description */
-                            description?: string;
+                            description: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -17429,11 +17528,11 @@ export interface operations {
                             /** @description The category of the doc */
                             category?: string;
                             /** @description Tags associated with the doc */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The URL to the official documentation page */
-                            url?: string;
+                            link: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -17447,7 +17546,7 @@ export interface operations {
                             /** @description The associated name */
                             name: string;
                             /** @description The associated description */
-                            description?: string;
+                            description: string;
                             /** @description Meta data information */
                             meta?: {
                                 [key: string]: unknown;
@@ -17461,11 +17560,11 @@ export interface operations {
                             /** @description The category of the doc */
                             category?: string;
                             /** @description Tags associated with the doc */
-                            tags?: string[];
+                            tags: string[];
                             /** @description The display order index */
-                            index?: number;
+                            index: number;
                             /** @description The URL to the official documentation page */
-                            url?: string;
+                            link: string;
                         };
                     };
                 };
@@ -17481,7 +17580,7 @@ export interface operations {
             };
         };
     };
-    searchPlatformContentDocs: {
+    searchPlatformDocs: {
         parameters: {
             query?: never;
             header?: never;
@@ -17535,459 +17634,7 @@ export interface operations {
                             /** @description An excerpt from the most relevant part of the doc */
                             excerpt: string;
                             /** @description The URL to the official documentation page */
-                            url: string;
-                        }[];
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
-    fetchPlatformContentManual: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                manualId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The manual was retrieved successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The associated name */
-                        name: string;
-                        /** @description The associated description */
-                        description?: string;
-                        /** @description Meta data information */
-                        meta?: {
-                            [key: string]: unknown;
-                        };
-                        /** @description The instance ID */
-                        id: string;
-                        /** @description The timestamp (ms) when the instance was created */
-                        createdAt: number;
-                        /** @description The timestamp (ms) when the instance was updated */
-                        updatedAt: number;
-                        /** @description The category of the manual */
-                        category?: string;
-                        /** @description Tags associated with the manual */
-                        tags?: string[];
-                        /** @description The display order index */
-                        index?: number;
-                        /** @description The markdown content of the manual */
-                        content: string;
-                        /** @description The URL to the official documentation page */
-                        url?: string;
-                    };
-                };
-            };
-            /** @description Manual not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
-    listPlatformContentManuals: {
-        parameters: {
-            query?: {
-                cursor?: string;
-                order?: "asc" | "desc";
-                take?: number;
-                meta?: {
-                    [key: string]: string;
-                };
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of manuals was retrieved successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        items: {
-                            /** @description The associated name */
-                            name: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The category of the manual */
-                            category?: string;
-                            /** @description Tags associated with the manual */
-                            tags?: string[];
-                            /** @description The display order index */
-                            index?: number;
-                            /** @description The URL to the official documentation page */
-                            url?: string;
-                        }[];
-                    };
-                    "application/jsonl": {
-                        /**
-                         * @description The type of event
-                         * @enum {string}
-                         */
-                        type: "item";
-                        /** @description Instance list properties */
-                        data: {
-                            /** @description The associated name */
-                            name: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The category of the manual */
-                            category?: string;
-                            /** @description Tags associated with the manual */
-                            tags?: string[];
-                            /** @description The display order index */
-                            index?: number;
-                            /** @description The URL to the official documentation page */
-                            url?: string;
-                        };
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
-    searchPlatformContentManuals: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": {
-                    /** @description The search query to find relevant manuals */
-                    search: string;
-                    /**
-                     * @description The maximum number of results to return (1-100, default 10)
-                     * @default 10
-                     */
-                    take?: number;
-                };
-            };
-        };
-        responses: {
-            /** @description The search was successful */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        items: {
-                            /** @description The associated name */
-                            name: string;
-                            /** @description The associated description */
-                            description: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The category of the manual */
-                            category?: string;
-                            /** @description Tags associated with the manual */
-                            tags: string[];
-                            /** @description The display order index */
-                            index: number;
-                            /** @description The similarity score of the search result */
-                            score: number;
-                            /** @description An excerpt from the most relevant part of the manual */
-                            excerpt: string;
-                            /** @description The URL to the official documentation page */
-                            url: string;
-                        }[];
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
-    fetchPlatformContentTutorial: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                tutorialId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The tutorial was retrieved successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @description The associated name */
-                        name: string;
-                        /** @description The associated description */
-                        description?: string;
-                        /** @description Meta data information */
-                        meta?: {
-                            [key: string]: unknown;
-                        };
-                        /** @description The instance ID */
-                        id: string;
-                        /** @description The timestamp (ms) when the instance was created */
-                        createdAt: number;
-                        /** @description The timestamp (ms) when the instance was updated */
-                        updatedAt: number;
-                        /** @description The category of the tutorial */
-                        category?: string;
-                        /** @description Tags associated with the tutorial */
-                        tags?: string[];
-                        /** @description The display order index */
-                        index?: number;
-                        /** @description The markdown content of the tutorial */
-                        content: string;
-                        /** @description The URL to the official tutorial page */
-                        url?: string;
-                    };
-                };
-            };
-            /** @description Tutorial not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
-    listPlatformContentTutorials: {
-        parameters: {
-            query?: {
-                cursor?: string;
-                order?: "asc" | "desc";
-                take?: number;
-                meta?: {
-                    [key: string]: string;
-                };
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description The list of tutorials was retrieved successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        items: {
-                            /** @description The associated name */
-                            name: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The category of the tutorial */
-                            category?: string;
-                            /** @description Tags associated with the tutorial */
-                            tags?: string[];
-                            /** @description The display order index */
-                            index?: number;
-                            /** @description The URL to the official tutorial page */
-                            url?: string;
-                        }[];
-                    };
-                    "application/jsonl": {
-                        /**
-                         * @description The type of event
-                         * @enum {string}
-                         */
-                        type: "item";
-                        /** @description Instance list properties */
-                        data: {
-                            /** @description The associated name */
-                            name: string;
-                            /** @description The associated description */
-                            description?: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The category of the tutorial */
-                            category?: string;
-                            /** @description Tags associated with the tutorial */
-                            tags?: string[];
-                            /** @description The display order index */
-                            index?: number;
-                            /** @description The URL to the official tutorial page */
-                            url?: string;
-                        };
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
-    searchPlatformContentTutorials: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": {
-                    /** @description The search query to find relevant tutorials */
-                    search: string;
-                    /**
-                     * @description The maximum number of results to return (1-100, default 10)
-                     * @default 10
-                     */
-                    take?: number;
-                };
-            };
-        };
-        responses: {
-            /** @description The search was successful */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        items: {
-                            /** @description The associated name */
-                            name: string;
-                            /** @description The associated description */
-                            description: string;
-                            /** @description Meta data information */
-                            meta?: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The instance ID */
-                            id: string;
-                            /** @description The timestamp (ms) when the instance was created */
-                            createdAt: number;
-                            /** @description The timestamp (ms) when the instance was updated */
-                            updatedAt: number;
-                            /** @description The category of the tutorial */
-                            category?: string;
-                            /** @description Tags associated with the tutorial */
-                            tags: string[];
-                            /** @description The display order index */
-                            index: number;
-                            /** @description The similarity score of the search result */
-                            score: number;
-                            /** @description An excerpt from the most relevant part of the tutorial */
-                            excerpt: string;
-                            /** @description The URL to the official tutorial page */
-                            url: string;
+                            link: string;
                         }[];
                     };
                 };
@@ -18050,6 +17697,68 @@ export interface operations {
             };
         };
     };
+    fetchPlatformExample: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                exampleId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The example was fetched successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID (slug) of the example */
+                        id: string;
+                        /** @description The name of the example */
+                        name: string;
+                        /** @description The description of the example */
+                        description: string;
+                        /**
+                         * @description The type of the example
+                         * @enum {string}
+                         */
+                        type: "blueprint" | "project" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                        /** @description The full configuration details of the example */
+                        config: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The URL to the official example page */
+                        link: string;
+                        /** @description Tags associated with the example */
+                        tags?: string[];
+                        /** @description The creation timestamp */
+                        createdAt?: number;
+                        /** @description The last update timestamp */
+                        updatedAt?: number;
+                    };
+                };
+            };
+            /** @description The example was not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     listPlatformExamples: {
         parameters: {
             query?: {
@@ -18092,13 +17801,11 @@ export interface operations {
                              * @description The type of the example
                              * @enum {string}
                              */
-                            type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
-                            /** @description The config details of the example */
-                            config: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The keywords associated with the example */
-                            keywords?: string[];
+                            type: "blueprint" | "project" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description Tags associated with the example */
+                            tags?: string[];
+                            /** @description The URL to the official example page */
+                            link: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -18127,13 +17834,11 @@ export interface operations {
                              * @description The type of the example
                              * @enum {string}
                              */
-                            type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
-                            /** @description The config details of the example */
-                            config: {
-                                [key: string]: unknown;
-                            };
-                            /** @description The keywords associated with the example */
-                            keywords?: string[];
+                            type: "blueprint" | "project" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description Tags associated with the example */
+                            tags?: string[];
+                            /** @description The URL to the official example page */
+                            link: string;
                         };
                     };
                 };
@@ -18161,6 +17866,11 @@ export interface operations {
                 "application/json": {
                     /** @description The search query to find relevant examples */
                     search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
+                     */
+                    take?: number;
                 };
             };
         };
@@ -18191,13 +17901,237 @@ export interface operations {
                              * @description The type of the example
                              * @enum {string}
                              */
-                            type: "blueprint" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
-                            /** @description The config details of the example */
-                            config: {
+                            type: "blueprint" | "project" | "widget" | "slack" | "discord" | "whatsapp" | "messenger" | "telegram" | "twilio" | "email" | "trigger";
+                            /** @description Tags associated with the example */
+                            tags?: string[];
+                            /** @description The URL to the official example page */
+                            link: string;
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchPlatformManual: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                manualId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The manual was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The category of the manual */
+                        category?: string;
+                        /** @description Tags associated with the manual */
+                        tags?: string[];
+                        /** @description The display order index */
+                        index?: number;
+                        /** @description The markdown content of the manual */
+                        content: string;
+                        /** @description The URL to the official documentation page */
+                        link?: string;
+                    };
+                };
+            };
+            /** @description Manual not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPlatformManuals: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of manuals was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
                                 [key: string]: unknown;
                             };
-                            /** @description The keywords associated with the example */
-                            keywords?: string[];
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the manual */
+                            category?: string;
+                            /** @description Tags associated with the manual */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The URL to the official documentation page */
+                            link: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the manual */
+                            category?: string;
+                            /** @description Tags associated with the manual */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The URL to the official documentation page */
+                            link: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    searchPlatformManuals: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant manuals */
+                    search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
+                     */
+                    take?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the manual */
+                            category?: string;
+                            /** @description Tags associated with the manual */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The similarity score of the search result */
+                            score: number;
+                            /** @description An excerpt from the most relevant part of the manual */
+                            excerpt: string;
+                            /** @description The URL to the official documentation page */
+                            link: string;
                         }[];
                     };
                 };
@@ -18383,6 +18317,232 @@ export interface operations {
                              */
                             type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    fetchPlatformTutorial: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                tutorialId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The tutorial was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The category of the tutorial */
+                        category?: string;
+                        /** @description Tags associated with the tutorial */
+                        tags?: string[];
+                        /** @description The display order index */
+                        index?: number;
+                        /** @description The markdown content of the tutorial */
+                        content: string;
+                        /** @description The URL to the official tutorial page */
+                        link?: string;
+                    };
+                };
+            };
+            /** @description Tutorial not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    listPlatformTutorials: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of tutorials was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the tutorial */
+                            category?: string;
+                            /** @description Tags associated with the tutorial */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The URL to the official tutorial page */
+                            link: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the tutorial */
+                            category?: string;
+                            /** @description Tags associated with the tutorial */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The URL to the official tutorial page */
+                            link: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    searchPlatformTutorials: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant tutorials */
+                    search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
+                     */
+                    take?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the tutorial */
+                            category?: string;
+                            /** @description Tags associated with the tutorial */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The similarity score of the search result */
+                            score: number;
+                            /** @description An excerpt from the most relevant part of the tutorial */
+                            excerpt: string;
+                            /** @description The URL to the official tutorial page */
+                            link: string;
+                        }[];
                     };
                 };
             };
@@ -20555,6 +20715,16 @@ export interface operations {
                         botId?: string;
                         /** @description The schedule of the task */
                         schedule?: string;
+                        /**
+                         * @description The task execution status
+                         * @enum {string}
+                         */
+                        status?: "idle" | "running";
+                        /**
+                         * @description The task execution outcome
+                         * @enum {string}
+                         */
+                        outcome?: "pending" | "success" | "failure";
                     };
                 };
             };
@@ -20849,6 +21019,16 @@ export interface operations {
                             botId?: string;
                             /** @description The schedule of the task */
                             schedule?: string;
+                            /**
+                             * @description The task execution status
+                             * @enum {string}
+                             */
+                            status?: "idle" | "running";
+                            /**
+                             * @description The task execution outcome
+                             * @enum {string}
+                             */
+                            outcome?: "pending" | "success" | "failure";
                         }[];
                     };
                     "application/jsonl": {
@@ -20879,6 +21059,16 @@ export interface operations {
                             botId?: string;
                             /** @description The schedule of the task */
                             schedule?: string;
+                            /**
+                             * @description The task execution status
+                             * @enum {string}
+                             */
+                            status?: "idle" | "running";
+                            /**
+                             * @description The task execution outcome
+                             * @enum {string}
+                             */
+                            outcome?: "pending" | "success" | "failure";
                         };
                     };
                 };

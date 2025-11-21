@@ -6,29 +6,29 @@
 /**
  * Platform content doc client.
  */
-export class PlatformContentDocClient extends ChatBotKitClient {
+export class PlatformDocClient extends ChatBotKitClient {
     /**
      * Retrieves a list of all platform content docs.
      *
-     * @param {import('./v1.js').PlatformContentDocListRequest} [request]
-     * @returns {ResponsePromise<import('./v1.js').PlatformContentDocListResponse,import('./v1.js').PlatformContentDocListStreamType>}
+     * @param {import('./v1.js').PlatformDocListRequest} [request]
+     * @returns {ResponsePromise<import('./v1.js').PlatformDocListResponse,import('./v1.js').PlatformDocListStreamType>}
      */
-    list(request?: import("./v1.js").PlatformContentDocListRequest): ResponsePromise<import("./v1.js").PlatformContentDocListResponse, import("./v1.js").PlatformContentDocListStreamType>;
+    list(request?: import("./v1.js").PlatformDocListRequest): ResponsePromise<import("./v1.js").PlatformDocListResponse, import("./v1.js").PlatformDocListStreamType>;
     /**
      * Searches platform content docs.
      *
-     * @param {import('./v1.js').PlatformContentDocSearchRequest} request
-     * @returns {Promise<import('./v1.js').PlatformContentDocSearchResponse>}
+     * @param {import('./v1.js').PlatformDocSearchRequest} request
+     * @returns {Promise<import('./v1.js').PlatformDocSearchResponse>}
      */
-    search(request: import("./v1.js").PlatformContentDocSearchRequest): Promise<import("./v1.js").PlatformContentDocSearchResponse>;
+    search(request: import("./v1.js").PlatformDocSearchRequest): Promise<import("./v1.js").PlatformDocSearchResponse>;
     /**
      * Fetches a platform content doc.
      *
      * @param {string} docId
-     * @returns {ResponsePromise<import('./v1.js').PlatformContentDocFetchResponse,never>}
+     * @returns {ResponsePromise<import('./v1.js').PlatformDocFetchResponse,never>}
      */
-    fetch(docId: string): ResponsePromise<import("./v1.js").PlatformContentDocFetchResponse, never>;
+    fetch(docId: string): ResponsePromise<import("./v1.js").PlatformDocFetchResponse, never>;
 }
-export default PlatformContentDocClient;
+export default PlatformDocClient;
 export type ResponsePromise<T, U> = import("../../../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../../client.js';
