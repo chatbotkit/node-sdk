@@ -1,0 +1,32 @@
+{
+  "name": "@examples/nextjs-pages-router-auth-chat",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "run-s build:*",
+    "build:next": "true",
+    "clean": "run-p clean:*",
+    "clean:buildinfo": "rimraf *.tsbuildinfo",
+    "clean:next": "rimraf .next",
+    "clean:node_modules": "rimraf node_modules",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@chatbotkit/next": "workspace:*",
+    "@chatbotkit/react": "workspace:*",
+    "@chatbotkit/sdk": "workspace:*",
+    "next": "^14.2.24",
+    "next-auth": "^4.24.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.24",
+    "typescript": "^5",
+    "rimraf": "^5.0.5"
+  }
+}
