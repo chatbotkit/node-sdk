@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763573672033)"
+    "version": "v1 (build 1763741623898)"
   },
   "servers": [
     {
@@ -145,6 +145,23 @@
           "daily",
           "weekly",
           "monthly"
+        ]
+      },
+      "TaskStatus": {
+        "type": "string",
+        "description": "The task execution status",
+        "enum": [
+          "idle",
+          "running"
+        ]
+      },
+      "TaskOutcome": {
+        "type": "string",
+        "description": "The task execution outcome",
+        "enum": [
+          "pending",
+          "success",
+          "failure"
         ]
       },
       "BlueprintVisibility": {
@@ -33744,6 +33761,25 @@
                     "schedule": {
                       "type": "string",
                       "description": "The schedule of the task"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "The task execution status",
+                      "enum": [
+                        "idle",
+                        "running"
+                      ],
+                      "$$ref": "#/components/schemas/TaskStatus"
+                    },
+                    "outcome": {
+                      "type": "string",
+                      "description": "The task execution outcome",
+                      "enum": [
+                        "pending",
+                        "success",
+                        "failure"
+                      ],
+                      "$$ref": "#/components/schemas/TaskOutcome"
                     }
                   },
                   "required": [
@@ -34344,6 +34380,25 @@
                           "schedule": {
                             "type": "string",
                             "description": "The schedule of the task"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The task execution status",
+                            "enum": [
+                              "idle",
+                              "running"
+                            ],
+                            "$$ref": "#/components/schemas/TaskStatus"
+                          },
+                          "outcome": {
+                            "type": "string",
+                            "description": "The task execution outcome",
+                            "enum": [
+                              "pending",
+                              "success",
+                              "failure"
+                            ],
+                            "$$ref": "#/components/schemas/TaskOutcome"
                           }
                         },
                         "required": [
@@ -34413,6 +34468,25 @@
                             "schedule": {
                               "type": "string",
                               "description": "The schedule of the task"
+                            },
+                            "status": {
+                              "type": "string",
+                              "description": "The task execution status",
+                              "enum": [
+                                "idle",
+                                "running"
+                              ],
+                              "$$ref": "#/components/schemas/TaskStatus"
+                            },
+                            "outcome": {
+                              "type": "string",
+                              "description": "The task execution outcome",
+                              "enum": [
+                                "pending",
+                                "success",
+                                "failure"
+                              ],
+                              "$$ref": "#/components/schemas/TaskOutcome"
                             }
                           },
                           "$$ref": "#/paths/~1task~1list/get/responses/200/content/application~1json/schema/properties/items/items",
