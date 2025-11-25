@@ -14,8 +14,8 @@ The most important files in this project are:
 
 # This is how it works:
 
-1. We use a ChatBotKit solution to easily assamble the RAG system.
-1. We create a specialised server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/search.jsx](actions/search.jsx) file.
+1. We use a ChatBotKit solution to easily assemble the RAG system.
+1. We create a specialized server-side action to handle incoming messages as well as streaming the response back to the client via the [actions/search.jsx](actions/search.jsx) file.
 1. In the [components/SearchArea.jsx](components/SearchArea.jsx) we build a basic search interface to interact with the action.
 
 ## Getting Started
