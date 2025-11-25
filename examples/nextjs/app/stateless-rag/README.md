@@ -2,7 +2,7 @@ Welcome to this stateless RAG (retrieval augmented generation) example project t
 
 In this example we use several features to facilitate building a RAG chatbot:
 
-- A solution which is made from a number of components. In this case we use a Sitemap Integration and a Dataset. The Sitemap Integration is used to spider a webisite and create the corresponding records in the Dataset. The Dataset is then used to retrieve the information when the user asks for it.
+- A solution which is made from a number of components. In this case we use a Sitemap Integration and a Dataset. The Sitemap Integration is used to spider a website and create the corresponding records in the Dataset. The Dataset is then used to retrieve the information when the user asks for it.
 - A streaming server-side action that handles the conversation and sends the response back to the client.
 
 The most important files in this project are:
