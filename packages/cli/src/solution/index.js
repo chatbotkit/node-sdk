@@ -667,15 +667,35 @@ export class Resource {
   }
 
   /**
+   * Get the properties to use for create operations.
+   * Override this method in subclasses to filter properties for creates.
+   *
+   * @returns {Record<string, any>}
+   */
+  get createProperties() {
+    return this.config.properties
+  }
+
+  /**
+   * Get the properties to use for update operations.
+   * Override this method in subclasses to filter properties for updates.
+   *
+   * @returns {Record<string, any>}
+   */
+  get updateProperties() {
+    return this.config.properties
+  }
+
+  /**
    * Sync the resource.
    *
    * @returns {Promise<void>}
    */
   async sync() {
     if (this.config.id) {
-      await this.client.update(this.config.id, this.config.properties)
+      await this.client.update(this.config.id, this.updateProperties)
     } else {
-      const { id } = await this.client.create(this.config.properties)
+      const { id } = await this.client.create(this.createProperties)
 
       this.config.id = id
     }
@@ -705,6 +725,21 @@ export class DatasetResource extends Resource {
    */
   get client() {
     return this.baseClient.dataset
+  }
+
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/dataset/v1').DatasetUpdateRequest}
+   */
+  get updateProperties() {
+    // @note dataset updates only support a subset of create properties - store
+    // cannot be changed after creation
+
+    const updateSchema = DatasetResourceConfigSchema.shape.properties.omit({
+      store: true,
+    })
+
+    return updateSchema.parse(this.config.properties)
   }
 }
 
