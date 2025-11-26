@@ -1,0 +1,16 @@
+query GetBot($id: ID!) {
+  bot: bots(botIds: [$id], last: 1) {
+    edges {
+      node {
+        id
+        name
+        description
+        backstory
+        model
+        moderation
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}

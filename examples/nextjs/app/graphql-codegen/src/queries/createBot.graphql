@@ -1,0 +1,5 @@
+mutation CreateBot($input: BotCreateRequest!) {
+  createBot(input: $input) {
+    id
+  }
+}
