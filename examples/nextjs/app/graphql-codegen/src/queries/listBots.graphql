@@ -1,0 +1,20 @@
+query ListBots($cursor: ID, $take: Int) {
+  bots(after: $cursor, last: $take) {
+    edges {
+      cursor
+      node {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+  }
+}

@@ -5,16 +5,17 @@
       "type": "dataset",
       "slug": "rag",
       "id": "clufhmytx105wx90vf9beor6c",
-      "name": "ChatBotKit Docs",
-      "description": "Documentation for ChatBotKit",
-      "properties": {}
+      "properties": {
+        "name": "ChatBotKit Docs",
+        "description": "Documentation for ChatBotKit"
+      }
     },
     {
       "type": "sitemapIntegration",
       "id": "clufho0kc105yx90vnoq223n8",
-      "name": "ChatBotKit Docs",
-      "description": "Documentation for ChatBotKit",
       "properties": {
+        "name": "ChatBotKit Docs",
+        "description": "Documentation for ChatBotKit",
         "url": "https://chatbotkit.com/docs",
         "datasetId": "clufhmytx105wx90vf9beor6c"
       }

@@ -1,0 +1,43 @@
+{
+  "name": "@examples/nextjs-app-router-graphql-codegen",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "run-s build:*",
+    "build:next": "true",
+    "clean": "run-p clean:*",
+    "clean:buildinfo": "rimraf *.tsbuildinfo",
+    "clean:next": "rimraf .next",
+    "clean:node_modules": "rimraf node_modules",
+    "clean:generated": "rimraf src/generated",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start",
+    "bootstrap": "node bootstrap.js"
+  },
+  "dependencies": {
+    "@chatbotkit/next": "workspace:*",
+    "@chatbotkit/react": "workspace:*",
+    "@chatbotkit/sdk": "workspace:*",
+    "graphql": "^16.9.0",
+    "graphql-request": "^7.1.2",
+    "next": "^14.2.24",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.3",
+    "@graphql-codegen/typescript": "^5.0.5",
+    "@graphql-codegen/typescript-operations": "^5.0.1",
+    "@graphql-codegen/typescript-graphql-request": "^6.3.0",
+    "@parcel/watcher": "^2.5.0",
+    "dotenv": "^16.4.7",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.24",
+    "graphql-tag": "^2.12.6",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.5",
+    "typescript": "^5"
+  }
+}
