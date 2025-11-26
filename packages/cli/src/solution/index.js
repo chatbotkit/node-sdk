@@ -239,6 +239,258 @@ export const SitemapIntegrationResourceConfigSchema =
   })
 
 /**
+ * The schema for a slack integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'slackIntegration', import('@chatbotkit/sdk/integration/slack/v1').SlackIntegrationCreateRequest>}
+ */
+export const SlackIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('slackIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      signingSecret: z.string().optional(),
+      botToken: z.string().optional(),
+      userToken: z.string().optional(),
+      contactCollection: z.boolean().optional(),
+      sessionDuration: z.number().optional(),
+      attachments: z.boolean().optional(),
+      references: z.boolean().optional(),
+      ratings: z.boolean().optional(),
+      visibleMessages: z.number().optional(),
+      autoRespond: z.string().optional(),
+    }),
+  })
+
+/**
+ * The schema for a discord integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'discordIntegration', import('@chatbotkit/sdk/integration/discord/v1').DiscordIntegrationCreateRequest>}
+ */
+export const DiscordIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('discordIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      appId: z.string().optional(),
+      botToken: z.string().optional(),
+      publicKey: z.string().optional(),
+      handle: z.string().optional(),
+      ephemeral: z.boolean().optional(),
+      contactCollection: z.boolean().optional(),
+      sessionDuration: z.number().optional(),
+      attachments: z.boolean().optional(),
+      stream: z.boolean().optional(),
+    }),
+  })
+
+/**
+ * The schema for a telegram integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'telegramIntegration', import('@chatbotkit/sdk/integration/telegram/v1').TelegramIntegrationCreateRequest>}
+ */
+export const TelegramIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('telegramIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      botToken: z.string().optional(),
+      contactCollection: z.boolean().optional(),
+      sessionDuration: z.number().optional(),
+      attachments: z.boolean().optional(),
+    }),
+  })
+
+/**
+ * The schema for a whatsapp integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'whatsappIntegration', import('@chatbotkit/sdk/integration/whatsapp/v1').WhatsAppIntegrationCreateRequest>}
+ */
+export const WhatsAppIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('whatsappIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      phoneNumberId: z.string().optional(),
+      accessToken: z.string().optional(),
+      contactCollection: z.boolean().optional(),
+      sessionDuration: z.number().optional(),
+      attachments: z.boolean().optional(),
+    }),
+  })
+
+/**
+ * The schema for a messenger integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'messengerIntegration', import('@chatbotkit/sdk/integration/messenger/v1').MessengerIntegrationCreateRequest>}
+ */
+export const MessengerIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('messengerIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      accessToken: z.string().optional(),
+      contactCollection: z.boolean().optional(),
+      sessionDuration: z.number().optional(),
+      attachments: z.boolean().optional(),
+    }),
+  })
+
+/**
+ * The schema for a notion integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'notionIntegration', import('@chatbotkit/sdk/integration/notion/v1').NotionIntegrationCreateRequest>}
+ */
+export const NotionIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('notionIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      datasetId: z.string().optional(),
+      token: z.string().optional(),
+      syncSchedule: z.string().optional(),
+      expiresIn: z.number().optional(),
+    }),
+  })
+
+/**
+ * The schema for an email integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'emailIntegration', import('@chatbotkit/sdk/integration/email/v1').EmailIntegrationCreateRequest>}
+ */
+export const EmailIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('emailIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      contactCollection: z.boolean().optional(),
+      sessionDuration: z.number().optional(),
+      attachments: z.boolean().optional(),
+    }),
+  })
+
+/**
+ * The schema for a trigger integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'triggerIntegration', import('@chatbotkit/sdk/integration/trigger/v1').TriggerIntegrationCreateRequest>}
+ */
+export const TriggerIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('triggerIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      authenticate: z.boolean().optional(),
+      triggerSchedule: z.enum(['never', 'quarterhourly', 'halfhourly', 'hourly', 'daily', 'weekly', 'monthly']).optional(),
+      sessionDuration: z.number().optional(),
+    }),
+  })
+
+/**
+ * The schema for a support integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'supportIntegration', import('@chatbotkit/sdk/integration/support/v1').SupportIntegrationCreateRequest>}
+ */
+export const SupportIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('supportIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      email: z.string().optional(),
+      trigger: z.string().optional(),
+    }),
+  })
+
+/**
+ * The schema for an extract integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'extractIntegration', import('@chatbotkit/sdk/integration/extract/v1').ExtractIntegrationCreateRequest>}
+ */
+export const ExtractIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('extractIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      schema: z.record(z.unknown()).optional(),
+      request: z.string().optional(),
+      trigger: z.string().optional(),
+    }),
+  })
+
+/**
+ * The schema for a mcpserver integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'mcpserverIntegration', import('@chatbotkit/sdk/integration/mcpserver/v1').McpServerIntegrationCreateRequest>}
+ */
+export const McpServerIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('mcpserverIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      skillsetId: z.string().optional(),
+    }),
+  })
+
+/**
+ * The schema for a twilio integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'twilioIntegration', import('@chatbotkit/sdk/integration/twilio/v1').TwilioIntegrationCreateRequest>}
+ */
+export const TwilioIntegrationResourceConfigSchema =
+  BasicResourceConfigSchema.extend({
+    type: z.literal('twilioIntegration'),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      blueprintId: z.string().optional(),
+      botId: z.string().optional(),
+      contactCollection: z.boolean().optional(),
+      sessionDuration: z.number().optional(),
+    }),
+  })
+
+/**
  * The schema for a resource configuration.
  */
 export const ResourceConfigSchema = z.union([
@@ -247,6 +499,18 @@ export const ResourceConfigSchema = z.union([
   SkillsetResourceConfigSchema,
   WidgetIntegrationResourceConfigSchema,
   SitemapIntegrationResourceConfigSchema,
+  SlackIntegrationResourceConfigSchema,
+  DiscordIntegrationResourceConfigSchema,
+  TelegramIntegrationResourceConfigSchema,
+  WhatsAppIntegrationResourceConfigSchema,
+  MessengerIntegrationResourceConfigSchema,
+  NotionIntegrationResourceConfigSchema,
+  EmailIntegrationResourceConfigSchema,
+  TriggerIntegrationResourceConfigSchema,
+  SupportIntegrationResourceConfigSchema,
+  ExtractIntegrationResourceConfigSchema,
+  McpServerIntegrationResourceConfigSchema,
+  TwilioIntegrationResourceConfigSchema,
 ])
 
 /**
@@ -419,6 +683,162 @@ export class SitemapIntegrationResource extends Resource {
 }
 
 /**
+ * Represents a slack integration resource.
+ */
+export class SlackIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/slack').SlackIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.slack
+  }
+}
+
+/**
+ * Represents a discord integration resource.
+ */
+export class DiscordIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/discord').DiscordIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.discord
+  }
+}
+
+/**
+ * Represents a telegram integration resource.
+ */
+export class TelegramIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/telegram').TelegramIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.telegram
+  }
+}
+
+/**
+ * Represents a whatsapp integration resource.
+ */
+export class WhatsAppIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/whatsapp').WhatsAppIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.whatsapp
+  }
+}
+
+/**
+ * Represents a messenger integration resource.
+ */
+export class MessengerIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/messenger').MessengerIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.messenger
+  }
+}
+
+/**
+ * Represents a notion integration resource.
+ */
+export class NotionIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/notion').NotionIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.notion
+  }
+}
+
+/**
+ * Represents an email integration resource.
+ */
+export class EmailIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/email').EmailIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.email
+  }
+}
+
+/**
+ * Represents a trigger integration resource.
+ */
+export class TriggerIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/trigger').TriggerIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.trigger
+  }
+}
+
+/**
+ * Represents a support integration resource.
+ */
+export class SupportIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/support').SupportIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.support
+  }
+}
+
+/**
+ * Represents an extract integration resource.
+ */
+export class ExtractIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/extract').ExtractIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.extract
+  }
+}
+
+/**
+ * Represents a mcpserver integration resource.
+ */
+export class McpServerIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/mcpserver').McpServerIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.mcpserver
+  }
+}
+
+/**
+ * Represents a twilio integration resource.
+ */
+export class TwilioIntegrationResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk/integration/twilio').TwilioIntegrationClient}
+   */
+  get client() {
+    return this.baseClient.integration.twilio
+  }
+}
+
+/**
  * Represents a solution.
  */
 export class Solution {
@@ -444,7 +864,7 @@ export class Solution {
   /**
    * Get the resources.
    *
-   * @returns {(BotResource|DatasetResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource)[]}
+   * @returns {(BotResource|DatasetResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
    */
   get resources() {
     return this.config.resources.map((resource) => {
@@ -458,6 +878,30 @@ export class Solution {
         return new WidgetIntegrationResource(resource)
       } else if (resource.type === 'sitemapIntegration') {
         return new SitemapIntegrationResource(resource)
+      } else if (resource.type === 'slackIntegration') {
+        return new SlackIntegrationResource(resource)
+      } else if (resource.type === 'discordIntegration') {
+        return new DiscordIntegrationResource(resource)
+      } else if (resource.type === 'telegramIntegration') {
+        return new TelegramIntegrationResource(resource)
+      } else if (resource.type === 'whatsappIntegration') {
+        return new WhatsAppIntegrationResource(resource)
+      } else if (resource.type === 'messengerIntegration') {
+        return new MessengerIntegrationResource(resource)
+      } else if (resource.type === 'notionIntegration') {
+        return new NotionIntegrationResource(resource)
+      } else if (resource.type === 'emailIntegration') {
+        return new EmailIntegrationResource(resource)
+      } else if (resource.type === 'triggerIntegration') {
+        return new TriggerIntegrationResource(resource)
+      } else if (resource.type === 'supportIntegration') {
+        return new SupportIntegrationResource(resource)
+      } else if (resource.type === 'extractIntegration') {
+        return new ExtractIntegrationResource(resource)
+      } else if (resource.type === 'mcpserverIntegration') {
+        return new McpServerIntegrationResource(resource)
+      } else if (resource.type === 'twilioIntegration') {
+        return new TwilioIntegrationResource(resource)
       } else {
         // @ts-expect-error expected
         throw new Error(`Unknown resource type: ${resource.type}`) // @todo find out why this is not type checking correctly
@@ -547,6 +991,222 @@ export class Solution {
    */
   get sitemapIntegration() {
     return getArrayBackedObject(this.sitemapIntegrations)
+  }
+
+  /**
+   * @returns {SlackIntegrationResource[]}
+   */
+  get slackIntegrations() {
+    return /** @type {SlackIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof SlackIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: SlackIntegrationResource|undefined}}
+   */
+  get slackIntegration() {
+    return getArrayBackedObject(this.slackIntegrations)
+  }
+
+  /**
+   * @returns {DiscordIntegrationResource[]}
+   */
+  get discordIntegrations() {
+    return /** @type {DiscordIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof DiscordIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: DiscordIntegrationResource|undefined}}
+   */
+  get discordIntegration() {
+    return getArrayBackedObject(this.discordIntegrations)
+  }
+
+  /**
+   * @returns {TelegramIntegrationResource[]}
+   */
+  get telegramIntegrations() {
+    return /** @type {TelegramIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof TelegramIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: TelegramIntegrationResource|undefined}}
+   */
+  get telegramIntegration() {
+    return getArrayBackedObject(this.telegramIntegrations)
+  }
+
+  /**
+   * @returns {WhatsAppIntegrationResource[]}
+   */
+  get whatsappIntegrations() {
+    return /** @type {WhatsAppIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof WhatsAppIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: WhatsAppIntegrationResource|undefined}}
+   */
+  get whatsappIntegration() {
+    return getArrayBackedObject(this.whatsappIntegrations)
+  }
+
+  /**
+   * @returns {MessengerIntegrationResource[]}
+   */
+  get messengerIntegrations() {
+    return /** @type {MessengerIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof MessengerIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: MessengerIntegrationResource|undefined}}
+   */
+  get messengerIntegration() {
+    return getArrayBackedObject(this.messengerIntegrations)
+  }
+
+  /**
+   * @returns {NotionIntegrationResource[]}
+   */
+  get notionIntegrations() {
+    return /** @type {NotionIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof NotionIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: NotionIntegrationResource|undefined}}
+   */
+  get notionIntegration() {
+    return getArrayBackedObject(this.notionIntegrations)
+  }
+
+  /**
+   * @returns {EmailIntegrationResource[]}
+   */
+  get emailIntegrations() {
+    return /** @type {EmailIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof EmailIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: EmailIntegrationResource|undefined}}
+   */
+  get emailIntegration() {
+    return getArrayBackedObject(this.emailIntegrations)
+  }
+
+  /**
+   * @returns {TriggerIntegrationResource[]}
+   */
+  get triggerIntegrations() {
+    return /** @type {TriggerIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof TriggerIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: TriggerIntegrationResource|undefined}}
+   */
+  get triggerIntegration() {
+    return getArrayBackedObject(this.triggerIntegrations)
+  }
+
+  /**
+   * @returns {SupportIntegrationResource[]}
+   */
+  get supportIntegrations() {
+    return /** @type {SupportIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof SupportIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: SupportIntegrationResource|undefined}}
+   */
+  get supportIntegration() {
+    return getArrayBackedObject(this.supportIntegrations)
+  }
+
+  /**
+   * @returns {ExtractIntegrationResource[]}
+   */
+  get extractIntegrations() {
+    return /** @type {ExtractIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof ExtractIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: ExtractIntegrationResource|undefined}}
+   */
+  get extractIntegration() {
+    return getArrayBackedObject(this.extractIntegrations)
+  }
+
+  /**
+   * @returns {McpServerIntegrationResource[]}
+   */
+  get mcpserverIntegrations() {
+    return /** @type {McpServerIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof McpServerIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: McpServerIntegrationResource|undefined}}
+   */
+  get mcpserverIntegration() {
+    return getArrayBackedObject(this.mcpserverIntegrations)
+  }
+
+  /**
+   * @returns {TwilioIntegrationResource[]}
+   */
+  get twilioIntegrations() {
+    return /** @type {TwilioIntegrationResource[]} */ (
+      this.resources.filter(
+        (resource) => resource instanceof TwilioIntegrationResource
+      )
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: TwilioIntegrationResource|undefined}}
+   */
+  get twilioIntegration() {
+    return getArrayBackedObject(this.twilioIntegrations)
   }
 
   /**
