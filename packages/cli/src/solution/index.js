@@ -89,29 +89,57 @@ export function replaceEnvVars(value) {
 }
 
 /**
+ * @template T
+ * @typedef {{
+ *   [K in keyof T]-?: undefined extends T[K]
+ *   ? z.ZodOptional<z.ZodType<Exclude<T[K], undefined>>>
+ *   : z.ZodType<T[K]>
+ * }} ZodSchemaFor
+ */
+
+/**
  * The schema for a basic resource configuration.
  */
 export const BasicResourceConfigSchema = z.object({
-  type: z.string(),
   slug: z.string().optional(),
   id: z.string().optional(),
-  name: z.string(),
-  description: z.string().optional(),
-  properties: z.record(z.unknown()),
 })
 
 /**
+ * @typedef {{
+ *   slug: z.ZodOptional<z.ZodString>,
+ *   id: z.ZodOptional<z.ZodString>,
+ * }} BasicResourceConfigSchemaFields
+ */
+
+/**
+ * @template T
+ * @template U
+ * @typedef {z.ZodObject<BasicResourceConfigSchemaFields & {
+ *   type: z.ZodLiteral<T>,
+ *   properties: z.ZodObject<ZodSchemaFor<U>>
+ * }>} ResourceConfigSchemaFor
+ */
+
+/**
  * The schema for a bot resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'bot', import('@chatbotkit/sdk/bot/v1').BotCreateRequest>}
  */
 export const BotResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('bot'),
   properties: z.object({
+    name: z.string().optional(),
+    description: z.string().optional(),
+    meta: z.record(z.unknown()).optional(),
     model: z.string().optional(),
     backstory: z.string().optional(),
     datasetId: z.string().optional(),
     skillsetId: z.string().optional(),
     moderation: z.boolean().optional(),
     privacy: z.boolean().optional(),
+    blueprintId: z.string().optional(),
+    visibility: z.enum(['private', 'protected', 'public']).optional(),
   }),
 })
 
@@ -120,35 +148,62 @@ export const BotResourceConfigSchema = BasicResourceConfigSchema.extend({
  */
 export const DatasetResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('dataset'),
-  properties: z.object({}),
+  properties: z.object({
+    name: z.string().optional(),
+    description: z.string().optional(),
+  }),
 })
 
 /**
  * The schema for a skillset resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'skillset', import('@chatbotkit/sdk/skillset/v1').SkillsetCreateRequest>}
  */
 export const SkillsetResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('skillset'),
-  properties: z.object({}),
+  properties: z.object({
+    name: z.string().optional(),
+    description: z.string().optional(),
+    meta: z.record(z.unknown()).optional(),
+    blueprintId: z.string().optional(),
+    visibility: z.enum(['private', 'protected', 'public']).optional(),
+  }),
 })
 
 /**
  * The schema for a widget integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'widgetIntegration', import('@chatbotkit/sdk/integration/widget/v1').WidgetIntegrationCreateRequest>}
  */
 export const WidgetIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('widgetIntegration'),
-    properties: z.object({}),
+    properties: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
+    }),
   })
 
 /**
  * The schema for a sitemap integration resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'sitemapIntegration', import('@chatbotkit/sdk/integration/sitemap/v1').SitemapIntegrationCreateRequest>}
  */
 export const SitemapIntegrationResourceConfigSchema =
   BasicResourceConfigSchema.extend({
     type: z.literal('sitemapIntegration'),
     properties: z.object({
-      url: z.string().url(),
-      datasetId: z.string(),
+      name: z.string().optional(),
+      description: z.string().optional(),
+      meta: z.record(z.unknown()).optional(),
+      url: z.string().optional(),
+      glob: z.string().optional(),
+      datasetId: z.string().optional(),
+      blueprintId: z.string().optional(),
+      selectors: z.string().optional(),
+      expiresIn: z.number().optional(),
+      javascript: z.boolean().optional(),
+      syncSchedule: z.string().optional(),
     }),
   })
 
@@ -200,7 +255,10 @@ export class Resource {
   get slug() {
     return (
       this.config.slug ??
-      this.config.name.toLowerCase().replace(/\W/g, '_').replace(/_+/g, '_')
+      (this.config.properties.name || 'unnamed')
+        .toLowerCase()
+        .replace(/\W/g, '_')
+        .replace(/_+/g, '_')
     )
   }
 
@@ -212,17 +270,17 @@ export class Resource {
   }
 
   /**
-   * @returns {string}
+   * @returns {string|undefined}
    */
   get name() {
-    return this.config.name
+    return this.config.properties.name
   }
 
   /**
    * @returns {string|undefined}
    */
   get description() {
-    return this.config.description
+    return this.config.properties.description
   }
 
   /**
@@ -256,19 +314,9 @@ export class Resource {
    */
   async sync() {
     if (this.config.id) {
-      await this.client.update(this.config.id, {
-        ...this.config.properties,
-
-        name: this.config.name,
-        description: this.config.description,
-      })
+      await this.client.update(this.config.id, this.config.properties)
     } else {
-      const { id } = await this.client.create({
-        ...this.config.properties,
-
-        name: this.config.name,
-        description: this.config.description,
-      })
+      const { id } = await this.client.create(this.config.properties)
 
       this.config.id = id
     }
