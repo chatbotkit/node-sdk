@@ -145,6 +145,8 @@ export const BotResourceConfigSchema = BasicResourceConfigSchema.extend({
 
 /**
  * The schema for a dataset resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'dataset', import('@chatbotkit/sdk/dataset/v1').DatasetCreateRequest>}
  */
 export const DatasetResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('dataset'),
