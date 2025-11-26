@@ -1,4 +1,4 @@
-query ListBots($cursor: ID, $order: String, $take: Int) {
+query ListBots($cursor: ID, $take: Int) {
   bots(after: $cursor, last: $take) {
     edges {
       cursor
