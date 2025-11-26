@@ -167,6 +167,44 @@ export const DatasetResourceConfigSchema = BasicResourceConfigSchema.extend({
 })
 
 /**
+ * The schema for a file resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'file', import('@chatbotkit/sdk/file/v1').FileCreateRequest>}
+ */
+export const FileResourceConfigSchema = BasicResourceConfigSchema.extend({
+  type: z.literal('file'),
+  properties: z.object({
+    name: z.string().optional(),
+    description: z.string().optional(),
+    meta: z.record(z.unknown()).optional(),
+    blueprintId: z.string().optional(),
+    visibility: z.enum(['private', 'protected', 'public']).optional(),
+  }),
+})
+
+/**
+ * The schema for a secret resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'secret', import('@chatbotkit/sdk/secret/v1').SecretCreateRequest>}
+ */
+export const SecretResourceConfigSchema = BasicResourceConfigSchema.extend({
+  type: z.literal('secret'),
+  properties: z.object({
+    name: z.string().optional(),
+    description: z.string().optional(),
+    meta: z.record(z.unknown()).optional(),
+    blueprintId: z.string().optional(),
+    kind: z.enum(['shared', 'personal']).optional(),
+    type: z
+      .enum(['plain', 'basic', 'bearer', 'oauth', 'template', 'reference'])
+      .optional(),
+    value: z.string().optional(),
+    config: z.record(z.unknown()).optional(),
+    visibility: z.enum(['private', 'protected', 'public']).optional(),
+  }),
+})
+
+/**
  * The schema for a skillset resource configuration.
  *
  * @type {ResourceConfigSchemaFor<'skillset', import('@chatbotkit/sdk/skillset/v1').SkillsetCreateRequest>}
@@ -518,6 +556,8 @@ export const TwilioIntegrationResourceConfigSchema =
 export const ResourceConfigSchema = z.union([
   BotResourceConfigSchema,
   DatasetResourceConfigSchema,
+  FileResourceConfigSchema,
+  SecretResourceConfigSchema,
   SkillsetResourceConfigSchema,
   WidgetIntegrationResourceConfigSchema,
   SitemapIntegrationResourceConfigSchema,
@@ -663,6 +703,32 @@ export class DatasetResource extends Resource {
    */
   get client() {
     return this.baseClient.dataset
+  }
+}
+
+/**
+ * Represents a file resource.
+ */
+export class FileResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk').FileClient}
+   */
+  get client() {
+    return this.baseClient.file
+  }
+}
+
+/**
+ * Represents a secret resource.
+ */
+export class SecretResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk').SecretClient}
+   */
+  get client() {
+    return this.baseClient.secret
   }
 }
 
@@ -886,7 +952,7 @@ export class Solution {
   /**
    * Get the resources.
    *
-   * @returns {(BotResource|DatasetResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
+   * @returns {(BotResource|DatasetResource|FileResource|SecretResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
    */
   get resources() {
     return this.config.resources.map((resource) => {
@@ -894,6 +960,10 @@ export class Solution {
         return new BotResource(resource)
       } else if (resource.type === 'dataset') {
         return new DatasetResource(resource)
+      } else if (resource.type === 'file') {
+        return new FileResource(resource)
+      } else if (resource.type === 'secret') {
+        return new SecretResource(resource)
       } else if (resource.type === 'skillset') {
         return new SkillsetResource(resource)
       } else if (resource.type === 'widgetIntegration') {
@@ -961,6 +1031,38 @@ export class Solution {
    */
   get dataset() {
     return getArrayBackedObject(this.datasets)
+  }
+
+  /**
+   * @returns {FileResource[]}
+   */
+  get files() {
+    return /** @type {FileResource[]} */ (
+      this.resources.filter((resource) => resource instanceof FileResource)
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: FileResource|undefined}}
+   */
+  get file() {
+    return getArrayBackedObject(this.files)
+  }
+
+  /**
+   * @returns {SecretResource[]}
+   */
+  get secrets() {
+    return /** @type {SecretResource[]} */ (
+      this.resources.filter((resource) => resource instanceof SecretResource)
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: SecretResource|undefined}}
+   */
+  get secret() {
+    return getArrayBackedObject(this.secrets)
   }
 
   /**
