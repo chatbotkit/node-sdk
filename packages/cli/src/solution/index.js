@@ -122,6 +122,21 @@ export const BasicResourceConfigSchema = z.object({
  */
 
 /**
+ * The schema for a blueprint resource configuration.
+ *
+ * @type {ResourceConfigSchemaFor<'blueprint', import('@chatbotkit/sdk/blueprint/v1').BlueprintCreateRequest>}
+ */
+export const BlueprintResourceConfigSchema = BasicResourceConfigSchema.extend({
+  type: z.literal('blueprint'),
+  properties: z.object({
+    name: z.string().optional(),
+    description: z.string().optional(),
+    meta: z.record(z.unknown()).optional(),
+    visibility: z.enum(['private', 'protected', 'public']).optional(),
+  }),
+})
+
+/**
  * The schema for a bot resource configuration.
  *
  * @type {ResourceConfigSchemaFor<'bot', import('@chatbotkit/sdk/bot/v1').BotCreateRequest>}
@@ -556,6 +571,7 @@ export const TwilioIntegrationResourceConfigSchema =
  * The schema for a resource configuration.
  */
 export const ResourceConfigSchema = z.union([
+  BlueprintResourceConfigSchema,
   BotResourceConfigSchema,
   DatasetResourceConfigSchema,
   FileResourceConfigSchema,
@@ -699,6 +715,19 @@ export class Resource {
 
       this.config.id = id
     }
+  }
+}
+
+/**
+ * Represents a blueprint resource.
+ */
+export class BlueprintResource extends Resource {
+  /**
+   * @override
+   * @returns {import('@chatbotkit/sdk').BlueprintClient}
+   */
+  get client() {
+    return this.baseClient.blueprint
   }
 }
 
@@ -989,11 +1018,13 @@ export class Solution {
   /**
    * Get the resources.
    *
-   * @returns {(BotResource|DatasetResource|FileResource|SecretResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
+   * @returns {(BlueprintResource|BotResource|DatasetResource|FileResource|SecretResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
    */
   get resources() {
     return this.config.resources.map((resource) => {
-      if (resource.type === 'bot') {
+      if (resource.type === 'blueprint') {
+        return new BlueprintResource(resource)
+      } else if (resource.type === 'bot') {
         return new BotResource(resource)
       } else if (resource.type === 'dataset') {
         return new DatasetResource(resource)
@@ -1039,6 +1070,22 @@ export class Solution {
         )
       }
     })
+  }
+
+  /**
+   * @returns {BlueprintResource[]}
+   */
+  get blueprints() {
+    return /** @type {BlueprintResource[]}*/ (
+      this.resources.filter((resource) => resource instanceof BlueprintResource)
+    )
+  }
+
+  /**
+   * @returns {{[key: string]: BlueprintResource|undefined}}
+   */
+  get blueprint() {
+    return getArrayBackedObject(this.blueprints)
   }
 
   /**
