@@ -2,13 +2,13 @@
 
 ***
 
-[@chatbotkit/cli](../../modules.md) / [solution](../README.md) / SitemapIntegrationResource
+[@chatbotkit/cli](../../modules.md) / [solution](../README.md) / MessengerIntegrationResource
 
-# Class: SitemapIntegrationResource
+# Class: MessengerIntegrationResource
 
-Defined in: [packages/cli/src/solution/index.js:830](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L830)
+Defined in: [packages/cli/src/solution/index.js:894](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L894)
 
-Represents a sitemap integration resource.
+Represents a messenger integration resource.
 
 ## Extends
 
@@ -18,7 +18,7 @@ Represents a sitemap integration resource.
 
 ### Constructor
 
-> **new SitemapIntegrationResource**(`config`): `SitemapIntegrationResource`
+> **new MessengerIntegrationResource**(`config`): `MessengerIntegrationResource`
 
 Defined in: [packages/cli/src/solution/index.js:616](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L616)
 
@@ -30,7 +30,7 @@ Defined in: [packages/cli/src/solution/index.js:616](https://github.com/chatbotk
 
 #### Returns
 
-`SitemapIntegrationResource`
+`MessengerIntegrationResource`
 
 #### Inherited from
 
@@ -60,13 +60,13 @@ Defined in: [packages/cli/src/solution/index.js:664](https://github.com/chatbotk
 
 #### Get Signature
 
-> **get** **client**(): `SitemapIntegrationClient`
+> **get** **client**(): `MessengerIntegrationClient`
 
-Defined in: [packages/cli/src/solution/index.js:834](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L834)
+Defined in: [packages/cli/src/solution/index.js:899](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L899)
 
 ##### Returns
 
-`SitemapIntegrationClient`
+`MessengerIntegrationClient`
 
 #### Overrides
 

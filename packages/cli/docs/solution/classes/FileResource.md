@@ -2,13 +2,13 @@
 
 ***
 
-[@chatbotkit/cli](../../modules.md) / [solution](../README.md) / SitemapIntegrationResource
+[@chatbotkit/cli](../../modules.md) / [solution](../README.md) / FileResource
 
-# Class: SitemapIntegrationResource
+# Class: FileResource
 
-Defined in: [packages/cli/src/solution/index.js:830](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L830)
+Defined in: [packages/cli/src/solution/index.js:778](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L778)
 
-Represents a sitemap integration resource.
+Represents a file resource.
 
 ## Extends
 
@@ -18,7 +18,7 @@ Represents a sitemap integration resource.
 
 ### Constructor
 
-> **new SitemapIntegrationResource**(`config`): `SitemapIntegrationResource`
+> **new FileResource**(`config`): `FileResource`
 
 Defined in: [packages/cli/src/solution/index.js:616](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L616)
 
@@ -30,7 +30,7 @@ Defined in: [packages/cli/src/solution/index.js:616](https://github.com/chatbotk
 
 #### Returns
 
-`SitemapIntegrationResource`
+`FileResource`
 
 #### Inherited from
 
@@ -60,13 +60,13 @@ Defined in: [packages/cli/src/solution/index.js:664](https://github.com/chatbotk
 
 #### Get Signature
 
-> **get** **client**(): `SitemapIntegrationClient`
+> **get** **client**(): `FileClient`
 
-Defined in: [packages/cli/src/solution/index.js:834](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L834)
+Defined in: [packages/cli/src/solution/index.js:783](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L783)
 
 ##### Returns
 
-`SitemapIntegrationClient`
+`FileClient`
 
 #### Overrides
 

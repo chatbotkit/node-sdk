@@ -2,13 +2,13 @@
 
 ***
 
-[@chatbotkit/cli](../../modules.md) / [solution](../README.md) / SitemapIntegrationResource
+[@chatbotkit/cli](../../modules.md) / [solution](../README.md) / NotionIntegrationResource
 
-# Class: SitemapIntegrationResource
+# Class: NotionIntegrationResource
 
-Defined in: [packages/cli/src/solution/index.js:830](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L830)
+Defined in: [packages/cli/src/solution/index.js:907](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L907)
 
-Represents a sitemap integration resource.
+Represents a notion integration resource.
 
 ## Extends
 
@@ -18,7 +18,7 @@ Represents a sitemap integration resource.
 
 ### Constructor
 
-> **new SitemapIntegrationResource**(`config`): `SitemapIntegrationResource`
+> **new NotionIntegrationResource**(`config`): `NotionIntegrationResource`
 
 Defined in: [packages/cli/src/solution/index.js:616](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L616)
 
@@ -30,7 +30,7 @@ Defined in: [packages/cli/src/solution/index.js:616](https://github.com/chatbotk
 
 #### Returns
 
-`SitemapIntegrationResource`
+`NotionIntegrationResource`
 
 #### Inherited from
 
@@ -60,13 +60,13 @@ Defined in: [packages/cli/src/solution/index.js:664](https://github.com/chatbotk
 
 #### Get Signature
 
-> **get** **client**(): `SitemapIntegrationClient`
+> **get** **client**(): `NotionIntegrationClient`
 
-Defined in: [packages/cli/src/solution/index.js:834](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L834)
+Defined in: [packages/cli/src/solution/index.js:912](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L912)
 
 ##### Returns
 
-`SitemapIntegrationClient`
+`NotionIntegrationClient`
 
 #### Overrides
 

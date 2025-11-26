@@ -6,8 +6,8 @@
 
 # Variable: WidgetIntegrationResourceConfigSchema
 
-> `const` **WidgetIntegrationResourceConfigSchema**: `ZodObject`\<`object` & `object`, `"strip"`, `ZodTypeAny`, \{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"widgetIntegration"`; \}, \{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"widgetIntegration"`; \}\>
+> `const` **WidgetIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"widgetIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L137)
+Defined in: [packages/cli/src/solution/index.js:245](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L245)
 
 The schema for a widget integration resource configuration.
