@@ -6,7 +6,7 @@
 
 # Class: SkillsetResource
 
-Defined in: [packages/cli/src/solution/index.js:307](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L307)
+Defined in: [packages/cli/src/solution/index.js:804](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L804)
 
 Represents a skillset resource.
 
@@ -20,13 +20,13 @@ Represents a skillset resource.
 
 > **new SkillsetResource**(`config`): `SkillsetResource`
 
-Defined in: [packages/cli/src/solution/index.js:186](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L186)
+Defined in: [packages/cli/src/solution/index.js:616](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L616)
 
 #### Parameters
 
 ##### config
 
-\{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ `backstory?`: `string`; `datasetId?`: `string`; `model?`: `string`; `moderation?`: `boolean`; `privacy?`: `boolean`; `skillsetId?`: `string`; \}; `slug?`: `string`; `type?`: `"bot"`; \} | \{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"dataset"`; \} | \{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"skillset"`; \} | \{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"widgetIntegration"`; \} | \{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ `datasetId?`: `string`; `url?`: `string`; \}; `slug?`: `string`; `type?`: `"sitemapIntegration"`; \}
+\{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"blueprint"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"bot"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"dataset"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"file"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"secret"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"skillset"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"widgetIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"sitemapIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"slackIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"discordIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"telegramIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"whatsappIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"messengerIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"notionIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"emailIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"triggerIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"supportIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"extractIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"mcpserverIntegration"`; \} | \{ `id?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"twilioIntegration"`; \}
 
 #### Returns
 
@@ -44,7 +44,7 @@ Defined in: [packages/cli/src/solution/index.js:186](https://github.com/chatbotk
 
 > **get** **baseClient**(): `ChatBotKit`
 
-Defined in: [packages/cli/src/solution/index.js:231](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L231)
+Defined in: [packages/cli/src/solution/index.js:664](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L664)
 
 ##### Returns
 
@@ -62,7 +62,7 @@ Defined in: [packages/cli/src/solution/index.js:231](https://github.com/chatbotk
 
 > **get** **client**(): `SkillsetClient`
 
-Defined in: [packages/cli/src/solution/index.js:312](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L312)
+Defined in: [packages/cli/src/solution/index.js:809](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L809)
 
 ##### Returns
 
@@ -74,13 +74,34 @@ Defined in: [packages/cli/src/solution/index.js:312](https://github.com/chatbotk
 
 ***
 
+### createProperties
+
+#### Get Signature
+
+> **get** **createProperties**(): [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+Defined in: [packages/cli/src/solution/index.js:691](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L691)
+
+Get the properties to use for create operations.
+Override this method in subclasses to filter properties for creates.
+
+##### Returns
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+#### Inherited from
+
+[`Resource`](Resource.md).[`createProperties`](Resource.md#createproperties)
+
+***
+
 ### description
 
 #### Get Signature
 
 > **get** **description**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:224](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L224)
+Defined in: [packages/cli/src/solution/index.js:657](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L657)
 
 ##### Returns
 
@@ -98,7 +119,7 @@ Defined in: [packages/cli/src/solution/index.js:224](https://github.com/chatbotk
 
 > **get** **id**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:210](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L210)
+Defined in: [packages/cli/src/solution/index.js:643](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L643)
 
 ##### Returns
 
@@ -116,7 +137,7 @@ Defined in: [packages/cli/src/solution/index.js:210](https://github.com/chatbotk
 
 > **get** **name**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:217](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L217)
+Defined in: [packages/cli/src/solution/index.js:650](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L650)
 
 ##### Returns
 
@@ -134,7 +155,7 @@ Defined in: [packages/cli/src/solution/index.js:217](https://github.com/chatbotk
 
 > **get** **slug**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L200)
+Defined in: [packages/cli/src/solution/index.js:630](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L630)
 
 ##### Returns
 
@@ -152,7 +173,7 @@ Defined in: [packages/cli/src/solution/index.js:200](https://github.com/chatbotk
 
 > **get** **type**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:193](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L193)
+Defined in: [packages/cli/src/solution/index.js:623](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L623)
 
 ##### Returns
 
@@ -162,13 +183,34 @@ Defined in: [packages/cli/src/solution/index.js:193](https://github.com/chatbotk
 
 [`Resource`](Resource.md).[`type`](Resource.md#type)
 
+***
+
+### updateProperties
+
+#### Get Signature
+
+> **get** **updateProperties**(): [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+Defined in: [packages/cli/src/solution/index.js:701](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L701)
+
+Get the properties to use for update operations.
+Override this method in subclasses to filter properties for updates.
+
+##### Returns
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
+
+#### Inherited from
+
+[`Resource`](Resource.md).[`updateProperties`](Resource.md#updateproperties)
+
 ## Methods
 
 ### sync()
 
 > **sync**(): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [packages/cli/src/solution/index.js:257](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L257)
+Defined in: [packages/cli/src/solution/index.js:710](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L710)
 
 Sync the resource.
 

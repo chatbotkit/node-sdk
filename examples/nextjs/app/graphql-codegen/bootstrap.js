@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires, no-console */
 const fs = require('fs')
 const cp = require('child_process')
 const packageJson = require('./package.json')
 
-for (const dep in packageJson.dependencies) {
+for (const dep of Object.keys(packageJson.dependencies)) {
   if (dep.startsWith('@chatbotkit/')) {
     packageJson.dependencies[dep] = 'latest'
   }

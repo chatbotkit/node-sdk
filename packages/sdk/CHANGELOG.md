@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.24.0
+
+### Minor Changes
+
+- 8ed0ed1: Updated API definitions and full support for resources in the solution cli.
+
 ## 1.23.0
 
 ### Minor Changes

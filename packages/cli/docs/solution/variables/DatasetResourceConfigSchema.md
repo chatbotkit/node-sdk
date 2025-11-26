@@ -6,8 +6,8 @@
 
 # Variable: DatasetResourceConfigSchema
 
-> `const` **DatasetResourceConfigSchema**: `ZodObject`\<`object` & `object`, `"strip"`, `ZodTypeAny`, \{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"dataset"`; \}, \{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `properties?`: \{ \}; `slug?`: `string`; `type?`: `"dataset"`; \}\>
+> `const` **DatasetResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"dataset"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L121)
+Defined in: [packages/cli/src/solution/index.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L166)
 
 The schema for a dataset resource configuration.
