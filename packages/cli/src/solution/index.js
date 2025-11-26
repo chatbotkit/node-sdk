@@ -151,6 +151,18 @@ export const DatasetResourceConfigSchema = BasicResourceConfigSchema.extend({
   properties: z.object({
     name: z.string().optional(),
     description: z.string().optional(),
+    meta: z.record(z.unknown()).optional(),
+    blueprintId: z.string().optional(),
+    store: z.string().optional(),
+    reranker: z.string().optional(),
+    recordMaxTokens: z.number().optional(),
+    searchMinScore: z.number().optional(),
+    searchMaxRecords: z.number().optional(),
+    searchMaxTokens: z.number().optional(),
+    matchInstruction: z.string().optional(),
+    mismatchInstruction: z.string().optional(),
+    separators: z.string().optional(),
+    visibility: z.enum(['private', 'protected', 'public']).optional(),
   }),
 })
 
