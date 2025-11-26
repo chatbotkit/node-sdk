@@ -568,22 +568,6 @@ export const TwilioIntegrationResourceConfigSchema =
   })
 
 /**
- * The schema for a policy resource configuration.
- *
- * @type {ResourceConfigSchemaFor<'policy', import('@chatbotkit/sdk/policy/v1').PolicyCreateRequest>}
- */
-export const PolicyResourceConfigSchema = BasicResourceConfigSchema.extend({
-  type: z.literal('policy'),
-  properties: z.object({
-    name: z.string().optional(),
-    description: z.string().optional(),
-    meta: z.record(z.unknown()).optional(),
-    blueprintId: z.string().optional(),
-    visibility: z.enum(['private', 'protected', 'public']).optional(),
-  }),
-})
-
-/**
  * The schema for a resource configuration.
  */
 export const ResourceConfigSchema = z.union([
@@ -607,7 +591,6 @@ export const ResourceConfigSchema = z.union([
   ExtractIntegrationResourceConfigSchema,
   McpServerIntegrationResourceConfigSchema,
   TwilioIntegrationResourceConfigSchema,
-  PolicyResourceConfigSchema,
 ])
 
 /**
@@ -1010,19 +993,6 @@ export class TwilioIntegrationResource extends Resource {
 }
 
 /**
- * Represents a policy resource.
- */
-export class PolicyResource extends Resource {
-  /**
-   * @override
-   * @returns {import('@chatbotkit/sdk').PolicyClient}
-   */
-  get client() {
-    return this.baseClient.policy
-  }
-}
-
-/**
  * Represents a solution.
  */
 export class Solution {
@@ -1048,7 +1018,7 @@ export class Solution {
   /**
    * Get the resources.
    *
-   * @returns {(BlueprintResource|BotResource|DatasetResource|FileResource|SecretResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource|PolicyResource)[]}
+   * @returns {(BlueprintResource|BotResource|DatasetResource|FileResource|SecretResource|SkillsetResource|WidgetIntegrationResource|SitemapIntegrationResource|SlackIntegrationResource|DiscordIntegrationResource|TelegramIntegrationResource|WhatsAppIntegrationResource|MessengerIntegrationResource|NotionIntegrationResource|EmailIntegrationResource|TriggerIntegrationResource|SupportIntegrationResource|ExtractIntegrationResource|McpServerIntegrationResource|TwilioIntegrationResource)[]}
    */
   get resources() {
     return this.config.resources.map((resource) => {
@@ -1092,8 +1062,6 @@ export class Solution {
         return new McpServerIntegrationResource(resource)
       } else if (resource.type === 'twilioIntegration') {
         return new TwilioIntegrationResource(resource)
-      } else if (resource.type === 'policy') {
-        return new PolicyResource(resource)
       } else {
         const _exhaustiveCheck = /** @type {never} */ (resource)
 
@@ -1450,22 +1418,6 @@ export class Solution {
    */
   get twilioIntegration() {
     return getArrayBackedObject(this.twilioIntegrations)
-  }
-
-  /**
-   * @returns {PolicyResource[]}
-   */
-  get policies() {
-    return /** @type {PolicyResource[]} */ (
-      this.resources.filter((resource) => resource instanceof PolicyResource)
-    )
-  }
-
-  /**
-   * @returns {{[key: string]: PolicyResource|undefined}}
-   */
-  get policy() {
-    return getArrayBackedObject(this.policies)
   }
 
   /**
