@@ -1,29 +1,28 @@
-Welcome to this GraphQL Code Generator example that showcases how to use ChatBotKit's GraphQL API with type-safe code generation in a Next.js application. This project demonstrates the complete setup process from the [official tutorial](https://chatbotkit.com/tutorials/using-graphql-code-generator-with-chatbotkit-s-graphql-api), including authentication configuration, GraphQL operation definitions, and type-safe API integration.
+Welcome to this GraphQL Code Generator example that showcases how to use ChatBotKit's GraphQL API with type-safe code generation in a Next.js application. This project demonstrates the complete setup process from the [official tutorial](https://chatbotkit.com/tutorials/using-graphql-code-generator-with-chatbotkit-s-graphql-api), including authentication configuration, GraphQL operation definitions, and direct server-side data fetching.
 
-**NOTE:** This is the App Router version demonstrating GraphQL Code Generator integration with ChatBotKit's GraphQL API.
+**NOTE:** This is the App Router version demonstrating GraphQL Code Generator integration with ChatBotKit's GraphQL API using server components.
 
 The most important files in this project are:
 
 - [codegen.ts](codegen.ts) - GraphQL Code Generator configuration with authentication
-- [src/queries/\*.graphql](src/queries/) - GraphQL query and mutation definitions
-- [app/api/chatbots/route.js](app/api/chatbots/route.js) - API route using generated SDK
-- [components/ChatbotList.jsx](components/ChatbotList.jsx) - UI component displaying chatbots
+- [src/queries/listBots.graphql](src/queries/listBots.graphql) - GraphQL query definition
+- [app/page.jsx](app/page.jsx) - Server component using generated SDK
 
 # This is how it works:
 
 1. **Configuration Setup**: The [codegen.ts](codegen.ts) file configures GraphQL Code Generator with ChatBotKit's GraphQL endpoint using TypeScript plugins (`typescript`, `typescript-operations`, `typescript-graphql-request`). It includes authentication headers required to access the schema, as ChatBotKit's endpoint requires proper authorization for schema introspection.
 
-2. **Define GraphQL Operations**: In the `src/queries/` directory, we define GraphQL queries and mutations in separate `.graphql` files. These files contain pure GraphQL syntax that specifies exactly what data we want to fetch from or send to the ChatBotKit API.
+2. **Define GraphQL Operations**: In the `src/queries/` directory, we define GraphQL queries in separate `.graphql` files. These files contain pure GraphQL syntax that specifies exactly what data we want to fetch from the ChatBotKit API.
 
 3. **Generate Types and SDK**: Running `npm run codegen` introspects the ChatBotKit GraphQL schema and generates TypeScript types and a type-safe SDK in `src/generated/graphql.ts`. This creates:
 
    - TypeScript type definitions for all GraphQL types
    - Type-safe operation functions
-   - A complete SDK with methods for all queries and mutations
+   - A complete SDK with methods for all queries
 
-4. **Use Generated SDK in API Route**: The [app/api/chatbots/route.js](app/api/chatbots/route.js) imports the generated SDK using `getSdk()` and calls type-safe methods like `sdk.ListChatbots()`. TypeScript knows the exact structure of variables and response data at compile time.
+4. **Use Generated SDK in Server Component**: The [app/page.jsx](app/page.jsx) imports the generated SDK using `getSdk()` and calls type-safe methods like `sdk.ListBots()` directly on the server. TypeScript knows the exact structure of variables and response data at compile time.
 
-5. **Display Results**: The [components/ChatbotList.jsx](components/ChatbotList.jsx) component fetches data from our API route and displays the list of chatbots with type-safe data structures flowing through the entire application.
+5. **Render Results**: The page component renders the list of bots directly as a server component, providing fast initial page loads and full type safety throughout the data flow.
 
 ## Key Features
 
@@ -135,21 +134,14 @@ pnpm -F @examples/nextjs-app-router-graphql-codegen dev
 
 ```
 ├── app/
-│   ├── api/
-│   │   └── chatbots/
-│   │       └── route.js          # API route using generated SDK
 │   ├── globals.css               # Basic styles
 │   ├── layout.jsx                # Root layout
-│   └── page.jsx                  # Home page
-├── components/
-│   └── ChatbotList.jsx           # Chatbot list component
+│   └── page.jsx                  # Server component using generated SDK
 ├── src/
 │   ├── generated/                # Generated GraphQL code (gitignored)
 │   │   └── graphql.ts            # Generated types and SDK
 │   └── queries/                  # GraphQL operation definitions
-│       ├── listChatbots.graphql  # List chatbots query
-│       ├── getChatbot.graphql    # Get single chatbot query
-│       └── createChatbot.graphql # Create chatbot mutation
+│       └── listBots.graphql      # List bots query
 ├── .env.example                  # Environment variables template
 ├── .gitignore                    # Git ignore rules
 ├── bootstrap.js                  # Setup script
@@ -161,14 +153,14 @@ pnpm -F @examples/nextjs-app-router-graphql-codegen dev
 
 ## GraphQL Operations
 
-The example includes three GraphQL operations defined in separate `.graphql` files:
+The example includes a GraphQL query defined in a `.graphql` file:
 
-### ListChatbots Query (`src/queries/listChatbots.graphql`)
+### ListBots Query (`src/queries/listBots.graphql`)
 
-Fetches a paginated list of chatbots:
+Fetches a paginated list of bots:
 
 ```graphql
-query ListChatbots($cursor: ID, $order: String, $take: Int) {
+query ListBots($cursor: ID, $take: Int) {
   bots(after: $cursor, last: $take) {
     edges {
       cursor
@@ -190,78 +182,40 @@ query ListChatbots($cursor: ID, $order: String, $take: Int) {
 }
 ```
 
-### GetChatbot Query (`src/queries/getChatbot.graphql`)
-
-Fetches a single chatbot with detailed information:
-
-```graphql
-query GetChatbot($id: ID!) {
-  bot: bots(botIds: [$id], last: 1) {
-    edges {
-      node {
-        id
-        name
-        description
-        backstory
-        model
-        moderation
-        createdAt
-        updatedAt
-      }
-    }
-  }
-}
-```
-
-### CreateChatbot Mutation (`src/queries/createChatbot.graphql`)
-
-Creates a new chatbot:
-
-```graphql
-mutation CreateChatbot($input: BotCreateRequest!) {
-  createBot(input: $input) {
-    id
-  }
-}
-```
-
 ## Using the Generated SDK
 
-After running `npm run codegen`, you get a complete type-safe SDK. Here's how to use it:
+After running `npm run codegen`, you get a complete type-safe SDK. Here's how to use it in a server component:
 
 ```javascript
-import { getSdk } from './src/generated/graphql'
+import { getSdk } from '../src/generated/graphql'
 
 import { GraphQLClient } from 'graphql-request'
 
-// Create GraphQL client with authentication
-const client = new GraphQLClient('https://api.chatbotkit.com/api/v1/graphql', {
-  headers: {
-    Authorization: `Bearer ${process.env.CHATBOTKIT_API_SECRET}`,
-  },
-})
+export default async function Page() {
+  // Create GraphQL client with authentication
+  const client = new GraphQLClient(
+    'https://api.chatbotkit.com/api/v1/graphql',
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.CHATBOTKIT_API_SECRET}`,
+      },
+    }
+  )
 
-// Get the type-safe SDK
-const sdk = getSdk(client)
+  // Get the type-safe SDK
+  const sdk = getSdk(client)
 
-// Use the SDK methods - TypeScript knows the exact shape of variables and responses
-const data = await sdk.ListChatbots({
-  cursor: undefined,
-  order: 'desc',
-  take: 10,
-})
+  // Use the SDK methods - TypeScript knows the exact shape of variables and responses
+  const result = await sdk.ListBots({ take: 10 })
 
-// Extract chatbots from edges (fully typed)
-const chatbots =
-  data.bots?.edges?.map((edge) => edge?.node).filter(Boolean) || []
-console.log(chatbots)
+  // Extract bots from edges (fully typed)
+  const bots = result.bots.edges.map((edge) => edge.node)
+
+  return <div>{/* Render bots */}</div>
+}
 ```
 
-The SDK provides methods for all your defined GraphQL operations:
-
-- `sdk.ListChatbots(variables)` - Type-safe query
-- `sdk.GetChatbot(variables)` - Type-safe query
-- `sdk.CreateChatbot(variables)` - Type-safe mutation
+The SDK provides methods for all your defined GraphQL operations with full type safety.
 
 ## Troubleshooting
 
@@ -292,14 +246,13 @@ If you encounter TypeScript errors:
 2. Restart your TypeScript server in VS Code (Cmd/Ctrl + Shift + P → "Restart TS Server")
 3. Check that imported types match your query definitions
 
-### No Chatbots Displayed
+### No Bots Displayed
 
-If the application runs but shows no chatbots:
+If the application runs but shows no bots:
 
-1. Verify you have chatbots created in your ChatBotKit account
-2. Check the browser console for API errors
-3. Ensure your API key has permission to read chatbots
-4. Try accessing the API route directly: `http://localhost:3000/api/chatbots`
+1. Verify you have bots created in your ChatBotKit account
+2. Check the server console for API errors
+3. Ensure your API key has permission to read bots
 
 ## Best Practices
 
@@ -337,12 +290,12 @@ If the application runs but shows no chatbots:
 
 Try extending this example:
 
-- Add a form to create new chatbots using the `CreateChatbot` mutation
+- Add more GraphQL queries for creating or updating bots
 - Implement pagination using the cursor parameter
-- Add more detailed views using the `GetChatbot` query
+- Add a detailed view for individual bots
 - Explore other ChatBotKit GraphQL operations (datasets, conversations, etc.)
-- Add error handling and loading states
-- Implement real-time updates using GraphQL subscriptions
+- Add client-side interactivity with 'use client' components
+- Implement streaming responses for real-time updates
 
 ## Conclusion
 
