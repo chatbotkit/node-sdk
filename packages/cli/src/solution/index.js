@@ -1032,8 +1032,11 @@ export class Solution {
       } else if (resource.type === 'twilioIntegration') {
         return new TwilioIntegrationResource(resource)
       } else {
-        // @ts-expect-error expected
-        throw new Error(`Unknown resource type: ${resource.type}`) // @todo find out why this is not type checking correctly
+        const _exhaustiveCheck = /** @type {never} */ (resource)
+
+        throw new Error(
+          `Unknown resource type: ${/** @type {any} */ (_exhaustiveCheck).type}`
+        )
       }
     })
   }
