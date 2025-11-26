@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports, no-console */
 const fs = require('fs')
 const cp = require('child_process')
 const packageJson = require('./package.json')
