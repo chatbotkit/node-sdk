@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/widget",
-  "version": "1.0.0",
+  "version": "1.25.0",
   "description": "Type definitions for the ChatBotKit widget custom element",
   "license": "ISC",
   "engines": {

@@ -1,5 +1,17 @@
 # @chatbotkit/react
 
+## 1.25.0
+
+### Minor Changes
+
+- bd4dedf: Updated types across all sdks.
+
+### Patch Changes
+
+- Updated dependencies [bd4dedf]
+  - @chatbotkit/widget@1.25.0
+  - @chatbotkit/sdk@1.25.0
+
 ## 1.24.0
 
 ### Patch Changes

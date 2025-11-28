@@ -1,5 +1,12 @@
 # @chatbotkit/nextauth
 
+## 1.25.0
+
+### Patch Changes
+
+- Updated dependencies [bd4dedf]
+  - @chatbotkit/sdk@1.25.0
+
 ## 1.24.0
 
 ### Patch Changes
