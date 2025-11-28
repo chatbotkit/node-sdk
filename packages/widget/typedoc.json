@@ -1,0 +1,7 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "extends": ["../../typedoc.base.json"],
+  "entryPoints": ["./src/index.ts", "./src/v2.ts"],
+  "externalPattern": ["**/node_modules/**", "./types/**"],
+  "readme": "README.md"
+}

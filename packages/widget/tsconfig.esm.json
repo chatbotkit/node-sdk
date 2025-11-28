@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.esm.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist/esm",
+    "skipLibCheck": true,
+    "maxNodeModuleJsDepth": 0,
+    "tsBuildInfoFile": "./tsconfig.esm.tsbuildinfo"
+  },
+  "include": ["src/**/*"]
+}

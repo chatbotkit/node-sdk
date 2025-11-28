@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react'
 import useDOMQuerySelector from './useDOMQuerySelector.js'
 
 /**
- * @typedef {import('@chatbotkit/sdk/widget/v2').ChatBotKitWidgetElementV2} ChatBotKitWidgetElementV2
- * @typedef {import('@chatbotkit/sdk/widget/v2').ChatBotKitGlobalObject} ChatBotKitGlobalObject
+ * @typedef {import('@chatbotkit/widget/v2').ChatBotKitWidgetElementV2} ChatBotKitWidgetElementV2
+ * @typedef {import('@chatbotkit/widget/v2').ChatBotKitGlobalObject} ChatBotKitGlobalObject
  */
 
 /**

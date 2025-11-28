@@ -5,8 +5,8 @@ import { useEffect } from 'react'
 import useWidgetInstance from './useWidgetInstance.js'
 
 /**
- * @typedef {import('@chatbotkit/sdk/widget/v2').FunctionDefinition} FunctionDefinition
- * @typedef {import('@chatbotkit/sdk/widget/v2').ChatBotKitWidgetElementV2} ChatBotKitWidgetElementV2
+ * @typedef {import('@chatbotkit/widget/v2').FunctionDefinition} FunctionDefinition
+ * @typedef {import('@chatbotkit/widget/v2').ChatBotKitWidgetElementV2} ChatBotKitWidgetElementV2
  *
  * @param {{
  *   selector?: string,
