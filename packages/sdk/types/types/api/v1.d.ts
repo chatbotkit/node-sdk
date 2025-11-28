@@ -5108,7 +5108,13 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": Record<string, never>;
+                "application/json": {
+                    /**
+                     * @description If true, deletes all resources associated with the blueprint. If false or omitted, only the blueprint is deleted.
+                     * @default false
+                     */
+                    deleteResources?: boolean;
+                };
             };
         };
         responses: {
@@ -6828,6 +6834,16 @@ export interface operations {
                             botId?: string;
                             /** @description The schedule of the task */
                             schedule?: string;
+                            /**
+                             * @description The task execution status
+                             * @enum {string}
+                             */
+                            status?: "idle" | "running";
+                            /**
+                             * @description The task execution outcome
+                             * @enum {string}
+                             */
+                            outcome?: "pending" | "success" | "failure";
                         }[];
                     };
                     "application/jsonl": {
@@ -6858,6 +6874,16 @@ export interface operations {
                             botId?: string;
                             /** @description The schedule of the task */
                             schedule?: string;
+                            /**
+                             * @description The task execution status
+                             * @enum {string}
+                             */
+                            status?: "idle" | "running";
+                            /**
+                             * @description The task execution outcome
+                             * @enum {string}
+                             */
+                            outcome?: "pending" | "success" | "failure";
                         };
                     };
                 };
@@ -17262,6 +17288,7 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            instruction: string;
                             icon: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
@@ -17281,6 +17308,7 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
+                            tags?: string[];
                             setup?: string;
                             commentary?: string;
                         }[];
@@ -17307,6 +17335,7 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            instruction: string;
                             icon: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
@@ -17326,6 +17355,7 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
+                            tags?: string[];
                             setup?: string;
                             commentary?: string;
                         };
