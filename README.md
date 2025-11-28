@@ -33,6 +33,7 @@ The ChatBotKit Node SDK is comprised of the following packages:
 | [@chatbotkit/react](https://github.com/chatbotkit/node-sdk/tree/main/packages/react)       | [![NPM](https://img.shields.io/npm/v/@chatbotkit/react.svg)](https://www.npmjs.com/package/@chatbotkit/react)       | The ChatBotKit React SDK.                      |
 | [@chatbotkit/next](https://github.com/chatbotkit/node-sdk/tree/main/packages/next)         | [![NPM](https://img.shields.io/npm/v/@chatbotkit/next.svg)](https://www.npmjs.com/package/@chatbotkit/next)         | The ChatBotKit Next.js SDK.                    |
 | [@chatbotkit/nextauth](https://github.com/chatbotkit/node-sdk/tree/main/packages/nextauth) | [![NPM](https://img.shields.io/npm/v/@chatbotkit/nextauth.svg)](https://www.npmjs.com/package/@chatbotkit/nextauth) | The ChatBotKit NextAuth.js SDK.                |
+| [@chatbotkit/widget](https://github.com/chatbotkit/node-sdk/tree/main/packages/widget)     | [![NPM](https://img.shields.io/npm/v/@chatbotkit/widget.svg)](https://www.npmjs.com/package/@chatbotkit/widget)     | The ChatBotKit Widget types and utilities.     |
 | [@chatbotkit/fetch](https://github.com/chatbotkit/node-sdk/tree/main/packages/fetch)       | [![NPM](https://img.shields.io/npm/v/@chatbotkit/fetch.svg)](https://www.npmjs.com/package/@chatbotkit/fetch)       | The ChatBotKit isometric fetch implementation. |
 
 ## Other Tools
