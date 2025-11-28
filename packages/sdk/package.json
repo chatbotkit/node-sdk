@@ -1244,6 +1244,15 @@
       "types": "./types/usage/v1.d.ts",
       "import": "./src/usage/v1.js"
     },
+    "./widget": {
+      "types": "./types/types/widget/index.d.ts"
+    },
+    "./widget/index": {
+      "types": "./types/types/widget/index.d.ts"
+    },
+    "./widget/v2": {
+      "types": "./types/types/widget/v2.d.ts"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
