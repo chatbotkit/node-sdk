@@ -6,9 +6,9 @@
 
 # Function: useWidgetInstance()
 
-> **useWidgetInstance**(`selector?`, `deps?`): [`ChatBotKitWidgetInstance`](../type-aliases/ChatBotKitWidgetInstance.md)
+> **useWidgetInstance**(`selector?`, `deps?`): `ChatBotKitWidgetElementV2`
 
-Defined in: [hooks/useWidgetInstance.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L53)
+Defined in: [hooks/useWidgetInstance.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L17)
 
 ## Parameters
 
@@ -22,4 +22,4 @@ Defined in: [hooks/useWidgetInstance.js:53](https://github.com/chatbotkit/node-s
 
 ## Returns
 
-[`ChatBotKitWidgetInstance`](../type-aliases/ChatBotKitWidgetInstance.md)
+`ChatBotKitWidgetElementV2`

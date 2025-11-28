@@ -6,9 +6,9 @@
 
 # Function: useWidgetInstanceNotifications()
 
-> **useWidgetInstanceNotifications**(`params?`, `deps?`): [`ChatBotKitWidgetInstance`](../../useWidgetInstance/type-aliases/ChatBotKitWidgetInstance.md)
+> **useWidgetInstanceNotifications**(`params?`, `deps?`): `ChatBotKitWidgetElementV2`
 
-Defined in: [hooks/useWidgetInstanceNotifications.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceNotifications.js#L17)
+Defined in: [hooks/useWidgetInstanceNotifications.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceNotifications.js#L18)
 
 ## Parameters
 
@@ -16,7 +16,7 @@ Defined in: [hooks/useWidgetInstanceNotifications.js:17](https://github.com/chat
 
 #### notifications?
 
-[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, [`WidgetNotification`](../../useWidgetInstance/type-aliases/WidgetNotification.md)\>
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `NotificationDefinition`\>
 
 #### selector?
 
@@ -28,4 +28,4 @@ Defined in: [hooks/useWidgetInstanceNotifications.js:17](https://github.com/chat
 
 ## Returns
 
-[`ChatBotKitWidgetInstance`](../../useWidgetInstance/type-aliases/ChatBotKitWidgetInstance.md)
+`ChatBotKitWidgetElementV2`

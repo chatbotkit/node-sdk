@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1763741623898)"
+    "version": "v1 (build 1764362745361)"
   },
   "servers": [
     {
@@ -1632,7 +1632,13 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {}
+                "properties": {
+                  "deleteResources": {
+                    "description": "If true, deletes all resources associated with the blueprint. If false or omitted, only the blueprint is deleted.",
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
               }
             }
           }
@@ -5102,6 +5108,25 @@
                           "schedule": {
                             "type": "string",
                             "description": "The schedule of the task"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The task execution status",
+                            "enum": [
+                              "idle",
+                              "running"
+                            ],
+                            "$$ref": "#/components/schemas/TaskStatus"
+                          },
+                          "outcome": {
+                            "type": "string",
+                            "description": "The task execution outcome",
+                            "enum": [
+                              "pending",
+                              "success",
+                              "failure"
+                            ],
+                            "$$ref": "#/components/schemas/TaskOutcome"
                           }
                         },
                         "required": [
@@ -5171,6 +5196,25 @@
                             "schedule": {
                               "type": "string",
                               "description": "The schedule of the task"
+                            },
+                            "status": {
+                              "type": "string",
+                              "description": "The task execution status",
+                              "enum": [
+                                "idle",
+                                "running"
+                              ],
+                              "$$ref": "#/components/schemas/TaskStatus"
+                            },
+                            "outcome": {
+                              "type": "string",
+                              "description": "The task execution outcome",
+                              "enum": [
+                                "pending",
+                                "success",
+                                "failure"
+                              ],
+                              "$$ref": "#/components/schemas/TaskOutcome"
                             }
                           },
                           "$$ref": "#/paths/~1contact~1{contactId}~1task~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -26632,6 +26676,9 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "instruction": {
+                            "type": "string"
+                          },
                           "icon": {
                             "type": "string"
                           },
@@ -26672,6 +26719,12 @@
                               "properties"
                             ]
                           },
+                          "tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
                           "setup": {
                             "type": "string"
                           },
@@ -26683,8 +26736,9 @@
                           "id",
                           "createdAt",
                           "updatedAt",
-                          "icon",
-                          "schema"
+                          "instruction",
+                          "schema",
+                          "icon"
                         ]
                       }
                     }
@@ -26737,6 +26791,9 @@
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
                             },
+                            "instruction": {
+                              "type": "string"
+                            },
                             "icon": {
                               "type": "string"
                             },
@@ -26777,6 +26834,12 @@
                                 "properties"
                               ]
                             },
+                            "tags": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
                             "setup": {
                               "type": "string"
                             },
@@ -26789,8 +26852,9 @@
                             "id",
                             "createdAt",
                             "updatedAt",
-                            "icon",
-                            "schema"
+                            "instruction",
+                            "schema",
+                            "icon"
                           ]
                         }
                       },

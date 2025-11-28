@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/react",
-  "version": "1.24.0",
+  "version": "1.25.0",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
@@ -194,14 +194,14 @@
   },
   "scripts": {
     "build": "run-s build:*",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:cjs_rename": "node ../../scripts/rename-cjs.js",
-    "build:cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
-    "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
-    "build:docs": "typedoc",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:exports": "node ../../scripts/create-standard-exports.js",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build:01-cjs": "tsc -p tsconfig.cjs.json",
+    "build:01-cjs_rename": "node ../../scripts/rename-cjs.js",
+    "build:01-cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
+    "build:01-cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
+    "build:03-docs": "typedoc",
+    "build:02-esm": "tsc -p tsconfig.esm.json",
+    "build:00-exports": "node ../../scripts/create-standard-exports.js",
+    "build:00-types": "tsc -p tsconfig.types.json",
     "check": "tsc -p tsconfig.check.json",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
@@ -217,6 +217,7 @@
   "types": "./types/index.d.ts",
   "dependencies": {
     "@chatbotkit/sdk": "workspace:*",
+    "@chatbotkit/widget": "workspace:*",
     "tslib": "^2.6.2"
   },
   "peerDependencies": {

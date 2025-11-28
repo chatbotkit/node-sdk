@@ -7,6 +7,7 @@
     "packages/sdk",
     "packages/agent",
     "packages/react",
+    "packages/widget",
     "packages/next",
     "packages/nextauth",
     "packages/cli"

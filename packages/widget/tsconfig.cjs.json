@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.cjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist/cjs",
+    "skipLibCheck": true,
+    "maxNodeModuleJsDepth": 0,
+    "tsBuildInfoFile": "./tsconfig.cjs.tsbuildinfo"
+  },
+  "include": ["src/**/*"]
+}

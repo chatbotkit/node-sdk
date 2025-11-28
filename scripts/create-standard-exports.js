@@ -2,19 +2,33 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
+async function gatherExports(
+  dirPath,
+  exports,
+  sourceFiles,
+  level = 0,
+  rootDir = dirPath
+) {
   const files = await fs.readdir(dirPath, { withFileTypes: true })
 
   for (const file of files) {
     const filePath = path.join(dirPath, file.name)
 
-    const ext = '.js'
+    const jsExt = '.js'
+    const tsExt = '.ts'
+
+    const isJs = filePath.endsWith(jsExt)
+    const isTs = filePath.endsWith(tsExt) && !filePath.endsWith('.d.ts')
+
+    const ext = isJs ? jsExt : isTs ? tsExt : null
 
     if (file.isDirectory()) {
-      await gatherExports(filePath, exports, level + 1, rootDir)
-    } else if (filePath.endsWith(ext)) {
+      await gatherExports(filePath, exports, sourceFiles, level + 1, rootDir)
+    } else if (ext) {
       const baseName = path.basename(filePath, ext)
       const fileName = path.join(dirPath, baseName)
+
+      sourceFiles.push('./' + fileName + ext)
 
       const exportPoints = []
 
@@ -46,7 +60,9 @@ async function gatherExports(dirPath, exports, level = 0, rootDir = dirPath) {
 async function main() {
   const exports = {}
 
-  await gatherExports(path.join('src'), exports)
+  const sourceFiles = []
+
+  await gatherExports(path.join('src'), exports, sourceFiles)
 
   const packageFile = await fs.readFile('package.json')
 
@@ -69,13 +85,7 @@ async function main() {
 
   const typedocStruct = JSON.parse(typedocFile.toString())
 
-  typedocStruct.entryPoints = Array.from(
-    new Set(
-      Object.values(exports)
-        .map(({ ['import']: _import }) => _import)
-        .filter((i) => !!i)
-    )
-  )
+  typedocStruct.entryPoints = sourceFiles
 
   await fs.writeFile(
     'typedoc.json',

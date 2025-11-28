@@ -9,9 +9,3 @@
 ## Functions
 
 - [useWidgetInstanceFunctions](functions/useWidgetInstanceFunctions.md)
-
-## References
-
-### WidgetFunction
-
-Re-exports [WidgetFunction](../useWidgetInstance/type-aliases/WidgetFunction.md)

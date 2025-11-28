@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.25.0
+
+### Minor Changes
+
+- bd4dedf: Updated types across all sdks.
+
 ## 1.24.0
 
 ### Minor Changes
