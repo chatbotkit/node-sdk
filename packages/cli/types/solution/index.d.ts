@@ -706,13 +706,13 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "bot";
         properties: {
-            name?: string | undefined;
             model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -792,11 +792,11 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "widgetIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
             tools?: boolean | undefined;
             stream?: boolean | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -833,8 +833,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "sitemapIntegration";
         properties: {
-            name?: string | undefined;
             datasetId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -852,8 +852,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "slackIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -874,8 +874,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "discordIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -893,9 +893,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "telegramIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -910,9 +910,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "whatsappIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -928,9 +928,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "messengerIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -944,9 +944,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "notionIntegration";
         properties: {
-            name?: string | undefined;
             datasetId?: string | undefined;
             token?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -960,9 +960,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "emailIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -976,8 +976,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "triggerIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -992,8 +992,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "supportIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1006,8 +1006,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "extractIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1023,8 +1023,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "mcpserverIntegration";
         properties: {
-            name?: string | undefined;
             skillsetId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1036,8 +1036,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "twilioIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1066,13 +1066,13 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "bot";
         properties: {
-            name?: string | undefined;
             model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1152,11 +1152,11 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "widgetIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
             tools?: boolean | undefined;
             stream?: boolean | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1193,8 +1193,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "sitemapIntegration";
         properties: {
-            name?: string | undefined;
             datasetId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1212,8 +1212,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "slackIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1234,8 +1234,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "discordIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1253,9 +1253,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "telegramIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1270,9 +1270,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "whatsappIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1288,9 +1288,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "messengerIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1304,9 +1304,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "notionIntegration";
         properties: {
-            name?: string | undefined;
             datasetId?: string | undefined;
             token?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1320,9 +1320,9 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "emailIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1336,8 +1336,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "triggerIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1352,8 +1352,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "supportIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1366,8 +1366,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "extractIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1383,8 +1383,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "mcpserverIntegration";
         properties: {
-            name?: string | undefined;
             skillsetId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1396,8 +1396,8 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "twilioIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1437,13 +1437,13 @@ export class Resource {
     } | {
         type: "bot";
         properties: {
-            name?: string | undefined;
             model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
             backstory?: string | undefined;
             datasetId?: string | undefined;
             skillsetId?: string | undefined;
             privacy?: boolean | undefined;
             moderation?: boolean | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1523,11 +1523,11 @@ export class Resource {
     } | {
         type: "widgetIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
             tools?: boolean | undefined;
             stream?: boolean | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1564,8 +1564,8 @@ export class Resource {
     } | {
         type: "sitemapIntegration";
         properties: {
-            name?: string | undefined;
             datasetId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1583,8 +1583,8 @@ export class Resource {
     } | {
         type: "slackIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1605,8 +1605,8 @@ export class Resource {
     } | {
         type: "discordIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1624,9 +1624,9 @@ export class Resource {
     } | {
         type: "telegramIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1641,9 +1641,9 @@ export class Resource {
     } | {
         type: "whatsappIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1659,9 +1659,9 @@ export class Resource {
     } | {
         type: "messengerIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1675,9 +1675,9 @@ export class Resource {
     } | {
         type: "notionIntegration";
         properties: {
-            name?: string | undefined;
             datasetId?: string | undefined;
             token?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1691,9 +1691,9 @@ export class Resource {
     } | {
         type: "emailIntegration";
         properties: {
-            name?: string | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1707,8 +1707,8 @@ export class Resource {
     } | {
         type: "triggerIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1723,8 +1723,8 @@ export class Resource {
     } | {
         type: "supportIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1737,8 +1737,8 @@ export class Resource {
     } | {
         type: "extractIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1754,8 +1754,8 @@ export class Resource {
     } | {
         type: "mcpserverIntegration";
         properties: {
-            name?: string | undefined;
             skillsetId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -1767,8 +1767,8 @@ export class Resource {
     } | {
         type: "twilioIntegration";
         properties: {
-            name?: string | undefined;
             botId?: string | undefined;
+            name?: string | undefined;
             description?: string | undefined;
             meta?: {
                 [key: string]: unknown;
@@ -2070,13 +2070,13 @@ export class Solution {
         } | {
             type: "bot";
             properties: {
-                name?: string | undefined;
                 model?: import("@chatbotkit/sdk/model/v1").Model | undefined;
                 backstory?: string | undefined;
                 datasetId?: string | undefined;
                 skillsetId?: string | undefined;
                 privacy?: boolean | undefined;
                 moderation?: boolean | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2156,11 +2156,11 @@ export class Solution {
         } | {
             type: "widgetIntegration";
             properties: {
-                name?: string | undefined;
                 attachments?: boolean | undefined;
                 botId?: string | undefined;
                 tools?: boolean | undefined;
                 stream?: boolean | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2197,8 +2197,8 @@ export class Solution {
         } | {
             type: "sitemapIntegration";
             properties: {
-                name?: string | undefined;
                 datasetId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2216,8 +2216,8 @@ export class Solution {
         } | {
             type: "slackIntegration";
             properties: {
-                name?: string | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2238,8 +2238,8 @@ export class Solution {
         } | {
             type: "discordIntegration";
             properties: {
-                name?: string | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2257,9 +2257,9 @@ export class Solution {
         } | {
             type: "telegramIntegration";
             properties: {
-                name?: string | undefined;
                 attachments?: boolean | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2274,9 +2274,9 @@ export class Solution {
         } | {
             type: "whatsappIntegration";
             properties: {
-                name?: string | undefined;
                 attachments?: boolean | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2292,9 +2292,9 @@ export class Solution {
         } | {
             type: "messengerIntegration";
             properties: {
-                name?: string | undefined;
                 attachments?: boolean | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2308,9 +2308,9 @@ export class Solution {
         } | {
             type: "notionIntegration";
             properties: {
-                name?: string | undefined;
                 datasetId?: string | undefined;
                 token?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2324,9 +2324,9 @@ export class Solution {
         } | {
             type: "emailIntegration";
             properties: {
-                name?: string | undefined;
                 attachments?: boolean | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2340,8 +2340,8 @@ export class Solution {
         } | {
             type: "triggerIntegration";
             properties: {
-                name?: string | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2356,8 +2356,8 @@ export class Solution {
         } | {
             type: "supportIntegration";
             properties: {
-                name?: string | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2370,8 +2370,8 @@ export class Solution {
         } | {
             type: "extractIntegration";
             properties: {
-                name?: string | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2387,8 +2387,8 @@ export class Solution {
         } | {
             type: "mcpserverIntegration";
             properties: {
-                name?: string | undefined;
                 skillsetId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
@@ -2400,8 +2400,8 @@ export class Solution {
         } | {
             type: "twilioIntegration";
             properties: {
-                name?: string | undefined;
                 botId?: string | undefined;
+                name?: string | undefined;
                 description?: string | undefined;
                 meta?: {
                     [key: string]: unknown;
