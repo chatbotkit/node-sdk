@@ -5,14 +5,15 @@ import { useEffect } from 'react'
 import useWidgetInstance from './useWidgetInstance.js'
 
 /**
- * @typedef {import('./useWidgetInstance.js').WidgetFunction} WidgetFunction
+ * @typedef {import('@chatbotkit/sdk/widget/v2').FunctionDefinition} FunctionDefinition
+ * @typedef {import('@chatbotkit/sdk/widget/v2').ChatBotKitWidgetElementV2} ChatBotKitWidgetElementV2
  *
  * @param {{
  *   selector?: string,
- *   functions?: Record<string, WidgetFunction>?
+ *   functions?: Record<string,FunctionDefinition|null> | null
  * }} [params]
  * @param {any[]} [deps]
- * @returns {import('./useWidgetInstance.js').ChatBotKitWidgetInstance|null}
+ * @returns {ChatBotKitWidgetElementV2|null}
  */
 export function useWidgetInstanceFunctions(params, deps) {
   const instance = useWidgetInstance(params?.selector, deps)
