@@ -25,14 +25,6 @@
   "type": "module",
   "main": "./src/index.js",
   "exports": {
-    "./v2": {
-      "types": "./types/v2.d.ts",
-      "import": "./src/v2.js"
-    },
-    "./v2.js": {
-      "types": "./types/v2.d.ts",
-      "import": "./src/v2.js"
-    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
@@ -45,23 +37,31 @@
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
     },
+    "./v2": {
+      "types": "./types/v2.d.ts",
+      "import": "./src/v2.js"
+    },
+    "./v2.js": {
+      "types": "./types/v2.d.ts",
+      "import": "./src/v2.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
     "build": "run-s build:*",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:cjs_rename": "node ../../scripts/rename-cjs.js",
-    "build:cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
-    "build:cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
-    "build:docs": "typedoc",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:exports": "node ../../scripts/create-standard-exports.js",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build:01-cjs": "tsc -p tsconfig.cjs.json",
+    "build:01-cjs_rename": "node ../../scripts/rename-cjs.js",
+    "build:01-cjs_rewrite_cjs": "node ../../scripts/rewrite-cjs.js",
+    "build:01-cjs_rewrite_ts": "node ../../scripts/rewrite-ts.js",
+    "build:03-docs": "typedoc",
+    "build:02-esm": "tsc -p tsconfig.esm.json",
+    "build:00-exports": "node ../../scripts/create-standard-exports.js",
+    "build:00-types": "tsc -p tsconfig.types.json",
     "check": "tsc -p tsconfig.check.json",
     "clean": "run-p clean:*",
     "clean:buildinfo": "rimraf *.tsbuildinfo",
     "clean:dists": "rimraf dist",
-    "clean:exports": "run-s build:exports",
+    "clean:exports": "run-s build:aaa_exports",
     "clean:node_modules": "rimraf node_modules",
     "clean:types": "rimraf types",
     "lint": "eslint .",
