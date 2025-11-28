@@ -9,9 +9,3 @@
 ## Functions
 
 - [useWidgetInstanceNotifications](functions/useWidgetInstanceNotifications.md)
-
-## References
-
-### WidgetNotification
-
-Re-exports [WidgetNotification](../useWidgetInstance/type-aliases/WidgetNotification.md)

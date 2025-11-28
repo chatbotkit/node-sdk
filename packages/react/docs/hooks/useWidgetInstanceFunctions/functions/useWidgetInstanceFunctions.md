@@ -6,9 +6,9 @@
 
 # Function: useWidgetInstanceFunctions()
 
-> **useWidgetInstanceFunctions**(`params?`, `deps?`): [`ChatBotKitWidgetInstance`](../../useWidgetInstance/type-aliases/ChatBotKitWidgetInstance.md)
+> **useWidgetInstanceFunctions**(`params?`, `deps?`): `ChatBotKitWidgetElementV2`
 
-Defined in: [hooks/useWidgetInstanceFunctions.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceFunctions.js#L17)
+Defined in: [hooks/useWidgetInstanceFunctions.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceFunctions.js#L18)
 
 ## Parameters
 
@@ -16,7 +16,7 @@ Defined in: [hooks/useWidgetInstanceFunctions.js:17](https://github.com/chatbotk
 
 #### functions?
 
-[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, [`WidgetFunction`](../../useWidgetInstance/type-aliases/WidgetFunction.md)\>
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `FunctionDefinition`\>
 
 #### selector?
 
@@ -28,4 +28,4 @@ Defined in: [hooks/useWidgetInstanceFunctions.js:17](https://github.com/chatbotk
 
 ## Returns
 
-[`ChatBotKitWidgetInstance`](../../useWidgetInstance/type-aliases/ChatBotKitWidgetInstance.md)
+`ChatBotKitWidgetElementV2`
