@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1764362745361)"
+    "version": "v1 (build 1764791666506)"
   },
   "servers": [
     {
@@ -28991,6 +28991,10 @@
                               "reference"
                             ],
                             "$$ref": "#/components/schemas/SecretType"
+                          },
+                          "config": {
+                            "type": "object",
+                            "additionalProperties": true
                           }
                         },
                         "required": [
@@ -29062,6 +29066,10 @@
                                 "reference"
                               ],
                               "$$ref": "#/components/schemas/SecretType"
+                            },
+                            "config": {
+                              "type": "object",
+                              "additionalProperties": true
                             }
                           },
                           "$$ref": "#/paths/~1platform~1secret~1list/get/responses/200/content/application~1json/schema/properties/items/items",

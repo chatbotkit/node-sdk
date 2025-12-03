@@ -18317,6 +18317,9 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+                            config?: {
+                                [key: string]: unknown;
+                            };
                         }[];
                     };
                     "application/jsonl": {
@@ -18346,6 +18349,9 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+                            config?: {
+                                [key: string]: unknown;
+                            };
                         };
                     };
                 };
