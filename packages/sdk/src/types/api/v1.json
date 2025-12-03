@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1764791666506)"
+    "version": "v1 (build 1764792060273)"
   },
   "servers": [
     {
@@ -26679,9 +26679,6 @@
                           "instruction": {
                             "type": "string"
                           },
-                          "icon": {
-                            "type": "string"
-                          },
                           "schema": {
                             "description": "A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules.",
                             "type": "object",
@@ -26724,6 +26721,9 @@
                             "items": {
                               "type": "string"
                             }
+                          },
+                          "icon": {
+                            "type": "string"
                           },
                           "setup": {
                             "type": "string"
@@ -26794,9 +26794,6 @@
                             "instruction": {
                               "type": "string"
                             },
-                            "icon": {
-                              "type": "string"
-                            },
                             "schema": {
                               "description": "A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules.",
                               "type": "object",
@@ -26839,6 +26836,9 @@
                               "items": {
                                 "type": "string"
                               }
+                            },
+                            "icon": {
+                              "type": "string"
                             },
                             "setup": {
                               "type": "string"
@@ -28995,6 +28995,21 @@
                           "config": {
                             "type": "object",
                             "additionalProperties": true
+                          },
+                          "tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "icon": {
+                            "type": "string"
+                          },
+                          "setup": {
+                            "type": "string"
+                          },
+                          "commentary": {
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -29070,6 +29085,21 @@
                             "config": {
                               "type": "object",
                               "additionalProperties": true
+                            },
+                            "tags": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "icon": {
+                              "type": "string"
+                            },
+                            "setup": {
+                              "type": "string"
+                            },
+                            "commentary": {
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1platform~1secret~1list/get/responses/200/content/application~1json/schema/properties/items/items",

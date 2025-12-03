@@ -17289,7 +17289,6 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             instruction: string;
-                            icon: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
                                 /**
@@ -17309,6 +17308,7 @@ export interface operations {
                                 required?: string[];
                             };
                             tags?: string[];
+                            icon: string;
                             setup?: string;
                             commentary?: string;
                         }[];
@@ -17336,7 +17336,6 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             instruction: string;
-                            icon: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
                                 /**
@@ -17356,6 +17355,7 @@ export interface operations {
                                 required?: string[];
                             };
                             tags?: string[];
+                            icon: string;
                             setup?: string;
                             commentary?: string;
                         };
@@ -18320,6 +18320,10 @@ export interface operations {
                             config?: {
                                 [key: string]: unknown;
                             };
+                            tags?: string[];
+                            icon?: string;
+                            setup?: string;
+                            commentary?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -18352,6 +18356,10 @@ export interface operations {
                             config?: {
                                 [key: string]: unknown;
                             };
+                            tags?: string[];
+                            icon?: string;
+                            setup?: string;
+                            commentary?: string;
                         };
                     };
                 };
