@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1764792060273)"
+    "version": "v1 (build 1764792521427)"
   },
   "servers": [
     {
@@ -26716,14 +26716,18 @@
                               "properties"
                             ]
                           },
+                          "secret": {
+                            "type": "string",
+                            "description": "The ID of the secret associated with the ability"
+                          },
+                          "icon": {
+                            "type": "string"
+                          },
                           "tags": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             }
-                          },
-                          "icon": {
-                            "type": "string"
                           },
                           "setup": {
                             "type": "string"
@@ -26831,14 +26835,18 @@
                                 "properties"
                               ]
                             },
+                            "secret": {
+                              "type": "string",
+                              "description": "The ID of the secret associated with the ability"
+                            },
+                            "icon": {
+                              "type": "string"
+                            },
                             "tags": {
                               "type": "array",
                               "items": {
                                 "type": "string"
                               }
-                            },
-                            "icon": {
-                              "type": "string"
                             },
                             "setup": {
                               "type": "string"
@@ -28996,14 +29004,14 @@
                             "type": "object",
                             "additionalProperties": true
                           },
+                          "icon": {
+                            "type": "string"
+                          },
                           "tags": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             }
-                          },
-                          "icon": {
-                            "type": "string"
                           },
                           "setup": {
                             "type": "string"
@@ -29086,14 +29094,14 @@
                               "type": "object",
                               "additionalProperties": true
                             },
+                            "icon": {
+                              "type": "string"
+                            },
                             "tags": {
                               "type": "array",
                               "items": {
                                 "type": "string"
                               }
-                            },
-                            "icon": {
-                              "type": "string"
                             },
                             "setup": {
                               "type": "string"

@@ -17307,8 +17307,10 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
-                            tags?: string[];
+                            /** @description The ID of the secret associated with the ability */
+                            secret?: string;
                             icon: string;
+                            tags?: string[];
                             setup?: string;
                             commentary?: string;
                         }[];
@@ -17354,8 +17356,10 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
-                            tags?: string[];
+                            /** @description The ID of the secret associated with the ability */
+                            secret?: string;
                             icon: string;
+                            tags?: string[];
                             setup?: string;
                             commentary?: string;
                         };
@@ -18320,8 +18324,8 @@ export interface operations {
                             config?: {
                                 [key: string]: unknown;
                             };
-                            tags?: string[];
                             icon?: string;
+                            tags?: string[];
                             setup?: string;
                             commentary?: string;
                         }[];
@@ -18356,8 +18360,8 @@ export interface operations {
                             config?: {
                                 [key: string]: unknown;
                             };
-                            tags?: string[];
                             icon?: string;
+                            tags?: string[];
                             setup?: string;
                             commentary?: string;
                         };
