@@ -4472,15 +4472,15 @@ export interface components {
          */
         FileVisibility: "private" | "protected" | "public";
         /**
-         * @description The kind of the secret
-         * @enum {string}
-         */
-        SecretKind: "shared" | "personal";
-        /**
          * @description The type of the secret
          * @enum {string}
          */
         SecretType: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+        /**
+         * @description The kind of the secret
+         * @enum {string}
+         */
+        SecretKind: "shared" | "personal";
         /**
          * @description The visibility of the secret
          * @enum {string}
@@ -18321,6 +18321,11 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+                            /**
+                             * @description The kind of the secret
+                             * @enum {string}
+                             */
+                            kind?: "shared" | "personal";
                             config?: {
                                 [key: string]: unknown;
                             };
@@ -18357,6 +18362,11 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+                            /**
+                             * @description The kind of the secret
+                             * @enum {string}
+                             */
+                            kind?: "shared" | "personal";
                             config?: {
                                 [key: string]: unknown;
                             };

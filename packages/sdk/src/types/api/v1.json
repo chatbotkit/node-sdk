@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1764792521427)"
+    "version": "v1 (build 1765194328807)"
   },
   "servers": [
     {
@@ -324,14 +324,6 @@
           "public"
         ]
       },
-      "SecretKind": {
-        "type": "string",
-        "description": "The kind of the secret",
-        "enum": [
-          "shared",
-          "personal"
-        ]
-      },
       "SecretType": {
         "type": "string",
         "description": "The type of the secret",
@@ -342,6 +334,14 @@
           "oauth",
           "template",
           "reference"
+        ]
+      },
+      "SecretKind": {
+        "type": "string",
+        "description": "The kind of the secret",
+        "enum": [
+          "shared",
+          "personal"
         ]
       },
       "SecretVisibility": {
@@ -29000,6 +29000,15 @@
                             ],
                             "$$ref": "#/components/schemas/SecretType"
                           },
+                          "kind": {
+                            "type": "string",
+                            "description": "The kind of the secret",
+                            "enum": [
+                              "shared",
+                              "personal"
+                            ],
+                            "$$ref": "#/components/schemas/SecretKind"
+                          },
                           "config": {
                             "type": "object",
                             "additionalProperties": true
@@ -29089,6 +29098,15 @@
                                 "reference"
                               ],
                               "$$ref": "#/components/schemas/SecretType"
+                            },
+                            "kind": {
+                              "type": "string",
+                              "description": "The kind of the secret",
+                              "enum": [
+                                "shared",
+                                "personal"
+                              ],
+                              "$$ref": "#/components/schemas/SecretKind"
                             },
                             "config": {
                               "type": "object",
