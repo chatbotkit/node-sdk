@@ -22,7 +22,7 @@
     "@chatbotkit/sdk": "workspace:*",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.2",
-    "next": "^14.2.24",
+    "next": "^14.2.34",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
