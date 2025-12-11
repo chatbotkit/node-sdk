@@ -4472,15 +4472,15 @@ export interface components {
          */
         FileVisibility: "private" | "protected" | "public";
         /**
-         * @description The kind of the secret
-         * @enum {string}
-         */
-        SecretKind: "shared" | "personal";
-        /**
          * @description The type of the secret
          * @enum {string}
          */
         SecretType: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+        /**
+         * @description The kind of the secret
+         * @enum {string}
+         */
+        SecretKind: "shared" | "personal";
         /**
          * @description The visibility of the secret
          * @enum {string}
@@ -17289,7 +17289,6 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             instruction: string;
-                            icon: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
                                 /**
@@ -17308,6 +17307,9 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
+                            /** @description The ID of the secret associated with the ability */
+                            secret?: string;
+                            icon: string;
                             tags?: string[];
                             setup?: string;
                             commentary?: string;
@@ -17336,7 +17338,6 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                             instruction: string;
-                            icon: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
                                 /**
@@ -17355,6 +17356,9 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
+                            /** @description The ID of the secret associated with the ability */
+                            secret?: string;
+                            icon: string;
                             tags?: string[];
                             setup?: string;
                             commentary?: string;
@@ -18317,6 +18321,18 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+                            /**
+                             * @description The kind of the secret
+                             * @enum {string}
+                             */
+                            kind?: "shared" | "personal";
+                            config?: {
+                                [key: string]: unknown;
+                            };
+                            icon?: string;
+                            tags?: string[];
+                            setup?: string;
+                            commentary?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -18346,6 +18362,18 @@ export interface operations {
                              * @enum {string}
                              */
                             type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+                            /**
+                             * @description The kind of the secret
+                             * @enum {string}
+                             */
+                            kind?: "shared" | "personal";
+                            config?: {
+                                [key: string]: unknown;
+                            };
+                            icon?: string;
+                            tags?: string[];
+                            setup?: string;
+                            commentary?: string;
                         };
                     };
                 };

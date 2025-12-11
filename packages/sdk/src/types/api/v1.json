@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1764362745361)"
+    "version": "v1 (build 1765194328807)"
   },
   "servers": [
     {
@@ -324,14 +324,6 @@
           "public"
         ]
       },
-      "SecretKind": {
-        "type": "string",
-        "description": "The kind of the secret",
-        "enum": [
-          "shared",
-          "personal"
-        ]
-      },
       "SecretType": {
         "type": "string",
         "description": "The type of the secret",
@@ -342,6 +334,14 @@
           "oauth",
           "template",
           "reference"
+        ]
+      },
+      "SecretKind": {
+        "type": "string",
+        "description": "The kind of the secret",
+        "enum": [
+          "shared",
+          "personal"
         ]
       },
       "SecretVisibility": {
@@ -26679,9 +26679,6 @@
                           "instruction": {
                             "type": "string"
                           },
-                          "icon": {
-                            "type": "string"
-                          },
                           "schema": {
                             "description": "A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules.",
                             "type": "object",
@@ -26718,6 +26715,13 @@
                               "type",
                               "properties"
                             ]
+                          },
+                          "secret": {
+                            "type": "string",
+                            "description": "The ID of the secret associated with the ability"
+                          },
+                          "icon": {
+                            "type": "string"
                           },
                           "tags": {
                             "type": "array",
@@ -26794,9 +26798,6 @@
                             "instruction": {
                               "type": "string"
                             },
-                            "icon": {
-                              "type": "string"
-                            },
                             "schema": {
                               "description": "A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules.",
                               "type": "object",
@@ -26833,6 +26834,13 @@
                                 "type",
                                 "properties"
                               ]
+                            },
+                            "secret": {
+                              "type": "string",
+                              "description": "The ID of the secret associated with the ability"
+                            },
+                            "icon": {
+                              "type": "string"
                             },
                             "tags": {
                               "type": "array",
@@ -28991,6 +28999,34 @@
                               "reference"
                             ],
                             "$$ref": "#/components/schemas/SecretType"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "The kind of the secret",
+                            "enum": [
+                              "shared",
+                              "personal"
+                            ],
+                            "$$ref": "#/components/schemas/SecretKind"
+                          },
+                          "config": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "icon": {
+                            "type": "string"
+                          },
+                          "tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "setup": {
+                            "type": "string"
+                          },
+                          "commentary": {
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -29062,6 +29098,34 @@
                                 "reference"
                               ],
                               "$$ref": "#/components/schemas/SecretType"
+                            },
+                            "kind": {
+                              "type": "string",
+                              "description": "The kind of the secret",
+                              "enum": [
+                                "shared",
+                                "personal"
+                              ],
+                              "$$ref": "#/components/schemas/SecretKind"
+                            },
+                            "config": {
+                              "type": "object",
+                              "additionalProperties": true
+                            },
+                            "icon": {
+                              "type": "string"
+                            },
+                            "tags": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "setup": {
+                              "type": "string"
+                            },
+                            "commentary": {
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1platform~1secret~1list/get/responses/200/content/application~1json/schema/properties/items/items",
