@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1765194328807)"
+    "version": "v1 (build 1765535743790)"
   },
   "servers": [
     {
@@ -1124,12 +1124,22 @@
     },
     "responses": {
       "ErrorResponse": {
+        "type": "object",
         "description": "An error response",
-        "content": {
-          "application/json": {
-            "schema": {}
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "The error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "The error code"
           }
-        }
+        },
+        "required": [
+          "message",
+          "code"
+        ]
       }
     }
   },
@@ -1205,12 +1215,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1377,12 +1397,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1441,12 +1471,22 @@
             "description": "Report not found"
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1519,12 +1559,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1591,12 +1641,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1664,12 +1724,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1755,12 +1825,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1816,12 +1896,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1908,12 +1998,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -1990,12 +2090,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2195,12 +2305,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2258,12 +2378,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2325,12 +2455,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2404,12 +2544,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2526,12 +2676,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2619,12 +2779,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2774,12 +2944,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2897,12 +3077,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -2976,12 +3166,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -3056,12 +3256,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -3169,12 +3379,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -3436,12 +3656,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -3513,12 +3743,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -3590,12 +3830,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -3881,12 +4131,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -3948,12 +4208,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -4054,12 +4324,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -4253,12 +4533,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -4346,12 +4636,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -4427,12 +4727,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -4503,12 +4813,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -4613,12 +4933,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -4804,12 +5134,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -4993,12 +5333,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -5236,12 +5586,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -5342,12 +5702,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -5439,12 +5809,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -5539,12 +5919,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -5779,12 +6169,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -6014,12 +6414,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -6168,12 +6578,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -6860,12 +7280,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -6959,12 +7389,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7026,12 +7466,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7105,12 +7555,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7241,12 +7701,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7317,12 +7787,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7405,12 +7885,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7515,12 +8005,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7591,12 +8091,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7756,12 +8266,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -7844,12 +8364,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -8060,12 +8590,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -8281,12 +8821,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -8896,12 +9446,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -9649,12 +10209,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -9732,12 +10302,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -9873,12 +10453,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -9952,12 +10542,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -10028,12 +10628,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -10789,12 +11399,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -10983,12 +11603,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -11291,12 +11921,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -11594,12 +12234,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -11661,12 +12311,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -11793,12 +12453,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -11878,12 +12548,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -11959,12 +12639,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -12035,12 +12725,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -12240,12 +12940,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -12316,12 +13026,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -12401,12 +13121,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -12490,12 +13220,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -12574,12 +13314,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -12746,12 +13496,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -12913,12 +13673,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -13127,12 +13897,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -13255,12 +14035,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -13377,12 +14167,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -13664,12 +14464,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -13731,12 +14541,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -13794,12 +14614,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -13889,12 +14719,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -13956,12 +14796,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14052,12 +14902,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14202,12 +15062,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14288,12 +15158,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14501,12 +15381,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14568,12 +15458,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14673,12 +15573,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14740,12 +15650,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14855,12 +15775,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -14959,12 +15889,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -15192,12 +16132,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -15259,12 +16209,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -15360,12 +16320,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -15427,12 +16397,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -15530,12 +16510,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -15622,12 +16612,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -15847,12 +16847,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -15914,12 +16924,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16013,12 +17033,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16113,12 +17143,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16202,12 +17242,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16423,12 +17473,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16490,12 +17550,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16579,12 +17649,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16670,12 +17750,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16750,12 +17840,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -16951,12 +18051,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17018,12 +18128,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17124,12 +18244,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17191,12 +18321,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17294,12 +18434,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17386,12 +18536,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17621,12 +18781,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17688,12 +18858,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17790,12 +18970,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17857,12 +19047,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -17960,12 +19160,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -18052,12 +19262,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -18279,12 +19499,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -18346,12 +19576,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -18460,12 +19700,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -18527,12 +19777,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -18642,12 +19902,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -18746,12 +20016,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -18997,12 +20277,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -19064,12 +20354,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -19189,12 +20489,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -19256,12 +20566,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -19383,12 +20703,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -19499,12 +20829,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -19772,12 +21112,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -19839,12 +21189,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -19933,12 +21293,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20028,12 +21398,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20112,12 +21492,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20323,12 +21713,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20390,12 +21790,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20491,12 +21901,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20558,12 +21978,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20665,12 +22095,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20761,12 +22201,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -20986,12 +22436,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21053,12 +22513,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21169,12 +22639,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21236,12 +22716,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21303,12 +22793,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21416,12 +22916,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21518,12 +23028,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21773,12 +23293,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21840,12 +23370,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -21937,12 +23477,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22004,12 +23554,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22103,12 +23663,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22191,12 +23761,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22408,12 +23988,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22475,12 +24065,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22589,12 +24189,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22656,12 +24266,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22767,12 +24387,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -22867,12 +24497,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -23118,12 +24758,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -23185,12 +24835,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -23386,12 +25046,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -23453,12 +25123,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -23656,12 +25336,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -23848,12 +25538,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -24273,12 +25973,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -24421,12 +26131,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -24616,12 +26336,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -24683,12 +26413,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -24776,12 +26516,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -24870,12 +26620,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -24955,12 +26715,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -25169,12 +26939,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -25378,12 +27158,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -25468,12 +27258,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -25535,12 +27335,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -25669,12 +27479,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -25745,12 +27565,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -25822,12 +27652,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -26003,12 +27843,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -26139,12 +27989,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -26264,12 +28124,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -26317,19 +28187,6 @@
               "description": "The number of items to retrieve",
               "type": "integer"
             }
-          },
-          {
-            "in": "query",
-            "name": "meta",
-            "schema": {
-              "description": "Key-value pairs to filter the partner users by metadata",
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "style": "deepObject",
-            "explode": true
           },
           {
             "in": "query",
@@ -26568,12 +28425,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -26720,6 +28587,10 @@
                             "type": "string",
                             "description": "The ID of the secret associated with the ability"
                           },
+                          "file": {
+                            "type": "string",
+                            "description": "The ID of the file associated with the ability"
+                          },
                           "icon": {
                             "type": "string"
                           },
@@ -26839,6 +28710,10 @@
                               "type": "string",
                               "description": "The ID of the secret associated with the ability"
                             },
+                            "file": {
+                              "type": "string",
+                              "description": "The ID of the file associated with the ability"
+                            },
                             "icon": {
                               "type": "string"
                             },
@@ -26877,12 +28752,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -27080,12 +28965,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -27191,12 +29086,22 @@
             "description": "Doc not found"
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -27425,12 +29330,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -27566,12 +29481,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -27656,12 +29581,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -27770,12 +29705,22 @@
             "description": "The example was not found"
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -28019,12 +29964,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -28158,12 +30113,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -28269,12 +30234,22 @@
             "description": "Manual not found"
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -28503,12 +30478,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -28644,12 +30629,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -28879,12 +30874,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -29148,12 +31153,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -29259,12 +31274,22 @@
             "description": "Tutorial not found"
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -29493,12 +31518,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -29634,12 +31669,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -29701,12 +31746,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -29785,12 +31840,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -29885,12 +31950,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -29977,12 +32052,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -30198,12 +32283,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -30265,12 +32360,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -30359,12 +32464,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -30454,12 +32569,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -30539,12 +32664,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -30750,12 +32885,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -30822,12 +32967,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -30889,12 +33044,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31011,12 +33176,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31077,12 +33252,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31204,12 +33389,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31305,12 +33500,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31422,12 +33627,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31689,12 +33904,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31765,12 +33990,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31878,12 +34113,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -31988,12 +34233,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -32090,12 +34345,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -32320,12 +34585,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -32545,12 +34820,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -32612,12 +34897,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -32707,12 +35002,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -32803,12 +35108,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -32889,12 +35204,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33102,12 +35427,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33187,12 +35522,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33273,12 +35618,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33350,12 +35705,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33548,12 +35913,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33741,12 +36116,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33808,12 +36193,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33920,12 +36315,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -33988,12 +36393,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -34086,12 +36501,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -34175,12 +36600,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -34389,12 +36824,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -34636,12 +37081,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -34702,14 +37157,6 @@
             },
             "style": "deepObject",
             "explode": true
-          },
-          {
-            "in": "query",
-            "name": "meta",
-            "schema": {
-              "description": "Filter by meta properties",
-              "type": "object"
-            }
           }
         ],
         "responses": {
@@ -34829,12 +37276,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -34924,12 +37381,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
@@ -35031,12 +37498,22 @@
             }
           },
           "default": {
+            "type": "object",
             "description": "An error response",
-            "content": {
-              "application/json": {
-                "schema": {}
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
               }
             },
+            "required": [
+              "message",
+              "code"
+            ],
             "$$ref": "#/components/responses/ErrorResponse"
           }
         },
