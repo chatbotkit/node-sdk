@@ -8,7 +8,7 @@
 
 > **dispatchConversation**(`client`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/v1.js:383](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L383)
+Defined in: [conversation/v1.js:261](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L261)
 
 ## Parameters
 

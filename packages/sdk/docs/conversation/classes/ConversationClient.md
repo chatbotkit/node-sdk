@@ -146,43 +146,26 @@ Deletes the conversation.
 
 ### dispatch()
 
-#### Call Signature
+> **dispatch**(`conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \} \| \{ \}\>
 
-> **dispatch**(`conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+Defined in: [conversation/index.js:150](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L150)
 
-Defined in: [conversation/index.js:183](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L183)
+Dispatches a conversation completion to run in the background.
+Returns a channel ID that can be used to subscribe to completion events.
 
-##### Parameters
+#### Parameters
 
-###### conversationId
-
-`null`
-
-###### request
-
-`object` & `object` | [`Omit`](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)\<`object` & `object`, `"model"`\> & `object`
-
-##### Returns
-
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
-
-#### Call Signature
-
-> **dispatch**(`conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
-
-Defined in: [conversation/index.js:190](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L190)
-
-##### Parameters
-
-###### conversationId
+##### conversationId
 
 `string`
 
-###### request
+##### request
 
-##### Returns
+`object` & `object` | [`Omit`](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)\<`object` & `object`, `"model"`\> & `object` | \{ \}
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \} \| \{ \}\>
 
 ***
 
@@ -190,7 +173,7 @@ Defined in: [conversation/index.js:190](https://github.com/chatbotkit/node-sdk/b
 
 > **downvote**(`conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/index.js:178](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L178)
+Defined in: [conversation/index.js:203](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L203)
 
 #### Parameters
 
@@ -284,7 +267,7 @@ Retrieves a list of all conversations.
 
 > **receive**(`conversationId`, `request`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \}\>
 
-Defined in: [conversation/index.js:160](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L160)
+Defined in: [conversation/index.js:185](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L185)
 
 Receives a message from the conversation.
 
@@ -306,7 +289,7 @@ Receives a message from the conversation.
 
 > **send**(`conversationId`, `request`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \}\>
 
-Defined in: [conversation/index.js:149](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L149)
+Defined in: [conversation/index.js:174](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L174)
 
 Sends a message to the conversation.
 
@@ -352,7 +335,7 @@ Updates a conversation.
 
 > **upvote**(`conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/index.js:169](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L169)
+Defined in: [conversation/index.js:194](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/index.js#L194)
 
 #### Parameters
 

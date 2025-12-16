@@ -8,6 +8,6 @@
 
 > **ConversationDownvoteRequestBody**\<\> = `operations`\[`"downvoteConversation"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [conversation/v1.js:334](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L334)
+Defined in: [conversation/v1.js:405](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L405)
 
 ## Type Parameters

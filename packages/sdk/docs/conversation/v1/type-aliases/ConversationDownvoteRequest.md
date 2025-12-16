@@ -8,6 +8,6 @@
 
 > **ConversationDownvoteRequest**\<\> = [`ConversationDownvoteRequestBody`](ConversationDownvoteRequestBody.md)
 
-Defined in: [conversation/v1.js:336](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L336)
+Defined in: [conversation/v1.js:407](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L407)
 
 ## Type Parameters

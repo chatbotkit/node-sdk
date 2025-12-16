@@ -8,6 +8,6 @@
 
 > **ConversationUpvoteResponse**\<\> = [`ConversationUpvoteResponseBody`](ConversationUpvoteResponseBody.md)
 
-Defined in: [conversation/v1.js:310](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L310)
+Defined in: [conversation/v1.js:381](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L381)
 
 ## Type Parameters

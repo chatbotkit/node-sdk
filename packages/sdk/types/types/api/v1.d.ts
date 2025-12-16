@@ -6133,7 +6133,16 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": Record<string, never>;
+                "application/json": {
+                    /** @description Number of historical messages to replay from the channel
+                     *     before subscribing to live updates. When provided, the
+                     *     subscriber will first receive up to this many recent
+                     *     messages that were published before the subscription
+                     *     started. This is useful for catching up on messages that
+                     *     may have been published during connection setup.
+                     *      */
+                    historyLength?: number;
+                };
             };
         };
         responses: {

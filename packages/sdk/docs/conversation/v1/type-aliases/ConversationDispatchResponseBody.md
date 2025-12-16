@@ -8,6 +8,6 @@
 
 > **ConversationDispatchResponseBody**\<\> = `operations`\[`"dispatchConversation"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [conversation/v1.js:375](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L375)
+Defined in: [conversation/v1.js:253](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L253)
 
 ## Type Parameters

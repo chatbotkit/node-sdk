@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1765883611118)"
+    "version": "v1 (build 1765916876063)"
   },
   "servers": [
     {
@@ -3796,7 +3796,14 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {}
+                "properties": {
+                  "historyLength": {
+                    "description": "Number of historical messages to replay from the channel\nbefore subscribing to live updates. When provided, the\nsubscriber will first receive up to this many recent\nmessages that were published before the subscription\nstarted. This is useful for catching up on messages that\nmay have been published during connection setup.\n",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10000
+                  }
+                }
               }
             }
           }
