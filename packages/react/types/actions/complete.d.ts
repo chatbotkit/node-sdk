@@ -70,6 +70,7 @@ export type Options = Omit<import("@chatbotkit/sdk/conversation/v1.js").Conversa
     onItem?: OnItemHandler;
     onStart?: OnStartHandler;
     onFinish?: OnFinishHandler;
+    backstory?: string;
 };
 /**
  * @typedef {import('react').ReactElement} ReactElement
@@ -141,7 +142,8 @@ export type Options = Omit<import("@chatbotkit/sdk/conversation/v1.js").Conversa
  *   maxRecursion?: number,
  *   onItem?: OnItemHandler,
  *   onStart?: OnStartHandler,
- *   onFinish?: OnFinishHandler
+ *   onFinish?: OnFinishHandler,
+ *   backstory?: string
  * }} Options
  */
 /**
