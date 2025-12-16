@@ -7,6 +7,8 @@ import {
   completeConversationMessage,
   createConversation,
   deleteConversation,
+  dispatchConversation,
+  dispatchConversationMessage,
   downvoteConversation,
   fetchConversation,
   listConversations,
@@ -138,6 +140,31 @@ export class ConversationClient extends ChatBotKitClient {
   }
 
   /**
+   * Dispatches a conversation completion to run in the background.
+   * Returns a channel ID that can be used to subscribe to completion events.
+   *
+   * @param {null|string} conversationId
+   * @param {import('./v1.js').ConversationDispatchRequest|import('./v1.js').ConversationDispatchMessageRequest} request
+   * @returns {Promise<import('./v1.js').ConversationDispatchResponse|import('./v1.js').ConversationDispatchMessageResponse>}
+   */
+  dispatch(conversationId, request) {
+    if (conversationId === null) {
+      return dispatchConversation(
+        this,
+        /** @type {import('./v1.js').ConversationDispatchRequest} */ (request)
+      )
+    } else {
+      return dispatchConversationMessage(
+        this,
+        conversationId,
+        /** @type {import('./v1.js').ConversationDispatchMessageRequest} */ (
+          request
+        )
+      )
+    }
+  }
+
+  /**
    * Sends a message to the conversation.
    *
    * @param {string} conversationId
@@ -176,6 +203,20 @@ export class ConversationClient extends ChatBotKitClient {
   downvote(conversationId, request) {
     return downvoteConversation(this, conversationId, request)
   }
+
+  /**
+   * @overload
+   * @param {null} conversationId
+   * @param {import('./v1.js').ConversationDispatchRequest} request
+   * @returns {Promise<import('./v1.js').ConversationDispatchResponse>}
+   */
+
+  /**
+   * @overload
+   * @param {string} conversationId
+   * @param {import('./v1.js').ConversationDispatchMessageRequest} request
+   * @returns {Promise<import('./v1.js').ConversationDispatchMessageResponse>}
+   */
 }
 
 export default ConversationClient
