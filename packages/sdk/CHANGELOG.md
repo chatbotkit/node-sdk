@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.26.0
+
+### Minor Changes
+
+- de813bb: Updated types and documentation.
+
 ## 1.25.0
 
 ### Minor Changes
