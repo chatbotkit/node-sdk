@@ -8,6 +8,6 @@
 
 > **ConversationUpvoteResponseBody**\<\> = `operations`\[`"upvoteConversation"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [conversation/v1.js:308](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L308)
+Defined in: [conversation/v1.js:379](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L379)
 
 ## Type Parameters

@@ -8,6 +8,6 @@
 
 > **ConversationSendMessageRequest**\<\> = [`ConversationSendMessageRequestBody`](ConversationSendMessageRequestBody.md)
 
-Defined in: [conversation/v1.js:244](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L244)
+Defined in: [conversation/v1.js:315](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L315)
 
 ## Type Parameters

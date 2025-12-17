@@ -792,10 +792,10 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "widgetIntegration";
         properties: {
+            stream?: boolean | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
             tools?: boolean | undefined;
-            stream?: boolean | undefined;
             name?: string | undefined;
             description?: string | undefined;
             meta?: {
@@ -1152,10 +1152,10 @@ export const SolutionConfigSchema: z.ZodObject<{
     } | {
         type: "widgetIntegration";
         properties: {
+            stream?: boolean | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
             tools?: boolean | undefined;
-            stream?: boolean | undefined;
             name?: string | undefined;
             description?: string | undefined;
             meta?: {
@@ -1523,10 +1523,10 @@ export class Resource {
     } | {
         type: "widgetIntegration";
         properties: {
+            stream?: boolean | undefined;
             attachments?: boolean | undefined;
             botId?: string | undefined;
             tools?: boolean | undefined;
-            stream?: boolean | undefined;
             name?: string | undefined;
             description?: string | undefined;
             meta?: {
@@ -2156,10 +2156,10 @@ export class Solution {
         } | {
             type: "widgetIntegration";
             properties: {
+                stream?: boolean | undefined;
                 attachments?: boolean | undefined;
                 botId?: string | undefined;
                 tools?: boolean | undefined;
-                stream?: boolean | undefined;
                 name?: string | undefined;
                 description?: string | undefined;
                 meta?: {

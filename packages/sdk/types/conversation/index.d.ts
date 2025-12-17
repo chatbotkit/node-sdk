@@ -70,6 +70,15 @@ export class ConversationClient extends ChatBotKitClient {
      */
     complete(conversationId: string, request: import("./v1.js").ConversationCompleteMessageRequest): ResponsePromise<import("./v1.js").ConversationCompleteMessageResponse, import("./v1.js").ConversationCompleteMessageStreamType>;
     /**
+     * Dispatches a conversation completion to run in the background.
+     * Returns a channel ID that can be used to subscribe to completion events.
+     *
+     * @param {null|string} conversationId
+     * @param {import('./v1.js').ConversationDispatchRequest|import('./v1.js').ConversationDispatchMessageRequest} request
+     * @returns {Promise<import('./v1.js').ConversationDispatchResponse|import('./v1.js').ConversationDispatchMessageResponse>}
+     */
+    dispatch(conversationId: null | string, request: import("./v1.js").ConversationDispatchRequest | import("./v1.js").ConversationDispatchMessageRequest): Promise<import("./v1.js").ConversationDispatchResponse | import("./v1.js").ConversationDispatchMessageResponse>;
+    /**
      * Sends a message to the conversation.
      *
      * @param {string} conversationId

@@ -800,6 +800,37 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/conversation/{conversationId}/dispatch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Dispatch a stateful conversation completion to run in the background
+         * @description Dispatch a stateful conversation completion to run asynchronously in the
+         *     background. This endpoint accepts the same parameters as the complete
+         *     endpoint but instead of streaming the response directly, it returns a
+         *     channel ID that can be used to subscribe to the completion progress.
+         *
+         *     The completion will be processed in the background and events will be
+         *     published to the channel as the completion progresses. This is useful
+         *     for long-running completions that may take several minutes to complete.
+         *
+         *     To monitor the progress, subscribe to the channel using:
+         *     `POST /api/v1/channel/{channelId}/subscribe`
+         *
+         */
+        post: operations["dispatchStatefulConversation"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/conversation/{conversationId}/downvote": {
         parameters: {
             query?: never;
@@ -1134,6 +1165,37 @@ export interface paths {
          *
          */
         post: operations["createConversation"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/conversation/dispatch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Dispatch a conversation completion to run in the background
+         * @description Dispatch a conversation completion to run asynchronously in the
+         *     background. This endpoint accepts the same parameters as the complete
+         *     endpoint but instead of streaming the response directly, it returns a
+         *     channel ID that can be used to subscribe to the completion progress.
+         *
+         *     The completion will be processed in the background and events will be
+         *     published to the channel as the completion progresses. This is useful
+         *     for long-running completions that may take several minutes to complete.
+         *
+         *     To monitor the progress, subscribe to the channel using:
+         *     `POST /api/v1/channel/{channelId}/subscribe`
+         *
+         */
+        post: operations["dispatchConversation"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4825,9 +4887,7 @@ export interface components {
             headers: {
                 [name: string]: unknown;
             };
-            content: {
-                "application/json": unknown;
-            };
+            content?: never;
         };
     };
     parameters: {
@@ -4885,9 +4945,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -4959,9 +5017,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5003,9 +5059,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5051,9 +5105,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5091,9 +5143,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5135,9 +5185,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5186,9 +5234,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5222,9 +5268,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5274,9 +5318,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5324,9 +5366,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5411,9 +5451,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5449,9 +5487,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5487,9 +5523,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5533,9 +5567,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5601,9 +5633,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5646,9 +5676,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5717,9 +5745,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5786,9 +5812,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5832,9 +5856,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5873,9 +5895,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -5940,9 +5960,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6061,9 +6079,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6080,7 +6096,9 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The message to publish to the channel */
-                    message: string;
+                    message: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -6102,9 +6120,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6119,7 +6135,16 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": Record<string, never>;
+                "application/json": {
+                    /** @description Number of historical messages to replay from the channel
+                     *     before subscribing to live updates. When provided, the
+                     *     subscriber will first receive up to this many recent
+                     *     messages that were published before the subscription
+                     *     started. This is useful for catching up on messages that
+                     *     may have been published during connection setup.
+                     *      */
+                    historyLength?: number;
+                };
             };
         };
         responses: {
@@ -6136,7 +6161,9 @@ export interface operations {
                          */
                         type: "message";
                         /** @description The message data published to the channel */
-                        data: string;
+                        data: {
+                            [key: string]: unknown;
+                        };
                     };
                 };
             };
@@ -6145,9 +6172,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6267,9 +6292,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6305,9 +6328,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6363,9 +6384,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6447,9 +6466,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6492,9 +6509,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6533,9 +6548,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6572,9 +6585,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6625,9 +6636,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6705,9 +6714,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6785,9 +6792,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6893,9 +6898,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -6952,9 +6955,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7009,9 +7010,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7066,9 +7065,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7168,9 +7165,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7269,9 +7264,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7339,9 +7332,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7612,9 +7603,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7667,9 +7656,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7705,9 +7692,143 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
+                content?: never;
+            };
+        };
+    };
+    dispatchStatefulConversation: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description The timezone to use for the request */
+                "X-Timezone"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The text of the message to send */
+                    text: string;
+                    /** @description Known entities */
+                    entities?: {
+                        /** @description The entity type */
+                        type: string;
+                        /** @description Start offset */
+                        begin: number;
+                        /** @description End offset */
+                        end: number;
+                        /** @description The text value of the entity */
+                        text: string;
+                        replacement?: {
+                            /** @description Start offset */
+                            begin: number;
+                            /** @description End offset */
+                            end: number;
+                            /** @description The text value of the replacement */
+                            text: string;
+                        };
+                    }[];
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters: {
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
                 };
+            };
+        };
+        responses: {
+            /** @description The dispatch was queued successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The channel ID to subscribe to for completion events */
+                        channelId: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
         };
     };
@@ -7751,9 +7872,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7820,9 +7939,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7859,9 +7976,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7906,9 +8021,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7960,9 +8073,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -7999,9 +8110,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -8073,9 +8182,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -8120,9 +8227,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -8212,9 +8317,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -8302,9 +8405,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -8551,9 +8652,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -8845,9 +8944,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -8890,9 +8987,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -8962,9 +9057,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9008,9 +9101,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9047,9 +9138,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9350,9 +9439,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9440,9 +9527,179 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
+                content?: never;
+            };
+        };
+    };
+    dispatchConversation: {
+        parameters: {
+            query?: never;
+            header?: {
+                /** @description The timezone to use for the request */
+                "X-Timezone"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description An array of messages to be added to the conversation */
+                    messages: {
+                        /**
+                         * @description The type of the message
+                         * @enum {string}
+                         */
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                        /** @description The text of the message */
+                        text: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                    }[];
+                    /** @description An array of attachments to be added to the conversation */
+                    attachments?: {
+                        /** @description The URL of the attachment */
+                        url?: string;
+                    }[];
+                    /** @description The contact ID to associate with this conversation */
+                    contactId?: string | {
+                        /** @description A unique fingerprint to identify the contact */
+                        fingerprint: string;
+                        /** @description The name of the contact */
+                        name?: string;
+                        /** @description A description of the contact */
+                        description?: string;
+                        /** @description The email address of the contact */
+                        email?: string;
+                        /** @description The phone number of the contact */
+                        phone?: string;
+                        /** @description A nickname for the contact */
+                        nick?: string;
+                        /** @description Additional metadata for the contact */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                    };
+                    /** @description An array of functions to be added to the conversation */
+                    functions?: {
+                        /** @description The name of the function (must be a valid JS identifier, max 64 chars) */
+                        name: string;
+                        /** @description The description of the function */
+                        description: string;
+                        /** @description JSON Schema definition for the function parameters */
+                        parameters: {
+                            /**
+                             * @description The schema type, must be "object"
+                             * @enum {string}
+                             */
+                            type: "object";
+                            /** @description Object property definitions */
+                            properties: {
+                                [key: string]: unknown;
+                            };
+                            /** @description Required property names */
+                            required?: string[];
+                        };
+                        /** @description The result of the function execution */
+                        result?: {
+                            /** @description The data returned by the function (can be any type) */
+                            data: unknown;
+                        } | {
+                            /** @description The channel for streaming function results */
+                            channel: string;
+                        };
+                    }[];
+                    /** @description Extensions to enhance the bot's capabilities */
+                    extensions?: {
+                        /** @description Additional backstory for the bot */
+                        backstory?: string;
+                        /** @description Inline datasets to provide additional context */
+                        datasets?: {
+                            /** @description The name of the dataset */
+                            name?: string;
+                            /** @description The description of the dataset */
+                            description?: string;
+                            /** @description The records in the dataset */
+                            records: {
+                                /** @description The text content of the record */
+                                text: string;
+                                /** @description Additional metadata for the record */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Inline skillsets to provide additional abilities */
+                        skillsets?: {
+                            /** @description The name of the skillset */
+                            name?: string;
+                            /** @description The description of the skillset */
+                            description?: string;
+                            /** @description The abilities in the skillset */
+                            abilities: {
+                                /** @description The name of the ability */
+                                name: string;
+                                /** @description The description of the ability */
+                                description: string;
+                                /** @description The instruction for the ability */
+                                instruction: string;
+                                /** @description Optional secret ID for the ability */
+                                secretId?: string;
+                                /** @description Additional metadata for the ability */
+                                meta?: Record<string, never>;
+                            }[];
+                        }[];
+                        /** @description Feature flags to enable specific bot capabilities */
+                        features?: {
+                            /** @description The name of the feature to enable */
+                            name: string;
+                            /** @description Optional configuration options for the feature */
+                            options?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
+                } & ({
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                } | {
+                    /**
+                     * @description A model definition
+                     * @example gpt-4-turbo/temperature=0.7
+                     */
+                    model?: string;
+                    /** @description The backstory this configuration is using */
+                    backstory?: string;
+                    /** @description The id of the dataset this configuration is using */
+                    datasetId?: string;
+                    /** @description The id of the skillset this configuration is using */
+                    skillsetId?: string;
+                    /** @description The privacy flag for this configuration */
+                    privacy?: boolean;
+                    /** @description The moderation flag for this configuration */
+                    moderation?: boolean;
+                });
+            };
+        };
+        responses: {
+            /** @description The dispatch was queued successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
                 };
+                content: {
+                    "application/json": {
+                        /** @description The channel ID to subscribe to for completion events */
+                        channelId: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
         };
     };
@@ -9568,9 +9825,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9695,9 +9950,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9733,9 +9986,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9804,9 +10055,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9849,9 +10098,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9891,9 +10138,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -9930,9 +10175,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10018,9 +10261,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10057,9 +10298,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10100,9 +10339,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10148,9 +10385,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10195,9 +10430,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10260,9 +10493,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10324,9 +10555,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10388,9 +10617,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10458,9 +10685,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10528,9 +10753,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10655,9 +10878,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10693,9 +10914,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10728,9 +10947,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10781,9 +10998,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10819,9 +11034,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10873,9 +11086,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10941,9 +11152,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -10993,9 +11202,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11084,9 +11291,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11122,9 +11327,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11180,9 +11383,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11218,9 +11419,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11281,9 +11480,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11342,9 +11539,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11443,9 +11638,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11481,9 +11674,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11537,9 +11728,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11575,9 +11764,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11632,9 +11819,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11687,9 +11872,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11784,9 +11967,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11822,9 +12003,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11878,9 +12057,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11935,9 +12112,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -11990,9 +12165,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12087,9 +12260,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12125,9 +12296,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12175,9 +12344,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12226,9 +12393,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12275,9 +12440,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12360,9 +12523,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12398,9 +12559,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12456,9 +12615,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12494,9 +12651,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12551,9 +12706,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12606,9 +12759,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12707,9 +12858,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12745,9 +12894,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12801,9 +12948,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12839,9 +12984,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12896,9 +13039,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -12951,9 +13092,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13048,9 +13187,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13086,9 +13223,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13148,9 +13283,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13186,9 +13319,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13249,9 +13380,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13310,9 +13439,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13419,9 +13546,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13457,9 +13582,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13525,9 +13648,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13563,9 +13684,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13632,9 +13751,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13699,9 +13816,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13820,9 +13935,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13858,9 +13971,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13910,9 +14021,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -13963,9 +14072,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14014,9 +14121,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14103,9 +14208,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14141,9 +14244,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14197,9 +14298,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14235,9 +14334,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14294,9 +14391,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14351,9 +14446,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14448,9 +14541,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14486,9 +14577,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14547,9 +14636,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14585,9 +14672,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14623,9 +14708,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14683,9 +14766,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14741,9 +14822,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14848,9 +14927,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14886,9 +14963,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14940,9 +15015,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -14978,9 +15051,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15033,9 +15104,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15086,9 +15155,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15179,9 +15246,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15217,9 +15282,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15279,9 +15342,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15317,9 +15378,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15378,9 +15437,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15437,9 +15494,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15546,9 +15601,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15584,9 +15637,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15690,9 +15741,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15728,9 +15777,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15835,9 +15882,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -15940,9 +15985,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16137,9 +16180,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16203,9 +16244,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16284,9 +16323,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16322,9 +16359,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16374,9 +16409,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16427,9 +16460,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16478,9 +16509,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16568,9 +16597,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16657,9 +16684,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16704,9 +16729,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16742,9 +16765,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16814,9 +16835,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16853,9 +16872,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16895,9 +16912,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -16971,9 +16986,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17044,9 +17057,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17115,9 +17126,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17244,9 +17253,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17309,6 +17316,8 @@ export interface operations {
                             };
                             /** @description The ID of the secret associated with the ability */
                             secret?: string;
+                            /** @description The ID of the file associated with the ability */
+                            file?: string;
                             icon: string;
                             tags?: string[];
                             setup?: string;
@@ -17358,6 +17367,8 @@ export interface operations {
                             };
                             /** @description The ID of the secret associated with the ability */
                             secret?: string;
+                            /** @description The ID of the file associated with the ability */
+                            file?: string;
                             icon: string;
                             tags?: string[];
                             setup?: string;
@@ -17371,9 +17382,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17452,9 +17461,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17515,9 +17522,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17608,9 +17613,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17678,9 +17681,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17725,9 +17726,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17787,9 +17786,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17882,9 +17879,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -17949,9 +17944,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18012,9 +18005,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18105,9 +18096,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18175,9 +18164,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18272,9 +18259,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18383,9 +18368,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18446,9 +18429,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18539,9 +18520,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18609,9 +18588,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18647,9 +18624,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18698,9 +18673,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18756,9 +18729,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18812,9 +18783,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18911,9 +18880,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -18949,9 +18916,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19003,9 +18968,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19058,9 +19021,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19111,9 +19072,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19204,9 +19163,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19244,9 +19201,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19282,9 +19237,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19349,9 +19302,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19387,9 +19338,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19457,9 +19406,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19509,9 +19456,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19577,9 +19522,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19696,9 +19639,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19735,9 +19676,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19792,9 +19731,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19850,9 +19787,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -19907,9 +19842,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20002,9 +19935,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20096,9 +20027,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20134,9 +20063,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20187,9 +20114,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20241,9 +20166,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20293,9 +20216,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20384,9 +20305,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20432,9 +20351,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20481,9 +20398,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20528,9 +20443,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20610,9 +20523,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20691,9 +20602,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20729,9 +20638,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20791,9 +20698,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20829,9 +20734,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20884,9 +20787,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -20937,9 +20838,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -21027,9 +20926,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -21136,9 +21033,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -21148,7 +21043,9 @@ export interface operations {
                 cursor?: string;
                 order?: "asc" | "desc";
                 take?: number;
-                meta?: Record<string, never>;
+                meta?: {
+                    [key: string]: string;
+                };
             };
             header?: never;
             path?: never;
@@ -21211,9 +21108,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -21262,9 +21157,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };
@@ -21313,9 +21206,7 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": unknown;
-                };
+                content?: never;
             };
         };
     };

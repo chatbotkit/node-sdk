@@ -166,7 +166,7 @@ export async function* complete(options) {
           })
 
           await client.channel.publish(String(channel), {
-            message: JSON.stringify({ error: errorMsg }),
+            message: { error: errorMsg },
           })
 
           return
@@ -183,7 +183,7 @@ export async function* complete(options) {
       })
 
       await client.channel.publish(String(channel), {
-        message: JSON.stringify({ data: result }),
+        message: { data: result },
       })
     } catch (error) {
       const errorMessage =
@@ -195,7 +195,7 @@ export async function* complete(options) {
       })
 
       await client.channel.publish(String(channel), {
-        message: JSON.stringify({ error: errorMessage }),
+        message: { error: errorMessage },
       })
     } finally {
       runningTools.delete(channel)

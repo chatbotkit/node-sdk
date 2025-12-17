@@ -8,7 +8,7 @@
 
 > **default**(`options`): `any`
 
-Defined in: [actions/complete.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L97)
+Defined in: [actions/complete.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L98)
 
 The complete function will take a list of messages and optional functions and
 return a generator that will yield various events. The function also handles

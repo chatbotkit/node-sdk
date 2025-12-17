@@ -239,6 +239,77 @@ export function completeConversationMessage(client, conversationId, request) {
 }
 
 /**
+ * @typedef {import('../types/api/v1.js').operations['dispatchConversation']['requestBody']['content']['application/json']} ConversationDispatchRequestBody
+ *
+ * @typedef {ConversationDispatchRequestBody extends infer U
+ *   ? U extends any
+ *     ? U extends {model?: any}
+ *       ? Omit<U, 'model'> & {model?: string|import('../model/v1.js').Model}
+ *       : U
+ *     : never
+ *   : never
+ * } ConversationDispatchRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['dispatchConversation']['responses']['200']['content']['application/json']} ConversationDispatchResponseBody
+ *
+ * @typedef {ConversationDispatchResponseBody} ConversationDispatchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {ConversationDispatchRequest} request
+ * @returns {Promise<ConversationDispatchResponse>}
+ */
+export async function dispatchConversation(client, request) {
+  const url = `/api/v1/conversation/dispatch`
+
+  /** @type {ConversationDispatchResponseBody} */
+  const response = await client.clientFetch(url, {
+    record: {
+      ...request,
+
+      model:
+        'model' in request && request.model
+          ? buildModelString(request.model)
+          : undefined,
+    },
+  })
+
+  return response
+}
+
+/**
+ * @typedef {import('../types/api/v1.js').operations['dispatchStatefulConversation']['requestBody']['content']['application/json']} ConversationDispatchMessageRequestBody
+ *
+ * @typedef {ConversationDispatchMessageRequestBody} ConversationDispatchMessageRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['dispatchStatefulConversation']['responses']['200']['content']['application/json']} ConversationDispatchMessageResponseBody
+ *
+ * @typedef {ConversationDispatchMessageResponseBody} ConversationDispatchMessageResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationDispatchMessageRequest} request
+ * @returns {Promise<ConversationDispatchMessageResponse>}
+ */
+export async function dispatchConversationMessage(
+  client,
+  conversationId,
+  request
+) {
+  const url = `/api/v1/conversation/${conversationId}/dispatch`
+
+  /** @type {ConversationDispatchMessageResponseBody} */
+  const response = await client.clientFetch(url, {
+    record: {
+      ...request,
+    },
+
+    endpoint: '/api/v1/conversation/{conversationId}/dispatch',
+  })
+
+  return response
+}
+
+/**
  * @typedef {import('../types/api/v1.js').operations['sendConversationMessage']['requestBody']['content']['application/json']} ConversationSendMessageRequestBody
  *
  * @typedef {ConversationSendMessageRequestBody} ConversationSendMessageRequest

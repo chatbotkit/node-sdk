@@ -140,6 +140,42 @@ export function completeConversation(client: ChatBotKitClient, request: Conversa
  */
 export function completeConversationMessage(client: ChatBotKitClient, conversationId: string, request: ConversationCompleteMessageRequest): ResponsePromise<ConversationCompleteMessageResponse, ConversationCompleteMessageStreamType>;
 /**
+ * @typedef {import('../types/api/v1.js').operations['dispatchConversation']['requestBody']['content']['application/json']} ConversationDispatchRequestBody
+ *
+ * @typedef {ConversationDispatchRequestBody extends infer U
+ *   ? U extends any
+ *     ? U extends {model?: any}
+ *       ? Omit<U, 'model'> & {model?: string|import('../model/v1.js').Model}
+ *       : U
+ *     : never
+ *   : never
+ * } ConversationDispatchRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['dispatchConversation']['responses']['200']['content']['application/json']} ConversationDispatchResponseBody
+ *
+ * @typedef {ConversationDispatchResponseBody} ConversationDispatchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {ConversationDispatchRequest} request
+ * @returns {Promise<ConversationDispatchResponse>}
+ */
+export function dispatchConversation(client: ChatBotKitClient, request: ConversationDispatchRequest): Promise<ConversationDispatchResponse>;
+/**
+ * @typedef {import('../types/api/v1.js').operations['dispatchStatefulConversation']['requestBody']['content']['application/json']} ConversationDispatchMessageRequestBody
+ *
+ * @typedef {ConversationDispatchMessageRequestBody} ConversationDispatchMessageRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['dispatchStatefulConversation']['responses']['200']['content']['application/json']} ConversationDispatchMessageResponseBody
+ *
+ * @typedef {ConversationDispatchMessageResponseBody} ConversationDispatchMessageResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} conversationId
+ * @param {ConversationDispatchMessageRequest} request
+ * @returns {Promise<ConversationDispatchMessageResponse>}
+ */
+export function dispatchConversationMessage(client: ChatBotKitClient, conversationId: string, request: ConversationDispatchMessageRequest): Promise<ConversationDispatchMessageResponse>;
+/**
  * @typedef {import('../types/api/v1.js').operations['sendConversationMessage']['requestBody']['content']['application/json']} ConversationSendMessageRequestBody
  *
  * @typedef {ConversationSendMessageRequestBody} ConversationSendMessageRequest
@@ -261,6 +297,18 @@ export type ConversationCompleteMessageRequest = ConversationCompleteMessageRequ
 export type ConversationCompleteMessageResponseBody = import("../types/api/v1.js").operations["completeConversationMessage"]["responses"]["200"]["content"]["application/json"];
 export type ConversationCompleteMessageResponse = ConversationCompleteMessageResponseBody;
 export type ConversationCompleteMessageStreamType = import("../types/api/v1.js").operations["completeConversationMessage"]["responses"]["200"]["content"]["application/jsonl"];
+export type ConversationDispatchRequestBody = import("../types/api/v1.js").operations["dispatchConversation"]["requestBody"]["content"]["application/json"];
+export type ConversationDispatchRequest = ConversationDispatchRequestBody extends infer U ? U extends any ? U extends {
+    model?: any;
+} ? Omit<U, "model"> & {
+    model?: string | import("../model/v1.js").Model;
+} : U : never : never;
+export type ConversationDispatchResponseBody = import("../types/api/v1.js").operations["dispatchConversation"]["responses"]["200"]["content"]["application/json"];
+export type ConversationDispatchResponse = ConversationDispatchResponseBody;
+export type ConversationDispatchMessageRequestBody = import("../types/api/v1.js").operations["dispatchStatefulConversation"]["requestBody"]["content"]["application/json"];
+export type ConversationDispatchMessageRequest = ConversationDispatchMessageRequestBody;
+export type ConversationDispatchMessageResponseBody = import("../types/api/v1.js").operations["dispatchStatefulConversation"]["responses"]["200"]["content"]["application/json"];
+export type ConversationDispatchMessageResponse = ConversationDispatchMessageResponseBody;
 export type ConversationSendMessageRequestBody = import("../types/api/v1.js").operations["sendConversationMessage"]["requestBody"]["content"]["application/json"];
 export type ConversationSendMessageRequest = ConversationSendMessageRequestBody;
 export type ConversationSendMessageResponseBody = import("../types/api/v1.js").operations["sendConversationMessage"]["responses"]["200"]["content"]["application/json"];

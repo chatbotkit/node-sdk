@@ -1,5 +1,16 @@
 # @chatbotkit/react
 
+## 1.26.0
+
+### Minor Changes
+
+- de813bb: Updated types and documentation.
+
+### Patch Changes
+
+- Updated dependencies [de813bb]
+  - @chatbotkit/sdk@1.26.0
+
 ## 1.25.0
 
 ### Minor Changes

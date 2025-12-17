@@ -110,8 +110,6 @@ Subscribes to channel messages.
 
 ##### request?
 
-[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>
-
 #### Returns
 
 [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<`never`, \{ \}\>
