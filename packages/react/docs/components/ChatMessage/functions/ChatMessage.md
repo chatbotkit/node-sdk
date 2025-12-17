@@ -14,7 +14,7 @@ Defined in: [components/ChatMessage.js:29](https://github.com/chatbotkit/node-sd
 
 ### props
 
-`object` & [`Pick`](https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys)\<`ReactMarkdownOptions`, `"remarkPlugins"` \| `"rehypePlugins"` \| `"components"`\> & `HTMLProps`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\>
+`object` & [`Pick`](https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys)\<`Options`, `"remarkPlugins"` \| `"rehypePlugins"` \| `"components"`\> & `HTMLProps`\<[`HTMLDivElement`](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)\>
 
 ## Returns
 

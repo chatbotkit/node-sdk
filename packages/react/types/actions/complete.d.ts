@@ -64,13 +64,13 @@ export type OnFinishHandler = (arg0: {
 }) => any;
 export type Options = Omit<import("@chatbotkit/sdk/conversation/v1.js").ConversationCompleteRequest, "messages" | "functions"> & {
     client: import("@chatbotkit/sdk").ConversationClient;
+    backstory?: string;
     messages: InputMessage[];
     functions?: (InputFunction | (() => InputFunction | Promise<InputFunction>))[];
     maxRecursion?: number;
     onItem?: OnItemHandler;
     onStart?: OnStartHandler;
     onFinish?: OnFinishHandler;
-    backstory?: string;
 };
 /**
  * @typedef {import('react').ReactElement} ReactElement
@@ -137,13 +137,13 @@ export type Options = Omit<import("@chatbotkit/sdk/conversation/v1.js").Conversa
 /**
  * @typedef {Omit<import('@chatbotkit/sdk/conversation/v1.js').ConversationCompleteRequest,'messages'|'functions'> & {
  *   client: import('@chatbotkit/sdk').ConversationClient,
+ *   backstory?: string
  *   messages: InputMessage[],
  *   functions?: (InputFunction|(() => InputFunction|Promise<InputFunction>))[],
  *   maxRecursion?: number,
  *   onItem?: OnItemHandler,
  *   onStart?: OnStartHandler,
  *   onFinish?: OnFinishHandler,
- *   backstory?: string
  * }} Options
  */
 /**

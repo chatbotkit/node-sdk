@@ -8,7 +8,7 @@
 
 > **streamComplete**(`options`): `any`
 
-Defined in: [actions/complete.js:409](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L409)
+Defined in: [actions/complete.js:410](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L410)
 
 A wrapper around the complete function that will return a generator that will
 yield various events. Similarly to the complete function it will handle the
