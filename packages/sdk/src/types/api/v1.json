@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1765916876063)"
+    "version": "v1 (build 1765964202217)"
   },
   "servers": [
     {
@@ -3712,7 +3712,9 @@
                 "properties": {
                   "message": {
                     "description": "The message to publish to the channel",
-                    "type": "string"
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": true
                   }
                 },
                 "required": [
@@ -3825,7 +3827,9 @@
                     },
                     "data": {
                       "description": "The message data published to the channel",
-                      "type": "string"
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": true
                     }
                   },
                   "required": [

@@ -6096,7 +6096,9 @@ export interface operations {
             content: {
                 "application/json": {
                     /** @description The message to publish to the channel */
-                    message: string;
+                    message: {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
@@ -6159,7 +6161,9 @@ export interface operations {
                          */
                         type: "message";
                         /** @description The message data published to the channel */
-                        data: string;
+                        data: {
+                            [key: string]: unknown;
+                        };
                     };
                 };
             };
