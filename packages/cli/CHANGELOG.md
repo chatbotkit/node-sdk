@@ -1,5 +1,14 @@
 # @chatbotkit/cli
 
+## 1.26.1
+
+### Patch Changes
+
+- 3c96292: Fixed pnpm export.
+- Updated dependencies [3c96292]
+  - @chatbotkit/agent@1.26.1
+  - @chatbotkit/sdk@1.26.1
+
 ## 1.26.0
 
 ### Patch Changes
