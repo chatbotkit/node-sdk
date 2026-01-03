@@ -17443,6 +17443,8 @@ export interface operations {
                             secret?: string;
                             /** @description The ID of the file associated with the ability */
                             file?: string;
+                            /** @description The ID of the space associated with the ability */
+                            space?: string;
                             /** @description The provider of the ability */
                             provider?: string;
                             icon: string;
@@ -17496,6 +17498,8 @@ export interface operations {
                             secret?: string;
                             /** @description The ID of the file associated with the ability */
                             file?: string;
+                            /** @description The ID of the space associated with the ability */
+                            space?: string;
                             /** @description The provider of the ability */
                             provider?: string;
                             icon: string;

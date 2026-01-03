@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1767265658160)"
+    "version": "v1 (build 1767448779783)"
   },
   "servers": [
     {
@@ -29490,6 +29490,10 @@
                             "type": "string",
                             "description": "The ID of the file associated with the ability"
                           },
+                          "space": {
+                            "type": "string",
+                            "description": "The ID of the space associated with the ability"
+                          },
                           "provider": {
                             "type": "string",
                             "description": "The provider of the ability"
@@ -29616,6 +29620,10 @@
                             "file": {
                               "type": "string",
                               "description": "The ID of the file associated with the ability"
+                            },
+                            "space": {
+                              "type": "string",
+                              "description": "The ID of the space associated with the ability"
                             },
                             "provider": {
                               "type": "string",
