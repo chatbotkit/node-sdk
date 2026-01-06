@@ -2,7 +2,7 @@
 
 ***
 
-[@chatbotkit/agent](../../modules.md) / [index](../README.md) / tools
+[@chatbotkit/agent](../../modules.md) / [tools](../README.md) / tools
 
 # Variable: tools
 

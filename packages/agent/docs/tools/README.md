@@ -2,9 +2,9 @@
 
 ***
 
-[@chatbotkit/agent](../modules.md) / index
+[@chatbotkit/agent](../modules.md) / tools
 
-# index
+# tools
 
 ## Variables
 
