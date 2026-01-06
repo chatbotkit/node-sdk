@@ -66,6 +66,10 @@ export interface InitiateMessageOptions {
 export interface SendMessageOptions {
   /** The text content of the message */
   text: string
+  /** Whether to hide the message from the conversation UI */
+  hidden?: boolean
+  /** Whether the bot should respond to this message */
+  respond?: boolean
 }
 
 /**
