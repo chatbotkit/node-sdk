@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/agent",
-  "version": "1.26.0",
+  "version": "1.26.2",
   "description": "ChatBotKit Agent implementation",
   "license": "ISC",
   "engines": {
@@ -41,6 +41,14 @@
     "./index.js": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
+    },
+    "./tools": {
+      "types": "./types/tools.d.ts",
+      "import": "./src/tools.js"
+    },
+    "./tools.js": {
+      "types": "./types/tools.d.ts",
+      "import": "./src/tools.js"
     },
     "./package.json": "./package.json"
   },

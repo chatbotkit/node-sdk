@@ -7,3 +7,4 @@
 ## Modules
 
 - [agent](agent/README.md)
+- [tools](tools/README.md)

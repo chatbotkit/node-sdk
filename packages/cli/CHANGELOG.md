@@ -1,5 +1,23 @@
 # @chatbotkit/cli
 
+## 1.26.2
+
+### Patch Changes
+
+- 53fe36a: Updated types and new agentic methods.
+- Updated dependencies [53fe36a]
+  - @chatbotkit/agent@1.26.2
+  - @chatbotkit/sdk@1.26.2
+
+## 1.26.1
+
+### Patch Changes
+
+- 3c96292: Fixed pnpm export.
+- Updated dependencies [3c96292]
+  - @chatbotkit/agent@1.26.1
+  - @chatbotkit/sdk@1.26.1
+
 ## 1.26.0
 
 ### Patch Changes

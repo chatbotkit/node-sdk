@@ -1,5 +1,21 @@
 # @chatbotkit/react
 
+## 1.26.2
+
+### Patch Changes
+
+- Updated dependencies [53fe36a]
+  - @chatbotkit/sdk@1.26.2
+
+## 1.26.1
+
+### Patch Changes
+
+- 3c96292: Fixed pnpm export.
+- Updated dependencies [3c96292]
+  - @chatbotkit/widget@1.26.1
+  - @chatbotkit/sdk@1.26.1
+
 ## 1.26.0
 
 ### Minor Changes

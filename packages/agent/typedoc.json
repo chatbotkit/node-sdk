@@ -5,7 +5,8 @@
   ],
   "entryPoints": [
     "./src/agent.js",
-    "./src/index.js"
+    "./src/index.js",
+    "./src/tools.js"
   ],
   "externalPattern": [
     "**/node_modules/**",

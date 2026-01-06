@@ -3506,6 +3506,66 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/guide/{guideId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Fetch a specific platform guide
+         * @description Retrieves the complete content and metadata of a specific guide. This
+         *     includes the markdown content and all associated frontmatter.
+         *
+         */
+        get: operations["fetchPlatformGuide"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/guide/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a list of platform guides
+         * @description Returns a list of available guides with their metadata.
+         *
+         */
+        get: operations["listPlatformGuides"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/guide/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform guides using semantic similarity */
+        post: operations["searchPlatformGuides"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/manual/{manualId}/fetch": {
         parameters: {
             query?: never;
@@ -4478,6 +4538,11 @@ export interface components {
          * @enum {string}
          */
         Schedule: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+        /**
+         * @description The sync status of an integration
+         * @enum {string}
+         */
+        SyncStatus: "pending" | "synced" | "error";
         /**
          * @description The task execution status
          * @enum {string}
@@ -12936,8 +13001,18 @@ export interface operations {
                         datasetId: string;
                         /** @description The Notion API token (returned as '********' if configured, null otherwise) */
                         token?: string;
+                        /**
+                         * @description The sync status of an integration
+                         * @enum {string}
+                         */
+                        syncStatus?: "pending" | "synced" | "error";
                         /** @description The sync schedule */
                         syncSchedule?: string;
+                        /**
+                         * Format: date-time
+                         * @description The timestamp of the last successful sync
+                         */
+                        lastSyncedAt?: string;
                         /** @description The time in milliseconds until records expire */
                         expiresIn?: number;
                     };
@@ -13140,8 +13215,18 @@ export interface operations {
                             datasetId: string;
                             /** @description The Notion API token (returned as '********' if configured, null otherwise) */
                             token?: string;
+                            /**
+                             * @description The sync status of an integration
+                             * @enum {string}
+                             */
+                            syncStatus?: "pending" | "synced" | "error";
                             /** @description The sync schedule */
                             syncSchedule?: string;
+                            /**
+                             * Format: date-time
+                             * @description The timestamp of the last successful sync
+                             */
+                            lastSyncedAt?: string;
                             /** @description The time in milliseconds until records expire */
                             expiresIn?: number;
                         }[];
@@ -13174,8 +13259,18 @@ export interface operations {
                             datasetId: string;
                             /** @description The Notion API token (returned as '********' if configured, null otherwise) */
                             token?: string;
+                            /**
+                             * @description The sync status of an integration
+                             * @enum {string}
+                             */
+                            syncStatus?: "pending" | "synced" | "error";
                             /** @description The sync schedule */
                             syncSchedule?: string;
+                            /**
+                             * Format: date-time
+                             * @description The timestamp of the last successful sync
+                             */
+                            lastSyncedAt?: string;
                             /** @description The time in milliseconds until records expire */
                             expiresIn?: number;
                         };
@@ -13271,8 +13366,18 @@ export interface operations {
                         selectors?: string;
                         /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
                         javascript?: boolean;
+                        /**
+                         * @description The sync status of an integration
+                         * @enum {string}
+                         */
+                        syncStatus?: "pending" | "synced" | "error";
                         /** @description The sync schedule to use for this Sitemap integration */
                         syncSchedule?: string;
+                        /**
+                         * Format: date-time
+                         * @description The timestamp of the last successful sync
+                         */
+                        lastSyncedAt?: string;
                         /** @description Record expiry in milliseconds */
                         expiresIn?: number;
                     };
@@ -13493,8 +13598,18 @@ export interface operations {
                             selectors?: string;
                             /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
                             javascript?: boolean;
+                            /**
+                             * @description The sync status of an integration
+                             * @enum {string}
+                             */
+                            syncStatus?: "pending" | "synced" | "error";
                             /** @description The sync schedule to use for this Sitemap integration */
                             syncSchedule?: string;
+                            /**
+                             * Format: date-time
+                             * @description The timestamp of the last successful sync
+                             */
+                            lastSyncedAt?: string;
                             /** @description Record expiry in milliseconds */
                             expiresIn?: number;
                         }[];
@@ -13533,8 +13648,18 @@ export interface operations {
                             selectors?: string;
                             /** @description Indicates if the Sitemap integration should use JavaScript during the spidering process */
                             javascript?: boolean;
+                            /**
+                             * @description The sync status of an integration
+                             * @enum {string}
+                             */
+                            syncStatus?: "pending" | "synced" | "error";
                             /** @description The sync schedule to use for this Sitemap integration */
                             syncSchedule?: string;
+                            /**
+                             * Format: date-time
+                             * @description The timestamp of the last successful sync
+                             */
+                            lastSyncedAt?: string;
                             /** @description Record expiry in milliseconds */
                             expiresIn?: number;
                         };
@@ -17318,6 +17443,10 @@ export interface operations {
                             secret?: string;
                             /** @description The ID of the file associated with the ability */
                             file?: string;
+                            /** @description The ID of the space associated with the ability */
+                            space?: string;
+                            /** @description The provider of the ability */
+                            provider?: string;
                             icon: string;
                             tags?: string[];
                             setup?: string;
@@ -17369,6 +17498,10 @@ export interface operations {
                             secret?: string;
                             /** @description The ID of the file associated with the ability */
                             file?: string;
+                            /** @description The ID of the space associated with the ability */
+                            space?: string;
+                            /** @description The provider of the ability */
+                            provider?: string;
                             icon: string;
                             tags?: string[];
                             setup?: string;
@@ -17934,6 +18067,226 @@ export interface operations {
                             /** @description Tags associated with the example */
                             tags?: string[];
                             /** @description The URL to the official example page */
+                            link: string;
+                        }[];
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchPlatformGuide: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                guideId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The guide was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The category of the guide */
+                        category?: string;
+                        /** @description Tags associated with the guide */
+                        tags?: string[];
+                        /** @description The display order index */
+                        index?: number;
+                        /** @description The markdown content of the guide */
+                        content: string;
+                        /** @description The URL to the official guide page */
+                        link?: string;
+                    };
+                };
+            };
+            /** @description Guide not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listPlatformGuides: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of guides was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the guide */
+                            category?: string;
+                            /** @description Tags associated with the guide */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The URL to the official guide page */
+                            link: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the guide */
+                            category?: string;
+                            /** @description Tags associated with the guide */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The URL to the official guide page */
+                            link: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    searchPlatformGuides: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant guides */
+                    search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
+                     */
+                    take?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The category of the guide */
+                            category?: string;
+                            /** @description Tags associated with the guide */
+                            tags: string[];
+                            /** @description The display order index */
+                            index: number;
+                            /** @description The similarity score of the search result */
+                            score: number;
+                            /** @description An excerpt from the most relevant part of the guide */
+                            excerpt: string;
+                            /** @description The URL to the official guide page */
                             link: string;
                         }[];
                     };
@@ -19721,6 +20074,8 @@ export interface operations {
                         fileId?: string;
                         /** @description The ID of the bot associated with the ability */
                         botId?: string;
+                        /** @description The ID of the space associated with the ability */
+                        spaceId?: string;
                         /** @description The instruction of the skillset ability */
                         instruction: string;
                     };
@@ -19764,6 +20119,8 @@ export interface operations {
                     fileId?: string;
                     /** @description The ID of the bot associated with the ability */
                     botId?: string;
+                    /** @description The ID of the space associated with the ability */
+                    spaceId?: string;
                     /** @description The text to update the ability with */
                     instruction?: string;
                 };
@@ -19819,6 +20176,8 @@ export interface operations {
                     fileId?: string;
                     /** @description The ID of the bot associated with the ability */
                     botId?: string;
+                    /** @description The ID of the space associated with the ability */
+                    spaceId?: string;
                     /** @description The instruction of the ability */
                     instruction?: string;
                 };
@@ -19891,6 +20250,8 @@ export interface operations {
                             fileId?: string;
                             /** @description The ID of the bot associated with the ability */
                             botId?: string;
+                            /** @description The ID of the space associated with the ability */
+                            spaceId?: string;
                             instruction: string;
                         }[];
                     };
@@ -19924,6 +20285,8 @@ export interface operations {
                             fileId?: string;
                             /** @description The ID of the bot associated with the ability */
                             botId?: string;
+                            /** @description The ID of the space associated with the ability */
+                            spaceId?: string;
                             instruction: string;
                         };
                     };
@@ -19984,6 +20347,8 @@ export interface operations {
                             fileId?: string;
                             /** @description The ID of the bot associated with the ability */
                             botId?: string;
+                            /** @description The ID of the space associated with the ability */
+                            spaceId?: string;
                             instruction: string;
                         }[];
                     };
@@ -20017,6 +20382,8 @@ export interface operations {
                             fileId?: string;
                             /** @description The ID of the bot associated with the ability */
                             botId?: string;
+                            /** @description The ID of the space associated with the ability */
+                            spaceId?: string;
                             instruction: string;
                         };
                     };
@@ -20341,6 +20708,8 @@ export interface operations {
                         createdAt: number;
                         /** @description The timestamp (ms) when the instance was updated */
                         updatedAt: number;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
                         /** @description The contact associated with the space */
                         contactId?: string;
                     };
@@ -20375,6 +20744,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The contact associated with the space */
                     contactId?: string;
                 };
@@ -20420,6 +20791,8 @@ export interface operations {
                     meta?: {
                         [key: string]: unknown;
                     };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
                     /** @description The contact associated with the space */
                     contactId?: string;
                 };
@@ -20485,6 +20858,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The contact associated with the space */
                             contactId?: string;
                         }[];
@@ -20495,7 +20870,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -20511,6 +20886,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The contact associated with the space */
                             contactId?: string;
                         };
@@ -20565,6 +20942,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The contact associated with the space */
                             contactId?: string;
                         }[];
@@ -20575,7 +20954,7 @@ export interface operations {
                          * @enum {string}
                          */
                         type: "item";
-                        /** @description Instance list properties */
+                        /** @description Blueprint properties */
                         data: {
                             /** @description The associated name */
                             name?: string;
@@ -20591,6 +20970,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
                             /** @description The contact associated with the space */
                             contactId?: string;
                         };

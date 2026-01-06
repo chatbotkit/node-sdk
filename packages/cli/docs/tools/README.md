@@ -6,10 +6,6 @@
 
 # tools
 
-## Variables
-
-- [tools](variables/tools.md)
-
 ## Functions
 
 - [getToolNames](functions/getToolNames.md)

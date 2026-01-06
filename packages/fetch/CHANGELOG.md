@@ -1,5 +1,11 @@
 # @chatbotkit/fetch
 
+## 1.26.1
+
+### Patch Changes
+
+- 3c96292: Fixed pnpm export.
+
 ## 1.23.0
 
 ### Minor Changes
