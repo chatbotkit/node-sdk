@@ -30,6 +30,14 @@
       "types": "./types/agent.d.ts",
       "import": "./src/agent.js"
     },
+    "./tools": {
+      "types": "./types/tools.d.ts",
+      "import": "./src/tools.js"
+    },
+    "./tools.js": {
+      "types": "./types/tools.d.ts",
+      "import": "./src/tools.js"
+    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
