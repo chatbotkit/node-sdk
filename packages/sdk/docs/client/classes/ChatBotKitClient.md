@@ -26,6 +26,8 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/pac
 - [`DatasetFileClient`](../../dataset/file/classes/DatasetFileClient.md)
 - [`DatasetClient`](../../dataset/classes/DatasetClient.md)
 - [`DatasetRecordClient`](../../dataset/record/classes/DatasetRecordClient.md)
+- [`EventClient`](../../event/classes/EventClient.md)
+- [`EventLogClient`](../../event/log/classes/EventLogClient.md)
 - [`FileClient`](../../file/classes/FileClient.md)
 - [`GraphqlClient`](../../graphql/classes/GraphqlClient.md)
 - [`ChatBotKit`](../../index/classes/ChatBotKit.md)

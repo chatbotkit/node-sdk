@@ -364,6 +364,38 @@
       "types": "./types/dataset/v1.d.ts",
       "import": "./src/dataset/v1.js"
     },
+    "./event": {
+      "types": "./types/event/index.d.ts",
+      "import": "./src/event/index.js"
+    },
+    "./event/index": {
+      "types": "./types/event/index.d.ts",
+      "import": "./src/event/index.js"
+    },
+    "./event/index.js": {
+      "types": "./types/event/index.d.ts",
+      "import": "./src/event/index.js"
+    },
+    "./event/log": {
+      "types": "./types/event/log/index.d.ts",
+      "import": "./src/event/log/index.js"
+    },
+    "./event/log/index": {
+      "types": "./types/event/log/index.d.ts",
+      "import": "./src/event/log/index.js"
+    },
+    "./event/log/index.js": {
+      "types": "./types/event/log/index.d.ts",
+      "import": "./src/event/log/index.js"
+    },
+    "./event/log/v1": {
+      "types": "./types/event/log/v1.d.ts",
+      "import": "./src/event/log/v1.js"
+    },
+    "./event/log/v1.js": {
+      "types": "./types/event/log/v1.d.ts",
+      "import": "./src/event/log/v1.js"
+    },
     "./file": {
       "types": "./types/file/index.d.ts",
       "import": "./src/file/index.js"

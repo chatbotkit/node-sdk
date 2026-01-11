@@ -2,25 +2,34 @@
 
 ***
 
-[@chatbotkit/sdk](../../modules.md) / [index](../README.md) / ChatBotKit
+[@chatbotkit/sdk](../../modules.md) / [event](../README.md) / EventClient
 
-# Class: ChatBotKit
+# Class: EventClient
 
-Defined in: [index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L61)
+Defined in: [event/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/index.js#L26)
 
-ChatBotKit SDK - Main client class for interacting with the ChatBotKit API
+Event client for accessing event-related functionality.
 
-This is the primary entry point for the ChatBotKit SDK. It provides access to all
-ChatBotKit API resources through specialized client instances.
+This client provides access to ChatBotKit's event system, including
+event logs that record all significant platform activities. Use the
+`log` sub-client to list, export, or subscribe to events.
 
 ## Example
 
 ```ts
-import ChatBotKit from '@chatbotkit/sdk'
+const client = new EventClient({ secret: 'your-secret' })
 
-const client = new ChatBotKit({
-  secret: 'your-secret-key'
-})
+// List recent events
+const events = await client.log.list({ take: 100 })
+
+// Export events for a specific conversation
+const exported = await client.log.export({ conversationId: 'conv_123' })
+
+// Subscribe to live events (Pro+ only)
+const stream = client.log.subscribe()
+for await (const event of stream) {
+  console.log('Live event:', event.data.type)
+}
 ```
 
 ## Extends
@@ -31,9 +40,9 @@ const client = new ChatBotKit({
 
 ### Constructor
 
-> **new ChatBotKit**(`options`): `ChatBotKit`
+> **new EventClient**(`options`): `EventClient`
 
-Defined in: [index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L65)
+Defined in: [event/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/index.js#L30)
 
 #### Parameters
 
@@ -43,17 +52,25 @@ Defined in: [index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packa
 
 #### Returns
 
-`ChatBotKit`
+`EventClient`
 
 #### Overrides
 
 [`ChatBotKitClient`](../../client/classes/ChatBotKitClient.md).[`constructor`](../../client/classes/ChatBotKitClient.md#constructor)
 
+## Properties
+
+### log
+
+> **log**: [`EventLogClient`](../log/classes/EventLogClient.md)
+
+Defined in: [event/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/index.js#L36)
+
 ## Methods
 
 ### extend()
 
-> **extend**(`extensionOptions`): `ChatBotKit`
+> **extend**(`extensionOptions`): `EventClient`
 
 Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
@@ -75,7 +92,7 @@ Options to merge with current options
 
 #### Returns
 
-`ChatBotKit`
+`EventClient`
 
 A new instance of the same client class with extended options
 

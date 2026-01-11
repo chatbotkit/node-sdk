@@ -5,6 +5,7 @@ import { ChatBotKitClient } from './client.js'
 import { ContactClient } from './contact/index.js'
 import { ConversationClient } from './conversation/index.js'
 import { DatasetClient } from './dataset/index.js'
+import { EventClient } from './event/index.js'
 import { FileClient } from './file/index.js'
 import { GraphqlClient } from './graphql/index.js'
 import { IntegrationClient } from './integration/index.js'
@@ -25,6 +26,7 @@ import { UsageClient } from './usage/index.js'
 export { BlueprintClient }
 export { BotClient }
 export { ChannelClient }
+export { EventClient }
 export { FileClient }
 export { MagicClient }
 export { PartnerClient }
@@ -67,6 +69,7 @@ export class ChatBotKit extends ChatBotKitClient {
     this.blueprint = new BlueprintClient(options)
     this.bot = new BotClient(options)
     this.channel = new ChannelClient(options)
+    this.event = new EventClient(options)
     this.file = new FileClient(options)
     this.secret = new SecretClient(options)
     this.magic = new MagicClient(options)

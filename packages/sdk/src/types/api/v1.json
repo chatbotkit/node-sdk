@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1767448779783)"
+    "version": "v1 (build 1768169966551)"
   },
   "servers": [
     {
@@ -15293,6 +15293,1066 @@
           }
         },
         "__originalOperationId": "listDatasets",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/event/log/export": {
+      "get": {
+        "operationId": "exportEventLogs",
+        "summary": "Export event logs",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of events was exported successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "description": "The type of event (e.g., 'conversation.create')",
+                            "type": "string"
+                          },
+                          "conversationId": {
+                            "description": "Related conversation ID if applicable",
+                            "type": "string"
+                          },
+                          "taskId": {
+                            "description": "Related task ID if applicable",
+                            "type": "string"
+                          },
+                          "contactId": {
+                            "description": "Related contact ID if applicable",
+                            "type": "string"
+                          },
+                          "blueprintId": {
+                            "description": "Related blueprint ID if applicable",
+                            "type": "string"
+                          },
+                          "botId": {
+                            "description": "Related bot ID if applicable",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "Related dataset ID if applicable",
+                            "type": "string"
+                          },
+                          "recordId": {
+                            "description": "Related record ID if applicable",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "Related skillset ID if applicable",
+                            "type": "string"
+                          },
+                          "abilityId": {
+                            "description": "Related ability ID if applicable",
+                            "type": "string"
+                          },
+                          "fileId": {
+                            "description": "Related file ID if applicable",
+                            "type": "string"
+                          },
+                          "secretId": {
+                            "description": "Related secret ID if applicable",
+                            "type": "string"
+                          },
+                          "portalId": {
+                            "description": "Related portal ID if applicable",
+                            "type": "string"
+                          },
+                          "widgetIntegrationId": {
+                            "description": "Related widget integration ID if applicable",
+                            "type": "string"
+                          },
+                          "slackIntegrationId": {
+                            "description": "Related Slack integration ID if applicable",
+                            "type": "string"
+                          },
+                          "discordIntegrationId": {
+                            "description": "Related Discord integration ID if applicable",
+                            "type": "string"
+                          },
+                          "whatsappIntegrationId": {
+                            "description": "Related WhatsApp integration ID if applicable",
+                            "type": "string"
+                          },
+                          "messengerIntegrationId": {
+                            "description": "Related Messenger integration ID if applicable",
+                            "type": "string"
+                          },
+                          "telegramIntegrationId": {
+                            "description": "Related Telegram integration ID if applicable",
+                            "type": "string"
+                          },
+                          "twilioIntegrationId": {
+                            "description": "Related Twilio integration ID if applicable",
+                            "type": "string"
+                          },
+                          "emailIntegrationId": {
+                            "description": "Related email integration ID if applicable",
+                            "type": "string"
+                          },
+                          "sitemapIntegrationId": {
+                            "description": "Related sitemap integration ID if applicable",
+                            "type": "string"
+                          },
+                          "notionIntegrationId": {
+                            "description": "Related Notion integration ID if applicable",
+                            "type": "string"
+                          },
+                          "triggerIntegrationId": {
+                            "description": "Related trigger integration ID if applicable",
+                            "type": "string"
+                          },
+                          "supportIntegrationId": {
+                            "description": "Related support integration ID if applicable",
+                            "type": "string"
+                          },
+                          "extractIntegrationId": {
+                            "description": "Related extract integration ID if applicable",
+                            "type": "string"
+                          },
+                          "mcpserverIntegrationId": {
+                            "description": "Related MCP server integration ID if applicable",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "type"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "type": {
+                              "description": "The type of event (e.g., 'conversation.create')",
+                              "type": "string"
+                            },
+                            "conversationId": {
+                              "description": "Related conversation ID if applicable",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "Related task ID if applicable",
+                              "type": "string"
+                            },
+                            "contactId": {
+                              "description": "Related contact ID if applicable",
+                              "type": "string"
+                            },
+                            "blueprintId": {
+                              "description": "Related blueprint ID if applicable",
+                              "type": "string"
+                            },
+                            "botId": {
+                              "description": "Related bot ID if applicable",
+                              "type": "string"
+                            },
+                            "datasetId": {
+                              "description": "Related dataset ID if applicable",
+                              "type": "string"
+                            },
+                            "recordId": {
+                              "description": "Related record ID if applicable",
+                              "type": "string"
+                            },
+                            "skillsetId": {
+                              "description": "Related skillset ID if applicable",
+                              "type": "string"
+                            },
+                            "abilityId": {
+                              "description": "Related ability ID if applicable",
+                              "type": "string"
+                            },
+                            "fileId": {
+                              "description": "Related file ID if applicable",
+                              "type": "string"
+                            },
+                            "secretId": {
+                              "description": "Related secret ID if applicable",
+                              "type": "string"
+                            },
+                            "portalId": {
+                              "description": "Related portal ID if applicable",
+                              "type": "string"
+                            },
+                            "widgetIntegrationId": {
+                              "description": "Related widget integration ID if applicable",
+                              "type": "string"
+                            },
+                            "slackIntegrationId": {
+                              "description": "Related Slack integration ID if applicable",
+                              "type": "string"
+                            },
+                            "discordIntegrationId": {
+                              "description": "Related Discord integration ID if applicable",
+                              "type": "string"
+                            },
+                            "whatsappIntegrationId": {
+                              "description": "Related WhatsApp integration ID if applicable",
+                              "type": "string"
+                            },
+                            "messengerIntegrationId": {
+                              "description": "Related Messenger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "telegramIntegrationId": {
+                              "description": "Related Telegram integration ID if applicable",
+                              "type": "string"
+                            },
+                            "twilioIntegrationId": {
+                              "description": "Related Twilio integration ID if applicable",
+                              "type": "string"
+                            },
+                            "emailIntegrationId": {
+                              "description": "Related email integration ID if applicable",
+                              "type": "string"
+                            },
+                            "sitemapIntegrationId": {
+                              "description": "Related sitemap integration ID if applicable",
+                              "type": "string"
+                            },
+                            "notionIntegrationId": {
+                              "description": "Related Notion integration ID if applicable",
+                              "type": "string"
+                            },
+                            "triggerIntegrationId": {
+                              "description": "Related trigger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "supportIntegrationId": {
+                              "description": "Related support integration ID if applicable",
+                              "type": "string"
+                            },
+                            "extractIntegrationId": {
+                              "description": "Related extract integration ID if applicable",
+                              "type": "string"
+                            },
+                            "mcpserverIntegrationId": {
+                              "description": "Related MCP server integration ID if applicable",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1event~1log~1export/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "exportEventLogs",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/event/log/list": {
+      "get": {
+        "operationId": "listEventLogs",
+        "summary": "List event logs",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of events was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "description": "The type of event (e.g., 'conversation.create')",
+                            "type": "string"
+                          },
+                          "conversationId": {
+                            "description": "Related conversation ID if applicable",
+                            "type": "string"
+                          },
+                          "taskId": {
+                            "description": "Related task ID if applicable",
+                            "type": "string"
+                          },
+                          "contactId": {
+                            "description": "Related contact ID if applicable",
+                            "type": "string"
+                          },
+                          "blueprintId": {
+                            "description": "Related blueprint ID if applicable",
+                            "type": "string"
+                          },
+                          "botId": {
+                            "description": "Related bot ID if applicable",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "Related dataset ID if applicable",
+                            "type": "string"
+                          },
+                          "recordId": {
+                            "description": "Related record ID if applicable",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "Related skillset ID if applicable",
+                            "type": "string"
+                          },
+                          "abilityId": {
+                            "description": "Related ability ID if applicable",
+                            "type": "string"
+                          },
+                          "fileId": {
+                            "description": "Related file ID if applicable",
+                            "type": "string"
+                          },
+                          "secretId": {
+                            "description": "Related secret ID if applicable",
+                            "type": "string"
+                          },
+                          "portalId": {
+                            "description": "Related portal ID if applicable",
+                            "type": "string"
+                          },
+                          "widgetIntegrationId": {
+                            "description": "Related widget integration ID if applicable",
+                            "type": "string"
+                          },
+                          "slackIntegrationId": {
+                            "description": "Related Slack integration ID if applicable",
+                            "type": "string"
+                          },
+                          "discordIntegrationId": {
+                            "description": "Related Discord integration ID if applicable",
+                            "type": "string"
+                          },
+                          "whatsappIntegrationId": {
+                            "description": "Related WhatsApp integration ID if applicable",
+                            "type": "string"
+                          },
+                          "messengerIntegrationId": {
+                            "description": "Related Messenger integration ID if applicable",
+                            "type": "string"
+                          },
+                          "telegramIntegrationId": {
+                            "description": "Related Telegram integration ID if applicable",
+                            "type": "string"
+                          },
+                          "twilioIntegrationId": {
+                            "description": "Related Twilio integration ID if applicable",
+                            "type": "string"
+                          },
+                          "emailIntegrationId": {
+                            "description": "Related email integration ID if applicable",
+                            "type": "string"
+                          },
+                          "sitemapIntegrationId": {
+                            "description": "Related sitemap integration ID if applicable",
+                            "type": "string"
+                          },
+                          "notionIntegrationId": {
+                            "description": "Related Notion integration ID if applicable",
+                            "type": "string"
+                          },
+                          "triggerIntegrationId": {
+                            "description": "Related trigger integration ID if applicable",
+                            "type": "string"
+                          },
+                          "supportIntegrationId": {
+                            "description": "Related support integration ID if applicable",
+                            "type": "string"
+                          },
+                          "extractIntegrationId": {
+                            "description": "Related extract integration ID if applicable",
+                            "type": "string"
+                          },
+                          "mcpserverIntegrationId": {
+                            "description": "Related MCP server integration ID if applicable",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "type"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "type": {
+                              "description": "The type of event (e.g., 'conversation.create')",
+                              "type": "string"
+                            },
+                            "conversationId": {
+                              "description": "Related conversation ID if applicable",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "Related task ID if applicable",
+                              "type": "string"
+                            },
+                            "contactId": {
+                              "description": "Related contact ID if applicable",
+                              "type": "string"
+                            },
+                            "blueprintId": {
+                              "description": "Related blueprint ID if applicable",
+                              "type": "string"
+                            },
+                            "botId": {
+                              "description": "Related bot ID if applicable",
+                              "type": "string"
+                            },
+                            "datasetId": {
+                              "description": "Related dataset ID if applicable",
+                              "type": "string"
+                            },
+                            "recordId": {
+                              "description": "Related record ID if applicable",
+                              "type": "string"
+                            },
+                            "skillsetId": {
+                              "description": "Related skillset ID if applicable",
+                              "type": "string"
+                            },
+                            "abilityId": {
+                              "description": "Related ability ID if applicable",
+                              "type": "string"
+                            },
+                            "fileId": {
+                              "description": "Related file ID if applicable",
+                              "type": "string"
+                            },
+                            "secretId": {
+                              "description": "Related secret ID if applicable",
+                              "type": "string"
+                            },
+                            "portalId": {
+                              "description": "Related portal ID if applicable",
+                              "type": "string"
+                            },
+                            "widgetIntegrationId": {
+                              "description": "Related widget integration ID if applicable",
+                              "type": "string"
+                            },
+                            "slackIntegrationId": {
+                              "description": "Related Slack integration ID if applicable",
+                              "type": "string"
+                            },
+                            "discordIntegrationId": {
+                              "description": "Related Discord integration ID if applicable",
+                              "type": "string"
+                            },
+                            "whatsappIntegrationId": {
+                              "description": "Related WhatsApp integration ID if applicable",
+                              "type": "string"
+                            },
+                            "messengerIntegrationId": {
+                              "description": "Related Messenger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "telegramIntegrationId": {
+                              "description": "Related Telegram integration ID if applicable",
+                              "type": "string"
+                            },
+                            "twilioIntegrationId": {
+                              "description": "Related Twilio integration ID if applicable",
+                              "type": "string"
+                            },
+                            "emailIntegrationId": {
+                              "description": "Related email integration ID if applicable",
+                              "type": "string"
+                            },
+                            "sitemapIntegrationId": {
+                              "description": "Related sitemap integration ID if applicable",
+                              "type": "string"
+                            },
+                            "notionIntegrationId": {
+                              "description": "Related Notion integration ID if applicable",
+                              "type": "string"
+                            },
+                            "triggerIntegrationId": {
+                              "description": "Related trigger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "supportIntegrationId": {
+                              "description": "Related support integration ID if applicable",
+                              "type": "string"
+                            },
+                            "extractIntegrationId": {
+                              "description": "Related extract integration ID if applicable",
+                              "type": "string"
+                            },
+                            "mcpserverIntegrationId": {
+                              "description": "Related MCP server integration ID if applicable",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1event~1log~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listEventLogs",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/event/log/subscribe": {
+      "post": {
+        "operationId": "subscribeEventLogs",
+        "summary": "Subscribe to live event logs",
+        "description": "Subscribe to receive real-time event logs as they are generated. This\nendpoint returns a streaming response that continuously delivers events\nas they occur in your account. The connection remains open until the\nclient closes it or an error occurs.\n\nThis is useful for:\n- Real-time monitoring dashboards\n- Live debugging and troubleshooting\n- Building reactive integrations\n- Streaming event data to external systems\n\nFor historical event data, use the `/event/log/list` endpoint instead.\n",
+        "tags": [
+          "Event"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "historyLength": {
+                    "description": "Number of recent historical events to replay before\nsubscribing to live updates. When provided, the subscriber\nwill first receive up to this many recent events that were\nlogged before the subscription started. This is useful for\ncatching up on events that may have occurred during\nconnection setup.\n",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully subscribed to event logs",
+            "content": {
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "type": {
+                              "description": "The type of event (e.g., 'conversation.create')",
+                              "type": "string"
+                            },
+                            "conversationId": {
+                              "description": "Related conversation ID if applicable",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "Related task ID if applicable",
+                              "type": "string"
+                            },
+                            "contactId": {
+                              "description": "Related contact ID if applicable",
+                              "type": "string"
+                            },
+                            "blueprintId": {
+                              "description": "Related blueprint ID if applicable",
+                              "type": "string"
+                            },
+                            "botId": {
+                              "description": "Related bot ID if applicable",
+                              "type": "string"
+                            },
+                            "datasetId": {
+                              "description": "Related dataset ID if applicable",
+                              "type": "string"
+                            },
+                            "recordId": {
+                              "description": "Related record ID if applicable",
+                              "type": "string"
+                            },
+                            "skillsetId": {
+                              "description": "Related skillset ID if applicable",
+                              "type": "string"
+                            },
+                            "abilityId": {
+                              "description": "Related ability ID if applicable",
+                              "type": "string"
+                            },
+                            "fileId": {
+                              "description": "Related file ID if applicable",
+                              "type": "string"
+                            },
+                            "secretId": {
+                              "description": "Related secret ID if applicable",
+                              "type": "string"
+                            },
+                            "portalId": {
+                              "description": "Related portal ID if applicable",
+                              "type": "string"
+                            },
+                            "widgetIntegrationId": {
+                              "description": "Related widget integration ID if applicable",
+                              "type": "string"
+                            },
+                            "slackIntegrationId": {
+                              "description": "Related Slack integration ID if applicable",
+                              "type": "string"
+                            },
+                            "discordIntegrationId": {
+                              "description": "Related Discord integration ID if applicable",
+                              "type": "string"
+                            },
+                            "whatsappIntegrationId": {
+                              "description": "Related WhatsApp integration ID if applicable",
+                              "type": "string"
+                            },
+                            "messengerIntegrationId": {
+                              "description": "Related Messenger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "telegramIntegrationId": {
+                              "description": "Related Telegram integration ID if applicable",
+                              "type": "string"
+                            },
+                            "twilioIntegrationId": {
+                              "description": "Related Twilio integration ID if applicable",
+                              "type": "string"
+                            },
+                            "emailIntegrationId": {
+                              "description": "Related email integration ID if applicable",
+                              "type": "string"
+                            },
+                            "sitemapIntegrationId": {
+                              "description": "Related sitemap integration ID if applicable",
+                              "type": "string"
+                            },
+                            "notionIntegrationId": {
+                              "description": "Related Notion integration ID if applicable",
+                              "type": "string"
+                            },
+                            "triggerIntegrationId": {
+                              "description": "Related trigger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "supportIntegrationId": {
+                              "description": "Related support integration ID if applicable",
+                              "type": "string"
+                            },
+                            "extractIntegrationId": {
+                              "description": "Related extract integration ID if applicable",
+                              "type": "string"
+                            },
+                            "mcpserverIntegrationId": {
+                              "description": "Related MCP server integration ID if applicable",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1event~1log~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "subscribeEventLogs",
         "security": [
           {
             "BearerAuth": []
