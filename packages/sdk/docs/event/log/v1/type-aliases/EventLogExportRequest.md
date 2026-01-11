@@ -8,7 +8,7 @@
 
 > **EventLogExportRequest**\<\> = `object`
 
-Defined in: event/log/v1.js:42
+Defined in: [event/log/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/log/v1.js#L42)
 
 ## Type Parameters
 
