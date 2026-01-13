@@ -7938,6 +7938,8 @@ export interface operations {
                             };
                         }[];
                     };
+                    /** @description A unique ID to deduplicate dispatch requests */
+                    channelId?: string;
                 };
             };
         };
@@ -9790,6 +9792,8 @@ export interface operations {
                             };
                         }[];
                     };
+                    /** @description A unique channel ID to subscribe to for completion events */
+                    channelId?: string;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;

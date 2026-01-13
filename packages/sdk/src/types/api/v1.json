@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1768169966551)"
+    "version": "v1 (build 1768302734693)"
   },
   "servers": [
     {
@@ -7806,12 +7806,16 @@
                       }
                     },
                     "$$ref": "#/components/schemas/ExtensionsDefinition"
+                  },
+                  "channelId": {
+                    "description": "A unique ID to deduplicate dispatch requests",
+                    "type": "string",
+                    "minLength": 24
                   }
                 },
                 "required": [
                   "text"
-                ],
-                "$$ref": "#/paths/~1conversation~1{conversationId}~1complete/post/requestBody/content/application~1json/schema"
+                ]
               }
             }
           }
@@ -12075,7 +12079,6 @@
                     "$$ref": "#/components/schemas/BotConfig"
                   }
                 ],
-                "$$ref": "#/paths/~1conversation~1complete/post/requestBody/content/application~1json/schema",
                 "type": "object",
                 "properties": {
                   "messages": {
@@ -12382,6 +12385,11 @@
                       }
                     },
                     "$$ref": "#/components/schemas/ExtensionsDefinition"
+                  },
+                  "channelId": {
+                    "description": "A unique channel ID to subscribe to for completion events",
+                    "type": "string",
+                    "minLength": 24
                   }
                 },
                 "required": [
