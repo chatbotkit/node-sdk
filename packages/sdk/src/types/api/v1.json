@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1768302734693)"
+    "version": "v1 (build 1768342222550)"
   },
   "servers": [
     {
@@ -727,6 +727,20 @@
                   ]
                 }
               ]
+            },
+            "call": {
+              "description": "Configuration for when this function should be automatically called",
+              "type": "object",
+              "properties": {
+                "start": {
+                  "description": "If true, this function will be force-called at the start of the conversation",
+                  "type": "boolean"
+                },
+                "end": {
+                  "description": "If true, this function will be force-called at the end of the conversation",
+                  "type": "boolean"
+                }
+              }
             }
           },
           "required": [
@@ -6790,6 +6804,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -7671,6 +7699,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -9318,6 +9360,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -10002,6 +10058,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -11274,6 +11344,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -12250,6 +12334,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [

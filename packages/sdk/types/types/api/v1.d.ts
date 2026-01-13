@@ -4852,6 +4852,13 @@ export interface components {
                 /** @description The channel for streaming function results */
                 channel: string;
             };
+            /** @description Configuration for when this function should be automatically called */
+            call?: {
+                /** @description If true, this function will be force-called at the start of the conversation */
+                start?: boolean;
+                /** @description If true, this function will be force-called at the end of the conversation */
+                end?: boolean;
+            };
         }[];
         /** @description Extensions to enhance the bot's capabilities */
         ExtensionsDefinition: {
@@ -7531,6 +7538,13 @@ export interface operations {
                             /** @description The channel for streaming function results */
                             channel: string;
                         };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
+                        };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
@@ -7888,6 +7902,13 @@ export interface operations {
                         } | {
                             /** @description The channel for streaming function results */
                             channel: string;
+                        };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
                         };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
@@ -8582,6 +8603,13 @@ export interface operations {
                             /** @description The channel for streaming function results */
                             channel: string;
                         };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
+                        };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
@@ -8849,6 +8877,13 @@ export interface operations {
                         } | {
                             /** @description The channel for streaming function results */
                             channel: string;
+                        };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
                         };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
@@ -9354,6 +9389,13 @@ export interface operations {
                             /** @description The channel for streaming function results */
                             channel: string;
                         };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
+                        };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
@@ -9742,6 +9784,13 @@ export interface operations {
                         } | {
                             /** @description The channel for streaming function results */
                             channel: string;
+                        };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
                         };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
