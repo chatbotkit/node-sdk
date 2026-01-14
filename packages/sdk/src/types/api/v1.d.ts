@@ -12759,6 +12759,8 @@ export interface operations {
                     };
                     /** @description Optional webhook to receive the extracted data */
                     request?: string;
+                    /** @description The language model to use for data extraction */
+                    model?: string;
                 };
             };
         };
@@ -12812,6 +12814,8 @@ export interface operations {
                     };
                     /** @description Optional webhook to receive the extracted data */
                     request?: string;
+                    /** @description The language model to use for data extraction */
+                    model?: string;
                 };
             };
         };

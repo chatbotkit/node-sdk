@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1768342222550)"
+    "version": "v1 (build 1768426111358)"
   },
   "servers": [
     {
@@ -19091,6 +19091,10 @@
                   "request": {
                     "description": "Optional webhook to receive the extracted data",
                     "type": "string"
+                  },
+                  "model": {
+                    "description": "The language model to use for data extraction",
+                    "type": "string"
                   }
                 }
               }
@@ -19189,6 +19193,10 @@
                   },
                   "request": {
                     "description": "Optional webhook to receive the extracted data",
+                    "type": "string"
+                  },
+                  "model": {
+                    "description": "The language model to use for data extraction",
                     "type": "string"
                   }
                 }
