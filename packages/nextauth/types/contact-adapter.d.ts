@@ -88,7 +88,7 @@ export function ChatBotKitContactAdapter({ secret, store, autoCreateContact, aut
     autoCreateContact?: boolean;
     autoUpdateContact?: boolean;
     autoDeleteContact?: boolean;
-}): any;
+}): import("next-auth/adapters").Adapter;
 /**
  * A basic store for ChatBotKitContactAdapter. It is compatible with Redis.
  * Implement your own if you want to use a different storage.
@@ -123,6 +123,9 @@ export class ContactMemoryStore extends ContactStore {
      * @override
      * @param {string} key
      * @param {any} value
+     * @param {{px?: number}} [options]
      */
-    override set(key: string, value: any): Promise<void>;
+    override set(key: string, value: any, options?: {
+        px?: number;
+    }): Promise<void>;
 }

@@ -73,8 +73,11 @@ export class ContactMemoryStore extends ContactStore {
    * @override
    * @param {string} key
    * @param {any} value
+   * @param {{px?: number}} [options]
    */
-  async set(key, value) {
+  async set(key, value, options) {
+    void options // @note MemoryStore doesn't support expiration
+
     this.store.set(key, value)
   }
 

@@ -83,4 +83,4 @@
  *   // ... other NextAuth configuration
  * })
  */
-export function ChatBotKitContactEmailProvider(options?: any & {}): any;
+export function ChatBotKitContactEmailProvider(options?: import("next-auth/providers/email").EmailUserConfig & {}): import("next-auth/providers/email").EmailConfig;
