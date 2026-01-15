@@ -85,11 +85,11 @@
  */
 export function ChatBotKitContactEmailProvider(options) {
   return {
-    id: 'contact-email',
+    id: 'email',
 
     type: 'email',
 
-    name: 'Contact Email',
+    name: 'Email',
 
     maxAge: 900, // 15 minutes
 
