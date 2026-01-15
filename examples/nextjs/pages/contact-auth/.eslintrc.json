@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "root": true,
+  "rules": {
+    "no-console": "error",
+    "newline-before-return": "error",
+    "curly": ["error", "all"]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "ignorePatterns": ["node_modules/", "dist/", "types/"]
+}
