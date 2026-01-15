@@ -65,7 +65,7 @@
  *
  * @example
  * import NextAuth from 'next-auth'
- * import { ChatBotKitEmailProvider } from '@chatbotkit/nextauth'
+ * import { ChatBotKitEmailProvider } from '@chatbotkit/nextauth/partner'
  *
  * export default NextAuth({
  *   providers: [
