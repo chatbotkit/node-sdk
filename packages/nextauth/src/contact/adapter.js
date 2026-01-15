@@ -1,4 +1,4 @@
-import { PartnerUserClient } from '@chatbotkit/sdk/partner/user/index.js'
+import { ContactClient } from '@chatbotkit/sdk/contact/index.js'
 
 /**
  * @todo maybe move into its own package
@@ -12,10 +12,10 @@ function debug(...args) {
 }
 
 /**
- * A basic store for ChatBotKitPartnerAdapter. It is compatible with Redis.
+ * A basic store for ChatBotKitContactAdapter. It is compatible with Redis.
  * Implement your own if you want to use a different storage.
  */
-export class Store {
+export class ContactStore {
   /**
    * @param {string} key
    * @returns {Promise<null|any>}
@@ -54,7 +54,7 @@ export class Store {
 /**
  * A store that uses memory. Do not use in production.
  */
-export class MemoryStore extends Store {
+export class ContactMemoryStore extends ContactStore {
   constructor() {
     super()
 
@@ -73,8 +73,11 @@ export class MemoryStore extends Store {
    * @override
    * @param {string} key
    * @param {any} value
+   * @param {{px?: number}} [options]
    */
-  async set(key, value) {
+  async set(key, value, options) {
+    void options // @note MemoryStore doesn't support expiration
+
     this.store.set(key, value)
   }
 
@@ -88,127 +91,149 @@ export class MemoryStore extends Store {
 }
 
 /**
- * A NextAuth.js adapter that integrates with the ChatBotKit Partner API for
- * user management.
+ * A NextAuth.js adapter that integrates with the ChatBotKit Contact API for
+ * user management within a single account.
  *
- * This adapter enables you to authenticate users directly into their ChatBotKit
- * sub-accounts using NextAuth.js. It manages user identities through the
- * ChatBotKit Partner API, allowing you to build applications where each user
- * gets their own isolated ChatBotKit environment.
+ * This adapter enables you to authenticate users as contacts within a single
+ * ChatBotKit account using NextAuth.js. Unlike the Partner adapter which
+ * creates separate sub-accounts for each user, this adapter manages users as
+ * contacts within your main account, making it ideal for scenarios where you
+ * want all users to interact within the same ChatBotKit environment.
  *
  * ## Overview
  *
- * The ChatBotKitPartnerAdapter bridges NextAuth.js authentication with
- * ChatBotKit's Partner API user management system. When users authenticate
- * through your application, this adapter automatically manages their ChatBotKit
- * sub-account, creating, updating, or removing users based on your
- * configuration.
+ * The ChatBotKitContactAdapter bridges NextAuth.js authentication with
+ * ChatBotKit's Contact API. When users authenticate through your application,
+ * this adapter automatically manages them as contacts within your account,
+ * creating, updating, or removing contacts based on your configuration.
  *
- * ## Key Features
+ * ## Key Differences from Partner Adapter
  *
- * - **Sub-account Management**: Automatically manages ChatBotKit sub-accounts for each user
- * - **Flexible User Lifecycle**: Control whether users are auto-created, updated, or deleted
- * - **Secure Token Storage**: Uses a configurable store for managing verification tokens
- * - **Partner API Integration**: Seamlessly works with ChatBotKit Partner API credentials
+ * - **Single Account**: All contacts exist within your main ChatBotKit account
+ * - **Fingerprint-Based Identity**: Contacts are identified by fingerprints instead of separate account IDs
+ * - **Shared Resources**: Contacts can share bots, datasets, and other resources
+ * - **Contact-Specific Data**: Each contact can have their own conversation history and preferences
+ *
+ * ## Use Cases
+ *
+ * This adapter is ideal for:
+ * - Chat applications where users interact with shared AI assistants
+ * - Customer support systems where each customer is a contact
+ * - Multi-tenant applications within a single ChatBotKit account
+ * - Applications where you need to track individual user conversations
  *
  * ## Storage Requirements
  *
  * This adapter requires a store implementation for persisting verification
  * tokens and session data. The store interface is compatible with Vercel KV and
- * Redis, but you can implement your own storage backend by extending the Store
- * class.
+ * Redis, but you can implement your own storage backend by extending the
+ * ContactStore class.
  *
- * **Important**: Do not use MemoryStore in production environments as it
+ * **Important**: Do not use ContactMemoryStore in production environments as it
  * doesn't persist data across server restarts or multiple instances.
  *
  * ## User Lifecycle Control
  *
- * - `autoCreateUser`: When true, new ChatBotKit sub-accounts are created automatically on
- *   first sign-in. Recommended for self-service applications.
- * - `autoUpdateUser`: When true, user information is synchronized with ChatBotKit on each
- *   sign-in. Recommended to keep user data in sync.
- * - `autoDeleteUser`: When true, ChatBotKit sub-accounts are deleted when users are removed
- *   from NextAuth. Use with caution in production.
+ * - `autoCreateContact`: When true, new contacts are created automatically on first sign-in.
+ *   Recommended for self-service applications.
+ * - `autoUpdateContact`: When true, contact information is synchronized on each sign-in.
+ *   Recommended to keep user data in sync.
+ * - `autoDeleteContact`: When true, contacts are deleted when users are removed from NextAuth.
+ *   Use with caution in production.
  *
  * ## Production Recommendations
  *
  * For production environments:
  * - Use a persistent store (Redis, Vercel KV, or database-backed implementation)
- * - Set `autoCreateUser: false` and manually approve user creation
- * - Enable `autoUpdateUser: true` to keep user data synchronized
- * - Set `autoDeleteUser: false` to prevent accidental data loss
- * - Store your ChatBotKit Partner API secret securely in environment variables
+ * - Set `autoCreateContact: false` and manually approve contact creation
+ * - Enable `autoUpdateContact: true` to keep contact data synchronized
+ * - Set `autoDeleteContact: false` to prevent accidental data loss
+ * - Store your ChatBotKit API secret securely in environment variables
  *
  * @param {{
  *   secret: string,
- *   store: Store,
- *   autoCreateUser?: boolean,
- *   autoUpdateUser?: boolean,
- *   autoDeleteUser?: boolean,
+ *   store: ContactStore,
+ *   autoCreateContact?: boolean,
+ *   autoUpdateContact?: boolean,
+ *   autoDeleteContact?: boolean,
  * }} options
  * @return {import("next-auth/adapters").Adapter}
  *
  * @example
  * import NextAuth from 'next-auth'
- * import { ChatBotKitPartnerAdapter, MemoryStore } from '@chatbotkit/nextauth'
+ * import { ChatBotKitContactAdapter, ContactMemoryStore } from '@chatbotkit/nextauth/contact'
  *
  * export default NextAuth({
- *   adapter: ChatBotKitPartnerAdapter({
+ *   adapter: ChatBotKitContactAdapter({
  *     secret: process.env.CHATBOTKIT_API_SECRET,
- *     store: new MemoryStore(), // Use Redis or another store in production
- *     autoCreateUser: false,
- *     autoUpdateUser: true,
- *     autoDeleteUser: false,
+ *     store: new ContactMemoryStore(), // Use Redis or another store in production
+ *     autoCreateContact: true,
+ *     autoUpdateContact: true,
+ *     autoDeleteContact: false,
  *   }),
  *   // ... other NextAuth configuration
  * })
  */
-export function ChatBotKitPartnerAdapter({
+export function ChatBotKitContactAdapter({
   secret,
   store,
-  autoCreateUser = false,
-  autoUpdateUser = true,
-  autoDeleteUser = false,
+  autoCreateContact = false,
+  autoUpdateContact = true,
+  autoDeleteContact = false,
 }) {
-  const client = new PartnerUserClient({
+  const client = new ContactClient({
     secret,
   })
 
   /**
    * @param {string} id
    */
-  async function fetchUserInstanceById(id) {
-    const user = await client.fetch(id)
+  async function fetchContactInstanceById(id) {
+    const contact = await client.fetch(id)
 
-    return user
+    return contact
   }
 
   /**
+   * Find a contact by email using the ensure endpoint behavior
    * @param {string} email
    */
-  async function fetchUserInstanceByEmail(email) {
-    const {
-      items: [user],
-    } = await client.list({ email })
+  async function fetchContactInstanceByEmail(email) {
+    // We need to list contacts and find by email
+    // Since contacts don't have a direct email filter in list, we search through meta
+    // or use the ensure functionality
+    const { items } = await client.list({
+      meta: { email },
+    })
 
-    return user
+    // If found via meta, return it
+    if (items.length > 0) {
+      return items[0]
+    }
+
+    return null
   }
 
   /**
-   * @param {import('@chatbotkit/sdk/partner/user/v1.js').PartnerUserFetchResponse} userInstance
+   * @param {import('@chatbotkit/sdk/contact/v1.js').ContactFetchResponse} contactInstance
    */
-  function serializeUserInstance(userInstance) {
-    const { email, ...safeUserInstance } = userInstance
+  function serializeContactInstance(contactInstance) {
+    const { email, ...safeContactInstance } = contactInstance
 
-    if (!email) {
-      throw new Error(`User is missing email field`)
+    // Contacts may not have email - in that case we use fingerprint as identifier
+    const identifier = email || safeContactInstance.fingerprint
+
+    if (!identifier) {
+      throw new Error(`Contact is missing email and fingerprint fields`)
     }
 
     return {
-      ...safeUserInstance,
+      ...safeContactInstance,
 
-      email: email,
-      emailVerified: new Date(safeUserInstance.createdAt),
+      email: email || `${safeContactInstance.fingerprint}@contact.local`,
+      emailVerified: safeContactInstance.verifiedAt
+        ? new Date(safeContactInstance.verifiedAt)
+        : null,
     }
   }
 
@@ -220,14 +245,14 @@ export function ChatBotKitPartnerAdapter({
     async getUser(id) {
       debug('* getUser', { id })
 
-      const userInstance = await fetchUserInstanceById(id)
+      const contactInstance = await fetchContactInstanceById(id)
 
       let retUser
 
-      if (!userInstance) {
+      if (!contactInstance) {
         retUser = null // do not throw because it is used for user detection
       } else {
-        retUser = serializeUserInstance(userInstance)
+        retUser = serializeContactInstance(contactInstance)
       }
 
       debug(`* returning user`, { retUser })
@@ -242,14 +267,14 @@ export function ChatBotKitPartnerAdapter({
     async getUserByEmail(email) {
       debug('* getUserByEmail', { email })
 
-      const userInstance = await fetchUserInstanceByEmail(email)
+      const contactInstance = await fetchContactInstanceByEmail(email)
 
       let retUser
 
-      if (!userInstance) {
+      if (!contactInstance) {
         retUser = null // do not throw because it is used for user detection
       } else {
-        retUser = serializeUserInstance(userInstance)
+        retUser = serializeContactInstance(contactInstance)
       }
 
       debug(`* returning user`, { retUser })
@@ -270,24 +295,29 @@ export function ChatBotKitPartnerAdapter({
     async createUser(user) {
       debug('* createUser', { user })
 
-      if (!autoCreateUser) {
-        throw new Error(`Cannot create new user`)
+      if (!autoCreateContact) {
+        throw new Error(`Cannot create new contact`)
       }
 
-      const userInstance = await fetchUserInstanceByEmail(user.email)
+      // Check if contact already exists by email
+      const existingContact = await fetchContactInstanceByEmail(user.email)
 
-      if (userInstance) {
-        throw new Error(`Cannot create duplicate user`)
+      if (existingContact) {
+        throw new Error(`Cannot create duplicate contact`)
       }
 
+      // Create new contact with email stored in meta for lookup
       const { id } = await client.create({
         name: user.name != null ? user.name : undefined,
-        image: user.image != null ? user.image : undefined,
         email: user.email != null ? user.email : undefined,
+        meta: {
+          email: user.email || '',
+          image: user.image || '',
+        },
       })
 
-      const retUser = await serializeUserInstance(
-        await fetchUserInstanceById(id)
+      const retUser = await serializeContactInstance(
+        await fetchContactInstanceById(id)
       )
 
       debug(`* returning user`, { retUser })
@@ -302,18 +332,21 @@ export function ChatBotKitPartnerAdapter({
     async updateUser(user) {
       debug('* updateUser', { user })
 
-      if (!autoUpdateUser) {
-        throw new Error(`Cannot update existing user`)
+      if (!autoUpdateContact) {
+        throw new Error(`Cannot update existing contact`)
       }
 
       const { id } = await client.update(user.id, {
         name: user.name != null ? user.name : '',
-        image: user.image != null ? user.image : '',
         email: user.email != null ? user.email : undefined,
+        meta: {
+          email: user.email || '',
+          image: user.image || '',
+        },
       })
 
-      const retUser = await serializeUserInstance(
-        await fetchUserInstanceById(id)
+      const retUser = await serializeContactInstance(
+        await fetchContactInstanceById(id)
       )
 
       debug(`* returning user`, { retUser })
@@ -328,14 +361,14 @@ export function ChatBotKitPartnerAdapter({
     async deleteUser(userId) {
       debug('* deleteUser', { userId })
 
-      if (!autoDeleteUser) {
-        throw new Error(`Cannot delete existing user`)
+      if (!autoDeleteContact) {
+        throw new Error(`Cannot delete existing contact`)
       }
 
-      const userInstance = await fetchUserInstanceById(userId)
+      const contactInstance = await fetchContactInstanceById(userId)
 
-      if (!userInstance) {
-        throw new Error(`Cannot delete non-existing user`)
+      if (!contactInstance) {
+        throw new Error(`Cannot delete non-existing contact`)
       }
 
       await client.delete(userId)

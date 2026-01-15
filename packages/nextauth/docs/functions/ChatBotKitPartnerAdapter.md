@@ -1,14 +1,14 @@
-[**@chatbotkit/nextauth**](../../README.md)
+[**@chatbotkit/nextauth**](../README.md)
 
 ***
 
-[@chatbotkit/nextauth](../../modules.md) / [adapter](../README.md) / ChatBotKitPartnerAdapter
+[@chatbotkit/nextauth](../globals.md) / ChatBotKitPartnerAdapter
 
 # Function: ChatBotKitPartnerAdapter()
 
 > **ChatBotKitPartnerAdapter**(`options`): `Adapter`
 
-Defined in: [adapter.js:166](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L166)
+Defined in: [partner/adapter.js:166](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L166)
 
 A NextAuth.js adapter that integrates with the ChatBotKit Partner API for
 user management.
@@ -93,7 +93,7 @@ For production environments:
 
 ```ts
 import NextAuth from 'next-auth'
-import { ChatBotKitPartnerAdapter, MemoryStore } from '@chatbotkit/nextauth'
+import { ChatBotKitPartnerAdapter, MemoryStore } from '@chatbotkit/nextauth/partner'
 
 export default NextAuth({
   adapter: ChatBotKitPartnerAdapter({

@@ -2,7 +2,7 @@ import {
   ChatBotKitEmailProvider,
   ChatBotKitPartnerAdapter,
   MemoryStore,
-} from '@chatbotkit/nextauth'
+} from '@chatbotkit/nextauth/partner'
 
 /** @type {import('next-auth').nextAuthConfig} */
 const nextAuthConfig = {

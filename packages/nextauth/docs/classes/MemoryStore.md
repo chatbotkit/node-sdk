@@ -1,12 +1,12 @@
-[**@chatbotkit/nextauth**](../../README.md)
+[**@chatbotkit/nextauth**](../README.md)
 
 ***
 
-[@chatbotkit/nextauth](../../modules.md) / [adapter](../README.md) / MemoryStore
+[@chatbotkit/nextauth](../globals.md) / MemoryStore
 
 # Class: MemoryStore
 
-Defined in: [adapter.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L57)
+Defined in: [partner/adapter.js:57](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L57)
 
 A store that uses memory. Do not use in production.
 
@@ -20,7 +20,7 @@ A store that uses memory. Do not use in production.
 
 > **del**(`key`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [adapter.js:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L85)
+Defined in: [partner/adapter.js:85](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L85)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [adapter.js:85](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **get**(`key`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`any`\>
 
-Defined in: [adapter.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L68)
+Defined in: [partner/adapter.js:68](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L68)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [adapter.js:68](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **set**(`key`, `value`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [adapter.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L77)
+Defined in: [partner/adapter.js:77](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L77)
 
 #### Parameters
 

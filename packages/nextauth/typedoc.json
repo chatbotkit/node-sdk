@@ -4,9 +4,13 @@
     "../../typedoc.base.json"
   ],
   "entryPoints": [
-    "./src/adapter.js",
+    "./src/contact/adapter.js",
+    "./src/contact/index.js",
+    "./src/contact/provider.js",
     "./src/index.js",
-    "./src/provider.js"
+    "./src/partner/adapter.js",
+    "./src/partner/index.js",
+    "./src/partner/provider.js"
   ],
   "externalPattern": [
     "**/node_modules/**",

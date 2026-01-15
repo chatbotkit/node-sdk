@@ -1,19 +1,19 @@
-[**@chatbotkit/nextauth**](../../README.md)
+[**@chatbotkit/nextauth**](../README.md)
 
 ***
 
-[@chatbotkit/nextauth](../../modules.md) / [adapter](../README.md) / Store
+[@chatbotkit/nextauth](../globals.md) / ContactStore
 
-# Class: Store
+# Class: ContactStore
 
-Defined in: [adapter.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L18)
+Defined in: [contact/adapter.js:18](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L18)
 
-A basic store for ChatBotKitPartnerAdapter. It is compatible with Redis.
+A basic store for ChatBotKitContactAdapter. It is compatible with Redis.
 Implement your own if you want to use a different storage.
 
 ## Extended by
 
-- [`MemoryStore`](MemoryStore.md)
+- [`ContactMemoryStore`](ContactMemoryStore.md)
 
 ## Methods
 
@@ -21,7 +21,7 @@ Implement your own if you want to use a different storage.
 
 > **del**(`key`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [adapter.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L47)
+Defined in: [contact/adapter.js:47](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L47)
 
 #### Parameters
 
@@ -39,7 +39,7 @@ Defined in: [adapter.js:47](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **get**(`key`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`any`\>
 
-Defined in: [adapter.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L23)
+Defined in: [contact/adapter.js:23](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L23)
 
 #### Parameters
 
@@ -57,7 +57,7 @@ Defined in: [adapter.js:23](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **set**(`key`, `value`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [adapter.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/adapter.js#L35)
+Defined in: [contact/adapter.js:35](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L35)
 
 #### Parameters
 
