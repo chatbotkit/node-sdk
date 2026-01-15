@@ -1,43 +1,32 @@
 /**
  * A NextAuth.js email provider configured for passwordless authentication with
- * ChatBotKit.
+ * ChatBotKit Contacts.
  *
  * This provider implements a passwordless email authentication flow using
  * secure 6-character verification codes instead of magic links. It's designed
- * to work seamlessly with the ChatBotKit Partner API and provides a
- * user-friendly authentication experience.
+ * to work seamlessly with the ChatBotKit Contact API and provides a
+ * user-friendly authentication experience for contact-based authentication.
  *
  * ## Problem It Solves
  *
- * When building applications with ChatBotKit, you typically need to manage two
- * separate user systems: one for your application authentication and another
- * for ChatBotKit sub-accounts. This creates unnecessary complexity and
- * maintenance overhead.
+ * When building applications where users are managed as contacts within a
+ * single ChatBotKit account, you need an authentication mechanism that maps
+ * users to contacts rather than separate accounts. This provider enables
+ * passwordless authentication that integrates with the Contact adapter.
  *
- * **With this provider, you can eliminate your own authentication system entirely.**
+ * **With this provider and the Contact adapter, you can:**
  *
- * Instead of building and maintaining separate user management infrastructure,
- * you rely solely on the partner accounts created within ChatBotKit. This
- * means:
- *
- * - **No separate user database required**: User identities are managed by ChatBotKit
- * - **No password management**: Passwordless authentication removes password reset flows
- * - **Simplified architecture**: One less system to build, secure, and maintain
- * - **Automatic sub-account provisioning**: Users are automatically connected to their
- *   ChatBotKit environment upon authentication
- * - **Faster time to market**: Focus on your application features instead of auth infrastructure
- *
- * This approach is ideal for applications that exist primarily to provide a
- * user interface for ChatBotKit functionality, allowing you to leverage
- * ChatBotKit's Partner API as your complete user management and authentication
- * backend.
+ * - Authenticate users as contacts within your ChatBotKit account
+ * - Track individual user conversations and preferences
+ * - Share AI assistants and resources across all contacts
+ * - Build multi-user applications without managing separate sub-accounts
  *
  * ## Overview
  *
- * The ChatBotKitEmailProvider generates cryptographically secure 6-character
- * hexadecimal verification tokens (e.g., "a3f9c2") that are sent to users via
- * email. These tokens have a 15-minute validity period by default, providing a
- * balance between security and usability.
+ * The ChatBotKitContactEmailProvider generates cryptographically secure
+ * 6-character hexadecimal verification tokens (e.g., "a3f9c2") that are sent
+ * to users via email. These tokens have a 15-minute validity period by default,
+ * providing a balance between security and usability.
  *
  * Unlike traditional magic link providers, this approach allows users to
  * manually enter a short code, which is particularly useful for:
@@ -65,11 +54,19 @@
  *
  * @example
  * import NextAuth from 'next-auth'
- * import { ChatBotKitEmailProvider } from '@chatbotkit/nextauth'
+ * import { ChatBotKitContactAdapter, ContactMemoryStore } from '@chatbotkit/nextauth/contact-adapter'
+ * import { ChatBotKitContactEmailProvider } from '@chatbotkit/nextauth/contact-provider'
  *
  * export default NextAuth({
+ *   adapter: ChatBotKitContactAdapter({
+ *     secret: process.env.CHATBOTKIT_API_SECRET,
+ *     store: new ContactMemoryStore(),
+ *     autoCreateContact: true,
+ *     autoUpdateContact: true,
+ *     autoDeleteContact: false,
+ *   }),
  *   providers: [
- *     ChatBotKitEmailProvider({
+ *     ChatBotKitContactEmailProvider({
  *       async sendVerificationRequest({ identifier, token }) {
  *         // Send email with verification token to the user
  *         await sendEmail({
@@ -80,7 +77,10 @@
  *       },
  *     }),
  *   ],
+ *   session: {
+ *     strategy: 'jwt',
+ *   },
  *   // ... other NextAuth configuration
  * })
  */
-export function ChatBotKitEmailProvider(options?: any & {}): any;
+export function ChatBotKitContactEmailProvider(options?: any & {}): any;

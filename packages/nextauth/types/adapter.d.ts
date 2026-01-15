@@ -80,7 +80,7 @@ export function ChatBotKitPartnerAdapter({ secret, store, autoCreateUser, autoUp
     autoCreateUser?: boolean;
     autoUpdateUser?: boolean;
     autoDeleteUser?: boolean;
-}): import("next-auth/adapters").Adapter;
+}): any;
 /**
  * A basic store for ChatBotKitPartnerAdapter. It is compatible with Redis.
  * Implement your own if you want to use a different storage.

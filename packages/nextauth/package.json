@@ -32,6 +32,22 @@
       "types": "./types/adapter.d.ts",
       "import": "./src/adapter.js"
     },
+    "./contact-adapter": {
+      "types": "./types/contact-adapter.d.ts",
+      "import": "./src/contact-adapter.js"
+    },
+    "./contact-adapter.js": {
+      "types": "./types/contact-adapter.d.ts",
+      "import": "./src/contact-adapter.js"
+    },
+    "./contact-provider": {
+      "types": "./types/contact-provider.d.ts",
+      "import": "./src/contact-provider.js"
+    },
+    "./contact-provider.js": {
+      "types": "./types/contact-provider.d.ts",
+      "import": "./src/contact-provider.js"
+    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
