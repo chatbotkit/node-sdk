@@ -69,7 +69,7 @@
  *
  * @example
  * import NextAuth from 'next-auth'
- * import { ChatBotKitContactAdapter, ContactMemoryStore } from '@chatbotkit/nextauth/contact-adapter'
+ * import { ChatBotKitContactAdapter, ContactMemoryStore } from '@chatbotkit/nextauth/contact'
  *
  * export default NextAuth({
  *   adapter: ChatBotKitContactAdapter({
@@ -119,13 +119,4 @@ export class ContactStore {
  */
 export class ContactMemoryStore extends ContactStore {
     store: Map<any, any>;
-    /**
-     * @override
-     * @param {string} key
-     * @param {any} value
-     * @param {{px?: number}} [options]
-     */
-    override set(key: string, value: any, options?: {
-        px?: number;
-    }): Promise<void>;
 }

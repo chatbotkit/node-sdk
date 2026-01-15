@@ -61,7 +61,7 @@
  *
  * @example
  * import NextAuth from 'next-auth'
- * import { ChatBotKitPartnerAdapter, MemoryStore } from '@chatbotkit/nextauth'
+ * import { ChatBotKitPartnerAdapter, MemoryStore } from '@chatbotkit/nextauth/partner'
  *
  * export default NextAuth({
  *   adapter: ChatBotKitPartnerAdapter({

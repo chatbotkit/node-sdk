@@ -54,8 +54,11 @@
  *
  * @example
  * import NextAuth from 'next-auth'
- * import { ChatBotKitContactAdapter, ContactMemoryStore } from '@chatbotkit/nextauth/contact-adapter'
- * import { ChatBotKitContactEmailProvider } from '@chatbotkit/nextauth/contact-provider'
+ * import {
+ *   ChatBotKitContactAdapter,
+ *   ChatBotKitContactEmailProvider,
+ *   ContactMemoryStore,
+ * } from '@chatbotkit/nextauth/contact'
  *
  * export default NextAuth({
  *   adapter: ChatBotKitContactAdapter({

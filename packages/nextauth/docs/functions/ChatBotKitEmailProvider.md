@@ -1,14 +1,14 @@
-[**@chatbotkit/nextauth**](../../README.md)
+[**@chatbotkit/nextauth**](../README.md)
 
 ***
 
-[@chatbotkit/nextauth](../../modules.md) / [provider](../README.md) / ChatBotKitEmailProvider
+[@chatbotkit/nextauth](../globals.md) / ChatBotKitEmailProvider
 
 # Function: ChatBotKitEmailProvider()
 
 > **ChatBotKitEmailProvider**(`options?`): `EmailConfig`
 
-Defined in: [provider.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/nextauth/src/provider.js#L86)
+Defined in: [partner/provider.js:86](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/provider.js#L86)
 
 A NextAuth.js email provider configured for passwordless authentication with
 ChatBotKit.
@@ -84,7 +84,7 @@ for development purposes.
 
 ```ts
 import NextAuth from 'next-auth'
-import { ChatBotKitEmailProvider } from '@chatbotkit/nextauth'
+import { ChatBotKitEmailProvider } from '@chatbotkit/nextauth/partner'
 
 export default NextAuth({
   providers: [

@@ -62,7 +62,7 @@ import {
   ChatBotKitEmailProvider,
   ChatBotKitPartnerAdapter,
   MemoryStore,
-} from '@chatbotkit/nextauth'
+} from '@chatbotkit/nextauth/partner'
 
 const nextAuthConfig = {
   adapter: ChatBotKitPartnerAdapter({
@@ -127,7 +127,7 @@ import {
   ChatBotKitContactEmailProvider,
   ChatBotKitContactAdapter,
   ContactMemoryStore,
-} from '@chatbotkit/nextauth'
+} from '@chatbotkit/nextauth/contact'
 
 const nextAuthConfig = {
   adapter: ChatBotKitContactAdapter({
