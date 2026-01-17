@@ -6,7 +6,7 @@
 
 # Class: PartnerUserClient
 
-Defined in: [partner/user/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L20)
+Defined in: [partner/user/index.js:20](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/index.js#L20)
 
 Partner user client.
 
@@ -20,7 +20,7 @@ Partner user client.
 
 > **new PartnerUserClient**(`options`): `PartnerUserClient`
 
-Defined in: [partner/user/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L24)
+Defined in: [partner/user/index.js:24](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/index.js#L24)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [partner/user/index.js:24](https://github.com/chatbotkit/node-sdk/bl
 
 > **token**: [`PartnerUserTokenClient`](../token/classes/PartnerUserTokenClient.md)
 
-Defined in: [partner/user/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L30)
+Defined in: [partner/user/index.js:30](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/index.js#L30)
 
 ## Methods
 
@@ -50,7 +50,7 @@ Defined in: [partner/user/index.js:30](https://github.com/chatbotkit/node-sdk/bl
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [partner/user/index.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L59)
+Defined in: [partner/user/index.js:59](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/index.js#L59)
 
 Creates a new user.
 
@@ -68,7 +68,7 @@ Creates a new user.
 
 > **delete**(`userId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [partner/user/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L80)
+Defined in: [partner/user/index.js:80](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/index.js#L80)
 
 Deletes the user.
 
@@ -88,7 +88,7 @@ Deletes the user.
 
 > **extend**(`extensionOptions`): `PartnerUserClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -122,7 +122,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`userId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [partner/user/index.js:49](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L49)
+Defined in: [partner/user/index.js:49](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/index.js#L49)
 
 Fetches a user.
 
@@ -142,7 +142,7 @@ Fetches a user.
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [partner/user/index.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L39)
+Defined in: [partner/user/index.js:39](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/index.js#L39)
 
 Retrieves a list of all users.
 
@@ -162,7 +162,7 @@ Retrieves a list of all users.
 
 > **update**(`userId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [partner/user/index.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/index.js#L70)
+Defined in: [partner/user/index.js:70](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/index.js#L70)
 
 Updates the user.
 

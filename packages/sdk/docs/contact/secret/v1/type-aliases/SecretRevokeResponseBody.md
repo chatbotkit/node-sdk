@@ -8,6 +8,6 @@
 
 > **SecretRevokeResponseBody**\<\> = `operations`\[`"revokeContactSecret"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [contact/secret/v1.js:42](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L42)
+Defined in: [contact/secret/v1.js:42](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/secret/v1.js#L42)
 
 ## Type Parameters

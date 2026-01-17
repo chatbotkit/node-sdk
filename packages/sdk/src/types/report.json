@@ -980,6 +980,86 @@
       },
       "createdAt": "2025-11-19T00:00:00.000Z",
       "updatedAt": "2025-11-19T00:00:00.000Z"
+    },
+    "clr3m5n8k000e08jqbs0t1u5o": {
+      "id": "clr3m5n8k000e08jqbs0t1u5o",
+      "name": "Bot Stats Report",
+      "description": "Statistics for a specific bot including conversations, messages, ratings, and sentiment signal",
+      "input": {
+        "$ref": "#/definitions/bot-stats-report-input",
+        "definitions": {
+          "bot-stats-report-input": {
+            "type": "object",
+            "properties": {
+              "botId": {
+                "type": "string",
+                "description": "The ID of the bot to get stats for"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "botId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/bot-stats-report-output",
+        "definitions": {
+          "bot-stats-report-output": {
+            "type": "object",
+            "properties": {
+              "totalConversations": {
+                "type": "number"
+              },
+              "totalMessages": {
+                "type": "number"
+              },
+              "totalRatings": {
+                "type": "number"
+              },
+              "thumbsUp": {
+                "type": "number"
+              },
+              "thumbsDown": {
+                "type": "number"
+              },
+              "sentimentSignal": {
+                "type": "string",
+                "enum": [
+                  "positive",
+                  "negative",
+                  "neutral",
+                  "unknown"
+                ],
+                "description": "Overall sentiment based on ratings: positive if more thumbs up, negative if more thumbs down, neutral if equal, unknown if no ratings"
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "totalConversations",
+              "totalMessages",
+              "totalRatings",
+              "thumbsUp",
+              "thumbsDown",
+              "sentimentSignal",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2025-01-17T00:00:00.000Z",
+      "updatedAt": "2025-01-17T00:00:00.000Z"
     }
   }
 }

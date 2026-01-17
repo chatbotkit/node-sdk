@@ -8,7 +8,7 @@
 
 > **generateMagic**(`client`, `magicId`, `request`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [magic/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/v1.js#L27)
+Defined in: [magic/v1.js:27](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/magic/v1.js#L27)
 
 ## Parameters
 
