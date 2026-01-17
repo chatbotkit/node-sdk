@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1768426111358)"
+    "version": "v1 (build 1768677358698)"
   },
   "servers": [
     {
@@ -19476,6 +19476,756 @@
           }
         },
         "__originalOperationId": "listExtractIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteInstagramIntegration",
+        "summary": "Delete Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instagramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Instagram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Instagram integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchInstagramIntegration",
+        "summary": "Fetch an Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instagramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Instagram integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Blueprint properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "botId": {
+                      "type": "string",
+                      "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
+                    },
+                    "verifyToken": {
+                      "description": "The Instagram integration verify token",
+                      "type": "string"
+                    },
+                    "accessToken": {
+                      "description": "The Instagram integration access token (returned as '********' if configured, null otherwise)",
+                      "type": "string"
+                    },
+                    "contactCollection": {
+                      "description": "Whether to collect contacts",
+                      "type": "boolean"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    },
+                    "attachments": {
+                      "description": "Whether the bot supports attachments",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "verifyToken"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupInstagramIntegration",
+        "summary": "Setup an Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instagramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Instagram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Instagram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "setupInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/update": {
+      "post": {
+        "operationId": "updateInstagramIntegration",
+        "summary": "Update an Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instagramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Instagram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "accessToken": {
+                    "description": "The Instagram integration access token",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Whether the bot supports attachments",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Instagram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/create": {
+      "post": {
+        "operationId": "createInstagramIntegration",
+        "summary": "Create Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "accessToken": {
+                    "description": "The Instagram integration access token",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Whether the bot supports attachments",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Instagram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/list": {
+      "get": {
+        "operationId": "listInstagramIntegrations",
+        "summary": "List Instagram integrations",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Instagram integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Blueprint properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
+                          "verifyToken": {
+                            "description": "The Instagram integration verify token",
+                            "type": "string"
+                          },
+                          "accessToken": {
+                            "description": "The Instagram integration access token (returned as '********' if configured, null otherwise)",
+                            "type": "string"
+                          },
+                          "contactCollection": {
+                            "description": "Whether to collect contacts",
+                            "type": "boolean"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration (in milliseconds)",
+                            "type": "number"
+                          },
+                          "attachments": {
+                            "description": "Whether the bot supports attachments",
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "verifyToken"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Blueprint properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "botId": {
+                              "type": "string",
+                              "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
+                            },
+                            "verifyToken": {
+                              "description": "The Instagram integration verify token",
+                              "type": "string"
+                            },
+                            "accessToken": {
+                              "description": "The Instagram integration access token (returned as '********' if configured, null otherwise)",
+                              "type": "string"
+                            },
+                            "contactCollection": {
+                              "description": "Whether to collect contacts",
+                              "type": "boolean"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            },
+                            "attachments": {
+                              "description": "Whether the bot supports attachments",
+                              "type": "boolean"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1instagram~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "verifyToken"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listInstagramIntegrations",
         "security": [
           {
             "BearerAuth": []
@@ -39547,6 +40297,34 @@
             "schema": {
               "description": "The number of items to retrieve",
               "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "botId",
+            "schema": {
+              "description": "Filter by associated bot",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "description": "Filter by task status",
+              "type": "string",
+              "enum": [
+                "idle",
+                "running"
+              ]
             }
           },
           {

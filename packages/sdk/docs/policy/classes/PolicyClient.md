@@ -6,7 +6,7 @@
 
 # Class: PolicyClient
 
-Defined in: [policy/index.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L19)
+Defined in: [policy/index.js:19](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/policy/index.js#L19)
 
 Policy client.
 
@@ -20,7 +20,7 @@ Policy client.
 
 > **new PolicyClient**(`options`): `PolicyClient`
 
-Defined in: [policy/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L23)
+Defined in: [policy/index.js:23](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/policy/index.js#L23)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [policy/index.js:23](https://github.com/chatbotkit/node-sdk/blob/mai
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [policy/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L53)
+Defined in: [policy/index.js:53](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/policy/index.js#L53)
 
 Creates a new policy.
 
@@ -60,7 +60,7 @@ Creates a new policy.
 
 > **delete**(`policyId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [policy/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L74)
+Defined in: [policy/index.js:74](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/policy/index.js#L74)
 
 Deletes the policy.
 
@@ -80,7 +80,7 @@ Deletes the policy.
 
 > **extend**(`extensionOptions`): `PolicyClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -114,7 +114,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`policyId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [policy/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L43)
+Defined in: [policy/index.js:43](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/policy/index.js#L43)
 
 Fetches a policy.
 
@@ -134,7 +134,7 @@ Fetches a policy.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [policy/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L33)
+Defined in: [policy/index.js:33](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/policy/index.js#L33)
 
 Retrieves a list of all policies.
 
@@ -154,7 +154,7 @@ Retrieves a list of all policies.
 
 > **update**(`policyId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [policy/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/index.js#L64)
+Defined in: [policy/index.js:64](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/policy/index.js#L64)
 
 Updates a policy.
 

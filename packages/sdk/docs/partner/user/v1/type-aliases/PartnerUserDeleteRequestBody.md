@@ -8,6 +8,6 @@
 
 > **PartnerUserDeleteRequestBody**\<\> = `operations`\[`"deletePartnerUser"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [partner/user/v1.js:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L109)
+Defined in: [partner/user/v1.js:109](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/v1.js#L109)
 
 ## Type Parameters

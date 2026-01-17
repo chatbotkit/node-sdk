@@ -8,6 +8,6 @@
 
 > **FileUpdateRequest**\<\> = [`FileUpdateRequestBody`](FileUpdateRequestBody.md)
 
-Defined in: [file/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L86)
+Defined in: [file/v1.js:86](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/v1.js#L86)
 
 ## Type Parameters
