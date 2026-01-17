@@ -8,6 +8,6 @@
 
 > **ChannelSubscribeStreamType**\<\> = [`ChannelSubscribeResponseBody`](ChannelSubscribeResponseBody.md)
 
-Defined in: [channel/v1.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/channel/v1.js#L48)
+Defined in: [channel/v1.js:48](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/channel/v1.js#L48)
 
 ## Type Parameters

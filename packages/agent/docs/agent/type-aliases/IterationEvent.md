@@ -8,7 +8,7 @@
 
 > **IterationEvent**\<\> = `object`
 
-Defined in: [agent/src/agent.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L59)
+Defined in: [agent/src/agent.js:59](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/agent/src/agent.js#L59)
 
 ## Type Parameters
 

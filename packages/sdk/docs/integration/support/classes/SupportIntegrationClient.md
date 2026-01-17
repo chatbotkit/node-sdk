@@ -6,7 +6,7 @@
 
 # Class: SupportIntegrationClient
 
-Defined in: [integration/support/index.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/index.js#L16)
+Defined in: [integration/support/index.js:16](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/support/index.js#L16)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/support/index.js:16](https://github.com/chatbotkit/node
 
 > **new SupportIntegrationClient**(`options`): `SupportIntegrationClient`
 
-Defined in: [integration/support/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/index.js#L20)
+Defined in: [integration/support/index.js:20](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/support/index.js#L20)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/support/index.js:20](https://github.com/chatbotkit/node
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/support/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/index.js#L50)
+Defined in: [integration/support/index.js:50](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/support/index.js#L50)
 
 Creates a new support integration.
 
@@ -62,7 +62,7 @@ Creates a new support integration.
 
 > **delete**(`supportId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/support/index.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/index.js#L71)
+Defined in: [integration/support/index.js:71](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/support/index.js#L71)
 
 Deletes a support integration.
 
@@ -82,7 +82,7 @@ Deletes a support integration.
 
 > **extend**(`extensionOptions`): `SupportIntegrationClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`supportId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/support/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/index.js#L40)
+Defined in: [integration/support/index.js:40](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/support/index.js#L40)
 
 Fetches a support integration.
 
@@ -136,7 +136,7 @@ Fetches a support integration.
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/support/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/index.js#L30)
+Defined in: [integration/support/index.js:30](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/support/index.js#L30)
 
 Retrieves a list of all support integrations.
 
@@ -156,7 +156,7 @@ Retrieves a list of all support integrations.
 
 > **update**(`supportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/support/index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/support/index.js#L61)
+Defined in: [integration/support/index.js:61](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/support/index.js#L61)
 
 Updates a support integration.
 

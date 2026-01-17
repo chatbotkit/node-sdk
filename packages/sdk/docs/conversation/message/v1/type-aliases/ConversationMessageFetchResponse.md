@@ -8,6 +8,6 @@
 
 > **ConversationMessageFetchResponse**\<\> = `operations`\[`"fetchConversationMessage"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [conversation/message/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L40)
+Defined in: [conversation/message/v1.js:40](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/v1.js#L40)
 
 ## Type Parameters

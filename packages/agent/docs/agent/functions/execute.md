@@ -8,7 +8,7 @@
 
 > **execute**(`options`): [`AsyncGenerator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)\<\{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| [`ToolCallStartEvent`](../type-aliases/ToolCallStartEvent.md) \| [`ToolCallEndEvent`](../type-aliases/ToolCallEndEvent.md) \| [`ToolCallErrorEvent`](../type-aliases/ToolCallErrorEvent.md) \| [`IterationEvent`](../type-aliases/IterationEvent.md) \| [`ExitEvent`](../type-aliases/ExitEvent.md), `void`, `unknown`\>
 
-Defined in: [agent/src/agent.js:281](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L281)
+Defined in: [agent/src/agent.js:281](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/agent/src/agent.js#L281)
 
 Execute an agent task in a loop until exit is called. Provides planning,
 progress tracking, and controlled exit functionality.

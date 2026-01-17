@@ -8,7 +8,7 @@
 
 > **listMessengerIntegrations**(`client`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/messenger/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/messenger/v1.js#L27)
+Defined in: [integration/messenger/v1.js:27](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/messenger/v1.js#L27)
 
 ## Parameters
 
