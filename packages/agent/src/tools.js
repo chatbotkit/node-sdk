@@ -30,9 +30,7 @@ export const tools = {
         .int()
         .min(1)
         .optional()
-        .describe(
-          'The line number to end reading at, inclusive (1-indexed)'
-        ),
+        .describe('The line number to end reading at, inclusive (1-indexed)'),
     }),
     handler: async (input) => {
       try {
@@ -42,14 +40,16 @@ export const tools = {
 
         const { startLine, endLine } = input
 
-        // @note if no range specified, return full content
+        // if no range specified, return full content
+
         if (startLine === undefined && endLine === undefined) {
           return { success: true, content, totalLines }
         }
 
-        // @note convert 1-indexed to 0-indexed for array slicing
+        // convert 1-indexed to 0-indexed for array slicing
         const start = startLine !== undefined ? Math.max(0, startLine - 1) : 0
-        // @note endLine is inclusive, so we use it directly for slice (which is exclusive on end)
+
+        // endLine is inclusive, so we use it directly for slice (which is exclusive on end)
         const end =
           endLine !== undefined ? Math.min(totalLines, endLine) : totalLines
 
@@ -100,20 +100,24 @@ export const tools = {
 
         let finalContent
 
-        // @note determine write mode based on parameters:
+        // determine write mode based on parameters:
         // - no startLine, no endLine: overwrite entire file
         // - startLine only: insert before that line
         // - startLine and endLine: replace lines in range
+
         if (startLine === undefined && endLine === undefined) {
-          // @note overwrite entire file
+          // overwrite entire file
+
           finalContent = content
         } else {
-          // @note need to read existing content for line-based operations
+          // need to read existing content for line-based operations
+
           let currentContent = ''
           try {
             currentContent = await readFile(path, 'utf-8')
           } catch {
-            // @note file doesn't exist, treat as empty for insert/replace operations
+            // file doesn't exist, treat as empty for insert/replace operations
+
             currentContent = ''
           }
 
@@ -122,17 +126,21 @@ export const tools = {
           const newLines = content ? content.split('\n') : []
 
           if (startLine !== undefined && endLine === undefined) {
-            // @note insert before startLine
+            // insert before startLine
+
             const insertIndex = Math.min(startLine - 1, totalLines)
+
             lines.splice(insertIndex, 0, ...newLines)
           } else if (startLine !== undefined && endLine !== undefined) {
-            // @note replace lines from startLine to endLine (inclusive)
+            // replace lines from startLine to endLine (inclusive)
+
             const start = Math.max(0, startLine - 1)
             const end = Math.min(totalLines, endLine)
             const deleteCount = end - start
+
             lines.splice(start, deleteCount, ...newLines)
           } else {
-            // @note endLine without startLine - treat as overwrite
+            // endLine without startLine - treat as overwrite
             lines.length = 0
             lines.push(...newLines)
           }
