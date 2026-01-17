@@ -520,6 +520,26 @@
       "types": "./types/integration/index.d.ts",
       "import": "./src/integration/index.js"
     },
+    "./integration/instagram": {
+      "types": "./types/integration/instagram/index.d.ts",
+      "import": "./src/integration/instagram/index.js"
+    },
+    "./integration/instagram/index": {
+      "types": "./types/integration/instagram/index.d.ts",
+      "import": "./src/integration/instagram/index.js"
+    },
+    "./integration/instagram/index.js": {
+      "types": "./types/integration/instagram/index.d.ts",
+      "import": "./src/integration/instagram/index.js"
+    },
+    "./integration/instagram/v1": {
+      "types": "./types/integration/instagram/v1.d.ts",
+      "import": "./src/integration/instagram/v1.js"
+    },
+    "./integration/instagram/v1.js": {
+      "types": "./types/integration/instagram/v1.d.ts",
+      "import": "./src/integration/instagram/v1.js"
+    },
     "./integration/mcpserver": {
       "types": "./types/integration/mcpserver/index.d.ts",
       "import": "./src/integration/mcpserver/index.js"
