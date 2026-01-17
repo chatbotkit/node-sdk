@@ -2,6 +2,7 @@ import { ChatBotKitClient } from '../../client.js'
 import {
   createSkillsetAbility,
   deleteSkillsetAbility,
+  executeSkillsetAbility,
   exportSkillsetAbilities,
   fetchSkillsetAbility,
   listSkillsetAbilities,
@@ -90,6 +91,18 @@ export class SkillsetAbilityClient extends ChatBotKitClient {
    */
   delete(skillsetId, abilityId) {
     return deleteSkillsetAbility(this, skillsetId, abilityId)
+  }
+
+  /**
+   * Executes an ability.
+   *
+   * @param {string} skillsetId
+   * @param {string} abilityId
+   * @param {import('./v1.js').SkillsetAbilityExecuteRequest} request
+   * @returns {Promise<import('./v1.js').SkillsetAbilityExecuteResponse>}
+   */
+  execute(skillsetId, abilityId, request) {
+    return executeSkillsetAbility(this, skillsetId, abilityId, request)
   }
 }
 

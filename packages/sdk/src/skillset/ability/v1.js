@@ -164,3 +164,37 @@ export async function deleteSkillsetAbility(client, skillsetId, abilityId) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['executeSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityExecuteRequestBody
+ *
+ * @typedef {SkillsetAbilityExecuteRequestBody} SkillsetAbilityExecuteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['executeSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityExecuteResponseBody
+ *
+ * @typedef {SkillsetAbilityExecuteResponseBody} SkillsetAbilityExecuteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} skillsetId
+ * @param {string} abilityId
+ * @param {SkillsetAbilityExecuteRequest} request
+ * @returns {Promise<SkillsetAbilityExecuteResponse>}
+ */
+export async function executeSkillsetAbility(
+  client,
+  skillsetId,
+  abilityId,
+  request
+) {
+  const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/execute`
+
+  /** @type {SkillsetAbilityExecuteResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {SkillsetAbilityExecuteRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}
