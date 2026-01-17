@@ -8,6 +8,6 @@
 
 > **PlatformAbilityListItem**\<\> = [`PlatformAbilityListResponse`](PlatformAbilityListResponse.md)\[`"items"`\]\[`number`\]
 
-Defined in: [platform/ability/v1.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/ability/v1.js#L21)
+Defined in: [platform/ability/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L21)
 
 ## Type Parameters

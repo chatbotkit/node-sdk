@@ -6,7 +6,7 @@
 
 # Class: MemoryClient
 
-Defined in: [memory/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L21)
+Defined in: [memory/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L21)
 
 Memory client.
 
@@ -20,7 +20,7 @@ Memory client.
 
 > **new MemoryClient**(`options`): `MemoryClient`
 
-Defined in: [memory/index.js:25](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L25)
+Defined in: [memory/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L25)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [memory/index.js:25](https://github.com/chatbotkit/cbk-platform/blob
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [memory/index.js:55](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L55)
+Defined in: [memory/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L55)
 
 Creates a new memory.
 
@@ -60,7 +60,7 @@ Creates a new memory.
 
 > **delete**(`memoryId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [memory/index.js:76](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L76)
+Defined in: [memory/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L76)
 
 Deletes the memory.
 
@@ -80,7 +80,7 @@ Deletes the memory.
 
 > **export**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [memory/index.js:86](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L86)
+Defined in: [memory/index.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L86)
 
 Exports memories.
 
@@ -100,7 +100,7 @@ Exports memories.
 
 > **extend**(`extensionOptions`): `MemoryClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -134,7 +134,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`memoryId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [memory/index.js:45](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L45)
+Defined in: [memory/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L45)
 
 Fetches a memory.
 
@@ -154,7 +154,7 @@ Fetches a memory.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [memory/index.js:35](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L35)
+Defined in: [memory/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L35)
 
 Retrieves a list of all memories.
 
@@ -174,7 +174,7 @@ Retrieves a list of all memories.
 
 > **search**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [memory/index.js:96](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L96)
+Defined in: [memory/index.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L96)
 
 Searches for memories.
 
@@ -192,7 +192,7 @@ Searches for memories.
 
 > **update**(`memoryId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [memory/index.js:66](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/index.js#L66)
+Defined in: [memory/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/index.js#L66)
 
 Updates a memory.
 

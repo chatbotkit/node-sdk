@@ -6,7 +6,7 @@
 
 # Class: ContactClient
 
-Defined in: [contact/index.js:24](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/index.js#L24)
+Defined in: [contact/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L24)
 
 Contact client.
 
@@ -20,7 +20,7 @@ Contact client.
 
 > **new ContactClient**(`options`): `ContactClient`
 
-Defined in: [contact/index.js:28](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/index.js#L28)
+Defined in: [contact/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L28)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [contact/index.js:28](https://github.com/chatbotkit/cbk-platform/blo
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/index.js:63](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/index.js#L63)
+Defined in: [contact/index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L63)
 
 Creates a new contact.
 
@@ -60,7 +60,7 @@ Creates a new contact.
 
 > **delete**(`contactId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/index.js:84](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/index.js#L84)
+Defined in: [contact/index.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L84)
 
 Deletes the contact.
 
@@ -80,7 +80,7 @@ Deletes the contact.
 
 > **ensure**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/index.js:94](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/index.js#L94)
+Defined in: [contact/index.js:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L94)
 
 Ensures a contact exists.
 
@@ -98,7 +98,7 @@ Ensures a contact exists.
 
 > **extend**(`extensionOptions`): `ContactClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -132,7 +132,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`contactId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [contact/index.js:53](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/index.js#L53)
+Defined in: [contact/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L53)
 
 Fetches a contact.
 
@@ -152,7 +152,7 @@ Fetches a contact.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [contact/index.js:43](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/index.js#L43)
+Defined in: [contact/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L43)
 
 Retrieves a list of all contacts.
 
@@ -172,7 +172,7 @@ Retrieves a list of all contacts.
 
 > **update**(`contactId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/index.js:74](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/index.js#L74)
+Defined in: [contact/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/index.js#L74)
 
 Updates a contact.
 

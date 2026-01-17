@@ -8,6 +8,6 @@
 
 > **SitemapIntegrationCreateRequest**\<\> = [`SitemapIntegrationCreateRequestBody`](SitemapIntegrationCreateRequestBody.md)
 
-Defined in: [integration/sitemap/v1.js:55](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/sitemap/v1.js#L55)
+Defined in: [integration/sitemap/v1.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L55)
 
 ## Type Parameters

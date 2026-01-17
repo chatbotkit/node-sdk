@@ -6,7 +6,7 @@
 
 # Class: BotClient
 
-Defined in: [bot/index.js:22](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L22)
+Defined in: [bot/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L22)
 
 Bot client.
 
@@ -20,7 +20,7 @@ Bot client.
 
 > **new BotClient**(`options`): `BotClient`
 
-Defined in: [bot/index.js:26](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L26)
+Defined in: [bot/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L26)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [bot/index.js:26](https://github.com/chatbotkit/cbk-platform/blob/ma
 
 > **session**: [`BotSessionClient`](../session/classes/BotSessionClient.md)
 
-Defined in: [bot/index.js:32](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L32)
+Defined in: [bot/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L32)
 
 ## Methods
 
@@ -50,7 +50,7 @@ Defined in: [bot/index.js:32](https://github.com/chatbotkit/cbk-platform/blob/ma
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [bot/index.js:61](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L61)
+Defined in: [bot/index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L61)
 
 Creates a new bot.
 
@@ -70,7 +70,7 @@ Creates a new bot.
 
 > **delete**(`botId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [bot/index.js:82](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L82)
+Defined in: [bot/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L82)
 
 Deletes the bot.
 
@@ -90,7 +90,7 @@ Deletes the bot.
 
 > **downvote**(`botId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [bot/index.js:100](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L100)
+Defined in: [bot/index.js:100](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L100)
 
 #### Parameters
 
@@ -110,7 +110,7 @@ Defined in: [bot/index.js:100](https://github.com/chatbotkit/cbk-platform/blob/m
 
 > **extend**(`extensionOptions`): `BotClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -144,7 +144,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`botId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [bot/index.js:51](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L51)
+Defined in: [bot/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L51)
 
 Fetches a bot.
 
@@ -164,7 +164,7 @@ Fetches a bot.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [bot/index.js:41](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L41)
+Defined in: [bot/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L41)
 
 Retrieves a list of all bots.
 
@@ -184,7 +184,7 @@ Retrieves a list of all bots.
 
 > **update**(`botId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [bot/index.js:72](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L72)
+Defined in: [bot/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L72)
 
 Updates a bot.
 
@@ -208,7 +208,7 @@ Updates a bot.
 
 > **upvote**(`botId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [bot/index.js:91](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/index.js#L91)
+Defined in: [bot/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/index.js#L91)
 
 #### Parameters
 

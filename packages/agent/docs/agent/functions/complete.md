@@ -8,7 +8,7 @@
 
 > **complete**(`options`): [`AsyncGenerator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)\<\{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| [`ToolCallStartEvent`](../type-aliases/ToolCallStartEvent.md) \| [`ToolCallEndEvent`](../type-aliases/ToolCallEndEvent.md) \| [`ToolCallErrorEvent`](../type-aliases/ToolCallErrorEvent.md), `void`, `unknown`\>
 
-Defined in: [agent/src/agent.js:78](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/agent/src/agent.js#L78)
+Defined in: [agent/src/agent.js:78](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L78)
 
 Agent complete generator function.
 

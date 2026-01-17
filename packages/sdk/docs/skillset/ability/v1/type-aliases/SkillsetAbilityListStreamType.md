@@ -8,6 +8,6 @@
 
 > **SkillsetAbilityListStreamType**\<\> = `operations`\[`"listSkillsetAbilities"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/jsonl"`\]
 
-Defined in: [skillset/ability/v1.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L21)
+Defined in: [skillset/ability/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L21)
 
 ## Type Parameters

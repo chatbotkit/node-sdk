@@ -6,7 +6,7 @@
 
 # Class: TaskClient
 
-Defined in: [contact/task/index.js:13](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/task/index.js#L13)
+Defined in: [contact/task/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/index.js#L13)
 
 Contact task client.
 
@@ -20,7 +20,7 @@ Contact task client.
 
 > **new TaskClient**(`options`): `TaskClient`
 
-Defined in: [contact/task/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/task/index.js#L17)
+Defined in: [contact/task/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [contact/task/index.js:17](https://github.com/chatbotkit/cbk-platfor
 
 > **extend**(`extensionOptions`): `TaskClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **list**(`contactId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [contact/task/index.js:28](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/task/index.js#L28)
+Defined in: [contact/task/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/index.js#L28)
 
 Retrieves a list of all contact tasks.
 

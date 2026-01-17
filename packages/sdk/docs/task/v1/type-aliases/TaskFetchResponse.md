@@ -8,6 +8,6 @@
 
 > **TaskFetchResponse**\<\> = `operations`\[`"fetchTask"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [task/v1.js:37](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/v1.js#L37)
+Defined in: [task/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L37)
 
 ## Type Parameters

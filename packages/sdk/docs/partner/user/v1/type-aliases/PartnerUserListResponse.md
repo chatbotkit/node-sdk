@@ -8,6 +8,6 @@
 
 > **PartnerUserListResponse**\<\> = `operations`\[`"listPartnerUsers"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [partner/user/v1.js:20](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/v1.js#L20)
+Defined in: [partner/user/v1.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L20)
 
 ## Type Parameters

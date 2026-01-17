@@ -6,7 +6,7 @@
 
 # Class: PlatformDocClient
 
-Defined in: [platform/doc/index.js:13](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/doc/index.js#L13)
+Defined in: [platform/doc/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/doc/index.js#L13)
 
 Platform doc client.
 
@@ -20,7 +20,7 @@ Platform doc client.
 
 > **new PlatformDocClient**(`options`): `PlatformDocClient`
 
-Defined in: [platform/doc/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/doc/index.js#L17)
+Defined in: [platform/doc/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/doc/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/doc/index.js:17](https://github.com/chatbotkit/cbk-platfor
 
 > **extend**(`extensionOptions`): `PlatformDocClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`docId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [platform/doc/index.js:47](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/doc/index.js#L47)
+Defined in: [platform/doc/index.js:47](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/doc/index.js#L47)
 
 Fetches a platform doc.
 
@@ -96,7 +96,7 @@ Fetches a platform doc.
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [platform/doc/index.js:27](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/doc/index.js#L27)
+Defined in: [platform/doc/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/doc/index.js#L27)
 
 Retrieves a list of all platform docs.
 
@@ -116,7 +116,7 @@ Retrieves a list of all platform docs.
 
 > **search**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [platform/doc/index.js:37](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/doc/index.js#L37)
+Defined in: [platform/doc/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/doc/index.js#L37)
 
 Searches platform docs.
 

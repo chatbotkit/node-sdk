@@ -6,7 +6,7 @@
 
 # Class: TaskClient
 
-Defined in: [task/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L21)
+Defined in: [task/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L21)
 
 Task client.
 
@@ -20,7 +20,7 @@ Task client.
 
 > **new TaskClient**(`options`): `TaskClient`
 
-Defined in: [task/index.js:25](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L25)
+Defined in: [task/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L25)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [task/index.js:25](https://github.com/chatbotkit/cbk-platform/blob/m
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [task/index.js:65](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L65)
+Defined in: [task/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L65)
 
 Creates a new task.
 
@@ -60,7 +60,7 @@ Creates a new task.
 
 > **delete**(`taskId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [task/index.js:86](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L86)
+Defined in: [task/index.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L86)
 
 Deletes the task.
 
@@ -80,7 +80,7 @@ Deletes the task.
 
 > **export**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<`never`, \{ \}\>
 
-Defined in: [task/index.js:45](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L45)
+Defined in: [task/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L45)
 
 Exports tasks.
 
@@ -100,7 +100,7 @@ Exports tasks.
 
 > **extend**(`extensionOptions`): `TaskClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -134,7 +134,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`taskId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [task/index.js:55](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L55)
+Defined in: [task/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L55)
 
 Fetches a task.
 
@@ -154,7 +154,7 @@ Fetches a task.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [task/index.js:35](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L35)
+Defined in: [task/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L35)
 
 Retrieves a list of all tasks.
 
@@ -174,7 +174,7 @@ Retrieves a list of all tasks.
 
 > **trigger**(`taskId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [task/index.js:96](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L96)
+Defined in: [task/index.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L96)
 
 Triggers a task.
 
@@ -194,7 +194,7 @@ Triggers a task.
 
 > **update**(`taskId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [task/index.js:76](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L76)
+Defined in: [task/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L76)
 
 Updates a task.
 

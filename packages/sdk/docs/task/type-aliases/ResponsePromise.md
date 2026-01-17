@@ -8,7 +8,7 @@
 
 > **ResponsePromise**\<`T`, `U`\> = [`ResponsePromise`](../../client/classes/ResponsePromise.md)
 
-Defined in: [task/index.js:15](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/index.js#L15)
+Defined in: [task/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/index.js#L15)
 
 ## Type Parameters
 

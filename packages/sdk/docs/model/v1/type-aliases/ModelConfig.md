@@ -8,7 +8,7 @@
 
 > **ModelConfig**\<\> = `object`
 
-Defined in: [model/v1.js:12](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/model/v1.js#L12)
+Defined in: [model/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/model/v1.js#L12)
 
 ## Type Parameters
 

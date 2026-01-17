@@ -8,6 +8,6 @@
 
 > **PartnerUserTokenDeleteResponseBody**\<\> = `operations`\[`"deletePartnerUserToken"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [partner/user/token/v1.js:70](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/token/v1.js#L70)
+Defined in: [partner/user/token/v1.js:70](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/token/v1.js#L70)
 
 ## Type Parameters

@@ -6,7 +6,7 @@
 
 # Class: ExtractIntegrationClient
 
-Defined in: [integration/extract/index.js:16](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/index.js#L16)
+Defined in: [integration/extract/index.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/index.js#L16)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/extract/index.js:16](https://github.com/chatbotkit/cbk-
 
 > **new ExtractIntegrationClient**(`options`): `ExtractIntegrationClient`
 
-Defined in: [integration/extract/index.js:20](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/index.js#L20)
+Defined in: [integration/extract/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/index.js#L20)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/extract/index.js:20](https://github.com/chatbotkit/cbk-
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/extract/index.js:50](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/index.js#L50)
+Defined in: [integration/extract/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/index.js#L50)
 
 Creates a new extract integration.
 
@@ -62,7 +62,7 @@ Creates a new extract integration.
 
 > **delete**(`extractId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/extract/index.js:71](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/index.js#L71)
+Defined in: [integration/extract/index.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/index.js#L71)
 
 Deletes a extract integration.
 
@@ -82,7 +82,7 @@ Deletes a extract integration.
 
 > **extend**(`extensionOptions`): `ExtractIntegrationClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`extractId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/extract/index.js:40](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/index.js#L40)
+Defined in: [integration/extract/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/index.js#L40)
 
 Fetches a extract integration.
 
@@ -136,7 +136,7 @@ Fetches a extract integration.
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/extract/index.js:30](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/index.js#L30)
+Defined in: [integration/extract/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/index.js#L30)
 
 Retrieves a list of all extract integrations.
 
@@ -156,7 +156,7 @@ Retrieves a list of all extract integrations.
 
 > **update**(`extractId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/extract/index.js:61](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/index.js#L61)
+Defined in: [integration/extract/index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/extract/index.js#L61)
 
 Updates a extract integration.
 

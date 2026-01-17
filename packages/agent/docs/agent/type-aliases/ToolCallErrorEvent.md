@@ -8,7 +8,7 @@
 
 > **ToolCallErrorEvent**\<\> = `object`
 
-Defined in: [agent/src/agent.js:52](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/agent/src/agent.js#L52)
+Defined in: [agent/src/agent.js:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L52)
 
 ## Type Parameters
 

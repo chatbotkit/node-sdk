@@ -8,6 +8,6 @@
 
 > **DatasetFileSyncRequestBody**\<\> = `operations`\[`"syncDatasetFile"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [dataset/file/v1.js:96](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/v1.js#L96)
+Defined in: [dataset/file/v1.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L96)
 
 ## Type Parameters

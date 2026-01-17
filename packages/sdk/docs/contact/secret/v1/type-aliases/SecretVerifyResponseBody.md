@@ -8,6 +8,6 @@
 
 > **SecretVerifyResponseBody**\<\> = `operations`\[`"verifyContactSecret"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [contact/secret/v1.js:68](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/secret/v1.js#L68)
+Defined in: [contact/secret/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L68)
 
 ## Type Parameters

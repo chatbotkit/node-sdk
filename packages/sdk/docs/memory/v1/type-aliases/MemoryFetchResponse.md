@@ -8,6 +8,6 @@
 
 > **MemoryFetchResponse**\<\> = `operations`\[`"fetchMemory"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [memory/v1.js:39](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L39)
+Defined in: [memory/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L39)
 
 ## Type Parameters

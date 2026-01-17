@@ -8,7 +8,7 @@
 
 > **deleteWidgetIntegration**(`client`, `widgetId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/widget/v1.js:120](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/widget/v1.js#L120)
+Defined in: [integration/widget/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L120)
 
 ## Parameters
 

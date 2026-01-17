@@ -8,6 +8,6 @@
 
 > **SkillsetAbilityCreateRequestBody**\<\> = `operations`\[`"createSkillsetAbility"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [skillset/ability/v1.js:81](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L81)
+Defined in: [skillset/ability/v1.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L81)
 
 ## Type Parameters

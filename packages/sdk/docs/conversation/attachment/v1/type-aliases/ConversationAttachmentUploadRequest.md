@@ -8,7 +8,7 @@
 
 > **ConversationAttachmentUploadRequest**\<\> = `object`
 
-Defined in: [conversation/attachment/v1.js:18](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/attachment/v1.js#L18)
+Defined in: [conversation/attachment/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/attachment/v1.js#L18)
 
 ## Type Parameters
 

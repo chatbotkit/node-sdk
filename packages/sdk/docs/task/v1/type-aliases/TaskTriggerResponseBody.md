@@ -8,6 +8,6 @@
 
 > **TaskTriggerResponseBody**\<\> = `operations`\[`"triggerTask"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [task/v1.js:137](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/v1.js#L137)
+Defined in: [task/v1.js:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L137)
 
 ## Type Parameters

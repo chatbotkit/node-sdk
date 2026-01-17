@@ -8,7 +8,7 @@
 
 > **fetchPlatformDoc**(`client`, `docId`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [platform/doc/v1.js:72](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/doc/v1.js#L72)
+Defined in: [platform/doc/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/doc/v1.js#L72)
 
 ## Parameters
 

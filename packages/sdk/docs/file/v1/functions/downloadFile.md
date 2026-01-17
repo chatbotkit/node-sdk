@@ -8,7 +8,7 @@
 
 > **downloadFile**(`client`, `fileId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`FileDownloadResponse`](../type-aliases/FileDownloadResponse.md)\>
 
-Defined in: [file/v1.js:203](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/v1.js#L203)
+Defined in: [file/v1.js:203](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L203)
 
 ## Parameters
 
