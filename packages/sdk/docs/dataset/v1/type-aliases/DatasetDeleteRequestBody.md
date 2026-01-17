@@ -8,6 +8,6 @@
 
 > **DatasetDeleteRequestBody**\<\> = `operations`\[`"deleteDataset"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [dataset/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/v1.js#L108)
+Defined in: [dataset/v1.js:108](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/v1.js#L108)
 
 ## Type Parameters

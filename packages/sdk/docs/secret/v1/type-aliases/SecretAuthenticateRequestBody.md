@@ -8,6 +8,6 @@
 
 > **SecretAuthenticateRequestBody**\<\> = `operations`\[`"authenticateSecret"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [secret/v1.js:183](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/v1.js#L183)
+Defined in: [secret/v1.js:183](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/v1.js#L183)
 
 ## Type Parameters

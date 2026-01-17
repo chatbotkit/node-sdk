@@ -6,7 +6,7 @@
 
 # Class: UsageSeriesClient
 
-Defined in: [usage/series/index.js:10](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/index.js#L10)
+Defined in: [usage/series/index.js:10](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/usage/series/index.js#L10)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [usage/series/index.js:10](https://github.com/chatbotkit/node-sdk/bl
 
 > **new UsageSeriesClient**(`options`): `UsageSeriesClient`
 
-Defined in: [usage/series/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/index.js#L14)
+Defined in: [usage/series/index.js:14](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/usage/series/index.js#L14)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [usage/series/index.js:14](https://github.com/chatbotkit/node-sdk/bl
 
 > **extend**(`extensionOptions`): `UsageSeriesClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -78,7 +78,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [usage/series/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/index.js#L23)
+Defined in: [usage/series/index.js:23](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/usage/series/index.js#L23)
 
 Fetches usage.
 

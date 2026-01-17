@@ -8,7 +8,7 @@
 
 > **withTimeoutOptions**\<\> = `object`
 
-Defined in: [packages/fetch/src/index.js:252](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L252)
+Defined in: [packages/fetch/src/index.js:252](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/fetch/src/index.js#L252)
 
 Add timeout capabilities to any fetch implementation.
 

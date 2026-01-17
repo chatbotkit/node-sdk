@@ -8,6 +8,6 @@
 
 > **ContactCreateResponseBody**\<\> = `operations`\[`"createContact"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [contact/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L57)
+Defined in: [contact/v1.js:57](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/v1.js#L57)
 
 ## Type Parameters

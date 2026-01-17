@@ -8,6 +8,6 @@
 
 > **ZodObject**\<\> = `ZodObject`
 
-Defined in: [agent/src/agent.js:5](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L5)
+Defined in: [agent/src/agent.js:5](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/agent/src/agent.js#L5)
 
 ## Type Parameters

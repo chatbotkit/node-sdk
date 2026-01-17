@@ -8,7 +8,7 @@
 
 > **getFetchError**(`response`, `meta?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`FetchError`](../classes/FetchError.md)\>
 
-Defined in: [packages/fetch/src/index.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L139)
+Defined in: [packages/fetch/src/index.js:139](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/fetch/src/index.js#L139)
 
 Create a FetchError from a Response object.
 

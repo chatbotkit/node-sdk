@@ -14,16 +14,54 @@ import { z } from 'zod'
  */
 export const tools = {
   read: {
-    description: 'Read the contents of a file',
+    description:
+      'Read the contents of a file. Supports optional line range to read specific sections.',
     default: true,
     input: z.object({
       path: z.string().describe('The file path to read'),
+      startLine: z
+        .number()
+        .int()
+        .min(1)
+        .optional()
+        .describe('The line number to start reading from (1-indexed)'),
+      endLine: z
+        .number()
+        .int()
+        .min(1)
+        .optional()
+        .describe(
+          'The line number to end reading at, inclusive (1-indexed)'
+        ),
     }),
     handler: async (input) => {
       try {
         const content = await readFile(input.path, 'utf-8')
+        const lines = content.split('\n')
+        const totalLines = lines.length
 
-        return { success: true, content }
+        const { startLine, endLine } = input
+
+        // @note if no range specified, return full content
+        if (startLine === undefined && endLine === undefined) {
+          return { success: true, content, totalLines }
+        }
+
+        // @note convert 1-indexed to 0-indexed for array slicing
+        const start = startLine !== undefined ? Math.max(0, startLine - 1) : 0
+        // @note endLine is inclusive, so we use it directly for slice (which is exclusive on end)
+        const end =
+          endLine !== undefined ? Math.min(totalLines, endLine) : totalLines
+
+        const outputContent = lines.slice(start, end).join('\n')
+
+        return {
+          success: true,
+          content: outputContent,
+          totalLines,
+          startLine: startLine ?? 1,
+          endLine: endLine ?? totalLines,
+        }
       } catch (error) {
         return {
           success: false,
@@ -33,17 +71,82 @@ export const tools = {
     },
   },
   write: {
-    description: 'Write content to a file',
+    description:
+      'Write content to a file. Without line parameters, overwrites the entire file. With startLine only, inserts before that line. With startLine and endLine, replaces that range.',
     default: true,
     input: z.object({
       path: z.string().describe('The file path to write to'),
       content: z.string().describe('The content to write'),
+      startLine: z
+        .number()
+        .int()
+        .min(1)
+        .optional()
+        .describe(
+          'The line number to start writing at (1-indexed). If only startLine is provided, content is inserted before this line.'
+        ),
+      endLine: z
+        .number()
+        .int()
+        .min(1)
+        .optional()
+        .describe(
+          'The line number to end writing at, inclusive (1-indexed). Used with startLine to replace a range of lines.'
+        ),
     }),
     handler: async (input) => {
       try {
-        await writeFile(input.path, input.content, 'utf-8')
+        const { path, content, startLine, endLine } = input
 
-        return { success: true }
+        let finalContent
+
+        // @note determine write mode based on parameters:
+        // - no startLine, no endLine: overwrite entire file
+        // - startLine only: insert before that line
+        // - startLine and endLine: replace lines in range
+        if (startLine === undefined && endLine === undefined) {
+          // @note overwrite entire file
+          finalContent = content
+        } else {
+          // @note need to read existing content for line-based operations
+          let currentContent = ''
+          try {
+            currentContent = await readFile(path, 'utf-8')
+          } catch {
+            // @note file doesn't exist, treat as empty for insert/replace operations
+            currentContent = ''
+          }
+
+          const lines = currentContent.split('\n')
+          const totalLines = lines.length
+          const newLines = content ? content.split('\n') : []
+
+          if (startLine !== undefined && endLine === undefined) {
+            // @note insert before startLine
+            const insertIndex = Math.min(startLine - 1, totalLines)
+            lines.splice(insertIndex, 0, ...newLines)
+          } else if (startLine !== undefined && endLine !== undefined) {
+            // @note replace lines from startLine to endLine (inclusive)
+            const start = Math.max(0, startLine - 1)
+            const end = Math.min(totalLines, endLine)
+            const deleteCount = end - start
+            lines.splice(start, deleteCount, ...newLines)
+          } else {
+            // @note endLine without startLine - treat as overwrite
+            lines.length = 0
+            lines.push(...newLines)
+          }
+
+          finalContent = lines.join('\n')
+        }
+
+        await writeFile(path, finalContent, 'utf-8')
+
+        return {
+          success: true,
+          startLine,
+          endLine,
+        }
       } catch (error) {
         return {
           success: false,
