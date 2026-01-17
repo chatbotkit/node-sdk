@@ -2012,6 +2012,108 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/instagram/{instagramIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Instagram integration */
+        post: operations["deleteInstagramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/{instagramIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch an Instagram integration */
+        get: operations["fetchInstagramIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/{instagramIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup an Instagram integration */
+        post: operations["setupInstagramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/{instagramIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update an Instagram integration */
+        post: operations["updateInstagramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Instagram integration */
+        post: operations["createInstagramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Instagram integrations */
+        get: operations["listInstagramIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/mcpserver/{mcpserverIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -12936,6 +13038,351 @@ export interface operations {
             };
         };
     };
+    deleteInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                instagramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Instagram integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Instagram integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                instagramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Instagram integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The Instagram integration verify token */
+                        verifyToken: string;
+                        /** @description The Instagram integration access token (returned as '********' if configured, null otherwise) */
+                        accessToken?: string;
+                        /** @description Whether to collect contacts */
+                        contactCollection?: boolean;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
+                        /** @description Whether the bot supports attachments */
+                        attachments?: boolean;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    setupInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                instagramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Instagram integration was successfully setup */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Instagram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                instagramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Instagram integration access token */
+                    accessToken?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                    /** @description Whether the bot supports attachments */
+                    attachments?: boolean;
+                };
+            };
+        };
+        responses: {
+            /** @description The Instagram integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Instagram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Instagram integration access token */
+                    accessToken?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                    /** @description Whether the bot supports attachments */
+                    attachments?: boolean;
+                };
+            };
+        };
+        responses: {
+            /** @description The Instagram integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Instagram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listInstagramIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Instagram integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The Instagram integration verify token */
+                            verifyToken: string;
+                            /** @description The Instagram integration access token (returned as '********' if configured, null otherwise) */
+                            accessToken?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                            /** @description Whether the bot supports attachments */
+                            attachments?: boolean;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The Instagram integration verify token */
+                            verifyToken: string;
+                            /** @description The Instagram integration access token (returned as '********' if configured, null otherwise) */
+                            accessToken?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                            /** @description Whether the bot supports attachments */
+                            attachments?: boolean;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     deleteMcpServerIntegration: {
         parameters: {
             query?: never;
@@ -21924,6 +22371,9 @@ export interface operations {
                 cursor?: string;
                 order?: "asc" | "desc";
                 take?: number;
+                botId?: string;
+                contactId?: string;
+                status?: "idle" | "running";
                 meta?: {
                     [key: string]: string;
                 };

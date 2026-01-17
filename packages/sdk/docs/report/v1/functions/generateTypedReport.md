@@ -8,7 +8,7 @@
 
 > **generateTypedReport**\<`T`\>(`client`, `reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`ReportOutputTypes`\[`T`\]\>
 
-Defined in: [report/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/v1.js#L46)
+Defined in: [report/v1.js:46](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/report/v1.js#L46)
 
 Generate a typed report with input and output type safety
 

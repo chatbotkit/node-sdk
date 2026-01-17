@@ -8,6 +8,6 @@
 
 > **WidgetIntegrationDeleteResponseBody**\<\> = `operations`\[`"deleteWidgetIntegration"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [integration/widget/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L112)
+Defined in: [integration/widget/v1.js:112](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/widget/v1.js#L112)
 
 ## Type Parameters

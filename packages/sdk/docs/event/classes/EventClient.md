@@ -6,7 +6,7 @@
 
 # Class: EventClient
 
-Defined in: [event/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/index.js#L26)
+Defined in: [event/index.js:26](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/index.js#L26)
 
 Event client for accessing event-related functionality.
 
@@ -42,7 +42,7 @@ for await (const event of stream) {
 
 > **new EventClient**(`options`): `EventClient`
 
-Defined in: [event/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/index.js#L30)
+Defined in: [event/index.js:30](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/index.js#L30)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [event/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main
 
 > **log**: [`EventLogClient`](../log/classes/EventLogClient.md)
 
-Defined in: [event/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/index.js#L36)
+Defined in: [event/index.js:36](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/index.js#L36)
 
 ## Methods
 
@@ -72,7 +72,7 @@ Defined in: [event/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main
 
 > **extend**(`extensionOptions`): `EventClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
