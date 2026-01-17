@@ -4109,6 +4109,31 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/skillset/{skillsetId}/ability/{abilityId}/execute": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Execute a skillset ability
+         * @description Executes a specific ability from a skillset with the provided input.
+         *     This endpoint processes the ability's instruction template using the
+         *     given input and returns the execution result along with usage statistics.
+         *     The response is streamed as JSON lines (JSONL) to support real-time
+         *     progress updates during execution.
+         *
+         */
+        post: operations["executeSkillsetAbility"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/skillset/{skillsetId}/ability/{abilityId}/fetch": {
         parameters: {
             query?: never;
@@ -20640,6 +20665,214 @@ export interface operations {
             };
         };
     };
+    executeSkillsetAbility: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                skillsetId: string;
+                abilityId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The input to process with the ability. This can be structured
+                     *     text such as JSON or YAML for precise parameter control, or
+                     *     unstructured natural language text. When unstructured text is
+                     *     provided, the system will automatically detect and extract the
+                     *     relevant parameters from the input.
+                     *      */
+                    input?: string;
+                    /** @description The ID of the contact to associate with the execution */
+                    contactId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The ability was executed successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description Usage information */
+                        usage: {
+                            /** @description The tokens used in this exchange */
+                            token: number;
+                        };
+                        /** @description Error message if execution failed */
+                        error?: string;
+                        /** @description The result of the ability execution */
+                        result?: unknown;
+                        /** @description Messages generated during execution */
+                        messages?: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "result";
+                        data: {
+                            /** @description Usage information */
+                            usage: {
+                                /** @description The tokens used in this exchange */
+                                token: number;
+                            };
+                            /** @description Error message if execution failed */
+                            error?: string;
+                            /** @description The result of the ability execution */
+                            result?: unknown;
+                            /** @description Messages generated during execution */
+                            messages?: {
+                                /**
+                                 * @description The type of the message
+                                 * @enum {string}
+                                 */
+                                type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                                /** @description The text of the message */
+                                text: string;
+                                /** @description Meta data information */
+                                meta?: {
+                                    [key: string]: unknown;
+                                };
+                            }[];
+                        };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "message";
+                        /** @description A message in the conversation */
+                        data: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     fetchSkillsetAbility: {
         parameters: {
             query?: never;
@@ -21924,6 +22157,9 @@ export interface operations {
                 cursor?: string;
                 order?: "asc" | "desc";
                 take?: number;
+                botId?: string;
+                contactId?: string;
+                status?: "idle" | "running";
                 meta?: {
                     [key: string]: string;
                 };
