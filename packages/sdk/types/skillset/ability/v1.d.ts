@@ -97,6 +97,22 @@ export function updateSkillsetAbility(client: ChatBotKitClient, skillsetId: stri
  * @returns {Promise<SkillsetAbilityDeleteResponse>}
  */
 export function deleteSkillsetAbility(client: ChatBotKitClient, skillsetId: string, abilityId: string): Promise<SkillsetAbilityDeleteResponse>;
+/**
+ * @typedef {import('../../types/api/v1.js').operations['executeSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityExecuteRequestBody
+ *
+ * @typedef {SkillsetAbilityExecuteRequestBody} SkillsetAbilityExecuteRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['executeSkillsetAbility']['responses']['200']['content']['application/json']} SkillsetAbilityExecuteResponseBody
+ *
+ * @typedef {SkillsetAbilityExecuteResponseBody} SkillsetAbilityExecuteResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} skillsetId
+ * @param {string} abilityId
+ * @param {SkillsetAbilityExecuteRequest} request
+ * @returns {Promise<SkillsetAbilityExecuteResponse>}
+ */
+export function executeSkillsetAbility(client: ChatBotKitClient, skillsetId: string, abilityId: string, request: SkillsetAbilityExecuteRequest): Promise<SkillsetAbilityExecuteResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SkillsetAbilityListRequest = {
@@ -128,3 +144,7 @@ export type SkillsetAbilityDeleteRequestBody = import("../../types/api/v1.js").o
 export type SkillsetAbilityDeleteRequest = SkillsetAbilityDeleteRequestBody;
 export type SkillsetAbilityDeleteResponseBody = import("../../types/api/v1.js").operations["deleteSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
 export type SkillsetAbilityDeleteResponse = SkillsetAbilityDeleteResponseBody;
+export type SkillsetAbilityExecuteRequestBody = import("../../types/api/v1.js").operations["executeSkillsetAbility"]["requestBody"]["content"]["application/json"];
+export type SkillsetAbilityExecuteRequest = SkillsetAbilityExecuteRequestBody;
+export type SkillsetAbilityExecuteResponseBody = import("../../types/api/v1.js").operations["executeSkillsetAbility"]["responses"]["200"]["content"]["application/json"];
+export type SkillsetAbilityExecuteResponse = SkillsetAbilityExecuteResponseBody;
