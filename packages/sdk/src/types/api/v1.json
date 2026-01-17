@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1768426111358)"
+    "version": "v1 (build 1768681495148)"
   },
   "servers": [
     {
@@ -36622,6 +36622,519 @@
         ]
       }
     },
+    "/skillset/{skillsetId}/ability/{abilityId}/execute": {
+      "post": {
+        "operationId": "executeSkillsetAbility",
+        "summary": "Execute a skillset ability",
+        "description": "Executes a specific ability from a skillset with the provided input.\nThis endpoint processes the ability's instruction template using the\ngiven input and returns the execution result along with usage statistics.\nThe response is streamed as JSON lines (JSONL) to support real-time\nprogress updates during execution.\n",
+        "tags": [
+          "Skillset Ability"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the skillset containing the ability",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "abilityId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the ability to execute",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "input": {
+                    "description": "The input to process with the ability. This can be structured\ntext such as JSON or YAML for precise parameter control, or\nunstructured natural language text. When unstructured text is\nprovided, the system will automatically detect and extract the\nrelevant parameters from the input.\n",
+                    "type": "string"
+                  },
+                  "contactId": {
+                    "description": "The ID of the contact to associate with the execution",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The ability was executed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "usage": {
+                      "type": "object",
+                      "description": "Usage information",
+                      "properties": {
+                        "token": {
+                          "type": "number",
+                          "description": "The tokens used in this exchange"
+                        }
+                      },
+                      "required": [
+                        "token"
+                      ],
+                      "$$ref": "#/components/schemas/Usage"
+                    },
+                    "error": {
+                      "description": "Error message if execution failed",
+                      "type": "string"
+                    },
+                    "result": {
+                      "description": "The result of the ability execution"
+                    },
+                    "messages": {
+                      "description": "Messages generated during execution",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A message in the conversation",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "description": "The type of the message",
+                            "enum": [
+                              "user",
+                              "bot",
+                              "reasoning",
+                              "context",
+                              "instruction",
+                              "backstory",
+                              "activity"
+                            ],
+                            "$$ref": "#/components/schemas/MessageType"
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "The text of the message"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "text"
+                        ],
+                        "$$ref": "#/components/schemas/Message"
+                      }
+                    }
+                  },
+                  "required": [
+                    "usage"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "result"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "usage": {
+                              "type": "object",
+                              "description": "Usage information",
+                              "properties": {
+                                "token": {
+                                  "type": "number",
+                                  "description": "The tokens used in this exchange"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ],
+                              "$$ref": "#/components/schemas/Usage"
+                            },
+                            "error": {
+                              "description": "Error message if execution failed",
+                              "type": "string"
+                            },
+                            "result": {
+                              "description": "The result of the ability execution"
+                            },
+                            "messages": {
+                              "description": "Messages generated during execution",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "description": "A message in the conversation",
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "description": "The type of the message",
+                                    "enum": [
+                                      "user",
+                                      "bot",
+                                      "reasoning",
+                                      "context",
+                                      "instruction",
+                                      "backstory",
+                                      "activity"
+                                    ],
+                                    "$$ref": "#/components/schemas/MessageType"
+                                  },
+                                  "text": {
+                                    "type": "string",
+                                    "description": "The text of the message"
+                                  },
+                                  "meta": {
+                                    "type": "object",
+                                    "description": "Meta data information",
+                                    "additionalProperties": true,
+                                    "$$ref": "#/components/schemas/Meta"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "text"
+                                ],
+                                "$$ref": "#/components/schemas/Message"
+                              }
+                            }
+                          },
+                          "required": [
+                            "usage"
+                          ],
+                          "$$ref": "#/paths/~1skillset~1{skillsetId}~1ability~1{abilityId}~1execute/post/responses/200/content/application~1json/schema"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    },
+                    {
+                      "description": "An item in the streaming completion response",
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "error"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "message": {
+                                  "description": "The error message",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "token"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "reasoningToken"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "message"
+                              ]
+                            },
+                            "data": {
+                              "type": "object",
+                              "description": "A message in the conversation",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "The type of the message",
+                                  "enum": [
+                                    "user",
+                                    "bot",
+                                    "reasoning",
+                                    "context",
+                                    "instruction",
+                                    "backstory",
+                                    "activity"
+                                  ],
+                                  "$$ref": "#/components/schemas/MessageType"
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "The text of the message"
+                                },
+                                "meta": {
+                                  "type": "object",
+                                  "description": "Meta data information",
+                                  "additionalProperties": true,
+                                  "$$ref": "#/components/schemas/Meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "text"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "usage"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "model": {
+                                  "description": "The model used",
+                                  "type": "string"
+                                },
+                                "inputTokensUsed": {
+                                  "description": "The number of input tokens used",
+                                  "type": "number"
+                                },
+                                "outputTokensUsed": {
+                                  "description": "The number of output tokens used",
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "model",
+                                "inputTokensUsed",
+                                "outputTokensUsed"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        }
+                      ],
+                      "$$ref": "#/components/schemas/CompleteStreamingResponseItem"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "executeSkillsetAbility",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/skillset/{skillsetId}/ability/{abilityId}/fetch": {
       "get": {
         "operationId": "fetchSkillsetAbility",
@@ -39547,6 +40060,34 @@
             "schema": {
               "description": "The number of items to retrieve",
               "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "botId",
+            "schema": {
+              "description": "Filter by associated bot",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "description": "Filter by task status",
+              "type": "string",
+              "enum": [
+                "idle",
+                "running"
+              ]
             }
           },
           {

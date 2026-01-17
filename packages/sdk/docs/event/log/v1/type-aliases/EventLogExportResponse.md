@@ -8,6 +8,6 @@
 
 > **EventLogExportResponse**\<\> = `operations`\[`"exportEventLogs"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [event/log/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/log/v1.js#L44)
+Defined in: [event/log/v1.js:44](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/log/v1.js#L44)
 
 ## Type Parameters

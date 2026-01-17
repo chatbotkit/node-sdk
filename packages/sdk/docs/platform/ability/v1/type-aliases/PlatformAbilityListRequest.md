@@ -8,7 +8,7 @@
 
 > **PlatformAbilityListRequest**\<\> = `object`
 
-Defined in: [platform/ability/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/v1.js#L17)
+Defined in: [platform/ability/v1.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/ability/v1.js#L17)
 
 ## Type Parameters
 

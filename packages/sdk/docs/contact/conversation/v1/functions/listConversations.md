@@ -8,7 +8,7 @@
 
 > **listConversations**(`client`, `contactId`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [contact/conversation/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/conversation/v1.js#L28)
+Defined in: [contact/conversation/v1.js:28](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/conversation/v1.js#L28)
 
 ## Parameters
 

@@ -8,7 +8,7 @@
 
 > **deleteTask**(`client`, `taskId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [task/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L120)
+Defined in: [task/v1.js:120](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/v1.js#L120)
 
 ## Parameters
 

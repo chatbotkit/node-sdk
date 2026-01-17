@@ -8,6 +8,6 @@
 
 > **FileCreateResponse**\<\> = [`FileCreateResponseBody`](FileCreateResponseBody.md)
 
-Defined in: [file/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L63)
+Defined in: [file/v1.js:63](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/v1.js#L63)
 
 ## Type Parameters

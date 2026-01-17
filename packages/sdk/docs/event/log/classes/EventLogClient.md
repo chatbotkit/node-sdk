@@ -6,7 +6,7 @@
 
 # Class: EventLogClient
 
-Defined in: [event/log/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/log/index.js#L37)
+Defined in: [event/log/index.js:37](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/log/index.js#L37)
 
 Event log client for accessing event logs.
 
@@ -49,7 +49,7 @@ for await (const event of stream) {
 
 > **new EventLogClient**(`options`): `EventLogClient`
 
-Defined in: [event/log/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/log/index.js#L41)
+Defined in: [event/log/index.js:41](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/log/index.js#L41)
 
 #### Parameters
 
@@ -71,7 +71,7 @@ Defined in: [event/log/index.js:41](https://github.com/chatbotkit/node-sdk/blob/
 
 > **export**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [event/log/index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/log/index.js#L61)
+Defined in: [event/log/index.js:61](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/log/index.js#L61)
 
 Exports event logs.
 
@@ -91,7 +91,7 @@ Exports event logs.
 
 > **extend**(`extensionOptions`): `EventLogClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -125,7 +125,7 @@ A new instance of the same client class with extended options
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [event/log/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/log/index.js#L51)
+Defined in: [event/log/index.js:51](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/log/index.js#L51)
 
 Retrieves a list of event logs.
 
@@ -145,7 +145,7 @@ Retrieves a list of event logs.
 
 > **subscribe**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<`never`, \{ \}\>
 
-Defined in: [event/log/index.js:75](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/event/log/index.js#L75)
+Defined in: [event/log/index.js:75](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/log/index.js#L75)
 
 Subscribes to live event logs.
 

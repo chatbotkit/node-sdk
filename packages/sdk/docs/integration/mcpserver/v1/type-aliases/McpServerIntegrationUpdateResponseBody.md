@@ -8,6 +8,6 @@
 
 > **McpServerIntegrationUpdateResponseBody**\<\> = `operations`\[`"updateMcpServerIntegration"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [integration/mcpserver/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L84)
+Defined in: [integration/mcpserver/v1.js:84](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/mcpserver/v1.js#L84)
 
 ## Type Parameters

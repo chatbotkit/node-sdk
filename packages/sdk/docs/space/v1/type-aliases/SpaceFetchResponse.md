@@ -8,6 +8,6 @@
 
 > **SpaceFetchResponse**\<\> = `operations`\[`"fetchSpace"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [space/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/space/v1.js#L37)
+Defined in: [space/v1.js:37](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/space/v1.js#L37)
 
 ## Type Parameters
