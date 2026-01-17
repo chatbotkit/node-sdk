@@ -6,7 +6,7 @@
 
 # Class: FetchError
 
-Defined in: [packages/fetch/src/index.js:116](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/fetch/src/index.js#L116)
+Defined in: [packages/fetch/src/index.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L116)
 
 A FetchError is thrown when a fetch request fails.
 
@@ -20,7 +20,7 @@ A FetchError is thrown when a fetch request fails.
 
 > **new FetchError**(`message`, `code`, `meta?`): `FetchError`
 
-Defined in: [packages/fetch/src/index.js:122](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/fetch/src/index.js#L122)
+Defined in: [packages/fetch/src/index.js:122](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L122)
 
 #### Parameters
 

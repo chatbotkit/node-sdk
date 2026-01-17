@@ -8,6 +8,6 @@
 
 > **DatasetRecordCreateResponseBody**\<\> = `operations`\[`"createDatasetRecord"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [dataset/record/v1.js:59](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L59)
+Defined in: [dataset/record/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L59)
 
 ## Type Parameters

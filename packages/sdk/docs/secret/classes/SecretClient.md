@@ -6,7 +6,7 @@
 
 # Class: SecretClient
 
-Defined in: [secret/index.js:22](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L22)
+Defined in: [secret/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L22)
 
 Secret client.
 
@@ -20,7 +20,7 @@ Secret client.
 
 > **new SecretClient**(`options`): `SecretClient`
 
-Defined in: [secret/index.js:26](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L26)
+Defined in: [secret/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L26)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [secret/index.js:26](https://github.com/chatbotkit/cbk-platform/blob
 
 > **authenticate**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:107](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L107)
+Defined in: [secret/index.js:107](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L107)
 
 Authenticates the secret.
 
@@ -62,7 +62,7 @@ Authenticates the secret.
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:56](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L56)
+Defined in: [secret/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L56)
 
 Creates a new secret.
 
@@ -80,7 +80,7 @@ Creates a new secret.
 
 > **delete**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:77](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L77)
+Defined in: [secret/index.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L77)
 
 Deletes the secret.
 
@@ -100,7 +100,7 @@ Deletes the secret.
 
 > **extend**(`extensionOptions`): `SecretClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -134,7 +134,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`secretId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [secret/index.js:46](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L46)
+Defined in: [secret/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L46)
 
 Fetches a secret.
 
@@ -154,7 +154,7 @@ Fetches a secret.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [secret/index.js:36](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L36)
+Defined in: [secret/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L36)
 
 Retrieves a list of all secrets.
 
@@ -174,7 +174,7 @@ Retrieves a list of all secrets.
 
 > **revoke**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:87](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L87)
+Defined in: [secret/index.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L87)
 
 Revokes a secret.
 
@@ -194,7 +194,7 @@ Revokes a secret.
 
 > **update**(`secretId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:67](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L67)
+Defined in: [secret/index.js:67](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L67)
 
 Updates a secret.
 
@@ -216,7 +216,7 @@ Updates a secret.
 
 > **verify**(`secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [secret/index.js:97](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/secret/index.js#L97)
+Defined in: [secret/index.js:97](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/secret/index.js#L97)
 
 Verifies the secret.
 

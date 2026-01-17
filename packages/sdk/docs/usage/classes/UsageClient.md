@@ -6,7 +6,7 @@
 
 # Class: UsageClient
 
-Defined in: [usage/index.js:11](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/usage/index.js#L11)
+Defined in: [usage/index.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/index.js#L11)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [usage/index.js:11](https://github.com/chatbotkit/cbk-platform/blob/
 
 > **new UsageClient**(`options`): `UsageClient`
 
-Defined in: [usage/index.js:15](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/usage/index.js#L15)
+Defined in: [usage/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/index.js#L15)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [usage/index.js:15](https://github.com/chatbotkit/cbk-platform/blob/
 
 > **series**: [`UsageSeriesClient`](../series/classes/UsageSeriesClient.md)
 
-Defined in: [usage/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/usage/index.js#L21)
+Defined in: [usage/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/index.js#L21)
 
 ## Methods
 
@@ -52,7 +52,7 @@ Defined in: [usage/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/
 
 > **extend**(`extensionOptions`): `UsageClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -86,7 +86,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [usage/index.js:29](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/usage/index.js#L29)
+Defined in: [usage/index.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/index.js#L29)
 
 Fetches usage.
 

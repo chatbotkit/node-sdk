@@ -8,6 +8,6 @@
 
 > **SecretRevokeRequest**\<\> = [`SecretRevokeRequestBody`](SecretRevokeRequestBody.md)
 
-Defined in: [contact/secret/v1.js:40](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/secret/v1.js#L40)
+Defined in: [contact/secret/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/v1.js#L40)
 
 ## Type Parameters

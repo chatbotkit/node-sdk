@@ -8,7 +8,7 @@
 
 > **searchDataset**(`client`, `datasetId`, `search`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/v1.js:146](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/v1.js#L146)
+Defined in: [dataset/v1.js:146](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/v1.js#L146)
 
 ## Parameters
 

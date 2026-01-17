@@ -6,7 +6,7 @@
 
 # Class: PlatformReportClient
 
-Defined in: [platform/report/index.js:13](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L13)
+Defined in: [platform/report/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/report/index.js#L13)
 
 Platform Report client.
 
@@ -20,7 +20,7 @@ Platform Report client.
 
 > **new PlatformReportClient**(`options`): `PlatformReportClient`
 
-Defined in: [platform/report/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L17)
+Defined in: [platform/report/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/report/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/report/index.js:17](https://github.com/chatbotkit/cbk-plat
 
 > **extend**(`extensionOptions`): `PlatformReportClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [platform/report/index.js:27](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L27)
+Defined in: [platform/report/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/report/index.js#L27)
 
 Retrieves a list of all available reports.
 

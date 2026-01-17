@@ -8,6 +8,6 @@
 
 > **TaskTriggerResponse**\<\> = [`TaskTriggerResponseBody`](TaskTriggerResponseBody.md)
 
-Defined in: [task/v1.js:139](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/v1.js#L139)
+Defined in: [task/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L139)
 
 ## Type Parameters

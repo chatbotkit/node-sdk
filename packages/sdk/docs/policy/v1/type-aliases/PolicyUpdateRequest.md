@@ -8,6 +8,6 @@
 
 > **PolicyUpdateRequest**\<\> = [`PolicyUpdateRequestBody`](PolicyUpdateRequestBody.md)
 
-Defined in: [policy/v1.js:82](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/policy/v1.js#L82)
+Defined in: [policy/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/policy/v1.js#L82)
 
 ## Type Parameters

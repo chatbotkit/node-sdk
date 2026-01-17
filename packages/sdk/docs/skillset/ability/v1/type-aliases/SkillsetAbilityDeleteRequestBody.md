@@ -8,6 +8,6 @@
 
 > **SkillsetAbilityDeleteRequestBody**\<\> = `operations`\[`"deleteSkillsetAbility"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [skillset/ability/v1.js:143](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L143)
+Defined in: [skillset/ability/v1.js:143](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L143)
 
 ## Type Parameters

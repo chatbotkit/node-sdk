@@ -6,7 +6,7 @@
 
 # Class: PortalClient
 
-Defined in: [portal/index.js:19](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/portal/index.js#L19)
+Defined in: [portal/index.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L19)
 
 Portal client.
 
@@ -20,7 +20,7 @@ Portal client.
 
 > **new PortalClient**(`options`): `PortalClient`
 
-Defined in: [portal/index.js:23](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/portal/index.js#L23)
+Defined in: [portal/index.js:23](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L23)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [portal/index.js:23](https://github.com/chatbotkit/cbk-platform/blob
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [portal/index.js:53](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/portal/index.js#L53)
+Defined in: [portal/index.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L53)
 
 Creates a new portal.
 
@@ -60,7 +60,7 @@ Creates a new portal.
 
 > **delete**(`portalId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [portal/index.js:74](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/portal/index.js#L74)
+Defined in: [portal/index.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L74)
 
 Deletes the portal.
 
@@ -80,7 +80,7 @@ Deletes the portal.
 
 > **extend**(`extensionOptions`): `PortalClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -114,7 +114,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`portalId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [portal/index.js:43](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/portal/index.js#L43)
+Defined in: [portal/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L43)
 
 Fetches a portal.
 
@@ -134,7 +134,7 @@ Fetches a portal.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [portal/index.js:33](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/portal/index.js#L33)
+Defined in: [portal/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L33)
 
 Retrieves a list of all portals.
 
@@ -154,7 +154,7 @@ Retrieves a list of all portals.
 
 > **update**(`portalId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [portal/index.js:64](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/portal/index.js#L64)
+Defined in: [portal/index.js:64](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/index.js#L64)
 
 Updates a portal.
 

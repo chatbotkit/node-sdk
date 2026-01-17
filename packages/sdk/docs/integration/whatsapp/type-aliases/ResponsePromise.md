@@ -8,7 +8,7 @@
 
 > **ResponsePromise**\<`T`, `U`\> = [`ResponsePromise`](../../../client/classes/ResponsePromise.md)
 
-Defined in: [integration/whatsapp/index.js:14](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/index.js#L14)
+Defined in: [integration/whatsapp/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/index.js#L14)
 
 ## Type Parameters
 

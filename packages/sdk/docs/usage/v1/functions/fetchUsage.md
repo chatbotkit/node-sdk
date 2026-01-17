@@ -8,7 +8,7 @@
 
 > **fetchUsage**(`client`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [usage/v1.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/usage/v1.js#L17)
+Defined in: [usage/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/v1.js#L17)
 
 ## Parameters
 

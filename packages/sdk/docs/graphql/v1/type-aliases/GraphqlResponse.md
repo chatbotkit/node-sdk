@@ -8,6 +8,6 @@
 
 > **GraphqlResponse**\<\> = [`GraphqlResponseBody`](GraphqlResponseBody.md)
 
-Defined in: [graphql/v1.js:18](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/graphql/v1.js#L18)
+Defined in: [graphql/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/graphql/v1.js#L18)
 
 ## Type Parameters

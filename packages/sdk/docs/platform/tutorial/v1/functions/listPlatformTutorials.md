@@ -8,7 +8,7 @@
 
 > **listPlatformTutorials**(`client`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [platform/tutorial/v1.js:29](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/tutorial/v1.js#L29)
+Defined in: [platform/tutorial/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/tutorial/v1.js#L29)
 
 ## Parameters
 

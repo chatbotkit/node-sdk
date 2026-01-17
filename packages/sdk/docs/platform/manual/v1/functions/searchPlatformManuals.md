@@ -8,7 +8,7 @@
 
 > **searchPlatformManuals**(`client`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [platform/manual/v1.js:51](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/manual/v1.js#L51)
+Defined in: [platform/manual/v1.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/manual/v1.js#L51)
 
 ## Parameters
 

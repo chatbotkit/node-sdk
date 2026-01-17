@@ -8,6 +8,6 @@
 
 > **MemoryCreateRequest**\<\> = [`MemoryCreateRequestBody`](MemoryCreateRequestBody.md)
 
-Defined in: [memory/v1.js:57](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L57)
+Defined in: [memory/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L57)
 
 ## Type Parameters
