@@ -20,6 +20,10 @@ export class IntegrationClient extends ChatBotKitClient {
      */
     messenger: MessengerIntegrationClient;
     /**
+     * @type {InstagramIntegrationClient} instagram client
+     */
+    instagram: InstagramIntegrationClient;
+    /**
      * @type {TelegramIntegrationClient} telegram client
      */
     telegram: TelegramIntegrationClient;
@@ -63,6 +67,7 @@ import { SlackIntegrationClient } from './slack/index.js';
 import { DiscordIntegrationClient } from './discord/index.js';
 import { WhatsAppIntegrationClient } from './whatsapp/index.js';
 import { MessengerIntegrationClient } from './messenger/index.js';
+import { InstagramIntegrationClient } from './instagram/index.js';
 import { TelegramIntegrationClient } from './telegram/index.js';
 import { TriggerIntegrationClient } from './trigger/index.js';
 import { EmailIntegrationClient } from './email/index.js';
