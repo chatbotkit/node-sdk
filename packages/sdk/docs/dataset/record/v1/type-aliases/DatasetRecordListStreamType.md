@@ -8,6 +8,6 @@
 
 > **DatasetRecordListStreamType**\<\> = `operations`\[`"listDatasetRecords"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/jsonl"`\]
 
-Defined in: [dataset/record/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L21)
+Defined in: [dataset/record/v1.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L21)
 
 ## Type Parameters
