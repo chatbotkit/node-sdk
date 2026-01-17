@@ -53,6 +53,8 @@
 - [integration/email/v1](integration/email/v1/README.md)
 - [integration/extract](integration/extract/README.md)
 - [integration/extract/v1](integration/extract/v1/README.md)
+- [integration/instagram](integration/instagram/README.md)
+- [integration/instagram/v1](integration/instagram/v1/README.md)
 - [integration/mcpserver](integration/mcpserver/README.md)
 - [integration/mcpserver/v1](integration/mcpserver/v1/README.md)
 - [integration/messenger](integration/messenger/README.md)
