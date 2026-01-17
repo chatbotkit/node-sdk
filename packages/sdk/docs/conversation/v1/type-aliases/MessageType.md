@@ -8,6 +8,6 @@
 
 > **MessageType**\<\> = `"user"` \| `"bot"` \| `"reasoning"` \| `"context"` \| `"instruction"` \| `"backstory"` \| `"activity"`
 
-Defined in: [conversation/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L14)
+Defined in: [conversation/v1.js:14](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/v1.js#L14)
 
 ## Type Parameters

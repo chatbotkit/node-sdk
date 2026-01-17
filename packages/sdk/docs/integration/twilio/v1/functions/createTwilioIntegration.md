@@ -8,7 +8,7 @@
 
 > **createTwilioIntegration**(`client`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/twilio/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/v1.js#L65)
+Defined in: [integration/twilio/v1.js:65](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/twilio/v1.js#L65)
 
 ## Parameters
 

@@ -6,7 +6,7 @@
 
 # Class: DatasetClient
 
-Defined in: [dataset/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L22)
+Defined in: [dataset/index.js:22](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L22)
 
 Dataset client.
 
@@ -20,7 +20,7 @@ Dataset client.
 
 > **new DatasetClient**(`options`): `DatasetClient`
 
-Defined in: [dataset/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L26)
+Defined in: [dataset/index.js:26](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L26)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [dataset/index.js:26](https://github.com/chatbotkit/node-sdk/blob/ma
 
 > **file**: [`DatasetFileClient`](../file/classes/DatasetFileClient.md)
 
-Defined in: [dataset/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L32)
+Defined in: [dataset/index.js:32](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L32)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [dataset/index.js:32](https://github.com/chatbotkit/node-sdk/blob/ma
 
 > **record**: [`DatasetRecordClient`](../record/classes/DatasetRecordClient.md)
 
-Defined in: [dataset/index.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L37)
+Defined in: [dataset/index.js:37](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L37)
 
 ## Methods
 
@@ -58,7 +58,7 @@ Defined in: [dataset/index.js:37](https://github.com/chatbotkit/node-sdk/blob/ma
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L66)
+Defined in: [dataset/index.js:66](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L66)
 
 Creates a new dataset.
 
@@ -76,7 +76,7 @@ Creates a new dataset.
 
 > **delete**(`datasetId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/index.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L87)
+Defined in: [dataset/index.js:87](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L87)
 
 Deletes the dataset.
 
@@ -96,7 +96,7 @@ Deletes the dataset.
 
 > **extend**(`extensionOptions`): `DatasetClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -130,7 +130,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`datasetId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [dataset/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L56)
+Defined in: [dataset/index.js:56](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L56)
 
 Fetches a dataset.
 
@@ -150,7 +150,7 @@ Fetches a dataset.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [dataset/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L46)
+Defined in: [dataset/index.js:46](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L46)
 
 Retrieves a list of all datasets.
 
@@ -170,7 +170,7 @@ Retrieves a list of all datasets.
 
 > **search**(`datasetId`, `search`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/index.js:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L98)
+Defined in: [dataset/index.js:98](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L98)
 
 Searches the dataset.
 
@@ -194,7 +194,7 @@ Searches the dataset.
 
 > **update**(`datasetId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/index.js:77](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/index.js#L77)
+Defined in: [dataset/index.js:77](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/index.js#L77)
 
 Updates a dataset.
 

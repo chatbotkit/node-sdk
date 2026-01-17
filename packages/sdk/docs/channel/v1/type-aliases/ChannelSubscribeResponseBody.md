@@ -8,6 +8,6 @@
 
 > **ChannelSubscribeResponseBody**\<\> = `operations`\[`"subscribeChannelMessages"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/jsonl"`\]
 
-Defined in: [channel/v1.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/channel/v1.js#L46)
+Defined in: [channel/v1.js:46](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/channel/v1.js#L46)
 
 ## Type Parameters

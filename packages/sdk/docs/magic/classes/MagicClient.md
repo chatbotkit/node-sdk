@@ -6,7 +6,7 @@
 
 # Class: MagicClient
 
-Defined in: [magic/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/index.js#L13)
+Defined in: [magic/index.js:13](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/magic/index.js#L13)
 
 Magic client.
 
@@ -20,7 +20,7 @@ Magic client.
 
 > **new MagicClient**(`options`): `MagicClient`
 
-Defined in: [magic/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/index.js#L17)
+Defined in: [magic/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/magic/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [magic/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main
 
 > **extend**(`extensionOptions`): `MagicClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **generate**(`magicId`, `request`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [magic/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/magic/index.js#L28)
+Defined in: [magic/index.js:28](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/magic/index.js#L28)
 
 Generates magic.
 

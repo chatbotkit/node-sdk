@@ -8,6 +8,6 @@
 
 > **TaskCreateResponseBody**\<\> = `operations`\[`"createTask"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [task/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L57)
+Defined in: [task/v1.js:57](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/task/v1.js#L57)
 
 ## Type Parameters
