@@ -34,6 +34,7 @@ Defined in: [client.js:294](https://github.com/chatbotkit/cbk-platform/blob/main
 - [`DiscordIntegrationClient`](../../integration/discord/classes/DiscordIntegrationClient.md)
 - [`EmailIntegrationClient`](../../integration/email/classes/EmailIntegrationClient.md)
 - [`ExtractIntegrationClient`](../../integration/extract/classes/ExtractIntegrationClient.md)
+- [`InstagramIntegrationClient`](../../integration/instagram/classes/InstagramIntegrationClient.md)
 - [`McpServerIntegrationClient`](../../integration/mcpserver/classes/McpServerIntegrationClient.md)
 - [`MessengerIntegrationClient`](../../integration/messenger/classes/MessengerIntegrationClient.md)
 - [`NotionIntegrationClient`](../../integration/notion/classes/NotionIntegrationClient.md)

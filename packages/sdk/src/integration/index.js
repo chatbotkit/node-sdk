@@ -2,6 +2,7 @@ import { ChatBotKitClient } from '../client.js'
 import { DiscordIntegrationClient } from './discord/index.js'
 import { EmailIntegrationClient } from './email/index.js'
 import { ExtractIntegrationClient } from './extract/index.js'
+import { InstagramIntegrationClient } from './instagram/index.js'
 import { McpServerIntegrationClient } from './mcpserver/index.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
 import { NotionIntegrationClient } from './notion/index.js'
@@ -45,6 +46,11 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {MessengerIntegrationClient} messenger client
      */
     this.messenger = new MessengerIntegrationClient(options)
+
+    /**
+     * @type {InstagramIntegrationClient} instagram client
+     */
+    this.instagram = new InstagramIntegrationClient(options)
 
     /**
      * @type {TelegramIntegrationClient} telegram client

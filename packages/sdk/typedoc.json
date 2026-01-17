@@ -53,6 +53,8 @@
     "./src/integration/extract/index.js",
     "./src/integration/extract/v1.js",
     "./src/integration/index.js",
+    "./src/integration/instagram/index.js",
+    "./src/integration/instagram/v1.js",
     "./src/integration/mcpserver/index.js",
     "./src/integration/mcpserver/v1.js",
     "./src/integration/messenger/index.js",
