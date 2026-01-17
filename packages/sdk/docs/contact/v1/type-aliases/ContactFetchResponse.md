@@ -8,6 +8,6 @@
 
 > **ContactFetchResponse**\<\> = `operations`\[`"fetchContact"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [contact/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/v1.js#L37)
+Defined in: [contact/v1.js:37](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/v1.js#L37)
 
 ## Type Parameters

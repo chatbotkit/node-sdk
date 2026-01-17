@@ -8,6 +8,6 @@
 
 > **SpaceDeleteRequest**\<\> = `object`
 
-Defined in: [space/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/space/v1.js#L108)
+Defined in: [space/v1.js:108](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/space/v1.js#L108)
 
 ## Type Parameters

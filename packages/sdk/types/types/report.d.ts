@@ -3,7 +3,7 @@
  * Generated from report registry schemas.
  */
 
-export type ReportId = 'clr3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000108jq3c4d7f2b' | 'clr3m5n8k000208jq8e5f6g3c' | 'clr3m5n8k000308jq1h7i8j4d' | 'clr3m5n8k000408jq9i8j9k5e' | 'clr3m5n8k000508jq2j9k0l6f' | 'clr3m5n8k000608jq3k0l1m7g' | 'clr3m5n8k000708jq4l1m2n8h' | 'clr3m5n8k000808jq5m2n3o9i' | 'clr3m5n8k000908jq6n3o4p0j' | 'clr3m5n8k000a08jq7o4p5q1k' | 'clr3m5n8k000b08jq8p5q6r2l' | 'clr3m5n8k000c08jq9q6r7s3m' | 'clr3m5n8k000d08jqar7s8t4n'
+export type ReportId = 'clr3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000108jq3c4d7f2b' | 'clr3m5n8k000208jq8e5f6g3c' | 'clr3m5n8k000308jq1h7i8j4d' | 'clr3m5n8k000408jq9i8j9k5e' | 'clr3m5n8k000508jq2j9k0l6f' | 'clr3m5n8k000608jq3k0l1m7g' | 'clr3m5n8k000708jq4l1m2n8h' | 'clr3m5n8k000808jq5m2n3o9i' | 'clr3m5n8k000908jq6n3o4p0j' | 'clr3m5n8k000a08jq7o4p5q1k' | 'clr3m5n8k000b08jq8p5q6r2l' | 'clr3m5n8k000c08jq9q6r7s3m' | 'clr3m5n8k000d08jqar7s8t4n' | 'clr3m5n8k000e08jqbs0t1u5o'
 
 export interface ReportMetadata {
   id: string
@@ -98,6 +98,12 @@ export interface ReportRegistry {
     input: ComprehensiveOverviewInput
     output: ComprehensiveOverviewOutput
   }
+  'clr3m5n8k000e08jqbs0t1u5o': {
+    name: string
+    description: string
+    input: BotStatsInput
+    output: BotStatsOutput
+  }
 }
 
 // Input and Output Types for each report
@@ -154,6 +160,11 @@ export type AverageActionsPerConversationInput = {
 }
 
 export type ComprehensiveOverviewInput = {
+  periodDays?: number
+}
+
+export type BotStatsInput = {
+  botId: string
   periodDays?: number
 }
 
@@ -246,6 +257,16 @@ export type ComprehensiveOverviewOutput = {
   data: { title: string; description: string; value: number; change?: number; period: string; details?: { metric?: { title: string; description: string; value: number; change?: number; period: string }; chart?: { type: string; data: { date: string; total: number; thumbsUp?: number; thumbsDown?: number }[] }; list?: { id: string; icon?: string; name: string; description: string; createdAt?: string; tags?: unknown[] }[] } }[]
 }
 
+export type BotStatsOutput = {
+  totalConversations: number
+  totalMessages: number
+  totalRatings: number
+  thumbsUp: number
+  thumbsDown: number
+  sentimentSignal: string
+  period: string
+}
+
 // Mapping report IDs to their input/output types
 export type ReportInputTypes = {
   'clr3m5n8k000008jq7h9e5b1a': TotalRatingsInput
@@ -262,6 +283,7 @@ export type ReportInputTypes = {
   'clr3m5n8k000b08jq8p5q6r2l': AverageBotMessagesPerConversationInput
   'clr3m5n8k000c08jq9q6r7s3m': AverageActionsPerConversationInput
   'clr3m5n8k000d08jqar7s8t4n': ComprehensiveOverviewInput
+  'clr3m5n8k000e08jqbs0t1u5o': BotStatsInput
 }
 
 export type ReportOutputTypes = {
@@ -279,6 +301,7 @@ export type ReportOutputTypes = {
   'clr3m5n8k000b08jq8p5q6r2l': AverageBotMessagesPerConversationOutput
   'clr3m5n8k000c08jq9q6r7s3m': AverageActionsPerConversationOutput
   'clr3m5n8k000d08jqar7s8t4n': ComprehensiveOverviewOutput
+  'clr3m5n8k000e08jqbs0t1u5o': BotStatsOutput
 }
 
 // Helper type to get input type by report ID

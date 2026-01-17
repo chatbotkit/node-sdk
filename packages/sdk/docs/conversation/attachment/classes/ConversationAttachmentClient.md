@@ -6,7 +6,7 @@
 
 # Class: ConversationAttachmentClient
 
-Defined in: [conversation/attachment/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/attachment/index.js#L13)
+Defined in: [conversation/attachment/index.js:13](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/attachment/index.js#L13)
 
 Attachment client.
 
@@ -20,7 +20,7 @@ Attachment client.
 
 > **new ConversationAttachmentClient**(`options`): `ConversationAttachmentClient`
 
-Defined in: [conversation/attachment/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/attachment/index.js#L17)
+Defined in: [conversation/attachment/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/attachment/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [conversation/attachment/index.js:17](https://github.com/chatbotkit/
 
 > **extend**(`extensionOptions`): `ConversationAttachmentClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **upload**(`fileId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`ConversationAttachmentUploadResponse`](../v1/type-aliases/ConversationAttachmentUploadResponse.md)\>
 
-Defined in: [conversation/attachment/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/attachment/index.js#L28)
+Defined in: [conversation/attachment/index.js:28](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/attachment/index.js#L28)
 
 Upload file data.
 

@@ -6,7 +6,7 @@
 
 # Class: BotSessionClient
 
-Defined in: [bot/session/index.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/index.js#L7)
+Defined in: [bot/session/index.js:7](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/session/index.js#L7)
 
 Bot session client.
 
@@ -20,7 +20,7 @@ Bot session client.
 
 > **new BotSessionClient**(`options`): `BotSessionClient`
 
-Defined in: [bot/session/index.js:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/index.js#L11)
+Defined in: [bot/session/index.js:11](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/session/index.js#L11)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [bot/session/index.js:11](https://github.com/chatbotkit/node-sdk/blo
 
 > **create**(`botId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [bot/session/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/bot/session/index.js#L22)
+Defined in: [bot/session/index.js:22](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/session/index.js#L22)
 
 Creates a new session.
 
@@ -64,7 +64,7 @@ Creates a new session.
 
 > **extend**(`extensionOptions`): `BotSessionClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 

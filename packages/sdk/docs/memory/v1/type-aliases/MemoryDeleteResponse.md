@@ -8,6 +8,6 @@
 
 > **MemoryDeleteResponse**\<\> = [`MemoryDeleteResponseBody`](MemoryDeleteResponseBody.md)
 
-Defined in: [memory/v1.js:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L116)
+Defined in: [memory/v1.js:116](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L116)
 
 ## Type Parameters

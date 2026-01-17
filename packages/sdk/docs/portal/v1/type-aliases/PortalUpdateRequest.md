@@ -8,6 +8,6 @@
 
 > **PortalUpdateRequest**\<\> = [`PortalUpdateRequestBody`](PortalUpdateRequestBody.md)
 
-Defined in: [portal/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/portal/v1.js#L82)
+Defined in: [portal/v1.js:82](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/portal/v1.js#L82)
 
 ## Type Parameters
