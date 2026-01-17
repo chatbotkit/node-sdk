@@ -8,6 +8,6 @@
 
 > **PartnerUserCreateResponseBody**\<\> = `operations`\[`"createPartnerUser"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [partner/user/v1.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L58)
+Defined in: [partner/user/v1.js:58](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/v1.js#L58)
 
 ## Type Parameters

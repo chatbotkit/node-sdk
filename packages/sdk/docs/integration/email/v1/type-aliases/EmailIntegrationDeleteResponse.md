@@ -8,6 +8,6 @@
 
 > **EmailIntegrationDeleteResponse**\<\> = [`EmailIntegrationDeleteResponseBody`](EmailIntegrationDeleteResponseBody.md)
 
-Defined in: [integration/email/v1.js:114](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/email/v1.js#L114)
+Defined in: [integration/email/v1.js:114](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/v1.js#L114)
 
 ## Type Parameters

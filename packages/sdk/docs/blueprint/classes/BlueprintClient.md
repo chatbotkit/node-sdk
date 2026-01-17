@@ -6,7 +6,7 @@
 
 # Class: BlueprintClient
 
-Defined in: [blueprint/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L21)
+Defined in: [blueprint/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L21)
 
 Blueprint client.
 
@@ -20,7 +20,7 @@ Blueprint client.
 
 > **new BlueprintClient**(`options`): `BlueprintClient`
 
-Defined in: [blueprint/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L25)
+Defined in: [blueprint/index.js:25](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L25)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [blueprint/index.js:25](https://github.com/chatbotkit/node-sdk/blob/
 
 > **clone**(`blueprintId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/index.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L86)
+Defined in: [blueprint/index.js:86](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L86)
 
 Clones a blueprint.
 
@@ -62,7 +62,7 @@ Clones a blueprint.
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L55)
+Defined in: [blueprint/index.js:55](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L55)
 
 Creates a new blueprint.
 
@@ -80,7 +80,7 @@ Creates a new blueprint.
 
 > **delete**(`blueprintId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L76)
+Defined in: [blueprint/index.js:76](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L76)
 
 Deletes the blueprint.
 
@@ -100,7 +100,7 @@ Deletes the blueprint.
 
 > **extend**(`extensionOptions`): `BlueprintClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -134,7 +134,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`blueprintId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [blueprint/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L45)
+Defined in: [blueprint/index.js:45](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L45)
 
 Fetches a blueprint.
 
@@ -154,7 +154,7 @@ Fetches a blueprint.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [blueprint/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L35)
+Defined in: [blueprint/index.js:35](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L35)
 
 Retrieves a list of all blueprints.
 
@@ -174,7 +174,7 @@ Retrieves a list of all blueprints.
 
 > **listResources**(`blueprintId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/index.js:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L96)
+Defined in: [blueprint/index.js:96](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L96)
 
 Lists all resources for a blueprint.
 
@@ -194,7 +194,7 @@ Lists all resources for a blueprint.
 
 > **update**(`blueprintId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/index.js#L66)
+Defined in: [blueprint/index.js:66](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L66)
 
 Updates a blueprint.
 

@@ -18,6 +18,10 @@
 - [SkillsetAbilityDeleteRequestBody](type-aliases/SkillsetAbilityDeleteRequestBody.md)
 - [SkillsetAbilityDeleteResponse](type-aliases/SkillsetAbilityDeleteResponse.md)
 - [SkillsetAbilityDeleteResponseBody](type-aliases/SkillsetAbilityDeleteResponseBody.md)
+- [SkillsetAbilityExecuteRequest](type-aliases/SkillsetAbilityExecuteRequest.md)
+- [SkillsetAbilityExecuteRequestBody](type-aliases/SkillsetAbilityExecuteRequestBody.md)
+- [SkillsetAbilityExecuteResponse](type-aliases/SkillsetAbilityExecuteResponse.md)
+- [SkillsetAbilityExecuteResponseBody](type-aliases/SkillsetAbilityExecuteResponseBody.md)
 - [SkillsetAbilityExportRequest](type-aliases/SkillsetAbilityExportRequest.md)
 - [SkillsetAbilityExportResponse](type-aliases/SkillsetAbilityExportResponse.md)
 - [SkillsetAbilityExportStreamType](type-aliases/SkillsetAbilityExportStreamType.md)
@@ -34,6 +38,7 @@
 
 - [createSkillsetAbility](functions/createSkillsetAbility.md)
 - [deleteSkillsetAbility](functions/deleteSkillsetAbility.md)
+- [executeSkillsetAbility](functions/executeSkillsetAbility.md)
 - [exportSkillsetAbilities](functions/exportSkillsetAbilities.md)
 - [fetchSkillsetAbility](functions/fetchSkillsetAbility.md)
 - [listSkillsetAbilities](functions/listSkillsetAbilities.md)

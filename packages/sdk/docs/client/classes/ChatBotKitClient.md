@@ -6,7 +6,7 @@
 
 # Class: ChatBotKitClient
 
-Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L294)
+Defined in: [client.js:294](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L294)
 
 ## Extended by
 
@@ -78,7 +78,7 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **new ChatBotKitClient**(`options`): `ChatBotKitClient`
 
-Defined in: [client.js:337](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L337)
+Defined in: [client.js:337](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L337)
 
 #### Parameters
 
@@ -96,7 +96,7 @@ Defined in: [client.js:337](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **extend**(`extensionOptions`): `ChatBotKitClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 

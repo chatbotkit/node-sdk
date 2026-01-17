@@ -8,7 +8,7 @@
 
 > **PlatformSecretListRequest**\<\> = `object`
 
-Defined in: [platform/secret/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/secret/v1.js#L16)
+Defined in: [platform/secret/v1.js:16](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/secret/v1.js#L16)
 
 ## Type Parameters
 

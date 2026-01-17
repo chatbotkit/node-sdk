@@ -8,6 +8,6 @@
 
 > **FileFetchResponse**\<\> = `operations`\[`"fetchFile"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [file/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L41)
+Defined in: [file/v1.js:41](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/v1.js#L41)
 
 ## Type Parameters
