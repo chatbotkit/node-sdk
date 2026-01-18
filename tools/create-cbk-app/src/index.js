@@ -1,9 +1,30 @@
-import { prompt } from '@chatbotkit/cli/input'
+import { prompt, select } from '@chatbotkit/cli/input'
 import { print } from '@chatbotkit/cli/output'
 
 import { Command } from 'commander'
+import crypto from 'node:crypto'
 import childProcess from 'node:child_process'
 import fs from 'node:fs/promises'
+
+/**
+ * Available templates for creating a new CBK app
+ */
+const templates = [
+  {
+    value: 'template-nextjs-generative-ui-js',
+    label: 'Next.js Generative UI (JavaScript)',
+    description: 'A Next.js template with generative UI capabilities',
+    repo: 'chatbotkit/template-nextjs-generative-ui-js',
+    branch: 'main',
+  },
+  {
+    value: 'template-nextjs-dashboard-js',
+    label: 'Next.js Dashboard (JavaScript)',
+    description: 'A Next.js dashboard template',
+    repo: 'chatbotkit/template-nextjs-dashboard-js',
+    branch: 'main',
+  },
+]
 
 /**
  * @param {string} command
@@ -34,7 +55,8 @@ export default async function cbk() {
     .name('create-cbk-app')
     .description('Command line tools for creating a new CBK app')
     .arguments('[app-name]')
-    .action(async (appName) => {
+    .option('-t, --template <template>', 'Template to use')
+    .action(async (appName, options) => {
       if (!appName) {
         appName = await prompt('🚀 What is the name of your app? ')
       }
@@ -54,24 +76,49 @@ export default async function cbk() {
 
       const appDir = appName.split('/').pop()
 
-      const templates = {
-        nextjs: 'chatbotkit/template-nextjs-generative-ui-js',
+      // Select template
+      let templateName = options.template
+
+      if (!templateName) {
+        templateName = await select('📦 Select a template:', templates)
       }
 
-      const repo = templates['nextjs']
+      // Validate template name
+      const selectedTemplate = templates.find((t) => t.value === templateName)
 
-      // Download the template
+      if (!selectedTemplate) {
+        print(`🚨 Invalid template: ${templateName}`)
+        print('Available templates:')
+        templates.forEach((t) => print(`  - ${t.value}`))
+
+        process.exit(1)
+      }
+
+      print(`\n📥 Downloading template: ${selectedTemplate.label}...`)
+
+      // Download the template from the public GitHub repo
       {
-        const tmpDir = Math.random().toString(32).slice(2)
+        const tmpDir = crypto.randomUUID()
+        const { repo, branch, value: repoName } = selectedTemplate
 
+        // Download the template repo archive
         await exec(
-          `wget -qO ${tmpDir}.zip https://github.com/${repo}/archive/refs/heads/main.zip && unzip ${tmpDir}.zip -d ${tmpDir} && rm ${tmpDir}.zip && mv ${tmpDir}/* ${appDir} && rm -rf ${tmpDir}`
+          `wget -qO ${tmpDir}.zip https://github.com/${repo}/archive/refs/heads/${branch}.zip && ` +
+            `unzip -q ${tmpDir}.zip -d ${tmpDir} && ` +
+            `rm ${tmpDir}.zip && ` +
+            `mv ${tmpDir}/${repoName}-${branch} ${appDir} && ` +
+            `rm -rf ${tmpDir}`
         )
       }
 
       // Move .env.example file to .env.local
       {
-        await exec(`mv ${appDir}/.env.example ${appDir}/.env.local`)
+        try {
+          await fs.access(`${appDir}/.env.example`)
+          await exec(`mv ${appDir}/.env.example ${appDir}/.env.local`)
+        } catch {
+          // .env.example doesn't exist, skip
+        }
       }
 
       // Change the package name and version
@@ -91,7 +138,14 @@ export default async function cbk() {
 
       // Print the next steps
       {
+        print('')
         print('🚀 Your app is ready!')
+        print('')
+        print('Next steps:')
+        print(`  cd ${appDir}`)
+        print('  npm install')
+        print('  # Set your CHATBOTKIT_API_SECRET in .env.local')
+        print('  npm run dev')
       }
     })
 
