@@ -78,8 +78,8 @@ export default async function cbk() {
       let appDir = appName.split('/').pop()?.replace(/^@/, '') || ''
 
       // Validate appDir to prevent command injection
-      if (!appDir || !/^[a-zA-Z0-9_-]+$/.test(appDir)) {
-        print('🚨 Invalid app name! Only alphanumeric characters, hyphens, and underscores are allowed.')
+      if (!appDir || !/^[a-zA-Z0-9._-]+$/.test(appDir)) {
+        print('🚨 Invalid app name! Only alphanumeric characters, hyphens, underscores, and dots are allowed.')
 
         process.exit(1)
       }
