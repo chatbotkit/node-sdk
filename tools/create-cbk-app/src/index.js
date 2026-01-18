@@ -76,6 +76,13 @@ export default async function cbk() {
 
       const appDir = appName.split('/').pop()
 
+      // Validate appDir to prevent command injection
+      if (!appDir || !/^[a-zA-Z0-9_-]+$/.test(appDir)) {
+        print('🚨 Invalid app name! Only alphanumeric characters, hyphens, and underscores are allowed.')
+
+        process.exit(1)
+      }
+
       // Select template
       let templateName = options.template
 
@@ -115,7 +122,7 @@ export default async function cbk() {
       {
         try {
           await fs.access(`${appDir}/.env.example`)
-          await exec(`mv ${appDir}/.env.example ${appDir}/.env.local`)
+          await fs.rename(`${appDir}/.env.example`, `${appDir}/.env.local`)
         } catch {
           // .env.example doesn't exist, skip
         }
