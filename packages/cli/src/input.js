@@ -56,33 +56,35 @@ export async function prompt(question) {
  * @returns {Promise<string>}
  */
 export async function select(question, options) {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  })
-
-  // eslint-disable-next-line no-console
-  console.log(question)
-
-  options.forEach((option, index) => {
-    // eslint-disable-next-line no-console
-    console.log(`  ${index + 1}) ${option.label}`)
-  })
-
-  return new Promise((resolve) => {
-    rl.question('Enter your choice (number): ', async (answer) => {
-      rl.close()
-
-      const index = parseInt(answer, 10) - 1
-
-      if (index >= 0 && index < options.length) {
-        resolve(options[index].value)
-      } else {
-        // eslint-disable-next-line no-console
-        console.log('Invalid choice. Please try again.\n')
-
-        resolve(select(question, options))
-      }
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
     })
-  })
+
+    // eslint-disable-next-line no-console
+    console.log(question)
+
+    options.forEach((option, index) => {
+      // eslint-disable-next-line no-console
+      console.log(`  ${index + 1}) ${option.label}`)
+    })
+
+    const answer = await new Promise((resolve) => {
+      rl.question('Enter your choice (number): ', (input) => {
+        rl.close()
+        resolve(input)
+      })
+    })
+
+    const index = parseInt(/** @type {string} */ (answer), 10) - 1
+
+    if (index >= 0 && index < options.length) {
+      return options[index].value
+    }
+
+    // eslint-disable-next-line no-console
+    console.log('Invalid choice. Please try again.\n')
+  }
 }
