@@ -74,7 +74,8 @@ export default async function cbk() {
         process.exit(1)
       }
 
-      const appDir = appName.split('/').pop()
+      // Get the directory name (last part after /) and strip any leading @
+      let appDir = appName.split('/').pop()?.replace(/^@/, '') || ''
 
       // Validate appDir to prevent command injection
       if (!appDir || !/^[a-zA-Z0-9_-]+$/.test(appDir)) {
