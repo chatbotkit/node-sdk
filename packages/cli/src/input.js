@@ -58,11 +58,6 @@ export async function prompt(question) {
 export async function select(question, options) {
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    })
-
     // eslint-disable-next-line no-console
     console.log(question)
 
@@ -71,20 +66,28 @@ export async function select(question, options) {
       console.log(`  ${index + 1}) ${option.label}`)
     })
 
-    const answer = await new Promise((resolve) => {
-      rl.question('Enter your choice (number): ', (input) => {
-        rl.close()
-        resolve(input)
-      })
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
     })
 
-    const index = parseInt(/** @type {string} */ (answer), 10) - 1
+    try {
+      const answer = await new Promise((resolve) => {
+        rl.question('Enter your choice (number): ', (input) => {
+          resolve(input)
+        })
+      })
 
-    if (index >= 0 && index < options.length) {
-      return options[index].value
+      const index = parseInt(/** @type {string} */ (answer), 10) - 1
+
+      if (index >= 0 && index < options.length) {
+        return options[index].value
+      }
+
+      // eslint-disable-next-line no-console
+      console.log('Invalid choice. Please try again.\n')
+    } finally {
+      rl.close()
     }
-
-    // eslint-disable-next-line no-console
-    console.log('Invalid choice. Please try again.\n')
   }
 }
