@@ -1,8 +1,16 @@
 import { config as printConfig } from '../../output.js'
+import blueprint from './blueprint/index.js'
+import bot from './bot/index.js'
+import contact from './contact/index.js'
 import conversation from './conversation/index.js'
 import dataset from './dataset/index.js'
+import file from './file/index.js'
+import integration from './integration/index.js'
+import memory from './memory/index.js'
 import partner from './partner/index.js'
+import secret from './secret/index.js'
 import skillset from './skillset/index.js'
+import team from './team/index.js'
 
 import { Command, Option } from 'commander'
 
@@ -19,10 +27,18 @@ import { Command, Option } from 'commander'
  * _type {Record<keyof ChatBotKitSDK, import('commander').Command>}
  */
 const commands = {
+  blueprint,
+  bot,
+  contact,
   conversation,
   dataset,
-  skillset,
+  file,
+  integration,
+  memory,
   partner,
+  secret,
+  skillset,
+  team,
 }
 
 export const command = new Command()
