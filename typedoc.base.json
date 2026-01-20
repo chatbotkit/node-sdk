@@ -8,6 +8,7 @@
   "includeVersion": false,
   "skipErrorChecking": true,
   "gitRevision": "main",
+  "sourceLinkTemplate": "https://github.com/chatbotkit/node-sdk/blob/{gitRevision}/{path}#L{line}",
   "visibilityFilters": {
     "protected": true,
     "private": false,

@@ -6,7 +6,7 @@
 
 # Class: PlatformAbilityClient
 
-Defined in: [platform/ability/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/index.js#L13)
+Defined in: [platform/ability/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/ability/index.js#L13)
 
 Ability client.
 
@@ -20,7 +20,7 @@ Ability client.
 
 > **new PlatformAbilityClient**(`options`): `PlatformAbilityClient`
 
-Defined in: [platform/ability/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/index.js#L17)
+Defined in: [platform/ability/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/ability/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/ability/index.js:17](https://github.com/chatbotkit/node-sd
 
 > **extend**(`extensionOptions`): `PlatformAbilityClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [platform/ability/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/ability/index.js#L27)
+Defined in: [platform/ability/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/ability/index.js#L27)
 
 Retrieves a list of all platform abilities.
 

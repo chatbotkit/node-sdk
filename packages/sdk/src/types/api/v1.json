@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1767448779783)"
+    "version": "v1 (build 1768682310056)"
   },
   "servers": [
     {
@@ -727,6 +727,20 @@
                   ]
                 }
               ]
+            },
+            "call": {
+              "description": "Configuration for when this function should be automatically called",
+              "type": "object",
+              "properties": {
+                "start": {
+                  "description": "If true, this function will be force-called at the start of the conversation",
+                  "type": "boolean"
+                },
+                "end": {
+                  "description": "If true, this function will be force-called at the end of the conversation",
+                  "type": "boolean"
+                }
+              }
             }
           },
           "required": [
@@ -6790,6 +6804,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -7671,6 +7699,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -7806,12 +7848,16 @@
                       }
                     },
                     "$$ref": "#/components/schemas/ExtensionsDefinition"
+                  },
+                  "channelId": {
+                    "description": "A unique ID to deduplicate dispatch requests",
+                    "type": "string",
+                    "minLength": 24
                   }
                 },
                 "required": [
                   "text"
-                ],
-                "$$ref": "#/paths/~1conversation~1{conversationId}~1complete/post/requestBody/content/application~1json/schema"
+                ]
               }
             }
           }
@@ -9314,6 +9360,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -9998,6 +10058,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -11270,6 +11344,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -12075,7 +12163,6 @@
                     "$$ref": "#/components/schemas/BotConfig"
                   }
                 ],
-                "$$ref": "#/paths/~1conversation~1complete/post/requestBody/content/application~1json/schema",
                 "type": "object",
                 "properties": {
                   "messages": {
@@ -12247,6 +12334,20 @@
                               ]
                             }
                           ]
+                        },
+                        "call": {
+                          "description": "Configuration for when this function should be automatically called",
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "description": "If true, this function will be force-called at the start of the conversation",
+                              "type": "boolean"
+                            },
+                            "end": {
+                              "description": "If true, this function will be force-called at the end of the conversation",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       },
                       "required": [
@@ -12382,6 +12483,11 @@
                       }
                     },
                     "$$ref": "#/components/schemas/ExtensionsDefinition"
+                  },
+                  "channelId": {
+                    "description": "A unique channel ID to subscribe to for completion events",
+                    "type": "string",
+                    "minLength": 24
                   }
                 },
                 "required": [
@@ -15300,6 +15406,1066 @@
         ]
       }
     },
+    "/event/log/export": {
+      "get": {
+        "operationId": "exportEventLogs",
+        "summary": "Export event logs",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of events was exported successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "description": "The type of event (e.g., 'conversation.create')",
+                            "type": "string"
+                          },
+                          "conversationId": {
+                            "description": "Related conversation ID if applicable",
+                            "type": "string"
+                          },
+                          "taskId": {
+                            "description": "Related task ID if applicable",
+                            "type": "string"
+                          },
+                          "contactId": {
+                            "description": "Related contact ID if applicable",
+                            "type": "string"
+                          },
+                          "blueprintId": {
+                            "description": "Related blueprint ID if applicable",
+                            "type": "string"
+                          },
+                          "botId": {
+                            "description": "Related bot ID if applicable",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "Related dataset ID if applicable",
+                            "type": "string"
+                          },
+                          "recordId": {
+                            "description": "Related record ID if applicable",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "Related skillset ID if applicable",
+                            "type": "string"
+                          },
+                          "abilityId": {
+                            "description": "Related ability ID if applicable",
+                            "type": "string"
+                          },
+                          "fileId": {
+                            "description": "Related file ID if applicable",
+                            "type": "string"
+                          },
+                          "secretId": {
+                            "description": "Related secret ID if applicable",
+                            "type": "string"
+                          },
+                          "portalId": {
+                            "description": "Related portal ID if applicable",
+                            "type": "string"
+                          },
+                          "widgetIntegrationId": {
+                            "description": "Related widget integration ID if applicable",
+                            "type": "string"
+                          },
+                          "slackIntegrationId": {
+                            "description": "Related Slack integration ID if applicable",
+                            "type": "string"
+                          },
+                          "discordIntegrationId": {
+                            "description": "Related Discord integration ID if applicable",
+                            "type": "string"
+                          },
+                          "whatsappIntegrationId": {
+                            "description": "Related WhatsApp integration ID if applicable",
+                            "type": "string"
+                          },
+                          "messengerIntegrationId": {
+                            "description": "Related Messenger integration ID if applicable",
+                            "type": "string"
+                          },
+                          "telegramIntegrationId": {
+                            "description": "Related Telegram integration ID if applicable",
+                            "type": "string"
+                          },
+                          "twilioIntegrationId": {
+                            "description": "Related Twilio integration ID if applicable",
+                            "type": "string"
+                          },
+                          "emailIntegrationId": {
+                            "description": "Related email integration ID if applicable",
+                            "type": "string"
+                          },
+                          "sitemapIntegrationId": {
+                            "description": "Related sitemap integration ID if applicable",
+                            "type": "string"
+                          },
+                          "notionIntegrationId": {
+                            "description": "Related Notion integration ID if applicable",
+                            "type": "string"
+                          },
+                          "triggerIntegrationId": {
+                            "description": "Related trigger integration ID if applicable",
+                            "type": "string"
+                          },
+                          "supportIntegrationId": {
+                            "description": "Related support integration ID if applicable",
+                            "type": "string"
+                          },
+                          "extractIntegrationId": {
+                            "description": "Related extract integration ID if applicable",
+                            "type": "string"
+                          },
+                          "mcpserverIntegrationId": {
+                            "description": "Related MCP server integration ID if applicable",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "type"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "type": {
+                              "description": "The type of event (e.g., 'conversation.create')",
+                              "type": "string"
+                            },
+                            "conversationId": {
+                              "description": "Related conversation ID if applicable",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "Related task ID if applicable",
+                              "type": "string"
+                            },
+                            "contactId": {
+                              "description": "Related contact ID if applicable",
+                              "type": "string"
+                            },
+                            "blueprintId": {
+                              "description": "Related blueprint ID if applicable",
+                              "type": "string"
+                            },
+                            "botId": {
+                              "description": "Related bot ID if applicable",
+                              "type": "string"
+                            },
+                            "datasetId": {
+                              "description": "Related dataset ID if applicable",
+                              "type": "string"
+                            },
+                            "recordId": {
+                              "description": "Related record ID if applicable",
+                              "type": "string"
+                            },
+                            "skillsetId": {
+                              "description": "Related skillset ID if applicable",
+                              "type": "string"
+                            },
+                            "abilityId": {
+                              "description": "Related ability ID if applicable",
+                              "type": "string"
+                            },
+                            "fileId": {
+                              "description": "Related file ID if applicable",
+                              "type": "string"
+                            },
+                            "secretId": {
+                              "description": "Related secret ID if applicable",
+                              "type": "string"
+                            },
+                            "portalId": {
+                              "description": "Related portal ID if applicable",
+                              "type": "string"
+                            },
+                            "widgetIntegrationId": {
+                              "description": "Related widget integration ID if applicable",
+                              "type": "string"
+                            },
+                            "slackIntegrationId": {
+                              "description": "Related Slack integration ID if applicable",
+                              "type": "string"
+                            },
+                            "discordIntegrationId": {
+                              "description": "Related Discord integration ID if applicable",
+                              "type": "string"
+                            },
+                            "whatsappIntegrationId": {
+                              "description": "Related WhatsApp integration ID if applicable",
+                              "type": "string"
+                            },
+                            "messengerIntegrationId": {
+                              "description": "Related Messenger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "telegramIntegrationId": {
+                              "description": "Related Telegram integration ID if applicable",
+                              "type": "string"
+                            },
+                            "twilioIntegrationId": {
+                              "description": "Related Twilio integration ID if applicable",
+                              "type": "string"
+                            },
+                            "emailIntegrationId": {
+                              "description": "Related email integration ID if applicable",
+                              "type": "string"
+                            },
+                            "sitemapIntegrationId": {
+                              "description": "Related sitemap integration ID if applicable",
+                              "type": "string"
+                            },
+                            "notionIntegrationId": {
+                              "description": "Related Notion integration ID if applicable",
+                              "type": "string"
+                            },
+                            "triggerIntegrationId": {
+                              "description": "Related trigger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "supportIntegrationId": {
+                              "description": "Related support integration ID if applicable",
+                              "type": "string"
+                            },
+                            "extractIntegrationId": {
+                              "description": "Related extract integration ID if applicable",
+                              "type": "string"
+                            },
+                            "mcpserverIntegrationId": {
+                              "description": "Related MCP server integration ID if applicable",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1event~1log~1export/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "exportEventLogs",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/event/log/list": {
+      "get": {
+        "operationId": "listEventLogs",
+        "summary": "List event logs",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of events was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "description": "The type of event (e.g., 'conversation.create')",
+                            "type": "string"
+                          },
+                          "conversationId": {
+                            "description": "Related conversation ID if applicable",
+                            "type": "string"
+                          },
+                          "taskId": {
+                            "description": "Related task ID if applicable",
+                            "type": "string"
+                          },
+                          "contactId": {
+                            "description": "Related contact ID if applicable",
+                            "type": "string"
+                          },
+                          "blueprintId": {
+                            "description": "Related blueprint ID if applicable",
+                            "type": "string"
+                          },
+                          "botId": {
+                            "description": "Related bot ID if applicable",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "Related dataset ID if applicable",
+                            "type": "string"
+                          },
+                          "recordId": {
+                            "description": "Related record ID if applicable",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "Related skillset ID if applicable",
+                            "type": "string"
+                          },
+                          "abilityId": {
+                            "description": "Related ability ID if applicable",
+                            "type": "string"
+                          },
+                          "fileId": {
+                            "description": "Related file ID if applicable",
+                            "type": "string"
+                          },
+                          "secretId": {
+                            "description": "Related secret ID if applicable",
+                            "type": "string"
+                          },
+                          "portalId": {
+                            "description": "Related portal ID if applicable",
+                            "type": "string"
+                          },
+                          "widgetIntegrationId": {
+                            "description": "Related widget integration ID if applicable",
+                            "type": "string"
+                          },
+                          "slackIntegrationId": {
+                            "description": "Related Slack integration ID if applicable",
+                            "type": "string"
+                          },
+                          "discordIntegrationId": {
+                            "description": "Related Discord integration ID if applicable",
+                            "type": "string"
+                          },
+                          "whatsappIntegrationId": {
+                            "description": "Related WhatsApp integration ID if applicable",
+                            "type": "string"
+                          },
+                          "messengerIntegrationId": {
+                            "description": "Related Messenger integration ID if applicable",
+                            "type": "string"
+                          },
+                          "telegramIntegrationId": {
+                            "description": "Related Telegram integration ID if applicable",
+                            "type": "string"
+                          },
+                          "twilioIntegrationId": {
+                            "description": "Related Twilio integration ID if applicable",
+                            "type": "string"
+                          },
+                          "emailIntegrationId": {
+                            "description": "Related email integration ID if applicable",
+                            "type": "string"
+                          },
+                          "sitemapIntegrationId": {
+                            "description": "Related sitemap integration ID if applicable",
+                            "type": "string"
+                          },
+                          "notionIntegrationId": {
+                            "description": "Related Notion integration ID if applicable",
+                            "type": "string"
+                          },
+                          "triggerIntegrationId": {
+                            "description": "Related trigger integration ID if applicable",
+                            "type": "string"
+                          },
+                          "supportIntegrationId": {
+                            "description": "Related support integration ID if applicable",
+                            "type": "string"
+                          },
+                          "extractIntegrationId": {
+                            "description": "Related extract integration ID if applicable",
+                            "type": "string"
+                          },
+                          "mcpserverIntegrationId": {
+                            "description": "Related MCP server integration ID if applicable",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "type"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "type": {
+                              "description": "The type of event (e.g., 'conversation.create')",
+                              "type": "string"
+                            },
+                            "conversationId": {
+                              "description": "Related conversation ID if applicable",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "Related task ID if applicable",
+                              "type": "string"
+                            },
+                            "contactId": {
+                              "description": "Related contact ID if applicable",
+                              "type": "string"
+                            },
+                            "blueprintId": {
+                              "description": "Related blueprint ID if applicable",
+                              "type": "string"
+                            },
+                            "botId": {
+                              "description": "Related bot ID if applicable",
+                              "type": "string"
+                            },
+                            "datasetId": {
+                              "description": "Related dataset ID if applicable",
+                              "type": "string"
+                            },
+                            "recordId": {
+                              "description": "Related record ID if applicable",
+                              "type": "string"
+                            },
+                            "skillsetId": {
+                              "description": "Related skillset ID if applicable",
+                              "type": "string"
+                            },
+                            "abilityId": {
+                              "description": "Related ability ID if applicable",
+                              "type": "string"
+                            },
+                            "fileId": {
+                              "description": "Related file ID if applicable",
+                              "type": "string"
+                            },
+                            "secretId": {
+                              "description": "Related secret ID if applicable",
+                              "type": "string"
+                            },
+                            "portalId": {
+                              "description": "Related portal ID if applicable",
+                              "type": "string"
+                            },
+                            "widgetIntegrationId": {
+                              "description": "Related widget integration ID if applicable",
+                              "type": "string"
+                            },
+                            "slackIntegrationId": {
+                              "description": "Related Slack integration ID if applicable",
+                              "type": "string"
+                            },
+                            "discordIntegrationId": {
+                              "description": "Related Discord integration ID if applicable",
+                              "type": "string"
+                            },
+                            "whatsappIntegrationId": {
+                              "description": "Related WhatsApp integration ID if applicable",
+                              "type": "string"
+                            },
+                            "messengerIntegrationId": {
+                              "description": "Related Messenger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "telegramIntegrationId": {
+                              "description": "Related Telegram integration ID if applicable",
+                              "type": "string"
+                            },
+                            "twilioIntegrationId": {
+                              "description": "Related Twilio integration ID if applicable",
+                              "type": "string"
+                            },
+                            "emailIntegrationId": {
+                              "description": "Related email integration ID if applicable",
+                              "type": "string"
+                            },
+                            "sitemapIntegrationId": {
+                              "description": "Related sitemap integration ID if applicable",
+                              "type": "string"
+                            },
+                            "notionIntegrationId": {
+                              "description": "Related Notion integration ID if applicable",
+                              "type": "string"
+                            },
+                            "triggerIntegrationId": {
+                              "description": "Related trigger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "supportIntegrationId": {
+                              "description": "Related support integration ID if applicable",
+                              "type": "string"
+                            },
+                            "extractIntegrationId": {
+                              "description": "Related extract integration ID if applicable",
+                              "type": "string"
+                            },
+                            "mcpserverIntegrationId": {
+                              "description": "Related MCP server integration ID if applicable",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1event~1log~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listEventLogs",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/event/log/subscribe": {
+      "post": {
+        "operationId": "subscribeEventLogs",
+        "summary": "Subscribe to live event logs",
+        "description": "Subscribe to receive real-time event logs as they are generated. This\nendpoint returns a streaming response that continuously delivers events\nas they occur in your account. The connection remains open until the\nclient closes it or an error occurs.\n\nThis is useful for:\n- Real-time monitoring dashboards\n- Live debugging and troubleshooting\n- Building reactive integrations\n- Streaming event data to external systems\n\nFor historical event data, use the `/event/log/list` endpoint instead.\n",
+        "tags": [
+          "Event"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "historyLength": {
+                    "description": "Number of recent historical events to replay before\nsubscribing to live updates. When provided, the subscriber\nwill first receive up to this many recent events that were\nlogged before the subscription started. This is useful for\ncatching up on events that may have occurred during\nconnection setup.\n",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully subscribed to event logs",
+            "content": {
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "type": {
+                              "description": "The type of event (e.g., 'conversation.create')",
+                              "type": "string"
+                            },
+                            "conversationId": {
+                              "description": "Related conversation ID if applicable",
+                              "type": "string"
+                            },
+                            "taskId": {
+                              "description": "Related task ID if applicable",
+                              "type": "string"
+                            },
+                            "contactId": {
+                              "description": "Related contact ID if applicable",
+                              "type": "string"
+                            },
+                            "blueprintId": {
+                              "description": "Related blueprint ID if applicable",
+                              "type": "string"
+                            },
+                            "botId": {
+                              "description": "Related bot ID if applicable",
+                              "type": "string"
+                            },
+                            "datasetId": {
+                              "description": "Related dataset ID if applicable",
+                              "type": "string"
+                            },
+                            "recordId": {
+                              "description": "Related record ID if applicable",
+                              "type": "string"
+                            },
+                            "skillsetId": {
+                              "description": "Related skillset ID if applicable",
+                              "type": "string"
+                            },
+                            "abilityId": {
+                              "description": "Related ability ID if applicable",
+                              "type": "string"
+                            },
+                            "fileId": {
+                              "description": "Related file ID if applicable",
+                              "type": "string"
+                            },
+                            "secretId": {
+                              "description": "Related secret ID if applicable",
+                              "type": "string"
+                            },
+                            "portalId": {
+                              "description": "Related portal ID if applicable",
+                              "type": "string"
+                            },
+                            "widgetIntegrationId": {
+                              "description": "Related widget integration ID if applicable",
+                              "type": "string"
+                            },
+                            "slackIntegrationId": {
+                              "description": "Related Slack integration ID if applicable",
+                              "type": "string"
+                            },
+                            "discordIntegrationId": {
+                              "description": "Related Discord integration ID if applicable",
+                              "type": "string"
+                            },
+                            "whatsappIntegrationId": {
+                              "description": "Related WhatsApp integration ID if applicable",
+                              "type": "string"
+                            },
+                            "messengerIntegrationId": {
+                              "description": "Related Messenger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "telegramIntegrationId": {
+                              "description": "Related Telegram integration ID if applicable",
+                              "type": "string"
+                            },
+                            "twilioIntegrationId": {
+                              "description": "Related Twilio integration ID if applicable",
+                              "type": "string"
+                            },
+                            "emailIntegrationId": {
+                              "description": "Related email integration ID if applicable",
+                              "type": "string"
+                            },
+                            "sitemapIntegrationId": {
+                              "description": "Related sitemap integration ID if applicable",
+                              "type": "string"
+                            },
+                            "notionIntegrationId": {
+                              "description": "Related Notion integration ID if applicable",
+                              "type": "string"
+                            },
+                            "triggerIntegrationId": {
+                              "description": "Related trigger integration ID if applicable",
+                              "type": "string"
+                            },
+                            "supportIntegrationId": {
+                              "description": "Related support integration ID if applicable",
+                              "type": "string"
+                            },
+                            "extractIntegrationId": {
+                              "description": "Related extract integration ID if applicable",
+                              "type": "string"
+                            },
+                            "mcpserverIntegrationId": {
+                              "description": "Related MCP server integration ID if applicable",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1event~1log~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "subscribeEventLogs",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/file/{fileId}/delete": {
       "post": {
         "operationId": "deleteFile",
@@ -17925,6 +19091,10 @@
                   "request": {
                     "description": "Optional webhook to receive the extracted data",
                     "type": "string"
+                  },
+                  "model": {
+                    "description": "The language model to use for data extraction",
+                    "type": "string"
                   }
                 }
               }
@@ -18023,6 +19193,10 @@
                   },
                   "request": {
                     "description": "Optional webhook to receive the extracted data",
+                    "type": "string"
+                  },
+                  "model": {
+                    "description": "The language model to use for data extraction",
                     "type": "string"
                   }
                 }
@@ -18302,6 +19476,756 @@
           }
         },
         "__originalOperationId": "listExtractIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteInstagramIntegration",
+        "summary": "Delete Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instagramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Instagram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Instagram integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchInstagramIntegration",
+        "summary": "Fetch an Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instagramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Instagram integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Blueprint properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "botId": {
+                      "type": "string",
+                      "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
+                    },
+                    "verifyToken": {
+                      "description": "The Instagram integration verify token",
+                      "type": "string"
+                    },
+                    "accessToken": {
+                      "description": "The Instagram integration access token (returned as '********' if configured, null otherwise)",
+                      "type": "string"
+                    },
+                    "contactCollection": {
+                      "description": "Whether to collect contacts",
+                      "type": "boolean"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    },
+                    "attachments": {
+                      "description": "Whether the bot supports attachments",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "verifyToken"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupInstagramIntegration",
+        "summary": "Setup an Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instagramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Instagram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was successfully setup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Instagram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "setupInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/{instagramIntegrationId}/update": {
+      "post": {
+        "operationId": "updateInstagramIntegration",
+        "summary": "Update an Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instagramIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Instagram integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "accessToken": {
+                    "description": "The Instagram integration access token",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Whether the bot supports attachments",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Instagram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/create": {
+      "post": {
+        "operationId": "createInstagramIntegration",
+        "summary": "Create Instagram integration",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "accessToken": {
+                    "description": "The Instagram integration access token",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  },
+                  "attachments": {
+                    "description": "Whether the bot supports attachments",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Instagram integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Instagram Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createInstagramIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/instagram/list": {
+      "get": {
+        "operationId": "listInstagramIntegrations",
+        "summary": "List Instagram integrations",
+        "tags": [
+          "Instagram Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Instagram integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Blueprint properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
+                          "verifyToken": {
+                            "description": "The Instagram integration verify token",
+                            "type": "string"
+                          },
+                          "accessToken": {
+                            "description": "The Instagram integration access token (returned as '********' if configured, null otherwise)",
+                            "type": "string"
+                          },
+                          "contactCollection": {
+                            "description": "Whether to collect contacts",
+                            "type": "boolean"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration (in milliseconds)",
+                            "type": "number"
+                          },
+                          "attachments": {
+                            "description": "Whether the bot supports attachments",
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "verifyToken"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Blueprint properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "botId": {
+                              "type": "string",
+                              "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
+                            },
+                            "verifyToken": {
+                              "description": "The Instagram integration verify token",
+                              "type": "string"
+                            },
+                            "accessToken": {
+                              "description": "The Instagram integration access token (returned as '********' if configured, null otherwise)",
+                              "type": "string"
+                            },
+                            "contactCollection": {
+                              "description": "Whether to collect contacts",
+                              "type": "boolean"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            },
+                            "attachments": {
+                              "description": "Whether the bot supports attachments",
+                              "type": "boolean"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1instagram~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt",
+                            "verifyToken"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listInstagramIntegrations",
         "security": [
           {
             "BearerAuth": []
@@ -35448,6 +37372,519 @@
         ]
       }
     },
+    "/skillset/{skillsetId}/ability/{abilityId}/execute": {
+      "post": {
+        "operationId": "executeSkillsetAbility",
+        "summary": "Execute a skillset ability",
+        "description": "Executes a specific ability from a skillset with the provided input.\nThis endpoint processes the ability's instruction template using the\ngiven input and returns the execution result along with usage statistics.\nThe response is streamed as JSON lines (JSONL) to support real-time\nprogress updates during execution.\n",
+        "tags": [
+          "Skillset Ability"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skillsetId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the skillset containing the ability",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "abilityId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the ability to execute",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "input": {
+                    "description": "The input to process with the ability. This can be structured\ntext such as JSON or YAML for precise parameter control, or\nunstructured natural language text. When unstructured text is\nprovided, the system will automatically detect and extract the\nrelevant parameters from the input.\n",
+                    "type": "string"
+                  },
+                  "contactId": {
+                    "description": "The ID of the contact to associate with the execution",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The ability was executed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "usage": {
+                      "type": "object",
+                      "description": "Usage information",
+                      "properties": {
+                        "token": {
+                          "type": "number",
+                          "description": "The tokens used in this exchange"
+                        }
+                      },
+                      "required": [
+                        "token"
+                      ],
+                      "$$ref": "#/components/schemas/Usage"
+                    },
+                    "error": {
+                      "description": "Error message if execution failed",
+                      "type": "string"
+                    },
+                    "result": {
+                      "description": "The result of the ability execution"
+                    },
+                    "messages": {
+                      "description": "Messages generated during execution",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A message in the conversation",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "description": "The type of the message",
+                            "enum": [
+                              "user",
+                              "bot",
+                              "reasoning",
+                              "context",
+                              "instruction",
+                              "backstory",
+                              "activity"
+                            ],
+                            "$$ref": "#/components/schemas/MessageType"
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "The text of the message"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "text"
+                        ],
+                        "$$ref": "#/components/schemas/Message"
+                      }
+                    }
+                  },
+                  "required": [
+                    "usage"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "result"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "usage": {
+                              "type": "object",
+                              "description": "Usage information",
+                              "properties": {
+                                "token": {
+                                  "type": "number",
+                                  "description": "The tokens used in this exchange"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ],
+                              "$$ref": "#/components/schemas/Usage"
+                            },
+                            "error": {
+                              "description": "Error message if execution failed",
+                              "type": "string"
+                            },
+                            "result": {
+                              "description": "The result of the ability execution"
+                            },
+                            "messages": {
+                              "description": "Messages generated during execution",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "description": "A message in the conversation",
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "description": "The type of the message",
+                                    "enum": [
+                                      "user",
+                                      "bot",
+                                      "reasoning",
+                                      "context",
+                                      "instruction",
+                                      "backstory",
+                                      "activity"
+                                    ],
+                                    "$$ref": "#/components/schemas/MessageType"
+                                  },
+                                  "text": {
+                                    "type": "string",
+                                    "description": "The text of the message"
+                                  },
+                                  "meta": {
+                                    "type": "object",
+                                    "description": "Meta data information",
+                                    "additionalProperties": true,
+                                    "$$ref": "#/components/schemas/Meta"
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "text"
+                                ],
+                                "$$ref": "#/components/schemas/Message"
+                              }
+                            }
+                          },
+                          "required": [
+                            "usage"
+                          ],
+                          "$$ref": "#/paths/~1skillset~1{skillsetId}~1ability~1{abilityId}~1execute/post/responses/200/content/application~1json/schema"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    },
+                    {
+                      "description": "An item in the streaming completion response",
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "error"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "message": {
+                                  "description": "The error message",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "message"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "token"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "reasoningToken"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "token": {
+                                  "description": "The token generated",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "token"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "message"
+                              ]
+                            },
+                            "data": {
+                              "type": "object",
+                              "description": "A message in the conversation",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "description": "The type of the message",
+                                  "enum": [
+                                    "user",
+                                    "bot",
+                                    "reasoning",
+                                    "context",
+                                    "instruction",
+                                    "backstory",
+                                    "activity"
+                                  ],
+                                  "$$ref": "#/components/schemas/MessageType"
+                                },
+                                "text": {
+                                  "type": "string",
+                                  "description": "The text of the message"
+                                },
+                                "meta": {
+                                  "type": "object",
+                                  "description": "Meta data information",
+                                  "additionalProperties": true,
+                                  "$$ref": "#/components/schemas/Meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "text"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "completeEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageBegin"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "waitForChannelMessageEnd"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {},
+                              "additionalProperties": true
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "description": "The type of event",
+                              "type": "string",
+                              "enum": [
+                                "usage"
+                              ]
+                            },
+                            "data": {
+                              "description": "The data for the event",
+                              "type": "object",
+                              "properties": {
+                                "model": {
+                                  "description": "The model used",
+                                  "type": "string"
+                                },
+                                "inputTokensUsed": {
+                                  "description": "The number of input tokens used",
+                                  "type": "number"
+                                },
+                                "outputTokensUsed": {
+                                  "description": "The number of output tokens used",
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "model",
+                                "inputTokensUsed",
+                                "outputTokensUsed"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ]
+                        }
+                      ],
+                      "$$ref": "#/components/schemas/CompleteStreamingResponseItem"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "executeSkillsetAbility",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/skillset/{skillsetId}/ability/{abilityId}/fetch": {
       "get": {
         "operationId": "fetchSkillsetAbility",
@@ -38373,6 +40810,34 @@
             "schema": {
               "description": "The number of items to retrieve",
               "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "botId",
+            "schema": {
+              "description": "Filter by associated bot",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "contactId",
+            "schema": {
+              "description": "Filter by associated contact",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "description": "Filter by task status",
+              "type": "string",
+              "enum": [
+                "idle",
+                "running"
+              ]
             }
           },
           {

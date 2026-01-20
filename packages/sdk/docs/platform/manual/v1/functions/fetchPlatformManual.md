@@ -8,7 +8,7 @@
 
 > **fetchPlatformManual**(`client`, `manualId`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [platform/manual/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/manual/v1.js#L72)
+Defined in: [platform/manual/v1.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/manual/v1.js#L72)
 
 ## Parameters
 

@@ -8,6 +8,6 @@
 
 > **BlueprintDeleteRequestBody**\<\> = `operations`\[`"deleteBlueprint"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [blueprint/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L108)
+Defined in: [blueprint/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/v1.js#L108)
 
 ## Type Parameters

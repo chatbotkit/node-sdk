@@ -8,6 +8,6 @@
 
 > `const` **WidgetIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"widgetIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:245](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L245)
+Defined in: [packages/cli/src/solution/index.js:245](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L245)
 
 The schema for a widget integration resource configuration.

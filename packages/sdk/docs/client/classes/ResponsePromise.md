@@ -6,7 +6,7 @@
 
 # Class: ResponsePromise\<T, U\>
 
-Defined in: [client.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L38)
+Defined in: [client.js:38](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L38)
 
 ## Type Parameters
 
@@ -24,7 +24,7 @@ Defined in: [client.js:38](https://github.com/chatbotkit/node-sdk/blob/main/pack
 
 > **new ResponsePromise**\<`T`, `U`\>(`url`, `request`, `cacheMap?`): `ResponsePromise`\<`T`, `U`\>
 
-Defined in: [client.js:53](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L53)
+Defined in: [client.js:53](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L53)
 
 #### Parameters
 
@@ -80,7 +80,7 @@ Defined in: [client.js:53](https://github.com/chatbotkit/node-sdk/blob/main/pack
 
 > **cache**(`key?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T`\>
 
-Defined in: [client.js:245](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L245)
+Defined in: [client.js:245](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L245)
 
 #### Parameters
 
@@ -98,7 +98,7 @@ Defined in: [client.js:245](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **catch**\<`TResult`\>(`fn?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T` \| `TResult`\>
 
-Defined in: [client.js:200](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L200)
+Defined in: [client.js:200](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L200)
 
 #### Type Parameters
 
@@ -122,7 +122,7 @@ Defined in: [client.js:200](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **finally**(`fn?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T`\>
 
-Defined in: [client.js:208](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L208)
+Defined in: [client.js:208](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L208)
 
 #### Parameters
 
@@ -140,7 +140,7 @@ Defined in: [client.js:208](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **getRequest**(`params?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
 
-Defined in: [client.js:81](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L81)
+Defined in: [client.js:81](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L81)
 
 #### Parameters
 
@@ -188,7 +188,7 @@ Defined in: [client.js:81](https://github.com/chatbotkit/node-sdk/blob/main/pack
 
 > **stream**(): [`AsyncGenerator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)\<`U`, `any`, `any`\>
 
-Defined in: [client.js:230](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L230)
+Defined in: [client.js:230](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L230)
 
 #### Returns
 
@@ -200,7 +200,7 @@ Defined in: [client.js:230](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **then**\<`TResult1`, `TResult2`\>(`onSuccess?`, `onFail?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`TResult1` \| `TResult2`\>
 
-Defined in: [client.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L175)
+Defined in: [client.js:175](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L175)
 
 #### Type Parameters
 

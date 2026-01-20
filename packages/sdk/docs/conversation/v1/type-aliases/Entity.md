@@ -8,7 +8,7 @@
 
 > **Entity**\<\> = `object`
 
-Defined in: [conversation/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L32)
+Defined in: [conversation/v1.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/v1.js#L32)
 
 ## Type Parameters
 

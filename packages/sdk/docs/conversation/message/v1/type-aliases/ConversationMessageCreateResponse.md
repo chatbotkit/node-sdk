@@ -8,6 +8,6 @@
 
 > **ConversationMessageCreateResponse**\<\> = [`ConversationMessageCreateResponseBody`](ConversationMessageCreateResponseBody.md)
 
-Defined in: [conversation/message/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L63)
+Defined in: [conversation/message/v1.js:63](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/v1.js#L63)
 
 ## Type Parameters

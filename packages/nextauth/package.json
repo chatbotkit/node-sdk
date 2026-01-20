@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/nextauth",
-  "version": "1.26.2",
+  "version": "1.26.3",
   "description": "ChatBotKit adapter for NextAuth.js to make conversational AI bots with authentication and authorization",
   "license": "ISC",
   "engines": {
@@ -24,13 +24,33 @@
   "type": "module",
   "main": "./src/index.js",
   "exports": {
-    "./adapter": {
-      "types": "./types/adapter.d.ts",
-      "import": "./src/adapter.js"
+    "./contact/adapter": {
+      "types": "./types/contact/adapter.d.ts",
+      "import": "./src/contact/adapter.js"
     },
-    "./adapter.js": {
-      "types": "./types/adapter.d.ts",
-      "import": "./src/adapter.js"
+    "./contact/adapter.js": {
+      "types": "./types/contact/adapter.d.ts",
+      "import": "./src/contact/adapter.js"
+    },
+    "./contact": {
+      "types": "./types/contact/index.d.ts",
+      "import": "./src/contact/index.js"
+    },
+    "./contact/index": {
+      "types": "./types/contact/index.d.ts",
+      "import": "./src/contact/index.js"
+    },
+    "./contact/index.js": {
+      "types": "./types/contact/index.d.ts",
+      "import": "./src/contact/index.js"
+    },
+    "./contact/provider": {
+      "types": "./types/contact/provider.d.ts",
+      "import": "./src/contact/provider.js"
+    },
+    "./contact/provider.js": {
+      "types": "./types/contact/provider.d.ts",
+      "import": "./src/contact/provider.js"
     },
     ".": {
       "types": "./types/index.d.ts",
@@ -44,13 +64,33 @@
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
     },
-    "./provider": {
-      "types": "./types/provider.d.ts",
-      "import": "./src/provider.js"
+    "./partner/adapter": {
+      "types": "./types/partner/adapter.d.ts",
+      "import": "./src/partner/adapter.js"
     },
-    "./provider.js": {
-      "types": "./types/provider.d.ts",
-      "import": "./src/provider.js"
+    "./partner/adapter.js": {
+      "types": "./types/partner/adapter.d.ts",
+      "import": "./src/partner/adapter.js"
+    },
+    "./partner": {
+      "types": "./types/partner/index.d.ts",
+      "import": "./src/partner/index.js"
+    },
+    "./partner/index": {
+      "types": "./types/partner/index.d.ts",
+      "import": "./src/partner/index.js"
+    },
+    "./partner/index.js": {
+      "types": "./types/partner/index.d.ts",
+      "import": "./src/partner/index.js"
+    },
+    "./partner/provider": {
+      "types": "./types/partner/provider.d.ts",
+      "import": "./src/partner/provider.js"
+    },
+    "./partner/provider.js": {
+      "types": "./types/partner/provider.d.ts",
+      "import": "./src/partner/provider.js"
     },
     "./package.json": "./package.json"
   },

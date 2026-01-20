@@ -6,7 +6,7 @@
 
 # Class: ReportClient
 
-Defined in: [report/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L35)
+Defined in: [report/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/report/index.js#L35)
 
 Report client for generating analytics reports.
 
@@ -52,7 +52,7 @@ console.log(`Thumbs up: ${report.thumbsUp}, Thumbs down: ${report.thumbsDown}`)
 
 > **new ReportClient**(`options`): `ReportClient`
 
-Defined in: [report/index.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L39)
+Defined in: [report/index.js:39](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/report/index.js#L39)
 
 #### Parameters
 
@@ -74,7 +74,7 @@ Defined in: [report/index.js:39](https://github.com/chatbotkit/node-sdk/blob/mai
 
 > **extend**(`extensionOptions`): `ReportClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -108,7 +108,7 @@ A new instance of the same client class with extended options
 
 > **generate**(`reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>\>
 
-Defined in: [report/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L50)
+Defined in: [report/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/report/index.js#L50)
 
 Generates a report.
 
@@ -130,7 +130,7 @@ Generates a report.
 
 > **generateTyped**\<`T`\>(`reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`ReportOutputTypes`\[`T`\]\>
 
-Defined in: [report/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/report/index.js#L62)
+Defined in: [report/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/report/index.js#L62)
 
 Generates a typed report with full type safety for input and output.
 

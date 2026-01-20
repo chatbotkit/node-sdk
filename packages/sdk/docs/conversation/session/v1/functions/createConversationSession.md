@@ -8,7 +8,7 @@
 
 > **createConversationSession**(`client`, `conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/session/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/session/v1.js#L19)
+Defined in: [conversation/session/v1.js:19](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/session/v1.js#L19)
 
 ## Parameters
 

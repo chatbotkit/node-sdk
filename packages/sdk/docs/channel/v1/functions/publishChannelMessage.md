@@ -8,7 +8,7 @@
 
 > **publishChannelMessage**(`client`, `channelId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [channel/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/channel/v1.js#L25)
+Defined in: [channel/v1.js:25](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/channel/v1.js#L25)
 
 ## Parameters
 

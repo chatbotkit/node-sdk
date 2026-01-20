@@ -8,6 +8,6 @@
 
 > **ConversationMessageUpdateRequest**\<\> = [`ConversationMessageUpdateRequestBody`](ConversationMessageUpdateRequestBody.md)
 
-Defined in: [conversation/message/v1.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L91)
+Defined in: [conversation/message/v1.js:91](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/v1.js#L91)
 
 ## Type Parameters

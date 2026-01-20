@@ -6,7 +6,7 @@
 
 # Class: ChatBotKit
 
-Defined in: [index.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L59)
+Defined in: [index.js:61](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/index.js#L61)
 
 ChatBotKit SDK - Main client class for interacting with the ChatBotKit API
 
@@ -33,7 +33,7 @@ const client = new ChatBotKit({
 
 > **new ChatBotKit**(`options`): `ChatBotKit`
 
-Defined in: [index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/index.js#L63)
+Defined in: [index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/index.js#L65)
 
 #### Parameters
 
@@ -55,7 +55,7 @@ Defined in: [index.js:63](https://github.com/chatbotkit/node-sdk/blob/main/packa
 
 > **extend**(`extensionOptions`): `ChatBotKit`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 

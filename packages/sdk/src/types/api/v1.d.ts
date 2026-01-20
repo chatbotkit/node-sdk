@@ -1508,6 +1508,72 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/event/log/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export event logs */
+        get: operations["exportEventLogs"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/event/log/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List event logs */
+        get: operations["listEventLogs"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/event/log/subscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Subscribe to live event logs
+         * @description Subscribe to receive real-time event logs as they are generated. This
+         *     endpoint returns a streaming response that continuously delivers events
+         *     as they occur in your account. The connection remains open until the
+         *     client closes it or an error occurs.
+         *
+         *     This is useful for:
+         *     - Real-time monitoring dashboards
+         *     - Live debugging and troubleshooting
+         *     - Building reactive integrations
+         *     - Streaming event data to external systems
+         *
+         *     For historical event data, use the `/event/log/list` endpoint instead.
+         *
+         */
+        post: operations["subscribeEventLogs"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/file/{fileId}/delete": {
         parameters: {
             query?: never;
@@ -1938,6 +2004,108 @@ export interface paths {
         };
         /** List Extract integrations */
         get: operations["listExtractIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/{instagramIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Instagram integration */
+        post: operations["deleteInstagramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/{instagramIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch an Instagram integration */
+        get: operations["fetchInstagramIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/{instagramIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup an Instagram integration */
+        post: operations["setupInstagramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/{instagramIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update an Instagram integration */
+        post: operations["updateInstagramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Instagram integration */
+        post: operations["createInstagramIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/instagram/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Instagram integrations */
+        get: operations["listInstagramIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -4043,6 +4211,31 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/skillset/{skillsetId}/ability/{abilityId}/execute": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Execute a skillset ability
+         * @description Executes a specific ability from a skillset with the provided input.
+         *     This endpoint processes the ability's instruction template using the
+         *     given input and returns the execution result along with usage statistics.
+         *     The response is streamed as JSON lines (JSONL) to support real-time
+         *     progress updates during execution.
+         *
+         */
+        post: operations["executeSkillsetAbility"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/skillset/{skillsetId}/ability/{abilityId}/fetch": {
         parameters: {
             query?: never;
@@ -4785,6 +4978,13 @@ export interface components {
             } | {
                 /** @description The channel for streaming function results */
                 channel: string;
+            };
+            /** @description Configuration for when this function should be automatically called */
+            call?: {
+                /** @description If true, this function will be force-called at the start of the conversation */
+                start?: boolean;
+                /** @description If true, this function will be force-called at the end of the conversation */
+                end?: boolean;
             };
         }[];
         /** @description Extensions to enhance the bot's capabilities */
@@ -7465,6 +7665,13 @@ export interface operations {
                             /** @description The channel for streaming function results */
                             channel: string;
                         };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
+                        };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
@@ -7823,6 +8030,13 @@ export interface operations {
                             /** @description The channel for streaming function results */
                             channel: string;
                         };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
+                        };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
@@ -7872,6 +8086,8 @@ export interface operations {
                             };
                         }[];
                     };
+                    /** @description A unique ID to deduplicate dispatch requests */
+                    channelId?: string;
                 };
             };
         };
@@ -8514,6 +8730,13 @@ export interface operations {
                             /** @description The channel for streaming function results */
                             channel: string;
                         };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
+                        };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
@@ -8781,6 +9004,13 @@ export interface operations {
                         } | {
                             /** @description The channel for streaming function results */
                             channel: string;
+                        };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
                         };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
@@ -9286,6 +9516,13 @@ export interface operations {
                             /** @description The channel for streaming function results */
                             channel: string;
                         };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
+                        };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
@@ -9675,6 +9912,13 @@ export interface operations {
                             /** @description The channel for streaming function results */
                             channel: string;
                         };
+                        /** @description Configuration for when this function should be automatically called */
+                        call?: {
+                            /** @description If true, this function will be force-called at the start of the conversation */
+                            start?: boolean;
+                            /** @description If true, this function will be force-called at the end of the conversation */
+                            end?: boolean;
+                        };
                     }[];
                     /** @description Extensions to enhance the bot's capabilities */
                     extensions?: {
@@ -9724,6 +9968,8 @@ export interface operations {
                             };
                         }[];
                     };
+                    /** @description A unique channel ID to subscribe to for completion events */
+                    channelId?: string;
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -10947,6 +11193,490 @@ export interface operations {
             };
         };
     };
+    exportEventLogs: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of events was exported successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The type of event (e.g., 'conversation.create') */
+                            type: string;
+                            /** @description Related conversation ID if applicable */
+                            conversationId?: string;
+                            /** @description Related task ID if applicable */
+                            taskId?: string;
+                            /** @description Related contact ID if applicable */
+                            contactId?: string;
+                            /** @description Related blueprint ID if applicable */
+                            blueprintId?: string;
+                            /** @description Related bot ID if applicable */
+                            botId?: string;
+                            /** @description Related dataset ID if applicable */
+                            datasetId?: string;
+                            /** @description Related record ID if applicable */
+                            recordId?: string;
+                            /** @description Related skillset ID if applicable */
+                            skillsetId?: string;
+                            /** @description Related ability ID if applicable */
+                            abilityId?: string;
+                            /** @description Related file ID if applicable */
+                            fileId?: string;
+                            /** @description Related secret ID if applicable */
+                            secretId?: string;
+                            /** @description Related portal ID if applicable */
+                            portalId?: string;
+                            /** @description Related widget integration ID if applicable */
+                            widgetIntegrationId?: string;
+                            /** @description Related Slack integration ID if applicable */
+                            slackIntegrationId?: string;
+                            /** @description Related Discord integration ID if applicable */
+                            discordIntegrationId?: string;
+                            /** @description Related WhatsApp integration ID if applicable */
+                            whatsappIntegrationId?: string;
+                            /** @description Related Messenger integration ID if applicable */
+                            messengerIntegrationId?: string;
+                            /** @description Related Telegram integration ID if applicable */
+                            telegramIntegrationId?: string;
+                            /** @description Related Twilio integration ID if applicable */
+                            twilioIntegrationId?: string;
+                            /** @description Related email integration ID if applicable */
+                            emailIntegrationId?: string;
+                            /** @description Related sitemap integration ID if applicable */
+                            sitemapIntegrationId?: string;
+                            /** @description Related Notion integration ID if applicable */
+                            notionIntegrationId?: string;
+                            /** @description Related trigger integration ID if applicable */
+                            triggerIntegrationId?: string;
+                            /** @description Related support integration ID if applicable */
+                            supportIntegrationId?: string;
+                            /** @description Related extract integration ID if applicable */
+                            extractIntegrationId?: string;
+                            /** @description Related MCP server integration ID if applicable */
+                            mcpserverIntegrationId?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The type of event (e.g., 'conversation.create') */
+                            type: string;
+                            /** @description Related conversation ID if applicable */
+                            conversationId?: string;
+                            /** @description Related task ID if applicable */
+                            taskId?: string;
+                            /** @description Related contact ID if applicable */
+                            contactId?: string;
+                            /** @description Related blueprint ID if applicable */
+                            blueprintId?: string;
+                            /** @description Related bot ID if applicable */
+                            botId?: string;
+                            /** @description Related dataset ID if applicable */
+                            datasetId?: string;
+                            /** @description Related record ID if applicable */
+                            recordId?: string;
+                            /** @description Related skillset ID if applicable */
+                            skillsetId?: string;
+                            /** @description Related ability ID if applicable */
+                            abilityId?: string;
+                            /** @description Related file ID if applicable */
+                            fileId?: string;
+                            /** @description Related secret ID if applicable */
+                            secretId?: string;
+                            /** @description Related portal ID if applicable */
+                            portalId?: string;
+                            /** @description Related widget integration ID if applicable */
+                            widgetIntegrationId?: string;
+                            /** @description Related Slack integration ID if applicable */
+                            slackIntegrationId?: string;
+                            /** @description Related Discord integration ID if applicable */
+                            discordIntegrationId?: string;
+                            /** @description Related WhatsApp integration ID if applicable */
+                            whatsappIntegrationId?: string;
+                            /** @description Related Messenger integration ID if applicable */
+                            messengerIntegrationId?: string;
+                            /** @description Related Telegram integration ID if applicable */
+                            telegramIntegrationId?: string;
+                            /** @description Related Twilio integration ID if applicable */
+                            twilioIntegrationId?: string;
+                            /** @description Related email integration ID if applicable */
+                            emailIntegrationId?: string;
+                            /** @description Related sitemap integration ID if applicable */
+                            sitemapIntegrationId?: string;
+                            /** @description Related Notion integration ID if applicable */
+                            notionIntegrationId?: string;
+                            /** @description Related trigger integration ID if applicable */
+                            triggerIntegrationId?: string;
+                            /** @description Related support integration ID if applicable */
+                            supportIntegrationId?: string;
+                            /** @description Related extract integration ID if applicable */
+                            extractIntegrationId?: string;
+                            /** @description Related MCP server integration ID if applicable */
+                            mcpserverIntegrationId?: string;
+                        };
+                    };
+                    "text/csv": string;
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listEventLogs: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of events was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The type of event (e.g., 'conversation.create') */
+                            type: string;
+                            /** @description Related conversation ID if applicable */
+                            conversationId?: string;
+                            /** @description Related task ID if applicable */
+                            taskId?: string;
+                            /** @description Related contact ID if applicable */
+                            contactId?: string;
+                            /** @description Related blueprint ID if applicable */
+                            blueprintId?: string;
+                            /** @description Related bot ID if applicable */
+                            botId?: string;
+                            /** @description Related dataset ID if applicable */
+                            datasetId?: string;
+                            /** @description Related record ID if applicable */
+                            recordId?: string;
+                            /** @description Related skillset ID if applicable */
+                            skillsetId?: string;
+                            /** @description Related ability ID if applicable */
+                            abilityId?: string;
+                            /** @description Related file ID if applicable */
+                            fileId?: string;
+                            /** @description Related secret ID if applicable */
+                            secretId?: string;
+                            /** @description Related portal ID if applicable */
+                            portalId?: string;
+                            /** @description Related widget integration ID if applicable */
+                            widgetIntegrationId?: string;
+                            /** @description Related Slack integration ID if applicable */
+                            slackIntegrationId?: string;
+                            /** @description Related Discord integration ID if applicable */
+                            discordIntegrationId?: string;
+                            /** @description Related WhatsApp integration ID if applicable */
+                            whatsappIntegrationId?: string;
+                            /** @description Related Messenger integration ID if applicable */
+                            messengerIntegrationId?: string;
+                            /** @description Related Telegram integration ID if applicable */
+                            telegramIntegrationId?: string;
+                            /** @description Related Twilio integration ID if applicable */
+                            twilioIntegrationId?: string;
+                            /** @description Related email integration ID if applicable */
+                            emailIntegrationId?: string;
+                            /** @description Related sitemap integration ID if applicable */
+                            sitemapIntegrationId?: string;
+                            /** @description Related Notion integration ID if applicable */
+                            notionIntegrationId?: string;
+                            /** @description Related trigger integration ID if applicable */
+                            triggerIntegrationId?: string;
+                            /** @description Related support integration ID if applicable */
+                            supportIntegrationId?: string;
+                            /** @description Related extract integration ID if applicable */
+                            extractIntegrationId?: string;
+                            /** @description Related MCP server integration ID if applicable */
+                            mcpserverIntegrationId?: string;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The type of event (e.g., 'conversation.create') */
+                            type: string;
+                            /** @description Related conversation ID if applicable */
+                            conversationId?: string;
+                            /** @description Related task ID if applicable */
+                            taskId?: string;
+                            /** @description Related contact ID if applicable */
+                            contactId?: string;
+                            /** @description Related blueprint ID if applicable */
+                            blueprintId?: string;
+                            /** @description Related bot ID if applicable */
+                            botId?: string;
+                            /** @description Related dataset ID if applicable */
+                            datasetId?: string;
+                            /** @description Related record ID if applicable */
+                            recordId?: string;
+                            /** @description Related skillset ID if applicable */
+                            skillsetId?: string;
+                            /** @description Related ability ID if applicable */
+                            abilityId?: string;
+                            /** @description Related file ID if applicable */
+                            fileId?: string;
+                            /** @description Related secret ID if applicable */
+                            secretId?: string;
+                            /** @description Related portal ID if applicable */
+                            portalId?: string;
+                            /** @description Related widget integration ID if applicable */
+                            widgetIntegrationId?: string;
+                            /** @description Related Slack integration ID if applicable */
+                            slackIntegrationId?: string;
+                            /** @description Related Discord integration ID if applicable */
+                            discordIntegrationId?: string;
+                            /** @description Related WhatsApp integration ID if applicable */
+                            whatsappIntegrationId?: string;
+                            /** @description Related Messenger integration ID if applicable */
+                            messengerIntegrationId?: string;
+                            /** @description Related Telegram integration ID if applicable */
+                            telegramIntegrationId?: string;
+                            /** @description Related Twilio integration ID if applicable */
+                            twilioIntegrationId?: string;
+                            /** @description Related email integration ID if applicable */
+                            emailIntegrationId?: string;
+                            /** @description Related sitemap integration ID if applicable */
+                            sitemapIntegrationId?: string;
+                            /** @description Related Notion integration ID if applicable */
+                            notionIntegrationId?: string;
+                            /** @description Related trigger integration ID if applicable */
+                            triggerIntegrationId?: string;
+                            /** @description Related support integration ID if applicable */
+                            supportIntegrationId?: string;
+                            /** @description Related extract integration ID if applicable */
+                            extractIntegrationId?: string;
+                            /** @description Related MCP server integration ID if applicable */
+                            mcpserverIntegrationId?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    subscribeEventLogs: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description Number of recent historical events to replay before
+                     *     subscribing to live updates. When provided, the subscriber
+                     *     will first receive up to this many recent events that were
+                     *     logged before the subscription started. This is useful for
+                     *     catching up on events that may have occurred during
+                     *     connection setup.
+                     *      */
+                    historyLength?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description Successfully subscribed to event logs */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The type of event (e.g., 'conversation.create') */
+                            type: string;
+                            /** @description Related conversation ID if applicable */
+                            conversationId?: string;
+                            /** @description Related task ID if applicable */
+                            taskId?: string;
+                            /** @description Related contact ID if applicable */
+                            contactId?: string;
+                            /** @description Related blueprint ID if applicable */
+                            blueprintId?: string;
+                            /** @description Related bot ID if applicable */
+                            botId?: string;
+                            /** @description Related dataset ID if applicable */
+                            datasetId?: string;
+                            /** @description Related record ID if applicable */
+                            recordId?: string;
+                            /** @description Related skillset ID if applicable */
+                            skillsetId?: string;
+                            /** @description Related ability ID if applicable */
+                            abilityId?: string;
+                            /** @description Related file ID if applicable */
+                            fileId?: string;
+                            /** @description Related secret ID if applicable */
+                            secretId?: string;
+                            /** @description Related portal ID if applicable */
+                            portalId?: string;
+                            /** @description Related widget integration ID if applicable */
+                            widgetIntegrationId?: string;
+                            /** @description Related Slack integration ID if applicable */
+                            slackIntegrationId?: string;
+                            /** @description Related Discord integration ID if applicable */
+                            discordIntegrationId?: string;
+                            /** @description Related WhatsApp integration ID if applicable */
+                            whatsappIntegrationId?: string;
+                            /** @description Related Messenger integration ID if applicable */
+                            messengerIntegrationId?: string;
+                            /** @description Related Telegram integration ID if applicable */
+                            telegramIntegrationId?: string;
+                            /** @description Related Twilio integration ID if applicable */
+                            twilioIntegrationId?: string;
+                            /** @description Related email integration ID if applicable */
+                            emailIntegrationId?: string;
+                            /** @description Related sitemap integration ID if applicable */
+                            sitemapIntegrationId?: string;
+                            /** @description Related Notion integration ID if applicable */
+                            notionIntegrationId?: string;
+                            /** @description Related trigger integration ID if applicable */
+                            triggerIntegrationId?: string;
+                            /** @description Related support integration ID if applicable */
+                            supportIntegrationId?: string;
+                            /** @description Related extract integration ID if applicable */
+                            extractIntegrationId?: string;
+                            /** @description Related MCP server integration ID if applicable */
+                            mcpserverIntegrationId?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     deleteFile: {
         parameters: {
             query?: never;
@@ -12156,6 +12886,8 @@ export interface operations {
                     };
                     /** @description Optional webhook to receive the extracted data */
                     request?: string;
+                    /** @description The language model to use for data extraction */
+                    model?: string;
                 };
             };
         };
@@ -12209,6 +12941,8 @@ export interface operations {
                     };
                     /** @description Optional webhook to receive the extracted data */
                     request?: string;
+                    /** @description The language model to use for data extraction */
+                    model?: string;
                 };
             };
         };
@@ -12316,6 +13050,351 @@ export interface operations {
                             };
                             /** @description Optional webhook to receive the extracted data */
                             request?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                instagramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Instagram integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Instagram integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                instagramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Instagram integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The Instagram integration verify token */
+                        verifyToken: string;
+                        /** @description The Instagram integration access token (returned as '********' if configured, null otherwise) */
+                        accessToken?: string;
+                        /** @description Whether to collect contacts */
+                        contactCollection?: boolean;
+                        /** @description The session duration (in milliseconds) */
+                        sessionDuration?: number;
+                        /** @description Whether the bot supports attachments */
+                        attachments?: boolean;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    setupInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                instagramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Instagram integration was successfully setup */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Instagram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                instagramIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Instagram integration access token */
+                    accessToken?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                    /** @description Whether the bot supports attachments */
+                    attachments?: boolean;
+                };
+            };
+        };
+        responses: {
+            /** @description The Instagram integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Instagram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createInstagramIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Instagram integration access token */
+                    accessToken?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration (in milliseconds) */
+                    sessionDuration?: number;
+                    /** @description Whether the bot supports attachments */
+                    attachments?: boolean;
+                };
+            };
+        };
+        responses: {
+            /** @description The Instagram integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Instagram Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listInstagramIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Instagram integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The Instagram integration verify token */
+                            verifyToken: string;
+                            /** @description The Instagram integration access token (returned as '********' if configured, null otherwise) */
+                            accessToken?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                            /** @description Whether the bot supports attachments */
+                            attachments?: boolean;
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The Instagram integration verify token */
+                            verifyToken: string;
+                            /** @description The Instagram integration access token (returned as '********' if configured, null otherwise) */
+                            accessToken?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration (in milliseconds) */
+                            sessionDuration?: number;
+                            /** @description Whether the bot supports attachments */
+                            attachments?: boolean;
                         };
                     };
                 };
@@ -20033,6 +21112,214 @@ export interface operations {
             };
         };
     };
+    executeSkillsetAbility: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                skillsetId: string;
+                abilityId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The input to process with the ability. This can be structured
+                     *     text such as JSON or YAML for precise parameter control, or
+                     *     unstructured natural language text. When unstructured text is
+                     *     provided, the system will automatically detect and extract the
+                     *     relevant parameters from the input.
+                     *      */
+                    input?: string;
+                    /** @description The ID of the contact to associate with the execution */
+                    contactId?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The ability was executed successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description Usage information */
+                        usage: {
+                            /** @description The tokens used in this exchange */
+                            token: number;
+                        };
+                        /** @description Error message if execution failed */
+                        error?: string;
+                        /** @description The result of the ability execution */
+                        result?: unknown;
+                        /** @description Messages generated during execution */
+                        messages?: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                        }[];
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "result";
+                        data: {
+                            /** @description Usage information */
+                            usage: {
+                                /** @description The tokens used in this exchange */
+                                token: number;
+                            };
+                            /** @description Error message if execution failed */
+                            error?: string;
+                            /** @description The result of the ability execution */
+                            result?: unknown;
+                            /** @description Messages generated during execution */
+                            messages?: {
+                                /**
+                                 * @description The type of the message
+                                 * @enum {string}
+                                 */
+                                type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                                /** @description The text of the message */
+                                text: string;
+                                /** @description Meta data information */
+                                meta?: {
+                                    [key: string]: unknown;
+                                };
+                            }[];
+                        };
+                    } | ({
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "error";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The error message */
+                            message: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "token";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "reasoningToken";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The token generated */
+                            token: string;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "message";
+                        /** @description A message in the conversation */
+                        data: {
+                            /**
+                             * @description The type of the message
+                             * @enum {string}
+                             */
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            /** @description The text of the message */
+                            text: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "completeEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageBegin";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "waitForChannelMessageEnd";
+                        /** @description The data for the event */
+                        data: {
+                            [key: string]: unknown;
+                        };
+                    } | {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "usage";
+                        /** @description The data for the event */
+                        data: {
+                            /** @description The model used */
+                            model: string;
+                            /** @description The number of input tokens used */
+                            inputTokensUsed: number;
+                            /** @description The number of output tokens used */
+                            outputTokensUsed: number;
+                        };
+                    });
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     fetchSkillsetAbility: {
         parameters: {
             query?: never;
@@ -21317,6 +22604,9 @@ export interface operations {
                 cursor?: string;
                 order?: "asc" | "desc";
                 take?: number;
+                botId?: string;
+                contactId?: string;
+                status?: "idle" | "running";
                 meta?: {
                     [key: string]: string;
                 };

@@ -8,7 +8,7 @@
 
 > **searchPlatformExamples**(`client`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [platform/example/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L50)
+Defined in: [platform/example/v1.js:50](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/example/v1.js#L50)
 
 ## Parameters
 

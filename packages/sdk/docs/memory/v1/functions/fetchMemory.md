@@ -8,7 +8,7 @@
 
 > **fetchMemory**(`client`, `memoryId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [memory/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L45)
+Defined in: [memory/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L45)
 
 ## Parameters
 

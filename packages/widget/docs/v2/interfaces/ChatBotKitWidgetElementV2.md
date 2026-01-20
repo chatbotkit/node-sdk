@@ -6,7 +6,7 @@
 
 # Interface: ChatBotKitWidgetElementV2
 
-Defined in: [v2.ts:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L83)
+Defined in: [v2.ts:87](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L87)
 
 The ChatBotKit Widget custom element interface (v2).
 This interface represents the public API of the chatbotkit-widget custom element.
@@ -21,7 +21,7 @@ This interface represents the public API of the chatbotkit-widget custom element
 
 > **contact**: [`Contact`](Contact.md)
 
-Defined in: [v2.ts:94](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L94)
+Defined in: [v2.ts:98](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L98)
 
 The contact information
 
@@ -31,7 +31,7 @@ The contact information
 
 > **functions**: [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, [`FunctionDefinition`](FunctionDefinition.md)\>
 
-Defined in: [v2.ts:92](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L92)
+Defined in: [v2.ts:96](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L96)
 
 The registered engine functions
 
@@ -41,7 +41,7 @@ The registered engine functions
 
 > **messages**: [`Message`](Message.md)[]
 
-Defined in: [v2.ts:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L90)
+Defined in: [v2.ts:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L94)
 
 The current conversation messages
 
@@ -51,7 +51,7 @@ The current conversation messages
 
 > **meta**: [`Meta`](../type-aliases/Meta.md)
 
-Defined in: [v2.ts:96](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L96)
+Defined in: [v2.ts:100](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L100)
 
 The session metadata
 
@@ -61,7 +61,7 @@ The session metadata
 
 > **notifications**: [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, [`NotificationDefinition`](NotificationDefinition.md) \| `null`\>
 
-Defined in: [v2.ts:98](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L98)
+Defined in: [v2.ts:102](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L102)
 
 The current notifications
 
@@ -71,7 +71,7 @@ The current notifications
 
 > **open**: `boolean`
 
-Defined in: [v2.ts:101](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L101)
+Defined in: [v2.ts:105](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L105)
 
 Whether the widget is open
 
@@ -81,7 +81,7 @@ Whether the widget is open
 
 > `readonly` **ready**: `boolean`
 
-Defined in: [v2.ts:85](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L85)
+Defined in: [v2.ts:89](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L89)
 
 Whether the widget is ready for interaction
 
@@ -91,7 +91,7 @@ Whether the widget is ready for interaction
 
 > `readonly` **readyPromise**: [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`boolean`\>
 
-Defined in: [v2.ts:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L87)
+Defined in: [v2.ts:91](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L91)
 
 Promise that resolves when the widget is ready
 
@@ -101,7 +101,7 @@ Promise that resolves when the widget is ready
 
 > **assignContact**(`props`): `void`
 
-Defined in: [v2.ts:129](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L129)
+Defined in: [v2.ts:133](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L133)
 
 Assigns contact information (legacy method)
 
@@ -121,7 +121,7 @@ Assigns contact information (legacy method)
 
 > **hide**(): `void`
 
-Defined in: [v2.ts:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L104)
+Defined in: [v2.ts:108](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L108)
 
 Hides the widget
 
@@ -135,7 +135,7 @@ Hides the widget
 
 > **initiateMessage**(`props`): `void`
 
-Defined in: [v2.ts:111](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L111)
+Defined in: [v2.ts:115](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L115)
 
 Initiates a new message
 
@@ -155,7 +155,7 @@ Initiates a new message
 
 > **maximize**(): `void`
 
-Defined in: [v2.ts:116](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L116)
+Defined in: [v2.ts:120](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L120)
 
 Maximizes the widget
 
@@ -169,7 +169,7 @@ Maximizes the widget
 
 > **minimize**(): `void`
 
-Defined in: [v2.ts:118](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L118)
+Defined in: [v2.ts:122](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L122)
 
 Minimizes the widget
 
@@ -183,7 +183,7 @@ Minimizes the widget
 
 > **registerFunctions**(`functions`): `void`
 
-Defined in: [v2.ts:124](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L124)
+Defined in: [v2.ts:128](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L128)
 
 Registers additional functions
 
@@ -203,7 +203,7 @@ Registers additional functions
 
 > **render**(`props`): `void`
 
-Defined in: [v2.ts:121](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L121)
+Defined in: [v2.ts:125](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L125)
 
 Renders custom content
 
@@ -223,7 +223,7 @@ Renders custom content
 
 > **restartConversation**(): `void`
 
-Defined in: [v2.ts:109](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L109)
+Defined in: [v2.ts:113](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L113)
 
 Restarts the conversation
 
@@ -237,7 +237,7 @@ Restarts the conversation
 
 > **sendMessage**(`props`): `void`
 
-Defined in: [v2.ts:113](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L113)
+Defined in: [v2.ts:117](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L117)
 
 Sends a message
 
@@ -257,7 +257,7 @@ Sends a message
 
 > **show**(): `void`
 
-Defined in: [v2.ts:106](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L106)
+Defined in: [v2.ts:110](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L110)
 
 Shows the widget
 
@@ -271,7 +271,7 @@ Shows the widget
 
 > **unregisterFunctions**(`functions`): `void`
 
-Defined in: [v2.ts:126](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L126)
+Defined in: [v2.ts:130](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L130)
 
 Unregisters functions by name
 

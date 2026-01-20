@@ -6,7 +6,7 @@
 
 # Class: DatasetRecordClient
 
-Defined in: [dataset/record/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L20)
+Defined in: [dataset/record/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/index.js#L20)
 
 Dataset record client.
 
@@ -20,7 +20,7 @@ Dataset record client.
 
 > **new DatasetRecordClient**(`options`): `DatasetRecordClient`
 
-Defined in: [dataset/record/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L24)
+Defined in: [dataset/record/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/index.js#L24)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [dataset/record/index.js:24](https://github.com/chatbotkit/node-sdk/
 
 > **create**(`datasetId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/record/index.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L57)
+Defined in: [dataset/record/index.js:57](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/index.js#L57)
 
 Creates a new record.
 
@@ -64,7 +64,7 @@ Creates a new record.
 
 > **delete**(`datasetId`, `recordId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/record/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L80)
+Defined in: [dataset/record/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/index.js#L80)
 
 Deletes the record.
 
@@ -88,7 +88,7 @@ Deletes the record.
 
 > **export**(`datasetId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [dataset/record/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L91)
+Defined in: [dataset/record/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/index.js#L91)
 
 Exports records.
 
@@ -112,7 +112,7 @@ Exports records.
 
 > **extend**(`extensionOptions`): `DatasetRecordClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -146,7 +146,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`datasetId`, `recordId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [dataset/record/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L46)
+Defined in: [dataset/record/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/index.js#L46)
 
 Fetches a record.
 
@@ -170,7 +170,7 @@ Fetches a record.
 
 > **list**(`datasetId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [dataset/record/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L35)
+Defined in: [dataset/record/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/index.js#L35)
 
 Retrieves a list of all records.
 
@@ -194,7 +194,7 @@ Retrieves a list of all records.
 
 > **update**(`datasetId`, `recordId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/record/index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/index.js#L69)
+Defined in: [dataset/record/index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/index.js#L69)
 
 Updates a record.
 

@@ -8,6 +8,6 @@
 
 > **SlackIntegrationDeleteRequest**\<\> = [`SlackIntegrationDeleteRequestBody`](SlackIntegrationDeleteRequestBody.md)
 
-Defined in: [integration/slack/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/v1.js#L110)
+Defined in: [integration/slack/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/slack/v1.js#L110)
 
 ## Type Parameters

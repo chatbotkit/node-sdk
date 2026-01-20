@@ -11,7 +11,29 @@
 
 # ChatBotKit NextAuth SDK
 
-The [ChatBotKit](https://chatbotkit.com) SDK for NextAuth.js enables passwordless email authentication that integrates directly with the ChatBotKit Partner API. This allows you to authenticate users into their ChatBotKit sub-accounts without building separate user management infrastructure.
+The [ChatBotKit](https://chatbotkit.com) SDK for NextAuth.js enables passwordless email authentication that integrates directly with ChatBotKit. This allows you to authenticate users without building separate user management infrastructure.
+
+## Two Authentication Approaches
+
+This SDK provides two adapters for different use cases:
+
+### 1. Partner Adapter (Sub-Accounts)
+
+Use `ChatBotKitPartnerAdapter` when you want each user to have their own isolated ChatBotKit sub-account:
+
+- **Separate environments**: Each user gets their own bots, datasets, and resources
+- **Complete isolation**: Users cannot see or access each other's data
+- **Partner API integration**: Requires a Partner API secret
+- **Best for**: SaaS applications, white-label solutions, multi-tenant platforms
+
+### 2. Contact Adapter (Single Account)
+
+Use `ChatBotKitContactAdapter` when you want all users to be contacts within a single ChatBotKit account:
+
+- **Shared resources**: All contacts can interact with the same bots and datasets
+- **Individual tracking**: Each contact has their own conversation history and preferences
+- **Standard API integration**: Works with a regular API secret
+- **Best for**: Chat applications, customer support systems, community platforms
 
 ## Why Use This?
 
@@ -25,111 +47,175 @@ Instead of spending weeks building and maintaining authentication infrastructure
 - **Eliminate infrastructure costs**: No user database, no email verification system, no password reset flows
 - **Focus on your product**: Spend time building features that make your application unique
 
-## What It Does
-
-This SDK eliminates the need for a separate authentication system by:
-
-- **Authenticating users directly into ChatBotKit sub-accounts** via the Partner API
-- **Managing user identities** automatically through ChatBotKit
-- **Providing passwordless authentication** with secure 6-character verification codes
-- **Simplifying your architecture** by removing the need for password management and user databases
-
-Perfect for applications that primarily provide a UI for ChatBotKit functionality—let ChatBotKit handle the auth complexity while you focus on delivering value to your users.
-
 ## Getting Started
 
-To begin using the ChatBotKit NextAuth SDK, follow these steps:
+### Installation
 
-1. **Installation**: Add the SDK to your project using npm:
+Add the SDK to your project using npm:
 
-   ```bash
-   npm install @chatbotkit/nextauth next-auth
-   ```
+```bash
+npm install @chatbotkit/nextauth next-auth
+```
 
-2. **Configuration**: Create a `nextauth.config.js` file in your project root directory:
+### Partner Adapter Configuration
 
-   ```javascript
-   import {
-     ChatBotKitEmailProvider,
-     ChatBotKitPartnerAdapter,
-     MemoryStore,
-   } from '@chatbotkit/nextauth'
+Use this approach when each user needs their own isolated ChatBotKit environment:
 
-   const nextAuthConfig = {
-     adapter: ChatBotKitPartnerAdapter({
-       secret: process.env.CHATBOTKIT_API_SECRET,
+```javascript
+import {
+  ChatBotKitEmailProvider,
+  ChatBotKitPartnerAdapter,
+  MemoryStore,
+} from '@chatbotkit/nextauth/partner'
 
-       // Use Redis or another persistent store in production
+const nextAuthConfig = {
+  adapter: ChatBotKitPartnerAdapter({
+    secret: process.env.CHATBOTKIT_API_SECRET,
 
-       store: new MemoryStore(),
+    // Use Redis or another persistent store in production
+    store: new MemoryStore(),
 
-       // Control user lifecycle
+    // Control user lifecycle
+    autoCreateUser: false,
+    autoUpdateUser: true,
+    autoDeleteUser: false,
+  }),
 
-       autoCreateUser: false,
-       autoUpdateUser: true,
-       autoDeleteUser: false,
-     }),
+  providers: [
+    ChatBotKitEmailProvider({
+      async sendVerificationRequest({ identifier, token }) {
+        await sendEmail({
+          to: identifier,
+          subject: 'Sign in to your account',
+          text: `Your verification code is: ${token}`,
+        })
+      },
+    }),
+  ],
 
-     providers: [
-       ChatBotKitEmailProvider({
-         async sendVerificationRequest({ identifier, token }) {
-           // Implement your email sending logic here
-           await sendEmail({
-             to: identifier,
-             subject: 'Sign in to your account',
-             text: `Your verification code is: ${token}`,
-           })
-         },
-       }),
-     ],
+  session: {
+    strategy: 'jwt',
+  },
 
-     session: {
-       strategy: 'jwt',
-     },
+  callbacks: {
+    async session({ session, token }) {
+      session.user = token.user
+      return session
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.user = user
+      }
+      return token
+    },
+  },
 
-     callbacks: {
-       async session({ session, token }) {
-         session.user = token.user
+  pages: {
+    signIn: '/signin',
+    signOut: '/signin',
+    verifyRequest: '/verify',
+  },
 
-         return session
-       },
+  debug: !!process.env.DEBUG,
+}
 
-       async jwt({ token, user }) {
-         if (user) {
-           token.user = user
-         }
+export default nextAuthConfig
+```
 
-         return token
-       },
-     },
+### Contact Adapter Configuration
 
-     pages: {
-       signIn: '/signin',
-       signOut: '/signin',
-       verifyRequest: '/verify',
-     },
+Use this approach when users are contacts within a single ChatBotKit account:
 
-     debug: !!process.env.DEBUG,
-   }
+```javascript
+import {
+  ChatBotKitContactAdapter,
+  ChatBotKitContactEmailProvider,
+  ContactMemoryStore,
+} from '@chatbotkit/nextauth/contact'
 
-   export default nextAuthConfig
-   ```
+const nextAuthConfig = {
+  adapter: ChatBotKitContactAdapter({
+    secret: process.env.CHATBOTKIT_API_SECRET,
 
-3. **Create NextAuth API Route**: Create `pages/api/auth/[...nextauth].js`:
+    // Use Redis or another persistent store in production
+    store: new ContactMemoryStore(),
 
-   ```javascript
-   import NextAuth from 'next-auth'
+    // Control contact lifecycle
+    autoCreateContact: true,
+    autoUpdateContact: true,
+    autoDeleteContact: false,
+  }),
 
-   import nextAuthConfig from '../../../nextauth.config.js'
+  providers: [
+    ChatBotKitContactEmailProvider({
+      async sendVerificationRequest({ identifier, token }) {
+        await sendEmail({
+          to: identifier,
+          subject: 'Sign in to your account',
+          text: `Your verification code is: ${token}`,
+        })
+      },
+    }),
+  ],
 
-   export default NextAuth(nextAuthConfig)
-   ```
+  session: {
+    strategy: 'jwt',
+  },
 
-4. **Environment Variables**: Add your ChatBotKit Partner API secret to `.env`:
+  callbacks: {
+    async session({ session, token }) {
+      session.user = token.user
+      return session
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.user = user
+      }
+      return token
+    },
+  },
 
-   ```bash
-   CHATBOTKIT_API_SECRET=your_partner_api_secret_here
-   ```
+  pages: {
+    signIn: '/signin',
+    signOut: '/signin',
+    verifyRequest: '/verify',
+  },
+
+  debug: !!process.env.DEBUG,
+}
+
+export default nextAuthConfig
+```
+
+### Create NextAuth API Route
+
+Create `pages/api/auth/[...nextauth].js`:
+
+```javascript
+import NextAuth from 'next-auth'
+
+import nextAuthConfig from '../../../nextauth.config.js'
+
+export default NextAuth(nextAuthConfig)
+```
+
+### Environment Variables
+
+Add your ChatBotKit API secret to `.env`:
+
+```bash
+CHATBOTKIT_API_SECRET=your_api_secret_here
+```
+
+## Choosing Between Partner and Contact Adapters
+
+| Feature          | Partner Adapter                    | Contact Adapter                               |
+| ---------------- | ---------------------------------- | --------------------------------------------- |
+| User isolation   | Complete (separate sub-accounts)   | Partial (shared account, individual contacts) |
+| Resource sharing | None (each user has own resources) | Full (all contacts share bots/datasets)       |
+| API type         | Partner API                        | Standard API                                  |
+| User identity    | Separate ChatBotKit accounts       | Contacts within single account                |
+| Best for         | SaaS, white-label, multi-tenant    | Chat apps, support systems, communities       |
 
 ## Complete Example
 

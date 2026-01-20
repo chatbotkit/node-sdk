@@ -56,6 +56,15 @@ export class SkillsetAbilityClient extends ChatBotKitClient {
      * @returns {Promise<import('./v1.js').SkillsetAbilityDeleteResponse>}
      */
     delete(skillsetId: string, abilityId: string): Promise<import("./v1.js").SkillsetAbilityDeleteResponse>;
+    /**
+     * Executes an ability.
+     *
+     * @param {string} skillsetId
+     * @param {string} abilityId
+     * @param {import('./v1.js').SkillsetAbilityExecuteRequest} request
+     * @returns {Promise<import('./v1.js').SkillsetAbilityExecuteResponse>}
+     */
+    execute(skillsetId: string, abilityId: string, request: import("./v1.js").SkillsetAbilityExecuteRequest): Promise<import("./v1.js").SkillsetAbilityExecuteResponse>;
 }
 export default SkillsetAbilityClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

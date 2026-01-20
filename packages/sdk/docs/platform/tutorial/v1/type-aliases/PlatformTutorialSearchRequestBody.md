@@ -8,6 +8,6 @@
 
 > **PlatformTutorialSearchRequestBody**\<\> = `operations`\[`"searchPlatformTutorials"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [platform/tutorial/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/tutorial/v1.js#L39)
+Defined in: [platform/tutorial/v1.js:39](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/tutorial/v1.js#L39)
 
 ## Type Parameters

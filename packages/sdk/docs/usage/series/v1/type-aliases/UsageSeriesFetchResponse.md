@@ -8,6 +8,6 @@
 
 > **UsageSeriesFetchResponse**\<\> = `operations`\[`"fetchUsageSeries"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [usage/series/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/usage/series/v1.js#L12)
+Defined in: [usage/series/v1.js:12](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/usage/series/v1.js#L12)
 
 ## Type Parameters

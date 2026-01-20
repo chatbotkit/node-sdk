@@ -8,7 +8,7 @@
 
 > **withRetry**(`fetch`, `defaultOptions?`): [`FetchFn`](../type-aliases/FetchFn.md)\<[`withRetryOptions`](../type-aliases/withRetryOptions.md)\>
 
-Defined in: [packages/fetch/src/index.js:340](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L340)
+Defined in: [packages/fetch/src/index.js:340](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/fetch/src/index.js#L340)
 
 ## Parameters
 

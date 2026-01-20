@@ -8,6 +8,6 @@
 
 > **PlatformExampleCloneRequestBody**\<\> = `operations`\[`"clonePlatformExample"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [platform/example/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L83)
+Defined in: [platform/example/v1.js:83](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/example/v1.js#L83)
 
 ## Type Parameters

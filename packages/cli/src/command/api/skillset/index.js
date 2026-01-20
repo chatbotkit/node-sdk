@@ -1,5 +1,6 @@
 import { getRUNAS_USERID, getSECRET } from '../../../env.js'
 import { print } from '../../../output.js'
+import ability from './ability/index.js'
 
 import { SkillsetClient } from '@chatbotkit/sdk/skillset/index.js'
 
@@ -68,6 +69,7 @@ const commands = {
   list: skillsetList,
   fetch: skillsetFetch,
   delete: skillsetDelete,
+  ability,
 }
 
 export const command = new Command()

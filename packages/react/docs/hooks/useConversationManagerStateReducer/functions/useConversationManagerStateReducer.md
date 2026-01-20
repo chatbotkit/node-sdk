@@ -8,7 +8,7 @@
 
 > **useConversationManagerStateReducer**(`state?`): \[[`State`](../../useConversationManagerState/type-aliases/State.md), `Dispatch`\<[`Action`](../type-aliases/Action.md)\>\]
 
-Defined in: [hooks/useConversationManagerStateReducer.js:213](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L213)
+Defined in: [hooks/useConversationManagerStateReducer.js:213](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManagerStateReducer.js#L213)
 
 This is a hook that creates a conversation manager reducer and initializes
 the state of the conversation manager to the given state or to the default

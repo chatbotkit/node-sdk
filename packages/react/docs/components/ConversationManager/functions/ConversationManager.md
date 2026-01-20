@@ -8,7 +8,7 @@
 
 > **ConversationManager**(`props`): `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\>
 
-Defined in: [components/ConversationManager.js:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ConversationManager.js#L35)
+Defined in: [components/ConversationManager.js:35](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/components/ConversationManager.js#L35)
 
 Creates a conversation manager instance and context.
 

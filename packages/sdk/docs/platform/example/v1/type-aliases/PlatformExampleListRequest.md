@@ -8,7 +8,7 @@
 
 > **PlatformExampleListRequest**\<\> = `object`
 
-Defined in: [platform/example/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/example/v1.js#L16)
+Defined in: [platform/example/v1.js:16](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/example/v1.js#L16)
 
 ## Type Parameters
 

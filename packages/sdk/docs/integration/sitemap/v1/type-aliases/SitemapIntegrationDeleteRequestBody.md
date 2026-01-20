@@ -8,6 +8,6 @@
 
 > **SitemapIntegrationDeleteRequestBody**\<\> = `operations`\[`"deleteSitemapIntegration"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [integration/sitemap/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L108)
+Defined in: [integration/sitemap/v1.js:108](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/sitemap/v1.js#L108)
 
 ## Type Parameters

@@ -8,6 +8,6 @@
 
 > **ConversationSessionCreateRequestBody**\<\> = `operations`\[`"createConversationSession"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [conversation/session/v1.js:6](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/session/v1.js#L6)
+Defined in: [conversation/session/v1.js:6](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/session/v1.js#L6)
 
 ## Type Parameters

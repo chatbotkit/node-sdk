@@ -8,6 +8,6 @@
 
 > **DatasetFileAttachRequest**\<\> = [`DatasetFileAttachRequestBody`](DatasetFileAttachRequestBody.md)
 
-Defined in: [dataset/file/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L40)
+Defined in: [dataset/file/v1.js:40](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/v1.js#L40)
 
 ## Type Parameters

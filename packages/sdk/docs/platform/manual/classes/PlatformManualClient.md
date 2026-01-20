@@ -6,7 +6,7 @@
 
 # Class: PlatformManualClient
 
-Defined in: [platform/manual/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/manual/index.js#L17)
+Defined in: [platform/manual/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/manual/index.js#L17)
 
 Platform manual client.
 
@@ -20,7 +20,7 @@ Platform manual client.
 
 > **new PlatformManualClient**(`options`): `PlatformManualClient`
 
-Defined in: [platform/manual/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/manual/index.js#L21)
+Defined in: [platform/manual/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/manual/index.js#L21)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/manual/index.js:21](https://github.com/chatbotkit/node-sdk
 
 > **extend**(`extensionOptions`): `PlatformManualClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`manualId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [platform/manual/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/manual/index.js#L51)
+Defined in: [platform/manual/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/manual/index.js#L51)
 
 Fetches a platform manual.
 
@@ -96,7 +96,7 @@ Fetches a platform manual.
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [platform/manual/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/manual/index.js#L31)
+Defined in: [platform/manual/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/manual/index.js#L31)
 
 Retrieves a list of all platform manuals.
 
@@ -116,7 +116,7 @@ Retrieves a list of all platform manuals.
 
 > **search**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [platform/manual/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/manual/index.js#L41)
+Defined in: [platform/manual/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/manual/index.js#L41)
 
 Searches platform manuals.
 

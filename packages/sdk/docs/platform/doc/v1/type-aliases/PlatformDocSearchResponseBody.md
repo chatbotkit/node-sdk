@@ -8,6 +8,6 @@
 
 > **PlatformDocSearchResponseBody**\<\> = `operations`\[`"searchPlatformDocs"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [platform/doc/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/platform/doc/v1.js#L43)
+Defined in: [platform/doc/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/doc/v1.js#L43)
 
 ## Type Parameters

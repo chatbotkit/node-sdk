@@ -8,6 +8,6 @@
 
 > **MemoryDeleteRequest**\<\> = [`MemoryDeleteRequestBody`](MemoryDeleteRequestBody.md)
 
-Defined in: [memory/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L112)
+Defined in: [memory/v1.js:112](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L112)
 
 ## Type Parameters

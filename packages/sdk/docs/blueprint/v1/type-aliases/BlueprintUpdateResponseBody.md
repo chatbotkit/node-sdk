@@ -8,6 +8,6 @@
 
 > **BlueprintUpdateResponseBody**\<\> = `operations`\[`"updateBlueprint"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [blueprint/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/blueprint/v1.js#L84)
+Defined in: [blueprint/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/v1.js#L84)
 
 ## Type Parameters

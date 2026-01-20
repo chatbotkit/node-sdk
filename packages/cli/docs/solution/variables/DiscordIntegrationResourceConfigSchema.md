@@ -8,6 +8,6 @@
 
 > `const` **DiscordIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"discordIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:340](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L340)
+Defined in: [packages/cli/src/solution/index.js:340](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L340)
 
 The schema for a discord integration resource configuration.

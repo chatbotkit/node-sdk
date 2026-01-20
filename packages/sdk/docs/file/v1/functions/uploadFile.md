@@ -8,7 +8,7 @@
 
 > **uploadFile**(`client`, `fileId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [file/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L154)
+Defined in: [file/v1.js:154](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/v1.js#L154)
 
 ## Parameters
 

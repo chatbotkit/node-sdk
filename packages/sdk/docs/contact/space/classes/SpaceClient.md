@@ -6,7 +6,7 @@
 
 # Class: SpaceClient
 
-Defined in: [contact/space/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/space/index.js#L13)
+Defined in: [contact/space/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/space/index.js#L13)
 
 Contact space client.
 
@@ -20,7 +20,7 @@ Contact space client.
 
 > **new SpaceClient**(`options`): `SpaceClient`
 
-Defined in: [contact/space/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/space/index.js#L17)
+Defined in: [contact/space/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/space/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [contact/space/index.js:17](https://github.com/chatbotkit/node-sdk/b
 
 > **extend**(`extensionOptions`): `SpaceClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **list**(`contactId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [contact/space/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/space/index.js#L28)
+Defined in: [contact/space/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/space/index.js#L28)
 
 Retrieves a list of all contact spaces.
 

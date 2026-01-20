@@ -6,7 +6,7 @@
 
 # Class: ChatBotKitClient
 
-Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L294)
+Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L294)
 
 ## Extended by
 
@@ -26,12 +26,15 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/pac
 - [`DatasetFileClient`](../../dataset/file/classes/DatasetFileClient.md)
 - [`DatasetClient`](../../dataset/classes/DatasetClient.md)
 - [`DatasetRecordClient`](../../dataset/record/classes/DatasetRecordClient.md)
+- [`EventClient`](../../event/classes/EventClient.md)
+- [`EventLogClient`](../../event/log/classes/EventLogClient.md)
 - [`FileClient`](../../file/classes/FileClient.md)
 - [`GraphqlClient`](../../graphql/classes/GraphqlClient.md)
 - [`ChatBotKit`](../../index/classes/ChatBotKit.md)
 - [`DiscordIntegrationClient`](../../integration/discord/classes/DiscordIntegrationClient.md)
 - [`EmailIntegrationClient`](../../integration/email/classes/EmailIntegrationClient.md)
 - [`ExtractIntegrationClient`](../../integration/extract/classes/ExtractIntegrationClient.md)
+- [`InstagramIntegrationClient`](../../integration/instagram/classes/InstagramIntegrationClient.md)
 - [`McpServerIntegrationClient`](../../integration/mcpserver/classes/McpServerIntegrationClient.md)
 - [`MessengerIntegrationClient`](../../integration/messenger/classes/MessengerIntegrationClient.md)
 - [`NotionIntegrationClient`](../../integration/notion/classes/NotionIntegrationClient.md)
@@ -76,7 +79,7 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **new ChatBotKitClient**(`options`): `ChatBotKitClient`
 
-Defined in: [client.js:337](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L337)
+Defined in: [client.js:337](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L337)
 
 #### Parameters
 
@@ -94,7 +97,7 @@ Defined in: [client.js:337](https://github.com/chatbotkit/node-sdk/blob/main/pac
 
 > **extend**(`extensionOptions`): `ChatBotKitClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 

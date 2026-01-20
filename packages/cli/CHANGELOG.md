@@ -1,5 +1,14 @@
 # @chatbotkit/cli
 
+## 1.26.3
+
+### Patch Changes
+
+- 9b9f290: Fixed packages.
+- Updated dependencies [9b9f290]
+  - @chatbotkit/agent@1.26.3
+  - @chatbotkit/sdk@1.26.3
+
 ## 1.26.2
 
 ### Patch Changes

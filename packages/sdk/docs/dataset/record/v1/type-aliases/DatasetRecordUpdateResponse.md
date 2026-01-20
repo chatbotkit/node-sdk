@@ -8,6 +8,6 @@
 
 > **DatasetRecordUpdateResponse**\<\> = [`DatasetRecordUpdateResponseBody`](DatasetRecordUpdateResponseBody.md)
 
-Defined in: [dataset/record/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L89)
+Defined in: [dataset/record/v1.js:89](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L89)
 
 ## Type Parameters

@@ -8,7 +8,7 @@
 
 > **ResponsePromise**\<`T`, `U`\> = [`ResponsePromise`](../../../client/classes/ResponsePromise.md)
 
-Defined in: [integration/slack/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/slack/index.js#L14)
+Defined in: [integration/slack/index.js:14](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/slack/index.js#L14)
 
 ## Type Parameters
 

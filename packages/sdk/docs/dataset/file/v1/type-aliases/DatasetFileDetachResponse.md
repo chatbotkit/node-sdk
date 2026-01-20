@@ -8,6 +8,6 @@
 
 > **DatasetFileDetachResponse**\<\> = [`DatasetFileDetachResponseBody`](DatasetFileDetachResponseBody.md)
 
-Defined in: [dataset/file/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/file/v1.js#L73)
+Defined in: [dataset/file/v1.js:73](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/v1.js#L73)
 
 ## Type Parameters

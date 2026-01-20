@@ -8,7 +8,7 @@
 
 > **listSkillsetAbilities**(`client`, `skillsetId`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [skillset/ability/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L28)
+Defined in: [skillset/ability/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L28)
 
 ## Parameters
 

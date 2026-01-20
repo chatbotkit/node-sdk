@@ -8,7 +8,7 @@
 
 > **SimpleMessage**\<\> = `Message` & `object`
 
-Defined in: [hooks/useConversationManager.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L14)
+Defined in: [hooks/useConversationManager.js:14](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManager.js#L14)
 
 ## Type Declaration
 

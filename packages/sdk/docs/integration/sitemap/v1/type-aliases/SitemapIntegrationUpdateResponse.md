@@ -8,6 +8,6 @@
 
 > **SitemapIntegrationUpdateResponse**\<\> = [`SitemapIntegrationUpdateResponseBody`](SitemapIntegrationUpdateResponseBody.md)
 
-Defined in: [integration/sitemap/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L86)
+Defined in: [integration/sitemap/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/sitemap/v1.js#L86)
 
 ## Type Parameters

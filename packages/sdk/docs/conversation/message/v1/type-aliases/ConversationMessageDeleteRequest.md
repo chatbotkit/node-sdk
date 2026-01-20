@@ -8,6 +8,6 @@
 
 > **ConversationMessageDeleteRequest**\<\> = [`ConversationMessageDeleteRequestBody`](ConversationMessageDeleteRequestBody.md)
 
-Defined in: [conversation/message/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/message/v1.js#L125)
+Defined in: [conversation/message/v1.js:125](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/v1.js#L125)
 
 ## Type Parameters

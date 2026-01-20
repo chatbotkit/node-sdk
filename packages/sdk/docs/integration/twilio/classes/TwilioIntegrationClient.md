@@ -6,7 +6,7 @@
 
 # Class: TwilioIntegrationClient
 
-Defined in: [integration/twilio/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/index.js#L17)
+Defined in: [integration/twilio/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/twilio/index.js#L17)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/twilio/index.js:17](https://github.com/chatbotkit/node-
 
 > **new TwilioIntegrationClient**(`options`): `TwilioIntegrationClient`
 
-Defined in: [integration/twilio/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/index.js#L21)
+Defined in: [integration/twilio/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/twilio/index.js#L21)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/twilio/index.js:21](https://github.com/chatbotkit/node-
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/twilio/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/index.js#L51)
+Defined in: [integration/twilio/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/twilio/index.js#L51)
 
 Creates a new twilio integration.
 
@@ -62,7 +62,7 @@ Creates a new twilio integration.
 
 > **delete**(`twilioId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/twilio/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/index.js#L72)
+Defined in: [integration/twilio/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/twilio/index.js#L72)
 
 Deletes a twilio integration.
 
@@ -82,7 +82,7 @@ Deletes a twilio integration.
 
 > **extend**(`extensionOptions`): `TwilioIntegrationClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`twilioId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/twilio/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/index.js#L41)
+Defined in: [integration/twilio/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/twilio/index.js#L41)
 
 Fetches a twilio integration.
 
@@ -136,7 +136,7 @@ Fetches a twilio integration.
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/twilio/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/index.js#L31)
+Defined in: [integration/twilio/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/twilio/index.js#L31)
 
 Retrieves a list of all twilio integrations.
 
@@ -156,7 +156,7 @@ Retrieves a list of all twilio integrations.
 
 > **setup**(`twilioId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/twilio/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/index.js#L82)
+Defined in: [integration/twilio/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/twilio/index.js#L82)
 
 Sets up a twilio integration.
 
@@ -176,7 +176,7 @@ Sets up a twilio integration.
 
 > **update**(`twilioId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/twilio/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/twilio/index.js#L62)
+Defined in: [integration/twilio/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/twilio/index.js#L62)
 
 Updates a twilio integration.
 

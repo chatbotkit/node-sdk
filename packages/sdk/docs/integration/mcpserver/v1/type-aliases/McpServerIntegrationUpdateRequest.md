@@ -8,6 +8,6 @@
 
 > **McpServerIntegrationUpdateRequest**\<\> = [`McpServerIntegrationUpdateRequestBody`](McpServerIntegrationUpdateRequestBody.md)
 
-Defined in: [integration/mcpserver/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/mcpserver/v1.js#L82)
+Defined in: [integration/mcpserver/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/mcpserver/v1.js#L82)
 
 ## Type Parameters

@@ -8,6 +8,6 @@
 
 > **WhatsAppIntegrationUpdateResponse**\<\> = [`WhatsAppIntegrationUpdateResponseBody`](WhatsAppIntegrationUpdateResponseBody.md)
 
-Defined in: [integration/whatsapp/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/whatsapp/v1.js#L86)
+Defined in: [integration/whatsapp/v1.js:86](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/whatsapp/v1.js#L86)
 
 ## Type Parameters

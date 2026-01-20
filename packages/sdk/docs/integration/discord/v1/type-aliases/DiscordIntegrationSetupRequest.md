@@ -8,6 +8,6 @@
 
 > **DiscordIntegrationSetupRequest**\<\> = [`DiscordIntegrationSetupRequestBody`](DiscordIntegrationSetupRequestBody.md)
 
-Defined in: [integration/discord/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/discord/v1.js#L135)
+Defined in: [integration/discord/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/discord/v1.js#L135)
 
 ## Type Parameters

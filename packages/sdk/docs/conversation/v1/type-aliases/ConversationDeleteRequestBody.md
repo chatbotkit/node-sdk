@@ -8,6 +8,6 @@
 
 > **ConversationDeleteRequestBody**\<\> = `operations`\[`"deleteConversation"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [conversation/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L144)
+Defined in: [conversation/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/v1.js#L144)
 
 ## Type Parameters

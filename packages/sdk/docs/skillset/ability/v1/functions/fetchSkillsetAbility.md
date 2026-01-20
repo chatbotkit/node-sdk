@@ -8,7 +8,7 @@
 
 > **fetchSkillsetAbility**(`client`, `skillsetId`, `abilityId`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [skillset/ability/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/skillset/ability/v1.js#L71)
+Defined in: [skillset/ability/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L71)
 
 ## Parameters
 

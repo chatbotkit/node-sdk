@@ -8,6 +8,6 @@
 
 > **TaskUpdateResponseBody**\<\> = `operations`\[`"updateTask"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [task/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L84)
+Defined in: [task/v1.js:84](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/task/v1.js#L84)
 
 ## Type Parameters

@@ -8,7 +8,7 @@
 
 > **useWidgetInstance**(`selector?`, `deps?`): `ChatBotKitWidgetElementV2`
 
-Defined in: [hooks/useWidgetInstance.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstance.js#L17)
+Defined in: [hooks/useWidgetInstance.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useWidgetInstance.js#L17)
 
 ## Parameters
 

@@ -8,6 +8,6 @@
 
 > **WidgetIntegrationSetupResponse**\<\> = [`WidgetIntegrationSetupResponseBody`](WidgetIntegrationSetupResponseBody.md)
 
-Defined in: [integration/widget/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L139)
+Defined in: [integration/widget/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/widget/v1.js#L139)
 
 ## Type Parameters

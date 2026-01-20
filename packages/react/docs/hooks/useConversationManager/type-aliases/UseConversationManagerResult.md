@@ -8,7 +8,7 @@
 
 > **UseConversationManagerResult**\<\> = `object`
 
-Defined in: [hooks/useConversationManager.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L44)
+Defined in: [hooks/useConversationManager.js:44](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManager.js#L44)
 
 ## Type Parameters
 

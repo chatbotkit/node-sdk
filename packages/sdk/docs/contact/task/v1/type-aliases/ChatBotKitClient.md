@@ -8,6 +8,6 @@
 
 > **ChatBotKitClient**\<\> = [`ChatBotKitClient`](../../../../client/classes/ChatBotKitClient.md)
 
-Defined in: [contact/task/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/task/v1.js#L2)
+Defined in: [contact/task/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/task/v1.js#L2)
 
 ## Type Parameters

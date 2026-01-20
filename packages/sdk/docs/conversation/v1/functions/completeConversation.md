@@ -8,7 +8,7 @@
 
 > **completeConversation**(`client`, `request`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \}\>
 
-Defined in: [conversation/v1.js:192](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/conversation/v1.js#L192)
+Defined in: [conversation/v1.js:192](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/v1.js#L192)
 
 ## Parameters
 

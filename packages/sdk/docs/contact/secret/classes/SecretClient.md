@@ -6,7 +6,7 @@
 
 # Class: SecretClient
 
-Defined in: [contact/secret/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L18)
+Defined in: [contact/secret/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L18)
 
 Contact secret client.
 
@@ -20,7 +20,7 @@ Contact secret client.
 
 > **new SecretClient**(`options`): `SecretClient`
 
-Defined in: [contact/secret/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L22)
+Defined in: [contact/secret/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L22)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [contact/secret/index.js:22](https://github.com/chatbotkit/node-sdk/
 
 > **authenticate**(`contactId`, `secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/secret/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L66)
+Defined in: [contact/secret/index.js:66](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L66)
 
 Authenticates the contact secret.
 
@@ -66,7 +66,7 @@ Authenticates the contact secret.
 
 > **extend**(`extensionOptions`): `SecretClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -100,7 +100,7 @@ A new instance of the same client class with extended options
 
 > **list**(`contactId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [contact/secret/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L33)
+Defined in: [contact/secret/index.js:33](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L33)
 
 Retrieves a list of all contact secrets.
 
@@ -124,7 +124,7 @@ Retrieves a list of all contact secrets.
 
 > **revoke**(`contactId`, `secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/secret/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L44)
+Defined in: [contact/secret/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L44)
 
 Revokes the contact secret.
 
@@ -148,7 +148,7 @@ Revokes the contact secret.
 
 > **verify**(`contactId`, `secretId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [contact/secret/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/contact/secret/index.js#L55)
+Defined in: [contact/secret/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/index.js#L55)
 
 Verifies the contact secret.
 

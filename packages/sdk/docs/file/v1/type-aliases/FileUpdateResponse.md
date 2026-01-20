@@ -8,6 +8,6 @@
 
 > **FileUpdateResponse**\<\> = [`FileUpdateResponseBody`](FileUpdateResponseBody.md)
 
-Defined in: [file/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/file/v1.js#L90)
+Defined in: [file/v1.js:90](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/v1.js#L90)
 
 ## Type Parameters

@@ -8,7 +8,7 @@
 
 > **fetchPartnerUser**(`client`, `userId`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [partner/user/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L44)
+Defined in: [partner/user/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/v1.js#L44)
 
 ## Parameters
 

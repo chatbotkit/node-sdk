@@ -1,2 +1,2 @@
-export * from "./adapter.js";
-export * from "./provider.js";
+export * from "./partner/index.js";
+export * from "./contact/index.js";

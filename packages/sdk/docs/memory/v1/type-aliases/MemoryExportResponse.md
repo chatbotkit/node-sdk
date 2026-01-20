@@ -8,6 +8,6 @@
 
 > **MemoryExportResponse**\<\> = `operations`\[`"exportMemories"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [memory/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L144)
+Defined in: [memory/v1.js:144](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L144)
 
 ## Type Parameters

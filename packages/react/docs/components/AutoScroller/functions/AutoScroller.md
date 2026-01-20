@@ -8,7 +8,7 @@
 
 > **AutoScroller**(`props?`): `Element`
 
-Defined in: [components/AutoScroller.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoScroller.js#L19)
+Defined in: [components/AutoScroller.js:19](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/components/AutoScroller.js#L19)
 
 ## Parameters
 

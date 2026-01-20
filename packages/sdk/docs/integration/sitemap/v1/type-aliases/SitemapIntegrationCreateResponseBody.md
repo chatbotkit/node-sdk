@@ -8,6 +8,6 @@
 
 > **SitemapIntegrationCreateResponseBody**\<\> = `operations`\[`"createSitemapIntegration"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [integration/sitemap/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/sitemap/v1.js#L57)
+Defined in: [integration/sitemap/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/sitemap/v1.js#L57)
 
 ## Type Parameters

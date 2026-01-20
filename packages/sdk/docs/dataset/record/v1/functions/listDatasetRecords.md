@@ -8,7 +8,7 @@
 
 > **listDatasetRecords**(`client`, `datasetId`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [dataset/record/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/dataset/record/v1.js#L28)
+Defined in: [dataset/record/v1.js:28](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L28)
 
 ## Parameters
 

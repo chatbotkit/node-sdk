@@ -8,7 +8,7 @@
 
 > **listMemories**(`client`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [memory/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/memory/v1.js#L29)
+Defined in: [memory/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L29)
 
 ## Parameters
 

@@ -41,3 +41,53 @@ export async function prompt(question) {
     })
   })
 }
+
+/**
+ * @typedef {Object} SelectOption
+ * @property {string} value - The value to return when selected
+ * @property {string} label - The label to display to the user
+ */
+
+/**
+ * Ask the user to select from a list of options
+ *
+ * @param {string} question
+ * @param {SelectOption[]} options
+ * @returns {Promise<string>}
+ */
+export async function select(question, options) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  })
+
+  try {
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      // eslint-disable-next-line no-console
+      console.log(question)
+
+      options.forEach((option, index) => {
+        // eslint-disable-next-line no-console
+        console.log(`  ${index + 1}) ${option.label}`)
+      })
+
+      const answer = await new Promise((resolve) => {
+        rl.question('Enter your choice (number): ', (input) => {
+          resolve(input)
+        })
+      })
+
+      const index = parseInt(/** @type {string} */ (answer), 10) - 1
+
+      if (index >= 0 && index < options.length) {
+        return options[index].value
+      }
+
+      // eslint-disable-next-line no-console
+      console.log('Invalid choice. Please try again.\n')
+    }
+  } finally {
+    rl.close()
+  }
+}

@@ -8,6 +8,6 @@
 
 > **WidgetIntegrationDeleteRequest**\<\> = [`WidgetIntegrationDeleteRequestBody`](WidgetIntegrationDeleteRequestBody.md)
 
-Defined in: [integration/widget/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/integration/widget/v1.js#L110)
+Defined in: [integration/widget/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/widget/v1.js#L110)
 
 ## Type Parameters

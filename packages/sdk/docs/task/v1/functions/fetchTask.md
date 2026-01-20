@@ -8,7 +8,7 @@
 
 > **fetchTask**(`client`, `taskId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [task/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/task/v1.js#L43)
+Defined in: [task/v1.js:43](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/task/v1.js#L43)
 
 ## Parameters
 

@@ -22,6 +22,7 @@
     "preinstall": "npx only-allow pnpm",
     "prepare-changes": "changeset",
     "publish-changes": "turbo run lint check build test && changeset version && changeset publish",
+    "release": "turbo run lint check build test && changeset publish",
     "test": "turbo run test"
   },
   "packageManager": "pnpm@10.16.1",

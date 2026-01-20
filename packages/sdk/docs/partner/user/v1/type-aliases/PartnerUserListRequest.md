@@ -8,7 +8,7 @@
 
 > **PartnerUserListRequest**\<\> = `object`
 
-Defined in: [partner/user/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/sdk/src/partner/user/v1.js#L18)
+Defined in: [partner/user/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/v1.js#L18)
 
 ## Type Parameters
 

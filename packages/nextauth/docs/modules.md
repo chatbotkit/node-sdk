@@ -6,5 +6,7 @@
 
 ## Modules
 
-- [adapter](adapter/README.md)
-- [provider](provider/README.md)
+- [contact/adapter](contact/adapter/README.md)
+- [contact/provider](contact/provider/README.md)
+- [partner/adapter](partner/adapter/README.md)
+- [partner/provider](partner/provider/README.md)

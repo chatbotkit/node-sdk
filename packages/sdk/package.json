@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/sdk",
-  "version": "1.26.2",
+  "version": "1.26.3",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
@@ -364,6 +364,38 @@
       "types": "./types/dataset/v1.d.ts",
       "import": "./src/dataset/v1.js"
     },
+    "./event": {
+      "types": "./types/event/index.d.ts",
+      "import": "./src/event/index.js"
+    },
+    "./event/index": {
+      "types": "./types/event/index.d.ts",
+      "import": "./src/event/index.js"
+    },
+    "./event/index.js": {
+      "types": "./types/event/index.d.ts",
+      "import": "./src/event/index.js"
+    },
+    "./event/log": {
+      "types": "./types/event/log/index.d.ts",
+      "import": "./src/event/log/index.js"
+    },
+    "./event/log/index": {
+      "types": "./types/event/log/index.d.ts",
+      "import": "./src/event/log/index.js"
+    },
+    "./event/log/index.js": {
+      "types": "./types/event/log/index.d.ts",
+      "import": "./src/event/log/index.js"
+    },
+    "./event/log/v1": {
+      "types": "./types/event/log/v1.d.ts",
+      "import": "./src/event/log/v1.js"
+    },
+    "./event/log/v1.js": {
+      "types": "./types/event/log/v1.d.ts",
+      "import": "./src/event/log/v1.js"
+    },
     "./file": {
       "types": "./types/file/index.d.ts",
       "import": "./src/file/index.js"
@@ -487,6 +519,26 @@
     "./integration/index.js": {
       "types": "./types/integration/index.d.ts",
       "import": "./src/integration/index.js"
+    },
+    "./integration/instagram": {
+      "types": "./types/integration/instagram/index.d.ts",
+      "import": "./src/integration/instagram/index.js"
+    },
+    "./integration/instagram/index": {
+      "types": "./types/integration/instagram/index.d.ts",
+      "import": "./src/integration/instagram/index.js"
+    },
+    "./integration/instagram/index.js": {
+      "types": "./types/integration/instagram/index.d.ts",
+      "import": "./src/integration/instagram/index.js"
+    },
+    "./integration/instagram/v1": {
+      "types": "./types/integration/instagram/v1.d.ts",
+      "import": "./src/integration/instagram/v1.js"
+    },
+    "./integration/instagram/v1.js": {
+      "types": "./types/integration/instagram/v1.d.ts",
+      "import": "./src/integration/instagram/v1.js"
     },
     "./integration/mcpserver": {
       "types": "./types/integration/mcpserver/index.d.ts",
