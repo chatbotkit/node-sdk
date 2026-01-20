@@ -8,6 +8,6 @@
 
 > **DatasetRecordExportStreamType**\<\> = `operations`\[`"exportDatasetRecords"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/jsonl"`\]
 
-Defined in: [dataset/record/v1.js:152](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L152)
+Defined in: [dataset/record/v1.js:152](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L152)
 
 ## Type Parameters

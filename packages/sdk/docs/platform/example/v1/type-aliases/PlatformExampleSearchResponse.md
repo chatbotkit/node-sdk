@@ -8,6 +8,6 @@
 
 > **PlatformExampleSearchResponse**\<\> = [`PlatformExampleSearchResponseBody`](PlatformExampleSearchResponseBody.md)
 
-Defined in: [platform/example/v1.js:44](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/example/v1.js#L44)
+Defined in: [platform/example/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/example/v1.js#L44)
 
 ## Type Parameters

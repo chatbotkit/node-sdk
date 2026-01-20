@@ -8,7 +8,7 @@
 
 > **TelegramIntegrationListRequest**\<\> = `object`
 
-Defined in: [integration/telegram/v1.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/telegram/v1.js#L17)
+Defined in: [integration/telegram/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/telegram/v1.js#L17)
 
 ## Type Parameters
 

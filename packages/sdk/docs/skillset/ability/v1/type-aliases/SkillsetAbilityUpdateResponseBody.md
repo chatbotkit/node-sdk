@@ -8,6 +8,6 @@
 
 > **SkillsetAbilityUpdateResponseBody**\<\> = `operations`\[`"updateSkillsetAbility"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [skillset/ability/v1.js:113](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L113)
+Defined in: [skillset/ability/v1.js:113](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L113)
 
 ## Type Parameters

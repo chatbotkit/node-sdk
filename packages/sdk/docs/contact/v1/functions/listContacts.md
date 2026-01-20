@@ -8,7 +8,7 @@
 
 > **listContacts**(`client`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [contact/v1.js:27](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/v1.js#L27)
+Defined in: [contact/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/v1.js#L27)
 
 ## Parameters
 

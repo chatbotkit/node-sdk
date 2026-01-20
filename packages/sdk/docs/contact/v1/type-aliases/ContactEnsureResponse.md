@@ -8,6 +8,6 @@
 
 > **ContactEnsureResponse**\<\> = [`ContactEnsureResponseBody`](ContactEnsureResponseBody.md)
 
-Defined in: [contact/v1.js:139](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/v1.js#L139)
+Defined in: [contact/v1.js:139](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/v1.js#L139)
 
 ## Type Parameters

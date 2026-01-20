@@ -8,6 +8,6 @@
 
 > **SkillsetAbilityDeleteRequest**\<\> = [`SkillsetAbilityDeleteRequestBody`](SkillsetAbilityDeleteRequestBody.md)
 
-Defined in: [skillset/ability/v1.js:145](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L145)
+Defined in: [skillset/ability/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L145)
 
 ## Type Parameters

@@ -8,7 +8,7 @@
 
 > **UseConversationManagerOptions**\<\> = [`UseConversationManagerRemoteOptions`](UseConversationManagerRemoteOptions.md) & `object`
 
-Defined in: [hooks/useConversationManager.js:30](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L30)
+Defined in: [hooks/useConversationManager.js:30](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManager.js#L30)
 
 ## Type Declaration
 

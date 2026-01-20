@@ -8,7 +8,7 @@
 
 > **Options**\<\> = [`Omit`](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)\<`ConversationCompleteRequest`, `"messages"` \| `"functions"`\> & `object`
 
-Defined in: [actions/complete.js:87](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L87)
+Defined in: [actions/complete.js:87](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/actions/complete.js#L87)
 
 ## Type Declaration
 

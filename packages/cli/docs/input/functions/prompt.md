@@ -8,7 +8,7 @@
 
 > **prompt**(`question`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`string`\>
 
-Defined in: [sdks/node/packages/cli/src/input.js:30](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/input.js#L30)
+Defined in: [packages/cli/src/input.js:30](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/input.js#L30)
 
 Ask for user input
 

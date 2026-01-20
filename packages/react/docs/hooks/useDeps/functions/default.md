@@ -8,7 +8,7 @@
 
 > **default**(`deps?`): `number`
 
-Defined in: [hooks/useDeps.js:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useDeps.js#L7)
+Defined in: [hooks/useDeps.js:7](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useDeps.js#L7)
 
 ## Parameters
 

@@ -8,6 +8,6 @@
 
 > **StreamSource**\<\> = `any`
 
-Defined in: [utils/stream.js:26](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L26)
+Defined in: [utils/stream.js:26](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/utils/stream.js#L26)
 
 ## Type Parameters

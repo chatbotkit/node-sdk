@@ -8,6 +8,6 @@
 
 > **ReportGenerateRequest**\<\> = [`ReportGenerateRequestBody`](ReportGenerateRequestBody.md)
 
-Defined in: [report/v1.js:8](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/report/v1.js#L8)
+Defined in: [report/v1.js:8](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/report/v1.js#L8)
 
 ## Type Parameters

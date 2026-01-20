@@ -8,7 +8,7 @@
 
 > **createDatasetRecord**(`client`, `datasetId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/record/v1.js:68](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L68)
+Defined in: [dataset/record/v1.js:68](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L68)
 
 ## Parameters
 

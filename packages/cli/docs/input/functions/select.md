@@ -8,7 +8,7 @@
 
 > **select**(`question`, `options`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`string`\>
 
-Defined in: [sdks/node/packages/cli/src/input.js:58](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/input.js#L58)
+Defined in: [packages/cli/src/input.js:58](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/input.js#L58)
 
 Ask the user to select from a list of options
 

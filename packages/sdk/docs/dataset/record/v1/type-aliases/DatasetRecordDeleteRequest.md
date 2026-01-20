@@ -8,6 +8,6 @@
 
 > **DatasetRecordDeleteRequest**\<\> = [`DatasetRecordDeleteRequestBody`](DatasetRecordDeleteRequestBody.md)
 
-Defined in: [dataset/record/v1.js:119](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L119)
+Defined in: [dataset/record/v1.js:119](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L119)
 
 ## Type Parameters

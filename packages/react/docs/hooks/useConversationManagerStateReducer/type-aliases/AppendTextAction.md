@@ -8,7 +8,7 @@
 
 > **AppendTextAction**\<\> = `object`
 
-Defined in: [hooks/useConversationManagerStateReducer.js:38](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L38)
+Defined in: [hooks/useConversationManagerStateReducer.js:38](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManagerStateReducer.js#L38)
 
 ## Type Parameters
 

@@ -8,6 +8,6 @@
 
 > **BotUpvoteResponse**\<\> = [`BotUpvoteResponseBody`](BotUpvoteResponseBody.md)
 
-Defined in: [bot/v1.js:149](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/v1.js#L149)
+Defined in: [bot/v1.js:149](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/bot/v1.js#L149)
 
 ## Type Parameters

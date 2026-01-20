@@ -8,6 +8,6 @@
 
 > **BlueprintUpdateRequest**\<\> = [`BlueprintUpdateRequestBody`](BlueprintUpdateRequestBody.md)
 
-Defined in: [blueprint/v1.js:82](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/v1.js#L82)
+Defined in: [blueprint/v1.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/v1.js#L82)
 
 ## Type Parameters

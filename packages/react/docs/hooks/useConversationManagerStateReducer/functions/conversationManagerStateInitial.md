@@ -8,7 +8,7 @@
 
 > **conversationManagerStateInitial**(`state?`): [`State`](../../useConversationManagerState/type-aliases/State.md)
 
-Defined in: [hooks/useConversationManagerStateReducer.js:194](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L194)
+Defined in: [hooks/useConversationManagerStateReducer.js:194](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManagerStateReducer.js#L194)
 
 This function initializes the state of the conversation manager. It sets the
 initial state of the conversation manager to the given state or to the

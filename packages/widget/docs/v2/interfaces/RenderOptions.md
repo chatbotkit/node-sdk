@@ -6,7 +6,7 @@
 
 # Interface: RenderOptions
 
-Defined in: [v2.ts:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L74)
+Defined in: [v2.ts:78](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L78)
 
 Options for rendering custom content.
 
