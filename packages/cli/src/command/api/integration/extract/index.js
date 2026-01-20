@@ -56,18 +56,6 @@ export const extractDelete = new Command()
     await client.delete(extractId)
   })
 
-export const extractSync = new Command()
-  .name('sync')
-  .description('Sync extract integration')
-  .argument('<extractId>', 'Extract ID')
-  .action(async (extractId) => {
-    const client = getClient()
-
-    const result = await client.sync(extractId)
-
-    print(result)
-  })
-
 /**
  * Commands registry - MUST include ALL ExtractIntegrationClient methods
  *
@@ -80,7 +68,6 @@ const commands = {
   list: extractList,
   fetch: extractFetch,
   delete: extractDelete,
-  sync: extractSync,
 }
 
 export const command = new Command()

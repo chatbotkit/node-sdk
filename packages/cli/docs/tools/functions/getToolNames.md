@@ -8,7 +8,7 @@
 
 > **getToolNames**(): `string`[]
 
-Defined in: [packages/cli/src/tools.js:28](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/tools.js#L28)
+Defined in: [sdks/node/packages/cli/src/tools.js:28](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/tools.js#L28)
 
 Get available tool names
 
