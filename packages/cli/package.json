@@ -45,6 +45,42 @@
       "types": "./types/command/agent/index.d.ts",
       "import": "./src/command/agent/index.js"
     },
+    "./command/api/blueprint": {
+      "types": "./types/command/api/blueprint/index.d.ts",
+      "import": "./src/command/api/blueprint/index.js"
+    },
+    "./command/api/blueprint/index": {
+      "types": "./types/command/api/blueprint/index.d.ts",
+      "import": "./src/command/api/blueprint/index.js"
+    },
+    "./command/api/blueprint/index.js": {
+      "types": "./types/command/api/blueprint/index.d.ts",
+      "import": "./src/command/api/blueprint/index.js"
+    },
+    "./command/api/bot": {
+      "types": "./types/command/api/bot/index.d.ts",
+      "import": "./src/command/api/bot/index.js"
+    },
+    "./command/api/bot/index": {
+      "types": "./types/command/api/bot/index.d.ts",
+      "import": "./src/command/api/bot/index.js"
+    },
+    "./command/api/bot/index.js": {
+      "types": "./types/command/api/bot/index.d.ts",
+      "import": "./src/command/api/bot/index.js"
+    },
+    "./command/api/contact": {
+      "types": "./types/command/api/contact/index.d.ts",
+      "import": "./src/command/api/contact/index.js"
+    },
+    "./command/api/contact/index": {
+      "types": "./types/command/api/contact/index.d.ts",
+      "import": "./src/command/api/contact/index.js"
+    },
+    "./command/api/contact/index.js": {
+      "types": "./types/command/api/contact/index.d.ts",
+      "import": "./src/command/api/contact/index.js"
+    },
     "./command/api/conversation": {
       "types": "./types/command/api/conversation/index.d.ts",
       "import": "./src/command/api/conversation/index.js"
@@ -69,6 +105,18 @@
       "types": "./types/command/api/conversation/message/index.d.ts",
       "import": "./src/command/api/conversation/message/index.js"
     },
+    "./command/api/dataset/file": {
+      "types": "./types/command/api/dataset/file/index.d.ts",
+      "import": "./src/command/api/dataset/file/index.js"
+    },
+    "./command/api/dataset/file/index": {
+      "types": "./types/command/api/dataset/file/index.d.ts",
+      "import": "./src/command/api/dataset/file/index.js"
+    },
+    "./command/api/dataset/file/index.js": {
+      "types": "./types/command/api/dataset/file/index.d.ts",
+      "import": "./src/command/api/dataset/file/index.js"
+    },
     "./command/api/dataset": {
       "types": "./types/command/api/dataset/index.d.ts",
       "import": "./src/command/api/dataset/index.js"
@@ -81,6 +129,30 @@
       "types": "./types/command/api/dataset/index.d.ts",
       "import": "./src/command/api/dataset/index.js"
     },
+    "./command/api/dataset/record": {
+      "types": "./types/command/api/dataset/record/index.d.ts",
+      "import": "./src/command/api/dataset/record/index.js"
+    },
+    "./command/api/dataset/record/index": {
+      "types": "./types/command/api/dataset/record/index.d.ts",
+      "import": "./src/command/api/dataset/record/index.js"
+    },
+    "./command/api/dataset/record/index.js": {
+      "types": "./types/command/api/dataset/record/index.d.ts",
+      "import": "./src/command/api/dataset/record/index.js"
+    },
+    "./command/api/file": {
+      "types": "./types/command/api/file/index.d.ts",
+      "import": "./src/command/api/file/index.js"
+    },
+    "./command/api/file/index": {
+      "types": "./types/command/api/file/index.d.ts",
+      "import": "./src/command/api/file/index.js"
+    },
+    "./command/api/file/index.js": {
+      "types": "./types/command/api/file/index.d.ts",
+      "import": "./src/command/api/file/index.js"
+    },
     "./command/api": {
       "types": "./types/command/api/index.d.ts",
       "import": "./src/command/api/index.js"
@@ -92,6 +164,210 @@
     "./command/api/index.js": {
       "types": "./types/command/api/index.d.ts",
       "import": "./src/command/api/index.js"
+    },
+    "./command/api/integration/discord": {
+      "types": "./types/command/api/integration/discord/index.d.ts",
+      "import": "./src/command/api/integration/discord/index.js"
+    },
+    "./command/api/integration/discord/index": {
+      "types": "./types/command/api/integration/discord/index.d.ts",
+      "import": "./src/command/api/integration/discord/index.js"
+    },
+    "./command/api/integration/discord/index.js": {
+      "types": "./types/command/api/integration/discord/index.d.ts",
+      "import": "./src/command/api/integration/discord/index.js"
+    },
+    "./command/api/integration/email": {
+      "types": "./types/command/api/integration/email/index.d.ts",
+      "import": "./src/command/api/integration/email/index.js"
+    },
+    "./command/api/integration/email/index": {
+      "types": "./types/command/api/integration/email/index.d.ts",
+      "import": "./src/command/api/integration/email/index.js"
+    },
+    "./command/api/integration/email/index.js": {
+      "types": "./types/command/api/integration/email/index.d.ts",
+      "import": "./src/command/api/integration/email/index.js"
+    },
+    "./command/api/integration/extract": {
+      "types": "./types/command/api/integration/extract/index.d.ts",
+      "import": "./src/command/api/integration/extract/index.js"
+    },
+    "./command/api/integration/extract/index": {
+      "types": "./types/command/api/integration/extract/index.d.ts",
+      "import": "./src/command/api/integration/extract/index.js"
+    },
+    "./command/api/integration/extract/index.js": {
+      "types": "./types/command/api/integration/extract/index.d.ts",
+      "import": "./src/command/api/integration/extract/index.js"
+    },
+    "./command/api/integration": {
+      "types": "./types/command/api/integration/index.d.ts",
+      "import": "./src/command/api/integration/index.js"
+    },
+    "./command/api/integration/index": {
+      "types": "./types/command/api/integration/index.d.ts",
+      "import": "./src/command/api/integration/index.js"
+    },
+    "./command/api/integration/index.js": {
+      "types": "./types/command/api/integration/index.d.ts",
+      "import": "./src/command/api/integration/index.js"
+    },
+    "./command/api/integration/instagram": {
+      "types": "./types/command/api/integration/instagram/index.d.ts",
+      "import": "./src/command/api/integration/instagram/index.js"
+    },
+    "./command/api/integration/instagram/index": {
+      "types": "./types/command/api/integration/instagram/index.d.ts",
+      "import": "./src/command/api/integration/instagram/index.js"
+    },
+    "./command/api/integration/instagram/index.js": {
+      "types": "./types/command/api/integration/instagram/index.d.ts",
+      "import": "./src/command/api/integration/instagram/index.js"
+    },
+    "./command/api/integration/mcpserver": {
+      "types": "./types/command/api/integration/mcpserver/index.d.ts",
+      "import": "./src/command/api/integration/mcpserver/index.js"
+    },
+    "./command/api/integration/mcpserver/index": {
+      "types": "./types/command/api/integration/mcpserver/index.d.ts",
+      "import": "./src/command/api/integration/mcpserver/index.js"
+    },
+    "./command/api/integration/mcpserver/index.js": {
+      "types": "./types/command/api/integration/mcpserver/index.d.ts",
+      "import": "./src/command/api/integration/mcpserver/index.js"
+    },
+    "./command/api/integration/messenger": {
+      "types": "./types/command/api/integration/messenger/index.d.ts",
+      "import": "./src/command/api/integration/messenger/index.js"
+    },
+    "./command/api/integration/messenger/index": {
+      "types": "./types/command/api/integration/messenger/index.d.ts",
+      "import": "./src/command/api/integration/messenger/index.js"
+    },
+    "./command/api/integration/messenger/index.js": {
+      "types": "./types/command/api/integration/messenger/index.d.ts",
+      "import": "./src/command/api/integration/messenger/index.js"
+    },
+    "./command/api/integration/notion": {
+      "types": "./types/command/api/integration/notion/index.d.ts",
+      "import": "./src/command/api/integration/notion/index.js"
+    },
+    "./command/api/integration/notion/index": {
+      "types": "./types/command/api/integration/notion/index.d.ts",
+      "import": "./src/command/api/integration/notion/index.js"
+    },
+    "./command/api/integration/notion/index.js": {
+      "types": "./types/command/api/integration/notion/index.d.ts",
+      "import": "./src/command/api/integration/notion/index.js"
+    },
+    "./command/api/integration/sitemap": {
+      "types": "./types/command/api/integration/sitemap/index.d.ts",
+      "import": "./src/command/api/integration/sitemap/index.js"
+    },
+    "./command/api/integration/sitemap/index": {
+      "types": "./types/command/api/integration/sitemap/index.d.ts",
+      "import": "./src/command/api/integration/sitemap/index.js"
+    },
+    "./command/api/integration/sitemap/index.js": {
+      "types": "./types/command/api/integration/sitemap/index.d.ts",
+      "import": "./src/command/api/integration/sitemap/index.js"
+    },
+    "./command/api/integration/slack": {
+      "types": "./types/command/api/integration/slack/index.d.ts",
+      "import": "./src/command/api/integration/slack/index.js"
+    },
+    "./command/api/integration/slack/index": {
+      "types": "./types/command/api/integration/slack/index.d.ts",
+      "import": "./src/command/api/integration/slack/index.js"
+    },
+    "./command/api/integration/slack/index.js": {
+      "types": "./types/command/api/integration/slack/index.d.ts",
+      "import": "./src/command/api/integration/slack/index.js"
+    },
+    "./command/api/integration/support": {
+      "types": "./types/command/api/integration/support/index.d.ts",
+      "import": "./src/command/api/integration/support/index.js"
+    },
+    "./command/api/integration/support/index": {
+      "types": "./types/command/api/integration/support/index.d.ts",
+      "import": "./src/command/api/integration/support/index.js"
+    },
+    "./command/api/integration/support/index.js": {
+      "types": "./types/command/api/integration/support/index.d.ts",
+      "import": "./src/command/api/integration/support/index.js"
+    },
+    "./command/api/integration/telegram": {
+      "types": "./types/command/api/integration/telegram/index.d.ts",
+      "import": "./src/command/api/integration/telegram/index.js"
+    },
+    "./command/api/integration/telegram/index": {
+      "types": "./types/command/api/integration/telegram/index.d.ts",
+      "import": "./src/command/api/integration/telegram/index.js"
+    },
+    "./command/api/integration/telegram/index.js": {
+      "types": "./types/command/api/integration/telegram/index.d.ts",
+      "import": "./src/command/api/integration/telegram/index.js"
+    },
+    "./command/api/integration/trigger": {
+      "types": "./types/command/api/integration/trigger/index.d.ts",
+      "import": "./src/command/api/integration/trigger/index.js"
+    },
+    "./command/api/integration/trigger/index": {
+      "types": "./types/command/api/integration/trigger/index.d.ts",
+      "import": "./src/command/api/integration/trigger/index.js"
+    },
+    "./command/api/integration/trigger/index.js": {
+      "types": "./types/command/api/integration/trigger/index.d.ts",
+      "import": "./src/command/api/integration/trigger/index.js"
+    },
+    "./command/api/integration/twilio": {
+      "types": "./types/command/api/integration/twilio/index.d.ts",
+      "import": "./src/command/api/integration/twilio/index.js"
+    },
+    "./command/api/integration/twilio/index": {
+      "types": "./types/command/api/integration/twilio/index.d.ts",
+      "import": "./src/command/api/integration/twilio/index.js"
+    },
+    "./command/api/integration/twilio/index.js": {
+      "types": "./types/command/api/integration/twilio/index.d.ts",
+      "import": "./src/command/api/integration/twilio/index.js"
+    },
+    "./command/api/integration/whatsapp": {
+      "types": "./types/command/api/integration/whatsapp/index.d.ts",
+      "import": "./src/command/api/integration/whatsapp/index.js"
+    },
+    "./command/api/integration/whatsapp/index": {
+      "types": "./types/command/api/integration/whatsapp/index.d.ts",
+      "import": "./src/command/api/integration/whatsapp/index.js"
+    },
+    "./command/api/integration/whatsapp/index.js": {
+      "types": "./types/command/api/integration/whatsapp/index.d.ts",
+      "import": "./src/command/api/integration/whatsapp/index.js"
+    },
+    "./command/api/integration/widget": {
+      "types": "./types/command/api/integration/widget/index.d.ts",
+      "import": "./src/command/api/integration/widget/index.js"
+    },
+    "./command/api/integration/widget/index": {
+      "types": "./types/command/api/integration/widget/index.d.ts",
+      "import": "./src/command/api/integration/widget/index.js"
+    },
+    "./command/api/integration/widget/index.js": {
+      "types": "./types/command/api/integration/widget/index.d.ts",
+      "import": "./src/command/api/integration/widget/index.js"
+    },
+    "./command/api/memory": {
+      "types": "./types/command/api/memory/index.d.ts",
+      "import": "./src/command/api/memory/index.js"
+    },
+    "./command/api/memory/index": {
+      "types": "./types/command/api/memory/index.d.ts",
+      "import": "./src/command/api/memory/index.js"
+    },
+    "./command/api/memory/index.js": {
+      "types": "./types/command/api/memory/index.d.ts",
+      "import": "./src/command/api/memory/index.js"
     },
     "./command/api/partner": {
       "types": "./types/command/api/partner/index.d.ts",
@@ -117,6 +393,30 @@
       "types": "./types/command/api/partner/user/index.d.ts",
       "import": "./src/command/api/partner/user/index.js"
     },
+    "./command/api/secret": {
+      "types": "./types/command/api/secret/index.d.ts",
+      "import": "./src/command/api/secret/index.js"
+    },
+    "./command/api/secret/index": {
+      "types": "./types/command/api/secret/index.d.ts",
+      "import": "./src/command/api/secret/index.js"
+    },
+    "./command/api/secret/index.js": {
+      "types": "./types/command/api/secret/index.d.ts",
+      "import": "./src/command/api/secret/index.js"
+    },
+    "./command/api/skillset/ability": {
+      "types": "./types/command/api/skillset/ability/index.d.ts",
+      "import": "./src/command/api/skillset/ability/index.js"
+    },
+    "./command/api/skillset/ability/index": {
+      "types": "./types/command/api/skillset/ability/index.d.ts",
+      "import": "./src/command/api/skillset/ability/index.js"
+    },
+    "./command/api/skillset/ability/index.js": {
+      "types": "./types/command/api/skillset/ability/index.d.ts",
+      "import": "./src/command/api/skillset/ability/index.js"
+    },
     "./command/api/skillset": {
       "types": "./types/command/api/skillset/index.d.ts",
       "import": "./src/command/api/skillset/index.js"
@@ -128,6 +428,18 @@
     "./command/api/skillset/index.js": {
       "types": "./types/command/api/skillset/index.d.ts",
       "import": "./src/command/api/skillset/index.js"
+    },
+    "./command/api/team": {
+      "types": "./types/command/api/team/index.d.ts",
+      "import": "./src/command/api/team/index.js"
+    },
+    "./command/api/team/index": {
+      "types": "./types/command/api/team/index.d.ts",
+      "import": "./src/command/api/team/index.js"
+    },
+    "./command/api/team/index.js": {
+      "types": "./types/command/api/team/index.d.ts",
+      "import": "./src/command/api/team/index.js"
     },
     "./command/chat": {
       "types": "./types/command/chat/index.d.ts",

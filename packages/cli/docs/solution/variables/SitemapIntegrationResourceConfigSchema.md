@@ -8,6 +8,6 @@
 
 > `const` **SitemapIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"sitemapIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:290](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L290)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:290](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L290)
 
 The schema for a sitemap integration resource configuration.
