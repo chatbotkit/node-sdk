@@ -1,5 +1,11 @@
 # create-cbk-app
 
+## 1.26.4
+
+### Patch Changes
+
+- 2c249c8: Version bump.
+
 ## 1.26.3
 
 ### Patch Changes
