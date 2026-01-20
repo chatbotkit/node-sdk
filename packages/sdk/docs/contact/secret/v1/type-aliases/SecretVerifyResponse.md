@@ -8,6 +8,6 @@
 
 > **SecretVerifyResponse**\<\> = [`SecretVerifyResponseBody`](SecretVerifyResponseBody.md)
 
-Defined in: [contact/secret/v1.js:70](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/contact/secret/v1.js#L70)
+Defined in: [contact/secret/v1.js:70](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/contact/secret/v1.js#L70)
 
 ## Type Parameters

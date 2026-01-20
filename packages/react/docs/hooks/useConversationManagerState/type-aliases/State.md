@@ -8,7 +8,7 @@
 
 > **State**\<\> = `object`
 
-Defined in: [hooks/useConversationManagerStateReducer.js:17](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L17)
+Defined in: [hooks/useConversationManagerStateReducer.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManagerStateReducer.js#L17)
 
 ## Type Parameters
 

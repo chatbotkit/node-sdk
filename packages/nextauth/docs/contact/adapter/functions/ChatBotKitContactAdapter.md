@@ -1,14 +1,14 @@
-[**@chatbotkit/nextauth**](../README.md)
+[**@chatbotkit/nextauth**](../../../README.md)
 
 ***
 
-[@chatbotkit/nextauth](../globals.md) / ChatBotKitContactAdapter
+[@chatbotkit/nextauth](../../../modules.md) / [contact/adapter](../README.md) / ChatBotKitContactAdapter
 
 # Function: ChatBotKitContactAdapter()
 
 > **ChatBotKitContactAdapter**(`options`): `Adapter`
 
-Defined in: [contact/adapter.js:177](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L177)
+Defined in: [contact/adapter.js:177](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L177)
 
 A NextAuth.js adapter that integrates with the ChatBotKit Contact API for
 user management within a single account.

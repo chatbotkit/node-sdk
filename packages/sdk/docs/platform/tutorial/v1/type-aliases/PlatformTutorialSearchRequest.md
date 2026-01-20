@@ -8,6 +8,6 @@
 
 > **PlatformTutorialSearchRequest**\<\> = [`PlatformTutorialSearchRequestBody`](PlatformTutorialSearchRequestBody.md)
 
-Defined in: [platform/tutorial/v1.js:41](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/tutorial/v1.js#L41)
+Defined in: [platform/tutorial/v1.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/tutorial/v1.js#L41)
 
 ## Type Parameters

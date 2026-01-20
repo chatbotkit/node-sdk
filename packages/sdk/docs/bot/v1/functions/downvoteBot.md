@@ -8,7 +8,7 @@
 
 > **downvoteBot**(`client`, `botId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [bot/v1.js:184](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/v1.js#L184)
+Defined in: [bot/v1.js:184](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/bot/v1.js#L184)
 
 ## Parameters
 

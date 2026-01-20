@@ -6,7 +6,7 @@
 
 # Class: ChannelClient
 
-Defined in: [channel/index.js:13](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/channel/index.js#L13)
+Defined in: [channel/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/channel/index.js#L13)
 
 Channel client.
 
@@ -20,7 +20,7 @@ Channel client.
 
 > **new ChannelClient**(`options`): `ChannelClient`
 
-Defined in: [channel/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/channel/index.js#L17)
+Defined in: [channel/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/channel/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [channel/index.js:17](https://github.com/chatbotkit/cbk-platform/blo
 
 > **extend**(`extensionOptions`): `ChannelClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **publish**(`channelId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [channel/index.js:28](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/channel/index.js#L28)
+Defined in: [channel/index.js:28](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/channel/index.js#L28)
 
 Publishes a message to a channel.
 
@@ -98,7 +98,7 @@ Publishes a message to a channel.
 
 > **subscribe**(`channelId`, `request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<`never`, \{ \}\>
 
-Defined in: [channel/index.js:39](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/channel/index.js#L39)
+Defined in: [channel/index.js:39](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/channel/index.js#L39)
 
 Subscribes to channel messages.
 

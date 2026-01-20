@@ -8,7 +8,7 @@
 
 > **fetchDatasetRecord**(`client`, `datasetId`, `recordId`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [dataset/record/v1.js:45](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L45)
+Defined in: [dataset/record/v1.js:45](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L45)
 
 ## Parameters
 

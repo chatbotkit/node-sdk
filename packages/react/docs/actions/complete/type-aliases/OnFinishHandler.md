@@ -8,6 +8,6 @@
 
 > **OnFinishHandler**\<\> = function(\{ messages: Message\[\] \}): any
 
-Defined in: [actions/complete.js:74](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L74)
+Defined in: [actions/complete.js:74](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/actions/complete.js#L74)
 
 ## Type Parameters

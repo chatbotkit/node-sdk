@@ -8,7 +8,7 @@
 
 > **Message**\<\> = `Message` & `object`
 
-Defined in: [hooks/useConversationManagerStateReducer.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerStateReducer.js#L8)
+Defined in: [hooks/useConversationManagerStateReducer.js:8](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManagerStateReducer.js#L8)
 
 ## Type Declaration
 

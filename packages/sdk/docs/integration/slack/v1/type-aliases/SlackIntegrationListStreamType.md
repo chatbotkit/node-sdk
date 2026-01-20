@@ -8,6 +8,6 @@
 
 > **SlackIntegrationListStreamType**\<\> = `operations`\[`"listSlackIntegrations"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/jsonl"`\]
 
-Defined in: [integration/slack/v1.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/slack/v1.js#L21)
+Defined in: [integration/slack/v1.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/slack/v1.js#L21)
 
 ## Type Parameters

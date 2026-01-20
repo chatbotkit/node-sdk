@@ -8,6 +8,6 @@
 
 > **ChannelPublishResponse**\<\> = [`ChannelPublishResponseBody`](ChannelPublishResponseBody.md)
 
-Defined in: [channel/v1.js:18](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/channel/v1.js#L18)
+Defined in: [channel/v1.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/channel/v1.js#L18)
 
 ## Type Parameters

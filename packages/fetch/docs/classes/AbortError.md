@@ -6,7 +6,7 @@
 
 # Class: AbortError
 
-Defined in: [packages/fetch/src/index.js:175](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L175)
+Defined in: [packages/fetch/src/index.js:175](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/fetch/src/index.js#L175)
 
 A AbortError is thrown when a fetch request is aborted.
 
@@ -20,7 +20,7 @@ A AbortError is thrown when a fetch request is aborted.
 
 > **new AbortError**(`message?`): `AbortError`
 
-Defined in: [packages/fetch/src/index.js:179](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L179)
+Defined in: [packages/fetch/src/index.js:179](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/fetch/src/index.js#L179)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Class: PartnerClient
 
-Defined in: [partner/index.js:7](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/index.js#L7)
+Defined in: [partner/index.js:7](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/index.js#L7)
 
 Partner client.
 
@@ -20,7 +20,7 @@ Partner client.
 
 > **new PartnerClient**(`options`): `PartnerClient`
 
-Defined in: [partner/index.js:11](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/index.js#L11)
+Defined in: [partner/index.js:11](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/index.js#L11)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [partner/index.js:11](https://github.com/chatbotkit/cbk-platform/blo
 
 > **user**: [`PartnerUserClient`](../user/classes/PartnerUserClient.md)
 
-Defined in: [partner/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/index.js#L17)
+Defined in: [partner/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/index.js#L17)
 
 ## Methods
 
@@ -50,7 +50,7 @@ Defined in: [partner/index.js:17](https://github.com/chatbotkit/cbk-platform/blo
 
 > **extend**(`extensionOptions`): `PartnerClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 

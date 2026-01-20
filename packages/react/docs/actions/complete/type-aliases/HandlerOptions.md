@@ -8,7 +8,7 @@
 
 > **HandlerOptions**\<\> = `object`
 
-Defined in: [actions/complete.js:58](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L58)
+Defined in: [actions/complete.js:58](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/actions/complete.js#L58)
 
 ## Type Parameters
 

@@ -8,6 +8,6 @@
 
 > **PlatformReportListStreamType**\<\> = `operations`\[`"listPlatformReports"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/jsonl"`\]
 
-Defined in: [platform/report/v1.js:23](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/report/v1.js#L23)
+Defined in: [platform/report/v1.js:23](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/v1.js#L23)
 
 ## Type Parameters

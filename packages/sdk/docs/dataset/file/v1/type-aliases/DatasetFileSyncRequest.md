@@ -8,6 +8,6 @@
 
 > **DatasetFileSyncRequest**\<\> = [`DatasetFileSyncRequestBody`](DatasetFileSyncRequestBody.md)
 
-Defined in: [dataset/file/v1.js:98](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/v1.js#L98)
+Defined in: [dataset/file/v1.js:98](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/v1.js#L98)
 
 ## Type Parameters

@@ -8,6 +8,6 @@
 
 > **ExtractIntegrationDeleteRequest**\<\> = [`ExtractIntegrationDeleteRequestBody`](ExtractIntegrationDeleteRequestBody.md)
 
-Defined in: [integration/extract/v1.js:110](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/v1.js#L110)
+Defined in: [integration/extract/v1.js:110](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/extract/v1.js#L110)
 
 ## Type Parameters

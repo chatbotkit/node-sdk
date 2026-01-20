@@ -8,6 +8,6 @@
 
 > **MemoryCreateResponseBody**\<\> = `operations`\[`"createMemory"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [memory/v1.js:59](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L59)
+Defined in: [memory/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L59)
 
 ## Type Parameters

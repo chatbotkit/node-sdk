@@ -8,6 +8,6 @@
 
 > **DatasetFileDetachResponseBody**\<\> = `operations`\[`"detachDatasetFile"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [dataset/file/v1.js:71](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/v1.js#L71)
+Defined in: [dataset/file/v1.js:71](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/v1.js#L71)
 
 ## Type Parameters

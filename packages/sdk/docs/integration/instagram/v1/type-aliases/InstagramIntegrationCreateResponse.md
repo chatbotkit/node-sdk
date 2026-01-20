@@ -8,6 +8,6 @@
 
 > **InstagramIntegrationCreateResponse**\<\> = [`InstagramIntegrationCreateResponseBody`](InstagramIntegrationCreateResponseBody.md)
 
-Defined in: [integration/instagram/v1.js:59](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/instagram/v1.js#L59)
+Defined in: [integration/instagram/v1.js:59](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/v1.js#L59)
 
 ## Type Parameters
