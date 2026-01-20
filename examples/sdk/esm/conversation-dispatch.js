@@ -106,15 +106,10 @@ async function main() {
   for await (const event of client.channel.subscribe(channelId).stream()) {
     // Handle different types of events
 
-    // Token events - individual words/tokens as they're generated
-    if (event.type === 'token') {
-      // Uncomment to see tokens in real-time:
-      // process.stdout.write(event.data.token)
-    }
-
     // Message events - complete messages and activities
     if (event.type === 'message') {
-      const messageData = event.data
+      /** @type {{ type: string, data: { type: string, text?: string, meta?: { activity?: { type: string, function?: { name: string, arguments: { topic: string, insights: Array<{ title: string, description: string, category: string }> } } } } } }} */
+      const messageData = /** @type {*} */ (event.data)
 
       // Check if this is the activity message containing our function call
       if (
@@ -133,11 +128,13 @@ async function main() {
         console.log(`Topic: ${args.topic}\n`)
 
         console.log('Key Insights:\n')
-        args.insights.forEach((insight, index) => {
-          console.log(`${index + 1}. ${insight.title}`)
-          console.log(`   Category: ${insight.category}`)
-          console.log(`   ${insight.description}\n`)
-        })
+        args.insights.forEach(
+          (/** @type {{ title: string, description: string, category: string }} */ insight, /** @type {number} */ index) => {
+            console.log(`${index + 1}. ${insight.title}`)
+            console.log(`   Category: ${insight.category}`)
+            console.log(`   ${insight.description}\n`)
+          }
+        )
       }
 
       // Regular text messages from the AI (thinking out loud)
@@ -151,6 +148,7 @@ async function main() {
     }
 
     // Result event - the conversation has completed
+    // @ts-expect-error - The stream may emit 'result' events not typed in the SDK
     if (event.type === 'result') {
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
       console.log('✓ Conversation completed successfully')
