@@ -43,6 +43,7 @@ export const fileAttach = new Command()
   .action(async (datasetId, fileId) => {
     const client = getClient()
 
+    // @note SDK requires request object as third parameter
     const result = await client.attach(datasetId, fileId, {})
 
     print(result)
@@ -56,6 +57,7 @@ export const fileDetach = new Command()
   .action(async (datasetId, fileId) => {
     const client = getClient()
 
+    // @note SDK requires request object as third parameter
     const result = await client.detach(datasetId, fileId, {})
 
     print(result)
@@ -69,6 +71,7 @@ export const fileSync = new Command()
   .action(async (datasetId, fileId) => {
     const client = getClient()
 
+    // @note SDK requires request object as third parameter
     const result = await client.sync(datasetId, fileId, {})
 
     print(result)
