@@ -129,7 +129,10 @@ async function main() {
 
         console.log('Key Insights:\n')
         args.insights.forEach(
-          (/** @type {{ title: string, description: string, category: string }} */ insight, /** @type {number} */ index) => {
+          (
+            /** @type {{ title: string, description: string, category: string }} */ insight,
+            /** @type {number} */ index
+          ) => {
             console.log(`${index + 1}. ${insight.title}`)
             console.log(`   Category: ${insight.category}`)
             console.log(`   ${insight.description}\n`)
