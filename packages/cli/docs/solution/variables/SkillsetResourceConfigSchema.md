@@ -8,6 +8,6 @@
 
 > `const` **SkillsetResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"skillset"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:229](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L229)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:229](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L229)
 
 The schema for a skillset resource configuration.
