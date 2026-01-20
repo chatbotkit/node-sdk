@@ -8,6 +8,6 @@
 
 > **WidgetIntegrationUpdateRequestBody**\<\> = `operations`\[`"updateWidgetIntegration"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [integration/widget/v1.js:80](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/widget/v1.js#L80)
+Defined in: [integration/widget/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/widget/v1.js#L80)
 
 ## Type Parameters

@@ -8,7 +8,7 @@
 
 > **listPlatformAbilities**(`client`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [platform/ability/v1.js:29](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/ability/v1.js#L29)
+Defined in: [platform/ability/v1.js:29](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/ability/v1.js#L29)
 
 ## Parameters
 

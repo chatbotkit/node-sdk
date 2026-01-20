@@ -8,6 +8,6 @@
 
 > **ChannelSubscribeRequest**\<\> = [`ChannelSubscribeRequestBody`](ChannelSubscribeRequestBody.md)
 
-Defined in: [channel/v1.js:44](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/channel/v1.js#L44)
+Defined in: [channel/v1.js:44](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/channel/v1.js#L44)
 
 ## Type Parameters

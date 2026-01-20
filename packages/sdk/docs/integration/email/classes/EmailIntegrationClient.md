@@ -6,7 +6,7 @@
 
 # Class: EmailIntegrationClient
 
-Defined in: [integration/email/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L17)
+Defined in: [integration/email/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L17)
 
 ## Template
 
@@ -22,7 +22,7 @@ Defined in: [integration/email/index.js:17](https://github.com/chatbotkit/cbk-pl
 
 > **new EmailIntegrationClient**(`options`): `EmailIntegrationClient`
 
-Defined in: [integration/email/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L21)
+Defined in: [integration/email/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L21)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [integration/email/index.js:21](https://github.com/chatbotkit/cbk-pl
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/email/index.js:51](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L51)
+Defined in: [integration/email/index.js:51](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L51)
 
 Creates a new email integration.
 
@@ -62,7 +62,7 @@ Creates a new email integration.
 
 > **delete**(`emailId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/email/index.js:72](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L72)
+Defined in: [integration/email/index.js:72](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L72)
 
 Deletes a email integration.
 
@@ -82,7 +82,7 @@ Deletes a email integration.
 
 > **extend**(`extensionOptions`): `EmailIntegrationClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -116,7 +116,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`emailId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [integration/email/index.js:41](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L41)
+Defined in: [integration/email/index.js:41](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L41)
 
 Fetches a email integration.
 
@@ -136,7 +136,7 @@ Fetches a email integration.
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/email/index.js:31](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L31)
+Defined in: [integration/email/index.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L31)
 
 Retrieves a list of all email integrations.
 
@@ -156,7 +156,7 @@ Retrieves a list of all email integrations.
 
 > **setup**(`emailId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/email/index.js:82](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L82)
+Defined in: [integration/email/index.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L82)
 
 Setups a email integration.
 
@@ -176,7 +176,7 @@ Setups a email integration.
 
 > **update**(`emailId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/email/index.js:62](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L62)
+Defined in: [integration/email/index.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/email/index.js#L62)
 
 Updates a email integration.
 

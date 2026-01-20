@@ -8,6 +8,6 @@
 
 > **HandlerResult**\<\> = `string` \| [`ReactElement`](ReactElement.md) \| \{ `children?`: `ReactNode`; `render?`: [`RenderFunction`](RenderFunction.md); `result?`: `any`; `text?`: `string`; \}
 
-Defined in: [actions/complete.js:59](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L59)
+Defined in: [actions/complete.js:59](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/actions/complete.js#L59)
 
 ## Type Parameters

@@ -8,7 +8,7 @@
 
 > **AutoTextarea**(`props?`, `forwardedRef?`): `Element`
 
-Defined in: [components/AutoTextarea.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/AutoTextarea.js#L20)
+Defined in: [components/AutoTextarea.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/components/AutoTextarea.js#L20)
 
 A textarea that automatically adjusts its height based on its content. The
 height is adjusted on input and focus events.

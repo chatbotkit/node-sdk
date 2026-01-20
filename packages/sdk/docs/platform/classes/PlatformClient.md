@@ -6,7 +6,7 @@
 
 # Class: PlatformClient
 
-Defined in: [platform/index.js:15](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L15)
+Defined in: [platform/index.js:15](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L15)
 
 Platform client.
 
@@ -20,7 +20,7 @@ Platform client.
 
 > **new PlatformClient**(`options`): `PlatformClient`
 
-Defined in: [platform/index.js:19](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L19)
+Defined in: [platform/index.js:19](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L19)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/index.js:19](https://github.com/chatbotkit/cbk-platform/bl
 
 > **ability**: [`PlatformAbilityClient`](../ability/classes/PlatformAbilityClient.md)
 
-Defined in: [platform/index.js:30](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L30)
+Defined in: [platform/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L30)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [platform/index.js:30](https://github.com/chatbotkit/cbk-platform/bl
 
 > **action**: [`PlatformActionClient`](../action/classes/PlatformActionClient.md)
 
-Defined in: [platform/index.js:35](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L35)
+Defined in: [platform/index.js:35](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L35)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: [platform/index.js:35](https://github.com/chatbotkit/cbk-platform/bl
 
 > **doc**: [`PlatformDocClient`](../doc/classes/PlatformDocClient.md)
 
-Defined in: [platform/index.js:40](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L40)
+Defined in: [platform/index.js:40](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L40)
 
 ***
 
@@ -66,7 +66,7 @@ Defined in: [platform/index.js:40](https://github.com/chatbotkit/cbk-platform/bl
 
 > **example**: [`PlatformExampleClient`](../example/classes/PlatformExampleClient.md)
 
-Defined in: [platform/index.js:60](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L60)
+Defined in: [platform/index.js:60](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L60)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [platform/index.js:60](https://github.com/chatbotkit/cbk-platform/bl
 
 > **manual**: [`PlatformManualClient`](../manual/classes/PlatformManualClient.md)
 
-Defined in: [platform/index.js:45](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L45)
+Defined in: [platform/index.js:45](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L45)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [platform/index.js:45](https://github.com/chatbotkit/cbk-platform/bl
 
 > **model**: [`PlatformModelClient`](../model/classes/PlatformModelClient.md)
 
-Defined in: [platform/index.js:25](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L25)
+Defined in: [platform/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L25)
 
 ***
 
@@ -90,7 +90,7 @@ Defined in: [platform/index.js:25](https://github.com/chatbotkit/cbk-platform/bl
 
 > **report**: [`PlatformReportClient`](../report/classes/PlatformReportClient.md)
 
-Defined in: [platform/index.js:65](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L65)
+Defined in: [platform/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L65)
 
 ***
 
@@ -98,7 +98,7 @@ Defined in: [platform/index.js:65](https://github.com/chatbotkit/cbk-platform/bl
 
 > **secret**: [`PlatformSecretClient`](../secret/classes/PlatformSecretClient.md)
 
-Defined in: [platform/index.js:55](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L55)
+Defined in: [platform/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L55)
 
 ***
 
@@ -106,7 +106,7 @@ Defined in: [platform/index.js:55](https://github.com/chatbotkit/cbk-platform/bl
 
 > **tutorial**: [`PlatformTutorialClient`](../tutorial/classes/PlatformTutorialClient.md)
 
-Defined in: [platform/index.js:50](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/index.js#L50)
+Defined in: [platform/index.js:50](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/index.js#L50)
 
 ## Methods
 
@@ -114,7 +114,7 @@ Defined in: [platform/index.js:50](https://github.com/chatbotkit/cbk-platform/bl
 
 > **extend**(`extensionOptions`): `PlatformClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 

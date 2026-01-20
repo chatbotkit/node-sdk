@@ -8,6 +8,6 @@
 
 > **SupportIntegrationCreateRequestBody**\<\> = `operations`\[`"createSupportIntegration"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [integration/support/v1.js:53](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/support/v1.js#L53)
+Defined in: [integration/support/v1.js:53](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/support/v1.js#L53)
 
 ## Type Parameters

@@ -6,7 +6,7 @@
 
 # Interface: Message
 
-Defined in: [v2.ts:7](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L7)
+Defined in: [v2.ts:7](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L7)
 
 Represents a single message in the widget conversation.
 
@@ -16,7 +16,7 @@ Represents a single message in the widget conversation.
 
 > **id**: `string`
 
-Defined in: [v2.ts:9](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L9)
+Defined in: [v2.ts:9](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L9)
 
 Unique identifier for the message
 
@@ -26,7 +26,7 @@ Unique identifier for the message
 
 > `optional` **meta**: [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `unknown`\>
 
-Defined in: [v2.ts:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L15)
+Defined in: [v2.ts:15](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L15)
 
 Optional metadata associated with the message
 
@@ -36,7 +36,7 @@ Optional metadata associated with the message
 
 > **text**: `string`
 
-Defined in: [v2.ts:13](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L13)
+Defined in: [v2.ts:13](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L13)
 
 The text content of the message
 
@@ -46,6 +46,6 @@ The text content of the message
 
 > **type**: `"user"` \| `"bot"` \| `"input"`
 
-Defined in: [v2.ts:11](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L11)
+Defined in: [v2.ts:11](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L11)
 
 The type of message

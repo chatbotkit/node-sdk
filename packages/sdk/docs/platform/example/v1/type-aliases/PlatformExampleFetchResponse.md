@@ -8,6 +8,6 @@
 
 > **PlatformExampleFetchResponse**\<\> = `operations`\[`"fetchPlatformExample"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [platform/example/v1.js:65](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/example/v1.js#L65)
+Defined in: [platform/example/v1.js:65](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/example/v1.js#L65)
 
 ## Type Parameters

@@ -8,6 +8,6 @@
 
 > **Model**\<\> = `string` \| \{ `config?`: [`ModelConfig`](ModelConfig.md); `name`: `string`; \}
 
-Defined in: [model/v1.js:14](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/model/v1.js#L14)
+Defined in: [model/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/model/v1.js#L14)
 
 ## Type Parameters

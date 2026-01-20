@@ -8,7 +8,7 @@
 
 > **stream**(`source`): [`Response`](https://developer.mozilla.org/docs/Web/API/Response)
 
-Defined in: [edge.js:104](https://github.com/chatbotkit/node-sdk/blob/main/packages/next/src/edge.js#L104)
+Defined in: [edge.js:104](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/next/src/edge.js#L104)
 
 This function can be used to stream any ChatBotKit streaming response to the
 client. It will automatically encode the response as JSONL and it is fully

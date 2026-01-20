@@ -8,6 +8,6 @@
 
 > **ChatBotKitClient**\<\> = [`ChatBotKitClient`](../../../client/classes/ChatBotKitClient.md)
 
-Defined in: [graphql/v1.js:2](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/graphql/v1.js#L2)
+Defined in: [graphql/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/graphql/v1.js#L2)
 
 ## Type Parameters

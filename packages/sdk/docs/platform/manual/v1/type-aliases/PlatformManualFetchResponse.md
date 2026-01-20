@@ -8,6 +8,6 @@
 
 > **PlatformManualFetchResponse**\<\> = `operations`\[`"fetchPlatformManual"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [platform/manual/v1.js:66](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/platform/manual/v1.js#L66)
+Defined in: [platform/manual/v1.js:66](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/manual/v1.js#L66)
 
 ## Type Parameters

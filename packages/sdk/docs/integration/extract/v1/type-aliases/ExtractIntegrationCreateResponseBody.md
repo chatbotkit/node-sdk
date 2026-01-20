@@ -8,6 +8,6 @@
 
 > **ExtractIntegrationCreateResponseBody**\<\> = `operations`\[`"createExtractIntegration"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [integration/extract/v1.js:57](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/extract/v1.js#L57)
+Defined in: [integration/extract/v1.js:57](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/extract/v1.js#L57)
 
 ## Type Parameters

@@ -8,6 +8,6 @@
 
 > **ReportGenerateRequestBody**\<\> = `operations`\[`"generateReport"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [report/v1.js:6](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/report/v1.js#L6)
+Defined in: [report/v1.js:6](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/report/v1.js#L6)
 
 ## Type Parameters

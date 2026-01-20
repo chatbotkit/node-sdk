@@ -8,7 +8,7 @@
 
 > **StreamResult**\<\> = `any`
 
-Defined in: [utils/stream.js:27](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L27)
+Defined in: [utils/stream.js:27](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/utils/stream.js#L27)
 
 This function is used on the server to stream data to the client.
 

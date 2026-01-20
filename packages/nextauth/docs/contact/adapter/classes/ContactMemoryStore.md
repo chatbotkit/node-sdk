@@ -1,12 +1,12 @@
-[**@chatbotkit/nextauth**](../README.md)
+[**@chatbotkit/nextauth**](../../../README.md)
 
 ***
 
-[@chatbotkit/nextauth](../globals.md) / ContactMemoryStore
+[@chatbotkit/nextauth](../../../modules.md) / [contact/adapter](../README.md) / ContactMemoryStore
 
 # Class: ContactMemoryStore
 
-Defined in: [contact/adapter.js:57](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L57)
+Defined in: [contact/adapter.js:57](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L57)
 
 A store that uses memory. Do not use in production.
 
@@ -20,7 +20,7 @@ A store that uses memory. Do not use in production.
 
 > **del**(`key`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [contact/adapter.js:88](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L88)
+Defined in: [contact/adapter.js:88](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L88)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [contact/adapter.js:88](https://github.com/chatbotkit/cbk-platform/b
 
 > **get**(`key`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`any`\>
 
-Defined in: [contact/adapter.js:68](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L68)
+Defined in: [contact/adapter.js:68](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L68)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [contact/adapter.js:68](https://github.com/chatbotkit/cbk-platform/b
 
 > **set**(`key`, `value`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [contact/adapter.js:78](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L78)
+Defined in: [contact/adapter.js:78](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/contact/adapter.js#L78)
 
 #### Parameters
 

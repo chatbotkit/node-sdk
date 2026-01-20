@@ -8,6 +8,6 @@
 
 > **SkillsetAbilityExecuteResponse**\<\> = [`SkillsetAbilityExecuteResponseBody`](SkillsetAbilityExecuteResponseBody.md)
 
-Defined in: [skillset/ability/v1.js:175](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L175)
+Defined in: [skillset/ability/v1.js:175](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/v1.js#L175)
 
 ## Type Parameters

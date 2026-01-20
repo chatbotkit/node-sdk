@@ -1,12 +1,12 @@
-[**@chatbotkit/nextauth**](../README.md)
+[**@chatbotkit/nextauth**](../../../README.md)
 
 ***
 
-[@chatbotkit/nextauth](../globals.md) / MemoryStore
+[@chatbotkit/nextauth](../../../modules.md) / [partner/adapter](../README.md) / MemoryStore
 
 # Class: MemoryStore
 
-Defined in: [partner/adapter.js:57](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L57)
+Defined in: [partner/adapter.js:57](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L57)
 
 A store that uses memory. Do not use in production.
 
@@ -20,7 +20,7 @@ A store that uses memory. Do not use in production.
 
 > **del**(`key`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [partner/adapter.js:85](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L85)
+Defined in: [partner/adapter.js:85](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L85)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [partner/adapter.js:85](https://github.com/chatbotkit/cbk-platform/b
 
 > **get**(`key`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`any`\>
 
-Defined in: [partner/adapter.js:68](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L68)
+Defined in: [partner/adapter.js:68](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L68)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [partner/adapter.js:68](https://github.com/chatbotkit/cbk-platform/b
 
 > **set**(`key`, `value`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [partner/adapter.js:77](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L77)
+Defined in: [partner/adapter.js:77](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/nextauth/src/partner/adapter.js#L77)
 
 #### Parameters
 
