@@ -8,7 +8,7 @@
 
 > **setupInstagramIntegration**(`client`, `instagramId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/instagram/v1.js:145](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/instagram/v1.js#L145)
+Defined in: [integration/instagram/v1.js:145](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/instagram/v1.js#L145)
 
 ## Parameters
 

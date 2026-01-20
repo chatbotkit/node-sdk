@@ -8,7 +8,7 @@
 
 > **getSECRET**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/env.js:7](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/env.js#L7)
+Defined in: [packages/cli/src/env.js:7](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/env.js#L7)
 
 Get the ChatbotKit Secret.
 

@@ -6,7 +6,7 @@
 
 # Class: FileClient
 
-Defined in: [file/index.js:22](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L22)
+Defined in: [file/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L22)
 
 File client.
 
@@ -20,7 +20,7 @@ File client.
 
 > **new FileClient**(`options`): `FileClient`
 
-Defined in: [file/index.js:26](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L26)
+Defined in: [file/index.js:26](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L26)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [file/index.js:26](https://github.com/chatbotkit/cbk-platform/blob/m
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [file/index.js:56](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L56)
+Defined in: [file/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L56)
 
 Creates a new file.
 
@@ -60,7 +60,7 @@ Creates a new file.
 
 > **delete**(`fileId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [file/index.js:77](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L77)
+Defined in: [file/index.js:77](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L77)
 
 Deletes the file.
 
@@ -80,7 +80,7 @@ Deletes the file.
 
 > **download**(`fileId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`FileDownloadResponse`](../v1/type-aliases/FileDownloadResponse.md)\>
 
-Defined in: [file/index.js:98](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L98)
+Defined in: [file/index.js:98](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L98)
 
 Download file data.
 
@@ -100,7 +100,7 @@ Download file data.
 
 > **extend**(`extensionOptions`): `FileClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -134,7 +134,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`fileId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [file/index.js:46](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L46)
+Defined in: [file/index.js:46](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L46)
 
 Fetches a file.
 
@@ -154,7 +154,7 @@ Fetches a file.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [file/index.js:36](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L36)
+Defined in: [file/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L36)
 
 Retrieves a list of all files.
 
@@ -174,7 +174,7 @@ Retrieves a list of all files.
 
 > **sync**(`fileId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [file/index.js:108](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L108)
+Defined in: [file/index.js:108](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L108)
 
 Syncs a file.
 
@@ -194,7 +194,7 @@ Syncs a file.
 
 > **update**(`fileId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [file/index.js:67](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L67)
+Defined in: [file/index.js:67](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L67)
 
 Updates a file.
 
@@ -216,7 +216,7 @@ Updates a file.
 
 > **upload**(`fileId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [file/index.js:88](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/file/index.js#L88)
+Defined in: [file/index.js:88](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/file/index.js#L88)
 
 Upload file data.
 

@@ -8,6 +8,6 @@
 
 > **ConversationReceiveMessageResponseBody**\<\> = `operations`\[`"receiveConversationMessage"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [conversation/v1.js:348](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/v1.js#L348)
+Defined in: [conversation/v1.js:348](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/v1.js#L348)
 
 ## Type Parameters

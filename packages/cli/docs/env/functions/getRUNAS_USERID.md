@@ -8,7 +8,7 @@
 
 > **getRUNAS\_USERID**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/env.js:20](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/env.js#L20)
+Defined in: [packages/cli/src/env.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/env.js#L20)
 
 Get the ChatBotKit RunAs-UserID.
 

@@ -6,7 +6,7 @@
 
 # Interface: NotificationDefinition
 
-Defined in: [v2.ts:50](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L50)
+Defined in: [v2.ts:50](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L50)
 
 A notification to display in the widget.
 
@@ -16,6 +16,6 @@ A notification to display in the widget.
 
 > **text**: `string`
 
-Defined in: [v2.ts:52](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L52)
+Defined in: [v2.ts:52](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L52)
 
 The notification text to display

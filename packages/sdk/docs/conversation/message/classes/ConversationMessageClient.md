@@ -6,7 +6,7 @@
 
 # Class: ConversationMessageClient
 
-Defined in: [conversation/message/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L21)
+Defined in: [conversation/message/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L21)
 
 Conversation message client.
 
@@ -20,7 +20,7 @@ Conversation message client.
 
 > **new ConversationMessageClient**(`options`): `ConversationMessageClient`
 
-Defined in: [conversation/message/index.js:25](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L25)
+Defined in: [conversation/message/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L25)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [conversation/message/index.js:25](https://github.com/chatbotkit/cbk
 
 > **create**(`conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/message/index.js:58](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L58)
+Defined in: [conversation/message/index.js:58](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L58)
 
 Creates a new message.
 
@@ -64,7 +64,7 @@ Creates a new message.
 
 > **delete**(`conversationId`, `messageId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/message/index.js:81](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L81)
+Defined in: [conversation/message/index.js:81](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L81)
 
 Deletes the message.
 
@@ -88,7 +88,7 @@ Deletes the message.
 
 > **downvote**(`conversationId`, `messageId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/message/index.js:101](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L101)
+Defined in: [conversation/message/index.js:101](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L101)
 
 #### Parameters
 
@@ -112,7 +112,7 @@ Defined in: [conversation/message/index.js:101](https://github.com/chatbotkit/cb
 
 > **extend**(`extensionOptions`): `ConversationMessageClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -146,7 +146,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`conversationId`, `messageId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [conversation/message/index.js:47](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L47)
+Defined in: [conversation/message/index.js:47](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L47)
 
 Fetches a message.
 
@@ -170,7 +170,7 @@ Fetches a message.
 
 > **list**(`conversationId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [conversation/message/index.js:36](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L36)
+Defined in: [conversation/message/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L36)
 
 Retrieves a list of all messages.
 
@@ -194,7 +194,7 @@ Retrieves a list of all messages.
 
 > **update**(`conversationId`, `messageId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/message/index.js:70](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L70)
+Defined in: [conversation/message/index.js:70](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L70)
 
 Updates a message.
 
@@ -220,7 +220,7 @@ Updates a message.
 
 > **upvote**(`conversationId`, `messageId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/message/index.js:91](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L91)
+Defined in: [conversation/message/index.js:91](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/index.js#L91)
 
 #### Parameters
 

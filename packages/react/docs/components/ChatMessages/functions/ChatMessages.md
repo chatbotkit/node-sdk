@@ -8,7 +8,7 @@
 
 > **ChatMessages**(`props`): `Element`
 
-Defined in: [components/ChatMessages.js:14](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ChatMessages.js#L14)
+Defined in: [components/ChatMessages.js:14](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/components/ChatMessages.js#L14)
 
 A chat messages component that automatically scrolls to the bottom when new
 messages are added.

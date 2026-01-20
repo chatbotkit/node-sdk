@@ -8,7 +8,7 @@
 
 > **Handlers**\<\> = `object`
 
-Defined in: [utils/stream.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L20)
+Defined in: [utils/stream.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/utils/stream.js#L20)
 
 ## Type Parameters
 

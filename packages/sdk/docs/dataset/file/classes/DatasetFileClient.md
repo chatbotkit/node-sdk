@@ -6,7 +6,7 @@
 
 # Class: DatasetFileClient
 
-Defined in: [dataset/file/index.js:18](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L18)
+Defined in: [dataset/file/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L18)
 
 Dataset file client.
 
@@ -20,7 +20,7 @@ Dataset file client.
 
 > **new DatasetFileClient**(`options`): `DatasetFileClient`
 
-Defined in: [dataset/file/index.js:22](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L22)
+Defined in: [dataset/file/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L22)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [dataset/file/index.js:22](https://github.com/chatbotkit/cbk-platfor
 
 > **attach**(`datasetId`, `fileId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/file/index.js:44](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L44)
+Defined in: [dataset/file/index.js:44](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L44)
 
 Attaches a file.
 
@@ -68,7 +68,7 @@ Attaches a file.
 
 > **detach**(`datasetId`, `fileId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/file/index.js:56](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L56)
+Defined in: [dataset/file/index.js:56](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L56)
 
 Detach a file.
 
@@ -94,7 +94,7 @@ Detach a file.
 
 > **extend**(`extensionOptions`): `DatasetFileClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -128,7 +128,7 @@ A new instance of the same client class with extended options
 
 > **list**(`datasetId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [dataset/file/index.js:32](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L32)
+Defined in: [dataset/file/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L32)
 
 #### Parameters
 
@@ -150,7 +150,7 @@ Defined in: [dataset/file/index.js:32](https://github.com/chatbotkit/cbk-platfor
 
 > **sync**(`datasetId`, `fileId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [dataset/file/index.js:68](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L68)
+Defined in: [dataset/file/index.js:68](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/file/index.js#L68)
 
 Sync a file.
 

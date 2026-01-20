@@ -8,7 +8,7 @@
 
 > **DatasetRecordListRequest**\<\> = `object`
 
-Defined in: [dataset/record/v1.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L17)
+Defined in: [dataset/record/v1.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/dataset/record/v1.js#L17)
 
 ## Type Parameters
 

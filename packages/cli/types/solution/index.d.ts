@@ -771,10 +771,10 @@ export const SolutionConfigSchema: z.ZodObject<{
             } | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
             blueprintId?: string | undefined;
+            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
-            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1132,10 +1132,10 @@ export const SolutionConfigSchema: z.ZodObject<{
             } | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
             blueprintId?: string | undefined;
+            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
-            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1504,10 +1504,10 @@ export class Resource {
             } | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
             blueprintId?: string | undefined;
+            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
-            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -2138,10 +2138,10 @@ export class Solution {
                 } | undefined;
                 visibility?: "private" | "protected" | "public" | undefined;
                 blueprintId?: string | undefined;
+                kind?: "shared" | "personal" | undefined;
                 config?: {
                     [key: string]: unknown;
                 } | undefined;
-                kind?: "shared" | "personal" | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;

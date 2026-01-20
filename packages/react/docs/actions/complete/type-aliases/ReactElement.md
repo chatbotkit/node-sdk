@@ -8,6 +8,6 @@
 
 > **ReactElement**\<\> = `ReactElement`
 
-Defined in: [actions/complete.js:8](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L8)
+Defined in: [actions/complete.js:8](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/actions/complete.js#L8)
 
 ## Type Parameters

@@ -6,7 +6,7 @@
 
 # Interface: SelectOption
 
-Defined in: [sdks/node/packages/cli/src/input.js:46](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/input.js#L46)
+Defined in: [packages/cli/src/input.js:46](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/input.js#L46)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sdks/node/packages/cli/src/input.js:46](https://github.com/chatbotk
 
 > **label**: `string`
 
-Defined in: [sdks/node/packages/cli/src/input.js:48](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/input.js#L48)
+Defined in: [packages/cli/src/input.js:48](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/input.js#L48)
 
 The label to display to the user
 
@@ -24,6 +24,6 @@ The label to display to the user
 
 > **value**: `string`
 
-Defined in: [sdks/node/packages/cli/src/input.js:47](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/input.js#L47)
+Defined in: [packages/cli/src/input.js:47](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/input.js#L47)
 
 The value to return when selected

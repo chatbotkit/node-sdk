@@ -8,7 +8,7 @@
 
 > **useConversationManager**(`options`): [`UseConversationManagerResult`](../type-aliases/UseConversationManagerResult.md)
 
-Defined in: [hooks/useConversationManager.js:56](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManager.js#L56)
+Defined in: [hooks/useConversationManager.js:56](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManager.js#L56)
 
 The useConversationManager hook is a React hook that manages the conversation
 state including the messages, the input text and all calls to the ChatBotKit

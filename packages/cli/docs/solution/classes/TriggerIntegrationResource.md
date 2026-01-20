@@ -6,7 +6,7 @@
 
 # Class: TriggerIntegrationResource
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:933](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L933)
+Defined in: [packages/cli/src/solution/index.js:933](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L933)
 
 Represents a trigger integration resource.
 
@@ -20,7 +20,7 @@ Represents a trigger integration resource.
 
 > **new TriggerIntegrationResource**(`config`): `TriggerIntegrationResource`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:616](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L616)
+Defined in: [packages/cli/src/solution/index.js:616](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L616)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:616](https://github.co
 
 > **get** **baseClient**(): `ChatBotKit`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:664](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L664)
+Defined in: [packages/cli/src/solution/index.js:664](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L664)
 
 ##### Returns
 
@@ -62,7 +62,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:664](https://github.co
 
 > **get** **client**(): `TriggerIntegrationClient`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:938](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L938)
+Defined in: [packages/cli/src/solution/index.js:938](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L938)
 
 ##### Returns
 
@@ -80,7 +80,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:938](https://github.co
 
 > **get** **createProperties**(): [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:691](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L691)
+Defined in: [packages/cli/src/solution/index.js:691](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L691)
 
 Get the properties to use for create operations.
 Override this method in subclasses to filter properties for creates.
@@ -101,7 +101,7 @@ Override this method in subclasses to filter properties for creates.
 
 > **get** **description**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:657](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L657)
+Defined in: [packages/cli/src/solution/index.js:657](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L657)
 
 ##### Returns
 
@@ -119,7 +119,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:657](https://github.co
 
 > **get** **id**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:643](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L643)
+Defined in: [packages/cli/src/solution/index.js:643](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L643)
 
 ##### Returns
 
@@ -137,7 +137,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:643](https://github.co
 
 > **get** **name**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:650](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L650)
+Defined in: [packages/cli/src/solution/index.js:650](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L650)
 
 ##### Returns
 
@@ -155,7 +155,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:650](https://github.co
 
 > **get** **slug**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:630](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L630)
+Defined in: [packages/cli/src/solution/index.js:630](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L630)
 
 ##### Returns
 
@@ -173,7 +173,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:630](https://github.co
 
 > **get** **type**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:623](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L623)
+Defined in: [packages/cli/src/solution/index.js:623](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L623)
 
 ##### Returns
 
@@ -191,7 +191,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:623](https://github.co
 
 > **get** **updateProperties**(): [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:701](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L701)
+Defined in: [packages/cli/src/solution/index.js:701](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L701)
 
 Get the properties to use for update operations.
 Override this method in subclasses to filter properties for updates.
@@ -210,7 +210,7 @@ Override this method in subclasses to filter properties for updates.
 
 > **sync**(): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:710](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L710)
+Defined in: [packages/cli/src/solution/index.js:710](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L710)
 
 Sync the resource.
 

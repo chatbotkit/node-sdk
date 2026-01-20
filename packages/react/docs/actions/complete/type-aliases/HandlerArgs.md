@@ -8,6 +8,6 @@
 
 > **HandlerArgs**\<\> = `any`
 
-Defined in: [actions/complete.js:48](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/actions/complete.js#L48)
+Defined in: [actions/complete.js:48](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/actions/complete.js#L48)
 
 ## Type Parameters

@@ -128,8 +128,8 @@ Use this approach when users are contacts within a single ChatBotKit account:
 
 ```javascript
 import {
-  ChatBotKitContactEmailProvider,
   ChatBotKitContactAdapter,
+  ChatBotKitContactEmailProvider,
   ContactMemoryStore,
 } from '@chatbotkit/nextauth/contact'
 
@@ -209,13 +209,13 @@ CHATBOTKIT_API_SECRET=your_api_secret_here
 
 ## Choosing Between Partner and Contact Adapters
 
-| Feature | Partner Adapter | Contact Adapter |
-|---------|-----------------|-----------------|
-| User isolation | Complete (separate sub-accounts) | Partial (shared account, individual contacts) |
-| Resource sharing | None (each user has own resources) | Full (all contacts share bots/datasets) |
-| API type | Partner API | Standard API |
-| User identity | Separate ChatBotKit accounts | Contacts within single account |
-| Best for | SaaS, white-label, multi-tenant | Chat apps, support systems, communities |
+| Feature          | Partner Adapter                    | Contact Adapter                               |
+| ---------------- | ---------------------------------- | --------------------------------------------- |
+| User isolation   | Complete (separate sub-accounts)   | Partial (shared account, individual contacts) |
+| Resource sharing | None (each user has own resources) | Full (all contacts share bots/datasets)       |
+| API type         | Partner API                        | Standard API                                  |
+| User identity    | Separate ChatBotKit accounts       | Contacts within single account                |
+| Best for         | SaaS, white-label, multi-tenant    | Chat apps, support systems, communities       |
 
 ## Complete Example
 

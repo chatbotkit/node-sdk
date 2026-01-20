@@ -8,7 +8,7 @@
 
 > **useWidgetInstanceNotifications**(`params?`, `deps?`): `ChatBotKitWidgetElementV2`
 
-Defined in: [hooks/useWidgetInstanceNotifications.js:18](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useWidgetInstanceNotifications.js#L18)
+Defined in: [hooks/useWidgetInstanceNotifications.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useWidgetInstanceNotifications.js#L18)
 
 ## Parameters
 

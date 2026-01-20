@@ -8,7 +8,7 @@
 
 > **downvoteConversationMessage**(`client`, `conversationId`, `messageId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/message/v1.js:201](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/v1.js#L201)
+Defined in: [conversation/message/v1.js:201](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/v1.js#L201)
 
 ## Parameters
 

@@ -6,7 +6,7 @@
 
 # Class: PartnerUserTokenClient
 
-Defined in: [partner/user/token/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L17)
+Defined in: [partner/user/token/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L17)
 
 Partner user token client.
 
@@ -20,7 +20,7 @@ Partner user token client.
 
 > **new PartnerUserTokenClient**(`options`): `PartnerUserTokenClient`
 
-Defined in: [partner/user/token/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L21)
+Defined in: [partner/user/token/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L21)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [partner/user/token/index.js:21](https://github.com/chatbotkit/cbk-p
 
 > **create**(`userId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [partner/user/token/index.js:43](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L43)
+Defined in: [partner/user/token/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L43)
 
 Creates a new user token.
 
@@ -66,7 +66,7 @@ Creates a new user token.
 
 > **delete**(`userId`, `tokenId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [partner/user/token/index.js:54](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L54)
+Defined in: [partner/user/token/index.js:54](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L54)
 
 Deletes the user token.
 
@@ -90,7 +90,7 @@ Deletes the user token.
 
 > **extend**(`extensionOptions`): `PartnerUserTokenClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -124,7 +124,7 @@ A new instance of the same client class with extended options
 
 > **list**(`userId`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [partner/user/token/index.js:32](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L32)
+Defined in: [partner/user/token/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/token/index.js#L32)
 
 Retrieves a list of all user tokens.
 

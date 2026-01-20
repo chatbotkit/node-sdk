@@ -8,6 +8,6 @@
 
 > **ConsumeSource**\<\> = `any`
 
-Defined in: [utils/stream.js:83](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/utils/stream.js#L83)
+Defined in: [utils/stream.js:83](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/utils/stream.js#L83)
 
 ## Type Parameters

@@ -8,7 +8,7 @@
 
 > **ToolDefinition**\<`T`\> = `object`
 
-Defined in: [agent/src/agent.js:20](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L20)
+Defined in: [agent/src/agent.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/agent.js#L20)
 
 ## Type Parameters
 

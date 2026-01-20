@@ -8,7 +8,7 @@
 
 > **ToolCallEndEvent**\<\> = `object`
 
-Defined in: [agent/src/agent.js:45](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/agent.js#L45)
+Defined in: [agent/src/agent.js:45](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/agent.js#L45)
 
 ## Type Parameters
 

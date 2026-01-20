@@ -8,6 +8,6 @@
 
 > **ConversationMessageDownvoteResponseBody**\<\> = `operations`\[`"downvoteConversationMessage"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [conversation/message/v1.js:191](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/message/v1.js#L191)
+Defined in: [conversation/message/v1.js:191](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/message/v1.js#L191)
 
 ## Type Parameters
