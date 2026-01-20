@@ -527,7 +527,7 @@ export const ExtractIntegrationResourceConfigSchema =
       botId: z.string().optional(),
       schema: z.record(z.unknown()).optional(),
       request: z.string().optional(),
-      trigger: z.string().optional(),
+      model: z.string().optional(),
     }),
   })
 

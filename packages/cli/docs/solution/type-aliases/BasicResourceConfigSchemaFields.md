@@ -8,7 +8,7 @@
 
 > **BasicResourceConfigSchemaFields**\<\> = `object`
 
-Defined in: [packages/cli/src/solution/index.js:112](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L112)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:112](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L112)
 
 ## Type Parameters
 

@@ -63,7 +63,8 @@ export const triggerInvoke = new Command()
   .action(async (triggerId) => {
     const client = getClient()
 
-    const result = await client.invoke(triggerId)
+    // @note SDK requires request object as second parameter
+    const result = await client.invoke(triggerId, {})
 
     print(result)
   })
