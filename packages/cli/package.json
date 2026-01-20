@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/cli",
-  "version": "1.26.2",
+  "version": "1.26.3",
   "description": "ChatBotKit command line tools",
   "license": "ISC",
   "engines": {
