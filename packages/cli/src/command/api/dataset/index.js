@@ -1,5 +1,7 @@
 import { getRUNAS_USERID, getSECRET } from '../../../env.js'
 import { print } from '../../../output.js'
+import file from './file/index.js'
+import record from './record/index.js'
 
 import { DatasetClient } from '@chatbotkit/sdk/dataset/index.js'
 
@@ -68,6 +70,8 @@ const commands = {
   list: datasetList,
   fetch: datasetFetch,
   delete: datasetDelete,
+  file,
+  record,
 }
 
 export const command = new Command()
