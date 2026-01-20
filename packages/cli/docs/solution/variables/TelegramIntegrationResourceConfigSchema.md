@@ -8,6 +8,6 @@
 
 > `const` **TelegramIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"telegramIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:366](https://github.com/chatbotkit/node-sdk/blob/main/packages/cli/src/solution/index.js#L366)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:366](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/cli/src/solution/index.js#L366)
 
 The schema for a telegram integration resource configuration.

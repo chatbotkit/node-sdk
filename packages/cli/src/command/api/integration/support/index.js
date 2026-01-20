@@ -56,18 +56,6 @@ export const supportDelete = new Command()
     await client.delete(supportId)
   })
 
-export const supportSetup = new Command()
-  .name('setup')
-  .description('Setup support integration')
-  .argument('<supportId>', 'Support ID')
-  .action(async (supportId) => {
-    const client = getClient()
-
-    const result = await client.setup(supportId)
-
-    print(result)
-  })
-
 /**
  * Commands registry - MUST include ALL SupportIntegrationClient methods
  *
@@ -80,7 +68,6 @@ const commands = {
   list: supportList,
   fetch: supportFetch,
   delete: supportDelete,
-  setup: supportSetup,
 }
 
 export const command = new Command()
