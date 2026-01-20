@@ -6,7 +6,7 @@
 
 # Interface: Contact
 
-Defined in: [v2.ts:33](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L33)
+Defined in: [v2.ts:33](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L33)
 
 Contact information that can be assigned to the widget session.
 
@@ -16,7 +16,7 @@ Contact information that can be assigned to the widget session.
 
 > `optional` **email**: `string`
 
-Defined in: [v2.ts:37](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L37)
+Defined in: [v2.ts:37](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L37)
 
 Contact's email address
 
@@ -26,7 +26,7 @@ Contact's email address
 
 > `optional` **name**: `string`
 
-Defined in: [v2.ts:35](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L35)
+Defined in: [v2.ts:35](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L35)
 
 Contact's name
 
@@ -36,6 +36,6 @@ Contact's name
 
 > `optional` **phone**: `string`
 
-Defined in: [v2.ts:39](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L39)
+Defined in: [v2.ts:39](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L39)
 
 Contact's phone number

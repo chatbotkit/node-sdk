@@ -8,6 +8,6 @@
 
 > **MemoryUpdateResponse**\<\> = [`MemoryUpdateResponseBody`](MemoryUpdateResponseBody.md)
 
-Defined in: [memory/v1.js:88](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L88)
+Defined in: [memory/v1.js:88](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/memory/v1.js#L88)
 
 ## Type Parameters

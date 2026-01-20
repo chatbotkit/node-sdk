@@ -8,7 +8,7 @@
 
 > **listSitemapIntegrations**(`client`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [integration/sitemap/v1.js:27](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/integration/sitemap/v1.js#L27)
+Defined in: [integration/sitemap/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/sitemap/v1.js#L27)
 
 ## Parameters
 

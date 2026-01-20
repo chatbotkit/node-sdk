@@ -8,7 +8,7 @@
 
 > **EndpointFunction**\<\> = (`options`) => [`AsyncGenerator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)\<`any`\>
 
-Defined in: [hooks/useConversationManagerRemote.js:19](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/hooks/useConversationManagerRemote.js#L19)
+Defined in: [hooks/useConversationManagerRemote.js:19](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/hooks/useConversationManagerRemote.js#L19)
 
 ## Type Parameters
 

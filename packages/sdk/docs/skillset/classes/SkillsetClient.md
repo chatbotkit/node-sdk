@@ -6,7 +6,7 @@
 
 # Class: SkillsetClient
 
-Defined in: [skillset/index.js:20](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L20)
+Defined in: [skillset/index.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L20)
 
 Skillset client.
 
@@ -20,7 +20,7 @@ Skillset client.
 
 > **new SkillsetClient**(`options`): `SkillsetClient`
 
-Defined in: [skillset/index.js:24](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L24)
+Defined in: [skillset/index.js:24](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L24)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [skillset/index.js:24](https://github.com/chatbotkit/cbk-platform/bl
 
 > **ability**: [`SkillsetAbilityClient`](../ability/classes/SkillsetAbilityClient.md)
 
-Defined in: [skillset/index.js:30](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L30)
+Defined in: [skillset/index.js:30](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L30)
 
 ## Methods
 
@@ -50,7 +50,7 @@ Defined in: [skillset/index.js:30](https://github.com/chatbotkit/cbk-platform/bl
 
 > **create**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [skillset/index.js:59](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L59)
+Defined in: [skillset/index.js:59](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L59)
 
 Creates a new skillset.
 
@@ -68,7 +68,7 @@ Creates a new skillset.
 
 > **delete**(`skillsetId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [skillset/index.js:80](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L80)
+Defined in: [skillset/index.js:80](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L80)
 
 Deletes the skillset.
 
@@ -88,7 +88,7 @@ Deletes the skillset.
 
 > **extend**(`extensionOptions`): `SkillsetClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -122,7 +122,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`skillsetId`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [skillset/index.js:49](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L49)
+Defined in: [skillset/index.js:49](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L49)
 
 Fetches a skillset.
 
@@ -142,7 +142,7 @@ Fetches a skillset.
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [skillset/index.js:39](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L39)
+Defined in: [skillset/index.js:39](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L39)
 
 Retrieves a list of all skillsets.
 
@@ -162,7 +162,7 @@ Retrieves a list of all skillsets.
 
 > **update**(`skillsetId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [skillset/index.js:70](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L70)
+Defined in: [skillset/index.js:70](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/index.js#L70)
 
 Updates a skillset.
 

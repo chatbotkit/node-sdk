@@ -8,7 +8,7 @@
 
 > **ChatMessage**(`props`): `Element`
 
-Defined in: [components/ChatMessage.js:29](https://github.com/chatbotkit/node-sdk/blob/main/packages/react/src/components/ChatMessage.js#L29)
+Defined in: [components/ChatMessage.js:29](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/react/src/components/ChatMessage.js#L29)
 
 ## Parameters
 

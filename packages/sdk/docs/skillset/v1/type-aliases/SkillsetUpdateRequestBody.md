@@ -8,6 +8,6 @@
 
 > **SkillsetUpdateRequestBody**\<\> = `operations`\[`"updateSkillset"`\]\[`"requestBody"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [skillset/v1.js:80](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/v1.js#L80)
+Defined in: [skillset/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/v1.js#L80)
 
 ## Type Parameters

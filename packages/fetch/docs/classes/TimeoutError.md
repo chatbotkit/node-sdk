@@ -6,7 +6,7 @@
 
 # Class: TimeoutError
 
-Defined in: [packages/fetch/src/index.js:190](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L190)
+Defined in: [packages/fetch/src/index.js:190](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/fetch/src/index.js#L190)
 
 A TimeoutError is thrown when a fetch request times out.
 
@@ -20,7 +20,7 @@ A TimeoutError is thrown when a fetch request times out.
 
 > **new TimeoutError**(`message?`): `TimeoutError`
 
-Defined in: [packages/fetch/src/index.js:194](https://github.com/chatbotkit/node-sdk/blob/main/packages/fetch/src/index.js#L194)
+Defined in: [packages/fetch/src/index.js:194](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/fetch/src/index.js#L194)
 
 #### Parameters
 

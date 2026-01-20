@@ -6,7 +6,7 @@
 
 # Class: TeamClient
 
-Defined in: [team/index.js:13](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/team/index.js#L13)
+Defined in: [team/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/team/index.js#L13)
 
 Team client.
 
@@ -20,7 +20,7 @@ Team client.
 
 > **new TeamClient**(`options`): `TeamClient`
 
-Defined in: [team/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/team/index.js#L17)
+Defined in: [team/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/team/index.js#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [team/index.js:17](https://github.com/chatbotkit/cbk-platform/blob/m
 
 > **extend**(`extensionOptions`): `TeamClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -76,7 +76,7 @@ A new instance of the same client class with extended options
 
 > **list**(`request?`): [`ResponsePromise`](../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [team/index.js:27](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/team/index.js#L27)
+Defined in: [team/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/team/index.js#L27)
 
 Retrieves a list of all teams.
 

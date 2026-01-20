@@ -8,6 +8,6 @@
 
 > **BlueprintFetchResponse**\<\> = `operations`\[`"fetchBlueprint"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [blueprint/v1.js:37](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/blueprint/v1.js#L37)
+Defined in: [blueprint/v1.js:37](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/v1.js#L37)
 
 ## Type Parameters

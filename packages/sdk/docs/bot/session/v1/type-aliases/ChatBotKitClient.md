@@ -8,6 +8,6 @@
 
 > **ChatBotKitClient**\<\> = [`ChatBotKitClient`](../../../../client/classes/ChatBotKitClient.md)
 
-Defined in: [bot/session/v1.js:2](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/bot/session/v1.js#L2)
+Defined in: [bot/session/v1.js:2](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/bot/session/v1.js#L2)
 
 ## Type Parameters

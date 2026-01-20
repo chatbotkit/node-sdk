@@ -6,7 +6,7 @@
 
 # Class: SkillsetAbilityClient
 
-Defined in: [skillset/ability/index.js:21](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L21)
+Defined in: [skillset/ability/index.js:21](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L21)
 
 Skillset ability client.
 
@@ -20,7 +20,7 @@ Skillset ability client.
 
 > **new SkillsetAbilityClient**(`options`): `SkillsetAbilityClient`
 
-Defined in: [skillset/ability/index.js:25](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L25)
+Defined in: [skillset/ability/index.js:25](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L25)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [skillset/ability/index.js:25](https://github.com/chatbotkit/cbk-pla
 
 > **create**(`skillsetId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [skillset/ability/index.js:69](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L69)
+Defined in: [skillset/ability/index.js:69](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L69)
 
 Creates a new ability.
 
@@ -64,7 +64,7 @@ Creates a new ability.
 
 > **delete**(`skillsetId`, `abilityId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [skillset/ability/index.js:92](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L92)
+Defined in: [skillset/ability/index.js:92](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L92)
 
 Deletes the ability.
 
@@ -88,7 +88,7 @@ Deletes the ability.
 
 > **execute**(`skillsetId`, `abilityId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [skillset/ability/index.js:104](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L104)
+Defined in: [skillset/ability/index.js:104](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L104)
 
 Executes an ability.
 
@@ -114,7 +114,7 @@ Executes an ability.
 
 > **export**(`skillsetId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [skillset/ability/index.js:47](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L47)
+Defined in: [skillset/ability/index.js:47](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L47)
 
 Exports abilities.
 
@@ -138,7 +138,7 @@ Exports abilities.
 
 > **extend**(`extensionOptions`): `SkillsetAbilityClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
@@ -172,7 +172,7 @@ A new instance of the same client class with extended options
 
 > **fetch**(`skillsetId`, `abilityId`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, `never`\>
 
-Defined in: [skillset/ability/index.js:58](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L58)
+Defined in: [skillset/ability/index.js:58](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L58)
 
 Fetches a ability.
 
@@ -196,7 +196,7 @@ Fetches a ability.
 
 > **list**(`skillsetId`, `request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [skillset/ability/index.js:36](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L36)
+Defined in: [skillset/ability/index.js:36](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L36)
 
 Retrieves a list of all abilities.
 
@@ -220,7 +220,7 @@ Retrieves a list of all abilities.
 
 > **update**(`skillsetId`, `abilityId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [skillset/ability/index.js:81](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L81)
+Defined in: [skillset/ability/index.js:81](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/skillset/ability/index.js#L81)
 
 Updates an ability.
 

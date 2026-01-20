@@ -8,6 +8,6 @@
 
 > `const` **tools**: [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, \{ `default?`: `boolean`; `description`: `string`; `handler`: (`input`) => [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`any`\>; `input`: `ZodObject`\<`any`\>; \}\>
 
-Defined in: [agent/src/tools.js:15](https://github.com/chatbotkit/node-sdk/blob/main/packages/agent/src/tools.js#L15)
+Defined in: [agent/src/tools.js:15](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/tools.js#L15)
 
 Available tools for agent CLI

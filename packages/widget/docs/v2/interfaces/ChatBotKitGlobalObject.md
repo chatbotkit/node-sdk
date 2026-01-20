@@ -6,7 +6,7 @@
 
 # Interface: ChatBotKitGlobalObject
 
-Defined in: [v2.ts:135](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L135)
+Defined in: [v2.ts:139](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L139)
 
 The global chatbotkitWidget object available on window.
 
@@ -16,7 +16,7 @@ The global chatbotkitWidget object available on window.
 
 > `readonly` **instance**: [`ChatBotKitWidgetElementV2`](ChatBotKitWidgetElementV2.md)
 
-Defined in: [v2.ts:137](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L137)
+Defined in: [v2.ts:141](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L141)
 
 The widget instance (null if not yet initialized)
 
@@ -26,6 +26,6 @@ The widget instance (null if not yet initialized)
 
 > `readonly` **instancePromise**: [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`ChatBotKitWidgetElementV2`](ChatBotKitWidgetElementV2.md)\>
 
-Defined in: [v2.ts:139](https://github.com/chatbotkit/node-sdk/blob/main/packages/widget/src/v2.ts#L139)
+Defined in: [v2.ts:143](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/widget/src/v2.ts#L143)
 
 Promise that resolves with the widget instance when ready

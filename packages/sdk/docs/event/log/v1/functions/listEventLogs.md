@@ -8,7 +8,7 @@
 
 > **listEventLogs**(`client`, `request?`): [`ResponsePromise`](../../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [event/log/v1.js:27](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/event/log/v1.js#L27)
+Defined in: [event/log/v1.js:27](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/event/log/v1.js#L27)
 
 ## Parameters
 

@@ -6,7 +6,7 @@
 
 # Class: ConversationSessionClient
 
-Defined in: [conversation/session/index.js:7](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/session/index.js#L7)
+Defined in: [conversation/session/index.js:7](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/session/index.js#L7)
 
 Conversation session client.
 
@@ -20,7 +20,7 @@ Conversation session client.
 
 > **new ConversationSessionClient**(`options`): `ConversationSessionClient`
 
-Defined in: [conversation/session/index.js:11](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/session/index.js#L11)
+Defined in: [conversation/session/index.js:11](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/session/index.js#L11)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [conversation/session/index.js:11](https://github.com/chatbotkit/cbk
 
 > **create**(`conversationId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [conversation/session/index.js:22](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/conversation/session/index.js#L22)
+Defined in: [conversation/session/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/session/index.js#L22)
 
 Creates a new session.
 
@@ -64,7 +64,7 @@ Creates a new session.
 
 > **extend**(`extensionOptions`): `ConversationSessionClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/cbk-platform/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
 
 Creates a new instance of the same client type with extended options.
 
