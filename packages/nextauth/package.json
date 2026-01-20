@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/nextauth",
-  "version": "1.26.2",
+  "version": "1.26.3",
   "description": "ChatBotKit adapter for NextAuth.js to make conversational AI bots with authentication and authorization",
   "license": "ISC",
   "engines": {

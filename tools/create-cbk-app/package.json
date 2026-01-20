@@ -1,6 +1,6 @@
 {
   "name": "create-cbk-app",
-  "version": "1.26.2",
+  "version": "1.26.3",
   "description": "A quick tool to create a new ChatbotKit app",
   "license": "ISC",
   "engines": {
