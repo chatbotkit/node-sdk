@@ -5554,6 +5554,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -5602,6 +5604,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -20433,6 +20437,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
@@ -20484,6 +20490,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
+                    /** @description The unique alias for the instance */
+                    alias?: string;
                     /** @description The associated name */
                     name?: string;
                     /** @description The associated description */
