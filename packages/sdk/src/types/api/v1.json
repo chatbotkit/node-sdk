@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1768995008378)"
+    "version": "v1 (build 1768996191833)"
   },
   "servers": [
     {
@@ -1978,9 +1978,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Instance crud properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -2070,9 +2074,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Instance crud properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -35902,9 +35910,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
@@ -35997,9 +36009,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
                 "description": "Blueprint properties",
+                "type": "object",
                 "properties": {
+                  "alias": {
+                    "type": "string",
+                    "description": "The unique alias for the instance"
+                  },
                   "name": {
                     "type": "string",
                     "description": "The associated name"
