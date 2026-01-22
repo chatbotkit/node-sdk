@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.26.5
+
+### Patch Changes
+
+- 4d2052f: Additional types and updated docs.
+
 ## 1.26.3
 
 ### Patch Changes
