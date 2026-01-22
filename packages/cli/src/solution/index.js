@@ -129,6 +129,7 @@ export const BasicResourceConfigSchema = z.object({
 export const BlueprintResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('blueprint'),
   properties: z.object({
+    alias: z.string().optional(),
     name: z.string().optional(),
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
@@ -144,6 +145,7 @@ export const BlueprintResourceConfigSchema = BasicResourceConfigSchema.extend({
 export const BotResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('bot'),
   properties: z.object({
+    alias: z.string().optional(),
     name: z.string().optional(),
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
@@ -166,6 +168,7 @@ export const BotResourceConfigSchema = BasicResourceConfigSchema.extend({
 export const DatasetResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('dataset'),
   properties: z.object({
+    alias: z.string().optional(),
     name: z.string().optional(),
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
@@ -191,6 +194,7 @@ export const DatasetResourceConfigSchema = BasicResourceConfigSchema.extend({
 export const FileResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('file'),
   properties: z.object({
+    alias: z.string().optional(),
     name: z.string().optional(),
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
@@ -207,6 +211,7 @@ export const FileResourceConfigSchema = BasicResourceConfigSchema.extend({
 export const SecretResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('secret'),
   properties: z.object({
+    alias: z.string().optional(),
     name: z.string().optional(),
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
@@ -229,6 +234,7 @@ export const SecretResourceConfigSchema = BasicResourceConfigSchema.extend({
 export const SkillsetResourceConfigSchema = BasicResourceConfigSchema.extend({
   type: z.literal('skillset'),
   properties: z.object({
+    alias: z.string().optional(),
     name: z.string().optional(),
     description: z.string().optional(),
     meta: z.record(z.unknown()).optional(),
