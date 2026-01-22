@@ -12,6 +12,9 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     environment: publish
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
