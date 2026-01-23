@@ -11,5 +11,6 @@
 - [env](env/README.md)
 - [index](index/README.md)
 - [input](input/README.md)
+- [loader/hooks](loader/hooks/README.md)
 - [solution](solution/README.md)
 - [tools](tools/README.md)
