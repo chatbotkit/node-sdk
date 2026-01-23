@@ -11,9 +11,37 @@ import { fileURLToPath, pathToFileURL } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-// The CLI's node_modules directory where @chatbotkit packages are installed
+/**
+ * Find the CLI package root directory.
+ *
+ * In source: src/loader/hooks.js -> go up 2 levels to src/../
+ * In dist: dist/esm/loader/hooks.js -> go up 3 levels to dist/esm/loader/../../../
+ *
+ * We detect which by checking if package.json exists at each level.
+ */
+function findCliRoot() {
+  // Try 2 levels up (source structure: src/loader/)
 
-const cliRoot = join(__dirname, '..', '..')
+  let root = join(__dirname, '..', '..')
+
+  if (existsSync(join(root, 'package.json'))) {
+    return root
+  }
+
+  // Try 3 levels up (dist structure: dist/esm/loader/)
+
+  root = join(__dirname, '..', '..', '..')
+
+  if (existsSync(join(root, 'package.json'))) {
+    return root
+  }
+
+  // Fallback to 2 levels
+
+  return join(__dirname, '..', '..')
+}
+
+const cliRoot = findCliRoot()
 const cliNodeModules = join(cliRoot, 'node_modules')
 
 /**
