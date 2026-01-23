@@ -8,6 +8,6 @@
 
 > `const` **SupportIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"supportIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:500](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L500)
+Defined in: [packages/cli/src/solution/index.js:506](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L506)
 
 The schema for a support integration resource configuration.
