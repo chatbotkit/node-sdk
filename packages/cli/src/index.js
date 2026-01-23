@@ -96,5 +96,21 @@ export default async function cbk(argv = process.argv) {
   program.addCommand(run)
   program.addCommand(solution)
 
+  // Special handling for `cbk run --help` or `cbk run -h` without a script
+  // Since run command has helpOption(false) to pass --help to scripts,
+  // we need to manually show help when no script is provided
+
+  const args = argv.slice(2)
+
+  if (
+    args[0] === 'run' &&
+    args.length === 2 &&
+    (args[1] === '--help' || args[1] === '-h')
+  ) {
+    run.outputHelp()
+
+    return
+  }
+
   program.parse(argv)
 }
