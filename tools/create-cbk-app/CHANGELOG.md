@@ -1,5 +1,12 @@
 # create-cbk-app
 
+## 1.27.2
+
+### Patch Changes
+
+- Updated dependencies [0f68932]
+  - @chatbotkit/cli@1.27.2
+
 ## 1.27.1
 
 ### Patch Changes

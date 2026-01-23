@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.27.2
+
+### Patch Changes
+
+- 0f68932: Correct handling of help command line flags when used with scripts.
+
 ## 1.27.1
 
 ### Patch Changes
