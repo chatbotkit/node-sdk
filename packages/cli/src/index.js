@@ -4,7 +4,11 @@ import command from './command/api/index.js'
 import chat from './command/chat/index.js'
 import solution from './command/solution/index.js'
 
-import { Command } from 'commander'
+import { Argument, Command, Option } from 'commander'
+
+// Re-export commander utilities for scripts to build their own CLIs
+
+export { Command, Option, Argument }
 
 /**
  * Print a banner message to the console.
