@@ -8,7 +8,7 @@
 
 > **resolve**(`specifier`, `context`, `nextResolve`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ `shortCircuit?`: `boolean`; `url`: `string`; \}\>
 
-Defined in: [packages/cli/src/loader/hooks.js:99](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/loader/hooks.js#L99)
+Defined in: [packages/cli/src/loader/hooks.js:127](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/loader/hooks.js#L127)
 
 Resolve hook - intercepts module resolution to redirect @chatbotkit/*
 imports to the CLI's bundled packages.
