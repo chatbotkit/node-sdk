@@ -453,6 +453,38 @@
       "types": "./types/command/chat/index.d.ts",
       "import": "./src/command/chat/index.js"
     },
+    "./command/run": {
+      "types": "./types/command/run/index.d.ts",
+      "import": "./src/command/run/index.js"
+    },
+    "./command/run/index": {
+      "types": "./types/command/run/index.d.ts",
+      "import": "./src/command/run/index.js"
+    },
+    "./command/run/index.js": {
+      "types": "./types/command/run/index.d.ts",
+      "import": "./src/command/run/index.js"
+    },
+    "./loader": {
+      "types": "./types/loader/index.d.ts",
+      "import": "./src/loader/index.js"
+    },
+    "./loader/index": {
+      "types": "./types/loader/index.d.ts",
+      "import": "./src/loader/index.js"
+    },
+    "./loader/index.js": {
+      "types": "./types/loader/index.d.ts",
+      "import": "./src/loader/index.js"
+    },
+    "./loader/hooks": {
+      "types": "./types/loader/hooks.d.ts",
+      "import": "./src/loader/hooks.js"
+    },
+    "./loader/hooks.js": {
+      "types": "./types/loader/hooks.d.ts",
+      "import": "./src/loader/hooks.js"
+    },
     "./command/solution": {
       "types": "./types/command/solution/index.d.ts",
       "import": "./src/command/solution/index.js"
