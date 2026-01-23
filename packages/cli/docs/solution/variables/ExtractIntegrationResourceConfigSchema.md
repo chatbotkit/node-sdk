@@ -8,6 +8,6 @@
 
 > `const` **ExtractIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"extractIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:519](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L519)
+Defined in: [packages/cli/src/solution/index.js:525](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L525)
 
 The schema for an extract integration resource configuration.

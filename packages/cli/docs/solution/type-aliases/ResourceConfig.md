@@ -8,6 +8,6 @@
 
 > **ResourceConfig**\<\> = `z.infer`\<*typeof* [`ResourceConfigSchema`](../variables/ResourceConfigSchema.md)\>
 
-Defined in: [packages/cli/src/solution/index.js:606](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L606)
+Defined in: [packages/cli/src/solution/index.js:612](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L612)
 
 ## Type Parameters
