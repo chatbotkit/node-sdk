@@ -2,6 +2,7 @@ import { formatBlue } from './color.js'
 import agent from './command/agent/index.js'
 import command from './command/api/index.js'
 import chat from './command/chat/index.js'
+import run from './command/run/index.js'
 import solution from './command/solution/index.js'
 
 import { Argument, Command, Option } from 'commander'
@@ -51,6 +52,7 @@ export default async function cbk(argv = process.argv) {
   program.addCommand(command)
   program.addCommand(agent)
   program.addCommand(chat)
+  program.addCommand(run)
   program.addCommand(solution)
 
   program.parse(argv)
