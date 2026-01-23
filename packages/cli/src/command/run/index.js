@@ -23,6 +23,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // Path to the loader module that registers our custom hooks
 // From command/run/ we go up to src/ then into loader/
+
 const loaderPath = join(__dirname, '..', '..', 'loader', 'index.js')
 
 /**
