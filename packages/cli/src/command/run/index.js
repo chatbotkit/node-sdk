@@ -97,9 +97,11 @@ export const command = new Command()
   .description('Run a JavaScript file with @chatbotkit/* packages available')
   .argument('<script>', 'Path to the JavaScript file to run')
   .argument('[args...]', 'Arguments to pass to the script')
+  .helpOption(false) // Disable built-in help so it passes through to script
+  .enablePositionalOptions() // Stop parsing options after first positional arg
+  .passThroughOptions() // Options after <script> pass through to the script
   .allowUnknownOption(true)
   .allowExcessArguments(true)
-  .helpOption('-h, --help', 'Display help for the run command')
   .addHelpText(
     'after',
     `
