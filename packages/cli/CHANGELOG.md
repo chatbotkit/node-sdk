@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.27.3
+
+### Patch Changes
+
+- 57aeb3f: Fixed issues with finding the right imports when represented as non-strings.
+
 ## 1.27.2
 
 ### Patch Changes
