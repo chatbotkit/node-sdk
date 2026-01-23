@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.27.1
+
+### Patch Changes
+
+- b8b0696: Fixed cli root detection.
+
 ## 1.27.0
 
 ### Minor Changes
