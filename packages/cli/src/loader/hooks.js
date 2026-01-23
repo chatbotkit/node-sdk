@@ -74,9 +74,21 @@ function resolvePackageExport(packagePath, subpath) {
         if (typeof exportEntry === 'string') {
           importPath = exportEntry
         } else if (exportEntry.import) {
-          importPath = exportEntry.import
+          // Handle nested import object with types/default
+
+          if (typeof exportEntry.import === 'string') {
+            importPath = exportEntry.import
+          } else if (exportEntry.import.default) {
+            importPath = exportEntry.import.default
+          }
         } else if (exportEntry.default) {
-          importPath = exportEntry.default
+          // Handle top-level default
+
+          if (typeof exportEntry.default === 'string') {
+            importPath = exportEntry.default
+          } else if (exportEntry.default.default) {
+            importPath = exportEntry.default.default
+          }
         }
 
         if (importPath) {
