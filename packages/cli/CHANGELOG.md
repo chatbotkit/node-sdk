@@ -1,5 +1,11 @@
 # @chatbotkit/cli
 
+## 1.27.0
+
+### Minor Changes
+
+- fd2e6a5: Added a run command for cbk scripting support.
+
 ## 1.26.5
 
 ### Patch Changes
