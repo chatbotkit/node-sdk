@@ -4812,6 +4812,28 @@ export interface components {
             token: number;
         };
         /**
+         * @description The reason why the completion ended
+         * @enum {string}
+         */
+        CompleteReason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+        /** @description Information about why the completion ended */
+        CompleteEnd: {
+            /**
+             * @description The reason why the completion ended
+             * @enum {string}
+             */
+            reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+        };
+        /** @description Execution limits to control conversation processing bounds */
+        ExecutionLimits: {
+            /** @description Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses. */
+            iterations?: number;
+            /** @description Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition. */
+            continuations?: number;
+            /** @description Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation. */
+            calls?: number;
+        };
+        /**
          * @description The policy type
          * @enum {string}
          */
@@ -7734,6 +7756,15 @@ export interface operations {
                             };
                         }[];
                     };
+                    /** @description Execution limits to control conversation processing bounds */
+                    limits?: {
+                        /** @description Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses. */
+                        iterations?: number;
+                        /** @description Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition. */
+                        continuations?: number;
+                        /** @description Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation. */
+                        calls?: number;
+                    };
                 };
             };
         };
@@ -7754,6 +7785,14 @@ export interface operations {
                             /** @description The tokens used in this exchange */
                             token: number;
                         };
+                        /** @description Information about why the completion ended */
+                        end: {
+                            /**
+                             * @description The reason why the completion ended
+                             * @enum {string}
+                             */
+                            reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+                        };
                     };
                     "application/jsonl": {
                         /**
@@ -7770,6 +7809,14 @@ export interface operations {
                             usage: {
                                 /** @description The tokens used in this exchange */
                                 token: number;
+                            };
+                            /** @description Information about why the completion ended */
+                            end: {
+                                /**
+                                 * @description The reason why the completion ended
+                                 * @enum {string}
+                                 */
+                                reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
                             };
                         };
                     } | ({
@@ -8098,6 +8145,15 @@ export interface operations {
                                 [key: string]: unknown;
                             };
                         }[];
+                    };
+                    /** @description Execution limits to control conversation processing bounds */
+                    limits?: {
+                        /** @description Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses. */
+                        iterations?: number;
+                        /** @description Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition. */
+                        continuations?: number;
+                        /** @description Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation. */
+                        calls?: number;
                     };
                     /** @description A unique ID to deduplicate dispatch requests */
                     channelId?: string;
@@ -9585,6 +9641,15 @@ export interface operations {
                             };
                         }[];
                     };
+                    /** @description Execution limits to control conversation processing bounds */
+                    limits?: {
+                        /** @description Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses. */
+                        iterations?: number;
+                        /** @description Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition. */
+                        continuations?: number;
+                        /** @description Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation. */
+                        calls?: number;
+                    };
                 } & ({
                     /** @description The ID of the bot this configuration is using */
                     botId?: string;
@@ -9622,6 +9687,14 @@ export interface operations {
                             /** @description The tokens used in this exchange */
                             token: number;
                         };
+                        /** @description Information about why the completion ended */
+                        end: {
+                            /**
+                             * @description The reason why the completion ended
+                             * @enum {string}
+                             */
+                            reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+                        };
                     };
                     "application/jsonl": {
                         /**
@@ -9636,6 +9709,14 @@ export interface operations {
                             usage: {
                                 /** @description The tokens used in this exchange */
                                 token: number;
+                            };
+                            /** @description Information about why the completion ended */
+                            end: {
+                                /**
+                                 * @description The reason why the completion ended
+                                 * @enum {string}
+                                 */
+                                reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
                             };
                         };
                     } | ({
@@ -9980,6 +10061,15 @@ export interface operations {
                                 [key: string]: unknown;
                             };
                         }[];
+                    };
+                    /** @description Execution limits to control conversation processing bounds */
+                    limits?: {
+                        /** @description Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses. */
+                        iterations?: number;
+                        /** @description Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition. */
+                        continuations?: number;
+                        /** @description Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation. */
+                        calls?: number;
                     };
                     /** @description A unique channel ID to subscribe to for completion events */
                     channelId?: string;
