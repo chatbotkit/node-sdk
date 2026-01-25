@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1769381850275)"
+    "version": "v1 (build 1769382749596)"
   },
   "servers": [
     {
@@ -381,8 +381,7 @@
         "enum": [
           "length",
           "stop",
-          "functionCall",
-          "toolCalls",
+          "activity",
           "error",
           "iterationLimit"
         ]
@@ -397,8 +396,7 @@
             "enum": [
               "length",
               "stop",
-              "functionCall",
-              "toolCalls",
+              "activity",
               "error",
               "iterationLimit"
             ],
@@ -7105,8 +7103,7 @@
                           "enum": [
                             "length",
                             "stop",
-                            "functionCall",
-                            "toolCalls",
+                            "activity",
                             "error",
                             "iterationLimit"
                           ],
@@ -7175,8 +7172,7 @@
                                   "enum": [
                                     "length",
                                     "stop",
-                                    "functionCall",
-                                    "toolCalls",
+                                    "activity",
                                     "error",
                                     "iterationLimit"
                                   ],
@@ -11733,8 +11729,7 @@
                           "enum": [
                             "length",
                             "stop",
-                            "functionCall",
-                            "toolCalls",
+                            "activity",
                             "error",
                             "iterationLimit"
                           ],
@@ -11798,8 +11793,7 @@
                                   "enum": [
                                     "length",
                                     "stop",
-                                    "functionCall",
-                                    "toolCalls",
+                                    "activity",
                                     "error",
                                     "iterationLimit"
                                   ],
