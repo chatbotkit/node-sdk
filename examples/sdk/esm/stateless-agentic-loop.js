@@ -77,7 +77,7 @@ async function main() {
     },
   ]
 
-  /** @type {{type: 'user'|'bot'|'activity', text: string, meta?: Record<string, any>}[]} */
+  /** @type {import('@chatbotkit/sdk/conversation/v1').Message[]} */
   const messages = [
     {
       type: 'user',
@@ -95,26 +95,36 @@ async function main() {
   // The manual agentic loop
   while (iterationCount < maxIterations) {
     iterationCount++
+
     console.log(`\n[Iteration ${iterationCount}]`)
+
+    let response
 
     // Call complete with iterations limit of 1
     // This ensures we get control back after each agentic step
-    const response = await client.complete(null, {
-      model: 'claude-4.5-sonnet',
-      messages,
-      functions,
-      limits: {
-        iterations: 1, // Return after each iteration
-      },
-    })
+    for await (const item of client
+      .complete(null, {
+        model: 'claude-4.5-sonnet',
+        messages,
+        functions,
+        limits: {
+          iterations: 1, // Return after each iteration
+        },
+      })
+      .stream()) {
+      if (item.type === 'result') {
+        response = item.data
+      } else if (item.type === 'message') {
+        messages.push(item.data)
+      }
+    }
+
+    if (!response) {
+      return // @note should not happen
+    }
 
     console.log(`End reason: ${response.end.reason}`)
     console.log(`Response text: ${response.text || '(activity only)'}`)
-
-    // Add the bot's response to messages for context continuity
-    if (response.text) {
-      messages.push({ type: 'bot', text: response.text })
-    }
 
     // Here you could add custom logic between iterations:
     // - Log to a monitoring system
@@ -153,13 +163,20 @@ async function main() {
 
   console.log('\n---')
   console.log('Final conversation:')
+
   for (const msg of messages) {
+    if (msg.type !== 'user' && msg.type !== 'bot') {
+      continue
+    }
+
     const prefix = msg.type === 'user' ? 'User' : 'Bot'
+
     console.log(`${prefix}: ${msg.text}`)
   }
 }
 
 main().catch((error) => {
   console.error('Error:', error)
+
   process.exit(1)
 })
