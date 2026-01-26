@@ -21,6 +21,7 @@ dotenv.config()
  * 3. **Rate limiting** - You want to add delays or rate limiting between calls
  * 4. **Early termination** - You want custom conditions to stop the loop
  * 5. **State persistence** - You need to persist state between iterations
+ * 6. **Long running tasks** - You want to handle long tasks between steps
  *
  * By setting `limits.iterations` to 1, the server will return after each
  * agentic iteration with `end.reason: 'iteration'`, allowing you to decide
