@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1768996191833)"
+    "version": "v1 (build 1769385887252)"
   },
   "servers": [
     {
@@ -374,6 +374,59 @@
         "required": [
           "token"
         ]
+      },
+      "CompleteReason": {
+        "type": "string",
+        "description": "The reason why the completion ended",
+        "enum": [
+          "length",
+          "stop",
+          "activity",
+          "error",
+          "iteration"
+        ]
+      },
+      "CompleteEnd": {
+        "type": "object",
+        "description": "Information about why the completion ended",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "The reason why the completion ended",
+            "enum": [
+              "length",
+              "stop",
+              "activity",
+              "error",
+              "iteration"
+            ],
+            "$$ref": "#/components/schemas/CompleteReason"
+          }
+        },
+        "required": [
+          "reason"
+        ]
+      },
+      "ExecutionLimits": {
+        "type": "object",
+        "description": "Execution limits to control conversation processing bounds",
+        "properties": {
+          "iterations": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses."
+          },
+          "continuations": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition."
+          },
+          "calls": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation."
+          }
+        }
       },
       "PolicyType": {
         "type": "string",
@@ -6979,6 +7032,28 @@
                       }
                     },
                     "$$ref": "#/components/schemas/ExtensionsDefinition"
+                  },
+                  "limits": {
+                    "type": "object",
+                    "description": "Execution limits to control conversation processing bounds",
+                    "properties": {
+                      "iterations": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses."
+                      },
+                      "continuations": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition."
+                      },
+                      "calls": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation."
+                      }
+                    },
+                    "$$ref": "#/components/schemas/ExecutionLimits"
                   }
                 },
                 "required": [
@@ -7017,12 +7092,35 @@
                         "token"
                       ],
                       "$$ref": "#/components/schemas/Usage"
+                    },
+                    "end": {
+                      "type": "object",
+                      "description": "Information about why the completion ended",
+                      "properties": {
+                        "reason": {
+                          "type": "string",
+                          "description": "The reason why the completion ended",
+                          "enum": [
+                            "length",
+                            "stop",
+                            "activity",
+                            "error",
+                            "iteration"
+                          ],
+                          "$$ref": "#/components/schemas/CompleteReason"
+                        }
+                      },
+                      "required": [
+                        "reason"
+                      ],
+                      "$$ref": "#/components/schemas/CompleteEnd"
                     }
                   },
                   "required": [
                     "id",
                     "text",
-                    "usage"
+                    "usage",
+                    "end"
                   ]
                 }
               },
@@ -7063,12 +7161,35 @@
                                 "token"
                               ],
                               "$$ref": "#/components/schemas/Usage"
+                            },
+                            "end": {
+                              "type": "object",
+                              "description": "Information about why the completion ended",
+                              "properties": {
+                                "reason": {
+                                  "type": "string",
+                                  "description": "The reason why the completion ended",
+                                  "enum": [
+                                    "length",
+                                    "stop",
+                                    "activity",
+                                    "error",
+                                    "iteration"
+                                  ],
+                                  "$$ref": "#/components/schemas/CompleteReason"
+                                }
+                              },
+                              "required": [
+                                "reason"
+                              ],
+                              "$$ref": "#/components/schemas/CompleteEnd"
                             }
                           },
                           "required": [
                             "id",
                             "text",
-                            "usage"
+                            "usage",
+                            "end"
                           ],
                           "$$ref": "#/paths/~1conversation~1{conversationId}~1complete/post/responses/200/content/application~1json/schema"
                         }
@@ -7874,6 +7995,28 @@
                       }
                     },
                     "$$ref": "#/components/schemas/ExtensionsDefinition"
+                  },
+                  "limits": {
+                    "type": "object",
+                    "description": "Execution limits to control conversation processing bounds",
+                    "properties": {
+                      "iterations": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses."
+                      },
+                      "continuations": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition."
+                      },
+                      "calls": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation."
+                      }
+                    },
+                    "$$ref": "#/components/schemas/ExecutionLimits"
                   },
                   "channelId": {
                     "description": "A unique ID to deduplicate dispatch requests",
@@ -11519,6 +11662,28 @@
                       }
                     },
                     "$$ref": "#/components/schemas/ExtensionsDefinition"
+                  },
+                  "limits": {
+                    "type": "object",
+                    "description": "Execution limits to control conversation processing bounds",
+                    "properties": {
+                      "iterations": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses."
+                      },
+                      "continuations": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition."
+                      },
+                      "calls": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation."
+                      }
+                    },
+                    "$$ref": "#/components/schemas/ExecutionLimits"
                   }
                 },
                 "required": [
@@ -11553,11 +11718,34 @@
                         "token"
                       ],
                       "$$ref": "#/components/schemas/Usage"
+                    },
+                    "end": {
+                      "type": "object",
+                      "description": "Information about why the completion ended",
+                      "properties": {
+                        "reason": {
+                          "type": "string",
+                          "description": "The reason why the completion ended",
+                          "enum": [
+                            "length",
+                            "stop",
+                            "activity",
+                            "error",
+                            "iteration"
+                          ],
+                          "$$ref": "#/components/schemas/CompleteReason"
+                        }
+                      },
+                      "required": [
+                        "reason"
+                      ],
+                      "$$ref": "#/components/schemas/CompleteEnd"
                     }
                   },
                   "required": [
                     "text",
-                    "usage"
+                    "usage",
+                    "end"
                   ]
                 }
               },
@@ -11594,11 +11782,34 @@
                                 "token"
                               ],
                               "$$ref": "#/components/schemas/Usage"
+                            },
+                            "end": {
+                              "type": "object",
+                              "description": "Information about why the completion ended",
+                              "properties": {
+                                "reason": {
+                                  "type": "string",
+                                  "description": "The reason why the completion ended",
+                                  "enum": [
+                                    "length",
+                                    "stop",
+                                    "activity",
+                                    "error",
+                                    "iteration"
+                                  ],
+                                  "$$ref": "#/components/schemas/CompleteReason"
+                                }
+                              },
+                              "required": [
+                                "reason"
+                              ],
+                              "$$ref": "#/components/schemas/CompleteEnd"
                             }
                           },
                           "required": [
                             "text",
-                            "usage"
+                            "usage",
+                            "end"
                           ],
                           "$$ref": "#/paths/~1conversation~1complete/post/responses/200/content/application~1json/schema"
                         }
@@ -12509,6 +12720,28 @@
                       }
                     },
                     "$$ref": "#/components/schemas/ExtensionsDefinition"
+                  },
+                  "limits": {
+                    "type": "object",
+                    "description": "Execution limits to control conversation processing bounds",
+                    "properties": {
+                      "iterations": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of agentic iterations. Controls how many times the model can iterate through tool calls and responses."
+                      },
+                      "continuations": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of model continuations. Controls how many times the model can continue generating after reaching a stop condition."
+                      },
+                      "calls": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Maximum number of function/tool calls. Controls how many total function calls can be made during the conversation."
+                      }
+                    },
+                    "$$ref": "#/components/schemas/ExecutionLimits"
                   },
                   "channelId": {
                     "description": "A unique channel ID to subscribe to for completion events",
