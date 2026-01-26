@@ -37,7 +37,7 @@ async function main() {
       name: 'get_weather',
       description: 'Get the current weather for a location',
       parameters: {
-        type: 'object',
+        type: /** @type {const} */ ('object'),
         properties: {
           location: {
             type: 'string',
@@ -59,7 +59,7 @@ async function main() {
       name: 'get_time',
       description: 'Get the current time for a timezone',
       parameters: {
-        type: 'object',
+        type: /** @type {const} */ ('object'),
         properties: {
           timezone: {
             type: 'string',
@@ -100,7 +100,7 @@ async function main() {
     // Call complete with iterations limit of 1
     // This ensures we get control back after each agentic step
     const response = await client.complete(null, {
-      model: 'gpt-4o-mini',
+      model: 'claude-4.5-sonnet',
       messages,
       functions,
       limits: {
