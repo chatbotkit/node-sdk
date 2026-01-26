@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const dotenv = require('dotenv')
 const readline = require('node:readline/promises')
 
@@ -30,7 +31,7 @@ async function main() {
   /**
    * Create a dedicated conversation.
    */
-  const conversation = await client.create({ model: 'gpt-3.5-turbo' })
+  const conversation = await client.create({ model: 'claude-4.5-sonnet' })
 
   for (;;) {
     const user = await rl.question('user: ')
