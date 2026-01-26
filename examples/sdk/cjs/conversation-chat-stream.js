@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const dotenv = require('dotenv')
 const readline = require('node:readline/promises')
 
@@ -8,7 +9,7 @@ dotenv.config()
 
 /**
  * Main function that implements a chatbot using the ChatBotKit SDK and the
- * GPT-3.5 Turbo model. It creates a conversation client, prompts the user for
+ * Claude 4.5 Sonnet model. It creates a conversation client, prompts the user for
  * input, sends the input to the chatbot model, and displays the bot's response.
  * The conversation continues until the program is terminated.
  */
@@ -30,7 +31,7 @@ async function main() {
   /**
    * Create a dedicated conversation.
    */
-  const conversation = await client.create({ model: 'gpt-3.5-turbo' })
+  const conversation = await client.create({ model: 'claude-4.5-sonnet' })
 
   for (;;) {
     const user = await rl.question('user: ')

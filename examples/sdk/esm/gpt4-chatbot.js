@@ -18,8 +18,8 @@ dotenv.config()
  * the user's input).
  *
  * Next, the loop calls the client.complete() method, passing it an object with
- * properties model: 'gpt-4' and messages: messages. This sends the messages
- * array to ChatBotKit's API, which uses the GPT-4 model to generate a response.
+ * properties model: 'gpt-4o' and messages: messages. This sends the messages
+ * array to ChatBotKit's API, which uses the GPT-4o model to generate a response.
  * The response is then added to the messages array as another object with
  * properties type: 'bot' and text: bot (where bot is the generated response).
  *
@@ -50,7 +50,7 @@ async function main() {
      * the model context size.
      */
     const { text: bot } = await client.complete(null, {
-      model: 'gpt-4',
+      model: 'gpt-4o',
       messages,
     })
 

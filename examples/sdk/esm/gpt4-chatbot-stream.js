@@ -9,7 +9,7 @@ dotenv.config()
 /**
  * The main function serves as the entry point of the application. It
  * initializes a ConversationClient instance, creates a readline Interface to
- * obtain user input, and repeatedly sends user input to the model in GPT-4 on
+ * obtain user input, and repeatedly sends user input to the model in GPT-4o on
  * ChatBotKit servers for processing. The ConversationClient automatically
  * handles messages and trims them to fit into the model context size. The bot's
  * response is then printed to the console. The messages are processed using the
@@ -41,7 +41,7 @@ async function main() {
      * the model context size.
      */
     for await (const { type, data } of client
-      .complete(null, { model: 'gpt-4', messages })
+      .complete(null, { model: 'gpt-4o', messages })
       .stream()) {
       if (type === 'token') {
         process.stdout.write(data.token)
