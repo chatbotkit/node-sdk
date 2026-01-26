@@ -4815,14 +4815,14 @@ export interface components {
          * @description The reason why the completion ended
          * @enum {string}
          */
-        CompleteReason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+        CompleteReason: "length" | "stop" | "activity" | "error" | "iteration";
         /** @description Information about why the completion ended */
         CompleteEnd: {
             /**
              * @description The reason why the completion ended
              * @enum {string}
              */
-            reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+            reason: "length" | "stop" | "activity" | "error" | "iteration";
         };
         /** @description Execution limits to control conversation processing bounds */
         ExecutionLimits: {
@@ -7791,7 +7791,7 @@ export interface operations {
                              * @description The reason why the completion ended
                              * @enum {string}
                              */
-                            reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+                            reason: "length" | "stop" | "activity" | "error" | "iteration";
                         };
                     };
                     "application/jsonl": {
@@ -7816,7 +7816,7 @@ export interface operations {
                                  * @description The reason why the completion ended
                                  * @enum {string}
                                  */
-                                reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+                                reason: "length" | "stop" | "activity" | "error" | "iteration";
                             };
                         };
                     } | ({
@@ -9693,7 +9693,7 @@ export interface operations {
                              * @description The reason why the completion ended
                              * @enum {string}
                              */
-                            reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+                            reason: "length" | "stop" | "activity" | "error" | "iteration";
                         };
                     };
                     "application/jsonl": {
@@ -9716,7 +9716,7 @@ export interface operations {
                                  * @description The reason why the completion ended
                                  * @enum {string}
                                  */
-                                reason: "length" | "stop" | "functionCall" | "toolCalls" | "error" | "iterationLimit";
+                                reason: "length" | "stop" | "activity" | "error" | "iteration";
                             };
                         };
                     } | ({
