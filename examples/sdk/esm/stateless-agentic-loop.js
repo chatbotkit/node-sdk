@@ -120,7 +120,7 @@ async function main() {
     }
 
     if (!response) {
-      return // @note should not happen
+      throw new Error('Unexpected state') // @note should not happen
     }
 
     console.log(`End reason: ${response.end.reason}`)
