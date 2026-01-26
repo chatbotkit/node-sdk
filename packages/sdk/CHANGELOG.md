@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.28.0
+
+### Minor Changes
+
+- 9435bba: New complete input parameters and response features.
+
 ## 1.26.5
 
 ### Patch Changes
