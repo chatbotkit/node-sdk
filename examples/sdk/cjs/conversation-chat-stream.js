@@ -9,7 +9,7 @@ dotenv.config()
 
 /**
  * Main function that implements a chatbot using the ChatBotKit SDK and the
- * GPT-3.5 Turbo model. It creates a conversation client, prompts the user for
+ * Claude 4.5 Sonnet model. It creates a conversation client, prompts the user for
  * input, sends the input to the chatbot model, and displays the bot's response.
  * The conversation continues until the program is terminated.
  */
