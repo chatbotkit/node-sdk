@@ -125,8 +125,8 @@ async function main() {
 
     // Check the end reason to determine if we should continue
     if (response.end.reason === 'iteration') {
-      // The model wants to continue (more tool calls or processing needed)
-      console.log('→ Model requested another iteration, continuing...')
+      // The model wanted to continue but hit the iteration limit we set
+      console.log('→ Model hit iteration limit, continuing manually...')
       continue
     } else if (response.end.reason === 'stop') {
       // Natural completion - the model has finished
@@ -139,10 +139,6 @@ async function main() {
     } else if (response.end.reason === 'error') {
       // An error occurred
       console.error('→ Error occurred during completion')
-      break
-    } else if (response.end.reason === 'length') {
-      // Token limit reached
-      console.log('→ Token limit reached')
       break
     } else {
       // Unknown reason, stop to be safe
