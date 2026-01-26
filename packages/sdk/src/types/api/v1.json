@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1769382749596)"
+    "version": "v1 (build 1769385887252)"
   },
   "servers": [
     {
@@ -383,7 +383,7 @@
           "stop",
           "activity",
           "error",
-          "iterationLimit"
+          "iteration"
         ]
       },
       "CompleteEnd": {
@@ -398,7 +398,7 @@
               "stop",
               "activity",
               "error",
-              "iterationLimit"
+              "iteration"
             ],
             "$$ref": "#/components/schemas/CompleteReason"
           }
@@ -7105,7 +7105,7 @@
                             "stop",
                             "activity",
                             "error",
-                            "iterationLimit"
+                            "iteration"
                           ],
                           "$$ref": "#/components/schemas/CompleteReason"
                         }
@@ -7174,7 +7174,7 @@
                                     "stop",
                                     "activity",
                                     "error",
-                                    "iterationLimit"
+                                    "iteration"
                                   ],
                                   "$$ref": "#/components/schemas/CompleteReason"
                                 }
@@ -11731,7 +11731,7 @@
                             "stop",
                             "activity",
                             "error",
-                            "iterationLimit"
+                            "iteration"
                           ],
                           "$$ref": "#/components/schemas/CompleteReason"
                         }
@@ -11795,7 +11795,7 @@
                                     "stop",
                                     "activity",
                                     "error",
-                                    "iterationLimit"
+                                    "iteration"
                                   ],
                                   "$$ref": "#/components/schemas/CompleteReason"
                                 }
