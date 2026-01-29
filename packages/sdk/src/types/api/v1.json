@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1769385887252)"
+    "version": "v1 (build 1769649503240)"
   },
   "servers": [
     {
@@ -18558,6 +18558,10 @@
                     "attachments": {
                       "description": "Weather the bot supports attachments",
                       "type": "boolean"
+                    },
+                    "allowedSenderEmails": {
+                      "description": "Newline-separated list of email patterns allowed to send messages to this integration",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -18733,6 +18737,10 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "allowedSenderEmails": {
+                    "description": "Newline-separated list of email patterns allowed to send messages to this integration",
+                    "type": "string"
                   }
                 }
               }
@@ -18835,6 +18843,10 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "allowedSenderEmails": {
+                    "description": "Newline-separated list of email patterns allowed to send messages to this integration",
+                    "type": "string"
                   }
                 }
               }
@@ -18999,6 +19011,10 @@
                           "attachments": {
                             "description": "Weather the bot supports attachments",
                             "type": "boolean"
+                          },
+                          "allowedSenderEmails": {
+                            "description": "Newline-separated list of email patterns allowed to send messages to this integration",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -19076,6 +19092,10 @@
                             "attachments": {
                               "description": "Weather the bot supports attachments",
                               "type": "boolean"
+                            },
+                            "allowedSenderEmails": {
+                              "description": "Newline-separated list of email patterns allowed to send messages to this integration",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1email~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -31681,13 +31701,17 @@
                               "properties"
                             ]
                           },
-                          "secret": {
+                          "bot": {
                             "type": "string",
-                            "description": "The ID of the secret associated with the ability"
+                            "description": "The ID of the bot associated with the ability"
                           },
                           "file": {
                             "type": "string",
                             "description": "The ID of the file associated with the ability"
+                          },
+                          "secret": {
+                            "type": "string",
+                            "description": "The ID of the secret associated with the ability"
                           },
                           "space": {
                             "type": "string",
@@ -31812,13 +31836,17 @@
                                 "properties"
                               ]
                             },
-                            "secret": {
+                            "bot": {
                               "type": "string",
-                              "description": "The ID of the secret associated with the ability"
+                              "description": "The ID of the bot associated with the ability"
                             },
                             "file": {
                               "type": "string",
                               "description": "The ID of the file associated with the ability"
+                            },
+                            "secret": {
+                              "type": "string",
+                              "description": "The ID of the secret associated with the ability"
                             },
                             "space": {
                               "type": "string",

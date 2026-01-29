@@ -12626,6 +12626,8 @@ export interface operations {
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
                         attachments?: boolean;
+                        /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                        allowedSenderEmails?: string;
                     };
                 };
             };
@@ -12704,6 +12706,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
+                    /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                    allowedSenderEmails?: string;
                 };
             };
         };
@@ -12757,6 +12761,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
+                    /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                    allowedSenderEmails?: string;
                 };
             };
         };
@@ -12830,6 +12836,8 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
+                            /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                            allowedSenderEmails?: string;
                         }[];
                     };
                     "application/jsonl": {
@@ -12864,6 +12872,8 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
+                            /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                            allowedSenderEmails?: string;
                         };
                     };
                 };
@@ -18629,10 +18639,12 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
-                            /** @description The ID of the secret associated with the ability */
-                            secret?: string;
+                            /** @description The ID of the bot associated with the ability */
+                            bot?: string;
                             /** @description The ID of the file associated with the ability */
                             file?: string;
+                            /** @description The ID of the secret associated with the ability */
+                            secret?: string;
                             /** @description The ID of the space associated with the ability */
                             space?: string;
                             /** @description The provider of the ability */
@@ -18684,10 +18696,12 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
-                            /** @description The ID of the secret associated with the ability */
-                            secret?: string;
+                            /** @description The ID of the bot associated with the ability */
+                            bot?: string;
                             /** @description The ID of the file associated with the ability */
                             file?: string;
+                            /** @description The ID of the secret associated with the ability */
+                            secret?: string;
                             /** @description The ID of the space associated with the ability */
                             space?: string;
                             /** @description The provider of the ability */
