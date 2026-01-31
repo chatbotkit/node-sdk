@@ -1,7 +1,6 @@
 import { readFile, readdir, stat, watch } from 'fs/promises'
-import { join, resolve } from 'path'
-
 import yaml from 'js-yaml'
+import { join, resolve } from 'path'
 
 /**
  * @typedef {{
@@ -37,7 +36,9 @@ function parseFrontMatter(content) {
 
   try {
     const frontMatter = match[1]
-    const parsed = /** @type {Record<string, unknown>} */ (yaml.load(frontMatter))
+    const parsed = /** @type {Record<string, unknown>} */ (
+      yaml.load(frontMatter)
+    )
 
     if (typeof parsed !== 'object' || parsed === null) {
       return {}
