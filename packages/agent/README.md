@@ -178,6 +178,69 @@ The `execute` mode provides system tools for task management:
 - **`progress`** - Track completion status and blockers
 - **`exit`** - Signal task completion with status code
 
+### Skills Loading
+
+Load skills from local YAML or JSON files and inject them into your agent via the ChatBotKit API. Skills are abilities that the AI can use without requiring local tool handlers.
+
+```javascript
+import { execute, loadSkills, createSkills } from '@chatbotkit/agent'
+import { ChatBotKit } from '@chatbotkit/sdk'
+
+const client = new ChatBotKit({ secret: process.env.CHATBOTKIT_API_TOKEN })
+
+// Load skills from local files
+const skills = await loadSkills(['./skills'], {
+  name: 'My Custom Skills',
+  description: 'Custom skills for my agent',
+})
+
+// Or create skills programmatically
+const inlineSkills = createSkills([
+  {
+    name: 'search_knowledge',
+    description: 'Search the knowledge base for relevant information',
+    instruction: '```search\nquery: $[query! ys|the search query]\n```',
+  },
+])
+
+const stream = execute({
+  client,
+  model: 'claude-4.5',
+  skills, // Pass skills to the agent
+  messages: [{ type: 'user', text: 'Find information about our product' }],
+})
+```
+
+#### Skill File Format (YAML)
+
+```yaml
+name: Search Documents
+description: Search through company documents
+instruction: |
+  ```search
+  query: $[query! ys|the search query]
+  ```
+secretId: my-secret  # Optional
+```
+
+#### Skill File Format (JSON)
+
+```json
+{
+  "name": "Send Email",
+  "description": "Send an email notification",
+  "instruction": "```email\nto: $[recipient! ys|email address]\nsubject: $[subject! ys|email subject]\nbody: $[body! ys|email body]\n```"
+}
+```
+
+#### Skills API
+
+- **`loadSkills(paths, options)`** - Load skills from files or directories
+- **`loadSkillFile(filePath)`** - Load a single skill file
+- **`loadSkillsFromDirectory(dirPath)`** - Load all skill files from a directory
+- **`createSkills(abilities, options)`** - Create skills programmatically
+- **`mergeSkills(...skills)`** - Merge multiple skill sets
+
 ## Documentation
 
 For comprehensive information about the ChatBotKit Agent SDK, including detailed documentation on its functionalities, helper methods, and configuration options, please visit our [type documentation page](https://chatbotkit.github.io/node-sdk/modules/_chatbotkit_agent.html).
