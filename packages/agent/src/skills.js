@@ -1,6 +1,8 @@
 import { readFile, readdir, stat, watch } from 'fs/promises'
 import { join, resolve } from 'path'
 
+import yaml from 'js-yaml'
+
 /**
  * @typedef {{
  *   name: string,
@@ -15,7 +17,7 @@ import { join, resolve } from 'path'
  */
 
 /**
- * Parses YAML-style front matter from markdown content.
+ * Parses YAML front matter from markdown content.
  * Expects format:
  * ---
  * name: Skill Name
@@ -33,30 +35,23 @@ function parseFrontMatter(content) {
     return {}
   }
 
-  const frontMatter = match[1]
-  const result = /** @type {{ name?: string, description?: string }} */ ({})
+  try {
+    const frontMatter = match[1]
+    const parsed = /** @type {Record<string, unknown>} */ (yaml.load(frontMatter))
 
-  const lines = frontMatter.split('\n')
-  for (const line of lines) {
-    const colonIdx = line.indexOf(':')
-    if (colonIdx === -1) {
-      continue
+    if (typeof parsed !== 'object' || parsed === null) {
+      return {}
     }
 
-    const key = line.slice(0, colonIdx).trim().toLowerCase()
-    const value = line.slice(colonIdx + 1).trim()
-
-    // Remove surrounding quotes if present
-    const cleanValue = value.replace(/^["']|["']$/g, '')
-
-    if (key === 'name') {
-      result.name = cleanValue
-    } else if (key === 'description') {
-      result.description = cleanValue
+    return {
+      name: typeof parsed.name === 'string' ? parsed.name : undefined,
+      description:
+        typeof parsed.description === 'string' ? parsed.description : undefined,
     }
+  } catch {
+    // @note yaml parsing failed
+    return {}
   }
-
-  return result
 }
 
 /**
