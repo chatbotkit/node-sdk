@@ -50,6 +50,14 @@
       "types": "./types/tools.d.ts",
       "import": "./src/tools.js"
     },
+    "./skills": {
+      "types": "./types/skills.d.ts",
+      "import": "./src/skills.js"
+    },
+    "./skills.js": {
+      "types": "./types/skills.d.ts",
+      "import": "./src/skills.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {

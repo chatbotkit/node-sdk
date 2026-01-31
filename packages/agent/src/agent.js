@@ -67,16 +67,23 @@ import { zodToJsonSchema } from 'zod-to-json-schema'
  */
 
 /**
+ * @typedef {import('./skills.js').Skills} Skills
+ * @typedef {import('./skills.js').Skillset} Skillset
+ * @typedef {import('./skills.js').Ability} Ability
+ */
+
+/**
  * Agent complete generator function.
  *
  * @param {ConversationCompleteRequest & {
  *   client: ChatBotKit,
- *   tools?: Tools
+ *   tools?: Tools,
+ *   skills?: Skills
  * }} options
  * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
  */
 export async function* complete(options) {
-  const { client, tools, ...request } = options
+  const { client, tools, skills, ...request } = options
 
   const channelToTool = new Map()
 
@@ -129,9 +136,23 @@ export async function* complete(options) {
       })
     : undefined
 
+  // Build extensions object with skills if provided
+  // @note type cast required due to stricter SDK types for skillsets meta field
+  const extensions = skills?.skillsets?.length
+    ? /** @type {any} */ ({
+        ...request.extensions,
+        skillsets: [
+          ...(request.extensions?.skillsets || []),
+          ...skills.skillsets,
+        ],
+      })
+    : request.extensions
+
   const stream = client.conversation
     .complete(null, {
       ...request,
+
+      extensions,
 
       functions,
     })
@@ -274,6 +295,7 @@ export async function* complete(options) {
  * @param {ConversationCompleteRequest & {
  *   client: ChatBotKit,
  *   tools?: Tools,
+ *   skills?: Skills,
  *   maxIterations?: number
  * }} options
  * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
@@ -283,6 +305,8 @@ export async function* execute(options) {
     client,
 
     tools = {},
+
+    skills,
 
     maxIterations = 50,
 
@@ -404,6 +428,8 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
       messages,
 
       tools: allTools,
+
+      skills,
 
       extensions: {
         ...options.extensions,
