@@ -180,66 +180,56 @@ The `execute` mode provides system tools for task management:
 
 ### Skills Loading
 
-Load skills from local YAML or JSON files and inject them into your agent via the ChatBotKit API. Skills are abilities that the AI can use without requiring local tool handlers.
+Load skills from local directories and pass them as a feature to the agent. Skills are defined using `SKILL.md` files with front matter containing name and description.
 
 ```javascript
-import { execute, loadSkills, createSkills } from '@chatbotkit/agent'
+import { execute, loadSkills, createSkillsFeature } from '@chatbotkit/agent'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
 const client = new ChatBotKit({ secret: process.env.CHATBOTKIT_API_TOKEN })
 
-// Load skills from local files
-const skills = await loadSkills(['./skills'], {
-  name: 'My Custom Skills',
-  description: 'Custom skills for my agent',
-})
+// Load skills from directories
+const skillsResult = await loadSkills(['./skills'], { watch: true })
 
-// Or create skills programmatically
-const inlineSkills = createSkills([
-  {
-    name: 'search_knowledge',
-    description: 'Search the knowledge base for relevant information',
-    instruction: '```search\nquery: $[query! ys|the search query]\n```',
-  },
-])
+// Create the skills feature for the API
+const skillsFeature = createSkillsFeature(skillsResult.skills)
 
 const stream = execute({
   client,
-  model: 'claude-4.5',
-  skills, // Pass skills to the agent
-  messages: [{ type: 'user', text: 'Find information about our product' }],
+  model: 'gpt-4o',
+  messages: [{ type: 'user', text: 'Help me with my task' }],
+  extensions: {
+    features: [skillsFeature],
+  },
 })
-```
 
-#### Skill File Format (YAML)
-
-```yaml
-name: Search Documents
-description: Search through company documents
-instruction: |
-  ```search
-  query: $[query! ys|the search query]
-  ```
-secretId: my-secret  # Optional
-```
-
-#### Skill File Format (JSON)
-
-```json
-{
-  "name": "Send Email",
-  "description": "Send an email notification",
-  "instruction": "```email\nto: $[recipient! ys|email address]\nsubject: $[subject! ys|email subject]\nbody: $[body! ys|email body]\n```"
+for await (const event of stream) {
+  // Handle events
 }
+
+// Clean up when done
+skillsResult.close()
+```
+
+#### SKILL.md Format
+
+Create a `SKILL.md` file in each skill directory:
+
+```markdown
+---
+name: My Skill
+description: A brief description of what this skill does
+---
+
+# My Skill
+
+Additional documentation for the skill...
 ```
 
 #### Skills API
 
-- **`loadSkills(paths, options)`** - Load skills from files or directories
-- **`loadSkillFile(filePath)`** - Load a single skill file
-- **`loadSkillsFromDirectory(dirPath)`** - Load all skill files from a directory
-- **`createSkills(abilities, options)`** - Create skills programmatically
-- **`mergeSkills(...skills)`** - Merge multiple skill sets
+- **`loadSkills(directories, options)`** - Load skills from directories containing SKILL.md files
+- **`createSkillsFeature(skills)`** - Create a feature configuration for the API
 
 ## Documentation
 

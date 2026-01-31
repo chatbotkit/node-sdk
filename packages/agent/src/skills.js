@@ -1,227 +1,58 @@
-import { readFile, readdir, stat } from 'fs/promises'
-import { join, extname } from 'path'
+import { readFile, readdir, stat, watch } from 'fs/promises'
+import { join, resolve } from 'path'
 
 /**
  * @typedef {{
  *   name: string,
  *   description: string,
- *   instruction: string,
- *   secretId?: string,
- *   meta?: Record<string, unknown>
- * }} Ability
+ *   path: string
+ * }} SkillDefinition
  *
  * @typedef {{
- *   name?: string,
- *   description?: string,
- *   abilities: Ability[]
- * }} Skillset
- *
- * @typedef {{
- *   skillsets: Skillset[]
- * }} Skills
+ *   skills: SkillDefinition[],
+ *   close: () => void
+ * }} SkillsResult
  */
 
 /**
- * Parses a skill file content based on file extension.
+ * Parses YAML-style front matter from markdown content.
+ * Expects format:
+ * ---
+ * name: Skill Name
+ * description: Skill description
+ * ---
  *
- * @param {string} content - The file content
- * @param {string} ext - The file extension (.json, .yaml, .yml)
- * @returns {Record<string, any>}
+ * @param {string} content - The markdown file content
+ * @returns {{ name?: string, description?: string }}
  */
-function parseSkillFile(content, ext) {
-  if (ext === '.json') {
-    return JSON.parse(content)
+function parseFrontMatter(content) {
+  const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---/
+  const match = content.match(frontMatterRegex)
+
+  if (!match) {
+    return {}
   }
 
-  if (ext === '.yaml' || ext === '.yml') {
-    // @note simple YAML parser without external dependencies
-    return parseSimpleYaml(content)
-  }
+  const frontMatter = match[1]
+  const result = /** @type {{ name?: string, description?: string }} */ ({})
 
-  throw new Error(`Unsupported skill file extension: ${ext}`)
-}
-
-/**
- * Simple YAML parser for skill files.
- * Handles basic YAML structures needed for skill definitions.
- *
- * @param {string} content - YAML content to parse
- * @returns {Record<string, any>}
- */
-function parseSimpleYaml(content) {
-  const result = /** @type {Record<string, any>} */ ({})
-  const lines = content.split('\n')
-
-  let currentIndent = 0
-  let inMultilineString = false
-  let multilineValue = ''
-  let multilineKey = ''
-  let arrayStack = /** @type {{ key: string, items: any[], indent: number }[]} */ (
-    []
-  )
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i]
-    const trimmedLine = line.trim()
-
-    // Skip empty lines and comments
-    if (!trimmedLine || trimmedLine.startsWith('#')) {
-      if (inMultilineString) {
-        multilineValue += '\n'
-      }
+  const lines = frontMatter.split('\n')
+  for (const line of lines) {
+    const colonIdx = line.indexOf(':')
+    if (colonIdx === -1) {
       continue
     }
 
-    // Calculate indentation
-    const indent = line.length - line.trimStart().length
+    const key = line.slice(0, colonIdx).trim().toLowerCase()
+    const value = line.slice(colonIdx + 1).trim()
 
-    // Handle multiline strings
-    if (inMultilineString) {
-      if (indent > currentIndent) {
-        multilineValue += (multilineValue ? '\n' : '') + trimmedLine
-        continue
-      } else {
-        // End multiline
-        result[multilineKey] = multilineValue.trim()
-        inMultilineString = false
-        multilineValue = ''
-      }
-    }
+    // Remove surrounding quotes if present
+    const cleanValue = value.replace(/^["']|["']$/g, '')
 
-    // Handle array items
-    if (trimmedLine.startsWith('- ')) {
-      const itemContent = trimmedLine.slice(2).trim()
-
-      // Check if it's a simple value or an object start
-      if (itemContent.includes(':')) {
-        // It's an object, parse it
-        const colonIdx = itemContent.indexOf(':')
-        const key = itemContent.slice(0, colonIdx).trim()
-        const value = itemContent.slice(colonIdx + 1).trim()
-
-        const obj = /** @type {Record<string, any>} */ ({ [key]: value || '' })
-
-        // Read following indented lines as part of this object
-        let j = i + 1
-        while (j < lines.length) {
-          const nextLine = lines[j]
-          const nextTrimmed = nextLine.trim()
-          const nextIndent = nextLine.length - nextLine.trimStart().length
-
-          if (!nextTrimmed || nextTrimmed.startsWith('#')) {
-            j++
-            continue
-          }
-
-          if (nextIndent <= indent) {
-            break
-          }
-
-          if (nextTrimmed.startsWith('- ')) {
-            break
-          }
-
-          if (nextTrimmed.includes(':')) {
-            const nextColonIdx = nextTrimmed.indexOf(':')
-            const nextKey = nextTrimmed.slice(0, nextColonIdx).trim()
-            let nextValue = nextTrimmed.slice(nextColonIdx + 1).trim()
-
-            // Check for multiline indicator
-            if (nextValue === '|' || nextValue === '>') {
-              // Collect multiline value
-              let mlValue = ''
-              let k = j + 1
-              while (k < lines.length) {
-                const mlLine = lines[k]
-                const mlTrimmed = mlLine.trim()
-                const mlIndent = mlLine.length - mlLine.trimStart().length
-
-                if (!mlTrimmed) {
-                  mlValue += '\n'
-                  k++
-                  continue
-                }
-
-                if (mlIndent <= nextIndent) {
-                  break
-                }
-
-                mlValue += (mlValue ? '\n' : '') + mlTrimmed
-                k++
-              }
-              nextValue = mlValue.trim()
-              j = k - 1
-            }
-
-            obj[nextKey] = nextValue
-          }
-          j++
-        }
-        i = j - 1
-
-        if (arrayStack.length > 0) {
-          arrayStack[arrayStack.length - 1].items.push(obj)
-        }
-      } else {
-        // Simple array item
-        if (arrayStack.length > 0) {
-          arrayStack[arrayStack.length - 1].items.push(itemContent)
-        }
-      }
-      continue
-    }
-
-    // Handle key-value pairs
-    if (trimmedLine.includes(':')) {
-      const colonIdx = trimmedLine.indexOf(':')
-      const key = trimmedLine.slice(0, colonIdx).trim()
-      const value = trimmedLine.slice(colonIdx + 1).trim()
-
-      currentIndent = indent
-
-      // Check for multiline indicators
-      if (value === '|' || value === '>') {
-        inMultilineString = true
-        multilineKey = key
-        multilineValue = ''
-        continue
-      }
-
-      // Check if this starts an array
-      if (!value) {
-        // Look ahead to see if next line is an array
-        const nextLine = lines[i + 1]
-        if (nextLine && nextLine.trim().startsWith('- ')) {
-          arrayStack.push({ key, items: [], indent })
-          continue
-        }
-      }
-
-      // Process array stack if indentation decreases
-      while (
-        arrayStack.length > 0 &&
-        indent <= arrayStack[arrayStack.length - 1].indent
-      ) {
-        const arr = arrayStack.pop()
-        if (arr) {
-          result[arr.key] = arr.items
-        }
-      }
-
-      result[key] = value
-    }
-  }
-
-  // Handle any remaining multiline
-  if (inMultilineString && multilineKey) {
-    result[multilineKey] = multilineValue.trim()
-  }
-
-  // Process any remaining arrays
-  while (arrayStack.length > 0) {
-    const arr = arrayStack.pop()
-    if (arr) {
-      result[arr.key] = arr.items
+    if (key === 'name') {
+      result.name = cleanValue
+    } else if (key === 'description') {
+      result.description = cleanValue
     }
   }
 
@@ -229,149 +60,134 @@ function parseSimpleYaml(content) {
 }
 
 /**
- * Loads a single skill file and returns it as an Ability.
+ * Loads a single skill from a directory containing a SKILL.md file.
  *
- * @param {string} filePath - Path to the skill file
- * @returns {Promise<Ability>}
+ * @param {string} skillDir - Path to the skill directory
+ * @returns {Promise<SkillDefinition | null>}
  */
-export async function loadSkillFile(filePath) {
-  const content = await readFile(filePath, 'utf-8')
-  const ext = extname(filePath).toLowerCase()
-  const parsed = parseSkillFile(content, ext)
+async function loadSkillFromDirectory(skillDir) {
+  const skillFilePath = join(skillDir, 'SKILL.md')
 
-  // Validate required fields
-  if (!parsed.name || typeof parsed.name !== 'string') {
-    throw new Error(`Skill file ${filePath} is missing required field: name`)
-  }
-  if (!parsed.description || typeof parsed.description !== 'string') {
-    throw new Error(
-      `Skill file ${filePath} is missing required field: description`
-    )
-  }
-  if (!parsed.instruction || typeof parsed.instruction !== 'string') {
-    throw new Error(
-      `Skill file ${filePath} is missing required field: instruction`
-    )
-  }
+  try {
+    const content = await readFile(skillFilePath, 'utf-8')
+    const { name, description } = parseFrontMatter(content)
 
-  return /** @type {Ability} */ ({
-    name: parsed.name,
-    description: parsed.description,
-    instruction: parsed.instruction,
-    ...(parsed.secretId ? { secretId: parsed.secretId } : {}),
-    ...(parsed.meta ? { meta: parsed.meta } : {}),
-  })
+    if (!name || !description) {
+      return null
+    }
+
+    return {
+      name,
+      description,
+      path: resolve(skillDir),
+    }
+  } catch {
+    // @note skill file doesn't exist or can't be read
+    return null
+  }
 }
 
 /**
- * Loads all skill files from a directory.
- * Supports .json, .yaml, and .yml files.
+ * Loads skills from multiple directories.
+ * Each directory should contain subdirectories with SKILL.md files.
  *
- * @param {string} dirPath - Path to the skills directory
- * @returns {Promise<Ability[]>}
+ * @param {string[]} directories - Array of directory paths to scan for skills
+ * @param {{ watch?: boolean }} [options] - Options for loading skills
+ * @returns {Promise<SkillsResult>}
  */
-export async function loadSkillsFromDirectory(dirPath) {
-  const abilities = /** @type {Ability[]} */ ([])
-  const entries = await readdir(dirPath)
+export async function loadSkills(directories, options = {}) {
+  const skills = /** @type {SkillDefinition[]} */ ([])
+  const watchControllers = /** @type {AbortController[]} */ ([])
 
-  for (const entry of entries) {
-    const ext = extname(entry).toLowerCase()
-
-    if (ext !== '.json' && ext !== '.yaml' && ext !== '.yml') {
-      continue
-    }
-
-    const filePath = join(dirPath, entry)
-    const fileStat = await stat(filePath)
-
-    if (!fileStat.isFile()) {
-      continue
-    }
-
+  /**
+   * Scans a directory for skill subdirectories.
+   *
+   * @param {string} baseDir
+   */
+  async function scanDirectory(baseDir) {
     try {
-      const ability = await loadSkillFile(filePath)
-      abilities.push(ability)
+      const entries = await readdir(baseDir)
+
+      for (const entry of entries) {
+        const entryPath = join(baseDir, entry)
+        const entryStat = await stat(entryPath)
+
+        if (entryStat.isDirectory()) {
+          const skill = await loadSkillFromDirectory(entryPath)
+          if (skill) {
+            // Remove existing skill with same path if it exists
+            const existingIdx = skills.findIndex((s) => s.path === skill.path)
+            if (existingIdx !== -1) {
+              skills[existingIdx] = skill
+            } else {
+              skills.push(skill)
+            }
+          }
+        }
+      }
     } catch {
-      // @note skip files that can't be parsed as skills
+      // @note directory doesn't exist or can't be read
     }
   }
 
-  return abilities
-}
+  // Initial load
+  for (const dir of directories) {
+    await scanDirectory(dir)
+  }
 
-/**
- * Loads skills from multiple paths (files or directories).
- * Returns a Skills object that can be passed to agent options.
- *
- * @param {string[]} paths - Array of file or directory paths
- * @param {object} [options] - Options for loading skills
- * @param {string} [options.name] - Name for the skillset
- * @param {string} [options.description] - Description for the skillset
- * @returns {Promise<Skills>}
- */
-export async function loadSkills(paths, options = {}) {
-  const abilities = /** @type {Ability[]} */ ([])
+  // Set up watching if requested
+  if (options.watch) {
+    for (const dir of directories) {
+      const controller = new AbortController()
+      watchControllers.push(controller)
 
-  for (const path of paths) {
-    const pathStat = await stat(path)
+      // Start watching in background
+      ;(async () => {
+        try {
+          const watcher = watch(dir, {
+            recursive: true,
+            signal: controller.signal,
+          })
 
-    if (pathStat.isDirectory()) {
-      const dirAbilities = await loadSkillsFromDirectory(path)
-      abilities.push(...dirAbilities)
-    } else if (pathStat.isFile()) {
-      const ability = await loadSkillFile(path)
-      abilities.push(ability)
+          for await (const event of watcher) {
+            // Reload skills when changes detected
+            if (event.filename?.endsWith('SKILL.md')) {
+              await scanDirectory(dir)
+            }
+          }
+        } catch (err) {
+          // @note watcher was aborted or error occurred
+          if (
+            err instanceof Error &&
+            err.name !== 'AbortError' &&
+            !err.message.includes('AbortError')
+          ) {
+            // Silently ignore abort errors
+          }
+        }
+      })()
     }
   }
 
   return {
-    skillsets: [
-      {
-        name: options.name || 'Local Skills',
-        description:
-          options.description || 'Skills loaded from local file system',
-        abilities,
-      },
-    ],
+    skills,
+    close: () => {
+      for (const controller of watchControllers) {
+        controller.abort()
+      }
+    },
   }
 }
 
 /**
- * Creates a skillset from an array of inline ability definitions.
- * This is useful when you want to define skills programmatically.
+ * Creates a skills feature configuration from skill definitions.
  *
- * @param {Ability[]} abilities - Array of ability definitions
- * @param {object} [options] - Options for the skillset
- * @param {string} [options.name] - Name for the skillset
- * @param {string} [options.description] - Description for the skillset
- * @returns {Skills}
+ * @param {SkillDefinition[]} skills - Array of skill definitions
+ * @returns {{ name: 'skills', options: { skills: SkillDefinition[] } }}
  */
-export function createSkills(abilities, options = {}) {
+export function createSkillsFeature(skills) {
   return {
-    skillsets: [
-      {
-        name: options.name || 'Custom Skills',
-        description: options.description || 'Programmatically defined skills',
-        abilities,
-      },
-    ],
+    name: /** @type {const} */ ('skills'),
+    options: { skills },
   }
-}
-
-/**
- * Merges multiple Skills objects into one.
- *
- * @param  {...Skills} skillsArray - Skills objects to merge
- * @returns {Skills}
- */
-export function mergeSkills(...skillsArray) {
-  const skillsets = /** @type {Skillset[]} */ ([])
-
-  for (const skills of skillsArray) {
-    if (skills && skills.skillsets) {
-      skillsets.push(...skills.skillsets)
-    }
-  }
-
-  return { skillsets }
 }
