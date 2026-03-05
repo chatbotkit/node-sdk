@@ -1,5 +1,17 @@
 # @chatbotkit/sdk
 
+## 1.27.0
+
+### Minor Changes
+
+- 727f93b: New complete input parameters and response features.
+- 727f93b: API and stability improvements.
+
+### Patch Changes
+
+- 727f93b: Fixed lint and type checks.
+- 727f93b: Additional types and updated docs.
+
 ## 1.26.3
 
 ### Patch Changes

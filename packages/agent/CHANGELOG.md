@@ -1,5 +1,20 @@
 # @chatbotkit/agent
 
+## 1.27.0
+
+### Minor Changes
+
+- 727f93b: API and stability improvements.
+
+### Patch Changes
+
+- 727f93b: Fixed lint and type checks.
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+  - @chatbotkit/sdk@1.27.0
+
 ## 1.26.3
 
 ### Patch Changes

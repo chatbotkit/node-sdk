@@ -1,5 +1,18 @@
 # create-cbk-app
 
+## 1.27.0
+
+### Patch Changes
+
+- 727f93b: Version bump.
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+  - @chatbotkit/cli@1.27.0
+
 ## 1.26.3
 
 ### Patch Changes

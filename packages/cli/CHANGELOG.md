@@ -1,5 +1,25 @@
 # @chatbotkit/cli
 
+## 1.27.0
+
+### Minor Changes
+
+- 727f93b: API and stability improvements.
+- 727f93b: Added a run command for cbk scripting support.
+
+### Patch Changes
+
+- 727f93b: Correct handling of help command line flags when used with scripts.
+- 727f93b: Fixed issues with finding the right imports when represented as non-strings.
+- 727f93b: Fixed lint and type checks.
+- 727f93b: Fixed cli root detection.
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+- Updated dependencies [727f93b]
+  - @chatbotkit/sdk@1.27.0
+  - @chatbotkit/agent@1.27.0
+
 ## 1.26.3
 
 ### Patch Changes
