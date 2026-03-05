@@ -1,7 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires, no-console */
-const fs = require('fs')
-const cp = require('child_process')
-const packageJson = require('./package.json')
+/* eslint-disable no-console */
+import cp from 'child_process'
+import fs from 'fs'
+
+const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'))
 
 for (const dep of Object.keys(packageJson.dependencies)) {
   if (dep.startsWith('@chatbotkit/')) {

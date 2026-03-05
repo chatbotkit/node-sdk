@@ -2,11 +2,11 @@
 
 ***
 
-[@chatbotkit/agent](../../modules.md) / [index](../README.md) / loadSkills
+[@chatbotkit/agent](../../modules.md) / [skills](../README.md) / loadSkills
 
 # Function: loadSkills()
 
-> **loadSkills**(`directories`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`SkillsResult`\>
+> **loadSkills**(`directories`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`SkillsResult`](../type-aliases/SkillsResult.md)\>
 
 Defined in: [agent/src/skills.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/skills.js#L94)
 
@@ -31,4 +31,4 @@ Options for loading skills
 
 ## Returns
 
-[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`SkillsResult`\>
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`SkillsResult`](../type-aliases/SkillsResult.md)\>

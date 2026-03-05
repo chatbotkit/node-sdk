@@ -8,6 +8,6 @@
 
 > `const` **ResourceConfigSchema**: `ZodUnion`\<\[[`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"blueprint"`, \{ \}\>, [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"bot"`, `BotCreateRequest`\>, [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"dataset"`, \{ \}\>\]\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:586](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L586)
+Defined in: [packages/cli/src/solution/index.js:586](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L586)
 
 The schema for a resource configuration.

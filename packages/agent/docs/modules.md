@@ -7,5 +7,5 @@
 ## Modules
 
 - [agent](agent/README.md)
-- [index](index/README.md)
+- [skills](skills/README.md)
 - [tools](tools/README.md)

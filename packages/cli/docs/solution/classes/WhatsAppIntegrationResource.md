@@ -6,7 +6,7 @@
 
 # Class: WhatsAppIntegrationResource
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:894](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L894)
+Defined in: [packages/cli/src/solution/index.js:894](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L894)
 
 Represents a whatsapp integration resource.
 
@@ -20,7 +20,7 @@ Represents a whatsapp integration resource.
 
 > **new WhatsAppIntegrationResource**(`config`): `WhatsAppIntegrationResource`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:629](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L629)
+Defined in: [packages/cli/src/solution/index.js:629](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L629)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:629](https://github.co
 
 > **get** **baseClient**(): `ChatBotKit`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:677](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L677)
+Defined in: [packages/cli/src/solution/index.js:677](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L677)
 
 ##### Returns
 
@@ -62,7 +62,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:677](https://github.co
 
 > **get** **client**(): `WhatsAppIntegrationClient`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:899](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L899)
+Defined in: [packages/cli/src/solution/index.js:899](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L899)
 
 ##### Returns
 
@@ -80,7 +80,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:899](https://github.co
 
 > **get** **createProperties**(): [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:704](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L704)
+Defined in: [packages/cli/src/solution/index.js:704](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L704)
 
 Get the properties to use for create operations.
 Override this method in subclasses to filter properties for creates.
@@ -101,7 +101,7 @@ Override this method in subclasses to filter properties for creates.
 
 > **get** **description**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:670](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L670)
+Defined in: [packages/cli/src/solution/index.js:670](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L670)
 
 ##### Returns
 
@@ -119,7 +119,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:670](https://github.co
 
 > **get** **id**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:656](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L656)
+Defined in: [packages/cli/src/solution/index.js:656](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L656)
 
 ##### Returns
 
@@ -137,7 +137,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:656](https://github.co
 
 > **get** **name**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:663](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L663)
+Defined in: [packages/cli/src/solution/index.js:663](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L663)
 
 ##### Returns
 
@@ -155,7 +155,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:663](https://github.co
 
 > **get** **slug**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:643](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L643)
+Defined in: [packages/cli/src/solution/index.js:643](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L643)
 
 ##### Returns
 
@@ -173,7 +173,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:643](https://github.co
 
 > **get** **type**(): `string`
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:636](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L636)
+Defined in: [packages/cli/src/solution/index.js:636](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L636)
 
 ##### Returns
 
@@ -191,7 +191,7 @@ Defined in: [sdks/node/packages/cli/src/solution/index.js:636](https://github.co
 
 > **get** **updateProperties**(): [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:714](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L714)
+Defined in: [packages/cli/src/solution/index.js:714](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L714)
 
 Get the properties to use for update operations.
 Override this method in subclasses to filter properties for updates.
@@ -210,7 +210,7 @@ Override this method in subclasses to filter properties for updates.
 
 > **sync**(): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:723](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L723)
+Defined in: [packages/cli/src/solution/index.js:723](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L723)
 
 Sync the resource.
 

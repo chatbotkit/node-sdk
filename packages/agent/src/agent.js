@@ -328,6 +328,7 @@ export async function* execute(options) {
 
   // Per-iteration AbortController that the hard abort tool can cancel to
   // kill running processes immediately. Recreated each iteration.
+  /** @type {AbortController|null} */
   let internalAbort = null
 
   const systemTools = {
@@ -474,17 +475,19 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
 
     let lastEndReason = null
 
-    // Create a per-iteration AbortController. Hard abort cancels this to
-    // kill any running tool processes for this iteration only.
+    // Create a per-iteration AbortController. Hard abort cancels this to kill
+    // any running tool processes for this iteration only.
     internalAbort = new AbortController()
 
     // Propagate the caller's signal to the iteration controller.
     if (abortSignal?.aborted) {
       internalAbort.abort(abortSignal.reason)
     } else if (abortSignal) {
+      const capturedAbort = internalAbort
+
       abortSignal.addEventListener(
         'abort',
-        () => internalAbort.abort(abortSignal.reason),
+        () => capturedAbort.abort(abortSignal.reason),
         { once: true }
       )
     }

@@ -8,6 +8,6 @@
 
 > `const` **McpServerIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"mcpserverIntegration"`, \{ \}\>
 
-Defined in: [sdks/node/packages/cli/src/solution/index.js:552](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L552)
+Defined in: [packages/cli/src/solution/index.js:552](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L552)
 
 The schema for a mcpserver integration resource configuration.
