@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1769649503240)"
+    "version": "v1 (build 1772501414208)"
   },
   "servers": [
     {
@@ -1328,6 +1328,168 @@
         ]
       }
     },
+    "/platform/report/{reportId}/generate": {
+      "post": {
+        "operationId": "generatePlatformReport",
+        "summary": "Generate a specific report",
+        "description": "Generates a report based on the specified report ID and input\nparameters.\n",
+        "tags": [
+          "Platform"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reportId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the report to generate",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Input parameters specific to the report type",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The report was generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Report output data specific to the report type"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Report not found"
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "generatePlatformReport",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/report/generate": {
+      "post": {
+        "operationId": "generatePlatformReports",
+        "summary": "Generate multiple reports",
+        "description": "Generates multiple reports in a single request. Input is a map where\neach key is a report ID and each value contains the input parameters\nfor that report. Returns a map with the same keys containing the\ncorresponding report outputs.\n",
+        "tags": [
+          "Platform"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Map of report IDs to their input parameters",
+                "additionalProperties": {
+                  "type": "object",
+                  "description": "Input parameters specific to the report type"
+                }
+              },
+              "example": {
+                "clr3m5n8k000008jq7h9e5b1a": {
+                  "periodDays": 30
+                },
+                "clr3m5n8k000108jq7h9e5b1b": {
+                  "periodDays": 7
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The reports were generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Map of report IDs to their output data or error",
+                  "additionalProperties": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "description": "Successful report output data"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "error": {
+                            "type": "string",
+                            "description": "Error message if report generation failed"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "generatePlatformReports",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/platform/report/list": {
       "get": {
         "operationId": "listPlatformReports",
@@ -1503,168 +1665,6 @@
           }
         },
         "__originalOperationId": "listPlatformReports",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/report/{reportId}/generate": {
-      "post": {
-        "operationId": "generateReport",
-        "summary": "Generate a specific report",
-        "description": "Generates a report based on the specified report ID and input\nparameters.\n",
-        "tags": [
-          "Report"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "reportId",
-            "required": true,
-            "schema": {
-              "description": "The ID of the report to generate",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "description": "Input parameters specific to the report type",
-                "additionalProperties": true
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The report was generated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Report output data specific to the report type"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Report not found"
-          },
-          "default": {
-            "type": "object",
-            "description": "An error response",
-            "properties": {
-              "message": {
-                "type": "string",
-                "description": "The error message"
-              },
-              "code": {
-                "type": "string",
-                "description": "The error code"
-              }
-            },
-            "required": [
-              "message",
-              "code"
-            ],
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "generateReport",
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ]
-      }
-    },
-    "/report/generate": {
-      "post": {
-        "operationId": "generateReports",
-        "summary": "Generate multiple reports",
-        "description": "Generates multiple reports in a single request. Input is a map where\neach key is a report ID and each value contains the input parameters\nfor that report. Returns a map with the same keys containing the\ncorresponding report outputs.\n",
-        "tags": [
-          "Report"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "description": "Map of report IDs to their input parameters",
-                "additionalProperties": {
-                  "type": "object",
-                  "description": "Input parameters specific to the report type"
-                }
-              },
-              "example": {
-                "clr3m5n8k000008jq7h9e5b1a": {
-                  "periodDays": 30
-                },
-                "clr3m5n8k000108jq7h9e5b1b": {
-                  "periodDays": 7
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The reports were generated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "description": "Map of report IDs to their output data or error",
-                  "additionalProperties": {
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "description": "Successful report output data"
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "error": {
-                            "type": "string",
-                            "description": "Error message if report generation failed"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "type": "object",
-            "description": "An error response",
-            "properties": {
-              "message": {
-                "type": "string",
-                "description": "The error message"
-              },
-              "code": {
-                "type": "string",
-                "description": "The error code"
-              }
-            },
-            "required": [
-              "message",
-              "code"
-            ],
-            "$$ref": "#/components/responses/ErrorResponse"
-          }
-        },
-        "__originalOperationId": "generateReports",
         "security": [
           {
             "BearerAuth": []
@@ -1931,6 +1931,172 @@
           }
         },
         "__originalOperationId": "fetchBlueprint",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/blueprint/{blueprintId}/resource/export": {
+      "get": {
+        "operationId": "exportBlueprintResources",
+        "summary": "Export blueprint resources",
+        "description": "Export a blueprint and all its resources. The default format is JSON.\nSet the Accept header to `application/terraform+hcl` to export as\nTerraform HCL code.\n",
+        "tags": [
+          "Blueprint Resources"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "blueprintId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the blueprint to export",
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Accept",
+            "schema": {
+              "description": "The desired export format",
+              "type": "string",
+              "enum": [
+                "application/json",
+                "application/terraform+hcl"
+              ],
+              "default": "application/json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The blueprint was exported successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the blueprint",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the blueprint",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the blueprint",
+                      "type": "string"
+                    },
+                    "resources": {
+                      "description": "A map of the resources by category",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "resources"
+                  ]
+                }
+              },
+              "application/terraform+hcl": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "exportBlueprintResources",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/blueprint/{blueprintId}/resource/import": {
+      "post": {
+        "operationId": "importBlueprintResources",
+        "summary": "Import resources into an existing blueprint",
+        "description": "Caller-provided resource ids are ignored and replaced with platform-generated ids.",
+        "tags": [
+          "Blueprint Resources"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "blueprintId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resource": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "resource"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resources were imported successfully"
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "importBlueprintResources",
         "security": [
           {
             "BearerAuth": []
@@ -2319,10 +2485,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -2447,7 +2618,9 @@
           "required": true,
           "content": {
             "application/json": {
-              "schema": {}
+              "schema": {
+                "type": "object"
+              }
             }
           }
         },
@@ -3647,10 +3820,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -4119,10 +4297,15 @@
                           }
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -4513,7 +4696,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The list of contacts was retrieved successfully",
+            "description": "The list of memories was retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -4567,10 +4750,15 @@
                           "text"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -5122,7 +5310,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The list of contacts was retrieved successfully",
+            "description": "The list of secrets was retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -5172,10 +5360,15 @@
                           "type"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -5323,7 +5516,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The list of contacts was retrieved successfully",
+            "description": "The list of spaces was retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -5362,7 +5555,7 @@
                             "description": "The timestamp (ms) when the instance was updated"
                           },
                           "contactId": {
-                            "description": "The contact id assigned to this rating",
+                            "description": "The contact id assigned to this space",
                             "type": "string"
                           }
                         },
@@ -5372,10 +5565,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -5423,7 +5621,7 @@
                               "description": "The timestamp (ms) when the instance was updated"
                             },
                             "contactId": {
-                              "description": "The contact id assigned to this rating",
+                              "description": "The contact id assigned to this space",
                               "type": "string"
                             }
                           },
@@ -5522,7 +5720,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The list of contacts was retrieved successfully",
+            "description": "The list of tasks was retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
@@ -5598,10 +5796,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -6182,10 +6385,15 @@
                           "fingerprint"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -6432,10 +6640,15 @@
                           "fingerprint"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -9317,10 +9530,15 @@
                           "text"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -12961,10 +13179,15 @@
                           }
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -13279,10 +13502,15 @@
                           }
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -14030,10 +14258,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -14602,10 +14835,15 @@
                           "text"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -14784,10 +15022,15 @@
                           "text"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -15525,10 +15768,15 @@
                           "store"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -15880,10 +16128,15 @@
                           "type"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -16298,10 +16551,15 @@
                           "type"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -16854,6 +17112,9 @@
                 }
               }
             }
+          },
+          "204": {
+            "description": "The file resource exists but has no content stored yet"
           },
           "default": {
             "type": "object",
@@ -17547,10 +17808,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -17811,6 +18077,10 @@
                     "sessionDuration": {
                       "description": "The chat session duration",
                       "type": "number"
+                    },
+                    "allowFrom": {
+                      "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -17998,6 +18268,10 @@
                   "sessionDuration": {
                     "description": "The chat session duration",
                     "type": "number"
+                  },
+                  "allowFrom": {
+                    "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
+                    "type": "string"
                   }
                 }
               }
@@ -18112,6 +18386,10 @@
                   "sessionDuration": {
                     "description": "The chat session duration",
                     "type": "number"
+                  },
+                  "allowFrom": {
+                    "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
+                    "type": "string"
                   }
                 }
               }
@@ -18280,6 +18558,10 @@
                           "sessionDuration": {
                             "description": "The chat session duration",
                             "type": "number"
+                          },
+                          "allowFrom": {
+                            "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -18288,10 +18570,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -18361,6 +18648,10 @@
                             "sessionDuration": {
                               "description": "The chat session duration",
                               "type": "number"
+                            },
+                            "allowFrom": {
+                              "description": "Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all.",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1discord~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -18559,7 +18850,7 @@
                       "description": "Weather the bot supports attachments",
                       "type": "boolean"
                     },
-                    "allowedSenderEmails": {
+                    "allowFrom": {
                       "description": "Newline-separated list of email patterns allowed to send messages to this integration",
                       "type": "string"
                     }
@@ -18738,7 +19029,7 @@
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
                   },
-                  "allowedSenderEmails": {
+                  "allowFrom": {
                     "description": "Newline-separated list of email patterns allowed to send messages to this integration",
                     "type": "string"
                   }
@@ -18844,7 +19135,7 @@
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
                   },
-                  "allowedSenderEmails": {
+                  "allowFrom": {
                     "description": "Newline-separated list of email patterns allowed to send messages to this integration",
                     "type": "string"
                   }
@@ -19012,7 +19303,7 @@
                             "description": "Weather the bot supports attachments",
                             "type": "boolean"
                           },
-                          "allowedSenderEmails": {
+                          "allowFrom": {
                             "description": "Newline-separated list of email patterns allowed to send messages to this integration",
                             "type": "string"
                           }
@@ -19023,10 +19314,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -19093,7 +19389,7 @@
                               "description": "Weather the bot supports attachments",
                               "type": "boolean"
                             },
-                            "allowedSenderEmails": {
+                            "allowFrom": {
                               "description": "Newline-separated list of email patterns allowed to send messages to this integration",
                               "type": "string"
                             }
@@ -19323,6 +19619,102 @@
           }
         },
         "__originalOperationId": "fetchExtractIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/extract/{extractIntegrationId}/trigger": {
+      "post": {
+        "operationId": "triggerExtractIntegration",
+        "summary": "Trigger extract integration on historic conversations",
+        "tags": [
+          "Extract Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extractIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Extract integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversationIds": {
+                    "description": "Array of conversation IDs to process",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "sample": {
+                    "description": "Number of recent conversations to process (default 20)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Extract integration trigger initiated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID of the extract integration",
+                      "type": "string"
+                    },
+                    "triggered": {
+                      "description": "Number of conversations queued for processing",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "triggered"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "triggerExtractIntegration",
         "security": [
           {
             "BearerAuth": []
@@ -19663,10 +20055,15 @@
                           "botId"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -19771,6 +20168,786 @@
           }
         },
         "__originalOperationId": "listExtractIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/googlechat/{googlechatIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteGooglechatIntegration",
+        "summary": "Delete Google Chat integration",
+        "tags": [
+          "Google Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "googlechatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Google Chat integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Google Chat integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Google Chat integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteGooglechatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/googlechat/{googlechatIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchGooglechatIntegration",
+        "summary": "Fetch a Google Chat integration",
+        "tags": [
+          "Google Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "googlechatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Google Chat integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Google Chat integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Blueprint properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "botId": {
+                      "type": "string",
+                      "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
+                    },
+                    "serviceAccountKey": {
+                      "description": "The service account key (returned as '********' if configured, null otherwise)",
+                      "type": "string"
+                    },
+                    "projectNumber": {
+                      "description": "The Google Cloud project number for JWT verification",
+                      "type": "string"
+                    },
+                    "contactCollection": {
+                      "description": "Whether to collect contacts",
+                      "type": "boolean"
+                    },
+                    "sessionDuration": {
+                      "description": "The session duration for the integration",
+                      "type": "number"
+                    },
+                    "autoRespond": {
+                      "description": "The auto-respond configuration",
+                      "type": "string"
+                    },
+                    "allowFrom": {
+                      "description": "The allowed senders for this integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchGooglechatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/googlechat/{googlechatIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupGooglechatIntegration",
+        "summary": "Setup Google Chat integration",
+        "tags": [
+          "Google Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "googlechatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Google Chat integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Google Chat integration was set up successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Google Chat Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "setupGooglechatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/googlechat/{googlechatIntegrationId}/update": {
+      "post": {
+        "operationId": "updateGooglechatIntegration",
+        "summary": "Update a Google Chat integration",
+        "tags": [
+          "Google Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "googlechatIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Google Chat integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "serviceAccountKey": {
+                    "description": "The Google service account JSON key for sending messages",
+                    "type": "string"
+                  },
+                  "projectNumber": {
+                    "description": "The Google Cloud project number for JWT verification",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration for the integration",
+                    "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "The auto-respond configuration",
+                    "type": "string"
+                  },
+                  "allowFrom": {
+                    "description": "The allowed senders for this integration",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Google Chat integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Google Chat Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateGooglechatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/googlechat/create": {
+      "post": {
+        "operationId": "createGooglechatIntegration",
+        "summary": "Create Google Chat integration",
+        "tags": [
+          "Google Chat Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "serviceAccountKey": {
+                    "description": "The Google service account JSON key for sending messages via the Chat REST API",
+                    "type": "string"
+                  },
+                  "projectNumber": {
+                    "description": "The Google Cloud project number used to verify incoming event JWT audience claims",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The session duration for the Google Chat integration",
+                    "type": "number"
+                  },
+                  "autoRespond": {
+                    "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to DMs and direct messages only.",
+                    "type": "string"
+                  },
+                  "allowFrom": {
+                    "description": "Restrict which Google Chat users can interact with this integration. Accepts user resource names (users/USER_ID) or * to allow all. One per line.",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Google Chat integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Google Chat Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createGooglechatIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/googlechat/list": {
+      "get": {
+        "operationId": "listGooglechatIntegrations",
+        "summary": "List Google Chat integrations",
+        "tags": [
+          "Google Chat Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Google Chat integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Blueprint properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
+                          "serviceAccountKey": {
+                            "description": "The service account key (returned as '********' if configured, null otherwise)",
+                            "type": "string"
+                          },
+                          "projectNumber": {
+                            "description": "The Google Cloud project number for JWT verification",
+                            "type": "string"
+                          },
+                          "contactCollection": {
+                            "description": "Whether to collect contacts",
+                            "type": "boolean"
+                          },
+                          "sessionDuration": {
+                            "description": "The session duration for the integration",
+                            "type": "number"
+                          },
+                          "autoRespond": {
+                            "description": "The auto-respond configuration",
+                            "type": "string"
+                          },
+                          "allowFrom": {
+                            "description": "The allowed senders for this integration",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Blueprint properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "botId": {
+                              "type": "string",
+                              "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
+                            },
+                            "serviceAccountKey": {
+                              "description": "The service account key (returned as '********' if configured, null otherwise)",
+                              "type": "string"
+                            },
+                            "projectNumber": {
+                              "description": "The Google Cloud project number for JWT verification",
+                              "type": "string"
+                            },
+                            "contactCollection": {
+                              "description": "Whether to collect contacts",
+                              "type": "boolean"
+                            },
+                            "sessionDuration": {
+                              "description": "The session duration for the integration",
+                              "type": "number"
+                            },
+                            "autoRespond": {
+                              "description": "The auto-respond configuration",
+                              "type": "string"
+                            },
+                            "allowFrom": {
+                              "description": "The allowed senders for this integration",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1googlechat~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listGooglechatIntegrations",
         "security": [
           {
             "BearerAuth": []
@@ -20402,10 +21579,15 @@
                           "verifyToken"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -21001,10 +22183,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -21252,6 +22439,10 @@
                       "description": "The Messenger integration access token (returned as '********' if configured, null otherwise)",
                       "type": "string"
                     },
+                    "contactCollection": {
+                      "description": "Whether to collect contacts",
+                      "type": "boolean"
+                    },
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
                       "type": "number"
@@ -21428,6 +22619,10 @@
                     "description": "The Messenger integration access token",
                     "type": "string"
                   },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
+                  },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
@@ -21529,6 +22724,10 @@
                   "accessToken": {
                     "description": "The Messenger integration access token",
                     "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Whether to collect contacts",
+                    "type": "boolean"
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
@@ -21698,6 +22897,10 @@
                             "description": "The Messenger integration access token (returned as '********' if configured, null otherwise)",
                             "type": "string"
                           },
+                          "contactCollection": {
+                            "description": "Whether to collect contacts",
+                            "type": "boolean"
+                          },
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
@@ -21714,10 +22917,15 @@
                           "verifyToken"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -21779,6 +22987,10 @@
                             "accessToken": {
                               "description": "The Messenger integration access token (returned as '********' if configured, null otherwise)",
                               "type": "string"
+                            },
+                            "contactCollection": {
+                              "description": "Whether to collect contacts",
+                              "type": "boolean"
                             },
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
@@ -22466,10 +23678,15 @@
                           "datasetId"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -23277,10 +24494,15 @@
                           "datasetId"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -23595,6 +24817,10 @@
                     "autoRespond": {
                       "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
                       "type": "string"
+                    },
+                    "allowFrom": {
+                      "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -23794,6 +25020,10 @@
                   "autoRespond": {
                     "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
                     "type": "string"
+                  },
+                  "allowFrom": {
+                    "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
+                    "type": "string"
                   }
                 }
               }
@@ -23919,6 +25149,10 @@
                   },
                   "autoRespond": {
                     "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
+                    "type": "string"
+                  },
+                  "allowFrom": {
+                    "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
                     "type": "string"
                   }
                 }
@@ -24108,6 +25342,10 @@
                           "autoRespond": {
                             "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
                             "type": "string"
+                          },
+                          "allowFrom": {
+                            "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -24116,10 +25354,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -24208,6 +25451,10 @@
                             },
                             "autoRespond": {
                               "description": "Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only).",
+                              "type": "string"
+                            },
+                            "allowFrom": {
+                              "description": "Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or",
                               "type": "string"
                             }
                           },
@@ -24431,6 +25678,102 @@
           }
         },
         "__originalOperationId": "fetchSupportIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/support/{supportIntegrationId}/trigger": {
+      "post": {
+        "operationId": "triggerSupportIntegration",
+        "summary": "Trigger support integration on historic conversations",
+        "tags": [
+          "Support Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "supportIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Support integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversationIds": {
+                    "description": "Array of conversation IDs to process",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "sample": {
+                    "description": "Number of recent conversations to process (default 20)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Support integration trigger initiated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID of the support integration",
+                      "type": "string"
+                    },
+                    "triggered": {
+                      "description": "Number of conversations queued for processing",
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "triggered"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "triggerSupportIntegration",
         "security": [
           {
             "BearerAuth": []
@@ -24748,10 +26091,15 @@
                           "botId"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -24851,6 +26199,762 @@
           }
         },
         "__originalOperationId": "listSupportIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/teams/{teamsIntegrationId}/delete": {
+      "post": {
+        "operationId": "deleteTeamsIntegration",
+        "summary": "Delete Teams integration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teamsIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Teams integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Teams integration was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted Teams integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteTeamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/teams/{teamsIntegrationId}/fetch": {
+      "get": {
+        "operationId": "fetchTeamsIntegration",
+        "summary": "Fetch a teamsIntegration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teamsIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Teams integration to retrieve",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Teams integration was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Blueprint properties",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The associated name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The associated description"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "description": "Meta data information",
+                      "additionalProperties": true,
+                      "$$ref": "#/components/schemas/Meta"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
+                    "botId": {
+                      "type": "string",
+                      "description": "The ID of the bot this configuration is using"
+                    },
+                    "blueprintId": {
+                      "type": "string",
+                      "description": "The ID of the blueprint"
+                    },
+                    "botFrameworkAppId": {
+                      "description": "The Microsoft Bot Framework Application ID",
+                      "type": "string"
+                    },
+                    "contactCollection": {
+                      "description": "Weather to collect contacts",
+                      "type": "boolean"
+                    },
+                    "sessionDuration": {
+                      "description": "The chat session duration",
+                      "type": "number"
+                    },
+                    "allowFrom": {
+                      "description": "The allowed senders for this integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "fetchTeamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/teams/{teamsIntegrationId}/setup": {
+      "post": {
+        "operationId": "setupTeamsIntegration",
+        "summary": "Setup Teams integration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teamsIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Teams integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Teams integration was setup successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the setup Teams integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "setupTeamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/teams/{teamsIntegrationId}/update": {
+      "post": {
+        "operationId": "updateTeamsIntegration",
+        "summary": "Update a Teams integration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teamsIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Teams integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "botFrameworkAppId": {
+                    "description": "The Microsoft Bot Framework Application ID",
+                    "type": "string"
+                  },
+                  "botFrameworkAppSecret": {
+                    "description": "The Microsoft Bot Framework Application Secret",
+                    "type": "string"
+                  },
+                  "tenantId": {
+                    "description": "The Microsoft Entra tenant ID",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The chat session duration",
+                    "type": "number"
+                  },
+                  "allowFrom": {
+                    "description": "The allowed senders for this integration",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Teams integration was updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Teams Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "updateTeamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/teams/create": {
+      "post": {
+        "operationId": "createTeamsIntegration",
+        "summary": "Create Teams integration",
+        "tags": [
+          "Teams Integration"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A bot configuration that can be applied without a dedicated bot instance.",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The associated name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The associated description"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "description": "Meta data information",
+                    "additionalProperties": true,
+                    "$$ref": "#/components/schemas/Meta"
+                  },
+                  "blueprintId": {
+                    "type": "string",
+                    "description": "The ID of the blueprint"
+                  },
+                  "botId": {
+                    "type": "string",
+                    "description": "The ID of the bot this configuration is using"
+                  },
+                  "botFrameworkAppId": {
+                    "description": "The Microsoft Bot Framework Application ID",
+                    "type": "string"
+                  },
+                  "botFrameworkAppSecret": {
+                    "description": "The Microsoft Bot Framework Application Secret",
+                    "type": "string"
+                  },
+                  "tenantId": {
+                    "description": "The Microsoft Entra tenant ID",
+                    "type": "string"
+                  },
+                  "contactCollection": {
+                    "description": "Weather to collect contacts",
+                    "type": "boolean"
+                  },
+                  "sessionDuration": {
+                    "description": "The chat session duration",
+                    "type": "number"
+                  },
+                  "allowFrom": {
+                    "description": "The allowed senders for this integration",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Teams integration was created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the Teams Integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "createTeamsIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/teams/list": {
+      "get": {
+        "operationId": "listTeamsIntegrations",
+        "summary": "List Teams integrations",
+        "tags": [
+          "Teams Integration"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter the partner users by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Teams integrations was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Blueprint properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "botId": {
+                            "type": "string",
+                            "description": "The ID of the bot this configuration is using"
+                          },
+                          "blueprintId": {
+                            "type": "string",
+                            "description": "The ID of the blueprint"
+                          },
+                          "botFrameworkAppId": {
+                            "description": "The Microsoft Bot Framework Application ID",
+                            "type": "string"
+                          },
+                          "contactCollection": {
+                            "description": "Weather to collect contacts",
+                            "type": "boolean"
+                          },
+                          "sessionDuration": {
+                            "description": "The chat session duration",
+                            "type": "number"
+                          },
+                          "allowFrom": {
+                            "description": "The allowed senders for this integration",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Blueprint properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "botId": {
+                              "type": "string",
+                              "description": "The ID of the bot this configuration is using"
+                            },
+                            "blueprintId": {
+                              "type": "string",
+                              "description": "The ID of the blueprint"
+                            },
+                            "botFrameworkAppId": {
+                              "description": "The Microsoft Bot Framework Application ID",
+                              "type": "string"
+                            },
+                            "contactCollection": {
+                              "description": "Weather to collect contacts",
+                              "type": "boolean"
+                            },
+                            "sessionDuration": {
+                              "description": "The chat session duration",
+                              "type": "number"
+                            },
+                            "allowFrom": {
+                              "description": "The allowed senders for this integration",
+                              "type": "string"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1teams~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listTeamsIntegrations",
         "security": [
           {
             "BearerAuth": []
@@ -25007,6 +27111,10 @@
                     "attachments": {
                       "description": "Weather the bot supports attachments",
                       "type": "boolean"
+                    },
+                    "allowFrom": {
+                      "description": "Newline-or-comma-separated list of allowed senders",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -25186,6 +27294,10 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "allowFrom": {
+                    "description": "Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users,",
+                    "type": "string"
                   }
                 }
               }
@@ -25292,6 +27404,10 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "allowFrom": {
+                    "description": "Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users,",
+                    "type": "string"
                   }
                 }
               }
@@ -25456,6 +27572,10 @@
                           "attachments": {
                             "description": "Weather the bot supports attachments",
                             "type": "boolean"
+                          },
+                          "allowFrom": {
+                            "description": "Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users,",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -25464,10 +27584,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -25533,6 +27658,10 @@
                             "attachments": {
                               "description": "Weather the bot supports attachments",
                               "type": "boolean"
+                            },
+                            "allowFrom": {
+                              "description": "Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users,",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1telegram~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -25743,6 +27872,14 @@
                     },
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
+                      "type": "number"
+                    },
+                    "maxIterations": {
+                      "description": "The maximum number of iterations per trigger execution",
+                      "type": "number"
+                    },
+                    "maxTime": {
+                      "description": "The maximum time per trigger execution (in milliseconds)",
                       "type": "number"
                     }
                   },
@@ -26007,6 +28144,14 @@
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
                     "type": "number"
+                  },
+                  "maxIterations": {
+                    "description": "The maximum number of iterations per trigger execution",
+                    "type": "number"
+                  },
+                  "maxTime": {
+                    "description": "The maximum time per trigger execution in milliseconds",
+                    "type": "number"
                   }
                 }
               }
@@ -26118,6 +28263,14 @@
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
+                    "type": "number"
+                  },
+                  "maxIterations": {
+                    "description": "The maximum number of iterations per trigger execution",
+                    "type": "number"
+                  },
+                  "maxTime": {
+                    "description": "The maximum time per trigger execution in milliseconds",
                     "type": "number"
                   }
                 }
@@ -26297,6 +28450,14 @@
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
                             "type": "number"
+                          },
+                          "maxIterations": {
+                            "description": "The maximum number of iterations per trigger execution",
+                            "type": "number"
+                          },
+                          "maxTime": {
+                            "description": "The maximum time per trigger execution (in milliseconds)",
+                            "type": "number"
                           }
                         },
                         "required": [
@@ -26306,10 +28467,15 @@
                           "secret"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -26388,6 +28554,14 @@
                             },
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
+                              "type": "number"
+                            },
+                            "maxIterations": {
+                              "description": "The maximum number of iterations per trigger execution",
+                              "type": "number"
+                            },
+                            "maxTime": {
+                              "description": "The maximum time per trigger execution (in milliseconds)",
                               "type": "number"
                             }
                           },
@@ -27020,10 +29194,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -27294,6 +29473,10 @@
                     "attachments": {
                       "description": "Weather the bot supports attachments",
                       "type": "boolean"
+                    },
+                    "allowFrom": {
+                      "description": "Newline-or-comma-separated list of allowed senders",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -27478,6 +29661,10 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "allowFrom": {
+                    "description": "Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all.",
+                    "type": "string"
                   }
                 }
               }
@@ -27588,6 +29775,10 @@
                   "attachments": {
                     "description": "Weather the bot supports attachments",
                     "type": "boolean"
+                  },
+                  "allowFrom": {
+                    "description": "Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all.",
+                    "type": "string"
                   }
                 }
               }
@@ -27764,6 +29955,10 @@
                           "attachments": {
                             "description": "Weather the bot supports attachments",
                             "type": "boolean"
+                          },
+                          "allowFrom": {
+                            "description": "Newline-or-comma-separated list of allowed senders. Use phone numbers in E.164 format (digits only). Leave empty to block all. Use * to allow everyone.",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -27773,10 +29968,15 @@
                           "verifyToken"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -27854,6 +30054,10 @@
                             "attachments": {
                               "description": "Weather the bot supports attachments",
                               "type": "boolean"
+                            },
+                            "allowFrom": {
+                              "description": "Newline-or-comma-separated list of allowed senders. Use phone numbers in E.164 format (digits only). Leave empty to block all. Use * to allow everyone.",
+                              "type": "string"
                             }
                           },
                           "$$ref": "#/paths/~1integration~1whatsapp~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -28901,10 +31105,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -29379,10 +31588,15 @@
                           "alias"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -29970,10 +32184,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -30194,10 +32413,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -30891,10 +33115,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -31420,10 +33649,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -31661,6 +33895,10 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "template": {
+                            "type": "string",
+                            "description": "The original template identifier for the ability"
+                          },
                           "instruction": {
                             "type": "string"
                           },
@@ -31746,10 +33984,15 @@
                           "icon"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -31795,6 +34038,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "template": {
+                              "type": "string",
+                              "description": "The original template identifier for the ability"
                             },
                             "instruction": {
                               "type": "string"
@@ -31921,6 +34168,216 @@
         ]
       }
     },
+    "/platform/ability/search": {
+      "post": {
+        "operationId": "searchPlatformAbilities",
+        "summary": "Search platform abilities using semantic similarity",
+        "tags": [
+          "Platform"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "description": "The search query to find relevant abilities",
+                    "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 10)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 10
+                  }
+                },
+                "required": [
+                  "search"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The search was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "template": {
+                            "type": "string",
+                            "description": "The original template identifier for the ability"
+                          },
+                          "instruction": {
+                            "type": "string"
+                          },
+                          "schema": {
+                            "description": "A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules.",
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "enum": [
+                                  "object"
+                                ],
+                                "description": "The schema type, must be \"object\""
+                              },
+                              "title": {
+                                "type": "string",
+                                "description": "The schema title"
+                              },
+                              "description": {
+                                "type": "string",
+                                "description": "The schema description"
+                              },
+                              "properties": {
+                                "type": "object",
+                                "description": "Object property definitions",
+                                "additionalProperties": true
+                              },
+                              "required": {
+                                "type": "array",
+                                "description": "Required property names",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "properties"
+                            ]
+                          },
+                          "bot": {
+                            "type": "string"
+                          },
+                          "file": {
+                            "type": "string"
+                          },
+                          "secret": {
+                            "type": "string"
+                          },
+                          "space": {
+                            "type": "string"
+                          },
+                          "provider": {
+                            "type": "string"
+                          },
+                          "icon": {
+                            "type": "string"
+                          },
+                          "tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "setup": {
+                            "type": "string"
+                          },
+                          "commentary": {
+                            "type": "string"
+                          },
+                          "score": {
+                            "description": "The similarity score of the search result",
+                            "type": "number"
+                          },
+                          "excerpt": {
+                            "description": "An excerpt from the most relevant part of the ability",
+                            "type": "string"
+                          },
+                          "link": {
+                            "description": "The URL to the official ability page",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "name",
+                          "description",
+                          "instruction",
+                          "schema",
+                          "icon",
+                          "score",
+                          "excerpt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "searchPlatformAbilities",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/platform/action/list": {
       "get": {
         "operationId": "listPlatformActions",
@@ -32028,10 +34485,15 @@
                           "examples"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -32378,10 +34840,15 @@
                           "link"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -33004,10 +35471,15 @@
                           "link"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -33526,10 +35998,15 @@
                           "link"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -34042,10 +36519,15 @@
                           "link"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -34437,10 +36919,15 @@
                           "maxOutputTokens"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -34650,6 +37137,10 @@
                             "type": "number",
                             "description": "The timestamp (ms) when the instance was updated"
                           },
+                          "template": {
+                            "type": "string",
+                            "description": "The original template identifier for the secret"
+                          },
                           "type": {
                             "type": "string",
                             "description": "The type of the secret",
@@ -34699,10 +37190,15 @@
                           "type"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -34748,6 +37244,10 @@
                             "updatedAt": {
                               "type": "number",
                               "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "template": {
+                              "type": "string",
+                              "description": "The original template identifier for the secret"
                             },
                             "type": {
                               "type": "string",
@@ -34831,6 +37331,183 @@
           }
         },
         "__originalOperationId": "listPlatformSecrets",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/platform/secret/search": {
+      "post": {
+        "operationId": "searchPlatformSecrets",
+        "summary": "Search platform secrets using semantic similarity",
+        "tags": [
+          "Platform"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "description": "The search query to find relevant secrets",
+                    "type": "string"
+                  },
+                  "take": {
+                    "description": "The maximum number of results to return (1-100, default 10)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100,
+                    "default": 10
+                  }
+                },
+                "required": [
+                  "search"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The search was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "template": {
+                            "type": "string",
+                            "description": "The original template identifier for the secret"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of the secret",
+                            "enum": [
+                              "plain",
+                              "basic",
+                              "bearer",
+                              "oauth",
+                              "template",
+                              "reference"
+                            ],
+                            "$$ref": "#/components/schemas/SecretType"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "The kind of the secret",
+                            "enum": [
+                              "shared",
+                              "personal"
+                            ],
+                            "$$ref": "#/components/schemas/SecretKind"
+                          },
+                          "config": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "icon": {
+                            "type": "string"
+                          },
+                          "tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "setup": {
+                            "type": "string"
+                          },
+                          "commentary": {
+                            "type": "string"
+                          },
+                          "score": {
+                            "description": "The similarity score of the search result",
+                            "type": "number"
+                          },
+                          "excerpt": {
+                            "description": "An excerpt from the most relevant part of the secret",
+                            "type": "string"
+                          },
+                          "link": {
+                            "description": "The URL to the official secret page",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "type",
+                          "score",
+                          "excerpt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "searchPlatformSecrets",
         "security": [
           {
             "BearerAuth": []
@@ -35082,10 +37759,15 @@
                           "link"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -35853,10 +38535,15 @@
                           "type"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -36468,10 +39155,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -37467,10 +40159,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -38691,10 +41388,15 @@
                           "instruction"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -38939,10 +41641,15 @@
                           "instruction"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -39566,10 +42273,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -40081,10 +42793,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -40297,10 +43014,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -40562,6 +43284,14 @@
                         "failure"
                       ],
                       "$$ref": "#/components/schemas/TaskOutcome"
+                    },
+                    "maxIterations": {
+                      "description": "The maximum number of iterations per task execution",
+                      "type": "number"
+                    },
+                    "maxTime": {
+                      "description": "The maximum time per task execution (in milliseconds)",
+                      "type": "number"
                     }
                   },
                   "required": [
@@ -40733,6 +43463,14 @@
                   "sessionDuration": {
                     "description": "The session duration of the Widget integration",
                     "type": "number"
+                  },
+                  "maxIterations": {
+                    "description": "The maximum number of iterations per task execution",
+                    "type": "number"
+                  },
+                  "maxTime": {
+                    "description": "The maximum time per task execution in milliseconds",
+                    "type": "number"
                   }
                 }
               }
@@ -40831,6 +43569,14 @@
                   },
                   "sessionDuration": {
                     "description": "The session duration of the Widget integration",
+                    "type": "number"
+                  },
+                  "maxIterations": {
+                    "description": "The maximum number of iterations per task execution",
+                    "type": "number"
+                  },
+                  "maxTime": {
+                    "description": "The maximum time per task execution in milliseconds",
                     "type": "number"
                   }
                 }
@@ -40996,10 +43742,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -41259,6 +44010,14 @@
                               "failure"
                             ],
                             "$$ref": "#/components/schemas/TaskOutcome"
+                          },
+                          "maxIterations": {
+                            "description": "The maximum number of iterations per task execution",
+                            "type": "number"
+                          },
+                          "maxTime": {
+                            "description": "The maximum time per task execution (in milliseconds)",
+                            "type": "number"
                           }
                         },
                         "required": [
@@ -41267,10 +44026,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },
@@ -41347,6 +44111,14 @@
                                 "failure"
                               ],
                               "$$ref": "#/components/schemas/TaskOutcome"
+                            },
+                            "maxIterations": {
+                              "description": "The maximum number of iterations per task execution",
+                              "type": "number"
+                            },
+                            "maxTime": {
+                              "description": "The maximum time per task execution (in milliseconds)",
+                              "type": "number"
                             }
                           },
                           "$$ref": "#/paths/~1task~1list/get/responses/200/content/application~1json/schema/properties/items/items",
@@ -41493,10 +44265,15 @@
                           "updatedAt"
                         ]
                       }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "items"
+                    "items",
+                    "cursor"
                   ]
                 }
               },

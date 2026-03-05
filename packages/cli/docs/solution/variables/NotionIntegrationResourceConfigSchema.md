@@ -8,6 +8,6 @@
 
 > `const` **NotionIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"notionIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:436](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L436)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:440](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L440)
 
 The schema for a notion integration resource configuration.

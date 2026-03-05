@@ -6,7 +6,7 @@
 
 # Class: ChatBotKitClient
 
-Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L294)
+Defined in: [client.js:302](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L302)
 
 ## Extended by
 
@@ -34,6 +34,7 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 - [`DiscordIntegrationClient`](../../integration/discord/classes/DiscordIntegrationClient.md)
 - [`EmailIntegrationClient`](../../integration/email/classes/EmailIntegrationClient.md)
 - [`ExtractIntegrationClient`](../../integration/extract/classes/ExtractIntegrationClient.md)
+- [`GooglechatIntegrationClient`](../../integration/googlechat/classes/GooglechatIntegrationClient.md)
 - [`InstagramIntegrationClient`](../../integration/instagram/classes/InstagramIntegrationClient.md)
 - [`McpServerIntegrationClient`](../../integration/mcpserver/classes/McpServerIntegrationClient.md)
 - [`MessengerIntegrationClient`](../../integration/messenger/classes/MessengerIntegrationClient.md)
@@ -41,6 +42,7 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 - [`SitemapIntegrationClient`](../../integration/sitemap/classes/SitemapIntegrationClient.md)
 - [`SlackIntegrationClient`](../../integration/slack/classes/SlackIntegrationClient.md)
 - [`SupportIntegrationClient`](../../integration/support/classes/SupportIntegrationClient.md)
+- [`TeamsIntegrationClient`](../../integration/teams/classes/TeamsIntegrationClient.md)
 - [`TelegramIntegrationClient`](../../integration/telegram/classes/TelegramIntegrationClient.md)
 - [`TriggerIntegrationClient`](../../integration/trigger/classes/TriggerIntegrationClient.md)
 - [`TwilioIntegrationClient`](../../integration/twilio/classes/TwilioIntegrationClient.md)
@@ -63,7 +65,6 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 - [`PlatformTutorialClient`](../../platform/tutorial/classes/PlatformTutorialClient.md)
 - [`PolicyClient`](../../policy/classes/PolicyClient.md)
 - [`PortalClient`](../../portal/classes/PortalClient.md)
-- [`ReportClient`](../../report/classes/ReportClient.md)
 - [`SecretClient`](../../secret/classes/SecretClient.md)
 - [`SkillsetAbilityClient`](../../skillset/ability/classes/SkillsetAbilityClient.md)
 - [`SkillsetClient`](../../skillset/classes/SkillsetClient.md)
@@ -79,7 +80,7 @@ Defined in: [client.js:294](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **new ChatBotKitClient**(`options`): `ChatBotKitClient`
 
-Defined in: [client.js:337](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L337)
+Defined in: [client.js:345](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L345)
 
 #### Parameters
 
@@ -97,7 +98,7 @@ Defined in: [client.js:337](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **extend**(`extensionOptions`): `ChatBotKitClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L390)
 
 Creates a new instance of the same client type with extended options.
 

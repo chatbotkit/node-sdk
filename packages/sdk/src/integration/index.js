@@ -2,6 +2,7 @@ import { ChatBotKitClient } from '../client.js'
 import { DiscordIntegrationClient } from './discord/index.js'
 import { EmailIntegrationClient } from './email/index.js'
 import { ExtractIntegrationClient } from './extract/index.js'
+import { GooglechatIntegrationClient } from './googlechat/index.js'
 import { InstagramIntegrationClient } from './instagram/index.js'
 import { McpServerIntegrationClient } from './mcpserver/index.js'
 import { MessengerIntegrationClient } from './messenger/index.js'
@@ -9,6 +10,7 @@ import { NotionIntegrationClient } from './notion/index.js'
 import { SitemapIntegrationClient } from './sitemap/index.js'
 import { SlackIntegrationClient } from './slack/index.js'
 import { SupportIntegrationClient } from './support/index.js'
+import { TeamsIntegrationClient } from './teams/index.js'
 import { TelegramIntegrationClient } from './telegram/index.js'
 import { TriggerIntegrationClient } from './trigger/index.js'
 import { TwilioIntegrationClient } from './twilio/index.js'
@@ -96,6 +98,16 @@ export class IntegrationClient extends ChatBotKitClient {
      * @type {TwilioIntegrationClient} twilio client
      */
     this.twilio = new TwilioIntegrationClient(options)
+
+    /**
+     * @type {TeamsIntegrationClient} teams client
+     */
+    this.teams = new TeamsIntegrationClient(options)
+
+    /**
+     * @type {GooglechatIntegrationClient} googlechat client
+     */
+    this.googlechat = new GooglechatIntegrationClient(options)
   }
 }
 

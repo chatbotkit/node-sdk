@@ -14,6 +14,13 @@ export class PlatformSecretClient extends ChatBotKitClient {
      * @returns {ResponsePromise<import('./v1.js').PlatformSecretListResponse,import('./v1.js').PlatformSecretListStreamType>}
      */
     list(request?: import("./v1.js").PlatformSecretListRequest): ResponsePromise<import("./v1.js").PlatformSecretListResponse, import("./v1.js").PlatformSecretListStreamType>;
+    /**
+     * Searches platform secrets.
+     *
+     * @param {import('./v1.js').PlatformSecretSearchRequest} request
+     * @returns {Promise<import('./v1.js').PlatformSecretSearchResponse>}
+     */
+    search(request: import("./v1.js").PlatformSecretSearchRequest): Promise<import("./v1.js").PlatformSecretSearchResponse>;
 }
 export default PlatformSecretClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;

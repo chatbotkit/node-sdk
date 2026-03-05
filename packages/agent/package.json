@@ -42,14 +42,6 @@
       "types": "./types/index.d.ts",
       "import": "./src/index.js"
     },
-    "./tools": {
-      "types": "./types/tools.d.ts",
-      "import": "./src/tools.js"
-    },
-    "./tools.js": {
-      "types": "./types/tools.d.ts",
-      "import": "./src/tools.js"
-    },
     "./skills": {
       "types": "./types/skills.d.ts",
       "import": "./src/skills.js"
@@ -57,6 +49,14 @@
     "./skills.js": {
       "types": "./types/skills.d.ts",
       "import": "./src/skills.js"
+    },
+    "./tools": {
+      "types": "./types/tools.d.ts",
+      "import": "./src/tools.js"
+    },
+    "./tools.js": {
+      "types": "./types/tools.d.ts",
+      "import": "./src/tools.js"
     },
     "./package.json": "./package.json"
   },

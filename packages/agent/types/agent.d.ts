@@ -54,33 +54,38 @@
  * }} ExitEvent
  */
 /**
- * Agent complete generator function.
+ * Completes a single agent iteration. Handles tool calls and streams events for
+ * tool execution and completion.
  *
- * @param {ConversationCompleteRequest & {
+ * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
  *   client: ChatBotKit,
- *   tools?: Tools
+ *   tools?: Tools,
+ *   abortSignal?: AbortSignal,
  * }} options
  * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
  */
-export function complete(options: ConversationCompleteRequest & {
+export function complete(options: Omit<ConversationCompleteRequest, "functions" | "limits"> & {
     client: ChatBotKit;
     tools?: Tools;
+    abortSignal?: AbortSignal;
 }): AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>;
 /**
  * Execute an agent task in a loop until exit is called. Provides planning,
  * progress tracking, and controlled exit functionality.
  *
- * @param {ConversationCompleteRequest & {
+ * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
  *   client: ChatBotKit,
  *   tools?: Tools,
- *   maxIterations?: number
+ *   maxIterations?: number,
+ *   abortSignal?: AbortSignal,
  * }} options
  * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
  */
-export function execute(options: ConversationCompleteRequest & {
+export function execute(options: Omit<ConversationCompleteRequest, "functions" | "limits"> & {
     client: ChatBotKit;
     tools?: Tools;
     maxIterations?: number;
+    abortSignal?: AbortSignal;
 }): AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>;
 export type ZodObject = import("zod").ZodObject<any>;
 export type ChatBotKit = import("@chatbotkit/sdk").ChatBotKit;

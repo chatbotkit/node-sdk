@@ -67,16 +67,18 @@ import { zodToJsonSchema } from 'zod-to-json-schema'
  */
 
 /**
- * Agent complete generator function.
+ * Completes a single agent iteration. Handles tool calls and streams events for
+ * tool execution and completion.
  *
- * @param {ConversationCompleteRequest & {
+ * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
  *   client: ChatBotKit,
- *   tools?: Tools
+ *   tools?: Tools,
+ *   abortSignal?: AbortSignal,
  * }} options
  * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
  */
 export async function* complete(options) {
-  const { client, tools, ...request } = options
+  const { client, tools, abortSignal, ...request } = options
 
   const channelToTool = new Map()
 
@@ -134,13 +136,18 @@ export async function* complete(options) {
       ...request,
 
       functions,
+
+      limits: {
+        iterations: 1,
+      },
     })
-    .stream()
+    .stream({ abortSignal })
 
   /** @type {Array<ToolCallEndEvent | ToolCallErrorEvent>} */
   const toolEventQueue = []
 
-  const runningTools = new Set()
+  /** @type {Array<Promise<void>>} */
+  const runningToolPromises = []
 
   /**
    * Execute a tool asynchronously without blocking the event stream
@@ -197,12 +204,14 @@ export async function* complete(options) {
       await client.channel.publish(String(channel), {
         message: { error: errorMessage },
       })
-    } finally {
-      runningTools.delete(channel)
     }
   }
 
   for await (const event of stream) {
+    if (abortSignal?.aborted) {
+      break
+    }
+
     while (toolEventQueue.length > 0) {
       const toolEvent = toolEventQueue.shift()
 
@@ -235,11 +244,7 @@ export async function* complete(options) {
 
         const toolPromise = executeToolAsync(channel, name, tool, args)
 
-        runningTools.add(channel)
-
-        toolPromise.catch(() => {
-          // @note errors are already handled in executeToolAsync
-        })
+        runningToolPromises.push(toolPromise)
       }
     }
 
@@ -254,8 +259,8 @@ export async function* complete(options) {
     }
   }
 
-  while (runningTools.size > 0) {
-    await new Promise((resolve) => setTimeout(resolve, 10))
+  if (runningToolPromises.length > 0) {
+    await Promise.allSettled(runningToolPromises)
 
     while (toolEventQueue.length > 0) {
       const toolEvent = toolEventQueue.shift()
@@ -271,10 +276,33 @@ export async function* complete(options) {
  * Execute an agent task in a loop until exit is called. Provides planning,
  * progress tracking, and controlled exit functionality.
  *
- * @param {ConversationCompleteRequest & {
+ * The agent runs until the model calls the built-in `exit` tool, the
+ * `maxIterations` limit is reached, or an `abortSignal` is triggered.
+ *
+ * ### Message injection
+ *
+ * The `messages` array is used directly (not copied), so you can push new
+ * messages onto it at any point while the agent is running. They will be
+ * included in the context at the start of the next iteration:
+ *
+ * ```js
+ * const messages = [{ type: 'user', text: 'Perform the task.' }]
+ *
+ * const stream = execute({ client, messages, tools })
+ *
+ * // inject a user message or system notification mid-run:
+ * messages.push({ type: 'user', text: 'Also handle edge case Y.' })
+ * messages.push({ type: 'context', text: 'System: disk usage at 90%.' })
+ * ```
+ *
+ * The agent also appends its own `bot` responses to the same array as each
+ * iteration completes, so `messages` reflects the full conversation history.
+ *
+ * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
  *   client: ChatBotKit,
  *   tools?: Tools,
- *   maxIterations?: number
+ *   maxIterations?: number,
+ *   abortSignal?: AbortSignal,
  * }} options
  * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
  */
@@ -284,14 +312,23 @@ export async function* execute(options) {
 
     tools = {},
 
-    maxIterations = 50,
+    maxIterations = 100,
+
+    abortSignal,
 
     ...request
   } = options
 
-  const messages = [...(request.messages || [])]
+  // @note use the caller's array directly so external pushes are visible at the
+  // next iteration boundary without any additional injection mechanism
+
+  const messages = request.messages || []
 
   let exitResult = null
+
+  // Per-iteration AbortController that the hard abort tool can cancel to
+  // kill running processes immediately. Recreated each iteration.
+  let internalAbort = null
 
   const systemTools = {
     plan: {
@@ -371,9 +408,37 @@ export async function* execute(options) {
         }
       },
     },
+    abort: {
+      description:
+        'Immediately abort the current task. Use this when the user explicitly asks you to stop, cancel, or abort what you are doing. Set hard to true to kill running processes immediately.',
+      input: z.object({
+        reason: z.string().optional().describe('Brief reason for aborting'),
+        hard: z
+          .boolean()
+          .optional()
+          .describe(
+            'If true, immediately kill running processes. If false (default), finish the current operation gracefully.'
+          ),
+      }),
+      handler: async (/** @type {any} */ input) => {
+        const reason = input.reason || 'aborted by user request'
+
+        exitResult = { code: 1, message: reason }
+
+        if (input.hard && internalAbort) {
+          internalAbort.abort(reason)
+        }
+
+        return {
+          success: true,
+
+          message: `Task aborted: ${reason}`,
+        }
+      },
+    },
   }
 
-  const allTools = { ...systemTools, ...tools }
+  const allTools = { ...tools, ...systemTools }
 
   const systemInstruction = `
 ${options.extensions?.backstory || ''}
@@ -386,15 +451,45 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
 2. **Track Progress**: Regularly use the 'progress' function to update status and identify issues
 3. **Use Tools**: Leverage available tools to accomplish each step of your plan
 4. **Exit When Done**: Call the 'exit' function with code 0 when successful, or non-zero code if unable to complete
-5. **Be Autonomous**: Work through the task systematically without waiting for additional input
+5. **Abort**: If the user asks you to stop, cancel, or abort, call the 'abort' function immediately. Use hard=true if processes are running that need to be killed right away.
+6. **Be Autonomous**: Work through the task systematically without waiting for additional input
+7. **Be Responsive**: If the user sends a new message while you are working, acknowledge it briefly and adjust your approach if needed. Always prioritize user input over your current plan.
 `.trim()
 
   let iteration = 0
 
   while (iteration < maxIterations && exitResult === null) {
+    if (abortSignal?.aborted) {
+      exitResult = {
+        code: 1,
+        message: 'Task execution aborted',
+      }
+
+      break
+    }
+
     iteration++
 
     yield { type: 'iteration', data: { iteration } }
+
+    let lastEndReason = null
+
+    // Create a per-iteration AbortController. Hard abort cancels this to
+    // kill any running tool processes for this iteration only.
+    internalAbort = new AbortController()
+
+    // Propagate the caller's signal to the iteration controller.
+    if (abortSignal?.aborted) {
+      internalAbort.abort(abortSignal.reason)
+    } else if (abortSignal) {
+      abortSignal.addEventListener(
+        'abort',
+        () => internalAbort.abort(abortSignal.reason),
+        { once: true }
+      )
+    }
+
+    const iterSignal = internalAbort.signal
 
     for await (const event of complete({
       ...request,
@@ -405,12 +500,26 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
 
       tools: allTools,
 
+      abortSignal: iterSignal,
+
       extensions: {
         ...options.extensions,
 
         backstory: systemInstruction,
       },
     })) {
+      if (event.type === 'message') {
+        messages.push(event.data)
+      }
+
+      // Capture the end reason from result events so the outer loop can
+      // decide whether to continue iterating.
+      if (event.type === 'result') {
+        if (event.data.end.reason) {
+          lastEndReason = event.data.end.reason
+        }
+      }
+
       yield event
     }
 
@@ -418,10 +527,13 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
       break
     }
 
-    messages.push({
-      type: 'user',
-      text: 'Continue with the next step of your plan. If all steps are complete, call exit with the appropriate status code.',
-    })
+    // The API returns end.reason in the result event. When the reason is "stop"
+    // the model finished naturally without pending tool calls — continuing
+    // would produce empty iterations endlessly unless more messages are
+    // injected, so we break the loop here.
+    if (lastEndReason === 'stop') {
+      break
+    }
   }
 
   if (exitResult === null) {

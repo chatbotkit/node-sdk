@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../../client.js'
-import { listPlatformSecrets } from './v1.js'
+import { listPlatformSecrets, searchPlatformSecrets } from './v1.js'
 
 /**
  * @template T
@@ -26,6 +26,16 @@ export class PlatformSecretClient extends ChatBotKitClient {
    */
   list(request) {
     return listPlatformSecrets(this, request)
+  }
+
+  /**
+   * Searches platform secrets.
+   *
+   * @param {import('./v1.js').PlatformSecretSearchRequest} request
+   * @returns {Promise<import('./v1.js').PlatformSecretSearchResponse>}
+   */
+  search(request) {
+    return searchPlatformSecrets(this, request)
   }
 }
 

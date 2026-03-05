@@ -1,5 +1,5 @@
 import { ChatBotKitClient } from '../../client.js'
-import { listPlatformAbilities } from './v1.js'
+import { listPlatformAbilities, searchPlatformAbilities } from './v1.js'
 
 /**
  * @template T
@@ -26,6 +26,16 @@ export class PlatformAbilityClient extends ChatBotKitClient {
    */
   list(request) {
     return listPlatformAbilities(this, request)
+  }
+
+  /**
+   * Searches platform abilities.
+   *
+   * @param {import('./v1.js').PlatformAbilitySearchRequest} request
+   * @returns {Promise<import('./v1.js').PlatformAbilitySearchResponse>}
+   */
+  search(request) {
+    return searchPlatformAbilities(this, request)
   }
 }
 

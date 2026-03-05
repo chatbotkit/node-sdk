@@ -54,7 +54,8 @@ export class ResponsePromise<T, U> {
      *   retries?: number,
      *   retryDelay?: number,
      *   retryTimeout?: boolean,
-     *   fetchFn?: FetchFunction
+     *   fetchFn?: FetchFunction,
+     *   abortSignal?: AbortSignal,
      * }} [params]
      */
     getRequest(params?: {
@@ -66,9 +67,15 @@ export class ResponsePromise<T, U> {
         retryDelay?: number;
         retryTimeout?: boolean;
         fetchFn?: FetchFunction;
+        abortSignal?: AbortSignal;
     }): Promise<Response>;
     getFetchPromise(): Promise<Response>;
-    getStreamPromise(): Promise<Response>;
+    /**
+     * @param {{ abortSignal?: AbortSignal }} [params]
+     */
+    getStreamPromise(params?: {
+        abortSignal?: AbortSignal;
+    }): Promise<Response>;
     /**
      * @template TResult1
      * @template TResult2
@@ -89,9 +96,12 @@ export class ResponsePromise<T, U> {
      */
     finally(fn?: (() => void) | undefined | null): Promise<T>;
     /**
+     * @param {{ abortSignal?: AbortSignal }} [params]
      * @returns {AsyncGenerator<U>}
      */
-    stream(): AsyncGenerator<U>;
+    stream(params?: {
+        abortSignal?: AbortSignal;
+    }): AsyncGenerator<U>;
     /**
      * @param {string} [key]
      * @returns {Promise<T>}

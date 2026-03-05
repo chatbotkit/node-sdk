@@ -13,8 +13,13 @@
 - [PlatformSecretListRequest](type-aliases/PlatformSecretListRequest.md)
 - [PlatformSecretListResponse](type-aliases/PlatformSecretListResponse.md)
 - [PlatformSecretListStreamType](type-aliases/PlatformSecretListStreamType.md)
+- [PlatformSecretSearchRequest](type-aliases/PlatformSecretSearchRequest.md)
+- [PlatformSecretSearchRequestBody](type-aliases/PlatformSecretSearchRequestBody.md)
+- [PlatformSecretSearchResponse](type-aliases/PlatformSecretSearchResponse.md)
+- [PlatformSecretSearchResponseBody](type-aliases/PlatformSecretSearchResponseBody.md)
 - [ResponsePromise](type-aliases/ResponsePromise.md)
 
 ## Functions
 
 - [listPlatformSecrets](functions/listPlatformSecrets.md)
+- [searchPlatformSecrets](functions/searchPlatformSecrets.md)

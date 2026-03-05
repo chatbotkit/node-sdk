@@ -508,6 +508,26 @@
       "types": "./types/integration/extract/v1.d.ts",
       "import": "./src/integration/extract/v1.js"
     },
+    "./integration/googlechat": {
+      "types": "./types/integration/googlechat/index.d.ts",
+      "import": "./src/integration/googlechat/index.js"
+    },
+    "./integration/googlechat/index": {
+      "types": "./types/integration/googlechat/index.d.ts",
+      "import": "./src/integration/googlechat/index.js"
+    },
+    "./integration/googlechat/index.js": {
+      "types": "./types/integration/googlechat/index.d.ts",
+      "import": "./src/integration/googlechat/index.js"
+    },
+    "./integration/googlechat/v1": {
+      "types": "./types/integration/googlechat/v1.d.ts",
+      "import": "./src/integration/googlechat/v1.js"
+    },
+    "./integration/googlechat/v1.js": {
+      "types": "./types/integration/googlechat/v1.d.ts",
+      "import": "./src/integration/googlechat/v1.js"
+    },
     "./integration": {
       "types": "./types/integration/index.d.ts",
       "import": "./src/integration/index.js"
@@ -659,6 +679,26 @@
     "./integration/support/v1.js": {
       "types": "./types/integration/support/v1.d.ts",
       "import": "./src/integration/support/v1.js"
+    },
+    "./integration/teams": {
+      "types": "./types/integration/teams/index.d.ts",
+      "import": "./src/integration/teams/index.js"
+    },
+    "./integration/teams/index": {
+      "types": "./types/integration/teams/index.d.ts",
+      "import": "./src/integration/teams/index.js"
+    },
+    "./integration/teams/index.js": {
+      "types": "./types/integration/teams/index.d.ts",
+      "import": "./src/integration/teams/index.js"
+    },
+    "./integration/teams/v1": {
+      "types": "./types/integration/teams/v1.d.ts",
+      "import": "./src/integration/teams/v1.js"
+    },
+    "./integration/teams/v1.js": {
+      "types": "./types/integration/teams/v1.d.ts",
+      "import": "./src/integration/teams/v1.js"
     },
     "./integration/telegram": {
       "types": "./types/integration/telegram/index.d.ts",
@@ -1115,26 +1155,6 @@
     "./portal/v1.js": {
       "types": "./types/portal/v1.d.ts",
       "import": "./src/portal/v1.js"
-    },
-    "./report": {
-      "types": "./types/report/index.d.ts",
-      "import": "./src/report/index.js"
-    },
-    "./report/index": {
-      "types": "./types/report/index.d.ts",
-      "import": "./src/report/index.js"
-    },
-    "./report/index.js": {
-      "types": "./types/report/index.d.ts",
-      "import": "./src/report/index.js"
-    },
-    "./report/v1": {
-      "types": "./types/report/v1.d.ts",
-      "import": "./src/report/v1.js"
-    },
-    "./report/v1.js": {
-      "types": "./types/report/v1.d.ts",
-      "import": "./src/report/v1.js"
     },
     "./secret": {
       "types": "./types/secret/index.d.ts",

@@ -75,7 +75,8 @@ export class ResponsePromise {
    *   retries?: number,
    *   retryDelay?: number,
    *   retryTimeout?: boolean,
-   *   fetchFn?: FetchFunction
+   *   fetchFn?: FetchFunction,
+   *   abortSignal?: AbortSignal,
    * }} [params]
    */
   async getRequest(params) {
@@ -119,6 +120,8 @@ export class ResponsePromise {
         retryTimeout: params?.retryTimeout ?? retryTimeout,
       },
 
+      ...(params?.abortSignal ? { signal: params.abortSignal } : {}),
+
       mode: 'cors',
       cache: 'no-cache',
     })
@@ -155,10 +158,14 @@ export class ResponsePromise {
     return this.fetchPromise
   }
 
-  getStreamPromise() {
+  /**
+   * @param {{ abortSignal?: AbortSignal }} [params]
+   */
+  getStreamPromise(params) {
     if (!this.streamPromise) {
       this.streamPromise = this.getRequest({
         headers: { Accept: 'application/jsonl' },
+        abortSignal: params?.abortSignal,
       })
     }
 
@@ -225,10 +232,11 @@ export class ResponsePromise {
   }
 
   /**
+   * @param {{ abortSignal?: AbortSignal }} [params]
    * @returns {AsyncGenerator<U>}
    */
-  async *stream() {
-    const response = await this.getStreamPromise()
+  async *stream(params) {
+    const response = await this.getStreamPromise(params)
 
     if (!response.body) {
       return
