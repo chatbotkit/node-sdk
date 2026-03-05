@@ -1,16 +1,5 @@
 # @chatbotkit/sdk
 
-## 1.27.0
-
-### Minor Changes
-
-- 6e86702: New complete input parameters and response features.
-- 6e86702: API and stability improvements.
-
-### Patch Changes
-
-- 6e86702: Additional types and updated docs.
-
 ## 1.26.3
 
 ### Patch Changes

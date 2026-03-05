@@ -2,7 +2,7 @@
 
 ***
 
-[@chatbotkit/agent](../../modules.md) / [index](../README.md) / createSkillsFeature
+[@chatbotkit/agent](../../modules.md) / [skills](../README.md) / createSkillsFeature
 
 # Function: createSkillsFeature()
 
@@ -16,7 +16,7 @@ Creates a skills feature configuration from skill definitions.
 
 ### skills
 
-`SkillDefinition`[]
+[`SkillDefinition`](../type-aliases/SkillDefinition.md)[]
 
 Array of skill definitions
 
@@ -34,4 +34,4 @@ Array of skill definitions
 
 #### options.skills
 
-> **skills**: `SkillDefinition`[]
+> **skills**: [`SkillDefinition`](../type-aliases/SkillDefinition.md)[]

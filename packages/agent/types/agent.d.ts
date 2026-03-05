@@ -73,6 +73,28 @@ export function complete(options: Omit<ConversationCompleteRequest, "functions" 
  * Execute an agent task in a loop until exit is called. Provides planning,
  * progress tracking, and controlled exit functionality.
  *
+ * The agent runs until the model calls the built-in `exit` tool, the
+ * `maxIterations` limit is reached, or an `abortSignal` is triggered.
+ *
+ * ### Message injection
+ *
+ * The `messages` array is used directly (not copied), so you can push new
+ * messages onto it at any point while the agent is running. They will be
+ * included in the context at the start of the next iteration:
+ *
+ * ```js
+ * const messages = [{ type: 'user', text: 'Perform the task.' }]
+ *
+ * const stream = execute({ client, messages, tools })
+ *
+ * // inject a user message or system notification mid-run:
+ * messages.push({ type: 'user', text: 'Also handle edge case Y.' })
+ * messages.push({ type: 'context', text: 'System: disk usage at 90%.' })
+ * ```
+ *
+ * The agent also appends its own `bot` responses to the same array as each
+ * iteration completes, so `messages` reflects the full conversation history.
+ *
  * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
  *   client: ChatBotKit,
  *   tools?: Tools,
