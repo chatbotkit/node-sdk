@@ -1,45 +1,5 @@
 # @chatbotkit/cli
 
-## 1.28.0
-
-### Patch Changes
-
-- Updated dependencies [9435bba]
-  - @chatbotkit/sdk@1.28.0
-  - @chatbotkit/agent@1.28.0
-
-## 1.27.3
-
-### Patch Changes
-
-- 57aeb3f: Fixed issues with finding the right imports when represented as non-strings.
-
-## 1.27.2
-
-### Patch Changes
-
-- 0f68932: Correct handling of help command line flags when used with scripts.
-
-## 1.27.1
-
-### Patch Changes
-
-- b8b0696: Fixed cli root detection.
-
-## 1.27.0
-
-### Minor Changes
-
-- fd2e6a5: Added a run command for cbk scripting support.
-
-## 1.26.5
-
-### Patch Changes
-
-- Updated dependencies [4d2052f]
-  - @chatbotkit/sdk@1.26.5
-  - @chatbotkit/agent@1.26.5
-
 ## 1.26.3
 
 ### Patch Changes
