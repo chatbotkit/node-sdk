@@ -8,7 +8,7 @@
 
 > **execute**(`options`): [`AsyncGenerator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)\<\{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| \{ \} \| [`ToolCallStartEvent`](../type-aliases/ToolCallStartEvent.md) \| [`ToolCallEndEvent`](../type-aliases/ToolCallEndEvent.md) \| [`ToolCallErrorEvent`](../type-aliases/ToolCallErrorEvent.md) \| [`IterationEvent`](../type-aliases/IterationEvent.md) \| [`ExitEvent`](../type-aliases/ExitEvent.md), `void`, `unknown`\>
 
-Defined in: [agent/src/agent.js:281](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/agent.js#L281)
+Defined in: [agent/src/agent.js:287](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/agent.js#L287)
 
 Execute an agent task in a loop until exit is called. Provides planning,
 progress tracking, and controlled exit functionality.
@@ -17,7 +17,7 @@ progress tracking, and controlled exit functionality.
 
 ### options
 
-`object` & `object` \| [`Omit`](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)\<`object` & `object`, `"model"`\> & `object` & `object`
+[`Omit`](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)\<`object` & `object` \| [`Omit`](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)\<`object` & `object`, `"model"`\> & `object`, `"functions"` \| `"limits"`\> & `object`
 
 ## Returns
 

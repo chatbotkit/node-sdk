@@ -4,6 +4,72 @@
   "description": "Input and output schemas for all available reports",
   "version": "1.0.0",
   "reports": {
+    "cm7k3m5n8k000008jq7h9e5b1a": {
+      "id": "cm7k3m5n8k000008jq7h9e5b1a",
+      "name": "Dataset Records Report",
+      "description": "Report on total number of records for a list of datasets",
+      "input": {
+        "$ref": "#/definitions/dataset-records-report-input",
+        "definitions": {
+          "dataset-records-report-input": {
+            "type": "object",
+            "properties": {
+              "datasetIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "datasetIds"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/dataset-records-report-output",
+        "definitions": {
+          "dataset-records-report-output": {
+            "type": "object",
+            "properties": {
+              "totalRecords": {
+                "type": "number"
+              },
+              "breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "datasetId": {
+                      "type": "string"
+                    },
+                    "records": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "datasetId",
+                    "records"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "totalRecords",
+              "breakdown"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-02-25T00:00:00.000Z",
+      "updatedAt": "2026-02-25T00:00:00.000Z"
+    },
     "clr3m5n8k000008jq7h9e5b1a": {
       "id": "clr3m5n8k000008jq7h9e5b1a",
       "name": "Total Ratings Report",
@@ -984,7 +1050,7 @@
     "clr3m5n8k000e08jqbs0t1u5o": {
       "id": "clr3m5n8k000e08jqbs0t1u5o",
       "name": "Bot Stats Report",
-      "description": "Statistics for a specific bot including conversations, messages, ratings, and sentiment signal",
+      "description": "Statistics for a specific bot including conversations, messages, token consumption, ratings, and sentiment signal",
       "input": {
         "$ref": "#/definitions/bot-stats-report-input",
         "definitions": {
@@ -1021,6 +1087,9 @@
               "totalMessages": {
                 "type": "number"
               },
+              "totalTokens": {
+                "type": "number"
+              },
               "totalRatings": {
                 "type": "number"
               },
@@ -1047,6 +1116,7 @@
             "required": [
               "totalConversations",
               "totalMessages",
+              "totalTokens",
               "totalRatings",
               "thumbsUp",
               "thumbsDown",
@@ -1060,6 +1130,947 @@
       },
       "createdAt": "2025-01-17T00:00:00.000Z",
       "updatedAt": "2025-01-17T00:00:00.000Z"
+    },
+    "clr3m5n8k000f08jqcs1u2v6p": {
+      "id": "clr3m5n8k000f08jqcs1u2v6p",
+      "name": "Alerts Report",
+      "description": "Compiles a list of alerts for the current user including usage warnings, limit warnings, and sentiment alerts",
+      "input": {
+        "$ref": "#/definitions/alerts-report-input",
+        "definitions": {
+          "alerts-report-input": {
+            "type": "object",
+            "properties": {
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/alerts-report-output",
+        "definitions": {
+          "alerts-report-output": {
+            "type": "object",
+            "properties": {
+              "alerts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "usageSpike",
+                        "limit",
+                        "sentiment",
+                        "activity",
+                        "negativeFeedback"
+                      ],
+                      "description": "The type of alert"
+                    },
+                    "severity": {
+                      "type": "string",
+                      "enum": [
+                        "info",
+                        "warning",
+                        "critical"
+                      ],
+                      "description": "Alert severity: info for 20%+ spike, warning for 50%+ spike, critical for 100%+ spike"
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "Short title for the alert"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Detailed alert message"
+                    },
+                    "metric": {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "number",
+                          "description": "Current value of the metric"
+                        },
+                        "baseline": {
+                          "type": "number",
+                          "description": "Reference value for comparison: average for spikes, limit for database alerts, or total for ratios"
+                        },
+                        "percentage": {
+                          "type": "number",
+                          "description": "Percentage change or ratio from the baseline"
+                        }
+                      },
+                      "required": [
+                        "current"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "severity",
+                    "title",
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "summary": {
+                "type": "object",
+                "properties": {
+                  "totalAlerts": {
+                    "type": "number"
+                  },
+                  "criticalCount": {
+                    "type": "number"
+                  },
+                  "warningCount": {
+                    "type": "number"
+                  },
+                  "infoCount": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "totalAlerts",
+                  "criticalCount",
+                  "warningCount",
+                  "infoCount"
+                ],
+                "additionalProperties": false
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "alerts",
+              "summary",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-01-28T00:00:00.000Z",
+      "updatedAt": "2026-01-28T00:00:00.000Z"
+    },
+    "clr3m5n8k000g08jqdt1u2v7q": {
+      "id": "clr3m5n8k000g08jqdt1u2v7q",
+      "name": "Bot Performance Report",
+      "description": "Per-bot performance metrics with period-over-period trends and daily breakdowns for conversations, messages, tokens, and ratings",
+      "input": {
+        "$ref": "#/definitions/bot-performance-report-input",
+        "definitions": {
+          "bot-performance-report-input": {
+            "type": "object",
+            "properties": {
+              "botId": {
+                "type": "string",
+                "description": "The ID of the bot to get performance for"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "botId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/bot-performance-report-output",
+        "definitions": {
+          "bot-performance-report-output": {
+            "type": "object",
+            "properties": {
+              "conversations": {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "number"
+                  },
+                  "previous": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "total"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "current",
+                  "previous",
+                  "change",
+                  "breakdown"
+                ],
+                "additionalProperties": false
+              },
+              "messages": {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "number"
+                  },
+                  "previous": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "total"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "current",
+                  "previous",
+                  "change",
+                  "breakdown"
+                ],
+                "additionalProperties": false
+              },
+              "tokens": {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "number"
+                  },
+                  "previous": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "total"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "current",
+                  "previous",
+                  "change",
+                  "breakdown"
+                ],
+                "additionalProperties": false
+              },
+              "ratings": {
+                "type": "object",
+                "properties": {
+                  "thumbsUp": {
+                    "type": "number"
+                  },
+                  "thumbsDown": {
+                    "type": "number"
+                  },
+                  "total": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  },
+                  "sentimentSignal": {
+                    "type": "string",
+                    "enum": [
+                      "positive",
+                      "negative",
+                      "neutral",
+                      "unknown"
+                    ]
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        },
+                        "thumbsUp": {
+                          "type": "number"
+                        },
+                        "thumbsDown": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "total",
+                        "thumbsUp",
+                        "thumbsDown"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "thumbsUp",
+                  "thumbsDown",
+                  "total",
+                  "change",
+                  "sentimentSignal",
+                  "breakdown"
+                ],
+                "additionalProperties": false
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "conversations",
+              "messages",
+              "tokens",
+              "ratings",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-02-20T00:00:00.000Z",
+      "updatedAt": "2026-02-20T00:00:00.000Z"
+    },
+    "clr3m5n8k000h08jqeu2v3w8r": {
+      "id": "clr3m5n8k000h08jqeu2v3w8r",
+      "name": "Bot Conversation Quality Report",
+      "description": "Per-bot conversation quality metrics including depth distribution, abandonment rate, token efficiency, and top actions used",
+      "input": {
+        "$ref": "#/definitions/bot-conversation-quality-report-input",
+        "definitions": {
+          "bot-conversation-quality-report-input": {
+            "type": "object",
+            "properties": {
+              "botId": {
+                "type": "string",
+                "description": "The ID of the bot to get quality metrics for"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "required": [
+              "botId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/bot-conversation-quality-report-output",
+        "definitions": {
+          "bot-conversation-quality-report-output": {
+            "type": "object",
+            "properties": {
+              "avgMessagesPerConversation": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "number"
+                  },
+                  "bot": {
+                    "type": "number"
+                  },
+                  "activity": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "user",
+                  "bot",
+                  "activity"
+                ],
+                "additionalProperties": false
+              },
+              "conversationDepth": {
+                "type": "object",
+                "properties": {
+                  "singleTurn": {
+                    "type": "number",
+                    "description": "Conversations with exactly 1 user message"
+                  },
+                  "short": {
+                    "type": "number",
+                    "description": "Conversations with 2-3 user messages"
+                  },
+                  "medium": {
+                    "type": "number",
+                    "description": "Conversations with 4-10 user messages"
+                  },
+                  "long": {
+                    "type": "number",
+                    "description": "Conversations with more than 10 user messages"
+                  }
+                },
+                "required": [
+                  "singleTurn",
+                  "short",
+                  "medium",
+                  "long"
+                ],
+                "additionalProperties": false
+              },
+              "totalConversations": {
+                "type": "number"
+              },
+              "abandonmentRate": {
+                "type": "number",
+                "description": "Percentage of single-turn conversations (0-100)"
+              },
+              "avgTokensPerConversation": {
+                "type": "number"
+              },
+              "avgTokensPerMessage": {
+                "type": "number"
+              },
+              "topActions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "name",
+                    "count"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "avgMessagesPerConversation",
+              "conversationDepth",
+              "totalConversations",
+              "abandonmentRate",
+              "avgTokensPerConversation",
+              "avgTokensPerMessage",
+              "topActions",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-02-20T00:00:00.000Z",
+      "updatedAt": "2026-02-20T00:00:00.000Z"
+    },
+    "clr3m5n8k000i08jqfv3w4x9s": {
+      "id": "clr3m5n8k000i08jqfv3w4x9s",
+      "name": "Bot Alerts Report",
+      "description": "Per-bot alerts detecting negative feedback surges, token spikes, conversation drops, and abandonment increases",
+      "input": {
+        "$ref": "#/definitions/bot-alerts-report-input",
+        "definitions": {
+          "bot-alerts-report-input": {
+            "type": "object",
+            "properties": {
+              "botId": {
+                "type": "string",
+                "description": "The ID of the bot to check alerts for"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 7
+              }
+            },
+            "required": [
+              "botId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/bot-alerts-report-output",
+        "definitions": {
+          "bot-alerts-report-output": {
+            "type": "object",
+            "properties": {
+              "alerts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "negativeFeedback",
+                        "tokenSpike",
+                        "conversationDrop",
+                        "abandonmentSpike"
+                      ],
+                      "description": "The type of bot-specific alert"
+                    },
+                    "severity": {
+                      "type": "string",
+                      "enum": [
+                        "info",
+                        "warning",
+                        "critical"
+                      ]
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "metric": {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "number"
+                        },
+                        "baseline": {
+                          "type": "number"
+                        },
+                        "percentage": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "current"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "severity",
+                    "title",
+                    "message"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "summary": {
+                "type": "object",
+                "properties": {
+                  "totalAlerts": {
+                    "type": "number"
+                  },
+                  "criticalCount": {
+                    "type": "number"
+                  },
+                  "warningCount": {
+                    "type": "number"
+                  },
+                  "infoCount": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "totalAlerts",
+                  "criticalCount",
+                  "warningCount",
+                  "infoCount"
+                ],
+                "additionalProperties": false
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "alerts",
+              "summary",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-02-20T00:00:00.000Z",
+      "updatedAt": "2026-02-20T00:00:00.000Z"
+    },
+    "clr3m5n8k000j08jqgw4x5y0t": {
+      "id": "clr3m5n8k000j08jqgw4x5y0t",
+      "name": "Bot Negative Feedback Report",
+      "description": "Recent negative ratings for a specific bot with user reasons and linked conversations for drill-down",
+      "input": {
+        "$ref": "#/definitions/bot-negative-feedback-report-input",
+        "definitions": {
+          "bot-negative-feedback-report-input": {
+            "type": "object",
+            "properties": {
+              "botId": {
+                "type": "string",
+                "description": "The ID of the bot to get feedback for"
+              },
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              },
+              "limit": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 50,
+                "default": 10,
+                "description": "Maximum number of negative ratings to return"
+              }
+            },
+            "required": [
+              "botId"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/bot-negative-feedback-report-output",
+        "definitions": {
+          "bot-negative-feedback-report-output": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    },
+                    "reason": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "conversationId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "messageId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "contactId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "contactName": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "value",
+                    "reason",
+                    "conversationId",
+                    "messageId",
+                    "contactId",
+                    "contactName",
+                    "createdAt"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "total": {
+                "type": "number"
+              },
+              "thumbsDown": {
+                "type": "number"
+              },
+              "thumbsUp": {
+                "type": "number"
+              },
+              "period": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "items",
+              "total",
+              "thumbsDown",
+              "thumbsUp",
+              "period"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-02-20T00:00:00.000Z",
+      "updatedAt": "2026-02-20T00:00:00.000Z"
+    },
+    "gpv2an25fuhe2k6v6ckv85v8": {
+      "id": "gpv2an25fuhe2k6v6ckv85v8",
+      "name": "Comprehensive Analytics Report",
+      "description": "Complete analytics overview with ratings, contacts, conversations, messages, and token usage including detailed breakdowns and lists",
+      "input": {
+        "$ref": "#/definitions/comprehensive-analytics-report-input",
+        "definitions": {
+          "comprehensive-analytics-report-input": {
+            "type": "object",
+            "properties": {
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 30
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/comprehensive-analytics-report-output",
+        "definitions": {
+          "comprehensive-analytics-report-output": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "number"
+                    },
+                    "change": {
+                      "type": "number"
+                    },
+                    "period": {
+                      "type": "string"
+                    },
+                    "details": {
+                      "type": "object",
+                      "properties": {
+                        "metric": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "number"
+                            },
+                            "change": {
+                              "type": "number"
+                            },
+                            "period": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "title",
+                            "description",
+                            "value",
+                            "period"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "chart": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "line"
+                            },
+                            "data": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "date": {
+                                    "type": "string"
+                                  },
+                                  "total": {
+                                    "type": "number"
+                                  },
+                                  "thumbsUp": {
+                                    "type": "number"
+                                  },
+                                  "thumbsDown": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "date",
+                                  "total"
+                                ],
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "data"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "icon": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "createdAt": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "tags": {
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "name",
+                              "description"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "description",
+                    "value",
+                    "period"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "data"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-02-21T00:00:00.000Z",
+      "updatedAt": "2026-02-21T00:00:00.000Z"
     }
   }
 }

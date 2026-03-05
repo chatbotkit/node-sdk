@@ -21,24 +21,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/platform/report/list": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Retrieve a list of available reports */
-        get: operations["listPlatformReports"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/report/{reportId}/generate": {
+    "/platform/report/{reportId}/generate": {
         parameters: {
             query?: never;
             header?: never;
@@ -53,14 +36,14 @@ export interface paths {
          *     parameters.
          *
          */
-        post: operations["generateReport"];
+        post: operations["generatePlatformReport"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/report/generate": {
+    "/platform/report/generate": {
         parameters: {
             query?: never;
             header?: never;
@@ -77,7 +60,24 @@ export interface paths {
          *     corresponding report outputs.
          *
          */
-        post: operations["generateReports"];
+        post: operations["generatePlatformReports"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/report/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Retrieve a list of available reports */
+        get: operations["listPlatformReports"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -129,6 +129,49 @@ export interface paths {
         get: operations["fetchBlueprint"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/blueprint/{blueprintId}/resource/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Export blueprint resources
+         * @description Export a blueprint and all its resources. The default format is JSON.
+         *     Set the Accept header to `application/terraform+hcl` to export as
+         *     Terraform HCL code.
+         *
+         */
+        get: operations["exportBlueprintResources"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/blueprint/{blueprintId}/resource/import": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Import resources into an existing blueprint
+         * @description Caller-provided resource ids are ignored and replaced with platform-generated ids.
+         */
+        post: operations["importBlueprintResources"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1961,6 +2004,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/extract/{extractIntegrationId}/trigger": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Trigger extract integration on historic conversations */
+        post: operations["triggerExtractIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/extract/{extractIntegrationId}/update": {
         parameters: {
             query?: never;
@@ -2004,6 +2064,108 @@ export interface paths {
         };
         /** List Extract integrations */
         get: operations["listExtractIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/googlechat/{googlechatIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Google Chat integration */
+        post: operations["deleteGooglechatIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/googlechat/{googlechatIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a Google Chat integration */
+        get: operations["fetchGooglechatIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/googlechat/{googlechatIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup Google Chat integration */
+        post: operations["setupGooglechatIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/googlechat/{googlechatIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Google Chat integration */
+        post: operations["updateGooglechatIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/googlechat/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Google Chat integration */
+        post: operations["createGooglechatIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/googlechat/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Google Chat integrations */
+        get: operations["listGooglechatIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2641,6 +2803,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/support/{supportIntegrationId}/trigger": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Trigger support integration on historic conversations */
+        post: operations["triggerSupportIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/support/{supportIntegrationId}/update": {
         parameters: {
             query?: never;
@@ -2684,6 +2863,108 @@ export interface paths {
         };
         /** List Support integrations */
         get: operations["listSupportIntegrations"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/teams/{teamsIntegrationId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete Teams integration */
+        post: operations["deleteTeamsIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/teams/{teamsIntegrationId}/fetch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Fetch a teamsIntegration */
+        get: operations["fetchTeamsIntegration"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/teams/{teamsIntegrationId}/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Setup Teams integration */
+        post: operations["setupTeamsIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/teams/{teamsIntegrationId}/update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update a Teams integration */
+        post: operations["updateTeamsIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/teams/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Teams integration */
+        post: operations["createTeamsIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/teams/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Teams integrations */
+        get: operations["listTeamsIntegrations"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3529,6 +3810,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/platform/ability/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform abilities using semantic similarity */
+        post: operations["searchPlatformAbilities"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/platform/action/list": {
         parameters: {
             query?: never;
@@ -3822,6 +4120,23 @@ export interface paths {
         get: operations["listPlatformSecrets"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/platform/secret/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search platform secrets using semantic similarity */
+        post: operations["searchPlatformSecrets"];
         delete?: never;
         options?: never;
         head?: never;
@@ -5241,6 +5556,94 @@ export interface operations {
             };
         };
     };
+    generatePlatformReport: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                reportId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    [key: string]: unknown;
+                };
+            };
+        };
+        responses: {
+            /** @description The report was generated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": Record<string, never>;
+                };
+            };
+            /** @description Report not found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    generatePlatformReports: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                /** @example {
+                 *       "clr3m5n8k000008jq7h9e5b1a": {
+                 *         "periodDays": 30
+                 *       },
+                 *       "clr3m5n8k000108jq7h9e5b1b": {
+                 *         "periodDays": 7
+                 *       }
+                 *     } */
+                "application/json": {
+                    [key: string]: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description The reports were generated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: Record<string, never> | {
+                            /** @description Error message if report generation failed */
+                            error?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     listPlatformReports: {
         parameters: {
             query?: {
@@ -5300,94 +5703,6 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                        };
-                    };
-                };
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    generateReport: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                reportId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": {
-                    [key: string]: unknown;
-                };
-            };
-        };
-        responses: {
-            /** @description The report was generated successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": Record<string, never>;
-                };
-            };
-            /** @description Report not found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /** @description An error response */
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    generateReports: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                /** @example {
-                 *       "clr3m5n8k000008jq7h9e5b1a": {
-                 *         "periodDays": 30
-                 *       },
-                 *       "clr3m5n8k000108jq7h9e5b1b": {
-                 *         "periodDays": 7
-                 *       }
-                 *     } */
-                "application/json": {
-                    [key: string]: Record<string, never>;
-                };
-            };
-        };
-        responses: {
-            /** @description The reports were generated successfully */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        [key: string]: Record<string, never> | {
-                            /** @description Error message if report generation failed */
-                            error?: string;
                         };
                     };
                 };
@@ -5520,6 +5835,80 @@ export interface operations {
                         visibility?: "private" | "protected" | "public";
                     };
                 };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    exportBlueprintResources: {
+        parameters: {
+            query?: never;
+            header?: {
+                Accept?: "application/json" | "application/terraform+hcl";
+            };
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The blueprint was exported successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the blueprint */
+                        id: string;
+                        /** @description The name of the blueprint */
+                        name?: string;
+                        /** @description The description of the blueprint */
+                        description?: string;
+                        /** @description A map of the resources by category */
+                        resources: Record<string, never>;
+                    };
+                    "application/terraform+hcl": string;
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    importBlueprintResources: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                blueprintId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    resource: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description Resources were imported successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description An error response */
             default: {
@@ -5710,6 +6099,8 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -5762,7 +6153,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": unknown;
+                "application/json": Record<string, never>;
             };
         };
         responses: {
@@ -6325,6 +6716,8 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -6537,6 +6930,8 @@ export interface operations {
                             /** @description The moderation flag for this configuration */
                             moderation?: boolean;
                         }))[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -6703,7 +7098,7 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description The list of contacts was retrieved successfully */
+            /** @description The list of memories was retrieved successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -6730,6 +7125,8 @@ export interface operations {
                             /** @description The text of the memory */
                             text: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -6955,7 +7352,7 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description The list of contacts was retrieved successfully */
+            /** @description The list of secrets was retrieved successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -6980,6 +7377,8 @@ export interface operations {
                             /** @description The type of the secret */
                             type: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -7033,7 +7432,7 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description The list of contacts was retrieved successfully */
+            /** @description The list of spaces was retrieved successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -7055,9 +7454,11 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The contact id assigned to this rating */
+                            /** @description The contact id assigned to this space */
                             contactId?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -7081,7 +7482,7 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
-                            /** @description The contact id assigned to this rating */
+                            /** @description The contact id assigned to this space */
                             contactId?: string;
                         };
                     };
@@ -7111,7 +7512,7 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description The list of contacts was retrieved successfully */
+            /** @description The list of tasks was retrieved successfully */
             200: {
                 headers: {
                     [name: string]: unknown;
@@ -7150,6 +7551,8 @@ export interface operations {
                              */
                             outcome?: "pending" | "success" | "failure";
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -7420,6 +7823,8 @@ export interface operations {
                             /** @description The timestamp (ms) when the contact was verified */
                             verifiedAt?: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -7520,6 +7925,8 @@ export interface operations {
                             /** @description The timestamp (ms) when the contact was verified */
                             verifiedAt?: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -8716,6 +9123,8 @@ export interface operations {
                             /** @description The text of the message */
                             text: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -10181,6 +10590,8 @@ export interface operations {
                             /** @description The moderation flag for this configuration */
                             moderation?: boolean;
                         }))[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -10307,6 +10718,8 @@ export interface operations {
                             /** @description The moderation flag for this configuration */
                             moderation?: boolean;
                         }))[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -10636,6 +11049,8 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -10880,6 +11295,8 @@ export interface operations {
                             text: string;
                             source?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -10943,6 +11360,8 @@ export interface operations {
                             text: string;
                             source?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -11239,6 +11658,8 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -11393,6 +11814,8 @@ export interface operations {
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -11577,6 +12000,8 @@ export interface operations {
                             /** @description Related MCP server integration ID if applicable */
                             mcpserverIntegrationId?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -11843,6 +12268,13 @@ export interface operations {
                     };
                     "*/*": string;
                 };
+            };
+            /** @description The file resource exists but has no content stored yet */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description An error response */
             default: {
@@ -12158,6 +12590,8 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -12281,6 +12715,8 @@ export interface operations {
                         contactCollection?: boolean;
                         /** @description The chat session duration */
                         sessionDuration?: number;
+                        /** @description Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all. */
+                        allowFrom?: string;
                     };
                 };
             };
@@ -12365,6 +12801,8 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The chat session duration */
                     sessionDuration?: number;
+                    /** @description Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all. */
+                    allowFrom?: string;
                 };
             };
         };
@@ -12424,6 +12862,8 @@ export interface operations {
                     contactCollection?: boolean;
                     /** @description The chat session duration */
                     sessionDuration?: number;
+                    /** @description Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all. */
+                    allowFrom?: string;
                 };
             };
         };
@@ -12499,7 +12939,11 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The chat session duration */
                             sessionDuration?: number;
+                            /** @description Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all. */
+                            allowFrom?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -12535,6 +12979,8 @@ export interface operations {
                             contactCollection?: boolean;
                             /** @description The chat session duration */
                             sessionDuration?: number;
+                            /** @description Restrict which Discord users can interact with this integration. Accepts Discord user IDs (17-18 digit snowflakes) or @username, one per line. Use * to allow all senders. Leave empty to deny all. */
+                            allowFrom?: string;
                         };
                     };
                 };
@@ -12626,6 +13072,8 @@ export interface operations {
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
                         attachments?: boolean;
+                        /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                        allowFrom?: string;
                     };
                 };
             };
@@ -12704,6 +13152,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
+                    /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                    allowFrom?: string;
                 };
             };
         };
@@ -12757,6 +13207,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
+                    /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                    allowFrom?: string;
                 };
             };
         };
@@ -12830,7 +13282,11 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
+                            /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                            allowFrom?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -12864,6 +13320,8 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
+                            /** @description Newline-separated list of email patterns allowed to send messages to this integration */
+                            allowFrom?: string;
                         };
                     };
                 };
@@ -12955,6 +13413,49 @@ export interface operations {
                         };
                         /** @description Optional webhook to receive the extracted data */
                         request?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    triggerExtractIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                extractIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description Array of conversation IDs to process */
+                    conversationIds?: string[];
+                    /** @description Number of recent conversations to process (default 20) */
+                    sample?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description Extract integration trigger initiated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description ID of the extract integration */
+                        id: string;
+                        /** @description Number of conversations queued for processing */
+                        triggered: number;
                     };
                 };
             };
@@ -13128,6 +13629,8 @@ export interface operations {
                             /** @description Optional webhook to receive the extracted data */
                             request?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -13161,6 +13664,367 @@ export interface operations {
                             };
                             /** @description Optional webhook to receive the extracted data */
                             request?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteGooglechatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                googlechatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Google Chat integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Google Chat integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchGooglechatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                googlechatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Google Chat integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The service account key (returned as '********' if configured, null otherwise) */
+                        serviceAccountKey?: string;
+                        /** @description The Google Cloud project number for JWT verification */
+                        projectNumber?: string;
+                        /** @description Whether to collect contacts */
+                        contactCollection?: boolean;
+                        /** @description The session duration for the integration */
+                        sessionDuration?: number;
+                        /** @description The auto-respond configuration */
+                        autoRespond?: string;
+                        /** @description The allowed senders for this integration */
+                        allowFrom?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    setupGooglechatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                googlechatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Google Chat integration was set up successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Google Chat Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateGooglechatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                googlechatIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Google service account JSON key for sending messages */
+                    serviceAccountKey?: string;
+                    /** @description The Google Cloud project number for JWT verification */
+                    projectNumber?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration for the integration */
+                    sessionDuration?: number;
+                    /** @description The auto-respond configuration */
+                    autoRespond?: string;
+                    /** @description The allowed senders for this integration */
+                    allowFrom?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Google Chat integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Google Chat Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createGooglechatIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Google service account JSON key for sending messages via the Chat REST API */
+                    serviceAccountKey?: string;
+                    /** @description The Google Cloud project number used to verify incoming event JWT audience claims */
+                    projectNumber?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The session duration for the Google Chat integration */
+                    sessionDuration?: number;
+                    /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to DMs and direct messages only. */
+                    autoRespond?: string;
+                    /** @description Restrict which Google Chat users can interact with this integration. Accepts user resource names (users/USER_ID) or * to allow all. One per line. */
+                    allowFrom?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Google Chat integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Google Chat Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listGooglechatIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Google Chat integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The service account key (returned as '********' if configured, null otherwise) */
+                            serviceAccountKey?: string;
+                            /** @description The Google Cloud project number for JWT verification */
+                            projectNumber?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration for the integration */
+                            sessionDuration?: number;
+                            /** @description The auto-respond configuration */
+                            autoRespond?: string;
+                            /** @description The allowed senders for this integration */
+                            allowFrom?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The service account key (returned as '********' if configured, null otherwise) */
+                            serviceAccountKey?: string;
+                            /** @description The Google Cloud project number for JWT verification */
+                            projectNumber?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The session duration for the integration */
+                            sessionDuration?: number;
+                            /** @description The auto-respond configuration */
+                            autoRespond?: string;
+                            /** @description The allowed senders for this integration */
+                            allowFrom?: string;
                         };
                     };
                 };
@@ -13469,6 +14333,8 @@ export interface operations {
                             /** @description Whether the bot supports attachments */
                             attachments?: boolean;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -13742,6 +14608,8 @@ export interface operations {
                             /** @description The ID of the skillset */
                             skillsetId?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -13858,6 +14726,8 @@ export interface operations {
                         verifyToken: string;
                         /** @description The Messenger integration access token (returned as '********' if configured, null otherwise) */
                         accessToken?: string;
+                        /** @description Whether to collect contacts */
+                        contactCollection?: boolean;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
@@ -13936,6 +14806,8 @@ export interface operations {
                     botId?: string;
                     /** @description The Messenger integration access token */
                     accessToken?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
@@ -13989,6 +14861,8 @@ export interface operations {
                     botId?: string;
                     /** @description The Messenger integration access token */
                     accessToken?: string;
+                    /** @description Whether to collect contacts */
+                    contactCollection?: boolean;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
@@ -14064,11 +14938,15 @@ export interface operations {
                             verifyToken: string;
                             /** @description The Messenger integration access token (returned as '********' if configured, null otherwise) */
                             accessToken?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -14100,6 +14978,8 @@ export interface operations {
                             verifyToken: string;
                             /** @description The Messenger integration access token (returned as '********' if configured, null otherwise) */
                             accessToken?: string;
+                            /** @description Whether to collect contacts */
+                            contactCollection?: boolean;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
@@ -14420,6 +15300,8 @@ export interface operations {
                             /** @description The time in milliseconds until records expire */
                             expiresIn?: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -14803,6 +15685,8 @@ export interface operations {
                             /** @description Record expiry in milliseconds */
                             expiresIn?: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -14955,6 +15839,8 @@ export interface operations {
                         visibleMessages?: number;
                         /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
                         autoRespond?: string;
+                        /** @description Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or */
+                        allowFrom?: string;
                     };
                 };
             };
@@ -15045,6 +15931,8 @@ export interface operations {
                     visibleMessages?: number;
                     /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
                     autoRespond?: string;
+                    /** @description Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or */
+                    allowFrom?: string;
                 };
             };
         };
@@ -15110,6 +15998,8 @@ export interface operations {
                     visibleMessages?: number;
                     /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
                     autoRespond?: string;
+                    /** @description Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or */
+                    allowFrom?: string;
                 };
             };
         };
@@ -15195,7 +16085,11 @@ export interface operations {
                             visibleMessages?: number;
                             /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
                             autoRespond?: string;
+                            /** @description Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or */
+                            allowFrom?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -15241,6 +16135,8 @@ export interface operations {
                             visibleMessages?: number;
                             /** @description Configure automatic response behavior. Use '@all' to respond to all messages, '@agent <instructions>' for agent-powered decisions, or custom instructions for lightweight LLM filtering. Null/empty defaults to current behavior (DMs, mentions, threads only). */
                             autoRespond?: string;
+                            /** @description Restrict which Slack users or channels can interact with this integration. Accepts Slack user IDs (U…/W…), channel IDs (C…/G…/D…), @username, or */
+                            allowFrom?: string;
                         };
                     };
                 };
@@ -15328,6 +16224,49 @@ export interface operations {
                         botId: string;
                         /** @description The email to use */
                         email?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    triggerSupportIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                supportIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description Array of conversation IDs to process */
+                    conversationIds?: string[];
+                    /** @description Number of recent conversations to process (default 20) */
+                    sample?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description Support integration trigger initiated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description ID of the support integration */
+                        id: string;
+                        /** @description Number of conversations queued for processing */
+                        triggered: number;
                     };
                 };
             };
@@ -15485,6 +16424,8 @@ export interface operations {
                             /** @description The email to use */
                             email?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -15514,6 +16455,355 @@ export interface operations {
                             botId: string;
                             /** @description The email to use */
                             email?: string;
+                        };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteTeamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                teamsIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Teams integration was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted Teams integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    fetchTeamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                teamsIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The Teams integration was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The associated name */
+                        name?: string;
+                        /** @description The associated description */
+                        description?: string;
+                        /** @description Meta data information */
+                        meta?: {
+                            [key: string]: unknown;
+                        };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
+                        /** @description The ID of the bot this configuration is using */
+                        botId?: string;
+                        /** @description The ID of the blueprint */
+                        blueprintId?: string;
+                        /** @description The Microsoft Bot Framework Application ID */
+                        botFrameworkAppId?: string;
+                        /** @description Weather to collect contacts */
+                        contactCollection?: boolean;
+                        /** @description The chat session duration */
+                        sessionDuration?: number;
+                        /** @description The allowed senders for this integration */
+                        allowFrom?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    setupTeamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                teamsIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Teams integration was setup successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the setup Teams integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    updateTeamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                teamsIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Microsoft Bot Framework Application ID */
+                    botFrameworkAppId?: string;
+                    /** @description The Microsoft Bot Framework Application Secret */
+                    botFrameworkAppSecret?: string;
+                    /** @description The Microsoft Entra tenant ID */
+                    tenantId?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The chat session duration */
+                    sessionDuration?: number;
+                    /** @description The allowed senders for this integration */
+                    allowFrom?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Teams integration was updated successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Teams Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    createTeamsIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The associated name */
+                    name?: string;
+                    /** @description The associated description */
+                    description?: string;
+                    /** @description Meta data information */
+                    meta?: {
+                        [key: string]: unknown;
+                    };
+                    /** @description The ID of the blueprint */
+                    blueprintId?: string;
+                    /** @description The ID of the bot this configuration is using */
+                    botId?: string;
+                    /** @description The Microsoft Bot Framework Application ID */
+                    botFrameworkAppId?: string;
+                    /** @description The Microsoft Bot Framework Application Secret */
+                    botFrameworkAppSecret?: string;
+                    /** @description The Microsoft Entra tenant ID */
+                    tenantId?: string;
+                    /** @description Weather to collect contacts */
+                    contactCollection?: boolean;
+                    /** @description The chat session duration */
+                    sessionDuration?: number;
+                    /** @description The allowed senders for this integration */
+                    allowFrom?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The Teams integration was created successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the Teams Integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listTeamsIntegrations: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Teams integrations was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The Microsoft Bot Framework Application ID */
+                            botFrameworkAppId?: string;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The chat session duration */
+                            sessionDuration?: number;
+                            /** @description The allowed senders for this integration */
+                            allowFrom?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Blueprint properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The ID of the bot this configuration is using */
+                            botId?: string;
+                            /** @description The ID of the blueprint */
+                            blueprintId?: string;
+                            /** @description The Microsoft Bot Framework Application ID */
+                            botFrameworkAppId?: string;
+                            /** @description Weather to collect contacts */
+                            contactCollection?: boolean;
+                            /** @description The chat session duration */
+                            sessionDuration?: number;
+                            /** @description The allowed senders for this integration */
+                            allowFrom?: string;
                         };
                     };
                 };
@@ -15605,6 +16895,8 @@ export interface operations {
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
                         attachments?: boolean;
+                        /** @description Newline-or-comma-separated list of allowed senders */
+                        allowFrom?: string;
                     };
                 };
             };
@@ -15685,6 +16977,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
+                    /** @description Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users, */
+                    allowFrom?: string;
                 };
             };
         };
@@ -15740,6 +17034,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
+                    /** @description Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users, */
+                    allowFrom?: string;
                 };
             };
         };
@@ -15813,7 +17109,11 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
+                            /** @description Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users, */
+                            allowFrom?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -15847,6 +17147,8 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
+                            /** @description Newline-or-comma-separated list of allowed senders. Use @username or @numericId for users, */
+                            allowFrom?: string;
                         };
                     };
                 };
@@ -15943,6 +17245,10 @@ export interface operations {
                         triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
+                        /** @description The maximum number of iterations per trigger execution */
+                        maxIterations?: number;
+                        /** @description The maximum time per trigger execution (in milliseconds) */
+                        maxTime?: number;
                     };
                 };
             };
@@ -16060,6 +17366,10 @@ export interface operations {
                     triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description The maximum number of iterations per trigger execution */
+                    maxIterations?: number;
+                    /** @description The maximum time per trigger execution in milliseconds */
+                    maxTime?: number;
                 };
             };
         };
@@ -16116,6 +17426,10 @@ export interface operations {
                     triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
+                    /** @description The maximum number of iterations per trigger execution */
+                    maxIterations?: number;
+                    /** @description The maximum time per trigger execution in milliseconds */
+                    maxTime?: number;
                 };
             };
         };
@@ -16194,7 +17508,13 @@ export interface operations {
                             triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description The maximum number of iterations per trigger execution */
+                            maxIterations?: number;
+                            /** @description The maximum time per trigger execution (in milliseconds) */
+                            maxTime?: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -16233,6 +17553,10 @@ export interface operations {
                             triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
+                            /** @description The maximum number of iterations per trigger execution */
+                            maxIterations?: number;
+                            /** @description The maximum time per trigger execution (in milliseconds) */
+                            maxTime?: number;
                         };
                     };
                 };
@@ -16521,6 +17845,8 @@ export interface operations {
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -16649,6 +17975,8 @@ export interface operations {
                         sessionDuration?: number;
                         /** @description Weather the bot supports attachments */
                         attachments?: boolean;
+                        /** @description Newline-or-comma-separated list of allowed senders */
+                        allowFrom?: string;
                     };
                 };
             };
@@ -16731,6 +18059,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
+                    /** @description Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all. */
+                    allowFrom?: string;
                 };
             };
         };
@@ -16788,6 +18118,8 @@ export interface operations {
                     sessionDuration?: number;
                     /** @description Weather the bot supports attachments */
                     attachments?: boolean;
+                    /** @description Newline-or-comma-separated list of allowed senders. Use E.164 phone numbers with or without the leading `+`. Set to `*` to allow all. Leave empty to deny all. */
+                    allowFrom?: string;
                 };
             };
         };
@@ -16867,7 +18199,11 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
+                            /** @description Newline-or-comma-separated list of allowed senders. Use phone numbers in E.164 format (digits only). Leave empty to block all. Use * to allow everyone. */
+                            allowFrom?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -16907,6 +18243,8 @@ export interface operations {
                             sessionDuration?: number;
                             /** @description Weather the bot supports attachments */
                             attachments?: boolean;
+                            /** @description Newline-or-comma-separated list of allowed senders. Use phone numbers in E.164 format (digits only). Leave empty to block all. Use * to allow everyone. */
+                            allowFrom?: string;
                         };
                     };
                 };
@@ -17403,6 +18741,8 @@ export interface operations {
                             /** @description Whether the Widget integration displays powered by */
                             poweredBy?: boolean;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -17604,6 +18944,8 @@ export interface operations {
                             /** @description The alias of the item */
                             alias: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -17873,6 +19215,8 @@ export interface operations {
                             /** @description The text of the memory */
                             text?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -17961,6 +19305,8 @@ export interface operations {
                             /** @description The text of the memory */
                             text?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -18269,6 +19615,8 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -18510,6 +19858,8 @@ export interface operations {
                                 };
                             };
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -18610,6 +19960,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The original template identifier for the ability */
+                            template?: string;
                             instruction: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
@@ -18629,10 +19981,12 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
-                            /** @description The ID of the secret associated with the ability */
-                            secret?: string;
+                            /** @description The ID of the bot associated with the ability */
+                            bot?: string;
                             /** @description The ID of the file associated with the ability */
                             file?: string;
+                            /** @description The ID of the secret associated with the ability */
+                            secret?: string;
                             /** @description The ID of the space associated with the ability */
                             space?: string;
                             /** @description The provider of the ability */
@@ -18642,6 +19996,8 @@ export interface operations {
                             setup?: string;
                             commentary?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -18665,6 +20021,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The original template identifier for the ability */
+                            template?: string;
                             instruction: string;
                             /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
                             schema: {
@@ -18684,10 +20042,12 @@ export interface operations {
                                 /** @description Required property names */
                                 required?: string[];
                             };
-                            /** @description The ID of the secret associated with the ability */
-                            secret?: string;
+                            /** @description The ID of the bot associated with the ability */
+                            bot?: string;
                             /** @description The ID of the file associated with the ability */
                             file?: string;
+                            /** @description The ID of the secret associated with the ability */
+                            secret?: string;
                             /** @description The ID of the space associated with the ability */
                             space?: string;
                             /** @description The provider of the ability */
@@ -18697,6 +20057,98 @@ export interface operations {
                             setup?: string;
                             commentary?: string;
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    searchPlatformAbilities: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant abilities */
+                    search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
+                     */
+                    take?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name: string;
+                            /** @description The associated description */
+                            description: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The original template identifier for the ability */
+                            template?: string;
+                            instruction: string;
+                            /** @description A JSON Schema object type definition (https://json-schema.org/). Represents an object schema with properties and validation rules. */
+                            schema: {
+                                /**
+                                 * @description The schema type, must be "object"
+                                 * @enum {string}
+                                 */
+                                type: "object";
+                                /** @description The schema title */
+                                title?: string;
+                                /** @description The schema description */
+                                description?: string;
+                                /** @description Object property definitions */
+                                properties: {
+                                    [key: string]: unknown;
+                                };
+                                /** @description Required property names */
+                                required?: string[];
+                            };
+                            bot?: string;
+                            file?: string;
+                            secret?: string;
+                            space?: string;
+                            provider?: string;
+                            icon: string;
+                            tags?: string[];
+                            setup?: string;
+                            commentary?: string;
+                            /** @description The similarity score of the search result */
+                            score: number;
+                            /** @description An excerpt from the most relevant part of the ability */
+                            excerpt: string;
+                            /** @description The URL to the official ability page */
+                            link?: string;
+                        }[];
                     };
                 };
             };
@@ -18750,6 +20202,8 @@ export interface operations {
                             /** @description Example demonstrating the action usage */
                             examples: string[];
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -18896,6 +20350,8 @@ export interface operations {
                             /** @description The URL to the official documentation page */
                             link: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -19161,6 +20617,8 @@ export interface operations {
                             /** @description The URL to the official example page */
                             link: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -19379,6 +20837,8 @@ export interface operations {
                             /** @description The URL to the official guide page */
                             link: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -19599,6 +21059,8 @@ export interface operations {
                             /** @description The URL to the official documentation page */
                             link: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -19760,6 +21222,8 @@ export interface operations {
                             /** @description The maximum number of tokens the model can generate */
                             maxOutputTokens: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -19844,6 +21308,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The original template identifier for the secret */
+                            template?: string;
                             /**
                              * @description The type of the secret
                              * @enum {string}
@@ -19862,6 +21328,8 @@ export interface operations {
                             setup?: string;
                             commentary?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -19885,6 +21353,8 @@ export interface operations {
                             createdAt: number;
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
+                            /** @description The original template identifier for the secret */
+                            template?: string;
                             /**
                              * @description The type of the secret
                              * @enum {string}
@@ -19903,6 +21373,87 @@ export interface operations {
                             setup?: string;
                             commentary?: string;
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    searchPlatformSecrets: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The search query to find relevant secrets */
+                    search: string;
+                    /**
+                     * @description The maximum number of results to return (1-100, default 10)
+                     * @default 10
+                     */
+                    take?: number;
+                };
+            };
+        };
+        responses: {
+            /** @description The search was successful */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The original template identifier for the secret */
+                            template?: string;
+                            /**
+                             * @description The type of the secret
+                             * @enum {string}
+                             */
+                            type: "plain" | "basic" | "bearer" | "oauth" | "template" | "reference";
+                            /**
+                             * @description The kind of the secret
+                             * @enum {string}
+                             */
+                            kind?: "shared" | "personal";
+                            config?: {
+                                [key: string]: unknown;
+                            };
+                            icon?: string;
+                            tags?: string[];
+                            setup?: string;
+                            commentary?: string;
+                            /** @description The similarity score of the search result */
+                            score: number;
+                            /** @description An excerpt from the most relevant part of the secret */
+                            excerpt: string;
+                            /** @description The URL to the official secret page */
+                            link?: string;
+                        }[];
                     };
                 };
             };
@@ -20023,6 +21574,8 @@ export interface operations {
                             /** @description The URL to the official tutorial page */
                             link: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -20380,6 +21933,8 @@ export interface operations {
                                 [key: string]: unknown;
                             };
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -20670,6 +22225,8 @@ export interface operations {
                                 [key: string]: unknown;
                             };
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -21137,6 +22694,8 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -21660,6 +23219,8 @@ export interface operations {
                             spaceId?: string;
                             instruction: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -21757,6 +23318,8 @@ export interface operations {
                             spaceId?: string;
                             instruction: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -22043,6 +23606,8 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -22277,6 +23842,8 @@ export interface operations {
                             /** @description The contact associated with the space */
                             contactId?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -22361,6 +23928,8 @@ export interface operations {
                             /** @description The contact associated with the space */
                             contactId?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -22485,6 +24054,10 @@ export interface operations {
                          * @enum {string}
                          */
                         outcome?: "pending" | "success" | "failure";
+                        /** @description The maximum number of iterations per task execution */
+                        maxIterations?: number;
+                        /** @description The maximum time per task execution (in milliseconds) */
+                        maxTime?: number;
                     };
                 };
             };
@@ -22561,6 +24134,10 @@ export interface operations {
                     schedule?: string;
                     /** @description The session duration of the Widget integration */
                     sessionDuration?: number;
+                    /** @description The maximum number of iterations per task execution */
+                    maxIterations?: number;
+                    /** @description The maximum time per task execution in milliseconds */
+                    maxTime?: number;
                 };
             };
         };
@@ -22612,6 +24189,10 @@ export interface operations {
                     schedule?: string;
                     /** @description The session duration of the Widget integration */
                     sessionDuration?: number;
+                    /** @description The maximum number of iterations per task execution */
+                    maxIterations?: number;
+                    /** @description The maximum time per task execution in milliseconds */
+                    maxTime?: number;
                 };
             };
         };
@@ -22682,6 +24263,8 @@ export interface operations {
                             /** @description The schedule of the task */
                             schedule?: string;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -22782,7 +24365,13 @@ export interface operations {
                              * @enum {string}
                              */
                             outcome?: "pending" | "success" | "failure";
+                            /** @description The maximum number of iterations per task execution */
+                            maxIterations?: number;
+                            /** @description The maximum time per task execution (in milliseconds) */
+                            maxTime?: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**
@@ -22822,6 +24411,10 @@ export interface operations {
                              * @enum {string}
                              */
                             outcome?: "pending" | "success" | "failure";
+                            /** @description The maximum number of iterations per task execution */
+                            maxIterations?: number;
+                            /** @description The maximum time per task execution (in milliseconds) */
+                            maxTime?: number;
                         };
                     };
                 };
@@ -22874,6 +24467,8 @@ export interface operations {
                             /** @description The timestamp (ms) when the instance was updated */
                             updatedAt: number;
                         }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                     "application/jsonl": {
                         /**

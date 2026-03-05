@@ -33,3 +33,30 @@ export function listPlatformSecrets(client, request) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['searchPlatformSecrets']['requestBody']['content']['application/json']} PlatformSecretSearchRequestBody
+ *
+ * @typedef {PlatformSecretSearchRequestBody} PlatformSecretSearchRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['searchPlatformSecrets']['responses']['200']['content']['application/json']} PlatformSecretSearchResponseBody
+ *
+ * @typedef {PlatformSecretSearchResponseBody} PlatformSecretSearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {PlatformSecretSearchRequest} request
+ * @returns {Promise<PlatformSecretSearchResponse>}
+ */
+export async function searchPlatformSecrets(client, request) {
+  const url = `/api/v1/platform/secret/search`
+
+  /** @type {PlatformSecretSearchResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {PlatformSecretSearchRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

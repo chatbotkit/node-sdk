@@ -185,8 +185,7 @@ export const command = new Command()
 
     for await (const { type, data } of execute({
       client,
-      botId: options.bot,
-      model: options.model,
+      ...(options.bot ? { botId: options.bot } : { model: options.model }),
       messages: [{ type: 'user', text: prompt }],
       tools,
       maxIterations: options.maxIterations,

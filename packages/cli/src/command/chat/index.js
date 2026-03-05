@@ -66,8 +66,7 @@ export const command = new Command()
 
       for await (const { type, data } of complete({
         client,
-        botId: options.bot,
-        model: options.model,
+        ...(options.bot ? { botId: options.bot } : { model: options.model }),
         messages,
         tools,
       })) {

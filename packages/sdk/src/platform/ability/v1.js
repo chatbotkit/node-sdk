@@ -34,3 +34,30 @@ export function listPlatformAbilities(client, request) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/api/v1.js').operations['searchPlatformAbilities']['requestBody']['content']['application/json']} PlatformAbilitySearchRequestBody
+ *
+ * @typedef {PlatformAbilitySearchRequestBody} PlatformAbilitySearchRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['searchPlatformAbilities']['responses']['200']['content']['application/json']} PlatformAbilitySearchResponseBody
+ *
+ * @typedef {PlatformAbilitySearchResponseBody} PlatformAbilitySearchResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {PlatformAbilitySearchRequest} request
+ * @returns {Promise<PlatformAbilitySearchResponse>}
+ */
+export async function searchPlatformAbilities(client, request) {
+  const url = `/api/v1/platform/ability/search`
+
+  /** @type {PlatformAbilitySearchResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {PlatformAbilitySearchRequestBody} */
+    record: {
+      ...request,
+    },
+  })
+
+  return response
+}

@@ -6,6 +6,7 @@
   "entryPoints": [
     "./src/agent.js",
     "./src/index.js",
+    "./src/skills.js",
     "./src/tools.js"
   ],
   "externalPattern": [

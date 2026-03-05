@@ -9,6 +9,20 @@
 
 Build autonomous AI agents that can use custom tools and execute complex tasks with the full power of the ChatBotKit platform.
 
+## Why ChatBotKit?
+
+**Build lighter, future-proof AI agents.** When you build with ChatBotKit, the heavy lifting happens on our servers—not in your application. This architectural advantage delivers:
+
+- 🪶 **Lightweight Agents**: Your agents stay lean because complex AI processing, model orchestration, and tool execution happen server-side. Less code in your app means faster load times and simpler maintenance.
+
+- 🛡️ **Robust & Streamlined**: Server-side processing provides a more reliable experience with built-in error handling, automatic retries, and consistent behavior across all platforms.
+
+- 🔄 **Backward & Forward Compatible**: As AI technology evolves—new models, new capabilities, new paradigms—your agents automatically benefit. No code changes required on your end.
+
+- 🔮 **Future-Proof**: Agents you build today will remain capable tomorrow. When we add support for new AI models or capabilities, your existing agents gain those powers without any updates to your codebase.
+
+This means you can focus on building great user experiences while ChatBotKit handles the complexity of the ever-changing AI landscape.
+
 ## Installation
 
 ```bash
@@ -177,6 +191,59 @@ The `execute` mode provides system tools for task management:
 - **`plan`** - Create or update task execution plan
 - **`progress`** - Track completion status and blockers
 - **`exit`** - Signal task completion with status code
+
+### Skills Loading
+
+Load skills from local directories and pass them as a feature to the agent. Skills are defined using `SKILL.md` files with front matter containing name and description.
+
+```javascript
+import { execute, loadSkills, createSkillsFeature } from '@chatbotkit/agent'
+import { ChatBotKit } from '@chatbotkit/sdk'
+
+const client = new ChatBotKit({ secret: process.env.CHATBOTKIT_API_TOKEN })
+
+// Load skills from directories
+const skillsResult = await loadSkills(['./skills'], { watch: true })
+
+// Create the skills feature for the API
+const skillsFeature = createSkillsFeature(skillsResult.skills)
+
+const stream = execute({
+  client,
+  model: 'gpt-4o',
+  messages: [{ type: 'user', text: 'Help me with my task' }],
+  extensions: {
+    features: [skillsFeature],
+  },
+})
+
+for await (const event of stream) {
+  // Handle events
+}
+
+// Clean up when done
+skillsResult.close()
+```
+
+#### SKILL.md Format
+
+Create a `SKILL.md` file in each skill directory:
+
+```markdown
+---
+name: My Skill
+description: A brief description of what this skill does
+---
+
+# My Skill
+
+Additional documentation for the skill...
+```
+
+#### Skills API
+
+- **`loadSkills(directories, options)`** - Load skills from directories containing SKILL.md files
+- **`createSkillsFeature(skills)`** - Create a feature configuration for the API
 
 ## Documentation
 

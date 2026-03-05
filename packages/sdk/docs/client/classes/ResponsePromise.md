@@ -80,7 +80,7 @@ Defined in: [client.js:53](https://github.com/chatbotkit/node-sdk/blob/main/sdks
 
 > **cache**(`key?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T`\>
 
-Defined in: [client.js:245](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L245)
+Defined in: [client.js:253](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L253)
 
 #### Parameters
 
@@ -98,7 +98,7 @@ Defined in: [client.js:245](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **catch**\<`TResult`\>(`fn?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T` \| `TResult`\>
 
-Defined in: [client.js:200](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L200)
+Defined in: [client.js:207](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L207)
 
 #### Type Parameters
 
@@ -122,7 +122,7 @@ Defined in: [client.js:200](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **finally**(`fn?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`T`\>
 
-Defined in: [client.js:208](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L208)
+Defined in: [client.js:215](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L215)
 
 #### Parameters
 
@@ -140,11 +140,15 @@ Defined in: [client.js:208](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **getRequest**(`params?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
 
-Defined in: [client.js:81](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L81)
+Defined in: [client.js:82](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L82)
 
 #### Parameters
 
 ##### params?
+
+###### abortSignal?
+
+[`AbortSignal`](https://developer.mozilla.org/docs/Web/API/AbortSignal)
 
 ###### data?
 
@@ -184,11 +188,39 @@ Defined in: [client.js:81](https://github.com/chatbotkit/node-sdk/blob/main/sdks
 
 ***
 
+### getStreamPromise()
+
+> **getStreamPromise**(`params?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+Defined in: [client.js:164](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L164)
+
+#### Parameters
+
+##### params?
+
+###### abortSignal?
+
+[`AbortSignal`](https://developer.mozilla.org/docs/Web/API/AbortSignal)
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Response`](https://developer.mozilla.org/docs/Web/API/Response)\>
+
+***
+
 ### stream()
 
-> **stream**(): [`AsyncGenerator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)\<`U`, `any`, `any`\>
+> **stream**(`params?`): [`AsyncGenerator`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator)\<`U`, `any`, `any`\>
 
-Defined in: [client.js:230](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L230)
+Defined in: [client.js:238](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L238)
+
+#### Parameters
+
+##### params?
+
+###### abortSignal?
+
+[`AbortSignal`](https://developer.mozilla.org/docs/Web/API/AbortSignal)
 
 #### Returns
 
@@ -200,7 +232,7 @@ Defined in: [client.js:230](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 
 > **then**\<`TResult1`, `TResult2`\>(`onSuccess?`, `onFail?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`TResult1` \| `TResult2`\>
 
-Defined in: [client.js:175](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L175)
+Defined in: [client.js:182](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L182)
 
 #### Type Parameters
 

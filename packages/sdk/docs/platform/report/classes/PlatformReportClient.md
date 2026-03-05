@@ -6,7 +6,7 @@
 
 # Class: PlatformReportClient
 
-Defined in: [platform/report/index.js:13](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L13)
+Defined in: [platform/report/index.js:18](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L18)
 
 Platform Report client.
 
@@ -20,7 +20,7 @@ Platform Report client.
 
 > **new PlatformReportClient**(`options`): `PlatformReportClient`
 
-Defined in: [platform/report/index.js:17](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L17)
+Defined in: [platform/report/index.js:22](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L22)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [platform/report/index.js:17](https://github.com/chatbotkit/node-sdk
 
 > **extend**(`extensionOptions`): `PlatformReportClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L390)
 
 Creates a new instance of the same client type with extended options.
 
@@ -72,11 +72,85 @@ A new instance of the same client class with extended options
 
 ***
 
+### generate()
+
+> **generate**(`reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>\>
+
+Defined in: [platform/report/index.js:43](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L43)
+
+Generates a specific report.
+
+#### Parameters
+
+##### reportId
+
+`string`
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>\>
+
+***
+
+### generateBatch()
+
+> **generateBatch**(`request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{\[`key`: `string`\]: [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\> \| \{ \}; \}\>
+
+Defined in: [platform/report/index.js:65](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L65)
+
+Generates multiple reports in a single request.
+
+#### Parameters
+
+##### request
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{\[`key`: `string`\]: [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\> \| \{ \}; \}\>
+
+***
+
+### generateTyped()
+
+> **generateTyped**\<`T`\>(`reportId`, `request`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`ReportOutputTypes`\[`T`\]\>
+
+Defined in: [platform/report/index.js:55](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L55)
+
+Generates a typed report with full type safety for input and output.
+
+#### Type Parameters
+
+##### T
+
+`T` *extends* `ReportId`
+
+#### Parameters
+
+##### reportId
+
+`T`
+
+The report ID
+
+##### request
+
+`ReportInputTypes`\[`T`\]
+
+The report input
+
+#### Returns
+
+[`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`ReportOutputTypes`\[`T`\]\>
+
+***
+
 ### list()
 
 > **list**(`request?`): [`ResponsePromise`](../../../client/classes/ResponsePromise.md)\<\{ \}, \{ \}\>
 
-Defined in: [platform/report/index.js:27](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L27)
+Defined in: [platform/report/index.js:32](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/platform/report/index.js#L32)
 
 Retrieves a list of all available reports.
 

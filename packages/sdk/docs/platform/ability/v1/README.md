@@ -13,8 +13,13 @@
 - [PlatformAbilityListRequest](type-aliases/PlatformAbilityListRequest.md)
 - [PlatformAbilityListResponse](type-aliases/PlatformAbilityListResponse.md)
 - [PlatformAbilityListStreamType](type-aliases/PlatformAbilityListStreamType.md)
+- [PlatformAbilitySearchRequest](type-aliases/PlatformAbilitySearchRequest.md)
+- [PlatformAbilitySearchRequestBody](type-aliases/PlatformAbilitySearchRequestBody.md)
+- [PlatformAbilitySearchResponse](type-aliases/PlatformAbilitySearchResponse.md)
+- [PlatformAbilitySearchResponseBody](type-aliases/PlatformAbilitySearchResponseBody.md)
 - [ResponsePromise](type-aliases/ResponsePromise.md)
 
 ## Functions
 
 - [listPlatformAbilities](functions/listPlatformAbilities.md)
+- [searchPlatformAbilities](functions/searchPlatformAbilities.md)

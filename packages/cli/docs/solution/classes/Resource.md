@@ -6,7 +6,7 @@
 
 # Class: Resource
 
-Defined in: [packages/cli/src/solution/index.js:618](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L618)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:625](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L625)
 
 Represents a resource.
 
@@ -39,7 +39,7 @@ Represents a resource.
 
 > **new Resource**(`config`): `Resource`
 
-Defined in: [packages/cli/src/solution/index.js:622](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L622)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:629](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L629)
 
 #### Parameters
 
@@ -59,7 +59,7 @@ Defined in: [packages/cli/src/solution/index.js:622](https://github.com/chatbotk
 
 > **get** **baseClient**(): `ChatBotKit`
 
-Defined in: [packages/cli/src/solution/index.js:670](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L670)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:677](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L677)
 
 ##### Returns
 
@@ -73,7 +73,7 @@ Defined in: [packages/cli/src/solution/index.js:670](https://github.com/chatbotk
 
 > **get** **client**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:687](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L687)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:694](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L694)
 
 Get the resource client.
 
@@ -121,7 +121,7 @@ Get the resource client.
 
 > **get** **createProperties**(): [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
 
-Defined in: [packages/cli/src/solution/index.js:697](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L697)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:704](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L704)
 
 Get the properties to use for create operations.
 Override this method in subclasses to filter properties for creates.
@@ -138,7 +138,7 @@ Override this method in subclasses to filter properties for creates.
 
 > **get** **description**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:663](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L663)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:670](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L670)
 
 ##### Returns
 
@@ -152,7 +152,7 @@ Defined in: [packages/cli/src/solution/index.js:663](https://github.com/chatbotk
 
 > **get** **id**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:649](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L649)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:656](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L656)
 
 ##### Returns
 
@@ -166,7 +166,7 @@ Defined in: [packages/cli/src/solution/index.js:649](https://github.com/chatbotk
 
 > **get** **name**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:656](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L656)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:663](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L663)
 
 ##### Returns
 
@@ -180,7 +180,7 @@ Defined in: [packages/cli/src/solution/index.js:656](https://github.com/chatbotk
 
 > **get** **slug**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:636](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L636)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:643](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L643)
 
 ##### Returns
 
@@ -194,7 +194,7 @@ Defined in: [packages/cli/src/solution/index.js:636](https://github.com/chatbotk
 
 > **get** **type**(): `string`
 
-Defined in: [packages/cli/src/solution/index.js:629](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L629)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:636](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L636)
 
 ##### Returns
 
@@ -208,7 +208,7 @@ Defined in: [packages/cli/src/solution/index.js:629](https://github.com/chatbotk
 
 > **get** **updateProperties**(): [`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `any`\>
 
-Defined in: [packages/cli/src/solution/index.js:707](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L707)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:714](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L714)
 
 Get the properties to use for update operations.
 Override this method in subclasses to filter properties for updates.
@@ -223,7 +223,7 @@ Override this method in subclasses to filter properties for updates.
 
 > **sync**(): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [packages/cli/src/solution/index.js:716](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L716)
+Defined in: [sdks/node/packages/cli/src/solution/index.js:723](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L723)
 
 Sync the resource.
 

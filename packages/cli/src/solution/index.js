@@ -335,6 +335,7 @@ export const SlackIntegrationResourceConfigSchema =
       ratings: z.boolean().optional(),
       visibleMessages: z.number().optional(),
       autoRespond: z.string().optional(),
+      allowFrom: z.string().optional(),
     }),
   })
 
@@ -361,6 +362,7 @@ export const DiscordIntegrationResourceConfigSchema =
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
       stream: z.boolean().optional(),
+      allowFrom: z.string().optional(),
     }),
   })
 
@@ -382,6 +384,7 @@ export const TelegramIntegrationResourceConfigSchema =
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
+      allowFrom: z.string().optional(),
     }),
   })
 
@@ -404,6 +407,7 @@ export const WhatsAppIntegrationResourceConfigSchema =
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
+      allowFrom: z.string().optional(),
     }),
   })
 
@@ -465,6 +469,7 @@ export const EmailIntegrationResourceConfigSchema =
       contactCollection: z.boolean().optional(),
       sessionDuration: z.number().optional(),
       attachments: z.boolean().optional(),
+      allowFrom: z.string().optional(),
     }),
   })
 
@@ -495,6 +500,8 @@ export const TriggerIntegrationResourceConfigSchema =
         ])
         .optional(),
       sessionDuration: z.number().optional(),
+      maxIterations: z.number().optional(),
+      maxTime: z.number().optional(),
     }),
   })
 

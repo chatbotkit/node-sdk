@@ -82,7 +82,7 @@ Deletes a mcpserver integration.
 
 > **extend**(`extensionOptions`): `McpServerIntegrationClient`
 
-Defined in: [client.js:382](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L382)
+Defined in: [client.js:390](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/client.js#L390)
 
 Creates a new instance of the same client type with extended options.
 

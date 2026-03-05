@@ -3,7 +3,7 @@
  * Generated from report registry schemas.
  */
 
-export type ReportId = 'clr3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000108jq3c4d7f2b' | 'clr3m5n8k000208jq8e5f6g3c' | 'clr3m5n8k000308jq1h7i8j4d' | 'clr3m5n8k000408jq9i8j9k5e' | 'clr3m5n8k000508jq2j9k0l6f' | 'clr3m5n8k000608jq3k0l1m7g' | 'clr3m5n8k000708jq4l1m2n8h' | 'clr3m5n8k000808jq5m2n3o9i' | 'clr3m5n8k000908jq6n3o4p0j' | 'clr3m5n8k000a08jq7o4p5q1k' | 'clr3m5n8k000b08jq8p5q6r2l' | 'clr3m5n8k000c08jq9q6r7s3m' | 'clr3m5n8k000d08jqar7s8t4n' | 'clr3m5n8k000e08jqbs0t1u5o'
+export type ReportId = 'cm7k3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000008jq7h9e5b1a' | 'clr3m5n8k000108jq3c4d7f2b' | 'clr3m5n8k000208jq8e5f6g3c' | 'clr3m5n8k000308jq1h7i8j4d' | 'clr3m5n8k000408jq9i8j9k5e' | 'clr3m5n8k000508jq2j9k0l6f' | 'clr3m5n8k000608jq3k0l1m7g' | 'clr3m5n8k000708jq4l1m2n8h' | 'clr3m5n8k000808jq5m2n3o9i' | 'clr3m5n8k000908jq6n3o4p0j' | 'clr3m5n8k000a08jq7o4p5q1k' | 'clr3m5n8k000b08jq8p5q6r2l' | 'clr3m5n8k000c08jq9q6r7s3m' | 'clr3m5n8k000d08jqar7s8t4n' | 'clr3m5n8k000e08jqbs0t1u5o' | 'clr3m5n8k000f08jqcs1u2v6p' | 'clr3m5n8k000g08jqdt1u2v7q' | 'clr3m5n8k000h08jqeu2v3w8r' | 'clr3m5n8k000i08jqfv3w4x9s' | 'clr3m5n8k000j08jqgw4x5y0t' | 'gpv2an25fuhe2k6v6ckv85v8'
 
 export interface ReportMetadata {
   id: string
@@ -14,6 +14,12 @@ export interface ReportMetadata {
 }
 
 export interface ReportRegistry {
+  'cm7k3m5n8k000008jq7h9e5b1a': {
+    name: string
+    description: string
+    input: DatasetRecordsInput
+    output: DatasetRecordsOutput
+  }
   'clr3m5n8k000008jq7h9e5b1a': {
     name: string
     description: string
@@ -104,9 +110,49 @@ export interface ReportRegistry {
     input: BotStatsInput
     output: BotStatsOutput
   }
+  'clr3m5n8k000f08jqcs1u2v6p': {
+    name: string
+    description: string
+    input: AlertsInput
+    output: AlertsOutput
+  }
+  'clr3m5n8k000g08jqdt1u2v7q': {
+    name: string
+    description: string
+    input: BotPerformanceInput
+    output: BotPerformanceOutput
+  }
+  'clr3m5n8k000h08jqeu2v3w8r': {
+    name: string
+    description: string
+    input: BotConversationQualityInput
+    output: BotConversationQualityOutput
+  }
+  'clr3m5n8k000i08jqfv3w4x9s': {
+    name: string
+    description: string
+    input: BotAlertsInput
+    output: BotAlertsOutput
+  }
+  'clr3m5n8k000j08jqgw4x5y0t': {
+    name: string
+    description: string
+    input: BotNegativeFeedbackInput
+    output: BotNegativeFeedbackOutput
+  }
+  'gpv2an25fuhe2k6v6ckv85v8': {
+    name: string
+    description: string
+    input: ComprehensiveAnalyticsInput
+    output: ComprehensiveAnalyticsOutput
+  }
 }
 
 // Input and Output Types for each report
+export type DatasetRecordsInput = {
+  datasetIds: string[]
+}
+
 export type TotalRatingsInput = {
   periodDays?: number
 }
@@ -166,6 +212,40 @@ export type ComprehensiveOverviewInput = {
 export type BotStatsInput = {
   botId: string
   periodDays?: number
+}
+
+export type AlertsInput = {
+  periodDays?: number
+}
+
+export type BotPerformanceInput = {
+  botId: string
+  periodDays?: number
+}
+
+export type BotConversationQualityInput = {
+  botId: string
+  periodDays?: number
+}
+
+export type BotAlertsInput = {
+  botId: string
+  periodDays?: number
+}
+
+export type BotNegativeFeedbackInput = {
+  botId: string
+  periodDays?: number
+  limit?: number
+}
+
+export type ComprehensiveAnalyticsInput = {
+  periodDays?: number
+}
+
+export type DatasetRecordsOutput = {
+  totalRecords: number
+  breakdown: { datasetId: string; records: number }[]
 }
 
 export type TotalRatingsOutput = {
@@ -260,6 +340,7 @@ export type ComprehensiveOverviewOutput = {
 export type BotStatsOutput = {
   totalConversations: number
   totalMessages: number
+  totalTokens: number
   totalRatings: number
   thumbsUp: number
   thumbsDown: number
@@ -267,8 +348,52 @@ export type BotStatsOutput = {
   period: string
 }
 
+export type AlertsOutput = {
+  alerts: { type: string; severity: string; title: string; message: string; metric?: { current: number; baseline?: number; percentage?: number } }[]
+  summary: { totalAlerts: number; criticalCount: number; warningCount: number; infoCount: number }
+  period: string
+}
+
+export type BotPerformanceOutput = {
+  conversations: { current: number; previous: number; change: number; breakdown: { date: string; total: number }[] }
+  messages: { current: number; previous: number; change: number; breakdown: { date: string; total: number }[] }
+  tokens: { current: number; previous: number; change: number; breakdown: { date: string; total: number }[] }
+  ratings: { thumbsUp: number; thumbsDown: number; total: number; change: number; sentimentSignal: string; breakdown: { date: string; total: number; thumbsUp: number; thumbsDown: number }[] }
+  period: string
+}
+
+export type BotConversationQualityOutput = {
+  avgMessagesPerConversation: { user: number; bot: number; activity: number }
+  conversationDepth: { singleTurn: number; short: number; medium: number; long: number }
+  totalConversations: number
+  abandonmentRate: number
+  avgTokensPerConversation: number
+  avgTokensPerMessage: number
+  topActions: { type: string; name: string; count: number }[]
+  period: string
+}
+
+export type BotAlertsOutput = {
+  alerts: { type: string; severity: string; title: string; message: string; metric?: { current: number; baseline?: number; percentage?: number } }[]
+  summary: { totalAlerts: number; criticalCount: number; warningCount: number; infoCount: number }
+  period: string
+}
+
+export type BotNegativeFeedbackOutput = {
+  items: { id: string; value: number; reason: unknown; conversationId: unknown; messageId: unknown; contactId: unknown; contactName: unknown; createdAt: string }[]
+  total: number
+  thumbsDown: number
+  thumbsUp: number
+  period: string
+}
+
+export type ComprehensiveAnalyticsOutput = {
+  data: { title: string; description: string; value: number; change?: number; period: string; details?: { metric?: { title: string; description: string; value: number; change?: number; period: string }; chart?: { type: string; data: { date: string; total: number; thumbsUp?: number; thumbsDown?: number }[] }; list?: { id: string; icon?: string; name: string; description: string; createdAt?: string; tags?: unknown[] }[] } }[]
+}
+
 // Mapping report IDs to their input/output types
 export type ReportInputTypes = {
+  'cm7k3m5n8k000008jq7h9e5b1a': DatasetRecordsInput
   'clr3m5n8k000008jq7h9e5b1a': TotalRatingsInput
   'clr3m5n8k000108jq3c4d7f2b': ThumbsUpInput
   'clr3m5n8k000208jq8e5f6g3c': ThumbsDownInput
@@ -284,9 +409,16 @@ export type ReportInputTypes = {
   'clr3m5n8k000c08jq9q6r7s3m': AverageActionsPerConversationInput
   'clr3m5n8k000d08jqar7s8t4n': ComprehensiveOverviewInput
   'clr3m5n8k000e08jqbs0t1u5o': BotStatsInput
+  'clr3m5n8k000f08jqcs1u2v6p': AlertsInput
+  'clr3m5n8k000g08jqdt1u2v7q': BotPerformanceInput
+  'clr3m5n8k000h08jqeu2v3w8r': BotConversationQualityInput
+  'clr3m5n8k000i08jqfv3w4x9s': BotAlertsInput
+  'clr3m5n8k000j08jqgw4x5y0t': BotNegativeFeedbackInput
+  'gpv2an25fuhe2k6v6ckv85v8': ComprehensiveAnalyticsInput
 }
 
 export type ReportOutputTypes = {
+  'cm7k3m5n8k000008jq7h9e5b1a': DatasetRecordsOutput
   'clr3m5n8k000008jq7h9e5b1a': TotalRatingsOutput
   'clr3m5n8k000108jq3c4d7f2b': ThumbsUpOutput
   'clr3m5n8k000208jq8e5f6g3c': ThumbsDownOutput
@@ -302,6 +434,12 @@ export type ReportOutputTypes = {
   'clr3m5n8k000c08jq9q6r7s3m': AverageActionsPerConversationOutput
   'clr3m5n8k000d08jqar7s8t4n': ComprehensiveOverviewOutput
   'clr3m5n8k000e08jqbs0t1u5o': BotStatsOutput
+  'clr3m5n8k000f08jqcs1u2v6p': AlertsOutput
+  'clr3m5n8k000g08jqdt1u2v7q': BotPerformanceOutput
+  'clr3m5n8k000h08jqeu2v3w8r': BotConversationQualityOutput
+  'clr3m5n8k000i08jqfv3w4x9s': BotAlertsOutput
+  'clr3m5n8k000j08jqgw4x5y0t': BotNegativeFeedbackOutput
+  'gpv2an25fuhe2k6v6ckv85v8': ComprehensiveAnalyticsOutput
 }
 
 // Helper type to get input type by report ID

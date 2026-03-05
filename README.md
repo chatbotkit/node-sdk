@@ -44,6 +44,20 @@ This repository also contains the following tools:
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | [create-cbk-app](https://github.com/chatbotkit/node-sdk/tree/main/tools/create-cbk-app) | [![NPM](https://img.shields.io/npm/v/create-cbk-app.svg)](https://www.npmjs.com/package/create-cbk-app) | A quick tool to create a new CBK application. |
 
+## Why ChatBotKit?
+
+**Build lighter, future-proof AI agents.** When you build with ChatBotKit, the heavy lifting happens on our servers—not in your application. This architectural advantage delivers:
+
+- 🪶 **Lightweight Agents**: Your agents stay lean because complex AI processing, model orchestration, and tool execution happen server-side. Less code in your app means faster load times and simpler maintenance.
+
+- 🛡️ **Robust & Streamlined**: Server-side processing provides a more reliable experience with built-in error handling, automatic retries, and consistent behavior across all platforms.
+
+- 🔄 **Backward & Forward Compatible**: As AI technology evolves—new models, new capabilities, new paradigms—your agents automatically benefit. No code changes required on your end.
+
+- 🔮 **Future-Proof**: Agents you build today will remain capable tomorrow. When we add support for new AI models or capabilities, your existing agents gain those powers without any updates to your codebase.
+
+This means you can focus on building great user experiences while ChatBotKit handles the complexity of the ever-changing AI landscape.
+
 ## SDK Features
 
 - **Easy Setup**: Quick and straightforward installation process.

@@ -14,6 +14,13 @@ export class PlatformAbilityClient extends ChatBotKitClient {
      * @returns {ResponsePromise<import('./v1.js').PlatformAbilityListResponse,import('./v1.js').PlatformAbilityListStreamType>}
      */
     list(request?: import("./v1.js").PlatformAbilityListRequest): ResponsePromise<import("./v1.js").PlatformAbilityListResponse, import("./v1.js").PlatformAbilityListStreamType>;
+    /**
+     * Searches platform abilities.
+     *
+     * @param {import('./v1.js').PlatformAbilitySearchRequest} request
+     * @returns {Promise<import('./v1.js').PlatformAbilitySearchResponse>}
+     */
+    search(request: import("./v1.js").PlatformAbilitySearchRequest): Promise<import("./v1.js").PlatformAbilitySearchResponse>;
 }
 export default PlatformAbilityClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
