@@ -230,7 +230,7 @@ export function anySignal(signals) {
     if (signal.aborted) {
       controller.abort(signal.reason)
 
-      return signal
+      return controller.signal
     }
 
     signal.addEventListener('abort', () => controller.abort(signal.reason), {

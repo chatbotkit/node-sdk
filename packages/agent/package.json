@@ -30,6 +30,14 @@
       "types": "./types/agent.d.ts",
       "import": "./src/agent.js"
     },
+    "./execute": {
+      "types": "./types/execute.d.ts",
+      "import": "./src/execute.js"
+    },
+    "./execute.js": {
+      "types": "./types/execute.d.ts",
+      "import": "./src/execute.js"
+    },
     ".": {
       "types": "./types/index.d.ts",
       "import": "./src/index.js"

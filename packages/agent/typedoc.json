@@ -5,6 +5,7 @@
   ],
   "entryPoints": [
     "./src/agent.js",
+    "./src/execute.js",
     "./src/index.js",
     "./src/skills.js",
     "./src/tools.js"
