@@ -4,7 +4,12 @@ import { print, printError } from '../../output.js'
 import { Spinner } from '../../spinner.js'
 import { getToolNames, getTools } from '../../tools.js'
 
-import { execute } from '@chatbotkit/agent'
+import {
+  createSkillsFeature,
+  execute,
+  loadAgent,
+  loadSkills,
+} from '@chatbotkit/agent'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
 import { Command, Option } from 'commander'
@@ -135,8 +140,13 @@ function getClient() {
 export const command = new Command()
   .name('agent')
   .description('Run an agent as a background worker with a prompt')
+  .addOption(
+    new Option('-a, --agent <agent>', 'Path to an agent markdown file')
+  )
   .addOption(new Option('-b, --bot <bot>', 'Bot id'))
   .addOption(new Option('-m, --model <model>', 'Model name'))
+  .addOption(new Option('--skillset <skillset>', 'Skillset id'))
+  .addOption(new Option('--dataset <dataset>', 'Dataset id'))
   .addOption(
     new Option(
       '-p, --prompt <prompt>',
@@ -149,15 +159,25 @@ export const command = new Command()
     )
   )
   .addOption(
+    new Option('-s, --skills <dirs...>', 'Directories to load skills from')
+  )
+  .addOption(
     new Option(
       '-i, --max-iterations <maxIterations>',
       'Maximum number of iterations'
     )
-      .default(50)
+      .default(100)
       .argParser((value) => parseInt(value, 10))
   )
+  .addOption(new Option('-d, --debug', 'Print raw stream items to stderr'))
   .action(async (options) => {
     const client = getClient()
+
+    const agentDef = options.agent ? await loadAgent(options.agent) : null
+
+    const { skills, close: closeSkills } = options.skills
+      ? await loadSkills(options.skills, { watch: false })
+      : { skills: [], close: () => {} }
 
     const tools = getTools(options.tools)
 
@@ -185,18 +205,43 @@ export const command = new Command()
 
     for await (const { type, data } of execute({
       client,
-      ...(options.bot ? { botId: options.bot } : { model: options.model }),
+
+      ...(options.bot
+        ? { botId: options.bot }
+        : agentDef?.botId
+        ? { botId: agentDef.botId }
+        : { model: options.model ?? agentDef?.model }),
+
+      ...(agentDef?.backstory ? { backstory: agentDef.backstory } : {}),
+
+      ...(options.skillset ?? agentDef?.skillsetId
+        ? { skillsetId: options.skillset ?? agentDef?.skillsetId }
+        : {}),
+
+      ...(options.dataset ?? agentDef?.datasetId
+        ? { datasetId: options.dataset ?? agentDef?.datasetId }
+        : {}),
+
       messages: [{ type: 'user', text: prompt }],
+
       tools,
+
       maxIterations: options.maxIterations,
+
+      ...(skills.length > 0
+        ? { extensions: { features: [createSkillsFeature(skills)] } }
+        : {}),
     })) {
+      if (options.debug) {
+        process.stderr.write(`[debug] ${JSON.stringify({ type, data })}\n`)
+      }
       if (type === 'iteration') {
         if (isInteractive) {
           const iterationNum = data.iteration - 1
 
           output.writeLine(formatBlue(`\n╭─ Iteration ${iterationNum} ─╮`))
 
-          if (spinner) {
+          if (spinner && !options.debug) {
             spinner.start()
           }
         } else {
@@ -213,7 +258,7 @@ export const command = new Command()
           args: data.args,
         })
 
-        if (spinner) {
+        if (spinner && !options.debug) {
           spinner.start()
         }
       } else if (type === 'toolCallEnd') {
@@ -223,7 +268,7 @@ export const command = new Command()
           result: data.result,
         })
 
-        if (spinner) {
+        if (spinner && !options.debug) {
           spinner.start()
         }
       } else if (type === 'toolCallError') {
@@ -233,7 +278,7 @@ export const command = new Command()
           error: data.error,
         })
 
-        if (spinner) {
+        if (spinner && !options.debug) {
           spinner.start()
         }
       } else if (type === 'token') {
@@ -258,6 +303,8 @@ export const command = new Command()
         }
       }
     }
+
+    closeSkills()
 
     if (exitResult) {
       output.printStructured({

@@ -8,7 +8,7 @@
 
 > **loadSkills**(`directories`, `options?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<[`SkillsResult`](../type-aliases/SkillsResult.md)\>
 
-Defined in: [agent/src/skills.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/skills.js#L94)
+Defined in: [agent/src/skills.js:96](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/skills.js#L96)
 
 Loads skills from multiple directories.
 Each directory should contain subdirectories with SKILL.md files.

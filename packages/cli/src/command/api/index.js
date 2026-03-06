@@ -8,6 +8,7 @@ import file from './file/index.js'
 import integration from './integration/index.js'
 import memory from './memory/index.js'
 import partner from './partner/index.js'
+import platform from './platform/index.js'
 import secret from './secret/index.js'
 import skillset from './skillset/index.js'
 import team from './team/index.js'
@@ -36,6 +37,7 @@ const commands = {
   integration,
   memory,
   partner,
+  platform,
   secret,
   skillset,
   team,

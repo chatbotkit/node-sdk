@@ -51,6 +51,7 @@ function parseFrontMatter(content) {
     }
   } catch {
     // @note yaml parsing failed
+
     return {}
   }
 }
@@ -75,10 +76,11 @@ async function loadSkillFromDirectory(skillDir) {
     return {
       name,
       description,
-      path: resolve(skillDir),
+      path: resolve(skillFilePath),
     }
   } catch {
     // @note skill file doesn't exist or can't be read
+
     return null
   }
 }
@@ -110,9 +112,12 @@ export async function loadSkills(directories, options = {}) {
 
         if (entryStat.isDirectory()) {
           const skill = await loadSkillFromDirectory(entryPath)
+
           if (skill) {
             // Remove existing skill with same path if it exists
+
             const existingIdx = skills.findIndex((s) => s.path === skill.path)
+
             if (existingIdx !== -1) {
               skills[existingIdx] = skill
             } else {
@@ -127,11 +132,13 @@ export async function loadSkills(directories, options = {}) {
   }
 
   // Initial load
+
   for (const dir of directories) {
     await scanDirectory(dir)
   }
 
   // Set up watching if requested
+
   if (options.watch) {
     for (const dir of directories) {
       const controller = new AbortController()
@@ -147,12 +154,14 @@ export async function loadSkills(directories, options = {}) {
 
           for await (const event of watcher) {
             // Reload skills when changes detected
+
             if (event.filename?.endsWith('SKILL.md')) {
               await scanDirectory(dir)
             }
           }
         } catch (err) {
           // @note watcher was aborted or error occurred
+
           if (
             err instanceof Error &&
             err.name !== 'AbortError' &&
