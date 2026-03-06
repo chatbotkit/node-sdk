@@ -1,5 +1,11 @@
 # @chatbotkit/agent
 
+## 1.29.1
+
+### Patch Changes
+
+- 9332259: New options and fixed iterator loops.
+
 ## 1.27.0
 
 ### Minor Changes
