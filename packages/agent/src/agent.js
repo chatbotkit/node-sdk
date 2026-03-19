@@ -39,7 +39,7 @@ function parseAgentFile(content) {
       frontMatter = /** @type {Record<string, unknown>} */ (parsed)
     }
   } catch {
-    // @note yaml parsing failed — treat as no front matter
+    // @note yaml parsing failed - treat as no front matter
   }
 
   return { frontMatter, body: match[2].trim() }

@@ -27,7 +27,7 @@ import { join, resolve } from 'path'
  * @returns {{ name?: string, description?: string }}
  */
 function parseFrontMatter(content) {
-  const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---/
+  const frontMatterRegex = /^---\r?\n([\s\S]*?)\r?\n---/
   const match = content.match(frontMatterRegex)
 
   if (!match) {
@@ -160,14 +160,14 @@ export async function loadSkills(directories, options = {}) {
             }
           }
         } catch (err) {
-          // @note watcher was aborted or error occurred
+          // @note ignore abort errors when watcher is closed intentionally
 
           if (
             err instanceof Error &&
             err.name !== 'AbortError' &&
             !err.message.includes('AbortError')
           ) {
-            // Silently ignore abort errors
+            console.error('Skills watcher error:', err)
           }
         }
       })()

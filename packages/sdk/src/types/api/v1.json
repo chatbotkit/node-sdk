@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1772501414208)"
+    "version": "v1 (build 1773951146186)"
   },
   "servers": [
     {
@@ -142,8 +142,11 @@
           "quarterhourly",
           "halfhourly",
           "hourly",
+          "twicedaily",
           "daily",
+          "twiceweekly",
           "weekly",
+          "twicemonthly",
           "monthly"
         ]
       },
@@ -27857,18 +27860,9 @@
                       "type": "boolean"
                     },
                     "triggerSchedule": {
+                      "description": "The schedule for the trigger integration (interval, cron expression, ISO date, or null)",
                       "type": "string",
-                      "description": "The schedule",
-                      "enum": [
-                        "never",
-                        "quarterhourly",
-                        "halfhourly",
-                        "hourly",
-                        "daily",
-                        "weekly",
-                        "monthly"
-                      ],
-                      "$$ref": "#/components/schemas/Schedule"
+                      "nullable": true
                     },
                     "sessionDuration": {
                       "description": "The session duration (in milliseconds)",
@@ -28128,18 +28122,9 @@
                     "type": "boolean"
                   },
                   "triggerSchedule": {
+                    "description": "The schedule for the trigger integration (interval, cron expression, or ISO date)",
                     "type": "string",
-                    "description": "The schedule",
-                    "enum": [
-                      "never",
-                      "quarterhourly",
-                      "halfhourly",
-                      "hourly",
-                      "daily",
-                      "weekly",
-                      "monthly"
-                    ],
-                    "$$ref": "#/components/schemas/Schedule"
+                    "nullable": true
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
@@ -28248,18 +28233,9 @@
                     "type": "boolean"
                   },
                   "triggerSchedule": {
+                    "description": "The schedule for the trigger integration (interval, cron expression, or ISO date)",
                     "type": "string",
-                    "description": "The schedule",
-                    "enum": [
-                      "never",
-                      "quarterhourly",
-                      "halfhourly",
-                      "hourly",
-                      "daily",
-                      "weekly",
-                      "monthly"
-                    ],
-                    "$$ref": "#/components/schemas/Schedule"
+                    "nullable": true
                   },
                   "sessionDuration": {
                     "description": "The session duration (in milliseconds)",
@@ -28434,18 +28410,9 @@
                             "type": "boolean"
                           },
                           "triggerSchedule": {
+                            "description": "The schedule for the trigger integration (interval, cron expression, ISO date, or null)",
                             "type": "string",
-                            "description": "The schedule",
-                            "enum": [
-                              "never",
-                              "quarterhourly",
-                              "halfhourly",
-                              "hourly",
-                              "daily",
-                              "weekly",
-                              "monthly"
-                            ],
-                            "$$ref": "#/components/schemas/Schedule"
+                            "nullable": true
                           },
                           "sessionDuration": {
                             "description": "The session duration (in milliseconds)",
@@ -28539,18 +28506,9 @@
                               "type": "boolean"
                             },
                             "triggerSchedule": {
+                              "description": "The schedule for the trigger integration (interval, cron expression, ISO date, or null)",
                               "type": "string",
-                              "description": "The schedule",
-                              "enum": [
-                                "never",
-                                "quarterhourly",
-                                "halfhourly",
-                                "hourly",
-                                "daily",
-                                "weekly",
-                                "monthly"
-                              ],
-                              "$$ref": "#/components/schemas/Schedule"
+                              "nullable": true
                             },
                             "sessionDuration": {
                               "description": "The session duration (in milliseconds)",
@@ -30309,7 +30267,7 @@
                       "description": "Whether the Widget integration supports carousels",
                       "type": "boolean"
                     },
-                    "from": {
+                    "form": {
                       "description": "Whether the Widget integration supports forms",
                       "type": "boolean"
                     },
@@ -32021,7 +31979,10 @@
                     "type": "string",
                     "description": "The text of the memory"
                   }
-                }
+                },
+                "required": [
+                  "text"
+                ]
               }
             }
           }
@@ -42392,7 +42353,7 @@
     "/space/{spaceId}/fetch": {
       "get": {
         "operationId": "fetchSpace",
-        "summary": "Fetch space",
+        "summary": "Fetch a space",
         "tags": [
           "Space"
         ],
@@ -42595,8 +42556,7 @@
     "/space/create": {
       "post": {
         "operationId": "createSpace",
-        "summary": "Create a new space",
-        "description": "Create a new space with the given parameters.\n",
+        "summary": "Create space",
         "tags": [
           "Space"
         ],
