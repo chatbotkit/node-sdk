@@ -158,7 +158,7 @@ export const command = new Command()
           { signal: promptAbort.signal }
         )
       } catch {
-        // Ctrl+C at the prompt — re-prompt
+        // Ctrl+C at the prompt - re-prompt
         continue
       } finally {
         promptAbort = null
@@ -237,7 +237,7 @@ export const command = new Command()
           }
         }
       } catch {
-        // aborted — fall through to re-prompt
+        // aborted - fall through to re-prompt
       } finally {
         agentAbort = null
       }

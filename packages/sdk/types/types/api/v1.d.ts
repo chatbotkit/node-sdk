@@ -4728,7 +4728,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Fetch space */
+        /** Fetch a space */
         get: operations["fetchSpace"];
         put?: never;
         post?: never;
@@ -4764,11 +4764,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /**
-         * Create a new space
-         * @description Create a new space with the given parameters.
-         *
-         */
+        /** Create space */
         post: operations["createSpace"];
         delete?: never;
         options?: never;
@@ -5045,7 +5041,7 @@ export interface components {
          * @description The schedule
          * @enum {string}
          */
-        Schedule: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+        Schedule: "never" | "quarterhourly" | "halfhourly" | "hourly" | "twicedaily" | "daily" | "twiceweekly" | "weekly" | "twicemonthly" | "monthly";
         /**
          * @description The sync status of an integration
          * @enum {string}
@@ -17238,11 +17234,8 @@ export interface operations {
                         secret: string;
                         /** @description When enabled the integration requires authentication */
                         authenticate?: boolean;
-                        /**
-                         * @description The schedule
-                         * @enum {string}
-                         */
-                        triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+                        /** @description The schedule for the trigger integration (interval, cron expression, ISO date, or null) */
+                        triggerSchedule?: string | null;
                         /** @description The session duration (in milliseconds) */
                         sessionDuration?: number;
                         /** @description The maximum number of iterations per trigger execution */
@@ -17359,11 +17352,8 @@ export interface operations {
                     botId?: string;
                     /** @description When enabled the integration requires authentication */
                     authenticate?: boolean;
-                    /**
-                     * @description The schedule
-                     * @enum {string}
-                     */
-                    triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+                    /** @description The schedule for the trigger integration (interval, cron expression, or ISO date) */
+                    triggerSchedule?: string | null;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description The maximum number of iterations per trigger execution */
@@ -17419,11 +17409,8 @@ export interface operations {
                     botId?: string;
                     /** @description When enabled the integration requires authentication */
                     authenticate?: boolean;
-                    /**
-                     * @description The schedule
-                     * @enum {string}
-                     */
-                    triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+                    /** @description The schedule for the trigger integration (interval, cron expression, or ISO date) */
+                    triggerSchedule?: string | null;
                     /** @description The session duration (in milliseconds) */
                     sessionDuration?: number;
                     /** @description The maximum number of iterations per trigger execution */
@@ -17501,11 +17488,8 @@ export interface operations {
                             secret: string;
                             /** @description When enabled the integration requires authentication */
                             authenticate?: boolean;
-                            /**
-                             * @description The schedule
-                             * @enum {string}
-                             */
-                            triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+                            /** @description The schedule for the trigger integration (interval, cron expression, ISO date, or null) */
+                            triggerSchedule?: string | null;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description The maximum number of iterations per trigger execution */
@@ -17546,11 +17530,8 @@ export interface operations {
                             secret: string;
                             /** @description When enabled the integration requires authentication */
                             authenticate?: boolean;
-                            /**
-                             * @description The schedule
-                             * @enum {string}
-                             */
-                            triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+                            /** @description The schedule for the trigger integration (interval, cron expression, ISO date, or null) */
+                            triggerSchedule?: string | null;
                             /** @description The session duration (in milliseconds) */
                             sessionDuration?: number;
                             /** @description The maximum number of iterations per trigger execution */
@@ -18363,7 +18344,7 @@ export interface operations {
                         /** @description Whether the Widget integration supports carousels */
                         carousel?: boolean;
                         /** @description Whether the Widget integration supports forms */
-                        from?: boolean;
+                        form?: boolean;
                         /** @description Whether the Widget integration supports attachments */
                         attachments?: boolean;
                         /** @description Whether the Widget integration auto scrolls */
@@ -19144,7 +19125,7 @@ export interface operations {
                     /** @description The bot associated with the memory */
                     botId?: string;
                     /** @description The text of the memory */
-                    text?: string;
+                    text: string;
                 };
             };
         };

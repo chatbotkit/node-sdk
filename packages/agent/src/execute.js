@@ -531,7 +531,7 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
     }
 
     // The API returns end.reason in the result event. When the reason is "stop"
-    // the model finished naturally without pending tool calls — continuing
+    // the model finished naturally without pending tool calls - continuing
     // would produce empty iterations endlessly unless more messages are
     // injected, so we treat it as a successful completion.
     if (lastEndReason === 'stop') {
