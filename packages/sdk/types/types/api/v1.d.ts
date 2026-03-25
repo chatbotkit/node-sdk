@@ -3398,6 +3398,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/widget/{widgetIntegrationId}/clone": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Clone Widget integration */
+        post: operations["cloneWidgetIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/widget/{widgetIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -4203,7 +4220,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/policy/{id}/delete": {
+    "/policy/{policyId}/delete": {
         parameters: {
             query?: never;
             header?: never;
@@ -4220,14 +4237,14 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/policy/{id}/fetch": {
+    "/policy/{policyId}/fetch": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** Fetch policy */
+        /** Fetch a policy */
         get: operations["fetchPolicy"];
         put?: never;
         post?: never;
@@ -4237,7 +4254,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/policy/{id}/update": {
+    "/policy/{policyId}/update": {
         parameters: {
             query?: never;
             header?: never;
@@ -4715,6 +4732,23 @@ export interface paths {
         get: operations["listSkillsets"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Delete a space */
+        post: operations["deleteSpace"];
         delete?: never;
         options?: never;
         head?: never;
@@ -14453,6 +14487,8 @@ export interface operations {
                         blueprintId?: string;
                         /** @description The ID of the skillset */
                         skillsetId?: string;
+                        /** @description The ID of the OAuth connection for IdP-based authentication */
+                        oAuthConnectionId?: string;
                     };
                 };
             };
@@ -14489,6 +14525,8 @@ export interface operations {
                     blueprintId?: string;
                     /** @description The ID of the skillset */
                     skillsetId?: string;
+                    /** @description The ID of the OAuth connection for IdP-based authentication */
+                    oAuthConnectionId?: string;
                 };
             };
         };
@@ -14536,6 +14574,8 @@ export interface operations {
                     blueprintId?: string;
                     /** @description The ID of the skillset */
                     skillsetId?: string;
+                    /** @description The ID of the OAuth connection for IdP-based authentication */
+                    oAuthConnectionId?: string;
                 };
             };
         };
@@ -14603,6 +14643,8 @@ export interface operations {
                             blueprintId?: string;
                             /** @description The ID of the skillset */
                             skillsetId?: string;
+                            /** @description The ID of the OAuth connection for IdP-based authentication */
+                            oAuthConnectionId?: string;
                         }[];
                         /** @description Cursor for fetching the next page */
                         cursor: string;
@@ -14633,6 +14675,8 @@ export interface operations {
                             blueprintId?: string;
                             /** @description The ID of the skillset */
                             skillsetId?: string;
+                            /** @description The ID of the OAuth connection for IdP-based authentication */
+                            oAuthConnectionId?: string;
                         };
                     };
                 };
@@ -18239,6 +18283,42 @@ export interface operations {
             };
         };
     };
+    cloneWidgetIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                widgetIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Widget integration was cloned successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the cloned Widget integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     deleteWidgetIntegration: {
         parameters: {
             query?: never;
@@ -21674,7 +21754,7 @@ export interface operations {
             query?: never;
             header?: never;
             path: {
-                id: string;
+                policyId: string;
             };
             cookie?: never;
         };
@@ -21710,7 +21790,7 @@ export interface operations {
             query?: never;
             header?: never;
             path: {
-                id: string;
+                policyId: string;
             };
             cookie?: never;
         };
@@ -21759,7 +21839,7 @@ export interface operations {
             query?: never;
             header?: never;
             path: {
-                id: string;
+                policyId: string;
             };
             cookie?: never;
         };
@@ -23620,6 +23700,42 @@ export interface operations {
                              */
                             visibility?: "private" | "protected" | "public";
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteSpace: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The space was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the deleted space */
+                        id: string;
                     };
                 };
             };
