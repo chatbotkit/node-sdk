@@ -54,3 +54,6 @@ export type PlatformAbilitySearchRequestBody = import("../../types/api/v1.js").o
 export type PlatformAbilitySearchRequest = PlatformAbilitySearchRequestBody;
 export type PlatformAbilitySearchResponseBody = import("../../types/api/v1.js").operations["searchPlatformAbilities"]["responses"]["200"]["content"]["application/json"];
 export type PlatformAbilitySearchResponse = PlatformAbilitySearchResponseBody;
+export type CbkAbilityName = import("../../types/ability.js").CbkAbilityName;
+export type CbkAbilityMetadata = import("../../types/ability.js").CbkAbilityMetadata;
+export type CbkAbilityRegistry = import("../../types/ability.js").CbkAbilityRegistry;

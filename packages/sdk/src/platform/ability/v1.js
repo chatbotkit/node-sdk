@@ -61,3 +61,9 @@ export async function searchPlatformAbilities(client, request) {
 
   return response
 }
+
+/**
+ * @typedef {import('../../types/ability.js').CbkAbilityName} CbkAbilityName
+ * @typedef {import('../../types/ability.js').CbkAbilityMetadata} CbkAbilityMetadata
+ * @typedef {import('../../types/ability.js').CbkAbilityRegistry} CbkAbilityRegistry
+ */
