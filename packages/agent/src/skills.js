@@ -142,6 +142,7 @@ export async function loadSkills(directories, options = {}) {
   if (options.watch) {
     for (const dir of directories) {
       const controller = new AbortController()
+
       watchControllers.push(controller)
 
       // Start watching in background
@@ -167,6 +168,7 @@ export async function loadSkills(directories, options = {}) {
             err.name !== 'AbortError' &&
             !err.message.includes('AbortError')
           ) {
+            // eslint-disable-next-line no-console
             console.error('Skills watcher error:', err)
           }
         }

@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1773951146186)"
+    "version": "v1 (build 1774476514860)"
   },
   "servers": [
     {
@@ -21850,6 +21850,10 @@
                     "skillsetId": {
                       "description": "The ID of the skillset",
                       "type": "string"
+                    },
+                    "oAuthConnectionId": {
+                      "description": "The ID of the OAuth connection for IdP-based authentication",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -21935,6 +21939,10 @@
                   },
                   "skillsetId": {
                     "description": "The ID of the skillset",
+                    "type": "string"
+                  },
+                  "oAuthConnectionId": {
+                    "description": "The ID of the OAuth connection for IdP-based authentication",
                     "type": "string"
                   }
                 }
@@ -22025,6 +22033,10 @@
                   },
                   "skillsetId": {
                     "description": "The ID of the skillset",
+                    "type": "string"
+                  },
+                  "oAuthConnectionId": {
+                    "description": "The ID of the OAuth connection for IdP-based authentication",
                     "type": "string"
                   }
                 }
@@ -22178,6 +22190,10 @@
                           "skillsetId": {
                             "description": "The ID of the skillset",
                             "type": "string"
+                          },
+                          "oAuthConnectionId": {
+                            "description": "The ID of the OAuth connection for IdP-based authentication",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -22247,6 +22263,10 @@
                             },
                             "skillsetId": {
                               "description": "The ID of the skillset",
+                              "type": "string"
+                            },
+                            "oAuthConnectionId": {
+                              "description": "The ID of the OAuth connection for IdP-based authentication",
                               "type": "string"
                             }
                           },
@@ -30058,6 +30078,83 @@
           }
         },
         "__originalOperationId": "listWhatsAppIntegrations",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/widget/{widgetIntegrationId}/clone": {
+      "post": {
+        "operationId": "cloneWidgetIntegration",
+        "summary": "Clone Widget integration",
+        "tags": [
+          "Widget Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "widgetIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Widget integration",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Widget integration was cloned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the cloned Widget integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "cloneWidgetIntegration",
         "security": [
           {
             "BearerAuth": []
@@ -37997,7 +38094,7 @@
         ]
       }
     },
-    "/policy/{id}/delete": {
+    "/policy/{policyId}/delete": {
       "post": {
         "operationId": "deletePolicy",
         "summary": "Delete policy",
@@ -38007,7 +38104,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "policyId",
             "required": true,
             "schema": {
               "description": "The ID of the policy to delete",
@@ -38074,20 +38171,20 @@
         ]
       }
     },
-    "/policy/{id}/fetch": {
+    "/policy/{policyId}/fetch": {
       "get": {
         "operationId": "fetchPolicy",
-        "summary": "Fetch policy",
+        "summary": "Fetch a policy",
         "tags": [
           "Policy"
         ],
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "policyId",
             "required": true,
             "schema": {
-              "description": "The ID of the policy to fetch",
+              "description": "The ID of the policy to retrieve",
               "type": "string"
             }
           }
@@ -38168,7 +38265,7 @@
         ]
       }
     },
-    "/policy/{id}/update": {
+    "/policy/{policyId}/update": {
       "post": {
         "operationId": "updatePolicy",
         "summary": "Update policy",
@@ -38178,7 +38275,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "policyId",
             "required": true,
             "schema": {
               "description": "The ID of the policy to update",
@@ -42343,6 +42440,83 @@
           }
         },
         "__originalOperationId": "listSkillsets",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/delete": {
+      "post": {
+        "operationId": "deleteSpace",
+        "summary": "Delete a space",
+        "tags": [
+          "Space"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the space to delete",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The space was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the deleted space",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteSpace",
         "security": [
           {
             "BearerAuth": []
