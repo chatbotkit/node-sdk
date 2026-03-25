@@ -558,6 +558,7 @@ export const McpServerIntegrationResourceConfigSchema =
       meta: z.record(z.unknown()).optional(),
       blueprintId: z.string().optional(),
       skillsetId: z.string().optional(),
+      oAuthConnectionId: z.string().optional(),
     }),
   })
 
