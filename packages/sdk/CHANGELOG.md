@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.29.1
+
+### Patch Changes
+
+- 46803cb: Exported common ability types.
+
 ## 1.27.0
 
 ### Minor Changes
