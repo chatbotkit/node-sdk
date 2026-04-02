@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/cli",
-  "version": "1.29.1",
+  "version": "1.29.0",
   "description": "ChatBotKit command line tools",
   "license": "ISC",
   "engines": {
@@ -393,6 +393,30 @@
       "types": "./types/command/api/partner/user/index.d.ts",
       "import": "./src/command/api/partner/user/index.js"
     },
+    "./command/api/platform": {
+      "types": "./types/command/api/platform/index.d.ts",
+      "import": "./src/command/api/platform/index.js"
+    },
+    "./command/api/platform/index": {
+      "types": "./types/command/api/platform/index.d.ts",
+      "import": "./src/command/api/platform/index.js"
+    },
+    "./command/api/platform/index.js": {
+      "types": "./types/command/api/platform/index.d.ts",
+      "import": "./src/command/api/platform/index.js"
+    },
+    "./command/api/platform/model": {
+      "types": "./types/command/api/platform/model/index.d.ts",
+      "import": "./src/command/api/platform/model/index.js"
+    },
+    "./command/api/platform/model/index": {
+      "types": "./types/command/api/platform/model/index.d.ts",
+      "import": "./src/command/api/platform/model/index.js"
+    },
+    "./command/api/platform/model/index.js": {
+      "types": "./types/command/api/platform/model/index.d.ts",
+      "import": "./src/command/api/platform/model/index.js"
+    },
     "./command/api/secret": {
       "types": "./types/command/api/secret/index.d.ts",
       "import": "./src/command/api/secret/index.js"
@@ -606,7 +630,6 @@
     "commander": "^11.1.0",
     "dotenv": "^16.4.5",
     "js-yaml": "^4.1.0",
-    "tslib": "^2.6.2",
     "zod": "^3.25.76"
   },
   "devDependencies": {

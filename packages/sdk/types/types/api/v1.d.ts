@@ -5004,6 +5004,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/usage/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List usage records */
+        get: operations["listUsageRecords"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/usage/series/fetch": {
         parameters: {
             query?: never;
@@ -24639,6 +24656,81 @@ export interface operations {
                             /** @description The number of users the user has created */
                             users: number;
                         };
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listUsageRecords: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of usage records was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The usage type */
+                            type: string;
+                            /** @description The usage count */
+                            count: number;
+                            /** @description Related conversation ID if applicable */
+                            conversationId?: string;
+                            /** @description Related message ID if applicable */
+                            messageId?: string;
+                            /** @description Related task ID if applicable */
+                            taskId?: string;
+                            /** @description Related contact ID if applicable */
+                            contactId?: string;
+                            /** @description Related blueprint ID if applicable */
+                            blueprintId?: string;
+                            /** @description Related bot ID if applicable */
+                            botId?: string;
+                            /** @description Related dataset ID if applicable */
+                            datasetId?: string;
+                            /** @description Related skillset ID if applicable */
+                            skillsetId?: string;
+                            /** @description Related ability ID if applicable */
+                            abilityId?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
                     };
                 };
             };

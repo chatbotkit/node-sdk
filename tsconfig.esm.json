@@ -4,13 +4,11 @@
     "target": "ES2020",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "noEmitHelpers": true,
     "declaration": true,
     "strict": true,
     "noEmit": false,
     "checkJs": true,
     "skipLibCheck": false,
-    "skipDefaultLibCheck": false,
-    "importHelpers": true
+    "skipDefaultLibCheck": false
   }
 }

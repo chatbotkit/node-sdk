@@ -8,7 +8,7 @@
 
 > **createSkillsFeature**(`skills`): `object`
 
-Defined in: [agent/src/skills.js:193](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/skills.js#L193)
+Defined in: [agent/src/skills.js:195](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/skills.js#L195)
 
 Creates a skills feature configuration from skill definitions.
 

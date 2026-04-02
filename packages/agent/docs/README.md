@@ -201,7 +201,7 @@ The `execute` mode provides system tools for task management:
 Load skills from local directories and pass them as a feature to the agent. Skills are defined using `SKILL.md` files with front matter containing name and description.
 
 ```javascript
-import { execute, loadSkills, createSkillsFeature } from '@chatbotkit/agent'
+import { createSkillsFeature, execute, loadSkills } from '@chatbotkit/agent'
 import { ChatBotKit } from '@chatbotkit/sdk'
 
 const client = new ChatBotKit({ secret: process.env.CHATBOTKIT_API_TOKEN })

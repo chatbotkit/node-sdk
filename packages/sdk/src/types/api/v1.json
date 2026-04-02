@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1774476514860)"
+    "version": "v1 (build 1775127552525)"
   },
   "servers": [
     {
@@ -44599,6 +44599,192 @@
           }
         },
         "__originalOperationId": "fetchUsage",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/usage/list": {
+      "get": {
+        "operationId": "listUsageRecords",
+        "summary": "List usage records",
+        "tags": [
+          "Usage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter usage records by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of usage records was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "type": {
+                            "description": "The usage type",
+                            "type": "string"
+                          },
+                          "count": {
+                            "description": "The usage count",
+                            "type": "integer"
+                          },
+                          "conversationId": {
+                            "description": "Related conversation ID if applicable",
+                            "type": "string"
+                          },
+                          "messageId": {
+                            "description": "Related message ID if applicable",
+                            "type": "string"
+                          },
+                          "taskId": {
+                            "description": "Related task ID if applicable",
+                            "type": "string"
+                          },
+                          "contactId": {
+                            "description": "Related contact ID if applicable",
+                            "type": "string"
+                          },
+                          "blueprintId": {
+                            "description": "Related blueprint ID if applicable",
+                            "type": "string"
+                          },
+                          "botId": {
+                            "description": "Related bot ID if applicable",
+                            "type": "string"
+                          },
+                          "datasetId": {
+                            "description": "Related dataset ID if applicable",
+                            "type": "string"
+                          },
+                          "skillsetId": {
+                            "description": "Related skillset ID if applicable",
+                            "type": "string"
+                          },
+                          "abilityId": {
+                            "description": "Related ability ID if applicable",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt",
+                          "type",
+                          "count"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listUsageRecords",
         "security": [
           {
             "BearerAuth": []

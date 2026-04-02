@@ -8,7 +8,7 @@
 
 > **getArrayBackedObject**\<`T`\>(`array`): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1593](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1593)
+Defined in: [packages/cli/src/solution/index.js:1594](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1594)
 
 ## Type Parameters
 

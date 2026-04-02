@@ -409,7 +409,7 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     blueprintId?: string;
     botId?: string;
     authenticate?: boolean;
-    triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+    triggerSchedule?: string | null;
     sessionDuration?: number;
     maxIterations?: number;
     maxTime?: number;
@@ -443,6 +443,7 @@ export const ResourceConfigSchema: z.ZodUnion<[ResourceConfigSchemaFor<"blueprin
     };
     blueprintId?: string;
     skillsetId?: string;
+    oAuthConnectionId?: string;
 }>, ResourceConfigSchemaFor<"twilioIntegration", {
     name?: string;
     description?: string;
@@ -672,7 +673,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         blueprintId?: string;
         botId?: string;
         authenticate?: boolean;
-        triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly";
+        triggerSchedule?: string | null;
         sessionDuration?: number;
         maxIterations?: number;
         maxTime?: number;
@@ -706,6 +707,7 @@ export const SolutionConfigSchema: z.ZodObject<{
         };
         blueprintId?: string;
         skillsetId?: string;
+        oAuthConnectionId?: string;
     }>, ResourceConfigSchemaFor<"twilioIntegration", {
         name?: string;
         description?: string;
@@ -802,10 +804,10 @@ export const SolutionConfigSchema: z.ZodObject<{
             } | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
             blueprintId?: string | undefined;
-            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
+            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1026,7 +1028,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             authenticate?: boolean | undefined;
-            triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly" | undefined;
+            triggerSchedule?: string | null | undefined;
             maxTime?: number | undefined;
         };
         slug?: string | undefined;
@@ -1073,6 +1075,7 @@ export const SolutionConfigSchema: z.ZodObject<{
                 [key: string]: unknown;
             } | undefined;
             blueprintId?: string | undefined;
+            oAuthConnectionId?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1177,10 +1180,10 @@ export const SolutionConfigSchema: z.ZodObject<{
             } | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
             blueprintId?: string | undefined;
-            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
+            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1401,7 +1404,7 @@ export const SolutionConfigSchema: z.ZodObject<{
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             authenticate?: boolean | undefined;
-            triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly" | undefined;
+            triggerSchedule?: string | null | undefined;
             maxTime?: number | undefined;
         };
         slug?: string | undefined;
@@ -1448,6 +1451,7 @@ export const SolutionConfigSchema: z.ZodObject<{
                 [key: string]: unknown;
             } | undefined;
             blueprintId?: string | undefined;
+            oAuthConnectionId?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1563,10 +1567,10 @@ export class Resource {
             } | undefined;
             visibility?: "private" | "protected" | "public" | undefined;
             blueprintId?: string | undefined;
-            kind?: "shared" | "personal" | undefined;
             config?: {
                 [key: string]: unknown;
             } | undefined;
+            kind?: "shared" | "personal" | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -1787,7 +1791,7 @@ export class Resource {
             blueprintId?: string | undefined;
             sessionDuration?: number | undefined;
             authenticate?: boolean | undefined;
-            triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly" | undefined;
+            triggerSchedule?: string | null | undefined;
             maxTime?: number | undefined;
         };
         slug?: string | undefined;
@@ -1834,6 +1838,7 @@ export class Resource {
                 [key: string]: unknown;
             } | undefined;
             blueprintId?: string | undefined;
+            oAuthConnectionId?: string | undefined;
         };
         slug?: string | undefined;
         id?: string | undefined;
@@ -2211,10 +2216,10 @@ export class Solution {
                 } | undefined;
                 visibility?: "private" | "protected" | "public" | undefined;
                 blueprintId?: string | undefined;
-                kind?: "shared" | "personal" | undefined;
                 config?: {
                     [key: string]: unknown;
                 } | undefined;
+                kind?: "shared" | "personal" | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
@@ -2435,7 +2440,7 @@ export class Solution {
                 blueprintId?: string | undefined;
                 sessionDuration?: number | undefined;
                 authenticate?: boolean | undefined;
-                triggerSchedule?: "never" | "quarterhourly" | "halfhourly" | "hourly" | "daily" | "weekly" | "monthly" | undefined;
+                triggerSchedule?: string | null | undefined;
                 maxTime?: number | undefined;
             };
             slug?: string | undefined;
@@ -2482,6 +2487,7 @@ export class Solution {
                     [key: string]: unknown;
                 } | undefined;
                 blueprintId?: string | undefined;
+                oAuthConnectionId?: string | undefined;
             };
             slug?: string | undefined;
             id?: string | undefined;
