@@ -1,5 +1,17 @@
 # @chatbotkit/sdk
 
+## 1.30.0
+
+### Minor Changes
+
+- 94ca388: Remove tslib.
+
+### Patch Changes
+
+- 94ca388: Exported common ability types.
+- Updated dependencies [94ca388]
+  - @chatbotkit/fetch@1.30.0
+
 ## 1.27.0
 
 ### Minor Changes

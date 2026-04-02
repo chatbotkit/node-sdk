@@ -1,5 +1,17 @@
 # @chatbotkit/nextauth
 
+## 1.30.0
+
+### Minor Changes
+
+- 94ca388: Remove tslib.
+
+### Patch Changes
+
+- Updated dependencies [94ca388]
+- Updated dependencies [94ca388]
+  - @chatbotkit/sdk@1.30.0
+
 ## 1.27.0
 
 ### Patch Changes

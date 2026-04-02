@@ -1,5 +1,11 @@
 # @chatbotkit/fetch
 
+## 1.30.0
+
+### Minor Changes
+
+- 94ca388: Remove tslib.
+
 ## 1.26.3
 
 ### Patch Changes

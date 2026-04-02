@@ -1,5 +1,18 @@
 # @chatbotkit/agent
 
+## 1.30.0
+
+### Minor Changes
+
+- 94ca388: Remove tslib.
+
+### Patch Changes
+
+- 94ca388: New options and fixed iterator loops.
+- Updated dependencies [94ca388]
+- Updated dependencies [94ca388]
+  - @chatbotkit/sdk@1.30.0
+
 ## 1.27.0
 
 ### Minor Changes
