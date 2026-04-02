@@ -1,5 +1,16 @@
 # create-cbk-app
 
+## 1.30.0
+
+### Minor Changes
+
+- 94ca388: Remove tslib.
+
+### Patch Changes
+
+- Updated dependencies [94ca388]
+  - @chatbotkit/cli@1.30.0
+
 ## 1.27.0
 
 ### Patch Changes
