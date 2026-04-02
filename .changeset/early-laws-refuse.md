@@ -8,7 +8,6 @@
 '@chatbotkit/sdk': minor
 '@chatbotkit/widget': minor
 'create-cbk-app': minor
-'chatbotkit': patch
 ---
 
 Remove tslib.
