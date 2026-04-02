@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/agent",
-  "version": "1.29.1",
+  "version": "1.29.0",
   "description": "ChatBotKit Agent implementation",
   "license": "ISC",
   "engines": {
@@ -94,7 +94,6 @@
   "dependencies": {
     "@chatbotkit/sdk": "workspace:*",
     "js-yaml": "^4.1.0",
-    "tslib": "^2.6.2",
     "zod": "^3.25.76",
     "zod-to-json-schema": "^3.24.6"
   },

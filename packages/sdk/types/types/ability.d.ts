@@ -33,10 +33,12 @@ export type CbkAbilityName = 'abort'
   | 'conversation/list[bot]'
   | 'conversation/list[contact]'
   | 'conversation/mcp/install[url]'
+  | 'conversation/mcp/uninstall[url]'
   | 'conversation/search'
   | 'conversation/search[bot]'
   | 'conversation/search[contact]'
   | 'conversation/skillset/install[by-id]'
+  | 'conversation/skillset/uninstall[by-id]'
   | 'dataset/create'
   | 'dataset/file/create[url]'
   | 'dataset/list'
@@ -348,6 +350,11 @@ export type ConversationMcpInstallUrlParameters = {
   url: string
 }
 
+export type ConversationMcpUninstallUrlParameters = {
+ /** the remote MCP URL to uninstall */
+  url: string
+}
+
 export type ConversationSearchParameters = {
  /** the search query to find conversations */
   query: string
@@ -365,6 +372,11 @@ export type ConversationSearchContactParameters = {
 
 export type ConversationSkillsetInstallByIdParameters = {
  /** the skillset ID to install */
+  skillsetId: string
+}
+
+export type ConversationSkillsetUninstallByIdParameters = {
+ /** the skillset ID to uninstall */
   skillsetId: string
 }
 
@@ -1530,6 +1542,11 @@ export interface CbkAbilityRegistry {
     description: 'Bring MCP (model context protocol) functions into context'
     parameters: ConversationMcpInstallUrlParameters
   }
+  'conversation/mcp/uninstall[url]': {
+    name: 'Uninstall MCP'
+    description: 'Remove MCP (model context protocol) functions from context'
+    parameters: ConversationMcpUninstallUrlParameters
+  }
   'conversation/search': {
     name: 'Search Conversations'
     description: 'Search conversations by query'
@@ -1549,6 +1566,11 @@ export interface CbkAbilityRegistry {
     name: 'Install Skillset'
     description: 'Bring a skillset into context by its ID'
     parameters: ConversationSkillsetInstallByIdParameters
+  }
+  'conversation/skillset/uninstall[by-id]': {
+    name: 'Uninstall Skillset'
+    description: 'Remove a skillset from context by its ID'
+    parameters: ConversationSkillsetUninstallByIdParameters
   }
   'dataset/create': {
     name: 'Create Dataset'

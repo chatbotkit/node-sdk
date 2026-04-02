@@ -6,7 +6,7 @@
 
 # Class: Solution
 
-Defined in: [packages/cli/src/solution/index.js:1011](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1011)
+Defined in: [packages/cli/src/solution/index.js:1012](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1012)
 
 Represents a solution.
 
@@ -16,7 +16,7 @@ Represents a solution.
 
 > **new Solution**(`config`): `Solution`
 
-Defined in: [packages/cli/src/solution/index.js:1015](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1015)
+Defined in: [packages/cli/src/solution/index.js:1016](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1016)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [packages/cli/src/solution/index.js:1015](https://github.com/chatbot
 
 > **get** **baseClient**(): `ChatBotKit`
 
-Defined in: [packages/cli/src/solution/index.js:1022](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1022)
+Defined in: [packages/cli/src/solution/index.js:1023](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1023)
 
 ##### Returns
 
@@ -56,7 +56,7 @@ Defined in: [packages/cli/src/solution/index.js:1022](https://github.com/chatbot
 
 > **get** **blueprint**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1100](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1100)
+Defined in: [packages/cli/src/solution/index.js:1101](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1101)
 
 ##### Returns
 
@@ -70,7 +70,7 @@ Defined in: [packages/cli/src/solution/index.js:1100](https://github.com/chatbot
 
 > **get** **blueprints**(): [`BlueprintResource`](BlueprintResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1091](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1091)
+Defined in: [packages/cli/src/solution/index.js:1092](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1092)
 
 ##### Returns
 
@@ -84,7 +84,7 @@ Defined in: [packages/cli/src/solution/index.js:1091](https://github.com/chatbot
 
 > **get** **bot**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1116](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1116)
+Defined in: [packages/cli/src/solution/index.js:1117](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1117)
 
 ##### Returns
 
@@ -98,7 +98,7 @@ Defined in: [packages/cli/src/solution/index.js:1116](https://github.com/chatbot
 
 > **get** **bots**(): [`BotResource`](BotResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1107](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1107)
+Defined in: [packages/cli/src/solution/index.js:1108](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1108)
 
 ##### Returns
 
@@ -112,7 +112,7 @@ Defined in: [packages/cli/src/solution/index.js:1107](https://github.com/chatbot
 
 > **get** **dataset**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1132](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1132)
+Defined in: [packages/cli/src/solution/index.js:1133](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1133)
 
 ##### Returns
 
@@ -126,7 +126,7 @@ Defined in: [packages/cli/src/solution/index.js:1132](https://github.com/chatbot
 
 > **get** **datasets**(): [`DatasetResource`](DatasetResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1123](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1123)
+Defined in: [packages/cli/src/solution/index.js:1124](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1124)
 
 ##### Returns
 
@@ -140,7 +140,7 @@ Defined in: [packages/cli/src/solution/index.js:1123](https://github.com/chatbot
 
 > **get** **discordIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1252](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1252)
+Defined in: [packages/cli/src/solution/index.js:1253](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1253)
 
 ##### Returns
 
@@ -154,7 +154,7 @@ Defined in: [packages/cli/src/solution/index.js:1252](https://github.com/chatbot
 
 > **get** **discordIntegrations**(): [`DiscordIntegrationResource`](DiscordIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1241](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1241)
+Defined in: [packages/cli/src/solution/index.js:1242](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1242)
 
 ##### Returns
 
@@ -168,7 +168,7 @@ Defined in: [packages/cli/src/solution/index.js:1241](https://github.com/chatbot
 
 > **get** **emailIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1342](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1342)
+Defined in: [packages/cli/src/solution/index.js:1343](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1343)
 
 ##### Returns
 
@@ -182,7 +182,7 @@ Defined in: [packages/cli/src/solution/index.js:1342](https://github.com/chatbot
 
 > **get** **emailIntegrations**(): [`EmailIntegrationResource`](EmailIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1331](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1331)
+Defined in: [packages/cli/src/solution/index.js:1332](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1332)
 
 ##### Returns
 
@@ -196,7 +196,7 @@ Defined in: [packages/cli/src/solution/index.js:1331](https://github.com/chatbot
 
 > **get** **extractIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1396](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1396)
+Defined in: [packages/cli/src/solution/index.js:1397](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1397)
 
 ##### Returns
 
@@ -210,7 +210,7 @@ Defined in: [packages/cli/src/solution/index.js:1396](https://github.com/chatbot
 
 > **get** **extractIntegrations**(): [`ExtractIntegrationResource`](ExtractIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1385](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1385)
+Defined in: [packages/cli/src/solution/index.js:1386](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1386)
 
 ##### Returns
 
@@ -224,7 +224,7 @@ Defined in: [packages/cli/src/solution/index.js:1385](https://github.com/chatbot
 
 > **get** **file**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1148](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1148)
+Defined in: [packages/cli/src/solution/index.js:1149](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1149)
 
 ##### Returns
 
@@ -238,7 +238,7 @@ Defined in: [packages/cli/src/solution/index.js:1148](https://github.com/chatbot
 
 > **get** **files**(): [`FileResource`](FileResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1139](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1139)
+Defined in: [packages/cli/src/solution/index.js:1140](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1140)
 
 ##### Returns
 
@@ -252,7 +252,7 @@ Defined in: [packages/cli/src/solution/index.js:1139](https://github.com/chatbot
 
 > **get** **mcpserverIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1414](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1414)
+Defined in: [packages/cli/src/solution/index.js:1415](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1415)
 
 ##### Returns
 
@@ -266,7 +266,7 @@ Defined in: [packages/cli/src/solution/index.js:1414](https://github.com/chatbot
 
 > **get** **mcpserverIntegrations**(): [`McpServerIntegrationResource`](McpServerIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1403](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1403)
+Defined in: [packages/cli/src/solution/index.js:1404](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1404)
 
 ##### Returns
 
@@ -280,7 +280,7 @@ Defined in: [packages/cli/src/solution/index.js:1403](https://github.com/chatbot
 
 > **get** **messengerIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1306](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1306)
+Defined in: [packages/cli/src/solution/index.js:1307](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1307)
 
 ##### Returns
 
@@ -294,7 +294,7 @@ Defined in: [packages/cli/src/solution/index.js:1306](https://github.com/chatbot
 
 > **get** **messengerIntegrations**(): [`MessengerIntegrationResource`](MessengerIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1295](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1295)
+Defined in: [packages/cli/src/solution/index.js:1296](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1296)
 
 ##### Returns
 
@@ -308,7 +308,7 @@ Defined in: [packages/cli/src/solution/index.js:1295](https://github.com/chatbot
 
 > **get** **notionIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1324](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1324)
+Defined in: [packages/cli/src/solution/index.js:1325](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1325)
 
 ##### Returns
 
@@ -322,7 +322,7 @@ Defined in: [packages/cli/src/solution/index.js:1324](https://github.com/chatbot
 
 > **get** **notionIntegrations**(): [`NotionIntegrationResource`](NotionIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1313](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1313)
+Defined in: [packages/cli/src/solution/index.js:1314](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1314)
 
 ##### Returns
 
@@ -336,7 +336,7 @@ Defined in: [packages/cli/src/solution/index.js:1313](https://github.com/chatbot
 
 > **get** **resources**(): ([`BlueprintResource`](BlueprintResource.md) \| [`BotResource`](BotResource.md) \| [`DatasetResource`](DatasetResource.md) \| [`FileResource`](FileResource.md) \| [`SecretResource`](SecretResource.md) \| [`SkillsetResource`](SkillsetResource.md) \| [`WidgetIntegrationResource`](WidgetIntegrationResource.md) \| [`SitemapIntegrationResource`](SitemapIntegrationResource.md) \| [`SlackIntegrationResource`](SlackIntegrationResource.md) \| [`DiscordIntegrationResource`](DiscordIntegrationResource.md) \| [`TelegramIntegrationResource`](TelegramIntegrationResource.md) \| [`WhatsAppIntegrationResource`](WhatsAppIntegrationResource.md) \| [`MessengerIntegrationResource`](MessengerIntegrationResource.md) \| [`NotionIntegrationResource`](NotionIntegrationResource.md) \| [`EmailIntegrationResource`](EmailIntegrationResource.md) \| [`TriggerIntegrationResource`](TriggerIntegrationResource.md) \| [`SupportIntegrationResource`](SupportIntegrationResource.md) \| [`ExtractIntegrationResource`](ExtractIntegrationResource.md) \| [`McpServerIntegrationResource`](McpServerIntegrationResource.md) \| [`TwilioIntegrationResource`](TwilioIntegrationResource.md))[]
 
-Defined in: [packages/cli/src/solution/index.js:1036](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1036)
+Defined in: [packages/cli/src/solution/index.js:1037](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1037)
 
 Get the resources.
 
@@ -352,7 +352,7 @@ Get the resources.
 
 > **get** **secret**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1164](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1164)
+Defined in: [packages/cli/src/solution/index.js:1165](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1165)
 
 ##### Returns
 
@@ -366,7 +366,7 @@ Defined in: [packages/cli/src/solution/index.js:1164](https://github.com/chatbot
 
 > **get** **secrets**(): [`SecretResource`](SecretResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1155](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1155)
+Defined in: [packages/cli/src/solution/index.js:1156](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1156)
 
 ##### Returns
 
@@ -380,7 +380,7 @@ Defined in: [packages/cli/src/solution/index.js:1155](https://github.com/chatbot
 
 > **get** **sitemapIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1216](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1216)
+Defined in: [packages/cli/src/solution/index.js:1217](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1217)
 
 ##### Returns
 
@@ -394,7 +394,7 @@ Defined in: [packages/cli/src/solution/index.js:1216](https://github.com/chatbot
 
 > **get** **sitemapIntegrations**(): [`SitemapIntegrationResource`](SitemapIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1205](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1205)
+Defined in: [packages/cli/src/solution/index.js:1206](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1206)
 
 ##### Returns
 
@@ -408,7 +408,7 @@ Defined in: [packages/cli/src/solution/index.js:1205](https://github.com/chatbot
 
 > **get** **skillset**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1180](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1180)
+Defined in: [packages/cli/src/solution/index.js:1181](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1181)
 
 ##### Returns
 
@@ -422,7 +422,7 @@ Defined in: [packages/cli/src/solution/index.js:1180](https://github.com/chatbot
 
 > **get** **skillsets**(): [`SkillsetResource`](SkillsetResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1171](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1171)
+Defined in: [packages/cli/src/solution/index.js:1172](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1172)
 
 ##### Returns
 
@@ -436,7 +436,7 @@ Defined in: [packages/cli/src/solution/index.js:1171](https://github.com/chatbot
 
 > **get** **slackIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1234](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1234)
+Defined in: [packages/cli/src/solution/index.js:1235](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1235)
 
 ##### Returns
 
@@ -450,7 +450,7 @@ Defined in: [packages/cli/src/solution/index.js:1234](https://github.com/chatbot
 
 > **get** **slackIntegrations**(): [`SlackIntegrationResource`](SlackIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1223](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1223)
+Defined in: [packages/cli/src/solution/index.js:1224](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1224)
 
 ##### Returns
 
@@ -464,7 +464,7 @@ Defined in: [packages/cli/src/solution/index.js:1223](https://github.com/chatbot
 
 > **get** **supportIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1378](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1378)
+Defined in: [packages/cli/src/solution/index.js:1379](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1379)
 
 ##### Returns
 
@@ -478,7 +478,7 @@ Defined in: [packages/cli/src/solution/index.js:1378](https://github.com/chatbot
 
 > **get** **supportIntegrations**(): [`SupportIntegrationResource`](SupportIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1367](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1367)
+Defined in: [packages/cli/src/solution/index.js:1368](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1368)
 
 ##### Returns
 
@@ -492,7 +492,7 @@ Defined in: [packages/cli/src/solution/index.js:1367](https://github.com/chatbot
 
 > **get** **telegramIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1270](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1270)
+Defined in: [packages/cli/src/solution/index.js:1271](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1271)
 
 ##### Returns
 
@@ -506,7 +506,7 @@ Defined in: [packages/cli/src/solution/index.js:1270](https://github.com/chatbot
 
 > **get** **telegramIntegrations**(): [`TelegramIntegrationResource`](TelegramIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1259](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1259)
+Defined in: [packages/cli/src/solution/index.js:1260](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1260)
 
 ##### Returns
 
@@ -520,7 +520,7 @@ Defined in: [packages/cli/src/solution/index.js:1259](https://github.com/chatbot
 
 > **get** **triggerIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1360](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1360)
+Defined in: [packages/cli/src/solution/index.js:1361](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1361)
 
 ##### Returns
 
@@ -534,7 +534,7 @@ Defined in: [packages/cli/src/solution/index.js:1360](https://github.com/chatbot
 
 > **get** **triggerIntegrations**(): [`TriggerIntegrationResource`](TriggerIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1349](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1349)
+Defined in: [packages/cli/src/solution/index.js:1350](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1350)
 
 ##### Returns
 
@@ -548,7 +548,7 @@ Defined in: [packages/cli/src/solution/index.js:1349](https://github.com/chatbot
 
 > **get** **twilioIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1432](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1432)
+Defined in: [packages/cli/src/solution/index.js:1433](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1433)
 
 ##### Returns
 
@@ -562,7 +562,7 @@ Defined in: [packages/cli/src/solution/index.js:1432](https://github.com/chatbot
 
 > **get** **twilioIntegrations**(): [`TwilioIntegrationResource`](TwilioIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1421](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1421)
+Defined in: [packages/cli/src/solution/index.js:1422](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1422)
 
 ##### Returns
 
@@ -576,7 +576,7 @@ Defined in: [packages/cli/src/solution/index.js:1421](https://github.com/chatbot
 
 > **get** **whatsappIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1288](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1288)
+Defined in: [packages/cli/src/solution/index.js:1289](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1289)
 
 ##### Returns
 
@@ -590,7 +590,7 @@ Defined in: [packages/cli/src/solution/index.js:1288](https://github.com/chatbot
 
 > **get** **whatsappIntegrations**(): [`WhatsAppIntegrationResource`](WhatsAppIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1277](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1277)
+Defined in: [packages/cli/src/solution/index.js:1278](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1278)
 
 ##### Returns
 
@@ -604,7 +604,7 @@ Defined in: [packages/cli/src/solution/index.js:1277](https://github.com/chatbot
 
 > **get** **widgetIntegration**(): `object`
 
-Defined in: [packages/cli/src/solution/index.js:1198](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1198)
+Defined in: [packages/cli/src/solution/index.js:1199](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1199)
 
 ##### Returns
 
@@ -618,7 +618,7 @@ Defined in: [packages/cli/src/solution/index.js:1198](https://github.com/chatbot
 
 > **get** **widgetIntegrations**(): [`WidgetIntegrationResource`](WidgetIntegrationResource.md)[]
 
-Defined in: [packages/cli/src/solution/index.js:1187](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1187)
+Defined in: [packages/cli/src/solution/index.js:1188](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1188)
 
 ##### Returns
 
@@ -630,7 +630,7 @@ Defined in: [packages/cli/src/solution/index.js:1187](https://github.com/chatbot
 
 > **sync**(): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [packages/cli/src/solution/index.js:1441](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1441)
+Defined in: [packages/cli/src/solution/index.js:1442](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1442)
 
 Sync the solution.
 
@@ -644,7 +644,7 @@ Sync the solution.
 
 > `static` **create**(`name`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [packages/cli/src/solution/index.js:1467](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1467)
+Defined in: [packages/cli/src/solution/index.js:1468](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1468)
 
 Creates a new solution.
 
@@ -664,7 +664,7 @@ Creates a new solution.
 
 > `static` **delete**(`name`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [packages/cli/src/solution/index.js:1492](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1492)
+Defined in: [packages/cli/src/solution/index.js:1493](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1493)
 
 Deletes a solution.
 
@@ -684,7 +684,7 @@ Deletes a solution.
 
 > `static` **list**(): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`string`[]\>
 
-Defined in: [packages/cli/src/solution/index.js:1451](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1451)
+Defined in: [packages/cli/src/solution/index.js:1452](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1452)
 
 Lists solutions.
 
@@ -698,7 +698,7 @@ Lists solutions.
 
 > `static` **load**(`config`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`Solution`\>
 
-Defined in: [packages/cli/src/solution/index.js:1509](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1509)
+Defined in: [packages/cli/src/solution/index.js:1510](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1510)
 
 Loads a solution from a configuration object or a file.
 
@@ -718,7 +718,7 @@ Loads a solution from a configuration object or a file.
 
 > `static` **save**(`name`, `solution`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<`void`\>
 
-Defined in: [packages/cli/src/solution/index.js:1548](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1548)
+Defined in: [packages/cli/src/solution/index.js:1549](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L1549)
 
 Saves a solution to a file.
 

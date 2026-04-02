@@ -1,6 +1,6 @@
 {
   "name": "@chatbotkit/react",
-  "version": "1.29.1",
+  "version": "1.29.0",
   "description": "The fastest way to build advanced AI chat bots",
   "license": "ISC",
   "engines": {
@@ -217,8 +217,7 @@
   "types": "./types/index.d.ts",
   "dependencies": {
     "@chatbotkit/sdk": "workspace:*",
-    "@chatbotkit/widget": "workspace:*",
-    "tslib": "^2.6.2"
+    "@chatbotkit/widget": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18.0.0",

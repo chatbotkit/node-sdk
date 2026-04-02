@@ -8,6 +8,6 @@
 
 > `const` **TwilioIntegrationResourceConfigSchema**: [`ResourceConfigSchemaFor`](../type-aliases/ResourceConfigSchemaFor.md)\<`"twilioIntegration"`, \{ \}\>
 
-Defined in: [packages/cli/src/solution/index.js:569](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L569)
+Defined in: [packages/cli/src/solution/index.js:570](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/cli/src/solution/index.js#L570)
 
 The schema for a twilio integration resource configuration.
