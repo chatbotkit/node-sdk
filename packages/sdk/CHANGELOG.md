@@ -1,5 +1,11 @@
 # @chatbotkit/sdk
 
+## 1.30.1
+
+### Patch Changes
+
+- 4842968: Added space storage API endpoints.
+
 ## 1.30.0
 
 ### Minor Changes
