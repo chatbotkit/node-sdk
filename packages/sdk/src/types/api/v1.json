@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1775127552525)"
+    "version": "v1 (build 1775172268935)"
   },
   "servers": [
     {
@@ -42616,6 +42616,662 @@
           }
         },
         "__originalOperationId": "fetchSpace",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/storage/copy/{path}": {
+      "post": {
+        "operationId": "copySpaceStoragePath",
+        "summary": "Copy a file in space storage",
+        "description": "Copy a file from one location to another within space storage. The\nsource file path is specified in the URL after /copy/. The\ndestinationPath in the request body specifies where to copy the file.\n",
+        "tags": [
+          "Space Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the space",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "description": "The source file path",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "destinationPath": {
+                    "description": "The destination file path",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "destinationPath"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was copied successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "The destination file path",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "copySpaceStoragePath",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/storage/delete/{path}": {
+      "post": {
+        "operationId": "deleteSpaceStoragePath",
+        "summary": "Delete a file or directory from space storage",
+        "description": "Delete a file or directory from space storage. The path is specified\nin the URL after /delete/. If recursive is true and the path is a\ndirectory, all files within it will be deleted.\n",
+        "tags": [
+          "Space Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the space",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "description": "The file or directory path",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "recursive": {
+                    "description": "Whether to delete directory contents recursively",
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file or directory was deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "The deleted file or directory path",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "deleteSpaceStoragePath",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/storage/download/{path}": {
+      "get": {
+        "operationId": "downloadSpaceStoragePath",
+        "summary": "Download a file from space storage",
+        "description": "Download a file from space storage. The file path is specified in the\nURL after /download/. Can return either the direct file content\n(default) or a presigned download URL (when Accept: application/json).\n",
+        "tags": [
+          "Space Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the space",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "description": "The file path",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file was downloaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the file",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "The presigned URL to download the file",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "url"
+                  ]
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "downloadSpaceStoragePath",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/storage/list/{path}": {
+      "get": {
+        "operationId": "listSpaceStoragePath",
+        "summary": "List files and directories in space storage",
+        "description": "List files and directories in the space's storage. Supports both flat\nand recursive listing. The path is specified in the URL after /list/.\nOmit the path to list the root directory.\n",
+        "tags": [
+          "Space Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the space",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "path",
+            "required": false,
+            "schema": {
+              "description": "The directory path (defaults to root)",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "recursive",
+            "schema": {
+              "description": "Whether to list files recursively",
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of files was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the file or directory",
+                            "type": "string"
+                          },
+                          "path": {
+                            "description": "The relative path of the file or directory",
+                            "type": "string"
+                          },
+                          "size": {
+                            "description": "The size of the file in bytes (0 for directories)",
+                            "type": "number"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp (ms) when the file was last modified",
+                            "type": "number"
+                          },
+                          "isDirectory": {
+                            "description": "Whether this is a directory",
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    },
+                    "nextToken": {
+                      "description": "Token to use for next page of results",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listSpaceStoragePath",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/storage/move/{path}": {
+      "post": {
+        "operationId": "moveSpaceStoragePath",
+        "summary": "Move (rename) a file in space storage",
+        "description": "Move a file from one location to another within space storage, or\nrename a file by moving it to a new path. The source file path is\nspecified in the URL after /move/. The destinationPath in the request\nbody is the target location for the file.\n",
+        "tags": [
+          "Space Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the space",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "description": "The source file path",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "destinationPath": {
+                    "description": "The destination file path",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "destinationPath"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was moved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "The destination file path",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "path"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "moveSpaceStoragePath",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/space/{spaceId}/storage/upload/{path}": {
+      "post": {
+        "operationId": "uploadSpaceStoragePath",
+        "summary": "Upload a file to space storage",
+        "description": "Upload a file to space storage. The file path is specified in the URL\nafter /upload/. The file can be specified either as a HTTP URL, a data\nURL, a multipart/form-data, or as a raw file stream. The maximum file\nsize for uploads is determined dynamically based on user limits and\nconfiguration, and may vary.\n",
+        "tags": [
+          "Space Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "spaceId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "description": "The file path",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "file": {
+                        "description": "The file to upload either as http: or data: URL",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "file": {
+                        "description": "The file definition to upload",
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "description": "The file type",
+                            "type": "string"
+                          },
+                          "size": {
+                            "description": "The file size",
+                            "type": "number"
+                          },
+                          "meta": {
+                            "description": "Optional metadata",
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "size"
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "required": [
+                  "file"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "description": "The file to upload",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              }
+            },
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the uploaded file",
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string",
+                      "description": "The path where the file is stored"
+                    },
+                    "uploadRequest": {
+                      "description": "The request required to upload the file",
+                      "type": "object",
+                      "properties": {
+                        "method": {
+                          "description": "The HTTP method to use",
+                          "type": "string"
+                        },
+                        "url": {
+                          "description": "The HTTP url to use",
+                          "type": "string"
+                        },
+                        "headers": {
+                          "description": "The HTTP headers to use",
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "method",
+                        "url",
+                        "headers"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "path"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "uploadSpaceStoragePath",
         "security": [
           {
             "BearerAuth": []

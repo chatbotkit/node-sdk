@@ -1228,6 +1228,26 @@
       "types": "./types/space/index.d.ts",
       "import": "./src/space/index.js"
     },
+    "./space/storage": {
+      "types": "./types/space/storage/index.d.ts",
+      "import": "./src/space/storage/index.js"
+    },
+    "./space/storage/index": {
+      "types": "./types/space/storage/index.d.ts",
+      "import": "./src/space/storage/index.js"
+    },
+    "./space/storage/index.js": {
+      "types": "./types/space/storage/index.d.ts",
+      "import": "./src/space/storage/index.js"
+    },
+    "./space/storage/v1": {
+      "types": "./types/space/storage/v1.d.ts",
+      "import": "./src/space/storage/v1.js"
+    },
+    "./space/storage/v1.js": {
+      "types": "./types/space/storage/v1.d.ts",
+      "import": "./src/space/storage/v1.js"
+    },
     "./space/v1": {
       "types": "./types/space/v1.d.ts",
       "import": "./src/space/v1.js"

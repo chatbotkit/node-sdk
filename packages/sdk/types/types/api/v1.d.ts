@@ -4772,6 +4772,147 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/space/{spaceId}/storage/copy/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Copy a file in space storage
+         * @description Copy a file from one location to another within space storage. The
+         *     source file path is specified in the URL after /copy/. The
+         *     destinationPath in the request body specifies where to copy the file.
+         *
+         */
+        post: operations["copySpaceStoragePath"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/storage/delete/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Delete a file or directory from space storage
+         * @description Delete a file or directory from space storage. The path is specified
+         *     in the URL after /delete/. If recursive is true and the path is a
+         *     directory, all files within it will be deleted.
+         *
+         */
+        post: operations["deleteSpaceStoragePath"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/storage/download/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Download a file from space storage
+         * @description Download a file from space storage. The file path is specified in the
+         *     URL after /download/. Can return either the direct file content
+         *     (default) or a presigned download URL (when Accept: application/json).
+         *
+         */
+        get: operations["downloadSpaceStoragePath"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/storage/list/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List files and directories in space storage
+         * @description List files and directories in the space's storage. Supports both flat
+         *     and recursive listing. The path is specified in the URL after /list/.
+         *     Omit the path to list the root directory.
+         *
+         */
+        get: operations["listSpaceStoragePath"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/storage/move/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Move (rename) a file in space storage
+         * @description Move a file from one location to another within space storage, or
+         *     rename a file by moving it to a new path. The source file path is
+         *     specified in the URL after /move/. The destinationPath in the request
+         *     body is the target location for the file.
+         *
+         */
+        post: operations["moveSpaceStoragePath"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/space/{spaceId}/storage/upload/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Upload a file to space storage
+         * @description Upload a file to space storage. The file path is specified in the URL
+         *     after /upload/. The file can be specified either as a HTTP URL, a data
+         *     URL, a multipart/form-data, or as a raw file stream. The maximum file
+         *     size for uploads is determined dynamically based on user limits and
+         *     configuration, and may vary.
+         *
+         */
+        post: operations["uploadSpaceStoragePath"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/space/{spaceId}/update": {
         parameters: {
             query?: never;
@@ -23801,6 +23942,281 @@ export interface operations {
                         blueprintId?: string;
                         /** @description The contact associated with the space */
                         contactId?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    copySpaceStoragePath: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                path: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The destination file path */
+                    destinationPath: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The file was copied successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The destination file path */
+                        path: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deleteSpaceStoragePath: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                path: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description Whether to delete directory contents recursively
+                     * @default false
+                     */
+                    recursive?: boolean;
+                };
+            };
+        };
+        responses: {
+            /** @description The file or directory was deleted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The deleted file or directory path */
+                        path: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    downloadSpaceStoragePath: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                path: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The file was downloaded successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the file */
+                        id: string;
+                        /** @description The presigned URL to download the file */
+                        url: string;
+                    };
+                    "application/octet-stream": string;
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listSpaceStoragePath: {
+        parameters: {
+            query?: {
+                recursive?: boolean;
+            };
+            header?: never;
+            path: {
+                spaceId: string;
+                path: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of files was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The ID of the file or directory */
+                            id?: string;
+                            /** @description The relative path of the file or directory */
+                            path?: string;
+                            /** @description The size of the file in bytes (0 for directories) */
+                            size?: number;
+                            /** @description The timestamp (ms) when the file was last modified */
+                            updatedAt?: number;
+                            /** @description Whether this is a directory */
+                            isDirectory?: boolean;
+                        }[];
+                        /** @description Token to use for next page of results */
+                        nextToken?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    moveSpaceStoragePath: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                path: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The destination file path */
+                    destinationPath: string;
+                };
+            };
+        };
+        responses: {
+            /** @description The file was moved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The destination file path */
+                        path: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    uploadSpaceStoragePath: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                spaceId: string;
+                path: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description The file to upload either as http: or data: URL */
+                    file?: string;
+                } | {
+                    /** @description The file definition to upload */
+                    file?: {
+                        /** @description The file type */
+                        type: string;
+                        /** @description The file size */
+                        size: number;
+                        /** @description Optional metadata */
+                        meta?: Record<string, never>;
+                    };
+                };
+                "multipart/form-data": {
+                    /**
+                     * Format: binary
+                     * @description The file to upload
+                     */
+                    file: string;
+                };
+                "*/*": string;
+            };
+        };
+        responses: {
+            /** @description The file was uploaded successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the uploaded file */
+                        id: string;
+                        /** @description The path where the file is stored */
+                        path: string;
+                        /** @description The request required to upload the file */
+                        uploadRequest?: {
+                            /** @description The HTTP method to use */
+                            method: string;
+                            /** @description The HTTP url to use */
+                            url: string;
+                            /** @description The HTTP headers to use */
+                            headers: Record<string, never>;
+                        };
                     };
                 };
             };
