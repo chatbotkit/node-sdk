@@ -121,6 +121,8 @@
 - [skillset/ability/v1](skillset/ability/v1/README.md)
 - [skillset/v1](skillset/v1/README.md)
 - [space](space/README.md)
+- [space/storage](space/storage/README.md)
+- [space/storage/v1](space/storage/v1/README.md)
 - [space/v1](space/v1/README.md)
 - [task](task/README.md)
 - [task/v1](task/v1/README.md)

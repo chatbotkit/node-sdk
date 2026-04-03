@@ -69,6 +69,7 @@ Defined in: [client.js:302](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 - [`SkillsetAbilityClient`](../../skillset/ability/classes/SkillsetAbilityClient.md)
 - [`SkillsetClient`](../../skillset/classes/SkillsetClient.md)
 - [`SpaceClient`](../../space/classes/SpaceClient.md)
+- [`SpaceStorageClient`](../../space/storage/classes/SpaceStorageClient.md)
 - [`TaskClient`](../../task/classes/TaskClient.md)
 - [`TeamClient`](../../team/classes/TeamClient.md)
 - [`UsageClient`](../../usage/classes/UsageClient.md)

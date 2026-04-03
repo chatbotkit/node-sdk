@@ -1,4 +1,5 @@
 import { ChatBotKitClient } from '../client.js'
+import { SpaceStorageClient } from './storage/index.js'
 import {
   createSpace,
   deleteSpace,
@@ -22,6 +23,11 @@ export class SpaceClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    /**
+     * @type {SpaceStorageClient} storage client
+     */
+    this.storage = new SpaceStorageClient(options)
   }
 
   /**
