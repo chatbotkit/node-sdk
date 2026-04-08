@@ -2,14 +2,46 @@ import { prompt, select } from '@chatbotkit/cli/input'
 import { print } from '@chatbotkit/cli/output'
 
 import { Command } from 'commander'
-import crypto from 'node:crypto'
 import childProcess from 'node:child_process'
+import crypto from 'node:crypto'
 import fs from 'node:fs/promises'
 
 /**
  * Available templates for creating a new CBK app
  */
 const templates = [
+  {
+    value: 'template-nextjs-agentic-saas-js',
+    label: 'Next.js Agentic SaaS (JavaScript)',
+    description:
+      'A production-ready agentic SaaS template with auth, Stripe, and AI agents',
+    repo: 'chatbotkit/template-nextjs-agentic-saas-js',
+    branch: 'main',
+  },
+  {
+    value: 'template-nextjs-chat-auth-js',
+    label: 'Next.js Chat + Auth (JavaScript)',
+    description:
+      'A chat application template with authentication and conversation persistence',
+    repo: 'chatbotkit/template-nextjs-chat-auth-js',
+    branch: 'main',
+  },
+  {
+    value: 'template-nextjs-chat-auth-stripe-js',
+    label: 'Next.js Chat + Auth + Stripe (JavaScript)',
+    description:
+      'A chat application template with authentication, Stripe, and conversation persistence',
+    repo: 'chatbotkit/template-nextjs-chat-auth-stripe-js',
+    branch: 'main',
+  },
+  {
+    value: 'template-nextjs-dashboard-js',
+    label: 'Next.js Dashboard (JavaScript)',
+    description:
+      'An analytics dashboard template for monitoring ChatBotKit usage',
+    repo: 'chatbotkit/template-nextjs-dashboard-js',
+    branch: 'main',
+  },
   {
     value: 'template-nextjs-generative-ui-js',
     label: 'Next.js Generative UI (JavaScript)',
@@ -18,10 +50,26 @@ const templates = [
     branch: 'main',
   },
   {
-    value: 'template-nextjs-dashboard-js',
-    label: 'Next.js Dashboard (JavaScript)',
-    description: 'A Next.js dashboard template',
-    repo: 'chatbotkit/template-nextjs-dashboard-js',
+    value: 'template-nextjs-inbox-agent-js',
+    label: 'Next.js Inbox Agent (JavaScript)',
+    description:
+      'An autonomous email inbox management agent powered by ChatBotKit',
+    repo: 'chatbotkit/template-nextjs-inbox-agent-js',
+    branch: 'main',
+  },
+  {
+    value: 'template-nextjs-orchestrator-js',
+    label: 'Next.js Orchestrator (JavaScript)',
+    description:
+      'A business orchestration template with AI agents and pre-configured tools',
+    repo: 'chatbotkit/template-nextjs-orchestrator-js',
+    branch: 'main',
+  },
+  {
+    value: 'template-node-agent-cli-js',
+    label: 'Node.js Agent CLI (JavaScript)',
+    description: 'A standalone command-line AI agent with built-in tools',
+    repo: 'chatbotkit/template-node-agent-cli-js',
     branch: 'main',
   },
 ]
@@ -79,7 +127,9 @@ export default async function cbk() {
 
       // Validate appDir to prevent command injection
       if (!appDir || !/^[a-zA-Z0-9._-]+$/.test(appDir)) {
-        print('🚨 Invalid app name! Only alphanumeric characters, hyphens, underscores, and dots are allowed.')
+        print(
+          '🚨 Invalid app name! Only alphanumeric characters, hyphens, underscores, and dots are allowed.'
+        )
 
         process.exit(1)
       }
