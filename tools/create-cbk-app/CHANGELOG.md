@@ -1,5 +1,11 @@
 # create-cbk-app
 
+## 1.30.2
+
+### Patch Changes
+
+- e4d4145: Added new templates.
+
 ## 1.30.1
 
 ### Patch Changes
