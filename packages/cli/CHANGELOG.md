@@ -1,5 +1,13 @@
 # @chatbotkit/cli
 
+## 1.31.0
+
+### Patch Changes
+
+- Updated dependencies [6fd53a4]
+  - @chatbotkit/agent@1.31.0
+  - @chatbotkit/sdk@1.31.0
+
 ## 1.30.1
 
 ### Patch Changes

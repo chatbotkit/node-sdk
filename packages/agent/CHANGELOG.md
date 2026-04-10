@@ -1,5 +1,16 @@
 # @chatbotkit/agent
 
+## 1.31.0
+
+### Minor Changes
+
+- 6fd53a4: Updated types, stateful agents, improved examples.
+
+### Patch Changes
+
+- Updated dependencies [6fd53a4]
+  - @chatbotkit/sdk@1.31.0
+
 ## 1.30.1
 
 ### Patch Changes
