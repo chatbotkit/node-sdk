@@ -8246,8 +8246,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The text of the message to send */
-                    text: string;
+                    /** @description The text of the message to send. Omit to continue receiving from the existing conversation state without sending a new user message. */
+                    text?: string;
                     /** @description Known entities */
                     entities?: {
                         /** @description The entity type */
@@ -8636,8 +8636,8 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": {
-                    /** @description The text of the message to send */
-                    text: string;
+                    /** @description The text of the message to send. Omit to continue receiving from the existing conversation state without sending a new user message. */
+                    text?: string;
                     /** @description Known entities */
                     entities?: {
                         /** @description The entity type */

@@ -8,7 +8,7 @@
 
 > **ToolCallStartEvent**\<\> = `object`
 
-Defined in: [agent/src/execute.js:38](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L38)
+Defined in: [agent/src/execute.js:80](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L80)
 
 ## Type Parameters
 

@@ -8,7 +8,7 @@
 
 > **IterationEvent**\<\> = `object`
 
-Defined in: [agent/src/execute.js:59](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L59)
+Defined in: [agent/src/execute.js:101](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L101)
 
 ## Type Parameters
 

@@ -8,7 +8,7 @@
 
 > **ToolCallErrorEvent**\<\> = `object`
 
-Defined in: [agent/src/execute.js:52](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L52)
+Defined in: [agent/src/execute.js:94](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L94)
 
 ## Type Parameters
 

@@ -1,0 +1,14 @@
+{
+  "name": "@examples/agent",
+  "version": "0.0.0",
+  "description": "Examples for the ChatBotKit Agent SDK.",
+  "license": "ISC",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@chatbotkit/agent": "workspace:*",
+    "@chatbotkit/sdk": "workspace:*",
+    "dotenv": "^16.4.5",
+    "zod": "^3.25.76"
+  }
+}

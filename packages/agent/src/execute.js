@@ -7,8 +7,50 @@ import { zodToJsonSchema } from 'zod-to-json-schema'
 
 /**
  * @typedef {import('@chatbotkit/sdk').ChatBotKit} ChatBotKit
+ *
  * @typedef {import('@chatbotkit/sdk/conversation/v1').ConversationCompleteRequest} ConversationCompleteRequest
  * @typedef {import('@chatbotkit/sdk/conversation/v1').ConversationCompleteStreamType} ConversationCompleteStreamType
+ *
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').ConversationCompleteMessageRequest} ConversationCompleteMessageRequest
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').ConversationCompleteMessageStreamType} ConversationCompleteMessageStreamType
+ */
+
+/**
+ * @typedef {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
+ *   client: ChatBotKit,
+ *   conversationId?: undefined,
+ *   tools?: Tools,
+ *   abortSignal?: AbortSignal,
+ * }} LocalCompleteOptions
+ */
+
+/**
+ * @typedef {Omit<ConversationCompleteMessageRequest, 'functions' | 'limits'> & {
+ *   client: ChatBotKit,
+ *   conversationId: string,
+ *   tools?: Tools,
+ *   abortSignal?: AbortSignal,
+ * }} RemoteCompleteOptions
+ */
+
+/**
+ * @typedef {LocalCompleteOptions | RemoteCompleteOptions} CompleteOptions
+ */
+
+/**
+ * @typedef {LocalCompleteOptions & {
+ *   maxIterations?: number,
+ * }} LocalExecuteOptions
+ */
+
+/**
+ * @typedef {RemoteCompleteOptions & {
+ *   maxIterations?: number,
+ * }} RemoteExecuteOptions
+ */
+
+/**
+ * @typedef {LocalExecuteOptions | RemoteExecuteOptions} ExecuteOptions
  */
 
 /**
@@ -70,15 +112,12 @@ import { zodToJsonSchema } from 'zod-to-json-schema'
  * Completes a single agent iteration. Handles tool calls and streams events for
  * tool execution and completion.
  *
- * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
- *   client: ChatBotKit,
- *   tools?: Tools,
- *   abortSignal?: AbortSignal,
- * }} options
- * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
+ * @param {CompleteOptions} options
+ * @returns {AsyncGenerator<ConversationCompleteStreamType | ConversationCompleteMessageStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
  */
 export async function* complete(options) {
-  const { client, tools, abortSignal, ...request } = options
+  const { client, tools, abortSignal, conversationId, ...request } =
+    /** @type {any} */ (options)
 
   const channelToTool = new Map()
 
@@ -131,8 +170,11 @@ export async function* complete(options) {
       })
     : undefined
 
-  const stream = client.conversation
-    .complete(null, {
+  /** @type {AsyncIterable<ConversationCompleteStreamType | ConversationCompleteMessageStreamType>} */
+  let stream
+
+  if (typeof conversationId === 'string') {
+    const streamRequest = /** @type {ConversationCompleteMessageRequest} */ ({
       ...request,
 
       functions,
@@ -141,7 +183,25 @@ export async function* complete(options) {
         iterations: 1,
       },
     })
-    .stream({ abortSignal })
+
+    stream = client.conversation
+      .complete(conversationId, streamRequest)
+      .stream({ abortSignal })
+  } else {
+    const streamRequest = /** @type {ConversationCompleteRequest} */ ({
+      ...request,
+
+      functions,
+
+      limits: {
+        iterations: 1,
+      },
+    })
+
+    stream = client.conversation.complete(null, streamRequest).stream({
+      abortSignal,
+    })
+  }
 
   /** @type {Array<ToolCallEndEvent | ToolCallErrorEvent>} */
   const toolEventQueue = []
@@ -281,9 +341,9 @@ export async function* complete(options) {
  *
  * ### Message injection
  *
- * The `messages` array is used directly (not copied), so you can push new
- * messages onto it at any point while the agent is running. They will be
- * included in the context at the start of the next iteration:
+ * In local mode, the `messages` array is used directly (not copied), so you can
+ * push new messages onto it at any point while the agent is running. They will
+ * be included in the context at the start of the next iteration:
  *
  * ```js
  * const messages = [{ type: 'user', text: 'Perform the task.' }]
@@ -298,13 +358,11 @@ export async function* complete(options) {
  * The agent also appends its own `bot` responses to the same array as each
  * iteration completes, so `messages` reflects the full conversation history.
  *
- * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
- *   client: ChatBotKit,
- *   tools?: Tools,
- *   maxIterations?: number,
- *   abortSignal?: AbortSignal,
- * }} options
- * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
+ * In remote mode, the conversation history is driven by the server through
+ * `conversationId`, so there is no local message array to mutate.
+ *
+ * @param {ExecuteOptions} options
+ * @returns {AsyncGenerator<ConversationCompleteStreamType | ConversationCompleteMessageStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
  */
 export async function* execute(options) {
   const {
@@ -319,16 +377,14 @@ export async function* execute(options) {
     ...request
   } = options
 
-  // @note use the caller's array directly so external pushes are visible at the
-  // next iteration boundary without any additional injection mechanism
-
-  const messages = request.messages || []
-
   let exitResult = null
 
-  // Per-iteration AbortController that the hard abort tool can cancel to
-  // kill running processes immediately. Recreated each iteration.
-  /** @type {AbortController|null} */
+  /**
+   * Per-iteration AbortController that the hard abort tool can cancel to kill
+   * running processes immediately. Recreated each iteration.
+   *
+   * @type {AbortController|null}
+   */
   let internalAbort = null
 
   const systemTools = {
@@ -499,8 +555,6 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
 
       client,
 
-      messages,
-
       tools: allTools,
 
       abortSignal: iterSignal,
@@ -511,12 +565,15 @@ The goal is to complete the assigned task efficiently and effectively. Follow th
         backstory: systemInstruction,
       },
     })) {
-      if (event.type === 'message') {
-        messages.push(event.data)
+      if (event.type === 'message' && 'messages' in request) {
+        // @note only locally-driven executions carry messages, so only they
+        // accumulate bot replies here
+
+        request.messages.push(event.data)
       }
 
-      // Capture the end reason from result events so the outer loop can
-      // decide whether to continue iterating.
+      // Capture the end reason from result events so the outer loop can decide
+      // whether to continue iterating.
       if (event.type === 'result') {
         if (event.data.end.reason) {
           lastEndReason = event.data.end.reason

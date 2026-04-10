@@ -8,7 +8,7 @@
 
 > **ExitResult**\<\> = `object`
 
-Defined in: [agent/src/execute.js:31](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L31)
+Defined in: [agent/src/execute.js:73](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L73)
 
 ## Type Parameters
 
