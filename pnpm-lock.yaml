@@ -63,6 +63,21 @@ importers:
         specifier: ^5.0.4
         version: 5.9.2
 
+  examples/agent:
+    dependencies:
+      '@chatbotkit/agent':
+        specifier: workspace:*
+        version: link:../../packages/agent
+      '@chatbotkit/sdk':
+        specifier: workspace:*
+        version: link:../../packages/sdk
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.6.1
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+
   examples/cloudflare/gpt4-stream:
     dependencies:
       '@chatbotkit/sdk':
@@ -594,29 +609,11 @@ importers:
         specifier: ^5
         version: 5.9.2
 
-  examples/sdk/cjs:
+  examples/sdk:
     dependencies:
       '@chatbotkit/sdk':
         specifier: workspace:*
-        version: link:../../../packages/sdk
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.6.1
-
-  examples/sdk/esm:
-    dependencies:
-      '@chatbotkit/sdk':
-        specifier: workspace:*
-        version: link:../../../packages/sdk
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.6.1
-
-  examples/sdk/ts:
-    dependencies:
-      '@chatbotkit/sdk':
-        specifier: workspace:*
-        version: link:../../../packages/sdk
+        version: link:../../packages/sdk
       dotenv:
         specifier: ^16.4.5
         version: 16.6.1

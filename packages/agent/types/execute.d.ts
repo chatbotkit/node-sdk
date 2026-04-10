@@ -3,8 +3,44 @@
  */
 /**
  * @typedef {import('@chatbotkit/sdk').ChatBotKit} ChatBotKit
+ *
  * @typedef {import('@chatbotkit/sdk/conversation/v1').ConversationCompleteRequest} ConversationCompleteRequest
  * @typedef {import('@chatbotkit/sdk/conversation/v1').ConversationCompleteStreamType} ConversationCompleteStreamType
+ *
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').ConversationCompleteMessageRequest} ConversationCompleteMessageRequest
+ * @typedef {import('@chatbotkit/sdk/conversation/v1').ConversationCompleteMessageStreamType} ConversationCompleteMessageStreamType
+ */
+/**
+ * @typedef {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
+ *   client: ChatBotKit,
+ *   conversationId?: undefined,
+ *   tools?: Tools,
+ *   abortSignal?: AbortSignal,
+ * }} LocalCompleteOptions
+ */
+/**
+ * @typedef {Omit<ConversationCompleteMessageRequest, 'functions' | 'limits'> & {
+ *   client: ChatBotKit,
+ *   conversationId: string,
+ *   tools?: Tools,
+ *   abortSignal?: AbortSignal,
+ * }} RemoteCompleteOptions
+ */
+/**
+ * @typedef {LocalCompleteOptions | RemoteCompleteOptions} CompleteOptions
+ */
+/**
+ * @typedef {LocalCompleteOptions & {
+ *   maxIterations?: number,
+ * }} LocalExecuteOptions
+ */
+/**
+ * @typedef {RemoteCompleteOptions & {
+ *   maxIterations?: number,
+ * }} RemoteExecuteOptions
+ */
+/**
+ * @typedef {LocalExecuteOptions | RemoteExecuteOptions} ExecuteOptions
  */
 /**
  * @template {ZodObject} T
@@ -57,18 +93,10 @@
  * Completes a single agent iteration. Handles tool calls and streams events for
  * tool execution and completion.
  *
- * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
- *   client: ChatBotKit,
- *   tools?: Tools,
- *   abortSignal?: AbortSignal,
- * }} options
- * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
+ * @param {CompleteOptions} options
+ * @returns {AsyncGenerator<ConversationCompleteStreamType | ConversationCompleteMessageStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>}
  */
-export function complete(options: Omit<ConversationCompleteRequest, "functions" | "limits"> & {
-    client: ChatBotKit;
-    tools?: Tools;
-    abortSignal?: AbortSignal;
-}): AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>;
+export function complete(options: CompleteOptions): AsyncGenerator<ConversationCompleteStreamType | ConversationCompleteMessageStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent, void, unknown>;
 /**
  * Execute an agent task in a loop until exit is called. Provides planning,
  * progress tracking, and controlled exit functionality.
@@ -78,9 +106,9 @@ export function complete(options: Omit<ConversationCompleteRequest, "functions" 
  *
  * ### Message injection
  *
- * The `messages` array is used directly (not copied), so you can push new
- * messages onto it at any point while the agent is running. They will be
- * included in the context at the start of the next iteration:
+ * In local mode, the `messages` array is used directly (not copied), so you can
+ * push new messages onto it at any point while the agent is running. They will
+ * be included in the context at the start of the next iteration:
  *
  * ```js
  * const messages = [{ type: 'user', text: 'Perform the task.' }]
@@ -95,24 +123,39 @@ export function complete(options: Omit<ConversationCompleteRequest, "functions" 
  * The agent also appends its own `bot` responses to the same array as each
  * iteration completes, so `messages` reflects the full conversation history.
  *
- * @param {Omit<ConversationCompleteRequest, 'functions' | 'limits'> & {
- *   client: ChatBotKit,
- *   tools?: Tools,
- *   maxIterations?: number,
- *   abortSignal?: AbortSignal,
- * }} options
- * @returns {AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
+ * In remote mode, the conversation history is driven by the server through
+ * `conversationId`, so there is no local message array to mutate.
+ *
+ * @param {ExecuteOptions} options
+ * @returns {AsyncGenerator<ConversationCompleteStreamType | ConversationCompleteMessageStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>}
  */
-export function execute(options: Omit<ConversationCompleteRequest, "functions" | "limits"> & {
-    client: ChatBotKit;
-    tools?: Tools;
-    maxIterations?: number;
-    abortSignal?: AbortSignal;
-}): AsyncGenerator<ConversationCompleteStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>;
+export function execute(options: ExecuteOptions): AsyncGenerator<ConversationCompleteStreamType | ConversationCompleteMessageStreamType | ToolCallStartEvent | ToolCallEndEvent | ToolCallErrorEvent | IterationEvent | ExitEvent, void, unknown>;
 export type ZodObject = import("zod").ZodObject<any>;
 export type ChatBotKit = import("@chatbotkit/sdk").ChatBotKit;
 export type ConversationCompleteRequest = import("@chatbotkit/sdk/conversation/v1").ConversationCompleteRequest;
 export type ConversationCompleteStreamType = import("@chatbotkit/sdk/conversation/v1").ConversationCompleteStreamType;
+export type ConversationCompleteMessageRequest = import("@chatbotkit/sdk/conversation/v1").ConversationCompleteMessageRequest;
+export type ConversationCompleteMessageStreamType = import("@chatbotkit/sdk/conversation/v1").ConversationCompleteMessageStreamType;
+export type LocalCompleteOptions = Omit<ConversationCompleteRequest, "functions" | "limits"> & {
+    client: ChatBotKit;
+    conversationId?: undefined;
+    tools?: Tools;
+    abortSignal?: AbortSignal;
+};
+export type RemoteCompleteOptions = Omit<ConversationCompleteMessageRequest, "functions" | "limits"> & {
+    client: ChatBotKit;
+    conversationId: string;
+    tools?: Tools;
+    abortSignal?: AbortSignal;
+};
+export type CompleteOptions = LocalCompleteOptions | RemoteCompleteOptions;
+export type LocalExecuteOptions = LocalCompleteOptions & {
+    maxIterations?: number;
+};
+export type RemoteExecuteOptions = RemoteCompleteOptions & {
+    maxIterations?: number;
+};
+export type ExecuteOptions = LocalExecuteOptions | RemoteExecuteOptions;
 export type ToolDefinition<T extends ZodObject> = {
     description: string;
     input?: T;

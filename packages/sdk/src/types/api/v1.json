@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1775172268935)"
+    "version": "v1 (build 1775861143870)"
   },
   "servers": [
     {
@@ -6971,7 +6971,7 @@
                 "type": "object",
                 "properties": {
                   "text": {
-                    "description": "The text of the message to send",
+                    "description": "The text of the message to send. Omit to continue receiving from the existing conversation state without sending a new user message.",
                     "type": "string"
                   },
                   "entities": {
@@ -7271,10 +7271,7 @@
                     },
                     "$$ref": "#/components/schemas/ExecutionLimits"
                   }
-                },
-                "required": [
-                  "text"
-                ]
+                }
               }
             }
           }
@@ -7934,7 +7931,7 @@
                 "type": "object",
                 "properties": {
                   "text": {
-                    "description": "The text of the message to send",
+                    "description": "The text of the message to send. Omit to continue receiving from the existing conversation state without sending a new user message.",
                     "type": "string"
                   },
                   "entities": {
@@ -8239,10 +8236,7 @@
                     "type": "string",
                     "minLength": 24
                   }
-                },
-                "required": [
-                  "text"
-                ]
+                }
               }
             }
           }

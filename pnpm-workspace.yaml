@@ -1,7 +1,8 @@
 packages:
   - 'packages/*'
   - 'tools/*'
-  - 'examples/sdk/*'
+  - 'examples/sdk'
+  - 'examples/agent'
   - 'examples/nextjs/pages/*'
   - 'examples/nextjs/app/*'
   - 'examples/nextjs/hybrid/*'

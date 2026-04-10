@@ -8,7 +8,7 @@
 
 > **ToolDefinition**\<`T`\> = `object`
 
-Defined in: [agent/src/execute.js:20](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L20)
+Defined in: [agent/src/execute.js:62](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/agent/src/execute.js#L62)
 
 ## Type Parameters
 

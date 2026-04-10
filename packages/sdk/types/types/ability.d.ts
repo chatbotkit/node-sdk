@@ -111,7 +111,31 @@ export type CbkAbilityName = 'abort'
   | 'pack/cbk/space/storage[read-only]'
   | 'pack/file'
   | 'pack/file[by-id]'
+  | 'pack/rating'
+  | 'pack/rating[by-bot-id]'
+  | 'pack/rating[contact]'
+  | 'pack/rating[contact][by-bot-id]'
   | 'pack/shell'
+  | 'pack/task'
+  | 'pack/task[by-bot-id]'
+  | 'pack/task[contact]'
+  | 'pack/task[contact][by-bot-id]'
+  | 'rating/create'
+  | 'rating/create[by-bot-id]'
+  | 'rating/create[contact]'
+  | 'rating/create[contact][by-bot-id]'
+  | 'rating/delete'
+  | 'rating/delete[by-bot-id]'
+  | 'rating/delete[contact]'
+  | 'rating/delete[contact][by-bot-id]'
+  | 'rating/fetch'
+  | 'rating/fetch[by-bot-id]'
+  | 'rating/fetch[contact]'
+  | 'rating/fetch[contact][by-bot-id]'
+  | 'rating/list'
+  | 'rating/list[by-bot-id]'
+  | 'rating/list[contact]'
+  | 'rating/list[contact][by-bot-id]'
   | 'search/images'
   | 'search/news'
   | 'search/videos'
@@ -164,17 +188,29 @@ export type CbkAbilityName = 'abort'
   | 'space/update[by-id]'
   | 'space/update[contact][by-id]'
   | 'task/create'
+  | 'task/create[by-bot-id]'
   | 'task/create[contact]'
-  | 'task/delete[by-id]'
-  | 'task/delete[contact][by-id]'
-  | 'task/fetch[by-id]'
-  | 'task/fetch[contact][by-id]'
+  | 'task/create[contact][by-bot-id]'
+  | 'task/delete'
+  | 'task/delete[by-bot-id]'
+  | 'task/delete[contact]'
+  | 'task/delete[contact][by-bot-id]'
+  | 'task/fetch'
+  | 'task/fetch[by-bot-id]'
+  | 'task/fetch[contact]'
+  | 'task/fetch[contact][by-bot-id]'
   | 'task/list'
+  | 'task/list[by-bot-id]'
   | 'task/list[contact]'
-  | 'task/run[by-id]'
-  | 'task/run[contact][by-id]'
-  | 'task/update[by-id]'
-  | 'task/update[contact][by-id]'
+  | 'task/list[contact][by-bot-id]'
+  | 'task/run'
+  | 'task/run[by-bot-id]'
+  | 'task/run[contact]'
+  | 'task/run[contact][by-bot-id]'
+  | 'task/update'
+  | 'task/update[by-bot-id]'
+  | 'task/update[contact]'
+  | 'task/update[contact][by-bot-id]'
   | 'telegram/conversation/start[by-id]'
   | 'text/article/generate'
   | 'text/email/generate'
@@ -221,6 +257,8 @@ export type AgentExecuteParameters = {
   '@model'?: string
  /** instructions for the task execution */
   '@instructions'?: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type AgentTaskEvaluateParameters = {
@@ -230,6 +268,8 @@ export type AgentTaskEvaluateParameters = {
   '@model'?: string
  /** instructions for the evaluation */
   '@instructions'?: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type AgentTaskPlanParameters = {
@@ -239,6 +279,8 @@ export type AgentTaskPlanParameters = {
   '@model'?: string
  /** instructions for the task plan */
   '@instructions'?: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type AttachmentReadParameters = {
@@ -256,6 +298,8 @@ export type BlueprintResourceListParameters = {
 export type BotAskParameters = {
  /** the question to ask the bot */
   question: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type BotAskByIdParameters = {
@@ -263,6 +307,8 @@ export type BotAskByIdParameters = {
   botId: string
  /** the question to ask the bot */
   question: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type BotAskMultiParameters = {
@@ -270,6 +316,8 @@ export type BotAskMultiParameters = {
   ids: string
  /** the question to ask the bots */
   question: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type BotBackstoryReadParameters = Record<string, never>
@@ -294,6 +342,8 @@ export type BotBackstoryWriteByIdParameters = {
 export type BotCallParameters = {
  /** detailed description of the action to be performed */
   action: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type BotCallByIdParameters = {
@@ -301,6 +351,8 @@ export type BotCallByIdParameters = {
   botId: string
  /** detailed description of the action to be performed */
   action: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type BotCallMultiParameters = {
@@ -308,6 +360,8 @@ export type BotCallMultiParameters = {
   ids: string
  /** detailed description of the action to be performed */
   action: string
+ /** optional timeout in milliseconds */
+  timeout?: number
 }
 
 export type BotListParameters = {
@@ -837,7 +891,159 @@ export type PackFileParameters = Record<string, never>
 
 export type PackFileByIdParameters = Record<string, never>
 
+export type PackRatingParameters = Record<string, never>
+
+export type PackRatingByBotIdParameters = Record<string, never>
+
+export type PackRatingContactParameters = Record<string, never>
+
+export type PackRatingContactByBotIdParameters = Record<string, never>
+
 export type PackShellParameters = Record<string, never>
+
+export type PackTaskParameters = Record<string, never>
+
+export type PackTaskByBotIdParameters = Record<string, never>
+
+export type PackTaskContactParameters = Record<string, never>
+
+export type PackTaskContactByBotIdParameters = Record<string, never>
+
+export type RatingCreateParameters = {
+ /** optional name of the rating */
+  name?: string
+ /** optional description of the rating */
+  description?: string
+ /** the numeric rating value */
+  value: number
+ /** optional reason for the rating */
+  reason?: string
+ /** optional conversation ID to associate with the rating */
+  conversationId?: string
+ /** optional message ID to associate with the rating */
+  messageId?: string
+}
+
+export type RatingCreateByBotIdParameters = {
+ /** optional bot ID to assign */
+  botId?: string
+ /** optional name of the rating */
+  name?: string
+ /** optional description of the rating */
+  description?: string
+ /** the numeric rating value */
+  value: number
+ /** optional reason for the rating */
+  reason?: string
+ /** optional conversation ID to associate with the rating */
+  conversationId?: string
+ /** optional message ID to associate with the rating */
+  messageId?: string
+}
+
+export type RatingCreateContactParameters = {
+ /** optional name of the rating */
+  name?: string
+ /** optional description of the rating */
+  description?: string
+ /** the numeric rating value */
+  value: number
+ /** optional reason for the rating */
+  reason?: string
+ /** optional conversation ID to associate with the rating */
+  conversationId?: string
+ /** optional message ID to associate with the rating */
+  messageId?: string
+}
+
+export type RatingCreateContactByBotIdParameters = {
+ /** optional bot ID to assign */
+  botId?: string
+ /** optional name of the rating */
+  name?: string
+ /** optional description of the rating */
+  description?: string
+ /** the numeric rating value */
+  value: number
+ /** optional reason for the rating */
+  reason?: string
+ /** optional conversation ID to associate with the rating */
+  conversationId?: string
+ /** optional message ID to associate with the rating */
+  messageId?: string
+}
+
+export type RatingDeleteParameters = {
+ /** the ID of the rating to delete */
+  ratingId: string
+}
+
+export type RatingDeleteByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** the ID of the rating to delete */
+  ratingId: string
+}
+
+export type RatingDeleteContactParameters = {
+ /** the ID of the rating to delete */
+  ratingId: string
+}
+
+export type RatingDeleteContactByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** the ID of the rating to delete */
+  ratingId: string
+}
+
+export type RatingFetchParameters = {
+ /** the ID of the rating to fetch */
+  ratingId: string
+}
+
+export type RatingFetchByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** the ID of the rating to fetch */
+  ratingId: string
+}
+
+export type RatingFetchContactParameters = {
+ /** the ID of the rating to fetch */
+  ratingId: string
+}
+
+export type RatingFetchContactByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** the ID of the rating to fetch */
+  ratingId: string
+}
+
+export type RatingListParameters = {
+ /** optional rating value to filter by */
+  value?: number
+}
+
+export type RatingListByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** optional rating value to filter by */
+  value?: number
+}
+
+export type RatingListContactParameters = {
+ /** optional rating value to filter by */
+  value?: number
+}
+
+export type RatingListContactByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** optional rating value to filter by */
+  value?: number
+}
 
 export type SearchImagesParameters = {
  /** search query */
@@ -1226,7 +1432,18 @@ export type TaskCreateParameters = {
   name: string
  /** a detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - e.g. 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+  schedule?: string
+}
+
+export type TaskCreateByBotIdParameters = {
+ /** optional bot ID to assign */
+  botId?: string
+ /** the name of the task */
+  name: string
+ /** a detailed description that captures all the necessary information to complete the task */
+  description: string
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
 }
 
@@ -1235,63 +1452,152 @@ export type TaskCreateContactParameters = {
   name: string
  /** a detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - e.g. 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
 }
 
-export type TaskDeleteByIdParameters = {
+export type TaskCreateContactByBotIdParameters = {
+ /** optional bot ID to assign */
+  botId?: string
+ /** the name of the task */
+  name: string
+ /** a detailed description that captures all the necessary information to complete the task */
+  description: string
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+  schedule?: string
+}
+
+export type TaskDeleteParameters = {
  /** the ID of the task to delete */
   taskId: string
 }
 
-export type TaskDeleteContactByIdParameters = {
+export type TaskDeleteByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
  /** the ID of the task to delete */
   taskId: string
 }
 
-export type TaskFetchByIdParameters = {
+export type TaskDeleteContactParameters = {
+ /** the ID of the task to delete */
+  taskId: string
+}
+
+export type TaskDeleteContactByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** the ID of the task to delete */
+  taskId: string
+}
+
+export type TaskFetchParameters = {
  /** the ID of the task to fetch */
   taskId: string
 }
 
-export type TaskFetchContactByIdParameters = {
+export type TaskFetchByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** the ID of the task to fetch */
+  taskId: string
+}
+
+export type TaskFetchContactParameters = {
+ /** the ID of the task to fetch */
+  taskId: string
+}
+
+export type TaskFetchContactByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
  /** the ID of the task to fetch */
   taskId: string
 }
 
 export type TaskListParameters = Record<string, never>
 
+export type TaskListByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+}
+
 export type TaskListContactParameters = Record<string, never>
 
-export type TaskRunByIdParameters = {
+export type TaskListContactByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+}
+
+export type TaskRunParameters = {
  /** the ID of the task to run */
   taskId: string
 }
 
-export type TaskRunContactByIdParameters = {
+export type TaskRunByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
  /** the ID of the task to run */
   taskId: string
 }
 
-export type TaskUpdateByIdParameters = {
+export type TaskRunContactParameters = {
+ /** the ID of the task to run */
+  taskId: string
+}
+
+export type TaskRunContactByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** the ID of the task to run */
+  taskId: string
+}
+
+export type TaskUpdateParameters = {
  /** the ID of the task to update */
   taskId: string
  /** the updated name of the task */
   name: string
  /** an updated detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - e.g. 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
 }
 
-export type TaskUpdateContactByIdParameters = {
+export type TaskUpdateByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
  /** the ID of the task to update */
   taskId: string
  /** the updated name of the task */
   name: string
  /** an updated detailed description that captures all the necessary information to complete the task */
   description: string
- /** optional schedule - e.g. 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+  schedule?: string
+}
+
+export type TaskUpdateContactParameters = {
+ /** the ID of the task to update */
+  taskId: string
+ /** the updated name of the task */
+  name: string
+ /** an updated detailed description that captures all the necessary information to complete the task */
+  description: string
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
+  schedule?: string
+}
+
+export type TaskUpdateContactByBotIdParameters = {
+ /** optional bot ID to scope by */
+  botId: string
+ /** the ID of the task to update */
+  taskId: string
+ /** the updated name of the task */
+  name: string
+ /** an updated detailed description that captures all the necessary information to complete the task */
+  description: string
+ /** optional schedule - now, 2027-12-31T23:59:59, quarterhourly, halfhourly, hourly, daily, weekly, monthly, 0 0 * * * */
   schedule?: string
 }
 
@@ -1932,10 +2238,130 @@ export interface CbkAbilityRegistry {
     description: 'Installs file tools into the conversation to read, write, prepend, append, and replace content in files by specifying the file ID.'
     parameters: PackFileByIdParameters
   }
+  'pack/rating': {
+    name: 'Install Rating Tools'
+    description: 'Installs rating tools scoped to the connected bot. You can list, create, fetch, and delete ratings.'
+    parameters: PackRatingParameters
+  }
+  'pack/rating[by-bot-id]': {
+    name: 'Install Rating Tools'
+    description: 'Installs rating tools with dynamic bot scoping so ratings can be managed across accessible bots.'
+    parameters: PackRatingByBotIdParameters
+  }
+  'pack/rating[contact]': {
+    name: 'Install Contact Rating Tools'
+    description: 'Installs rating tools scoped to the current contact and connected bot. Each contact can only access their own ratings.'
+    parameters: PackRatingContactParameters
+  }
+  'pack/rating[contact][by-bot-id]': {
+    name: 'Install Contact Rating Tools'
+    description: 'Installs contact rating tools with dynamic bot scoping so a contact can work across accessible bots.'
+    parameters: PackRatingContactByBotIdParameters
+  }
   'pack/shell': {
     name: 'Install Shell Tools'
     description: 'Installs shell tools into the conversation to execute commands and scripts.'
     parameters: PackShellParameters
+  }
+  'pack/task': {
+    name: 'Install Task Management Tools'
+    description: 'Installs all task management tools scoped to the connected bot. You can list, create, fetch, update, delete, and run tasks.'
+    parameters: PackTaskParameters
+  }
+  'pack/task[by-bot-id]': {
+    name: 'Install Task Management Tools'
+    description: 'Installs all task management tools with dynamic bot scoping. You can manage tasks across any bot by specifying the bot ID.'
+    parameters: PackTaskByBotIdParameters
+  }
+  'pack/task[contact]': {
+    name: 'Install Contact Task Management Tools'
+    description: 'Installs task management tools scoped to the current contact and connected bot. Each contact can only see and manage their own tasks.'
+    parameters: PackTaskContactParameters
+  }
+  'pack/task[contact][by-bot-id]': {
+    name: 'Install Contact Task Management Tools'
+    description: 'Installs task management tools scoped to the current contact with dynamic bot scoping. Each contact can only see and manage their own tasks across any bot.'
+    parameters: PackTaskContactByBotIdParameters
+  }
+  'rating/create': {
+    name: 'Create Rating'
+    description: 'Create a rating for the connected bot'
+    parameters: RatingCreateParameters
+  }
+  'rating/create[by-bot-id]': {
+    name: 'Create Rating'
+    description: 'Create a rating with optional bot assignment'
+    parameters: RatingCreateByBotIdParameters
+  }
+  'rating/create[contact]': {
+    name: 'Create Contact Rating'
+    description: 'Create a rating for the current contact and connected bot'
+    parameters: RatingCreateContactParameters
+  }
+  'rating/create[contact][by-bot-id]': {
+    name: 'Create Contact Rating'
+    description: 'Create a contact rating with optional bot assignment'
+    parameters: RatingCreateContactByBotIdParameters
+  }
+  'rating/delete': {
+    name: 'Delete Rating'
+    description: 'Delete a rating scoped to the connected bot'
+    parameters: RatingDeleteParameters
+  }
+  'rating/delete[by-bot-id]': {
+    name: 'Delete Rating'
+    description: 'Delete a rating with optional bot scoping'
+    parameters: RatingDeleteByBotIdParameters
+  }
+  'rating/delete[contact]': {
+    name: 'Delete Contact Rating'
+    description: 'Delete a rating for the current contact and connected bot'
+    parameters: RatingDeleteContactParameters
+  }
+  'rating/delete[contact][by-bot-id]': {
+    name: 'Delete Contact Rating'
+    description: 'Delete a contact rating with optional bot scoping'
+    parameters: RatingDeleteContactByBotIdParameters
+  }
+  'rating/fetch': {
+    name: 'Fetch Rating'
+    description: 'Fetch a rating scoped to the connected bot'
+    parameters: RatingFetchParameters
+  }
+  'rating/fetch[by-bot-id]': {
+    name: 'Fetch Rating'
+    description: 'Fetch a rating with optional bot scoping'
+    parameters: RatingFetchByBotIdParameters
+  }
+  'rating/fetch[contact]': {
+    name: 'Fetch Contact Rating'
+    description: 'Fetch a rating for the current contact and connected bot'
+    parameters: RatingFetchContactParameters
+  }
+  'rating/fetch[contact][by-bot-id]': {
+    name: 'Fetch Contact Rating'
+    description: 'Fetch a contact rating with optional bot scoping'
+    parameters: RatingFetchContactByBotIdParameters
+  }
+  'rating/list': {
+    name: 'List Ratings'
+    description: 'List ratings scoped to the connected bot'
+    parameters: RatingListParameters
+  }
+  'rating/list[by-bot-id]': {
+    name: 'List Ratings'
+    description: 'List ratings with optional bot scoping'
+    parameters: RatingListByBotIdParameters
+  }
+  'rating/list[contact]': {
+    name: 'List Contact Ratings'
+    description: 'List ratings for the current contact and connected bot'
+    parameters: RatingListContactParameters
+  }
+  'rating/list[contact][by-bot-id]': {
+    name: 'List Contact Ratings'
+    description: 'List contact ratings with optional bot scoping'
+    parameters: RatingListContactByBotIdParameters
   }
   'search/images': {
     name: 'Search Images'
@@ -2197,60 +2623,120 @@ export interface CbkAbilityRegistry {
     description: 'Create a task using details provided'
     parameters: TaskCreateParameters
   }
+  'task/create[by-bot-id]': {
+    name: 'Create Task'
+    description: 'Create a task using details provided'
+    parameters: TaskCreateByBotIdParameters
+  }
   'task/create[contact]': {
     name: 'Create Task'
     description: 'Create a task using details provided'
     parameters: TaskCreateContactParameters
   }
-  'task/delete[by-id]': {
+  'task/create[contact][by-bot-id]': {
+    name: 'Create Task'
+    description: 'Create a task using details provided'
+    parameters: TaskCreateContactByBotIdParameters
+  }
+  'task/delete': {
     name: 'Delete Task'
     description: 'Delete an existing task'
-    parameters: TaskDeleteByIdParameters
+    parameters: TaskDeleteParameters
   }
-  'task/delete[contact][by-id]': {
+  'task/delete[by-bot-id]': {
     name: 'Delete Task'
     description: 'Delete an existing task'
-    parameters: TaskDeleteContactByIdParameters
+    parameters: TaskDeleteByBotIdParameters
   }
-  'task/fetch[by-id]': {
+  'task/delete[contact]': {
+    name: 'Delete Task'
+    description: 'Delete an existing task'
+    parameters: TaskDeleteContactParameters
+  }
+  'task/delete[contact][by-bot-id]': {
+    name: 'Delete Task'
+    description: 'Delete an existing task'
+    parameters: TaskDeleteContactByBotIdParameters
+  }
+  'task/fetch': {
     name: 'Fetch Task'
     description: 'Fetch details of a specific task'
-    parameters: TaskFetchByIdParameters
+    parameters: TaskFetchParameters
   }
-  'task/fetch[contact][by-id]': {
+  'task/fetch[by-bot-id]': {
     name: 'Fetch Task'
     description: 'Fetch details of a specific task'
-    parameters: TaskFetchContactByIdParameters
+    parameters: TaskFetchByBotIdParameters
+  }
+  'task/fetch[contact]': {
+    name: 'Fetch Task'
+    description: 'Fetch details of a specific task'
+    parameters: TaskFetchContactParameters
+  }
+  'task/fetch[contact][by-bot-id]': {
+    name: 'Fetch Task'
+    description: 'Fetch details of a specific task'
+    parameters: TaskFetchContactByBotIdParameters
   }
   'task/list': {
     name: 'List Tasks'
     description: 'List scheduled and one-time tasks'
     parameters: TaskListParameters
   }
+  'task/list[by-bot-id]': {
+    name: 'List Tasks'
+    description: 'List scheduled and one-time tasks'
+    parameters: TaskListByBotIdParameters
+  }
   'task/list[contact]': {
     name: 'List Tasks'
     description: 'List scheduled and one-time tasks'
     parameters: TaskListContactParameters
   }
-  'task/run[by-id]': {
+  'task/list[contact][by-bot-id]': {
+    name: 'List Tasks'
+    description: 'List scheduled and one-time tasks'
+    parameters: TaskListContactByBotIdParameters
+  }
+  'task/run': {
     name: 'Run Task'
     description: 'Perform a single run of a task using the provided task ID'
-    parameters: TaskRunByIdParameters
+    parameters: TaskRunParameters
   }
-  'task/run[contact][by-id]': {
+  'task/run[by-bot-id]': {
     name: 'Run Task'
     description: 'Perform a single run of a task using the provided task ID'
-    parameters: TaskRunContactByIdParameters
+    parameters: TaskRunByBotIdParameters
   }
-  'task/update[by-id]': {
+  'task/run[contact]': {
+    name: 'Run Task'
+    description: 'Perform a single run of a task using the provided task ID'
+    parameters: TaskRunContactParameters
+  }
+  'task/run[contact][by-bot-id]': {
+    name: 'Run Task'
+    description: 'Perform a single run of a task using the provided task ID'
+    parameters: TaskRunContactByBotIdParameters
+  }
+  'task/update': {
     name: 'Update Task'
     description: 'Update an existing task or to-do item'
-    parameters: TaskUpdateByIdParameters
+    parameters: TaskUpdateParameters
   }
-  'task/update[contact][by-id]': {
+  'task/update[by-bot-id]': {
     name: 'Update Task'
     description: 'Update an existing task or to-do item'
-    parameters: TaskUpdateContactByIdParameters
+    parameters: TaskUpdateByBotIdParameters
+  }
+  'task/update[contact]': {
+    name: 'Update Task'
+    description: 'Update an existing task or to-do item'
+    parameters: TaskUpdateContactParameters
+  }
+  'task/update[contact][by-bot-id]': {
+    name: 'Update Task'
+    description: 'Update an existing task or to-do item'
+    parameters: TaskUpdateContactByBotIdParameters
   }
   'telegram/conversation/start[by-id]': {
     name: 'Start Telegram Conversation'

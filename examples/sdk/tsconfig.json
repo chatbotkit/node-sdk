@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.check.json",
+  "include": ["types.d.ts", "*.js", "*.cjs", "*.ts"],
+  "exclude": []
+}
