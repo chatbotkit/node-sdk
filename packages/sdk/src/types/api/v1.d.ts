@@ -792,6 +792,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/conversation/{conversationId}/compact": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Compact a conversation into a checkpoint */
+        post: operations["compactConversation"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/conversation/{conversationId}/complete": {
         parameters: {
             query?: never;
@@ -5192,7 +5209,7 @@ export interface components {
              * @description The type of the message
              * @enum {string}
              */
-            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
             /** @description The text of the message */
             text: string;
             /** @description Meta data information */
@@ -5223,7 +5240,7 @@ export interface components {
          * @description The type of the message
          * @enum {string}
          */
-        MessageType: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+        MessageType: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
         /**
          * @description The type of the trigger
          * @enum {string}
@@ -5611,7 +5628,7 @@ export interface components {
                  * @description The type of the message
                  * @enum {string}
                  */
-                type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                 /** @description The text of the message */
                 text: string;
                 /** @description Meta data information */
@@ -6575,7 +6592,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                         /** @description The text of the message */
                         text: string;
                     }[];
@@ -6608,7 +6625,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                         }[];
@@ -8231,6 +8248,38 @@ export interface operations {
             };
         };
     };
+    compactConversation: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                conversationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The conversation was compacted successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the created checkpoint message, or the conversation ID if there was nothing to compact */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     completeConversationMessage: {
         parameters: {
             query?: never;
@@ -8459,7 +8508,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */
@@ -9007,7 +9056,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                         /** @description The text of the fetched message */
                         text: string;
                     };
@@ -9084,7 +9133,7 @@ export interface operations {
                      * @description The type of the message
                      * @enum {string}
                      */
-                    type?: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                    type?: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                     /** @description The updated text of the message */
                     text?: string;
                     /** @description Known entities */
@@ -9200,7 +9249,7 @@ export interface operations {
                      * @description The type of the message
                      * @enum {string}
                      */
-                    type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                    type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                     /** @description The text of the message */
                     text: string;
                     /** @description Known entities */
@@ -9307,7 +9356,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                         }[];
@@ -9340,7 +9389,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                         };
@@ -9535,7 +9584,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */
@@ -9834,7 +9883,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */
@@ -10122,7 +10171,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                         /** @description The text of the message */
                         text: string;
                         /** @description Meta data information */
@@ -10361,7 +10410,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */
@@ -10466,7 +10515,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                         /** @description The text of the message */
                         text: string;
                     }[];
@@ -10508,7 +10557,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                         }[];
@@ -10543,7 +10592,7 @@ export interface operations {
                          * @description The type of the message
                          * @enum {string}
                          */
-                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                        type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                         /** @description The text of the message */
                         text: string;
                         /** @description Meta data information */
@@ -21969,6 +22018,12 @@ export interface operations {
                         meta?: {
                             [key: string]: unknown;
                         };
+                        /** @description The instance ID */
+                        id: string;
+                        /** @description The timestamp (ms) when the instance was created */
+                        createdAt: number;
+                        /** @description The timestamp (ms) when the instance was updated */
+                        updatedAt: number;
                         /** @description The ID of the blueprint */
                         blueprintId?: string;
                         /**
@@ -23057,7 +23112,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */
@@ -23088,7 +23143,7 @@ export interface operations {
                                  * @description The type of the message
                                  * @enum {string}
                                  */
-                                type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                                type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                                 /** @description The text of the message */
                                 text: string;
                                 /** @description Meta data information */
@@ -23142,7 +23197,7 @@ export interface operations {
                              * @description The type of the message
                              * @enum {string}
                              */
-                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+                            type: "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity" | "checkpoint";
                             /** @description The text of the message */
                             text: string;
                             /** @description Meta data information */

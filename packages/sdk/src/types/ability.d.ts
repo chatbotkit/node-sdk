@@ -217,6 +217,7 @@ export type CbkAbilityName = 'abort'
   | 'text/generate'
   | 'text/summarize'
   | 'text/translate'
+  | 'time/now'
   | 'todo/manage'
   | 'todo/read'
   | 'todo/write'
@@ -1649,6 +1650,13 @@ export type TextTranslateParameters = {
   source: string
 }
 
+export type TimeNowParameters = {
+ /** optional IANA timezone such as UTC, America/New_York, or Europe/London */
+  timezone?: string
+ /** 'optional output format: datetime, date, time, iso, or unix' */
+  format?: string
+}
+
 export type TodoManageParameters = {
  /** 'the operation to perform: read to retrieve todos, write to replace the entire list' */
   operation: string
@@ -2767,6 +2775,11 @@ export interface CbkAbilityRegistry {
     name: 'Translate Text'
     description: 'Translate text from one language to another'
     parameters: TextTranslateParameters
+  }
+  'time/now': {
+    name: 'Get Current Date And Time'
+    description: 'Get the current date and time in one requested format, with optional timezone override.'
+    parameters: TimeNowParameters
   }
   'todo/manage': {
     name: 'Manage Todo List'

@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1775861143870)"
+    "version": "v1 (build 1776674677667)"
   },
   "servers": [
     {
@@ -43,7 +43,8 @@
               "context",
               "instruction",
               "backstory",
-              "activity"
+              "activity",
+              "checkpoint"
             ],
             "$$ref": "#/components/schemas/MessageType"
           },
@@ -123,7 +124,8 @@
           "context",
           "instruction",
           "backstory",
-          "activity"
+          "activity",
+          "checkpoint"
         ]
       },
       "Trigger": {
@@ -1055,7 +1057,8 @@
                       "context",
                       "instruction",
                       "backstory",
-                      "activity"
+                      "activity",
+                      "checkpoint"
                     ],
                     "$$ref": "#/components/schemas/MessageType"
                   },
@@ -3121,7 +3124,8 @@
                             "context",
                             "instruction",
                             "backstory",
-                            "activity"
+                            "activity",
+                            "checkpoint"
                           ],
                           "$$ref": "#/components/schemas/MessageType"
                         },
@@ -3187,7 +3191,8 @@
                               "context",
                               "instruction",
                               "backstory",
-                              "activity"
+                              "activity",
+                              "checkpoint"
                             ],
                             "$$ref": "#/components/schemas/MessageType"
                           },
@@ -6934,6 +6939,72 @@
         ]
       }
     },
+    "/conversation/{conversationId}/compact": {
+      "post": {
+        "operationId": "compactConversation",
+        "summary": "Compact a conversation into a checkpoint",
+        "tags": [
+          "Conversation"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "conversationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the conversation to compact",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The conversation was compacted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the created checkpoint message, or the conversation ID if there was nothing to compact",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "compactConversation",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/conversation/{conversationId}/complete": {
       "post": {
         "operationId": "completeConversationMessage",
@@ -7526,7 +7597,8 @@
                                     "context",
                                     "instruction",
                                     "backstory",
-                                    "activity"
+                                    "activity",
+                                    "checkpoint"
                                   ],
                                   "$$ref": "#/components/schemas/MessageType"
                                 },
@@ -8780,7 +8852,8 @@
                         "context",
                         "instruction",
                         "backstory",
-                        "activity"
+                        "activity",
+                        "checkpoint"
                       ],
                       "$$ref": "#/components/schemas/MessageType"
                     },
@@ -8973,7 +9046,8 @@
                       "context",
                       "instruction",
                       "backstory",
-                      "activity"
+                      "activity",
+                      "checkpoint"
                     ],
                     "$$ref": "#/components/schemas/MessageType"
                   },
@@ -9237,7 +9311,8 @@
                       "context",
                       "instruction",
                       "backstory",
-                      "activity"
+                      "activity",
+                      "checkpoint"
                     ],
                     "$$ref": "#/components/schemas/MessageType"
                   },
@@ -9510,7 +9585,8 @@
                               "context",
                               "instruction",
                               "backstory",
-                              "activity"
+                              "activity",
+                              "checkpoint"
                             ],
                             "$$ref": "#/components/schemas/MessageType"
                           },
@@ -9592,7 +9668,8 @@
                                 "context",
                                 "instruction",
                                 "backstory",
-                                "activity"
+                                "activity",
+                                "checkpoint"
                               ],
                               "$$ref": "#/components/schemas/MessageType"
                             },
@@ -10099,7 +10176,8 @@
                                     "context",
                                     "instruction",
                                     "backstory",
-                                    "activity"
+                                    "activity",
+                                    "checkpoint"
                                   ],
                                   "$$ref": "#/components/schemas/MessageType"
                                 },
@@ -10876,7 +10954,8 @@
                                     "context",
                                     "instruction",
                                     "backstory",
-                                    "activity"
+                                    "activity",
+                                    "checkpoint"
                                   ],
                                   "$$ref": "#/components/schemas/MessageType"
                                 },
@@ -11576,7 +11655,8 @@
                             "context",
                             "instruction",
                             "backstory",
-                            "activity"
+                            "activity",
+                            "checkpoint"
                           ],
                           "$$ref": "#/components/schemas/MessageType"
                         },
@@ -12148,7 +12228,8 @@
                                     "context",
                                     "instruction",
                                     "backstory",
-                                    "activity"
+                                    "activity",
+                                    "checkpoint"
                                   ],
                                   "$$ref": "#/components/schemas/MessageType"
                                 },
@@ -12395,7 +12476,8 @@
                             "context",
                             "instruction",
                             "backstory",
-                            "activity"
+                            "activity",
+                            "checkpoint"
                           ],
                           "$$ref": "#/components/schemas/MessageType"
                         },
@@ -12490,7 +12572,8 @@
                               "context",
                               "instruction",
                               "backstory",
-                              "activity"
+                              "activity",
+                              "checkpoint"
                             ],
                             "$$ref": "#/components/schemas/MessageType"
                           },
@@ -12634,7 +12717,8 @@
                             "context",
                             "instruction",
                             "backstory",
-                            "activity"
+                            "activity",
+                            "checkpoint"
                           ],
                           "$$ref": "#/components/schemas/MessageType"
                         },
@@ -38206,6 +38290,18 @@
                       "additionalProperties": true,
                       "$$ref": "#/components/schemas/Meta"
                     },
+                    "id": {
+                      "type": "string",
+                      "description": "The instance ID"
+                    },
+                    "createdAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was created"
+                    },
+                    "updatedAt": {
+                      "type": "number",
+                      "description": "The timestamp (ms) when the instance was updated"
+                    },
                     "blueprintId": {
                       "type": "string",
                       "description": "The ID of the blueprint"
@@ -38225,6 +38321,9 @@
                     }
                   },
                   "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
                     "type"
                   ]
                 }
@@ -40534,7 +40633,8 @@
                               "context",
                               "instruction",
                               "backstory",
-                              "activity"
+                              "activity",
+                              "checkpoint"
                             ],
                             "$$ref": "#/components/schemas/MessageType"
                           },
@@ -40616,7 +40716,8 @@
                                       "context",
                                       "instruction",
                                       "backstory",
-                                      "activity"
+                                      "activity",
+                                      "checkpoint"
                                     ],
                                     "$$ref": "#/components/schemas/MessageType"
                                   },
@@ -40764,7 +40865,8 @@
                                     "context",
                                     "instruction",
                                     "backstory",
-                                    "activity"
+                                    "activity",
+                                    "checkpoint"
                                   ],
                                   "$$ref": "#/components/schemas/MessageType"
                                 },
