@@ -6,7 +6,7 @@
 
 # Type Alias: MessageType
 
-> **MessageType**\<\> = `"user"` \| `"bot"` \| `"reasoning"` \| `"context"` \| `"instruction"` \| `"backstory"` \| `"activity"`
+> **MessageType**\<\> = `"user"` \| `"bot"` \| `"reasoning"` \| `"context"` \| `"instruction"` \| `"backstory"` \| `"checkpoint"` \| `"activity"`
 
 Defined in: [conversation/v1.js:14](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/conversation/v1.js#L14)
 
