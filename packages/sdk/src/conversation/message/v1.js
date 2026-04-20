@@ -9,7 +9,7 @@
  */
 
 /**
- * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'activity'} ConversationMessageType
+ * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'checkpoint'|'activity'} ConversationMessageType
  *
  * @typedef {{
  *   cursor?: string,

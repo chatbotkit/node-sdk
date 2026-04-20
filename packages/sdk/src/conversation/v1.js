@@ -11,7 +11,7 @@ import { buildModelString } from '../model/v1.js'
  */
 
 /**
- * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'activity'} MessageType
+ * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'checkpoint'|'activity'} MessageType
  *
  * @typedef {{
  *   type: MessageType,

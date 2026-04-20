@@ -7,7 +7,7 @@
  * @typedef {import('../client.js').ResponsePromise<T,U>} ResponsePromise
  */
 /**
- * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'activity'} MessageType
+ * @typedef {'user'|'bot'|'reasoning'|'context'|'instruction'|'backstory'|'checkpoint'|'activity'} MessageType
  *
  * @typedef {{
  *   type: MessageType,
@@ -241,7 +241,7 @@ export function upvoteConversation(client: ChatBotKitClient, conversationId: str
 export function downvoteConversation(client: ChatBotKitClient, conversationId: string, request: ConversationDownvoteRequest): Promise<ConversationDownvoteResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
-export type MessageType = "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "activity";
+export type MessageType = "user" | "bot" | "reasoning" | "context" | "instruction" | "backstory" | "checkpoint" | "activity";
 export type Message = {
     type: MessageType;
     text: string;
