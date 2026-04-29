@@ -71,10 +71,11 @@ export class BlueprintClient extends ChatBotKitClient {
    * Deletes the blueprint.
    *
    * @param {string} blueprintId
+   * @param {import('./v1.js').BlueprintDeleteRequest} [request]
    * @returns {Promise<import('./v1.js').BlueprintDeleteResponse>}
    */
-  delete(blueprintId) {
-    return deleteBlueprint(this, blueprintId)
+  delete(blueprintId, request) {
+    return deleteBlueprint(this, blueprintId, request)
   }
 
   /**

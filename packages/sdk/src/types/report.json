@@ -2071,6 +2071,380 @@
       },
       "createdAt": "2026-02-21T00:00:00.000Z",
       "updatedAt": "2026-02-21T00:00:00.000Z"
+    },
+    "pov1s2k3l4m5n6o7p8q9r0sov": {
+      "id": "pov1s2k3l4m5n6o7p8q9r0sov",
+      "name": "Platform Overview Report",
+      "description": "Single-call dashboard payload for the platform overview screen with resource counts, usage time series, top bots, and recent work",
+      "input": {
+        "$ref": "#/definitions/platform-overview-report-input",
+        "definitions": {
+          "platform-overview-report-input": {
+            "type": "object",
+            "properties": {
+              "periodDays": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 7
+              },
+              "topBotsLimit": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 20,
+                "default": 5
+              },
+              "recentWorkLimit": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 20,
+                "default": 4
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "output": {
+        "$ref": "#/definitions/platform-overview-report-output",
+        "definitions": {
+          "platform-overview-report-output": {
+            "type": "object",
+            "properties": {
+              "period": {
+                "type": "string"
+              },
+              "rangeLabel": {
+                "type": "string"
+              },
+              "resources": {
+                "type": "object",
+                "properties": {
+                  "blueprints": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "change": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "change"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "portals": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "change": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "change"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "bots": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "change": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "change"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "blueprints",
+                  "portals",
+                  "bots"
+                ],
+                "additionalProperties": false
+              },
+              "tokens": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "total"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "value",
+                  "change",
+                  "breakdown"
+                ],
+                "additionalProperties": false
+              },
+              "conversations": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "total"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "value",
+                  "change",
+                  "breakdown"
+                ],
+                "additionalProperties": false
+              },
+              "messages": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "total"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "value",
+                  "change",
+                  "breakdown"
+                ],
+                "additionalProperties": false
+              },
+              "negativeRatings": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  },
+                  "breakdown": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "total": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "total"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "value",
+                  "change",
+                  "breakdown"
+                ],
+                "additionalProperties": false
+              },
+              "positiveRatings": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "change": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "value",
+                  "change"
+                ],
+                "additionalProperties": false
+              },
+              "topBots": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "tokens": {
+                      "type": "number"
+                    },
+                    "conversations": {
+                      "type": "number"
+                    },
+                    "thumbsUp": {
+                      "type": "number"
+                    },
+                    "thumbsDown": {
+                      "type": "number"
+                    },
+                    "thumbsUpRate": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "sparkline": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "tokens",
+                    "conversations",
+                    "thumbsUp",
+                    "thumbsDown",
+                    "thumbsUpRate",
+                    "sparkline"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "recentWork": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "Blueprint",
+                        "Portal",
+                        "Bot",
+                        "Widget"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "link": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "kind",
+                    "name",
+                    "link",
+                    "createdAt"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "period",
+              "rangeLabel",
+              "resources",
+              "tokens",
+              "conversations",
+              "messages",
+              "negativeRatings",
+              "positiveRatings",
+              "topBots",
+              "recentWork"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "createdAt": "2026-04-28T00:00:00.000Z",
+      "updatedAt": "2026-04-28T00:00:00.000Z"
     }
   }
 }

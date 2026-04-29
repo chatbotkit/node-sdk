@@ -1,5 +1,7 @@
 import { ChatBotKitClient } from '../../client.js'
+import { TriggerIntegrationExecutionClient } from './execution/index.js'
 import {
+  cancelTriggerIntegration,
   createTriggerIntegration,
   deleteTriggerIntegration,
   fetchTriggerIntegration,
@@ -21,6 +23,11 @@ export class TriggerIntegrationClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    /**
+     * @type {TriggerIntegrationExecutionClient} execution client
+     */
+    this.execution = new TriggerIntegrationExecutionClient(options)
   }
 
   /**
@@ -72,6 +79,16 @@ export class TriggerIntegrationClient extends ChatBotKitClient {
    */
   delete(triggerId) {
     return deleteTriggerIntegration(this, triggerId)
+  }
+
+  /**
+   * Cancels a trigger integration.
+   *
+   * @param {string} triggerId
+   * @returns {Promise<import('./v1.js').TriggerIntegrationCancelResponse>}
+   */
+  cancel(triggerId) {
+    return cancelTriggerIntegration(this, triggerId)
   }
 
   /**

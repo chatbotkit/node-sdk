@@ -5,6 +5,10 @@
  */
 export class TriggerIntegrationClient extends ChatBotKitClient {
     /**
+     * @type {TriggerIntegrationExecutionClient} execution client
+     */
+    execution: TriggerIntegrationExecutionClient;
+    /**
      * Retrieves a list of all trigger integrations.
      *
      * @param {import('./v1.js').TriggerIntegrationListRequest} [request]
@@ -41,6 +45,13 @@ export class TriggerIntegrationClient extends ChatBotKitClient {
      */
     delete(triggerId: string): Promise<import("./v1.js").TriggerIntegrationDeleteResponse>;
     /**
+     * Cancels a trigger integration.
+     *
+     * @param {string} triggerId
+     * @returns {Promise<import('./v1.js').TriggerIntegrationCancelResponse>}
+     */
+    cancel(triggerId: string): Promise<import("./v1.js").TriggerIntegrationCancelResponse>;
+    /**
      * Setups a trigger integration.
      *
      * @param {string} triggerId
@@ -59,3 +70,4 @@ export class TriggerIntegrationClient extends ChatBotKitClient {
 export default TriggerIntegrationClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../../client.js';
+import { TriggerIntegrationExecutionClient } from './execution/index.js';

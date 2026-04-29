@@ -75,6 +75,20 @@ export function updateTask(client: ChatBotKitClient, taskId: string, request: Ta
  */
 export function deleteTask(client: ChatBotKitClient, taskId: string): Promise<TaskDeleteResponse>;
 /**
+ * @typedef {import('../types/api/v1.js').operations['cancelTask']['requestBody']['content']['application/json']} TaskCancelRequestBody
+ *
+ * @typedef {TaskCancelRequestBody} TaskCancelRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['cancelTask']['responses']['200']['content']['application/json']} TaskCancelResponseBody
+ *
+ * @typedef {TaskCancelResponseBody} TaskCancelResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} taskId
+ * @returns {Promise<TaskCancelResponse>}
+ */
+export function cancelTask(client: ChatBotKitClient, taskId: string): Promise<TaskCancelResponse>;
+/**
  * @typedef {import('../types/api/v1.js').operations['triggerTask']['requestBody']['content']['application/json']} TaskTriggerRequestBody
  *
  * @typedef {TaskTriggerRequestBody} TaskTriggerRequest
@@ -125,6 +139,10 @@ export type TaskDeleteRequestBody = import("../types/api/v1.js").operations["del
 export type TaskDeleteRequest = TaskDeleteRequestBody;
 export type TaskDeleteResponseBody = import("../types/api/v1.js").operations["deleteTask"]["responses"]["200"]["content"]["application/json"];
 export type TaskDeleteResponse = TaskDeleteResponseBody;
+export type TaskCancelRequestBody = import("../types/api/v1.js").operations["cancelTask"]["requestBody"]["content"]["application/json"];
+export type TaskCancelRequest = TaskCancelRequestBody;
+export type TaskCancelResponseBody = import("../types/api/v1.js").operations["cancelTask"]["responses"]["200"]["content"]["application/json"];
+export type TaskCancelResponse = TaskCancelResponseBody;
 export type TaskTriggerRequestBody = import("../types/api/v1.js").operations["triggerTask"]["requestBody"]["content"]["application/json"];
 export type TaskTriggerRequest = TaskTriggerRequestBody;
 export type TaskTriggerResponseBody = import("../types/api/v1.js").operations["triggerTask"]["responses"]["200"]["content"]["application/json"];

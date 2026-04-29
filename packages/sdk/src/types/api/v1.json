@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "CBK API",
-    "version": "v1 (build 1776674677667)"
+    "version": "v1 (build 1777467752373)"
   },
   "servers": [
     {
@@ -166,7 +166,8 @@
         "description": "The task execution status",
         "enum": [
           "idle",
-          "running"
+          "running",
+          "canceled"
         ]
       },
       "TaskOutcome": {
@@ -493,7 +494,7 @@
         "type": "string",
         "description": "A model definition",
         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-        "example": "gpt-4-turbo/temperature=0.7"
+        "example": "gpt-5.4"
       },
       "BotRef": {
         "type": "object",
@@ -513,7 +514,7 @@
             "type": "string",
             "description": "A model definition",
             "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-            "example": "gpt-4-turbo/temperature=0.7",
+            "example": "gpt-5.4",
             "$$ref": "#/components/schemas/Model"
           },
           "backstory": {
@@ -560,7 +561,7 @@
                 "type": "string",
                 "description": "A model definition",
                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                "example": "gpt-4-turbo/temperature=0.7",
+                "example": "gpt-5.4",
                 "$$ref": "#/components/schemas/Model"
               },
               "backstory": {
@@ -2901,7 +2902,7 @@
                       "type": "string",
                       "description": "A model definition",
                       "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                      "example": "gpt-4-turbo/temperature=0.7",
+                      "example": "gpt-5.4",
                       "$$ref": "#/components/schemas/Model"
                     },
                     "backstory": {
@@ -3293,7 +3294,7 @@
                     "type": "string",
                     "description": "A model definition",
                     "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                    "example": "gpt-4-turbo/temperature=0.7",
+                    "example": "gpt-5.4",
                     "$$ref": "#/components/schemas/Model"
                   },
                   "backstory": {
@@ -3599,7 +3600,7 @@
                     "type": "string",
                     "description": "A model definition",
                     "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                    "example": "gpt-4-turbo/temperature=0.7",
+                    "example": "gpt-5.4",
                     "$$ref": "#/components/schemas/Model"
                   },
                   "backstory": {
@@ -3784,7 +3785,7 @@
                             "type": "string",
                             "description": "A model definition",
                             "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                            "example": "gpt-4-turbo/temperature=0.7",
+                            "example": "gpt-5.4",
                             "$$ref": "#/components/schemas/Model"
                           },
                           "backstory": {
@@ -3887,7 +3888,7 @@
                               "type": "string",
                               "description": "A model definition",
                               "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                              "example": "gpt-4-turbo/temperature=0.7",
+                              "example": "gpt-5.4",
                               "$$ref": "#/components/schemas/Model"
                             },
                             "backstory": {
@@ -4277,7 +4278,7 @@
                                 "type": "string",
                                 "description": "A model definition",
                                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                                "example": "gpt-4-turbo/temperature=0.7",
+                                "example": "gpt-5.4",
                                 "$$ref": "#/components/schemas/Model"
                               },
                               "backstory": {
@@ -4395,7 +4396,7 @@
                                   "type": "string",
                                   "description": "A model definition",
                                   "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "example": "gpt-5.4",
                                   "$$ref": "#/components/schemas/Model"
                                 },
                                 "backstory": {
@@ -5783,7 +5784,8 @@
                             "description": "The task execution status",
                             "enum": [
                               "idle",
-                              "running"
+                              "running",
+                              "canceled"
                             ],
                             "$$ref": "#/components/schemas/TaskStatus"
                           },
@@ -5876,7 +5878,8 @@
                               "description": "The task execution status",
                               "enum": [
                                 "idle",
-                                "running"
+                                "running",
+                                "canceled"
                               ],
                               "$$ref": "#/components/schemas/TaskStatus"
                             },
@@ -8537,7 +8540,7 @@
                           "type": "string",
                           "description": "A model definition",
                           "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                          "example": "gpt-4-turbo/temperature=0.7",
+                          "example": "gpt-5.4",
                           "$$ref": "#/components/schemas/Model"
                         },
                         "backstory": {
@@ -11309,7 +11312,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                        "example": "gpt-4-turbo/temperature=0.7",
+                        "example": "gpt-5.4",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -11609,7 +11612,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                        "example": "gpt-4-turbo/temperature=0.7",
+                        "example": "gpt-5.4",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -12513,7 +12516,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                        "example": "gpt-4-turbo/temperature=0.7",
+                        "example": "gpt-5.4",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -12671,7 +12674,7 @@
                         "type": "string",
                         "description": "A model definition",
                         "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                        "example": "gpt-4-turbo/temperature=0.7",
+                        "example": "gpt-5.4",
                         "$$ref": "#/components/schemas/Model"
                       },
                       "backstory": {
@@ -13232,7 +13235,7 @@
                                 "type": "string",
                                 "description": "A model definition",
                                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                                "example": "gpt-4-turbo/temperature=0.7",
+                                "example": "gpt-5.4",
                                 "$$ref": "#/components/schemas/Model"
                               },
                               "backstory": {
@@ -13354,7 +13357,7 @@
                                   "type": "string",
                                   "description": "A model definition",
                                   "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "example": "gpt-5.4",
                                   "$$ref": "#/components/schemas/Model"
                                 },
                                 "backstory": {
@@ -13555,7 +13558,7 @@
                                 "type": "string",
                                 "description": "A model definition",
                                 "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                                "example": "gpt-4-turbo/temperature=0.7",
+                                "example": "gpt-5.4",
                                 "$$ref": "#/components/schemas/Model"
                               },
                               "backstory": {
@@ -13677,7 +13680,7 @@
                                   "type": "string",
                                   "description": "A model definition",
                                   "pattern": "\\w+(?:\\/\\w+=\\w+)*",
-                                  "example": "gpt-4-turbo/temperature=0.7",
+                                  "example": "gpt-5.4",
                                   "$$ref": "#/components/schemas/Model"
                                 },
                                 "backstory": {
@@ -19700,6 +19703,266 @@
           }
         },
         "__originalOperationId": "fetchExtractIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/extract/{extractIntegrationId}/item/export": {
+      "get": {
+        "operationId": "exportExtractIntegrationItems",
+        "summary": "Export extract integration items",
+        "tags": [
+          "Extract Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extractIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the extract integration",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The extract integration items were exported successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The unique identifier of the item",
+                            "type": "string"
+                          },
+                          "extractIntegrationId": {
+                            "description": "The ID of the extract integration",
+                            "type": "string"
+                          },
+                          "conversationId": {
+                            "description": "The ID of the conversation from which data was extracted",
+                            "type": "string"
+                          },
+                          "data": {
+                            "description": "The extracted data in YAML-serializable format",
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "createdAt": {
+                            "description": "The timestamp when the item was created",
+                            "type": "string"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp when the item was last updated",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "extractIntegrationId",
+                          "data"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "exportExtractIntegrationItems",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/extract/{extractIntegrationId}/item/list": {
+      "get": {
+        "operationId": "listExtractIntegrationItems",
+        "summary": "List extract integration items",
+        "tags": [
+          "Extract Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "extractIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the extract integration",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of extract integration items was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "The unique identifier of the item",
+                            "type": "string"
+                          },
+                          "extractIntegrationId": {
+                            "description": "The ID of the extract integration",
+                            "type": "string"
+                          },
+                          "conversationId": {
+                            "description": "The ID of the conversation from which data was extracted",
+                            "type": "string"
+                          },
+                          "data": {
+                            "description": "The extracted data matching the integration schema",
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "createdAt": {
+                            "description": "The timestamp when the item was created",
+                            "type": "string"
+                          },
+                          "updatedAt": {
+                            "description": "The timestamp when the item was last updated",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "extractIntegrationId",
+                          "data"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listExtractIntegrationItems",
         "security": [
           {
             "BearerAuth": []
@@ -27811,6 +28074,83 @@
         ]
       }
     },
+    "/integration/trigger/{triggerIntegrationId}/cancel": {
+      "post": {
+        "operationId": "cancelTriggerIntegration",
+        "summary": "Cancel a running Trigger integration",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "triggerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration to cancel",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Trigger integration was canceled successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the canceled Trigger integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "cancelTriggerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/integration/trigger/{triggerIntegrationId}/delete": {
       "post": {
         "operationId": "deleteTriggerIntegration",
@@ -27881,6 +28221,369 @@
           }
         },
         "__originalOperationId": "deleteTriggerIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/{triggerIntegrationId}/execution/{triggerExecutionId}/cancel": {
+      "post": {
+        "operationId": "cancelTriggerIntegrationExecution",
+        "summary": "Cancel a Trigger integration execution",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "triggerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "triggerExecutionId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration execution to cancel",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The Trigger integration execution was canceled successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the canceled Trigger integration execution",
+                      "type": "string"
+                    },
+                    "triggerIntegrationId": {
+                      "description": "The ID of the parent Trigger integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "triggerIntegrationId"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "cancelTriggerIntegrationExecution",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/trigger/{triggerIntegrationId}/execution/list": {
+      "get": {
+        "operationId": "listTriggerIntegrationExecutions",
+        "summary": "List Trigger integration executions",
+        "tags": [
+          "Trigger Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "triggerIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the Trigger integration",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "description": "Filter by execution status",
+              "type": "string",
+              "enum": [
+                "idle",
+                "running",
+                "canceled"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of Trigger integration executions was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "triggerIntegrationId": {
+                            "type": "string",
+                            "description": "The trigger integration this execution belongs to"
+                          },
+                          "conversationId": {
+                            "type": "string",
+                            "description": "The conversation associated with this execution"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current execution status"
+                          },
+                          "outcome": {
+                            "type": "string",
+                            "description": "Final execution outcome"
+                          },
+                          "summary": {
+                            "type": "string",
+                            "description": "A summary of the execution result"
+                          },
+                          "completedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the execution completed"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "triggerIntegrationId": {
+                              "type": "string",
+                              "description": "The trigger integration this execution belongs to"
+                            },
+                            "conversationId": {
+                              "type": "string",
+                              "description": "The conversation associated with this execution"
+                            },
+                            "status": {
+                              "type": "string",
+                              "description": "Current execution status"
+                            },
+                            "outcome": {
+                              "type": "string",
+                              "description": "Final execution outcome"
+                            },
+                            "summary": {
+                              "type": "string",
+                              "description": "A summary of the execution result"
+                            },
+                            "completedAt": {
+                              "type": "string",
+                              "format": "date-time",
+                              "description": "When the execution completed"
+                            }
+                          },
+                          "$$ref": "#/paths/~1integration~1trigger~1{triggerIntegrationId}~1execution~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listTriggerIntegrationExecutions",
         "security": [
           {
             "BearerAuth": []
@@ -30521,6 +31224,201 @@
           }
         },
         "__originalOperationId": "fetchWidgetIntegration",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/widget/{widgetIntegrationId}/file/{fileId}/attach": {
+      "post": {
+        "operationId": "attachWidgetIntegrationFile",
+        "summary": "Attach a file to a widget integration",
+        "tags": [
+          "Widget Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "widgetIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the widget integration",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the file to attach",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "description": "The attachment slot type for the file",
+                    "type": "string",
+                    "enum": [
+                      "bar",
+                      "user",
+                      "bot",
+                      "button"
+                    ]
+                  }
+                },
+                "required": [
+                  "type"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file was attached to the widget integration successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the attached file",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The attachment slot type",
+                      "type": "string"
+                    },
+                    "widgetIntegrationId": {
+                      "description": "The ID of the widget integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "widgetIntegrationId"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "attachWidgetIntegrationFile",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/integration/widget/{widgetIntegrationId}/file/{fileId}/detach": {
+      "post": {
+        "operationId": "detachWidgetIntegrationFile",
+        "summary": "Detach a file from a widget integration",
+        "tags": [
+          "Widget Integration"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "widgetIntegrationId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the widget integration",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "fileId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the file to detach",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file was detached from the widget integration successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the detached file",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The attachment slot type that was cleared",
+                      "type": "string"
+                    },
+                    "widgetIntegrationId": {
+                      "description": "The ID of the widget integration",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "widgetIntegrationId"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "detachWidgetIntegrationFile",
         "security": [
           {
             "BearerAuth": []
@@ -44010,6 +44908,83 @@
         ]
       }
     },
+    "/task/{taskId}/cancel": {
+      "post": {
+        "operationId": "cancelTask",
+        "summary": "Cancel a running task",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the task to cancel",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The task was canceled successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the canceled task",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "cancelTask",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/task/{taskId}/delete": {
       "post": {
         "operationId": "deleteTask",
@@ -44087,6 +45062,393 @@
         ]
       }
     },
+    "/task/{taskId}/execution/{taskExecutionId}/cancel": {
+      "post": {
+        "operationId": "cancelTaskExecution",
+        "summary": "Cancel a task execution",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the task",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "taskExecutionId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the task execution to cancel",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The task execution was canceled successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the canceled task execution",
+                      "type": "string"
+                    },
+                    "taskId": {
+                      "description": "The ID of the parent task",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "taskId"
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "cancelTaskExecution",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task/{taskId}/execution/list": {
+      "get": {
+        "operationId": "listTaskExecutions",
+        "summary": "List task executions",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "required": true,
+            "schema": {
+              "description": "The ID of the task",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "description": "The cursor to use for pagination",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "description": "The order of the paginated items",
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            }
+          },
+          {
+            "in": "query",
+            "name": "take",
+            "schema": {
+              "description": "The number of items to retrieve",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "description": "Filter by execution status",
+              "type": "string",
+              "enum": [
+                "idle",
+                "running",
+                "canceled"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "meta",
+            "schema": {
+              "description": "Key-value pairs to filter by metadata",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "style": "deepObject",
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of task executions was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Instance list properties",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "The associated name"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The associated description"
+                          },
+                          "meta": {
+                            "type": "object",
+                            "description": "Meta data information",
+                            "additionalProperties": true,
+                            "$$ref": "#/components/schemas/Meta"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "The instance ID"
+                          },
+                          "createdAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was created"
+                          },
+                          "updatedAt": {
+                            "type": "number",
+                            "description": "The timestamp (ms) when the instance was updated"
+                          },
+                          "taskId": {
+                            "type": "string",
+                            "description": "The task this execution belongs to"
+                          },
+                          "conversationId": {
+                            "type": "string",
+                            "description": "The conversation associated with this execution"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The task execution status",
+                            "enum": [
+                              "idle",
+                              "running",
+                              "canceled"
+                            ],
+                            "$$ref": "#/components/schemas/TaskStatus"
+                          },
+                          "outcome": {
+                            "type": "string",
+                            "description": "The task execution outcome",
+                            "enum": [
+                              "pending",
+                              "success",
+                              "failure"
+                            ],
+                            "$$ref": "#/components/schemas/TaskOutcome"
+                          },
+                          "summary": {
+                            "type": "string",
+                            "description": "A summary of the execution result"
+                          },
+                          "completedAt": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "When the execution completed"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    },
+                    "cursor": {
+                      "description": "Cursor for fetching the next page",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "cursor"
+                  ]
+                }
+              },
+              "application/jsonl": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "description": "The type of event",
+                          "type": "string",
+                          "enum": [
+                            "item"
+                          ]
+                        },
+                        "data": {
+                          "type": "object",
+                          "description": "Instance list properties",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "The associated name"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "The associated description"
+                            },
+                            "meta": {
+                              "type": "object",
+                              "description": "Meta data information",
+                              "additionalProperties": true,
+                              "$$ref": "#/components/schemas/Meta"
+                            },
+                            "id": {
+                              "type": "string",
+                              "description": "The instance ID"
+                            },
+                            "createdAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was created"
+                            },
+                            "updatedAt": {
+                              "type": "number",
+                              "description": "The timestamp (ms) when the instance was updated"
+                            },
+                            "taskId": {
+                              "type": "string",
+                              "description": "The task this execution belongs to"
+                            },
+                            "conversationId": {
+                              "type": "string",
+                              "description": "The conversation associated with this execution"
+                            },
+                            "status": {
+                              "type": "string",
+                              "description": "The task execution status",
+                              "enum": [
+                                "idle",
+                                "running",
+                                "canceled"
+                              ],
+                              "$$ref": "#/components/schemas/TaskStatus"
+                            },
+                            "outcome": {
+                              "type": "string",
+                              "description": "The task execution outcome",
+                              "enum": [
+                                "pending",
+                                "success",
+                                "failure"
+                              ],
+                              "$$ref": "#/components/schemas/TaskOutcome"
+                            },
+                            "summary": {
+                              "type": "string",
+                              "description": "A summary of the execution result"
+                            },
+                            "completedAt": {
+                              "type": "string",
+                              "format": "date-time",
+                              "description": "When the execution completed"
+                            }
+                          },
+                          "$$ref": "#/paths/~1task~1{taskId}~1execution~1list/get/responses/200/content/application~1json/schema/properties/items/items",
+                          "required": [
+                            "id",
+                            "createdAt",
+                            "updatedAt"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "data"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "type": "object",
+            "description": "An error response",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "The error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "The error code"
+              }
+            },
+            "required": [
+              "message",
+              "code"
+            ],
+            "$$ref": "#/components/responses/ErrorResponse"
+          }
+        },
+        "__originalOperationId": "listTaskExecutions",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
     "/task/{taskId}/fetch": {
       "get": {
         "operationId": "fetchTask",
@@ -44157,7 +45519,8 @@
                       "description": "The task execution status",
                       "enum": [
                         "idle",
-                        "running"
+                        "running",
+                        "canceled"
                       ],
                       "$$ref": "#/components/schemas/TaskStatus"
                     },
@@ -44808,7 +46171,8 @@
               "type": "string",
               "enum": [
                 "idle",
-                "running"
+                "running",
+                "canceled"
               ]
             }
           },
@@ -44883,7 +46247,8 @@
                             "description": "The task execution status",
                             "enum": [
                               "idle",
-                              "running"
+                              "running",
+                              "canceled"
                             ],
                             "$$ref": "#/components/schemas/TaskStatus"
                           },
@@ -44984,7 +46349,8 @@
                               "description": "The task execution status",
                               "enum": [
                                 "idle",
-                                "running"
+                                "running",
+                                "canceled"
                               ],
                               "$$ref": "#/components/schemas/TaskStatus"
                             },

@@ -42,7 +42,7 @@ Defined in: [blueprint/index.js:25](https://github.com/chatbotkit/node-sdk/blob/
 
 > **clone**(`blueprintId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/index.js:86](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L86)
+Defined in: [blueprint/index.js:87](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L87)
 
 Clones a blueprint.
 
@@ -78,9 +78,9 @@ Creates a new blueprint.
 
 ### delete()
 
-> **delete**(`blueprintId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+> **delete**(`blueprintId`, `request?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/index.js:76](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L76)
+Defined in: [blueprint/index.js:77](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L77)
 
 Deletes the blueprint.
 
@@ -89,6 +89,8 @@ Deletes the blueprint.
 ##### blueprintId
 
 `string`
+
+##### request?
 
 #### Returns
 
@@ -174,7 +176,7 @@ Retrieves a list of all blueprints.
 
 > **listResources**(`blueprintId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/index.js:96](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L96)
+Defined in: [blueprint/index.js:97](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/index.js#L97)
 
 Lists all resources for a blueprint.
 

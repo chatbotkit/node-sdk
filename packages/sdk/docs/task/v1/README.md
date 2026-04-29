@@ -10,6 +10,10 @@
 
 - [ChatBotKitClient](type-aliases/ChatBotKitClient.md)
 - [ResponsePromise](type-aliases/ResponsePromise.md)
+- [TaskCancelRequest](type-aliases/TaskCancelRequest.md)
+- [TaskCancelRequestBody](type-aliases/TaskCancelRequestBody.md)
+- [TaskCancelResponse](type-aliases/TaskCancelResponse.md)
+- [TaskCancelResponseBody](type-aliases/TaskCancelResponseBody.md)
 - [TaskCreateRequest](type-aliases/TaskCreateRequest.md)
 - [TaskCreateRequestBody](type-aliases/TaskCreateRequestBody.md)
 - [TaskCreateResponse](type-aliases/TaskCreateResponse.md)
@@ -35,6 +39,7 @@
 
 ## Functions
 
+- [cancelTask](functions/cancelTask.md)
 - [createTask](functions/createTask.md)
 - [deleteTask](functions/deleteTask.md)
 - [exportTasks](functions/exportTasks.md)

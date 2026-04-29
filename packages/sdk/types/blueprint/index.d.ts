@@ -40,9 +40,10 @@ export class BlueprintClient extends ChatBotKitClient {
      * Deletes the blueprint.
      *
      * @param {string} blueprintId
+     * @param {import('./v1.js').BlueprintDeleteRequest} [request]
      * @returns {Promise<import('./v1.js').BlueprintDeleteResponse>}
      */
-    delete(blueprintId: string): Promise<import("./v1.js").BlueprintDeleteResponse>;
+    delete(blueprintId: string, request?: import("./v1.js").BlueprintDeleteRequest): Promise<import("./v1.js").BlueprintDeleteResponse>;
     /**
      * Clones a blueprint.
      *

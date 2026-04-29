@@ -720,6 +720,26 @@
       "types": "./types/integration/telegram/v1.d.ts",
       "import": "./src/integration/telegram/v1.js"
     },
+    "./integration/trigger/execution": {
+      "types": "./types/integration/trigger/execution/index.d.ts",
+      "import": "./src/integration/trigger/execution/index.js"
+    },
+    "./integration/trigger/execution/index": {
+      "types": "./types/integration/trigger/execution/index.d.ts",
+      "import": "./src/integration/trigger/execution/index.js"
+    },
+    "./integration/trigger/execution/index.js": {
+      "types": "./types/integration/trigger/execution/index.d.ts",
+      "import": "./src/integration/trigger/execution/index.js"
+    },
+    "./integration/trigger/execution/v1": {
+      "types": "./types/integration/trigger/execution/v1.d.ts",
+      "import": "./src/integration/trigger/execution/v1.js"
+    },
+    "./integration/trigger/execution/v1.js": {
+      "types": "./types/integration/trigger/execution/v1.d.ts",
+      "import": "./src/integration/trigger/execution/v1.js"
+    },
     "./integration/trigger": {
       "types": "./types/integration/trigger/index.d.ts",
       "import": "./src/integration/trigger/index.js"
@@ -1255,6 +1275,26 @@
     "./space/v1.js": {
       "types": "./types/space/v1.d.ts",
       "import": "./src/space/v1.js"
+    },
+    "./task/execution": {
+      "types": "./types/task/execution/index.d.ts",
+      "import": "./src/task/execution/index.js"
+    },
+    "./task/execution/index": {
+      "types": "./types/task/execution/index.d.ts",
+      "import": "./src/task/execution/index.js"
+    },
+    "./task/execution/index.js": {
+      "types": "./types/task/execution/index.d.ts",
+      "import": "./src/task/execution/index.js"
+    },
+    "./task/execution/v1": {
+      "types": "./types/task/execution/v1.d.ts",
+      "import": "./src/task/execution/v1.js"
+    },
+    "./task/execution/v1.js": {
+      "types": "./types/task/execution/v1.d.ts",
+      "import": "./src/task/execution/v1.js"
     },
     "./task": {
       "types": "./types/task/index.d.ts",
