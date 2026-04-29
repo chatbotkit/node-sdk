@@ -115,15 +115,18 @@ export async function updateWidgetIntegration(client, widgetId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} widgetId
+ * @param {WidgetIntegrationDeleteRequest} [request]
  * @returns {Promise<WidgetIntegrationDeleteResponse>}
  */
-export async function deleteWidgetIntegration(client, widgetId) {
+export async function deleteWidgetIntegration(client, widgetId, request) {
   const url = `/api/v1/integration/widget/${widgetId}/delete`
 
   /** @type {WidgetIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {WidgetIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

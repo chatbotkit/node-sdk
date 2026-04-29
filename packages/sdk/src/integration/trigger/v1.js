@@ -115,15 +115,18 @@ export async function updateTriggerIntegration(client, triggerId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
+ * @param {TriggerIntegrationDeleteRequest} [request]
  * @returns {Promise<TriggerIntegrationDeleteResponse>}
  */
-export async function deleteTriggerIntegration(client, triggerId) {
+export async function deleteTriggerIntegration(client, triggerId, request) {
   const url = `/api/v1/integration/trigger/${triggerId}/delete`
 
   /** @type {TriggerIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TriggerIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

@@ -71,9 +71,10 @@ export function updatePolicy(client: ChatBotKitClient, policyId: string, request
  *
  * @param {ChatBotKitClient} client
  * @param {string} policyId
+ * @param {PolicyDeleteRequest} [request]
  * @returns {Promise<PolicyDeleteResponse>}
  */
-export function deletePolicy(client: ChatBotKitClient, policyId: string): Promise<PolicyDeleteResponse>;
+export function deletePolicy(client: ChatBotKitClient, policyId: string, request?: PolicyDeleteRequest): Promise<PolicyDeleteResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type PolicyListRequest = {

@@ -115,15 +115,18 @@ export async function updatePolicy(client, policyId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} policyId
+ * @param {PolicyDeleteRequest} [request]
  * @returns {Promise<PolicyDeleteResponse>}
  */
-export async function deletePolicy(client, policyId) {
+export async function deletePolicy(client, policyId, request) {
   const url = `/api/v1/policy/${policyId}/delete`
 
   /** @type {PolicyDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {PolicyDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

@@ -71,9 +71,10 @@ export function updateSitemapIntegration(client: ChatBotKitClient, sitemapId: st
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
+ * @param {SitemapIntegrationDeleteRequest} [request]
  * @returns {Promise<SitemapIntegrationDeleteResponse>}
  */
-export function deleteSitemapIntegration(client: ChatBotKitClient, sitemapId: string): Promise<SitemapIntegrationDeleteResponse>;
+export function deleteSitemapIntegration(client: ChatBotKitClient, sitemapId: string, request?: SitemapIntegrationDeleteRequest): Promise<SitemapIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['syncSitemapIntegration']['requestBody']['content']['application/json']} SitemapIntegrationSyncRequestBody
  *

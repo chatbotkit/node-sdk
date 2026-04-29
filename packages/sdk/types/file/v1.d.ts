@@ -71,9 +71,10 @@ export function updateFile(client: ChatBotKitClient, fileId: string, request: Fi
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
+ * @param {FileDeleteRequest} [request]
  * @returns {Promise<FileDeleteResponse>}
  */
-export function deleteFile(client: ChatBotKitClient, fileId: string): Promise<FileDeleteResponse>;
+export function deleteFile(client: ChatBotKitClient, fileId: string, request?: FileDeleteRequest): Promise<FileDeleteResponse>;
 /**
  * @typedef {import('../types/api/v1.js').operations['uploadFile']['requestBody']['content']['application/json']} FileUploadRequestBody
  *

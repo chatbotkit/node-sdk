@@ -115,15 +115,18 @@ export async function updateNotionIntegration(client, notionId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
+ * @param {NotionIntegrationDeleteRequest} [request]
  * @returns {Promise<NotionIntegrationDeleteResponse>}
  */
-export async function deleteNotionIntegration(client, notionId) {
+export async function deleteNotionIntegration(client, notionId, request) {
   const url = `/api/v1/integration/notion/${notionId}/delete`
 
   /** @type {NotionIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {NotionIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

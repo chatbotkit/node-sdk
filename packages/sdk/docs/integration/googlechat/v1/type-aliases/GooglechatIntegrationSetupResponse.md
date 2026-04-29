@@ -8,6 +8,6 @@
 
 > **GooglechatIntegrationSetupResponse**\<\> = [`GooglechatIntegrationSetupResponseBody`](GooglechatIntegrationSetupResponseBody.md)
 
-Defined in: [integration/googlechat/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/v1.js#L135)
+Defined in: [integration/googlechat/v1.js:142](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/v1.js#L142)
 
 ## Type Parameters

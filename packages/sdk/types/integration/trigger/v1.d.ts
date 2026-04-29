@@ -71,9 +71,10 @@ export function updateTriggerIntegration(client: ChatBotKitClient, triggerId: st
  *
  * @param {ChatBotKitClient} client
  * @param {string} triggerId
+ * @param {TriggerIntegrationDeleteRequest} [request]
  * @returns {Promise<TriggerIntegrationDeleteResponse>}
  */
-export function deleteTriggerIntegration(client: ChatBotKitClient, triggerId: string): Promise<TriggerIntegrationDeleteResponse>;
+export function deleteTriggerIntegration(client: ChatBotKitClient, triggerId: string, request?: TriggerIntegrationDeleteRequest): Promise<TriggerIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['cancelTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationCancelRequestBody
  *

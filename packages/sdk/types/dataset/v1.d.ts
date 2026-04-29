@@ -71,9 +71,10 @@ export function updateDataset(client: ChatBotKitClient, datasetId: string, reque
  *
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
+ * @param {DatasetDeleteRequest} [request]
  * @returns {Promise<DatasetDeleteResponse>}
  */
-export function deleteDataset(client: ChatBotKitClient, datasetId: string): Promise<DatasetDeleteResponse>;
+export function deleteDataset(client: ChatBotKitClient, datasetId: string, request?: DatasetDeleteRequest): Promise<DatasetDeleteResponse>;
 /**
  * @typedef {import('../types/api/v1.js').operations['searchDataset']['requestBody']['content']['application/json']} DatasetSearchRequestBody
  *

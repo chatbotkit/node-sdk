@@ -115,15 +115,18 @@ export async function updateTeamsIntegration(client, teamsId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} teamsId
+ * @param {TeamsIntegrationDeleteRequest} [request]
  * @returns {Promise<TeamsIntegrationDeleteResponse>}
  */
-export async function deleteTeamsIntegration(client, teamsId) {
+export async function deleteTeamsIntegration(client, teamsId, request) {
   const url = `/api/v1/integration/teams/${teamsId}/delete`
 
   /** @type {TeamsIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TeamsIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

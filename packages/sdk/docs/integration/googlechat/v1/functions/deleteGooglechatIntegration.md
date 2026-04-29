@@ -6,9 +6,9 @@
 
 # Function: deleteGooglechatIntegration()
 
-> **deleteGooglechatIntegration**(`client`, `googlechatId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+> **deleteGooglechatIntegration**(`client`, `googlechatId`, `request?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/googlechat/v1.js:118](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/v1.js#L118)
+Defined in: [integration/googlechat/v1.js:119](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/v1.js#L119)
 
 ## Parameters
 
@@ -19,6 +19,10 @@ Defined in: [integration/googlechat/v1.js:118](https://github.com/chatbotkit/nod
 ### googlechatId
 
 `string`
+
+### request?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>
 
 ## Returns
 

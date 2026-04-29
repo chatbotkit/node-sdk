@@ -71,9 +71,10 @@ export function updateNotionIntegration(client: ChatBotKitClient, notionId: stri
  *
  * @param {ChatBotKitClient} client
  * @param {string} notionId
+ * @param {NotionIntegrationDeleteRequest} [request]
  * @returns {Promise<NotionIntegrationDeleteResponse>}
  */
-export function deleteNotionIntegration(client: ChatBotKitClient, notionId: string): Promise<NotionIntegrationDeleteResponse>;
+export function deleteNotionIntegration(client: ChatBotKitClient, notionId: string, request?: NotionIntegrationDeleteRequest): Promise<NotionIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['syncNotionIntegration']['requestBody']['content']['application/json']} NotionIntegrationSyncRequestBody
  *

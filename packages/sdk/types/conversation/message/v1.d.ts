@@ -78,9 +78,10 @@ export function updateConversationMessage(client: ChatBotKitClient, conversation
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
  * @param {string} messageId
+ * @param {ConversationMessageDeleteRequest} [request]
  * @returns {Promise<ConversationMessageDeleteResponse>}
  */
-export function deleteConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string): Promise<ConversationMessageDeleteResponse>;
+export function deleteConversationMessage(client: ChatBotKitClient, conversationId: string, messageId: string, request?: ConversationMessageDeleteRequest): Promise<ConversationMessageDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['upvoteConversationMessage']['requestBody']['content']['application/json']} ConversationMessageUpvoteRequestBody
  *

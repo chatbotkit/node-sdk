@@ -117,15 +117,18 @@ export async function updateMemory(client, memoryId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} memoryId
+ * @param {MemoryDeleteRequest} [request]
  * @returns {Promise<MemoryDeleteResponse>}
  */
-export async function deleteMemory(client, memoryId) {
+export async function deleteMemory(client, memoryId, request) {
   const url = `/api/v1/memory/${memoryId}/delete`
 
   /** @type {MemoryDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {MemoryDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

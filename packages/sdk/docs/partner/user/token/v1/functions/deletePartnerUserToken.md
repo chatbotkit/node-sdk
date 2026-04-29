@@ -6,9 +6,9 @@
 
 # Function: deletePartnerUserToken()
 
-> **deletePartnerUserToken**(`client`, `userId`, `tokenId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+> **deletePartnerUserToken**(`client`, `userId`, `tokenId`, `request?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [partner/user/token/v1.js:79](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/token/v1.js#L79)
+Defined in: [partner/user/token/v1.js:80](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/partner/user/token/v1.js#L80)
 
 ## Parameters
 
@@ -23,6 +23,10 @@ Defined in: [partner/user/token/v1.js:79](https://github.com/chatbotkit/node-sdk
 ### tokenId
 
 `string`
+
+### request?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>
 
 ## Returns
 

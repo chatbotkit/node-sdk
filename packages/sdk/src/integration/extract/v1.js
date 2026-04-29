@@ -115,15 +115,18 @@ export async function updateExtractIntegration(client, extractId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
+ * @param {ExtractIntegrationDeleteRequest} [request]
  * @returns {Promise<ExtractIntegrationDeleteResponse>}
  */
-export async function deleteExtractIntegration(client, extractId) {
+export async function deleteExtractIntegration(client, extractId, request) {
   const url = `/api/v1/integration/extract/${extractId}/delete`
 
   /** @type {ExtractIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {ExtractIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

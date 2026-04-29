@@ -6,9 +6,9 @@
 
 # Function: deleteTeamsIntegration()
 
-> **deleteTeamsIntegration**(`client`, `teamsId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+> **deleteTeamsIntegration**(`client`, `teamsId`, `request?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/teams/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/teams/v1.js#L120)
+Defined in: [integration/teams/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/teams/v1.js#L121)
 
 ## Parameters
 
@@ -19,6 +19,10 @@ Defined in: [integration/teams/v1.js:120](https://github.com/chatbotkit/node-sdk
 ### teamsId
 
 `string`
+
+### request?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>
 
 ## Returns
 

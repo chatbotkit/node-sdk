@@ -113,15 +113,22 @@ export async function updateGooglechatIntegration(
  *
  * @param {ChatBotKitClient} client
  * @param {string} googlechatId
+ * @param {GooglechatIntegrationDeleteRequest} [request]
  * @returns {Promise<GooglechatIntegrationDeleteResponse>}
  */
-export async function deleteGooglechatIntegration(client, googlechatId) {
+export async function deleteGooglechatIntegration(
+  client,
+  googlechatId,
+  request
+) {
   const url = `/api/v1/integration/googlechat/${googlechatId}/delete`
 
   /** @type {GooglechatIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {GooglechatIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

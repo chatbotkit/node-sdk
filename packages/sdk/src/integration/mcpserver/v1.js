@@ -115,15 +115,18 @@ export async function updateMcpServerIntegration(client, mcpserverId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} mcpserverId
+ * @param {McpServerIntegrationDeleteRequest} [request]
  * @returns {Promise<McpServerIntegrationDeleteResponse>}
  */
-export async function deleteMcpServerIntegration(client, mcpserverId) {
+export async function deleteMcpServerIntegration(client, mcpserverId, request) {
   const url = `/api/v1/integration/mcpserver/${mcpserverId}/delete`
 
   /** @type {McpServerIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {McpServerIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

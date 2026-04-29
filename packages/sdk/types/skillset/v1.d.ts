@@ -71,9 +71,10 @@ export function updateSkillset(client: ChatBotKitClient, skillsetId: string, req
  *
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
+ * @param {SkillsetDeleteRequest} [request]
  * @returns {Promise<SkillsetDeleteResponse>}
  */
-export function deleteSkillset(client: ChatBotKitClient, skillsetId: string): Promise<SkillsetDeleteResponse>;
+export function deleteSkillset(client: ChatBotKitClient, skillsetId: string, request?: SkillsetDeleteRequest): Promise<SkillsetDeleteResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type SkillsetListRequest = {

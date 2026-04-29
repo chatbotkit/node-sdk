@@ -115,15 +115,18 @@ export async function updateSlackIntegration(client, slackId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} slackId
+ * @param {SlackIntegrationDeleteRequest} [request]
  * @returns {Promise<SlackIntegrationDeleteResponse>}
  */
-export async function deleteSlackIntegration(client, slackId) {
+export async function deleteSlackIntegration(client, slackId, request) {
   const url = `/api/v1/integration/slack/${slackId}/delete`
 
   /** @type {SlackIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SlackIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

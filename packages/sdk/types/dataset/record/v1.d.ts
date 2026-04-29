@@ -76,9 +76,10 @@ export function updateDatasetRecord(client: ChatBotKitClient, datasetId: string,
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
  * @param {string} recordId
+ * @param {DatasetRecordDeleteRequest} [request]
  * @returns {Promise<DatasetRecordDeleteResponse>}
  */
-export function deleteDatasetRecord(client: ChatBotKitClient, datasetId: string, recordId: string): Promise<DatasetRecordDeleteResponse>;
+export function deleteDatasetRecord(client: ChatBotKitClient, datasetId: string, recordId: string, request?: DatasetRecordDeleteRequest): Promise<DatasetRecordDeleteResponse>;
 /**
  * @typedef {{
  *   cursor?: string,

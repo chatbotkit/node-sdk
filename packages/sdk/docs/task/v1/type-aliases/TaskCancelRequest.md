@@ -8,6 +8,6 @@
 
 > **TaskCancelRequest**\<\> = [`TaskCancelRequestBody`](TaskCancelRequestBody.md)
 
-Defined in: [task/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/task/v1.js#L135)
+Defined in: [task/v1.js:138](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/task/v1.js#L138)
 
 ## Type Parameters

@@ -71,9 +71,10 @@ export function updateDiscordIntegration(client: ChatBotKitClient, discordId: st
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
+ * @param {DiscordIntegrationDeleteRequest} [request]
  * @returns {Promise<DiscordIntegrationDeleteResponse>}
  */
-export function deleteDiscordIntegration(client: ChatBotKitClient, discordId: string): Promise<DiscordIntegrationDeleteResponse>;
+export function deleteDiscordIntegration(client: ChatBotKitClient, discordId: string, request?: DiscordIntegrationDeleteRequest): Promise<DiscordIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupDiscordIntegration']['requestBody']['content']['application/json']} DiscordIntegrationSetupRequestBody
  *

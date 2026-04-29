@@ -116,15 +116,18 @@ export async function updatePartnerUser(client, userId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
+ * @param {PartnerUserDeleteRequest} [request]
  * @returns {Promise<PartnerUserDeleteResponse>}
  */
-export async function deletePartnerUser(client, userId) {
+export async function deletePartnerUser(client, userId, request) {
   const url = `/api/v1/partner/user/${userId}/delete`
 
   /** @type {PartnerUserDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {PartnerUserDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

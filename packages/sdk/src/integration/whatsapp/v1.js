@@ -115,15 +115,18 @@ export async function updateWhatsAppIntegration(client, whatsappId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
+ * @param {WhatsAppIntegrationDeleteRequest} [request]
  * @returns {Promise<WhatsAppIntegrationDeleteResponse>}
  */
-export async function deleteWhatsAppIntegration(client, whatsappId) {
+export async function deleteWhatsAppIntegration(client, whatsappId, request) {
   const url = `/api/v1/integration/whatsapp/${whatsappId}/delete`
 
   /** @type {WhatsAppIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {WhatsAppIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

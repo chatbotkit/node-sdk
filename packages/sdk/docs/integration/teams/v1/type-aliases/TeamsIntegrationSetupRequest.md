@@ -8,6 +8,6 @@
 
 > **TeamsIntegrationSetupRequest**\<\> = [`TeamsIntegrationSetupRequestBody`](TeamsIntegrationSetupRequestBody.md)
 
-Defined in: [integration/teams/v1.js:135](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/teams/v1.js#L135)
+Defined in: [integration/teams/v1.js:138](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/teams/v1.js#L138)
 
 ## Type Parameters

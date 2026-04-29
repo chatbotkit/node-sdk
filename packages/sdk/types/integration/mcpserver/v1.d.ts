@@ -71,9 +71,10 @@ export function updateMcpServerIntegration(client: ChatBotKitClient, mcpserverId
  *
  * @param {ChatBotKitClient} client
  * @param {string} mcpserverId
+ * @param {McpServerIntegrationDeleteRequest} [request]
  * @returns {Promise<McpServerIntegrationDeleteResponse>}
  */
-export function deleteMcpServerIntegration(client: ChatBotKitClient, mcpserverId: string): Promise<McpServerIntegrationDeleteResponse>;
+export function deleteMcpServerIntegration(client: ChatBotKitClient, mcpserverId: string, request?: McpServerIntegrationDeleteRequest): Promise<McpServerIntegrationDeleteResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type McpServerIntegrationListRequest = {

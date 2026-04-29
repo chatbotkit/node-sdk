@@ -71,9 +71,10 @@ export function updateTelegramIntegration(client: ChatBotKitClient, telegramId: 
  *
  * @param {ChatBotKitClient} client
  * @param {string} telegramId
+ * @param {TelegramIntegrationDeleteRequest} [request]
  * @returns {Promise<TelegramIntegrationDeleteResponse>}
  */
-export function deleteTelegramIntegration(client: ChatBotKitClient, telegramId: string): Promise<TelegramIntegrationDeleteResponse>;
+export function deleteTelegramIntegration(client: ChatBotKitClient, telegramId: string, request?: TelegramIntegrationDeleteRequest): Promise<TelegramIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupTelegramIntegration']['requestBody']['content']['application/json']} TelegramIntegrationSetupRequestBody
  *

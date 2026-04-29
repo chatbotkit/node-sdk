@@ -125,15 +125,23 @@ export async function updateDatasetRecord(
  * @param {ChatBotKitClient} client
  * @param {string} datasetId
  * @param {string} recordId
+ * @param {DatasetRecordDeleteRequest} [request]
  * @returns {Promise<DatasetRecordDeleteResponse>}
  */
-export async function deleteDatasetRecord(client, datasetId, recordId) {
+export async function deleteDatasetRecord(
+  client,
+  datasetId,
+  recordId,
+  request
+) {
   const url = `/api/v1/dataset/${datasetId}/record/${recordId}/delete`
 
   /** @type {DatasetRecordDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DatasetRecordDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

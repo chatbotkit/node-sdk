@@ -65,9 +65,10 @@ export function updateGooglechatIntegration(client: ChatBotKitClient, googlechat
  *
  * @param {ChatBotKitClient} client
  * @param {string} googlechatId
+ * @param {GooglechatIntegrationDeleteRequest} [request]
  * @returns {Promise<GooglechatIntegrationDeleteResponse>}
  */
-export function deleteGooglechatIntegration(client: ChatBotKitClient, googlechatId: string): Promise<GooglechatIntegrationDeleteResponse>;
+export function deleteGooglechatIntegration(client: ChatBotKitClient, googlechatId: string, request?: GooglechatIntegrationDeleteRequest): Promise<GooglechatIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupGooglechatIntegration']['requestBody']['content']['application/json']} GooglechatIntegrationSetupRequestBody
  * @typedef {GooglechatIntegrationSetupRequestBody} GooglechatIntegrationSetupRequest

@@ -71,9 +71,10 @@ export function updateTeamsIntegration(client: ChatBotKitClient, teamsId: string
  *
  * @param {ChatBotKitClient} client
  * @param {string} teamsId
+ * @param {TeamsIntegrationDeleteRequest} [request]
  * @returns {Promise<TeamsIntegrationDeleteResponse>}
  */
-export function deleteTeamsIntegration(client: ChatBotKitClient, teamsId: string): Promise<TeamsIntegrationDeleteResponse>;
+export function deleteTeamsIntegration(client: ChatBotKitClient, teamsId: string, request?: TeamsIntegrationDeleteRequest): Promise<TeamsIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupTeamsIntegration']['requestBody']['content']['application/json']} TeamsIntegrationSetupRequestBody
  *

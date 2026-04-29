@@ -71,9 +71,10 @@ export function updateWidgetIntegration(client: ChatBotKitClient, widgetId: stri
  *
  * @param {ChatBotKitClient} client
  * @param {string} widgetId
+ * @param {WidgetIntegrationDeleteRequest} [request]
  * @returns {Promise<WidgetIntegrationDeleteResponse>}
  */
-export function deleteWidgetIntegration(client: ChatBotKitClient, widgetId: string): Promise<WidgetIntegrationDeleteResponse>;
+export function deleteWidgetIntegration(client: ChatBotKitClient, widgetId: string, request?: WidgetIntegrationDeleteRequest): Promise<WidgetIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupWidgetIntegration']['requestBody']['content']['application/json']} WidgetIntegrationSetupRequestBody
  *
