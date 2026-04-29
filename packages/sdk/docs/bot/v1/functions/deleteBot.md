@@ -6,9 +6,9 @@
 
 # Function: deleteBot()
 
-> **deleteBot**(`client`, `botId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+> **deleteBot**(`client`, `botId`, `request?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [bot/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/bot/v1.js#L130)
+Defined in: [bot/v1.js:131](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/bot/v1.js#L131)
 
 ## Parameters
 
@@ -19,6 +19,10 @@ Defined in: [bot/v1.js:130](https://github.com/chatbotkit/node-sdk/blob/main/sdk
 ### botId
 
 `string`
+
+### request?
+
+[`Record`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)\<`string`, `never`\>
 
 ## Returns
 

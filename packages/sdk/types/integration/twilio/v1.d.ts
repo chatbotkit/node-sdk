@@ -71,9 +71,10 @@ export function updateTwilioIntegration(client: ChatBotKitClient, twilioId: stri
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
+ * @param {TwilioIntegrationDeleteRequest} [request]
  * @returns {Promise<TwilioIntegrationDeleteResponse>}
  */
-export function deleteTwilioIntegration(client: ChatBotKitClient, twilioId: string): Promise<TwilioIntegrationDeleteResponse>;
+export function deleteTwilioIntegration(client: ChatBotKitClient, twilioId: string, request?: TwilioIntegrationDeleteRequest): Promise<TwilioIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupTwilioIntegration']['requestBody']['content']['application/json']} TwilioIntegrationSetupRequestBody
  *

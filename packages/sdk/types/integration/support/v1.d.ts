@@ -71,9 +71,10 @@ export function updateSupportIntegration(client: ChatBotKitClient, supportId: st
  *
  * @param {ChatBotKitClient} client
  * @param {string} supportId
+ * @param {SupportIntegrationDeleteRequest} [request]
  * @returns {Promise<SupportIntegrationDeleteResponse>}
  */
-export function deleteSupportIntegration(client: ChatBotKitClient, supportId: string): Promise<SupportIntegrationDeleteResponse>;
+export function deleteSupportIntegration(client: ChatBotKitClient, supportId: string, request?: SupportIntegrationDeleteRequest): Promise<SupportIntegrationDeleteResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type SupportIntegrationListRequest = {

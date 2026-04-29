@@ -74,15 +74,18 @@ export async function createPartnerUserToken(client, userId, request) {
  * @param {ChatBotKitClient} client
  * @param {string} userId
  * @param {string} tokenId
+ * @param {PartnerUserTokenDeleteRequest} [request]
  * @returns {Promise<PartnerUserTokenDeleteResponse>}
  */
-export async function deletePartnerUserToken(client, userId, tokenId) {
+export async function deletePartnerUserToken(client, userId, tokenId, request) {
   const url = `/api/v1/partner/user/${userId}/token/${tokenId}/delete`
 
   /** @type {PartnerUserTokenDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {PartnerUserTokenDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

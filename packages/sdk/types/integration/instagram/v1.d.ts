@@ -71,9 +71,10 @@ export function updateInstagramIntegration(client: ChatBotKitClient, instagramId
  *
  * @param {ChatBotKitClient} client
  * @param {string} instagramId
+ * @param {InstagramIntegrationDeleteRequest} [request]
  * @returns {Promise<InstagramIntegrationDeleteResponse>}
  */
-export function deleteInstagramIntegration(client: ChatBotKitClient, instagramId: string): Promise<InstagramIntegrationDeleteResponse>;
+export function deleteInstagramIntegration(client: ChatBotKitClient, instagramId: string, request?: InstagramIntegrationDeleteRequest): Promise<InstagramIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupInstagramIntegration']['requestBody']['content']['application/json']} InstagramIntegrationSetupRequestBody
  *

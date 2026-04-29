@@ -71,9 +71,10 @@ export function updateMessengerIntegration(client: ChatBotKitClient, messengerId
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
+ * @param {MessengerIntegrationDeleteRequest} [request]
  * @returns {Promise<MessengerIntegrationDeleteResponse>}
  */
-export function deleteMessengerIntegration(client: ChatBotKitClient, messengerId: string): Promise<MessengerIntegrationDeleteResponse>;
+export function deleteMessengerIntegration(client: ChatBotKitClient, messengerId: string, request?: MessengerIntegrationDeleteRequest): Promise<MessengerIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupMessengerIntegration']['requestBody']['content']['application/json']} MessengerIntegrationSetupRequestBody
  *

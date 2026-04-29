@@ -119,15 +119,18 @@ export async function updateFile(client, fileId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} fileId
+ * @param {FileDeleteRequest} [request]
  * @returns {Promise<FileDeleteResponse>}
  */
-export async function deleteFile(client, fileId) {
+export async function deleteFile(client, fileId, request) {
   const url = `/api/v1/file/${fileId}/delete`
 
   /** @type {FileDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {FileDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

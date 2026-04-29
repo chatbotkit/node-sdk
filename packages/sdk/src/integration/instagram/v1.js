@@ -115,15 +115,18 @@ export async function updateInstagramIntegration(client, instagramId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} instagramId
+ * @param {InstagramIntegrationDeleteRequest} [request]
  * @returns {Promise<InstagramIntegrationDeleteResponse>}
  */
-export async function deleteInstagramIntegration(client, instagramId) {
+export async function deleteInstagramIntegration(client, instagramId, request) {
   const url = `/api/v1/integration/instagram/${instagramId}/delete`
 
   /** @type {InstagramIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {InstagramIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

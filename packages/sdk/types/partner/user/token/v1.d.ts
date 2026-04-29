@@ -51,9 +51,10 @@ export function createPartnerUserToken(client: ChatBotKitClient, userId: string,
  * @param {ChatBotKitClient} client
  * @param {string} userId
  * @param {string} tokenId
+ * @param {PartnerUserTokenDeleteRequest} [request]
  * @returns {Promise<PartnerUserTokenDeleteResponse>}
  */
-export function deletePartnerUserToken(client: ChatBotKitClient, userId: string, tokenId: string): Promise<PartnerUserTokenDeleteResponse>;
+export function deletePartnerUserToken(client: ChatBotKitClient, userId: string, tokenId: string, request?: PartnerUserTokenDeleteRequest): Promise<PartnerUserTokenDeleteResponse>;
 export type ChatBotKitClient = import("../../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../../client.js").ResponsePromise<T, U>;
 export type PartnerUserTokenListRequest = {

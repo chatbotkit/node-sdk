@@ -115,15 +115,18 @@ export async function updatePortal(client, portalId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} portalId
+ * @param {PortalDeleteRequest} [request]
  * @returns {Promise<PortalDeleteResponse>}
  */
-export async function deletePortal(client, portalId) {
+export async function deletePortal(client, portalId, request) {
   const url = `/api/v1/portal/${portalId}/delete`
 
   /** @type {PortalDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {PortalDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

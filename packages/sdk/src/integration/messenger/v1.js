@@ -115,15 +115,18 @@ export async function updateMessengerIntegration(client, messengerId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} messengerId
+ * @param {MessengerIntegrationDeleteRequest} [request]
  * @returns {Promise<MessengerIntegrationDeleteResponse>}
  */
-export async function deleteMessengerIntegration(client, messengerId) {
+export async function deleteMessengerIntegration(client, messengerId, request) {
   const url = `/api/v1/integration/messenger/${messengerId}/delete`
 
   /** @type {MessengerIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {MessengerIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

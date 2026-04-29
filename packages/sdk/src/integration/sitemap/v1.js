@@ -115,15 +115,18 @@ export async function updateSitemapIntegration(client, sitemapId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} sitemapId
+ * @param {SitemapIntegrationDeleteRequest} [request]
  * @returns {Promise<SitemapIntegrationDeleteResponse>}
  */
-export async function deleteSitemapIntegration(client, sitemapId) {
+export async function deleteSitemapIntegration(client, sitemapId, request) {
   const url = `/api/v1/integration/sitemap/${sitemapId}/delete`
 
   /** @type {SitemapIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SitemapIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

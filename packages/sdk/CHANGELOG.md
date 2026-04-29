@@ -1,11 +1,5 @@
 # @chatbotkit/sdk
 
-## 1.32.0
-
-### Minor Changes
-
-- d77f741: Improved changes.
-
 ## 1.31.1
 
 ### Patch Changes

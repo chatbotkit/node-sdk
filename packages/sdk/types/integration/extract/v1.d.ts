@@ -71,9 +71,10 @@ export function updateExtractIntegration(client: ChatBotKitClient, extractId: st
  *
  * @param {ChatBotKitClient} client
  * @param {string} extractId
+ * @param {ExtractIntegrationDeleteRequest} [request]
  * @returns {Promise<ExtractIntegrationDeleteResponse>}
  */
-export function deleteExtractIntegration(client: ChatBotKitClient, extractId: string): Promise<ExtractIntegrationDeleteResponse>;
+export function deleteExtractIntegration(client: ChatBotKitClient, extractId: string, request?: ExtractIntegrationDeleteRequest): Promise<ExtractIntegrationDeleteResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type ExtractIntegrationListRequest = {

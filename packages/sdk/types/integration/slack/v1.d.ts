@@ -71,9 +71,10 @@ export function updateSlackIntegration(client: ChatBotKitClient, slackId: string
  *
  * @param {ChatBotKitClient} client
  * @param {string} slackId
+ * @param {SlackIntegrationDeleteRequest} [request]
  * @returns {Promise<SlackIntegrationDeleteResponse>}
  */
-export function deleteSlackIntegration(client: ChatBotKitClient, slackId: string): Promise<SlackIntegrationDeleteResponse>;
+export function deleteSlackIntegration(client: ChatBotKitClient, slackId: string, request?: SlackIntegrationDeleteRequest): Promise<SlackIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupSlackIntegration']['requestBody']['content']['application/json']} SlackIntegrationSetupRequestBody
  *

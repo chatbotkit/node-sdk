@@ -96,9 +96,10 @@ export function updateConversation(client: ChatBotKitClient, conversationId: str
  *
  * @param {ChatBotKitClient} client
  * @param {string} conversationId
+ * @param {ConversationDeleteRequest} [request]
  * @returns {Promise<ConversationDeleteResponse>}
  */
-export function deleteConversation(client: ChatBotKitClient, conversationId: string): Promise<ConversationDeleteResponse>;
+export function deleteConversation(client: ChatBotKitClient, conversationId: string, request?: ConversationDeleteRequest): Promise<ConversationDeleteResponse>;
 /**
  * @typedef {import('../types/api/v1.js').operations['completeConversation']['requestBody']['content']['application/json']} ConversationCompleteRequestBody
  *

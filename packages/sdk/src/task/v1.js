@@ -115,15 +115,18 @@ export async function updateTask(client, taskId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
+ * @param {TaskDeleteRequest} [request]
  * @returns {Promise<TaskDeleteResponse>}
  */
-export async function deleteTask(client, taskId) {
+export async function deleteTask(client, taskId, request) {
   const url = `/api/v1/task/${taskId}/delete`
 
   /** @type {TaskDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TaskDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

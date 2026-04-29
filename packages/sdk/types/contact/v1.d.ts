@@ -71,9 +71,10 @@ export function updateContact(client: ChatBotKitClient, contactId: string, reque
  *
  * @param {ChatBotKitClient} client
  * @param {string} contactId
+ * @param {ContactDeleteRequest} [request]
  * @returns {Promise<ContactDeleteResponse>}
  */
-export function deleteContact(client: ChatBotKitClient, contactId: string): Promise<ContactDeleteResponse>;
+export function deleteContact(client: ChatBotKitClient, contactId: string, request?: ContactDeleteRequest): Promise<ContactDeleteResponse>;
 /**
  * @typedef {import('../types/api/v1.js').operations['ensureContact']['requestBody']['content']['application/json']} ContactEnsureRequestBody
  *

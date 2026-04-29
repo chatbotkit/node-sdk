@@ -71,9 +71,10 @@ export function updateSecret(client: ChatBotKitClient, secretId: string, request
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
+ * @param {SecretDeleteRequest} [request]
  * @returns {Promise<SecretDeleteResponse>}
  */
-export function deleteSecret(client: ChatBotKitClient, secretId: string): Promise<SecretDeleteResponse>;
+export function deleteSecret(client: ChatBotKitClient, secretId: string, request?: SecretDeleteRequest): Promise<SecretDeleteResponse>;
 /**
  * @typedef {import('../types/api/v1.js').operations['revokeSecret']['requestBody']['content']['application/json']} SecretRevokeRequestBody
  *

@@ -151,15 +151,23 @@ export async function updateSkillsetAbility(
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
  * @param {string} abilityId
+ * @param {SkillsetAbilityDeleteRequest} [request]
  * @returns {Promise<SkillsetAbilityDeleteResponse>}
  */
-export async function deleteSkillsetAbility(client, skillsetId, abilityId) {
+export async function deleteSkillsetAbility(
+  client,
+  skillsetId,
+  abilityId,
+  request
+) {
   const url = `/api/v1/skillset/${skillsetId}/ability/${abilityId}/delete`
 
   /** @type {SkillsetAbilityDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SkillsetAbilityDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

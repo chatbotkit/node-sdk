@@ -115,15 +115,18 @@ export async function updateTelegramIntegration(client, telegramId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} telegramId
+ * @param {TelegramIntegrationDeleteRequest} [request]
  * @returns {Promise<TelegramIntegrationDeleteResponse>}
  */
-export async function deleteTelegramIntegration(client, telegramId) {
+export async function deleteTelegramIntegration(client, telegramId, request) {
   const url = `/api/v1/integration/telegram/${telegramId}/delete`
 
   /** @type {TelegramIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TelegramIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

@@ -94,9 +94,10 @@ export function updateSkillsetAbility(client: ChatBotKitClient, skillsetId: stri
  * @param {ChatBotKitClient} client
  * @param {string} skillsetId
  * @param {string} abilityId
+ * @param {SkillsetAbilityDeleteRequest} [request]
  * @returns {Promise<SkillsetAbilityDeleteResponse>}
  */
-export function deleteSkillsetAbility(client: ChatBotKitClient, skillsetId: string, abilityId: string): Promise<SkillsetAbilityDeleteResponse>;
+export function deleteSkillsetAbility(client: ChatBotKitClient, skillsetId: string, abilityId: string, request?: SkillsetAbilityDeleteRequest): Promise<SkillsetAbilityDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['executeSkillsetAbility']['requestBody']['content']['application/json']} SkillsetAbilityExecuteRequestBody
  *

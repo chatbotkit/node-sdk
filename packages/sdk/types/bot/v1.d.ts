@@ -75,9 +75,10 @@ export function updateBot(client: ChatBotKitClient, botId: string, request: BotU
  *
  * @param {ChatBotKitClient} client
  * @param {string} botId
+ * @param {BotDeleteRequest} [request]
  * @returns {Promise<BotDeleteResponse>}
  */
-export function deleteBot(client: ChatBotKitClient, botId: string): Promise<BotDeleteResponse>;
+export function deleteBot(client: ChatBotKitClient, botId: string, request?: BotDeleteRequest): Promise<BotDeleteResponse>;
 /**
  * @typedef {import('../types/api/v1.js').operations['upvoteBot']['requestBody']['content']['application/json']} BotUpvoteRequestBody
  *

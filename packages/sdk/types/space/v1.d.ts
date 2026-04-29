@@ -67,9 +67,10 @@ export function updateSpace(client: ChatBotKitClient, spaceId: string, request: 
  *
  * @param {ChatBotKitClient} client
  * @param {string} spaceId
+ * @param {SpaceDeleteRequest} [request]
  * @returns {Promise<SpaceDeleteResponse>}
  */
-export function deleteSpace(client: ChatBotKitClient, spaceId: string): Promise<SpaceDeleteResponse>;
+export function deleteSpace(client: ChatBotKitClient, spaceId: string, request?: SpaceDeleteRequest): Promise<SpaceDeleteResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type SpaceListRequest = {

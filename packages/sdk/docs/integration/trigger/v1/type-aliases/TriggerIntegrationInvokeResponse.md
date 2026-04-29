@@ -8,6 +8,6 @@
 
 > **TriggerIntegrationInvokeResponse**\<\> = [`TriggerIntegrationInvokeResponseBody`](TriggerIntegrationInvokeResponseBody.md)
 
-Defined in: [integration/trigger/v1.js:189](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/trigger/v1.js#L189)
+Defined in: [integration/trigger/v1.js:192](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/trigger/v1.js#L192)
 
 ## Type Parameters

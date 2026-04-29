@@ -8,6 +8,6 @@
 
 > **GooglechatIntegrationSetupResponseBody**\<\> = `operations`\[`"setupGooglechatIntegration"`\]\[`"responses"`\]\[`"200"`\]\[`"content"`\]\[`"application/json"`\]
 
-Defined in: [integration/googlechat/v1.js:134](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/v1.js#L134)
+Defined in: [integration/googlechat/v1.js:141](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/v1.js#L141)
 
 ## Type Parameters

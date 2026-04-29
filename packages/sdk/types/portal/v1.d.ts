@@ -71,9 +71,10 @@ export function updatePortal(client: ChatBotKitClient, portalId: string, request
  *
  * @param {ChatBotKitClient} client
  * @param {string} portalId
+ * @param {PortalDeleteRequest} [request]
  * @returns {Promise<PortalDeleteResponse>}
  */
-export function deletePortal(client: ChatBotKitClient, portalId: string): Promise<PortalDeleteResponse>;
+export function deletePortal(client: ChatBotKitClient, portalId: string, request?: PortalDeleteRequest): Promise<PortalDeleteResponse>;
 export type ChatBotKitClient = import("../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 export type PortalListRequest = {

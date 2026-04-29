@@ -115,15 +115,18 @@ export async function updateSupportIntegration(client, supportId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} supportId
+ * @param {SupportIntegrationDeleteRequest} [request]
  * @returns {Promise<SupportIntegrationDeleteResponse>}
  */
-export async function deleteSupportIntegration(client, supportId) {
+export async function deleteSupportIntegration(client, supportId, request) {
   const url = `/api/v1/integration/support/${supportId}/delete`
 
   /** @type {SupportIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SupportIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

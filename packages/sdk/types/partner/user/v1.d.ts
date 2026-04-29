@@ -72,9 +72,10 @@ export function updatePartnerUser(client: ChatBotKitClient, userId: string, requ
  *
  * @param {ChatBotKitClient} client
  * @param {string} userId
+ * @param {PartnerUserDeleteRequest} [request]
  * @returns {Promise<PartnerUserDeleteResponse>}
  */
-export function deletePartnerUser(client: ChatBotKitClient, userId: string): Promise<PartnerUserDeleteResponse>;
+export function deletePartnerUser(client: ChatBotKitClient, userId: string, request?: PartnerUserDeleteRequest): Promise<PartnerUserDeleteResponse>;
 export type ChatBotKitClient = import("../../client.js").ChatBotKitClient;
 export type ResponsePromise<T, U> = import("../../client.js").ResponsePromise<T, U>;
 export type PartnerUserListRequest = {

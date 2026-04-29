@@ -8,7 +8,7 @@
 
 > **setupGooglechatIntegration**(`client`, `googlechatId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [integration/googlechat/v1.js:141](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/v1.js#L141)
+Defined in: [integration/googlechat/v1.js:148](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/integration/googlechat/v1.js#L148)
 
 ## Parameters
 

@@ -71,9 +71,10 @@ export function updateTask(client: ChatBotKitClient, taskId: string, request: Ta
  *
  * @param {ChatBotKitClient} client
  * @param {string} taskId
+ * @param {TaskDeleteRequest} [request]
  * @returns {Promise<TaskDeleteResponse>}
  */
-export function deleteTask(client: ChatBotKitClient, taskId: string): Promise<TaskDeleteResponse>;
+export function deleteTask(client: ChatBotKitClient, taskId: string, request?: TaskDeleteRequest): Promise<TaskDeleteResponse>;
 /**
  * @typedef {import('../types/api/v1.js').operations['cancelTask']['requestBody']['content']['application/json']} TaskCancelRequestBody
  *

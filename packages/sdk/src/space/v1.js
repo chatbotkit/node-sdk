@@ -111,14 +111,17 @@ export async function updateSpace(client, spaceId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} spaceId
+ * @param {SpaceDeleteRequest} [request]
  * @returns {Promise<SpaceDeleteResponse>}
  */
-export async function deleteSpace(client, spaceId) {
+export async function deleteSpace(client, spaceId, request) {
   const url = `/api/v1/space/${spaceId}/delete`
 
   /** @type {SpaceDeleteResponse} */
   const response = await client.clientFetch(url, {
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

@@ -71,9 +71,10 @@ export function updateWhatsAppIntegration(client: ChatBotKitClient, whatsappId: 
  *
  * @param {ChatBotKitClient} client
  * @param {string} whatsappId
+ * @param {WhatsAppIntegrationDeleteRequest} [request]
  * @returns {Promise<WhatsAppIntegrationDeleteResponse>}
  */
-export function deleteWhatsAppIntegration(client: ChatBotKitClient, whatsappId: string): Promise<WhatsAppIntegrationDeleteResponse>;
+export function deleteWhatsAppIntegration(client: ChatBotKitClient, whatsappId: string, request?: WhatsAppIntegrationDeleteRequest): Promise<WhatsAppIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupWhatsAppIntegration']['requestBody']['content']['application/json']} WhatsAppIntegrationSetupRequestBody
  *

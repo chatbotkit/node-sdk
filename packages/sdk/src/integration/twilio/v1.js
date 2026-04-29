@@ -115,15 +115,18 @@ export async function updateTwilioIntegration(client, twilioId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} twilioId
+ * @param {TwilioIntegrationDeleteRequest} [request]
  * @returns {Promise<TwilioIntegrationDeleteResponse>}
  */
-export async function deleteTwilioIntegration(client, twilioId) {
+export async function deleteTwilioIntegration(client, twilioId, request) {
   const url = `/api/v1/integration/twilio/${twilioId}/delete`
 
   /** @type {TwilioIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {TwilioIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

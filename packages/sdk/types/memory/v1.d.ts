@@ -73,9 +73,10 @@ export function updateMemory(client: ChatBotKitClient, memoryId: string, request
  *
  * @param {ChatBotKitClient} client
  * @param {string} memoryId
+ * @param {MemoryDeleteRequest} [request]
  * @returns {Promise<MemoryDeleteResponse>}
  */
-export function deleteMemory(client: ChatBotKitClient, memoryId: string): Promise<MemoryDeleteResponse>;
+export function deleteMemory(client: ChatBotKitClient, memoryId: string, request?: MemoryDeleteRequest): Promise<MemoryDeleteResponse>;
 /**
  * @typedef {{
  *   cursor?: string,

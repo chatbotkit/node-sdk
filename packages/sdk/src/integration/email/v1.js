@@ -115,15 +115,18 @@ export async function updateEmailIntegration(client, emailId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
+ * @param {EmailIntegrationDeleteRequest} [request]
  * @returns {Promise<EmailIntegrationDeleteResponse>}
  */
-export async function deleteEmailIntegration(client, emailId) {
+export async function deleteEmailIntegration(client, emailId, request) {
   const url = `/api/v1/integration/email/${emailId}/delete`
 
   /** @type {EmailIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {EmailIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

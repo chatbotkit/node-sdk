@@ -71,9 +71,10 @@ export function updateEmailIntegration(client: ChatBotKitClient, emailId: string
  *
  * @param {ChatBotKitClient} client
  * @param {string} emailId
+ * @param {EmailIntegrationDeleteRequest} [request]
  * @returns {Promise<EmailIntegrationDeleteResponse>}
  */
-export function deleteEmailIntegration(client: ChatBotKitClient, emailId: string): Promise<EmailIntegrationDeleteResponse>;
+export function deleteEmailIntegration(client: ChatBotKitClient, emailId: string, request?: EmailIntegrationDeleteRequest): Promise<EmailIntegrationDeleteResponse>;
 /**
  * @typedef {import('../../types/api/v1.js').operations['setupEmailIntegration']['requestBody']['content']['application/json']} EmailIntegrationSetupRequestBody
  *

@@ -115,15 +115,18 @@ export async function updateDiscordIntegration(client, discordId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} discordId
+ * @param {DiscordIntegrationDeleteRequest} [request]
  * @returns {Promise<DiscordIntegrationDeleteResponse>}
  */
-export async function deleteDiscordIntegration(client, discordId) {
+export async function deleteDiscordIntegration(client, discordId, request) {
   const url = `/api/v1/integration/discord/${discordId}/delete`
 
   /** @type {DiscordIntegrationDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {DiscordIntegrationDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

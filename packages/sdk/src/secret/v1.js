@@ -115,15 +115,18 @@ export async function updateSecret(client, secretId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} secretId
+ * @param {SecretDeleteRequest} [request]
  * @returns {Promise<SecretDeleteResponse>}
  */
-export async function deleteSecret(client, secretId) {
+export async function deleteSecret(client, secretId, request) {
   const url = `/api/v1/secret/${secretId}/delete`
 
   /** @type {SecretDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {SecretDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response
