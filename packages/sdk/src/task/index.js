@@ -1,5 +1,7 @@
 import { ChatBotKitClient } from '../client.js'
+import { TaskExecutionClient } from './execution/index.js'
 import {
+  cancelTask,
   createTask,
   deleteTask,
   exportTasks,
@@ -24,6 +26,11 @@ export class TaskClient extends ChatBotKitClient {
    */
   constructor(options) {
     super(options)
+
+    /**
+     * @type {TaskExecutionClient} execution client
+     */
+    this.execution = new TaskExecutionClient(options)
   }
 
   /**
@@ -85,6 +92,16 @@ export class TaskClient extends ChatBotKitClient {
    */
   delete(taskId) {
     return deleteTask(this, taskId)
+  }
+
+  /**
+   * Cancels a task.
+   *
+   * @param {string} taskId
+   * @returns {Promise<import('./v1.js').TaskCancelResponse>}
+   */
+  cancel(taskId) {
+    return cancelTask(this, taskId)
   }
 
   /**

@@ -130,6 +130,31 @@ export async function deleteTriggerIntegration(client, triggerId) {
 }
 
 /**
+ * @typedef {import('../../types/api/v1.js').operations['cancelTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationCancelRequestBody
+ *
+ * @typedef {TriggerIntegrationCancelRequestBody} TriggerIntegrationCancelRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['cancelTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationCancelResponseBody
+ *
+ * @typedef {TriggerIntegrationCancelResponseBody} TriggerIntegrationCancelResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} triggerId
+ * @returns {Promise<TriggerIntegrationCancelResponse>}
+ */
+export async function cancelTriggerIntegration(client, triggerId) {
+  const url = `/api/v1/integration/trigger/${triggerId}/cancel`
+
+  /** @type {TriggerIntegrationCancelResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {TriggerIntegrationCancelRequestBody} */
+    record: {},
+  })
+
+  return response
+}
+
+/**
  * @typedef {import('../../types/api/v1.js').operations['setupTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationSetupRequestBody
  *
  * @typedef {TriggerIntegrationSetupRequestBody} TriggerIntegrationSetupRequest

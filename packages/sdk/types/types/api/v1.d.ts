@@ -2021,6 +2021,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/extract/{extractIntegrationId}/item/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export extract integration items */
+        get: operations["exportExtractIntegrationItems"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/extract/{extractIntegrationId}/item/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List extract integration items */
+        get: operations["listExtractIntegrationItems"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/extract/{extractIntegrationId}/trigger": {
         parameters: {
             query?: never;
@@ -3092,6 +3126,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/integration/trigger/{triggerIntegrationId}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel a running Trigger integration */
+        post: operations["cancelTriggerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/integration/trigger/{triggerIntegrationId}/delete": {
         parameters: {
             query?: never;
@@ -3103,6 +3154,40 @@ export interface paths {
         put?: never;
         /** Delete Trigger integration */
         post: operations["deleteTriggerIntegration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/trigger/{triggerIntegrationId}/execution/{triggerExecutionId}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel a Trigger integration execution */
+        post: operations["cancelTriggerIntegrationExecution"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/trigger/{triggerIntegrationId}/execution/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Trigger integration executions */
+        get: operations["listTriggerIntegrationExecutions"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -3460,6 +3545,40 @@ export interface paths {
         get: operations["fetchWidgetIntegration"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/widget/{widgetIntegrationId}/file/{fileId}/attach": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Attach a file to a widget integration */
+        post: operations["attachWidgetIntegrationFile"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/integration/widget/{widgetIntegrationId}/file/{fileId}/detach": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Detach a file from a widget integration */
+        post: operations["detachWidgetIntegrationFile"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4998,6 +5117,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/task/{taskId}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel a running task */
+        post: operations["cancelTask"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/task/{taskId}/delete": {
         parameters: {
             query?: never;
@@ -5009,6 +5145,40 @@ export interface paths {
         put?: never;
         /** Delete task */
         post: operations["deleteTask"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/task/{taskId}/execution/{taskExecutionId}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel a task execution */
+        post: operations["cancelTaskExecution"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/task/{taskId}/execution/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List task executions */
+        get: operations["listTaskExecutions"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -5260,7 +5430,7 @@ export interface components {
          * @description The task execution status
          * @enum {string}
          */
-        TaskStatus: "idle" | "running";
+        TaskStatus: "idle" | "running" | "canceled";
         /**
          * @description The task execution outcome
          * @enum {string}
@@ -5386,7 +5556,7 @@ export interface components {
         };
         /**
          * @description A model definition
-         * @example gpt-4-turbo/temperature=0.7
+         * @example gpt-5.4
          */
         Model: string;
         /** @description A bot configuration that can be applied without a dedicated bot instance. */
@@ -5398,7 +5568,7 @@ export interface components {
         BotConfig: {
             /**
              * @description A model definition
-             * @example gpt-4-turbo/temperature=0.7
+             * @example gpt-5.4
              */
             model?: string;
             /** @description The backstory this configuration is using */
@@ -5419,7 +5589,7 @@ export interface components {
         } | {
             /**
              * @description A model definition
-             * @example gpt-4-turbo/temperature=0.7
+             * @example gpt-5.4
              */
             model?: string;
             /** @description The backstory this configuration is using */
@@ -6497,7 +6667,7 @@ export interface operations {
                         updatedAt: number;
                         /**
                          * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
+                         * @example gpt-5.4
                          */
                         model?: string;
                         /** @description The backstory this configuration is using */
@@ -6665,7 +6835,7 @@ export interface operations {
                     };
                     /**
                      * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
+                     * @example gpt-5.4
                      */
                     model?: string;
                     /** @description The backstory this configuration is using */
@@ -6815,7 +6985,7 @@ export interface operations {
                     };
                     /**
                      * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
+                     * @example gpt-5.4
                      */
                     model?: string;
                     /** @description The backstory this configuration is using */
@@ -6900,7 +7070,7 @@ export interface operations {
                             updatedAt: number;
                             /**
                              * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
+                             * @example gpt-5.4
                              */
                             model?: string;
                             /** @description The backstory this configuration is using */
@@ -6948,7 +7118,7 @@ export interface operations {
                             updatedAt: number;
                             /**
                              * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
+                             * @example gpt-5.4
                              */
                             model?: string;
                             /** @description The backstory this configuration is using */
@@ -7121,7 +7291,7 @@ export interface operations {
                         } | {
                             /**
                              * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
+                             * @example gpt-5.4
                              */
                             model?: string;
                             /** @description The backstory this configuration is using */
@@ -7170,7 +7340,7 @@ export interface operations {
                         } | {
                             /**
                              * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
+                             * @example gpt-5.4
                              */
                             model?: string;
                             /** @description The backstory this configuration is using */
@@ -7749,7 +7919,7 @@ export interface operations {
                              * @description The task execution status
                              * @enum {string}
                              */
-                            status?: "idle" | "running";
+                            status?: "idle" | "running" | "canceled";
                             /**
                              * @description The task execution outcome
                              * @enum {string}
@@ -7791,7 +7961,7 @@ export interface operations {
                              * @description The task execution status
                              * @enum {string}
                              */
-                            status?: "idle" | "running";
+                            status?: "idle" | "running" | "canceled";
                             /**
                              * @description The task execution outcome
                              * @enum {string}
@@ -8912,7 +9082,7 @@ export interface operations {
                     } | {
                         /**
                          * @description A model definition
-                         * @example gpt-4-turbo/temperature=0.7
+                         * @example gpt-5.4
                          */
                         model?: string;
                         /** @description The backstory this configuration is using */
@@ -10033,7 +10203,7 @@ export interface operations {
                 } | {
                     /**
                      * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
+                     * @example gpt-5.4
                      */
                     model?: string;
                     /** @description The backstory this configuration is using */
@@ -10302,7 +10472,7 @@ export interface operations {
                 } | {
                     /**
                      * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
+                     * @example gpt-5.4
                      */
                     model?: string;
                     /** @description The backstory this configuration is using */
@@ -10525,7 +10695,7 @@ export interface operations {
                 } | {
                     /**
                      * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
+                     * @example gpt-5.4
                      */
                     model?: string;
                     /** @description The backstory this configuration is using */
@@ -10725,7 +10895,7 @@ export interface operations {
                 } | {
                     /**
                      * @description A model definition
-                     * @example gpt-4-turbo/temperature=0.7
+                     * @example gpt-5.4
                      */
                     model?: string;
                     /** @description The backstory this configuration is using */
@@ -10813,7 +10983,7 @@ export interface operations {
                         } | {
                             /**
                              * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
+                             * @example gpt-5.4
                              */
                             model?: string;
                             /** @description The backstory this configuration is using */
@@ -10864,7 +11034,7 @@ export interface operations {
                         } | {
                             /**
                              * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
+                             * @example gpt-5.4
                              */
                             model?: string;
                             /** @description The backstory this configuration is using */
@@ -10941,7 +11111,7 @@ export interface operations {
                         } | {
                             /**
                              * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
+                             * @example gpt-5.4
                              */
                             model?: string;
                             /** @description The backstory this configuration is using */
@@ -10992,7 +11162,7 @@ export interface operations {
                         } | {
                             /**
                              * @description A model definition
-                             * @example gpt-4-turbo/temperature=0.7
+                             * @example gpt-5.4
                              */
                             model?: string;
                             /** @description The backstory this configuration is using */
@@ -13650,6 +13820,110 @@ export interface operations {
                         };
                         /** @description Optional webhook to receive the extracted data */
                         request?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    exportExtractIntegrationItems: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                extractIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The extract integration items were exported successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items?: {
+                            /** @description The unique identifier of the item */
+                            id: string;
+                            /** @description The ID of the extract integration */
+                            extractIntegrationId: string;
+                            /** @description The ID of the conversation from which data was extracted */
+                            conversationId?: string;
+                            /** @description The extracted data in YAML-serializable format */
+                            data: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The timestamp when the item was created */
+                            createdAt?: string;
+                            /** @description The timestamp when the item was last updated */
+                            updatedAt?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor?: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listExtractIntegrationItems: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+            };
+            header?: never;
+            path: {
+                extractIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of extract integration items was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items?: {
+                            /** @description The unique identifier of the item */
+                            id: string;
+                            /** @description The ID of the extract integration */
+                            extractIntegrationId: string;
+                            /** @description The ID of the conversation from which data was extracted */
+                            conversationId?: string;
+                            /** @description The extracted data matching the integration schema */
+                            data: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The timestamp when the item was created */
+                            createdAt?: string;
+                            /** @description The timestamp when the item was last updated */
+                            updatedAt?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor?: string;
                     };
                 };
             };
@@ -17409,6 +17683,42 @@ export interface operations {
             };
         };
     };
+    cancelTriggerIntegration: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                triggerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Trigger integration was canceled successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the canceled Trigger integration */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     deleteTriggerIntegration: {
         parameters: {
             query?: never;
@@ -17433,6 +17743,155 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the deleted Trigger integration */
                         id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    cancelTriggerIntegrationExecution: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                triggerIntegrationId: string;
+                triggerExecutionId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The Trigger integration execution was canceled successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the canceled Trigger integration execution */
+                        id: string;
+                        /** @description The ID of the parent Trigger integration */
+                        triggerIntegrationId: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listTriggerIntegrationExecutions: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                status?: "idle" | "running" | "canceled";
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path: {
+                triggerIntegrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of Trigger integration executions was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The trigger integration this execution belongs to */
+                            triggerIntegrationId?: string;
+                            /** @description The conversation associated with this execution */
+                            conversationId?: string;
+                            /** @description Current execution status */
+                            status?: string;
+                            /** @description Final execution outcome */
+                            outcome?: string;
+                            /** @description A summary of the execution result */
+                            summary?: string;
+                            /**
+                             * Format: date-time
+                             * @description When the execution completed
+                             */
+                            completedAt?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The trigger integration this execution belongs to */
+                            triggerIntegrationId?: string;
+                            /** @description The conversation associated with this execution */
+                            conversationId?: string;
+                            /** @description Current execution status */
+                            status?: string;
+                            /** @description Final execution outcome */
+                            outcome?: string;
+                            /** @description A summary of the execution result */
+                            summary?: string;
+                            /**
+                             * Format: date-time
+                             * @description When the execution completed
+                             */
+                            completedAt?: string;
+                        };
                     };
                 };
             };
@@ -18654,6 +19113,90 @@ export interface operations {
                         voiceOut?: boolean;
                         /** @description Whether the Widget integration displays powered by */
                         poweredBy?: boolean;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    attachWidgetIntegrationFile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                widgetIntegrationId: string;
+                fileId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description The attachment slot type for the file
+                     * @enum {string}
+                     */
+                    type: "bar" | "user" | "bot" | "button";
+                };
+            };
+        };
+        responses: {
+            /** @description The file was attached to the widget integration successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the attached file */
+                        id: string;
+                        /** @description The attachment slot type */
+                        type: string;
+                        /** @description The ID of the widget integration */
+                        widgetIntegrationId: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    detachWidgetIntegrationFile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                widgetIntegrationId: string;
+                fileId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The file was detached from the widget integration successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the detached file */
+                        id: string;
+                        /** @description The attachment slot type that was cleared */
+                        type: string;
+                        /** @description The ID of the widget integration */
+                        widgetIntegrationId: string;
                     };
                 };
             };
@@ -24555,6 +25098,42 @@ export interface operations {
             };
         };
     };
+    cancelTask: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                taskId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The task was canceled successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the canceled task */
+                        id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
     deleteTask: {
         parameters: {
             query?: never;
@@ -24579,6 +25158,167 @@ export interface operations {
                     "application/json": {
                         /** @description The ID of the deleted task */
                         id: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    cancelTaskExecution: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                taskId: string;
+                taskExecutionId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description The task execution was canceled successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @description The ID of the canceled task execution */
+                        id: string;
+                        /** @description The ID of the parent task */
+                        taskId: string;
+                    };
+                };
+            };
+            /** @description An error response */
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    listTaskExecutions: {
+        parameters: {
+            query?: {
+                cursor?: string;
+                order?: "asc" | "desc";
+                take?: number;
+                status?: "idle" | "running" | "canceled";
+                meta?: {
+                    [key: string]: string;
+                };
+            };
+            header?: never;
+            path: {
+                taskId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The list of task executions was retrieved successfully */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        items: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The task this execution belongs to */
+                            taskId?: string;
+                            /** @description The conversation associated with this execution */
+                            conversationId?: string;
+                            /**
+                             * @description The task execution status
+                             * @enum {string}
+                             */
+                            status?: "idle" | "running" | "canceled";
+                            /**
+                             * @description The task execution outcome
+                             * @enum {string}
+                             */
+                            outcome?: "pending" | "success" | "failure";
+                            /** @description A summary of the execution result */
+                            summary?: string;
+                            /**
+                             * Format: date-time
+                             * @description When the execution completed
+                             */
+                            completedAt?: string;
+                        }[];
+                        /** @description Cursor for fetching the next page */
+                        cursor: string;
+                    };
+                    "application/jsonl": {
+                        /**
+                         * @description The type of event
+                         * @enum {string}
+                         */
+                        type: "item";
+                        /** @description Instance list properties */
+                        data: {
+                            /** @description The associated name */
+                            name?: string;
+                            /** @description The associated description */
+                            description?: string;
+                            /** @description Meta data information */
+                            meta?: {
+                                [key: string]: unknown;
+                            };
+                            /** @description The instance ID */
+                            id: string;
+                            /** @description The timestamp (ms) when the instance was created */
+                            createdAt: number;
+                            /** @description The timestamp (ms) when the instance was updated */
+                            updatedAt: number;
+                            /** @description The task this execution belongs to */
+                            taskId?: string;
+                            /** @description The conversation associated with this execution */
+                            conversationId?: string;
+                            /**
+                             * @description The task execution status
+                             * @enum {string}
+                             */
+                            status?: "idle" | "running" | "canceled";
+                            /**
+                             * @description The task execution outcome
+                             * @enum {string}
+                             */
+                            outcome?: "pending" | "success" | "failure";
+                            /** @description A summary of the execution result */
+                            summary?: string;
+                            /**
+                             * Format: date-time
+                             * @description When the execution completed
+                             */
+                            completedAt?: string;
+                        };
                     };
                 };
             };
@@ -24633,7 +25373,7 @@ export interface operations {
                          * @description The task execution status
                          * @enum {string}
                          */
-                        status?: "idle" | "running";
+                        status?: "idle" | "running" | "canceled";
                         /**
                          * @description The task execution outcome
                          * @enum {string}
@@ -24901,7 +25641,7 @@ export interface operations {
                 take?: number;
                 botId?: string;
                 contactId?: string;
-                status?: "idle" | "running";
+                status?: "idle" | "running" | "canceled";
                 meta?: {
                     [key: string]: string;
                 };
@@ -24944,7 +25684,7 @@ export interface operations {
                              * @description The task execution status
                              * @enum {string}
                              */
-                            status?: "idle" | "running";
+                            status?: "idle" | "running" | "canceled";
                             /**
                              * @description The task execution outcome
                              * @enum {string}
@@ -24990,7 +25730,7 @@ export interface operations {
                              * @description The task execution status
                              * @enum {string}
                              */
-                            status?: "idle" | "running";
+                            status?: "idle" | "running" | "canceled";
                             /**
                              * @description The task execution outcome
                              * @enum {string}

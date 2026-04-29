@@ -6,9 +6,9 @@
 
 # Function: deleteBlueprint()
 
-> **deleteBlueprint**(`client`, `blueprintId`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
+> **deleteBlueprint**(`client`, `blueprintId`, `request?`): [`Promise`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<\{ \}\>
 
-Defined in: [blueprint/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/v1.js#L120)
+Defined in: [blueprint/v1.js:121](https://github.com/chatbotkit/node-sdk/blob/main/sdks/node/packages/sdk/src/blueprint/v1.js#L121)
 
 ## Parameters
 
@@ -19,6 +19,8 @@ Defined in: [blueprint/v1.js:120](https://github.com/chatbotkit/node-sdk/blob/ma
 ### blueprintId
 
 `string`
+
+### request?
 
 ## Returns
 

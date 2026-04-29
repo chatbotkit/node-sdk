@@ -130,6 +130,31 @@ export async function deleteTask(client, taskId) {
 }
 
 /**
+ * @typedef {import('../types/api/v1.js').operations['cancelTask']['requestBody']['content']['application/json']} TaskCancelRequestBody
+ *
+ * @typedef {TaskCancelRequestBody} TaskCancelRequest
+ *
+ * @typedef {import('../types/api/v1.js').operations['cancelTask']['responses']['200']['content']['application/json']} TaskCancelResponseBody
+ *
+ * @typedef {TaskCancelResponseBody} TaskCancelResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} taskId
+ * @returns {Promise<TaskCancelResponse>}
+ */
+export async function cancelTask(client, taskId) {
+  const url = `/api/v1/task/${taskId}/cancel`
+
+  /** @type {TaskCancelResponseBody} */
+  const response = await client.clientFetch(url, {
+    /** @type {TaskCancelRequestBody} */
+    record: {},
+  })
+
+  return response
+}
+
+/**
  * @typedef {import('../types/api/v1.js').operations['triggerTask']['requestBody']['content']['application/json']} TaskTriggerRequestBody
  *
  * @typedef {TaskTriggerRequestBody} TaskTriggerRequest

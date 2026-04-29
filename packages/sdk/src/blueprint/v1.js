@@ -115,15 +115,18 @@ export async function updateBlueprint(client, blueprintId, request) {
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
+ * @param {BlueprintDeleteRequest} [request]
  * @returns {Promise<BlueprintDeleteResponse>}
  */
-export async function deleteBlueprint(client, blueprintId) {
+export async function deleteBlueprint(client, blueprintId, request) {
   const url = `/api/v1/blueprint/${blueprintId}/delete`
 
   /** @type {BlueprintDeleteResponseBody} */
   const response = await client.clientFetch(url, {
     /** @type {BlueprintDeleteRequestBody} */
-    record: {},
+    record: {
+      ...request,
+    },
   })
 
   return response

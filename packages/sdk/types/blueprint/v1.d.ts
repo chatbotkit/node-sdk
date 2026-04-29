@@ -71,9 +71,10 @@ export function updateBlueprint(client: ChatBotKitClient, blueprintId: string, r
  *
  * @param {ChatBotKitClient} client
  * @param {string} blueprintId
+ * @param {BlueprintDeleteRequest} [request]
  * @returns {Promise<BlueprintDeleteResponse>}
  */
-export function deleteBlueprint(client: ChatBotKitClient, blueprintId: string): Promise<BlueprintDeleteResponse>;
+export function deleteBlueprint(client: ChatBotKitClient, blueprintId: string, request?: BlueprintDeleteRequest): Promise<BlueprintDeleteResponse>;
 /**
  * @typedef {import('../types/api/v1.js').operations['cloneBlueprint']['requestBody']['content']['application/json']} BlueprintCloneRequestBody
  *

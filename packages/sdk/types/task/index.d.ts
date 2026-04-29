@@ -8,6 +8,10 @@
  */
 export class TaskClient extends ChatBotKitClient {
     /**
+     * @type {TaskExecutionClient} execution client
+     */
+    execution: TaskExecutionClient;
+    /**
      * Retrieves a list of all tasks.
      *
      * @param {import('./v1.js').TaskListRequest} [request]
@@ -51,6 +55,13 @@ export class TaskClient extends ChatBotKitClient {
      */
     delete(taskId: string): Promise<import("./v1.js").TaskDeleteResponse>;
     /**
+     * Cancels a task.
+     *
+     * @param {string} taskId
+     * @returns {Promise<import('./v1.js').TaskCancelResponse>}
+     */
+    cancel(taskId: string): Promise<import("./v1.js").TaskCancelResponse>;
+    /**
      * Triggers a task.
      *
      * @param {string} taskId
@@ -61,3 +72,4 @@ export class TaskClient extends ChatBotKitClient {
 export default TaskClient;
 export type ResponsePromise<T, U> = import("../client.js").ResponsePromise<T, U>;
 import { ChatBotKitClient } from '../client.js';
+import { TaskExecutionClient } from './execution/index.js';

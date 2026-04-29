@@ -75,6 +75,20 @@ export function updateTriggerIntegration(client: ChatBotKitClient, triggerId: st
  */
 export function deleteTriggerIntegration(client: ChatBotKitClient, triggerId: string): Promise<TriggerIntegrationDeleteResponse>;
 /**
+ * @typedef {import('../../types/api/v1.js').operations['cancelTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationCancelRequestBody
+ *
+ * @typedef {TriggerIntegrationCancelRequestBody} TriggerIntegrationCancelRequest
+ *
+ * @typedef {import('../../types/api/v1.js').operations['cancelTriggerIntegration']['responses']['200']['content']['application/json']} TriggerIntegrationCancelResponseBody
+ *
+ * @typedef {TriggerIntegrationCancelResponseBody} TriggerIntegrationCancelResponse
+ *
+ * @param {ChatBotKitClient} client
+ * @param {string} triggerId
+ * @returns {Promise<TriggerIntegrationCancelResponse>}
+ */
+export function cancelTriggerIntegration(client: ChatBotKitClient, triggerId: string): Promise<TriggerIntegrationCancelResponse>;
+/**
  * @typedef {import('../../types/api/v1.js').operations['setupTriggerIntegration']['requestBody']['content']['application/json']} TriggerIntegrationSetupRequestBody
  *
  * @typedef {TriggerIntegrationSetupRequestBody} TriggerIntegrationSetupRequest
@@ -126,6 +140,10 @@ export type TriggerIntegrationDeleteRequestBody = import("../../types/api/v1.js"
 export type TriggerIntegrationDeleteRequest = TriggerIntegrationDeleteRequestBody;
 export type TriggerIntegrationDeleteResponseBody = import("../../types/api/v1.js").operations["deleteTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
 export type TriggerIntegrationDeleteResponse = TriggerIntegrationDeleteResponseBody;
+export type TriggerIntegrationCancelRequestBody = import("../../types/api/v1.js").operations["cancelTriggerIntegration"]["requestBody"]["content"]["application/json"];
+export type TriggerIntegrationCancelRequest = TriggerIntegrationCancelRequestBody;
+export type TriggerIntegrationCancelResponseBody = import("../../types/api/v1.js").operations["cancelTriggerIntegration"]["responses"]["200"]["content"]["application/json"];
+export type TriggerIntegrationCancelResponse = TriggerIntegrationCancelResponseBody;
 export type TriggerIntegrationSetupRequestBody = import("../../types/api/v1.js").operations["setupTriggerIntegration"]["requestBody"]["content"]["application/json"];
 export type TriggerIntegrationSetupRequest = TriggerIntegrationSetupRequestBody;
 export type TriggerIntegrationSetupResponseBody = import("../../types/api/v1.js").operations["setupTriggerIntegration"]["responses"]["200"]["content"]["application/json"];

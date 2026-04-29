@@ -117,6 +117,7 @@ function groupEndpointsByResource(endpoints) {
           'authenticate',
           'revoke',
           'verify',
+          'cancel',
           'downvote',
           'upvote',
           'synthesize',

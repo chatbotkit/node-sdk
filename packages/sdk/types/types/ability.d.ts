@@ -76,11 +76,13 @@ export type CbkAbilityName = 'abort'
   | 'image/generate[gemini-3.1-flash-image]'
   | 'image/generate[gpt-image-1.5]'
   | 'image/generate[gpt-image-1]'
+  | 'image/generate[gpt-image-2]'
   | 'image/modify'
   | 'image/modify[gemini-2.5-flash-image]'
   | 'image/modify[gemini-3.1-flash-image]'
   | 'image/modify[gpt-image-1.5]'
   | 'image/modify[gpt-image-1]'
+  | 'image/modify[gpt-image-2]'
   | 'listen/transcribe'
   | 'math/evaluate'
   | 'memory/create'
@@ -717,6 +719,13 @@ export type ImageGenerateGptImage1Parameters = {
   directions?: string
 }
 
+export type ImageGenerateGptImage2Parameters = {
+ /** the prompt to use for image generation */
+  prompt: string
+ /** detailed directions how to generate the image */
+  directions?: string
+}
+
 export type ImageModifyParameters = {
  /** the prompt to use for image generation */
   prompt: string
@@ -754,6 +763,15 @@ export type ImageModifyGptImage15Parameters = {
 }
 
 export type ImageModifyGptImage1Parameters = {
+ /** the prompt to use for image generation */
+  prompt: string
+ /** detailed directions how to modify the image */
+  directions?: string
+ /** the URL of the image to edit */
+  image_url: string
+}
+
+export type ImageModifyGptImage2Parameters = {
  /** the prompt to use for image generation */
   prompt: string
  /** detailed directions how to modify the image */
@@ -2071,6 +2089,11 @@ export interface CbkAbilityRegistry {
     description: 'Generate an image from the provided input prompt.'
     parameters: ImageGenerateGptImage1Parameters
   }
+  'image/generate[gpt-image-2]': {
+    name: 'Generate Image'
+    description: 'Generate an image using the GPT Image 2 model with OpenAI\'s latest image generation capabilities.'
+    parameters: ImageGenerateGptImage2Parameters
+  }
   'image/modify': {
     name: 'Modify Image'
     description: 'Create a new image from previous input images and a provided input prompt.'
@@ -2095,6 +2118,11 @@ export interface CbkAbilityRegistry {
     name: 'Modify Image'
     description: 'Create a new image from previous input images and a provided input prompt.'
     parameters: ImageModifyGptImage1Parameters
+  }
+  'image/modify[gpt-image-2]': {
+    name: 'Modify Image'
+    description: 'Create a new image from previous input images using the GPT Image 2 model.'
+    parameters: ImageModifyGptImage2Parameters
   }
   'listen/transcribe': {
     name: 'Transcribe Audio'
